@@ -51,15 +51,17 @@ const config = {
           {
             type: 'doc',
             docId: 'content',
-            position: 'left',
+            position: 'right',
             label: 'Docs',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
-          },
+          {to: '/blog', label: 'Blog', position: 'right'},
+          {to: '/aboutme', label: 'About', position: 'left'},
+          {to: '/projects', label: 'Projects', position: 'left'}
+          // {
+          //   href: 'https://github.com/facebook/docusaurus',
+          //   label: 'GitHub',
+          //   position: 'right',
+          // },
         ],
       },
       footer: {
