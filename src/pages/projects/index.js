@@ -1,45 +1,57 @@
 import React from "react";
 import Layout from "@theme/Layout";
-import * as animationData from "../../assets/project-page/project-animation.json";
+import * as animationData from "../../assets/project_page/project_animation.json";
 
-import styles from "./index.module.css";
-import Grid from "@mui/material/Grid";
 import Lottie from "react-lottie";
+import { completedProjects, ongoingProjects } from "./project_data";
 
+import ProjectCard from "./project_card";
+import {
+  AnimationWrapper,
+  HeaderWrapper,
+  ProjectHeader,
+  ProjectsRoot,
+  ProjectsWrapper,
+  ProjectCardWrapper
+} from "./project_components";
 export default function ProjectsPage() {
-
   const lottieOptions = {
     loop: true,
-    autoplay: true, 
+    autoplay: true,
     animationData: animationData,
     rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
+      preserveAspectRatio: "xMidYMid slice",
+    },
   };
-
   return (
     <Layout>
-      <Grid className={styles.projectsContainer} container>
-        <Grid class={styles.animationContainer} item xs={12}>
-          <Lottie
-            options={lottieOptions}
-            height={250}
-            width={250}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <h3>Ongoing</h3>
-        </Grid>
-        <Grid item container xs={12}>
-          {/* Ongoing Projects */}
-        </Grid>
-        <Grid item xs={12}>
-          <h3>Completed</h3>
-        </Grid>
-        <Grid item container xs={12}>
-          {/* Completed Projects */}
-        </Grid>
-      </Grid>
+      <ProjectsRoot>
+        <AnimationWrapper item xs={12}>
+          <Lottie options={lottieOptions} height={250} width={250} />
+        </AnimationWrapper>
+        <HeaderWrapper item xs={12}>
+          <ProjectHeader>Ongoing</ProjectHeader>
+        </HeaderWrapper>
+        <ProjectsWrapper container xs={12} spacing={2}>
+          {ongoingProjects.map((project) => {
+            return (
+              <ProjectCardWrapper item xs={12} md={6} xl={4}>
+                <ProjectCard {...project} />
+              </ProjectCardWrapper>
+            );
+          })}
+        </ProjectsWrapper>
+        <ProjectHeader>Past Works</ProjectHeader>
+        <ProjectsWrapper container xs={12} spacing={2}>
+          {completedProjects.map((project) => {
+            return (
+              <ProjectCardWrapper item xs={12} md={6} xl={4}>
+                <ProjectCard {...project} />
+              </ProjectCardWrapper>
+            );
+          })}
+        </ProjectsWrapper>
+      </ProjectsRoot>
     </Layout>
   );
 }
