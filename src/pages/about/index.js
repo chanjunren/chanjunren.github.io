@@ -10,7 +10,6 @@ import {
   EducationItemList,
   Header,
   ItemContainer,
-  ItemContent,
   ItemHeader,
   SectionBreak,
   SubHeader,

@@ -10,8 +10,9 @@ export const experienceData = [
         duration: "June 2021 to Present",
         description: (
           <div>
-            Took a MERN course and developed{" "}
-            <AboutURL href="/#">rs-app-manager</AboutURL>
+            Developed <AboutURL href="/#">rs-app-manager</AboutURL>
+            {" - "}a company website cum MERN application that is used to manage
+            the subscriptions of the applications developed by Robosolutions
             <SectionBreak />
           </div>
         ),
@@ -21,8 +22,19 @@ export const experienceData = [
         duration: "Jan 2021 to Jun 2021",
         description: (
           <div>
-            Built <AboutURL href="/#">TemiPatrol</AboutURL> and{" "}
-            <AboutURL href="/#">TemiNUSOhsConcierge</AboutURL>
+            Discussed requirements with clients and built customised
+            applications that integrated with{" "}
+            <AboutURL href="www.robotemi.com" target="_blank">
+              temi
+            </AboutURL>{" "}
+            - a service robot.
+            <br />
+            <br />
+            During my time here, I built{" "}
+            <AboutURL href="/#">TemiPatrol</AboutURL> which was later put on
+            trial deployment at IMDA and{" "}
+            <AboutURL href="/#">TemiNUSOhsConcierge</AboutURL> which was later
+            deployed at NUS OHS as a concierge.
             <SectionBreak />
           </div>
         ),
@@ -34,71 +46,65 @@ export const experienceData = [
 export const educationData = [
   {
     school: "National University of Singapore, School of Computing",
-    certification: "Bachelor single for life",
+    certification: "Bachelor of Computing in Computer Science",
     duration: "August 2018 to Present",
     categories: [
+      // {
+      //   subheader: "Academics",
+      //   items: [
+      //     <div>
+      //       Took a MERN course and developed{" "}
+      //       <AboutURL href="/#">rs-app-manager</AboutURL>
+      //     </div>,
+      //     <div> hello </div>,
+      //   ],
+      // },
       {
-        subheader: "Academics",
-        items: [(
-          <div>
-            Took a MERN course and developed{" "}
-            <AboutURL href="/#">rs-app-manager</AboutURL>
-          </div>
-        ),<div> hello </div>]
-      },
-      {
-        subheader: "Certifications",
+        subheader: "External Courses",
         items: [
           <div>
-            Took a MERN course and developed{" "}
-            <AboutURL href="/#">rs-app-manager</AboutURL>
+            React, NodeJS, Express & MongoDB - The MERN Fullstack Guide (Udemy)
           </div>,
-          <div>Hello</div> 
+          <div>
+            Introduction to Containers, Kubernetes, and OpenShift (Edx)
+          </div>,
+          <div>
+            Shell Programming - A necessity for all Programmers (IIT Bombay)
+          </div>,
         ],
       },
       {
         subheader: "Activities",
         items: [
           <div>
-            Took a MERN course and developed{" "}
-            <AboutURL href="/#">rs-app-manager</AboutURL>
+            President of NUS Skating Club
           </div>,
-          <div>Hello</div>
+          <div>Received Half-Colors award for contrubitions to CCA</div>,
+          <div>Singapore Polytechnic Freestyle Competition Participant</div>
         ],
       },
     ],
   },
   {
     school: "Catholic Junior College",
-    certification: "A Levels",
+    certification: "GCE 'A' Levels (86.25/90)",
     duration: "I fucking forgot and I lazy to math",
     categories: [
       {
         subheader: "Academics",
-        items: [(
+        items: [
           <div>
-            Took a MERN course and developed{" "}
-            <AboutURL href="/#">rs-app-manager</AboutURL>
-          </div>
-        ),<div>hello</div>]
-      },
-      {
-        subheader: "Certifications",
-        items: [(
-          <div>
-            Took a MERN course and developed{" "}
-            <AboutURL href="/#">rs-app-manager</AboutURL>
-          </div>
-        ), <div>hello</div>]
+            Library Club
+          </div>,
+        ],
       },
       {
         subheader: "Activities",
-        items: [(
+        items: [
           <div>
-            Took a MERN course and developed{" "}
-            <AboutURL href="/#">rs-app-manager</AboutURL>
-          </div>
-        ), <div> hello </div>]
+            Vice President of Mathematics Society
+          </div>,
+        ],
       },
     ],
   },
