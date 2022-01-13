@@ -66,47 +66,6 @@ const config = {
       },
       footer: {
         style: 'light',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Links',
-            items: [
-              {
-                label: 'LinkedIn',
-                href: 'https://www.linkedin.com/in/jun-ren-chan-90240a175/',
-              },
-              {
-                label: 'Github',
-                href: 'https://github.com/chanjunren',
-              },
-              {
-                label: 'Email',
-                href: 'mailto:chanjunren@gmail.com',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
-          },
-        ],
         copyright: `Copyright © ${new Date().getFullYear()} Chan Jun Ren. Built with Docusaurus.`,
       },
       prism: {

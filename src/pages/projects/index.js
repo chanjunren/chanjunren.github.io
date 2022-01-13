@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "@theme/Layout";
-import * as animationData from "../../assets/project_page/project_animation.json";
+import * as animationData from "../../assets/lottie_animation.json";
 
 import Lottie from "react-lottie";
 import { completedProjects, ongoingProjects } from "./project_data";

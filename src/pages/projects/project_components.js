@@ -9,19 +9,17 @@ export const ProjectsRoot = styled((props) => <Grid {...props} />)(
     width: "100%",
     margin: "auto",
     [theme.breakpoints.up("sm")]: {
-      width: '600px',
+      width: "600px",
     },
   })
 );
 
 export const AnimationWrapper = styled((props) => <Grid {...props} />)({});
 
-export const HeaderWrapper = styled((props) => <Grid {...props} />)({
-  margin: '10px auto 20px',
-});
+export const HeaderWrapper = styled((props) => <Grid {...props} />)({});
 
 export const ProjectHeader = styled("h3")({
-  margin: 'auto',
+  // margin: 'auto',
 });
 
 export const ProjectsWrapper = styled((props) => <Grid {...props} />)({
