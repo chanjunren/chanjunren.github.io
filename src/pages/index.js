@@ -58,16 +58,16 @@ export default function Home() {
           </MyHandsomeFaceWrapper>
           <DetailsWrapper container item xs={12} md={8}>
             <NameWrapper item xs={12}>
-              <Name>Hi there!</Name>
+              <Name>Jun Ren</Name>
             </NameWrapper>
             <OccupationWrapper item xs={12}>
-              <Occupation>I'm Jun Ren</Occupation>
+              <Occupation>Student | Part Time Freelancer</Occupation>
             </OccupationWrapper>
           </DetailsWrapper>
         </MeWrapper>
         <AboutMeWrapper item xs={12}>
           <AboutMe>
-            I'm a Final Year student at NUS School of Computing. I am an
+          Hi there! I'm a Final Year student at NUS School of Computing. I am an
             aspiring Full Stack Developer constantly looking for fun projects to
             build, I'm currently looking for full time opportunities
           </AboutMe>

@@ -1,23 +1,82 @@
 import React from "react";
 import Layout from "@theme/Layout";
+import * as animationData from "../../assets/lottie_animation.json";
+import Lottie from "react-lottie";
+import {
+  AboutRoot,
+  AnimationWrapper,
+  CategoryHeader,
+  EducationItem,
+  EducationItemList,
+  Header,
+  ItemContainer,
+  ItemContent,
+  ItemHeader,
+  SectionBreak,
+  SubHeader,
+} from "./about_components";
+import { educationData, experienceData } from "./about_data";
 
-import styles from "./index.module.css";
-import { Grid, Typography } from "@mui/material";
+const lottieOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
 
 export default function AboutPage() {
   return (
     <Layout>
-      <Grid container>
-        <Grid item>
-          <Typography> Header Test</Typography>
-        </Grid>
-        <Grid item>
-          <Typography>Item Test</Typography>
-        </Grid>
-        <Grid item>
-          <div> Hello </div>
-        </Grid>
-      </Grid>
+      <AboutRoot>
+        <AnimationWrapper item xs={12}>
+          <Lottie options={lottieOptions} height={250} width={250} />
+        </AnimationWrapper>
+        <Header color="#e25aae">Experience</Header>
+        {experienceData.map((experience) => {
+          return (
+            <ItemContainer item xs={12}>
+              <SubHeader>{experience.header}</SubHeader>
+              {experience.items.map((item) => {
+                return (
+                  <>
+                    <ItemHeader title={item.title} duration={item.duration} />
+                    {item.description}
+                  </>
+                );
+              })}
+            </ItemContainer>
+          );
+        })}
+        <SectionBreak />
+        <Header color="#76b5c5">Education</Header>
+        {educationData.map((education) => {
+          return (
+            <ItemContainer item xs={12}>
+              <SubHeader>{education.school}</SubHeader>
+              <ItemHeader
+                title={education.certification}
+                duration={education.duration}
+              />
+              <br/>
+              {education.categories.map((category) => {
+                return (
+                  <ItemContainer item xs={12}>
+                    <CategoryHeader>{category.subheader}</CategoryHeader>
+                    <EducationItemList>
+                      {category.items.map((item) => {
+                        return <EducationItem>{item}</EducationItem>;
+                      })}
+                    </EducationItemList>
+                  </ItemContainer>
+                );
+              })}
+              <SectionBreak />
+            </ItemContainer>
+          );
+        })}
+      </AboutRoot>
     </Layout>
   );
 }
