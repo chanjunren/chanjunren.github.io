@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "@theme/Layout";
-import * as animationData from "../../assets/lottie_animation.json";
+import * as animationData from "../assets/lottie_animation.json";
 import Lottie from "react-lottie";
 import {
   AboutRoot,
@@ -13,8 +13,8 @@ import {
   ItemHeader,
   SectionBreak,
   SubHeader,
-} from "./about_components";
-import { educationData, experienceData } from "./about_data";
+} from "../components/about/about_components";
+import { educationData, experienceData } from "../data/about_data";
 
 const lottieOptions = {
   loop: true,

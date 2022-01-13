@@ -1,13 +1,13 @@
-import LumitestCardImg from '../../assets/project_page/card_images/completed/lumitest.png';
-import TemiPatrolCardImg from '../../assets/project_page/card_images/completed/temipatrol.jpg';
-import TemiConciergeCardImg from '../../assets/project_page/card_images/completed/temiconcierge.jpg';
-import SpaCardImg from '../../assets/project_page/card_images/completed/spa.jpg';
-import StudyBuddyCardImg from '../../assets/project_page/card_images/completed/studybuddypro.png';
-import GrindCardImg from '../../assets/project_page/card_images/completed/grind_orbital.jpg';
-import FallDetectionCardImg from '../../assets/project_page/card_images/completed/fall_detection.png';
+import LumitestCardImg from '../assets/project_page/card_images/completed/lumitest.png';
+import TemiPatrolCardImg from '../assets/project_page/card_images/completed/temipatrol.jpg';
+import TemiConciergeCardImg from '../assets/project_page/card_images/completed/temiconcierge.jpg';
+import SpaCardImg from '../assets/project_page/card_images/completed/spa.jpg';
+import StudyBuddyCardImg from '../assets/project_page/card_images/completed/studybuddypro.png';
+import GrindCardImg from '../assets/project_page/card_images/completed/grind_orbital.jpg';
+import FallDetectionCardImg from '../assets/project_page/card_images/completed/fall_detection.png';
 
-import MahjongShifuCardImg from '../../assets/project_page/card_images/ongoing/mahjong_shifu.jpg';
-import RsAppCardImg from '../../assets/project_page/card_images/ongoing/rs_app_manager.png';
+import MahjongShifuCardImg from '../assets/project_page/card_images/ongoing/mahjong_shifu.jpg';
+import RsAppCardImg from '../assets/project_page/card_images/ongoing/rs_app_manager.png';
 
 export const ongoingProjects = [
   {
@@ -16,6 +16,10 @@ export const ongoingProjects = [
     type: "",
     description: "Company website cum MERN Application for managing subscriptions",
     path: "",
+    stack: ['MongoDB', 'ExpressJS', 'ReactJS', 'NodeJS'],
+    other: ['AWS S3', 'Heroku'],
+    images: [],
+    productUrl: ""
   },
 	{
     title: "MahjongShifu",

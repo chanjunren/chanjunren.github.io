@@ -1,5 +1,5 @@
 import React from "react";
-import { AboutURL, SectionBreak } from "./about_components";
+import { AboutURL, SectionBreak } from "../components/about/about_components";
 
 export const experienceData = [
   {

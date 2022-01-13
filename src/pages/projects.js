@@ -1,11 +1,10 @@
 import React from "react";
 import Layout from "@theme/Layout";
-import * as animationData from "../../assets/lottie_animation.json";
+import * as animationData from "../assets/lottie_animation.json";
 
 import Lottie from "react-lottie";
-import { completedProjects, ongoingProjects } from "./project_data";
-
-import ProjectCard from "./project_card";
+import { completedProjects, ongoingProjects } from "../data/project_data";
+import ProjectCard from '../components/projects/project_card'
 import {
   AnimationWrapper,
   HeaderWrapper,
@@ -13,7 +12,8 @@ import {
   ProjectsRoot,
   ProjectsWrapper,
   ProjectCardWrapper
-} from "./project_components";
+} from "../components/projects/project_components";
+
 export default function ProjectsPage() {
   const lottieOptions = {
     loop: true,

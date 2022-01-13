@@ -26,7 +26,7 @@ import {
   OccupationWrapper,
   ProjectsButton,
   SlideIntoMyDmsWrapper,
-} from "./landing_page_components";
+} from "../components/landing_page/landing_page_components";
 import Lottie from "react-lottie";
 
 import * as animationData from "../assets/lottie_animation.json";
@@ -58,16 +58,16 @@ export default function Home() {
           </MyHandsomeFaceWrapper>
           <DetailsWrapper container item xs={12} md={8}>
             <NameWrapper item xs={12}>
-              <Name>Jun Ren</Name>
+              <Name>Hi there!</Name>
             </NameWrapper>
             <OccupationWrapper item xs={12}>
-              <Occupation>Student | Part Time Freelancer</Occupation>
+              <Occupation>I'm Jun Ren</Occupation>
             </OccupationWrapper>
           </DetailsWrapper>
         </MeWrapper>
         <AboutMeWrapper item xs={12}>
           <AboutMe>
-          Hi there! I'm a Final Year student at NUS School of Computing. I am an
+            I'm a Final Year student at NUS School of Computing. I am an
             aspiring Full Stack Developer constantly looking for fun projects to
             build, I'm currently looking for full time opportunities
           </AboutMe>
