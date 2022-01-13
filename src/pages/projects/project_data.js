@@ -4,34 +4,24 @@ import TemiConciergeCardImg from '../../assets/project_page/card_images/complete
 import SpaCardImg from '../../assets/project_page/card_images/completed/spa.jpg';
 import StudyBuddyCardImg from '../../assets/project_page/card_images/completed/studybuddypro.png';
 import GrindCardImg from '../../assets/project_page/card_images/completed/grind_orbital.jpg';
+import FallDetectionCardImg from '../../assets/project_page/card_images/completed/fall_detection.png';
+
+import MahjongShifuCardImg from '../../assets/project_page/card_images/ongoing/mahjong_shifu.jpg';
+import RsAppCardImg from '../../assets/project_page/card_images/ongoing/rs_app_manager.png';
 
 export const ongoingProjects = [
   {
     title: "RsAppManager",
-		cardImg: LumitestCardImg,
+		cardImg: RsAppCardImg,
     type: "",
-    description: "testing",
+    description: "Company website cum MERN Application for managing subscriptions",
     path: "",
   },
 	{
-    title: "CS2102 Project",
-		cardImg: LumitestCardImg,
+    title: "MahjongShifu",
+		cardImg: MahjongShifuCardImg,
     type: "",
-    description: "123",
-    path: "",
-  },
-	{
-    title: "CS3213 Project",
-		cardImg: LumitestCardImg,
-    type: "",
-    description: "456",
-    path: "",
-  },
-	{
-    title: "This fakin website",
-		cardImg: LumitestCardImg,
-    type: "",
-    description: "789",
+    description: "Project for learning React-Native",
     path: "",
   },
 ];
@@ -39,7 +29,7 @@ export const ongoingProjects = [
 export const completedProjects = [
   {
     title: "Fall Detection",
-		cardImg: LumitestCardImg,
+		cardImg: FallDetectionCardImg,
     type: "",
     description: "IoT system that detects falls",
     path: "",

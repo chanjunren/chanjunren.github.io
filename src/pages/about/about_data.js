@@ -24,7 +24,7 @@ export const experienceData = [
           <div>
             Discussed requirements with clients and built customised
             applications that integrated with{" "}
-            <AboutURL href="www.robotemi.com" target="_blank">
+            <AboutURL href="https://www.robotemi.com" target="_blank">
               temi
             </AboutURL>{" "}
             - a service robot.

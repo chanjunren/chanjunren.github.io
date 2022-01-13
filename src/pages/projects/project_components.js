@@ -19,7 +19,11 @@ export const AnimationWrapper = styled((props) => <Grid {...props} />)({});
 export const HeaderWrapper = styled((props) => <Grid {...props} />)({});
 
 export const ProjectHeader = styled("h3")({
-  // margin: 'auto',
+  textDecoration: "underline",
+  textDecorationColor: "#FFB908",
+  textDecorationThickness: "0.35rem",
+  textUnderlineOffset: "5px",
+  marginBottom: '35px'
 });
 
 export const ProjectsWrapper = styled((props) => <Grid {...props} />)({
