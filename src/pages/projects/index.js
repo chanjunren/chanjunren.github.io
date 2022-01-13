@@ -32,20 +32,20 @@ export default function ProjectsPage() {
         <HeaderWrapper item xs={12}>
           <ProjectHeader>Ongoing</ProjectHeader>
         </HeaderWrapper>
-        <ProjectsWrapper container xs={12} spacing={2}>
+        <ProjectsWrapper container xs={12} >
           {ongoingProjects.map((project) => {
             return (
-              <ProjectCardWrapper item xs={12} md={6} xl={4}>
+              <ProjectCardWrapper item xs={12} md={6} spacing={1}>
                 <ProjectCard {...project} />
               </ProjectCardWrapper>
             );
           })}
         </ProjectsWrapper>
         <ProjectHeader>Past Works</ProjectHeader>
-        <ProjectsWrapper container xs={12} spacing={2}>
+        <ProjectsWrapper container xs={12} spacing={1}>
           {completedProjects.map((project) => {
             return (
-              <ProjectCardWrapper item xs={12} md={6} xl={4}>
+              <ProjectCardWrapper item xs={12} md={6}>
                 <ProjectCard {...project} />
               </ProjectCardWrapper>
             );

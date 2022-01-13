@@ -1,4 +1,9 @@
 import LumitestCardImg from '../../assets/project_page/card_images/completed/lumitest.png';
+import TemiPatrolCardImg from '../../assets/project_page/card_images/completed/temipatrol.jpg';
+import TemiConciergeCardImg from '../../assets/project_page/card_images/completed/temiconcierge.jpg';
+import SpaCardImg from '../../assets/project_page/card_images/completed/spa.jpg';
+import StudyBuddyCardImg from '../../assets/project_page/card_images/completed/studybuddypro.png';
+import GrindCardImg from '../../assets/project_page/card_images/completed/grind_orbital.jpg';
 
 export const ongoingProjects = [
   {
@@ -32,23 +37,30 @@ export const ongoingProjects = [
 ];
 
 export const completedProjects = [
+  {
+    title: "Fall Detection",
+		cardImg: LumitestCardImg,
+    type: "",
+    description: "IoT system that detects falls",
+    path: "",
+  },
 	{
     title: "TemiPatrol",
-		cardImg: LumitestCardImg,
+		cardImg: TemiPatrolCardImg,
     type: "",
     description: "Patrols areas while carrying out (no) mask detection / human clustering",
     path: "",
   },
 	{
     title: "TemiConcierge",
-		cardImg: LumitestCardImg,
+		cardImg: TemiConciergeCardImg,
     type: "",
     description: "Concierge Application for NUS OHS",
     path: "",
   },
 	{
     title: "Static Program Analyzer",
-		cardImg: LumitestCardImg,
+		cardImg: SpaCardImg,
     type: "",
     description: "Interactive tool that automatically answers queries about programs",
     path: "",
@@ -62,14 +74,14 @@ export const completedProjects = [
   },
 	{
     title: "StudyBuddyPro",
-		cardImg: LumitestCardImg,
+		cardImg: StudyBuddyCardImg,
     type: "",
     description: "Revision Aid Tool",
     path: "",
   },
 	{
     title: "Grind",
-		cardImg: LumitestCardImg,
+		cardImg: GrindCardImg,
     type: "",
     description: "Gamified Expense Tracker",
     path: "",
