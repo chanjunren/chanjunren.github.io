@@ -34,20 +34,20 @@ export default function ProjectsPage() {
           <HeaderWrapper item xs={12}>
             <ProjectHeader>Ongoing</ProjectHeader>
           </HeaderWrapper>
-          <ProjectsWrapper container xs={12}>
+          <ProjectsWrapper container item xs={12}>
             {Array.from(ongoingProjects, ([key, project]) => {
               return (
-                <ProjectCardWrapper item xs={12} md={6} spacing={1}>
+                <ProjectCardWrapper container item xs={12} md={6} spacing={1} key={key}>
                   <ProjectCard {...project} key={key} path={key} />
                 </ProjectCardWrapper>
               );
             })}
           </ProjectsWrapper>
           <ProjectHeader>Past Works</ProjectHeader>
-          <ProjectsWrapper container xs={12} spacing={1}>
+          <ProjectsWrapper container item xs={12} spacing={1}>
             {Array.from(completedProjects, ([key, project]) => {
               return (
-                <ProjectCardWrapper item xs={12} md={6} spacing={1}>
+                <ProjectCardWrapper container item xs={12} md={6} spacing={1} key={key}>
                   <ProjectCard {...project} key={key} path={key} />
                 </ProjectCardWrapper>
               );

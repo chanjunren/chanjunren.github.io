@@ -217,7 +217,7 @@ export const completedProjects = new Map([
       stack: "ElectronJS, Python",
       other: null,
       url: null,
-      repo: "https://github.com/chanjunren/rs-app-manager",
+      repo: "https://github.com/whneo97/ay2021-cs3103-group-9/",
       description: (
         <>
           <div>
@@ -225,6 +225,7 @@ export const completedProjects = new Map([
             blocks internet access and records the screens and webcam feed
             during the duration of a test
           </div>
+          <br/>
           <div>
             We used Python to perform the blocking of the internet and recording
             of videos, and ElectronJS to build the desktop application for
@@ -245,37 +246,37 @@ export const completedProjects = new Map([
       images: null,
     },
   ],
-  [
-    "/studybuddypro",
-    {
-      title: "StudyBuddyPro",
-      cardImg: StudyBuddyCardImg,
-      type: DESKTOP_APP,
-      summary: "Revision Aid Tool",
-      stack: "Java, Scenebuilder",
-      other: "JUnit5, TravisCI",
-      url: "https://github.com/chanjunren/StudyBuddyPro/",
-      repo: "https://github.com/chanjunren/StudyBuddyPro/",
-      description: (
-        <>
-          <div>
-            Project for CS2103T - an introductory Software Engineering module
-          </div>
-          <br/>
-          <div>
-            I was responsible UI/UX design, as well as implementing the logic of
-            ‘Flashcard’ and ‘TimeTrial’ feature
-          </div>
-          <br />
-          <div>
-            Please refer to the product URL to learn more about the features of
-            this application!
-          </div>
-        </>
-      ),
-      images: null,
-    },
-  ],
+  // [
+  //   "/studybuddypro",
+  //   {
+  //     title: "StudyBuddy",
+  //     cardImg: StudyBuddyCardImg,
+  //     type: DESKTOP_APP,
+  //     summary: "Revision Aid Tool",
+  //     stack: "Java, Scenebuilder",
+  //     other: "JUnit5, TravisCI",
+  //     url: "https://github.com/",
+  //     repo: "https://github.com/",
+  //     description: (
+  //       <>
+  //         <div>
+  //           Project for CS2103T - an introductory Software Engineering module
+  //         </div>
+  //         <br />
+  //         <div>
+  //           I was responsible UI/UX design, as well as implementing the logic of
+  //           ‘Flashcard’ and ‘TimeTrial’ feature
+  //         </div>
+  //         <br />
+  //         <div>
+  //           Please refer to the product URL to learn more about the features of
+  //           this application!
+  //         </div>
+  //       </>
+  //     ),
+  //     images: null,
+  //   },
+  // ],
   [
     "/grind",
     {

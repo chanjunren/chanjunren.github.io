@@ -50,7 +50,10 @@ export const AboutMeWrapper = styled((props) => <Grid {...props} />)({
   marginTop: "50px",
 });
 
-export const AboutMe = styled("p")({});
+export const AboutMe = styled("p")({
+  margin: 'auto',
+  textAlign: 'center',
+});
 
 export const MyHandsomeFaceWrapper = styled((props) => <Grid {...props} />)({});
 
