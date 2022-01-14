@@ -26,7 +26,7 @@ import {
 } from "../components/landing_page/landing_page_components";
 import Lottie from "react-lottie";
 
-import * as animationData from "../assets/lottie_animation.json";
+import * as animationData from "../assets/banner_animation.json";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "../utils/mui_theme";
 

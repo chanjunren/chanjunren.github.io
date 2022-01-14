@@ -1,18 +1,18 @@
 import React from "react";
 import Layout from "@theme/Layout";
-import * as animationData from "../assets/lottie_animation.json";
-
+import * as animationData from "../assets/banner_animation.json";
 import Lottie from "react-lottie";
 import { completedProjects, ongoingProjects } from "../data/project_data";
-import ProjectCard from '../components/projects/project_card'
+import ProjectCard from "../components/projects/project_card";
 import {
   AnimationWrapper,
   HeaderWrapper,
   ProjectHeader,
   ProjectsRoot,
   ProjectsWrapper,
-  ProjectCardWrapper
+  ProjectCardWrapper,
 } from "../components/projects/project_components";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function ProjectsPage() {
   const lottieOptions = {
@@ -23,6 +23,10 @@ export default function ProjectsPage() {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
+  // const navigate = useNavigate();
+
+  const navigate = () => {};
   return (
     <Layout>
       <ProjectsRoot>
@@ -32,20 +36,22 @@ export default function ProjectsPage() {
         <HeaderWrapper item xs={12}>
           <ProjectHeader>Ongoing</ProjectHeader>
         </HeaderWrapper>
-        <ProjectsWrapper container xs={12} >
-          {ongoingProjects.map((project) => {
+        <ProjectsWrapper container xs={12}>
+          {Array.from(ongoingProjects, ([key, project]) => {
             return (
-              <ProjectCardWrapper item xs={12} md={6} spacing={1}>
+              <ProjectCardWrapper onClick={() => navigate(key)} item xs={12} md={6} spacing={1}>
+                {/* <Link href={key}> */}
                 <ProjectCard {...project} />
+                {/* </Link> */}
               </ProjectCardWrapper>
             );
           })}
         </ProjectsWrapper>
         <ProjectHeader>Past Works</ProjectHeader>
         <ProjectsWrapper container xs={12} spacing={1}>
-          {completedProjects.map((project) => {
+          {Array.from(completedProjects, ([key, project]) => {
             return (
-              <ProjectCardWrapper item xs={12} md={6}>
+              <ProjectCardWrapper onClick={() => navigate(key)} item xs={12} md={6} spacing={1}>
                 <ProjectCard {...project} />
               </ProjectCardWrapper>
             );
