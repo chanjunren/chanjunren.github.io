@@ -12,6 +12,8 @@ import {
   ProjectsLinkWrapper,
   ProjectTitle,
   SpecWrapper,
+  Summary,
+  SummaryWrapper,
   TechStackWrapper,
   TemplatePageRoot,
   TextWrapper,
@@ -84,41 +86,41 @@ const TemplatePage = ({
         <ProjectCardWrapper item xs={12}>
           <ProjectCard src={cardImg} />
         </ProjectCardWrapper>
-        <TextWrapper item xs={12}>
-          <Description>{description}</Description>
-        </TextWrapper>
+        <SummaryWrapper item xs={12}>
+          <Summary>{description}</Summary>
+        </SummaryWrapper>
         <ThemeProvider theme={theme}>
           {/* Tech Stack Wrapper */}
           <SpecWrapper container item xs={12}>
-            <ChipContainer item xs={4}>
+            <ChipContainer item xs={12} sm={4}>
               <CustomisedChip label="Stack" icon={<CodeIcon />} />
             </ChipContainer>
-            <TextWrapper item xs={8}>
+            <TextWrapper item xs={12} sm={8}>
               <Description>{stack}</Description>
             </TextWrapper>
           </SpecWrapper>
           {/* Other Wrapper */}
           {other && <SpecWrapper container item xs={12}>
-            <ChipContainer item xs={4}>
+            <ChipContainer item xs={12} sm={4}>
               <CustomisedChip label="Other services" icon={<RoomServiceIcon />} />
             </ChipContainer>
-            <TextWrapper item xs={8}>
+            <TextWrapper item xs={12} sm={8}>
               <Description>{other}</Description>
             </TextWrapper>
           </SpecWrapper>}
           {url && <SpecWrapper container item xs={12}>
-            <ChipContainer item xs={4}>
+            <ChipContainer item xs={12} sm={4}>
               <CustomisedChip label="URL" icon={<LinkIcon />} />
             </ChipContainer>
-            <TextWrapper item xs={8}>
+            <TextWrapper item xs={12} sm={8}>
               <ProjectsLink to={url}>{url}</ProjectsLink>
             </TextWrapper>
           </SpecWrapper>}
           {repo ? <SpecWrapper container item xs={12}>
-            <ChipContainer item xs={4}>
+            <ChipContainer item xs={12} sm={4}>
               <CustomisedChip label="Repository" icon={<GitHubIcon />} />
             </ChipContainer>
-            <TextWrapper item xs={8}>
+            <TextWrapper item xs={12} sm={8}>
             <ProjectsLink to={repo}>{repo}</ProjectsLink>
             </TextWrapper>
           </SpecWrapper> : <SpecWrapper container item xs={12}>

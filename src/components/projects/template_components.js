@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import Chip from "@mui/material/Chip";
 import Link from "@docusaurus/Link";
-import { styled } from "@mui/material";
+import { rgbToHex, styled } from "@mui/material";
 
 export const TemplatePageRoot = styled((props) => <Grid {...props} />)(
   ({ theme }) => ({
@@ -55,6 +55,20 @@ export const ProjectCard = styled("img")({
   borderRadius: "12px",
 });
 
+export const SummaryWrapper = styled((props) => <Grid {...props} />)({
+  display: "table",
+  padding: "20px",
+  margin: "20px",
+  borderRadius: "0.5rem",
+  background: "rgba(255, 255, 255, 0.08)",
+});
+
+export const Summary = styled("p")({
+  display: "table-cell",
+  textAlign: "center",
+  verticalAlign: "middle",
+});
+
 export const TextWrapper = styled((props) => <Grid {...props} />)({
   display: "table",
   padding: "5px",
@@ -68,8 +82,9 @@ export const Description = styled("p")({
 
 export const SpecWrapper = styled((props) => <Grid {...props} />)({});
 export const ChipContainer = styled((props) => <Grid {...props} />)({
-  display: 'grid',
-  justifyContent: 'center'
+  display: "grid",
+  justifyContent: "center",
+  alignItems: "center"
 });
 export const CustomisedChip = ({ label, icon }) => {
   return (
