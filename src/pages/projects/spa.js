@@ -4,7 +4,7 @@ import { completedProjects } from '../../data/project_data';
 
 const Spa = () => {
   return (
-    <TemplatePage {...completedProjects.get('/spa')}/>
+    <TemplatePage {...completedProjects.get('/staticprogramanalyzer')}/>
   )
 }
 
