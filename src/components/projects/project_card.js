@@ -9,7 +9,7 @@ import {
 } from "./project_card_components";
 
 export default function ProjectCard(props) {
-  const { title, description, cardImg, path } = props;
+  const { title, summary, cardImg, path } = props;
   console.log(path);
   return (
     <ProjectCardRoot>
@@ -18,7 +18,7 @@ export default function ProjectCard(props) {
       </Link>
       <ProjectCardContentWrapper>
         <ProjectCardHeader>{title}</ProjectCardHeader>
-        <ProjectCardDesc>{description}</ProjectCardDesc>
+        <ProjectCardDesc>{summary}</ProjectCardDesc>
       </ProjectCardContentWrapper>
     </ProjectCardRoot>
   );

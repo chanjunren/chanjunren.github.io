@@ -3,9 +3,12 @@ import {
   AnimationWrapper,
   ChipContainer,
   CustomisedChip,
+  CustomToolTip,
   Description,
   HeaderItem,
   HeaderWrapper,
+  LifeStory,
+  LifeStoryWrapper,
   ProjectCard,
   ProjectCardWrapper,
   ProjectsLink,
@@ -14,7 +17,6 @@ import {
   SpecWrapper,
   Summary,
   SummaryWrapper,
-  TechStackWrapper,
   TemplatePageRoot,
   TextWrapper,
   TitleWrapper,
@@ -26,28 +28,24 @@ import Lottie from "react-lottie";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "../../utils/mui_theme";
 
-import WebIcon from "@mui/icons-material/Web";
-import ComputerIcon from "@mui/icons-material/Computer";
-import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import CodeIcon from "@mui/icons-material/Code";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import RoomServiceIcon from '@mui/icons-material/RoomService';
+import RoomServiceIcon from "@mui/icons-material/RoomService";
 import LinkIcon from "@mui/icons-material/Link";
-import { DESKTOP_APP, WEB_APP } from "../../utils/project_types";
 import { Grid } from "@mui/material";
 
 const TemplatePage = ({
   title,
   cardImg,
   type,
-  description,
-  life_story, // Responsibilities and additional details
+  summary,
+  description, // Responsibilities and additional details
   images,
   url,
   stack,
   other,
-  repo
+  repo,
 }) => {
   const lottieOptions = {
     loop: true,
@@ -59,37 +57,31 @@ const TemplatePage = ({
   };
   return (
     <Layout>
-      <TemplatePageRoot container>
-        <AnimationWrapper item xs={12}>
-          <Lottie options={lottieOptions} height={250} width={250} />
-        </AnimationWrapper>
-        <HeaderWrapper container item xs={12}>
-          <ProjectsLinkWrapper item xs={2}>
-            <ProjectsLink to="../">Projects</ProjectsLink>
-          </ProjectsLinkWrapper>
-          <HeaderItem item>
-            <ArrowRightIcon />
-          </HeaderItem>
-          <HeaderItem item>
-            {type === WEB_APP ? (
-              <WebIcon sx={{ width: "40px", height: "40px" }} />
-            ) : type === DESKTOP_APP ? (
-              <ComputerIcon sx={{ width: "40px", height: "40px" }} />
-            ) : (
-              <PhoneIphoneIcon sx={{ width: "40px", height: "40px" }} />
-            )}
-          </HeaderItem>
-          <TitleWrapper item>
-            <ProjectTitle>{title}</ProjectTitle>
-          </TitleWrapper>
-        </HeaderWrapper>
-        <ProjectCardWrapper item xs={12}>
-          <ProjectCard src={cardImg} />
-        </ProjectCardWrapper>
-        <SummaryWrapper item xs={12}>
-          <Summary>{description}</Summary>
-        </SummaryWrapper>
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <TemplatePageRoot container>
+          <AnimationWrapper item xs={12}>
+            <Lottie options={lottieOptions} height={250} width={250} />
+          </AnimationWrapper>
+          <HeaderWrapper container item xs={12}>
+            <ProjectsLinkWrapper item xs={2}>
+              <ProjectsLink to="/projects">Projects</ProjectsLink>
+            </ProjectsLinkWrapper>
+            <HeaderItem item>
+              <ArrowRightIcon />
+            </HeaderItem>
+            <HeaderItem item>
+              <CustomToolTip type={type} />
+            </HeaderItem>
+            <TitleWrapper item>
+              <ProjectTitle>{title}</ProjectTitle>
+            </TitleWrapper>
+          </HeaderWrapper>
+          <ProjectCardWrapper item xs={12}>
+            <ProjectCard src={cardImg} />
+          </ProjectCardWrapper>
+          <SummaryWrapper item xs={12}>
+            <Summary>{summary}</Summary>
+          </SummaryWrapper>
           {/* Tech Stack Wrapper */}
           <SpecWrapper container item xs={12}>
             <ChipContainer item xs={12} sm={4}>
@@ -100,44 +92,55 @@ const TemplatePage = ({
             </TextWrapper>
           </SpecWrapper>
           {/* Other Wrapper */}
-          {other && <SpecWrapper container item xs={12}>
-            <ChipContainer item xs={12} sm={4}>
-              <CustomisedChip label="Other services" icon={<RoomServiceIcon />} />
-            </ChipContainer>
-            <TextWrapper item xs={12} sm={8}>
-              <Description>{other}</Description>
-            </TextWrapper>
-          </SpecWrapper>}
-          {url && <SpecWrapper container item xs={12}>
-            <ChipContainer item xs={12} sm={4}>
-              <CustomisedChip label="URL" icon={<LinkIcon />} />
-            </ChipContainer>
-            <TextWrapper item xs={12} sm={8}>
-              <ProjectsLink to={url}>{url}</ProjectsLink>
-            </TextWrapper>
-          </SpecWrapper>}
-          {repo ? <SpecWrapper container item xs={12}>
-            <ChipContainer item xs={12} sm={4}>
-              <CustomisedChip label="Repository" icon={<GitHubIcon />} />
-            </ChipContainer>
-            <TextWrapper item xs={12} sm={8}>
-            <ProjectsLink to={repo}>{repo}</ProjectsLink>
-            </TextWrapper>
-          </SpecWrapper> : <SpecWrapper container item xs={12}>
-            <ChipContainer item xs={4}>
-              <CustomisedChip label="Repository" icon={<GitHubIcon />} />
-            </ChipContainer>
-            <TextWrapper item xs={8}>
-            <Description>This repo is private :(</Description>
-            </TextWrapper>
-          </SpecWrapper>}
-        </ThemeProvider>
-        {/* Additional Info */}
-        <TextWrapper item xs={12}>
-<Description>{life_story}</Description>
-        </TextWrapper>
-        {/* Images */}
-      </TemplatePageRoot>
+          {other && (
+            <SpecWrapper container item xs={12}>
+              <ChipContainer item xs={12} sm={4}>
+                <CustomisedChip
+                  label="Other services"
+                  icon={<RoomServiceIcon />}
+                />
+              </ChipContainer>
+              <TextWrapper item xs={12} sm={8}>
+                <Description>{other}</Description>
+              </TextWrapper>
+            </SpecWrapper>
+          )}
+          {url && (
+            <SpecWrapper container item xs={12}>
+              <ChipContainer item xs={12} sm={4}>
+                <CustomisedChip label="URL" icon={<LinkIcon />} />
+              </ChipContainer>
+              <TextWrapper item xs={12} sm={8}>
+                <ProjectsLink to={url}>{url}</ProjectsLink>
+              </TextWrapper>
+            </SpecWrapper>
+          )}
+          {repo ? (
+            <SpecWrapper container item xs={12}>
+              <ChipContainer item xs={12} sm={4}>
+                <CustomisedChip label="Repository" icon={<GitHubIcon />} />
+              </ChipContainer>
+              <TextWrapper item xs={12} sm={8}>
+                <ProjectsLink to={repo}>{repo}</ProjectsLink>
+              </TextWrapper>
+            </SpecWrapper>
+          ) : (
+            <SpecWrapper container item xs={12}>
+              <ChipContainer item xs={12} sm={4}>
+                <CustomisedChip label="Repository" icon={<GitHubIcon />} />
+              </ChipContainer>
+              <TextWrapper item xs={12} sm={8}>
+                <Description>This repo is private :(</Description>
+              </TextWrapper>
+            </SpecWrapper>
+          )}
+          {/* Additional Info */}
+          <LifeStoryWrapper item xs={12}>
+            <LifeStory>{description}</LifeStory>
+          </LifeStoryWrapper>
+          {/* Images */}
+        </TemplatePageRoot>
+      </ThemeProvider>
     </Layout>
   );
 };
