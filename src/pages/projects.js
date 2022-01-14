@@ -12,7 +12,6 @@ import {
   ProjectsWrapper,
   ProjectCardWrapper,
 } from "../components/projects/project_components";
-import { Link, useNavigate } from "react-router-dom";
 
 export default function ProjectsPage() {
   const lottieOptions = {
@@ -24,9 +23,6 @@ export default function ProjectsPage() {
     },
   };
 
-  // const navigate = useNavigate();
-
-  const navigate = () => {};
   return (
     <Layout>
       <ProjectsRoot>
@@ -39,10 +35,8 @@ export default function ProjectsPage() {
         <ProjectsWrapper container xs={12}>
           {Array.from(ongoingProjects, ([key, project]) => {
             return (
-              <ProjectCardWrapper onClick={() => navigate(key)} item xs={12} md={6} spacing={1}>
-                {/* <Link href={key}> */}
-                <ProjectCard {...project} />
-                {/* </Link> */}
+              <ProjectCardWrapper item xs={12} md={6} spacing={1}>
+                <ProjectCard {...project} key={key} path={key}/>
               </ProjectCardWrapper>
             );
           })}
@@ -51,8 +45,8 @@ export default function ProjectsPage() {
         <ProjectsWrapper container xs={12} spacing={1}>
           {Array.from(completedProjects, ([key, project]) => {
             return (
-              <ProjectCardWrapper onClick={() => navigate(key)} item xs={12} md={6} spacing={1}>
-                <ProjectCard {...project} />
+              <ProjectCardWrapper item xs={12} md={6} spacing={1}>
+                <ProjectCard {...project} key={key} path={key}/>
               </ProjectCardWrapper>
             );
           })}
