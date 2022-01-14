@@ -10,7 +10,7 @@ export const experienceData = [
         duration: "June 2021 to Present",
         description: (
           <div>
-            Developed <AboutURL href="/#">rs-app-manager</AboutURL>
+            Developed <AboutURL href="/projects/rsappmanager">rs-app-manager</AboutURL>
             {" - "}a company website cum MERN application that is used to manage
             the subscriptions of the applications developed by Robosolutions
             <SectionBreak />
@@ -31,9 +31,9 @@ export const experienceData = [
             <br />
             <br />
             During my time here, I built{" "}
-            <AboutURL href="/#">TemiPatrol</AboutURL> which was later put on
+            <AboutURL href="/projects/temipatrol">TemiPatrol</AboutURL> which was later put on
             trial deployment at IMDA and{" "}
-            <AboutURL href="/#">TemiNUSOhsConcierge</AboutURL> which was later
+            <AboutURL href="/projects/temiconcierge">TemiNUSOhsConcierge</AboutURL> which was later
             deployed at NUS OHS as a concierge.
             <SectionBreak />
           </div>
@@ -80,32 +80,32 @@ export const educationData = [
             President of NUS Skating Club
           </div>,
           <div>Received Half-Colors award for contrubitions to CCA</div>,
-          <div>Singapore Polytechnic Freestyle Competition Participant</div>
+          <div>Singapore Polytechnic Freestyle Competition 2020 Participant</div>
         ],
       },
     ],
   },
-  {
-    school: "Catholic Junior College",
-    certification: "GCE 'A' Levels (86.25/90)",
-    duration: "I fucking forgot and I lazy to math",
-    categories: [
-      {
-        subheader: "Academics",
-        items: [
-          <div>
-            Library Club
-          </div>,
-        ],
-      },
-      {
-        subheader: "Activities",
-        items: [
-          <div>
-            Vice President of Mathematics Society
-          </div>,
-        ],
-      },
-    ],
-  },
+  // {
+  //   school: "Catholic Junior College",
+  //   certification: "GCE 'A' Levels (86.25/90)",
+  //   duration: "I fucking forgot and I lazy to math",
+  //   categories: [
+  //     {
+  //       subheader: "Academics",
+  //       items: [
+  //         <div>
+  //           Library Club
+  //         </div>,
+  //       ],
+  //     },
+  //     {
+  //       subheader: "Activities",
+  //       items: [
+  //         <div>
+  //           Vice President of Mathematics Society
+  //         </div>,
+  //       ],
+  //     },
+  //   ],
+  // },
 ];
