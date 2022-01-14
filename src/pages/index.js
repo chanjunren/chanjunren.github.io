@@ -96,12 +96,12 @@ export default function Home() {
                 </IconButton>
               </MediaIconWrapper>
               <MediaIconWrapper item xs={4}>
-                <IconButton color="primary">
-                  <Email
-                    href="mailto:chanjunren@gmail.com"
-                    target="_blank"
-                    sx={{ width: "40px", height: "40px" }}
-                  />
+                <IconButton
+                  href="mailto:chanjunren@gmail.com"
+                  target="_blank"
+                  color="primary"
+                >
+                  <Email sx={{ width: "40px", height: "40px" }} />
                 </IconButton>
               </MediaIconWrapper>
             </ThemeProvider>
