@@ -42,7 +42,7 @@ export const completedProjects = new Map ([
   ["/falldetection", {
     title: "Fall Detection",
 		cardImg: FallDetectionCardImg,
-    type: WEB_APP,
+    type: MOBILE_APP,
     description: "Company website / MERN Application for managing subscriptions",
     stack: 'MongoDB, ExpressJS, ReactJS, NodeJS',
     other: 'AWS S3, Heroku',

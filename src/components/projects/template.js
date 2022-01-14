@@ -98,30 +98,37 @@ const TemplatePage = ({
             </TextWrapper>
           </SpecWrapper>
           {/* Other Wrapper */}
-          <SpecWrapper container item xs={12}>
+          {other && <SpecWrapper container item xs={12}>
             <ChipContainer item xs={4}>
               <CustomisedChip label="Other services" icon={<RoomServiceIcon />} />
             </ChipContainer>
             <TextWrapper item xs={8}>
               <Description>{other}</Description>
             </TextWrapper>
-          </SpecWrapper>
-          <SpecWrapper container item xs={12}>
+          </SpecWrapper>}
+          {url && <SpecWrapper container item xs={12}>
             <ChipContainer item xs={4}>
               <CustomisedChip label="URL" icon={<LinkIcon />} />
             </ChipContainer>
             <TextWrapper item xs={8}>
               <ProjectsLink to={url}>{url}</ProjectsLink>
             </TextWrapper>
-          </SpecWrapper>
-          <SpecWrapper container item xs={12}>
+          </SpecWrapper>}
+          {repo ? <SpecWrapper container item xs={12}>
             <ChipContainer item xs={4}>
               <CustomisedChip label="Repository" icon={<GitHubIcon />} />
             </ChipContainer>
             <TextWrapper item xs={8}>
             <ProjectsLink to={repo}>{repo}</ProjectsLink>
             </TextWrapper>
-          </SpecWrapper>
+          </SpecWrapper> : <SpecWrapper container item xs={12}>
+            <ChipContainer item xs={4}>
+              <CustomisedChip label="Repository" icon={<GitHubIcon />} />
+            </ChipContainer>
+            <TextWrapper item xs={8}>
+            <Description>This repo is private :(</Description>
+            </TextWrapper>
+          </SpecWrapper>}
         </ThemeProvider>
         {/* Additional Info */}
         <TextWrapper item xs={12}>

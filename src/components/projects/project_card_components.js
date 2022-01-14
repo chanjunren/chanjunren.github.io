@@ -5,7 +5,7 @@ import { styled } from "@mui/material";
 export const ProjectCardRoot = styled((props) => <Grid {...props} />)(
   ({theme}) => ({
     height: "100%",
-    width: "501.91px",
+    width: "90%",
     [theme.breakpoints.up("md")]: {
       width: "238.95px",
     },
@@ -15,7 +15,10 @@ export const ProjectCardRoot = styled((props) => <Grid {...props} />)(
 export const ProjectCardImage = styled("img")(({ theme }) => ({
   borderRadius: "12px",
   width: "100%",
-  height: "278.83px",
+  height: 'auto',
+  [(theme.breakpoints.up("sm"))]: {
+    height: "278.83px",
+  },
   [theme.breakpoints.up("md")]: {
     height: "132.75px",
   },
