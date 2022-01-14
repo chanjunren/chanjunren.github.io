@@ -137,7 +137,7 @@ const TemplatePage = ({
           )}
           {/* Additional Info */}
           <LifeStoryWrapper item xs={12}>
-            <LifeStory>{description}</LifeStory>
+            {description}
           </LifeStoryWrapper>
           {/* Images */}
           </TransitionWrapper>
