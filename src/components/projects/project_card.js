@@ -10,7 +10,6 @@ import {
 
 export default function ProjectCard(props) {
   const { title, summary, cardImg, path } = props;
-  console.log(path);
   return (
     <ProjectCardRoot>
       <Link to={`/projects${path}`}>

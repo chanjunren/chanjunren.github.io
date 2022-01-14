@@ -29,7 +29,6 @@ export const TemplatePageRoot = styled((props) => <Grid {...props} />)(
 );
 
 export const CustomToolTip = ({ type }) => {
-  console.log(type)
   switch (type) {
     case DESKTOP_APP:
       return (
