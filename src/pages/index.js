@@ -50,15 +50,15 @@ export default function Home() {
           <Lottie options={lottieOptions} height={250} width={250} />
         </AnimationWrapper>
         <MeWrapper container item xs={12}>
-          <MyHandsomeFaceWrapper container item xs={12} md={4}>
+          <MyHandsomeFaceWrapper item xs={12} md={4}>
             <MyHandsomeFace src={HandsomeFace} />
           </MyHandsomeFaceWrapper>
           <DetailsWrapper container item xs={12} md={8}>
             <NameWrapper item xs={12}>
-              <Name>Hi there!</Name>
+              <Name>Jun Ren</Name>
             </NameWrapper>
             <OccupationWrapper item xs={12}>
-              <Occupation>I'm Jun Ren</Occupation>
+              <Occupation>Student | Part Time Freelancer Developer</Occupation>
             </OccupationWrapper>
           </DetailsWrapper>
         </MeWrapper>
@@ -70,23 +70,35 @@ export default function Home() {
           </AboutMe>
         </AboutMeWrapper>
         <ButtonsContainer>
-          <LandingPageButtons/>
+          <LandingPageButtons />
         </ButtonsContainer>
         <SlideIntoMyDmsWrapper container item xs={12}>
           <ThemeProvider theme={theme}>
             <MediaIconWrapper item xs={4}>
-              <IconButton color="primary">
+              <IconButton
+                href="https://github.com/chanjunren"
+                target="_blank"
+                color="primary"
+              >
                 <GitHub sx={{ width: "40px", height: "40px" }} />
               </IconButton>
             </MediaIconWrapper>
             <MediaIconWrapper item xs={4}>
-              <IconButton color="primary">
+              <IconButton
+                href="https://www.linkedin.com/in/jun-ren-chan-90240a175/"
+                target="_blank"
+                color="primary"
+              >
                 <LinkedIn sx={{ width: "40px", height: "40px" }} />
               </IconButton>
             </MediaIconWrapper>
             <MediaIconWrapper item xs={4}>
               <IconButton color="primary">
-                <Email sx={{ width: "40px", height: "40px" }} />
+                <Email
+                  href="mailto:chanjunren@gmail.com"
+                  target="_blank"
+                  sx={{ width: "40px", height: "40px" }}
+                />
               </IconButton>
             </MediaIconWrapper>
           </ThemeProvider>

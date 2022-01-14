@@ -34,7 +34,6 @@ export const Name = styled("h1")({
   fontSize: "1.875rem",
   fontWeight: "700",
   margin: "auto",
-  position: "absolute",
 });
 
 export const OccupationWrapper = styled((props) => <Grid {...props} />)({});
