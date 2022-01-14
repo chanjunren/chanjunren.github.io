@@ -107,17 +107,17 @@ export const ProjectCard = styled("img")({
 });
 
 export const SummaryWrapper = styled((props) => <Grid {...props} />)({
-  display: "table",
+  display: "grid",
+  alignItems: 'center',
+  justifyContent: 'center',
   padding: "20px",
-  margin: "20px",
+  margin: "2rem",
   borderRadius: "0.5rem",
   background: "rgba(255, 255, 255, 0.08)",
 });
 
 export const Summary = styled("p")({
-  display: "table-cell",
-  textAlign: "center",
-  verticalAlign: "middle",
+  margin: 'auto'
 });
 
 export const LifeStoryWrapper = styled((props) => <Grid {...props} />)({

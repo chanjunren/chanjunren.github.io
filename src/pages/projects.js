@@ -12,6 +12,7 @@ import {
   ProjectsWrapper,
   ProjectCardWrapper,
 } from "../components/projects/project_components";
+import { TransitionWrapper } from "../utils/mui_theme";
 
 export default function ProjectsPage() {
   const lottieOptions = {
@@ -29,28 +30,30 @@ export default function ProjectsPage() {
         <AnimationWrapper item xs={12}>
           <Lottie options={lottieOptions} height={250} width={250} />
         </AnimationWrapper>
-        <HeaderWrapper item xs={12}>
-          <ProjectHeader>Ongoing</ProjectHeader>
-        </HeaderWrapper>
-        <ProjectsWrapper container xs={12}>
-          {Array.from(ongoingProjects, ([key, project]) => {
-            return (
-              <ProjectCardWrapper item xs={12} md={6} spacing={1}>
-                <ProjectCard {...project} key={key} path={key}/>
-              </ProjectCardWrapper>
-            );
-          })}
-        </ProjectsWrapper>
-        <ProjectHeader>Past Works</ProjectHeader>
-        <ProjectsWrapper container xs={12} spacing={1}>
-          {Array.from(completedProjects, ([key, project]) => {
-            return (
-              <ProjectCardWrapper item xs={12} md={6} spacing={1}>
-                <ProjectCard {...project} key={key} path={key}/>
-              </ProjectCardWrapper>
-            );
-          })}
-        </ProjectsWrapper>
+        <TransitionWrapper>
+          <HeaderWrapper item xs={12}>
+            <ProjectHeader>Ongoing</ProjectHeader>
+          </HeaderWrapper>
+          <ProjectsWrapper container xs={12}>
+            {Array.from(ongoingProjects, ([key, project]) => {
+              return (
+                <ProjectCardWrapper item xs={12} md={6} spacing={1}>
+                  <ProjectCard {...project} key={key} path={key} />
+                </ProjectCardWrapper>
+              );
+            })}
+          </ProjectsWrapper>
+          <ProjectHeader>Past Works</ProjectHeader>
+          <ProjectsWrapper container xs={12} spacing={1}>
+            {Array.from(completedProjects, ([key, project]) => {
+              return (
+                <ProjectCardWrapper item xs={12} md={6} spacing={1}>
+                  <ProjectCard {...project} key={key} path={key} />
+                </ProjectCardWrapper>
+              );
+            })}
+          </ProjectsWrapper>
+        </TransitionWrapper>
       </ProjectsRoot>
     </Layout>
   );

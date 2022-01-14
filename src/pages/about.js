@@ -15,6 +15,8 @@ import {
   SubHeader,
 } from "../components/about/about_components";
 import { educationData, experienceData } from "../data/about_data";
+import Fade from "@mui/material/Fade";
+import { TransitionWrapper } from "../utils/mui_theme";
 
 const lottieOptions = {
   loop: true,
@@ -32,49 +34,52 @@ export default function AboutPage() {
         <AnimationWrapper item xs={12}>
           <Lottie options={lottieOptions} height={250} width={250} />
         </AnimationWrapper>
-        <Header color="#e25aae">Experience</Header>
-        {experienceData.map((experience) => {
-          return (
-            <ItemContainer item xs={12}>
-              <SubHeader>{experience.header}</SubHeader>
-              {experience.items.map((item) => {
-                return (
-                  <>
-                    <ItemHeader title={item.title} duration={item.duration} />
-                    {item.description}
-                  </>
-                );
-              })}
-            </ItemContainer>
-          );
-        })}
-        <SectionBreak />
-        <Header color="#76b5c5">Education</Header>
-        {educationData.map((education) => {
-          return (
-            <ItemContainer item xs={12}>
-              <SubHeader>{education.school}</SubHeader>
-              <ItemHeader
-                title={education.certification}
-                duration={education.duration}
-              />
-              <br/>
-              {education.categories.map((category) => {
-                return (
-                  <ItemContainer item xs={12}>
-                    <CategoryHeader>{category.subheader}</CategoryHeader>
-                    <EducationItemList>
-                      {category.items.map((item) => {
-                        return <EducationItem>{item}</EducationItem>;
-                      })}
-                    </EducationItemList>
-                  </ItemContainer>
-                );
-              })}
-              <SectionBreak />
-            </ItemContainer>
-          );
-        })}
+
+        <TransitionWrapper>
+          <Header color="#e25aae">Experience</Header>
+          {experienceData.map((experience) => {
+            return (
+              <ItemContainer item xs={12}>
+                <SubHeader>{experience.header}</SubHeader>
+                {experience.items.map((item) => {
+                  return (
+                    <>
+                      <ItemHeader title={item.title} duration={item.duration} />
+                      {item.description}
+                    </>
+                  );
+                })}
+              </ItemContainer>
+            );
+          })}
+          <SectionBreak />
+          <Header color="#76b5c5">Education</Header>
+          {educationData.map((education) => {
+            return (
+              <ItemContainer item xs={12}>
+                <SubHeader>{education.school}</SubHeader>
+                <ItemHeader
+                  title={education.certification}
+                  duration={education.duration}
+                />
+                <br />
+                {education.categories.map((category) => {
+                  return (
+                    <ItemContainer item xs={12}>
+                      <CategoryHeader>{category.subheader}</CategoryHeader>
+                      <EducationItemList>
+                        {category.items.map((item) => {
+                          return <EducationItem>{item}</EducationItem>;
+                        })}
+                      </EducationItemList>
+                    </ItemContainer>
+                  );
+                })}
+                <SectionBreak />
+              </ItemContainer>
+            );
+          })}
+        </TransitionWrapper>
       </AboutRoot>
     </Layout>
   );

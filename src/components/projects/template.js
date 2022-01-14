@@ -26,7 +26,7 @@ import * as animationData from "../../assets/banner_animation.json";
 import Lottie from "react-lottie";
 
 import { ThemeProvider } from "@mui/material";
-import { theme } from "../../utils/mui_theme";
+import { theme, TransitionWrapper } from "../../utils/mui_theme";
 
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import CodeIcon from "@mui/icons-material/Code";
@@ -62,6 +62,7 @@ const TemplatePage = ({
           <AnimationWrapper item xs={12}>
             <Lottie options={lottieOptions} height={250} width={250} />
           </AnimationWrapper>
+          <TransitionWrapper>
           <HeaderWrapper container item xs={12}>
             <ProjectsLinkWrapper item xs={2}>
               <ProjectsLink to="/projects">Projects</ProjectsLink>
@@ -139,6 +140,7 @@ const TemplatePage = ({
             <LifeStory>{description}</LifeStory>
           </LifeStoryWrapper>
           {/* Images */}
+          </TransitionWrapper>
         </TemplatePageRoot>
       </ThemeProvider>
     </Layout>
