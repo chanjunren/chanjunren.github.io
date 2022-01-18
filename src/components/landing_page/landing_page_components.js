@@ -89,7 +89,7 @@ export const LandingPageButtons = (props) => (
           <div className="pagination-nav__label">Introduction</div>
         </Link>
       </div>
-      <div className="pagination-nav__item">
+      <div className="pagination-nav__item pagination-nav__item--next">
         <Link className="pagination-nav__link" to={useBaseUrl("/projects")}>
           <div className="pagination-nav__sublabel">Take a look at</div>
           <div className="pagination-nav__label">My Projects</div>
