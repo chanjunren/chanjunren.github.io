@@ -60,16 +60,18 @@ export default function Home() {
               </NameWrapper>
               <OccupationWrapper item xs={12}>
                 <Occupation>
-                  Student | Part Time Freelancer Developer
+                  Student | Part Time Freelance Developer
                 </Occupation>
               </OccupationWrapper>
             </DetailsWrapper>
           </MeWrapper>
           <AboutMeWrapper item xs={12}>
             <AboutMe>
-              I'm a Final Year student at NUS School of Computing. I am an
-              aspiring Full Stack Developer constantly looking for fun projects
-              to build, I'm currently looking for full time opportunities
+             Hi There! I'm a Final Year student at NUS with a passion for 
+             building interesting and fun projects
+              <br/>
+              <br/>
+              I'm currently looking for full time opportunities
             </AboutMe>
           </AboutMeWrapper>
           <ButtonsContainer>
