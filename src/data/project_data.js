@@ -24,7 +24,7 @@ export const ongoingProjects = new Map([
       summary: "Company website / MERN Application for managing subscriptions",
       stack: "MongoDB, ExpressJS, ReactJS, NodeJS",
       other: "AWS S3, Heroku, Material-UI",
-      url: "https://rs-app-manager.herokuapp.com/",
+      url: "https://robosolutions.sg/",
       repo: "https://github.com/chanjunren/rs-app-manager",
       description: (
         <>
