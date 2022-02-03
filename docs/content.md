@@ -1,17 +1,9 @@
 ---
-sidebar_position: 1
+id: 'content'
 ---
 
 # Content 
 
 Last Updated: 11 January 2022
 
-Just random stuff that I've learnt and written notes about! Work-In-Progress 
-<br/>
-Most likely won't be updated until I have time :(
-
-## Programming
-
-## Skating
-
-## Others
+Welcome, this is just a space for me to organise and store some of my notes and things that I have an interest in! Hope you enjoy :D

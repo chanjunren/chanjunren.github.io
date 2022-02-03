@@ -25,12 +25,7 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-        },
+        blog: false,
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -48,12 +43,12 @@ const config = {
           src: "img/logo.svg",
         },
         items: [
-          // {
-          //   type: 'doc',
-          //   docId: 'content',
-          //   position: 'right',
-          //   label: 'Docs',
-          // },
+          {
+            type: 'doc',
+            docId: 'content',
+            position: 'right',
+            label: 'Docs',
+          },
           // {to: '/blog', label: 'Blog', position: 'right'},
           {
             href: "https://chanjunren.github.io/pdf/resume.pdf",
