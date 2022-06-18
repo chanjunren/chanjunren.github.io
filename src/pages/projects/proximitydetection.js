@@ -2,10 +2,11 @@ import React from 'react'
 import TemplatePage from '../../components/projects/template';
 import { completedProjects } from '../../data/project_data';
 
-const RsAppManager = () => {
+const ProximityDetection = () => {
+  console.log("Hello");
   return (
-    <TemplatePage {...completedProjects.get('/rsappmanager')}/>
+    <TemplatePage {...completedProjects.get('/proximitydetection')}/>
   )
 }
 
-export default RsAppManager;
+export default ProximityDetection;

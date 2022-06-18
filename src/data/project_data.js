@@ -4,17 +4,23 @@ import LumitestCardImg from "../assets/project_page/card_images/completed/lumite
 import TemiPatrolCardImg from "../assets/project_page/card_images/completed/temipatrol.jpg";
 import TemiConciergeCardImg from "../assets/project_page/card_images/completed/temiconcierge.jpg";
 import SpaCardImg from "../assets/project_page/card_images/completed/spa.jpg";
-import StudyBuddyCardImg from "../assets/project_page/card_images/completed/studybuddypro.png";
+// import StudyBuddyCardImg from "../assets/project_page/card_images/completed/studybuddypro.png";
 import GrindCardImg from "../assets/project_page/card_images/completed/grind_orbital.jpg";
 import FallDetectionCardImg from "../assets/project_page/card_images/completed/fall_detection.png";
 
-import MahjongShifuCardImg from "../assets/project_page/card_images/ongoing/mahjong_shifu.jpg";
-import RsAppCardImg from "../assets/project_page/card_images/ongoing/rs_app_manager.png";
-import SchoolCardImg from "../assets/project_page/card_images/ongoing/school.jpg";
+import TraceTogetherCardImg from "../assets/project_page/card_images/completed/tracetogether4222.png";
+
+// import MahjongShifuCardImg from "../assets/project_page/card_images/ongoing/mahjong_shifu.jpg";
+import RsAppCardImg from "../assets/project_page/card_images/completed/rs_app_manager.png";
+// import SchoolCardImg from "../assets/project_page/card_images/ongoing/school.jpg";
 
 import { WEB_APP, MOBILE_APP, DESKTOP_APP } from "../utils/project_types";
 
 export const ongoingProjects = new Map([
+
+]);
+
+export const completedProjects = new Map([
   [
     "/rsappmanager",
     {
@@ -46,38 +52,33 @@ export const ongoingProjects = new Map([
     },
   ],
   [
-    "/school",
+    "/proximitydetection",
     {
-      title: "School",
-      cardImg: SchoolCardImg,
+      title: "Proximity Detection",
+      cardImg: TraceTogetherCardImg,
       type: WEB_APP,
-      summary: "Last semester at NUS",
-      stack: "CS2102, CS4222, SN2285",
+      summary: "Proximity Detection System",
+      stack: "C, CC2650, BLE",
       other: null,
       url: null,
       repo: null,
-      description: <p>Last sem best sem! Also job hunting time</p>,
+      description:
+        (<>
+          <div>
+            CS4222 Project - Low power neighbor discovery protocol
+          </div>
+          <br />
+          <div>
+            A CC2650 application that detects the duration(s) in which two sensors are “in-proximity” and not “in-proximity”
+          </div>
+          <br />
+          <div>
+            I was responsible for the implementation of the quorum based protocol / birthday protocol and tweaking the parameters to ensure that the system is robust and responsive to external factors.
+          </div>
+        </>),
       images: null,
     },
   ],
-  // [
-  //   "/mahjongshifu",
-  //   {
-  //     title: "MahjongShifu",
-  //     cardImg: MahjongShifuCardImg,
-  //     type: WEB_APP,
-  //     summary: "App To Learn React Native",
-  //     stack: "MongoDB, ExpressJS, ReactJS, NodeJS",
-  //     other: "AWS S3, Heroku",
-  //     url: "https://rs-app-manager.herokuapp.com/",
-  //     repo: "https://github.com/chanjunren/rs-app-manager",
-  //     description: "FUCK this shit",
-  //     images: null,
-  //   },
-  // ],
-]);
-
-export const completedProjects = new Map([
   [
     "/falldetection",
     {
@@ -225,7 +226,7 @@ export const completedProjects = new Map([
             blocks internet access and records the screens and webcam feed
             during the duration of a test
           </div>
-          <br/>
+          <br />
           <div>
             We used Python to perform the blocking of the internet and recording
             of videos, and ElectronJS to build the desktop application for
