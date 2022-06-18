@@ -3,11 +3,24 @@ import { AboutURL, SectionBreak } from "../components/about/about_components";
 
 export const experienceData = [
   {
+    header: "OKX",
+    items: [
+      {
+        title: "Software Engineer",
+        duration: "June 2022 to Present",
+        description: (
+          <div>To be filled
+          </div>
+        ),
+      },
+    ],
+  },
+  {
     header: "Robosolutions",
     items: [
       {
         title: "Freelance Software Engineer",
-        duration: "June 2021 to Present",
+        duration: "June 2021 to February 2022",
         description: (
           <div>
             Developed <AboutURL href="/projects/rsappmanager">rs-app-manager</AboutURL>
@@ -47,18 +60,17 @@ export const educationData = [
   {
     school: "National University of Singapore, School of Computing",
     certification: "Bachelor of Computing in Computer Science",
-    duration: "August 2018 to Present",
+    duration: "August 2018 to June 2022",
     categories: [
-      // {
-      //   subheader: "Academics",
-      //   items: [
-      //     <div>
-      //       Took a MERN course and developed{" "}
-      //       <AboutURL href="/#">rs-app-manager</AboutURL>
-      //     </div>,
-      //     <div> hello </div>,
-      //   ],
-      // },
+      {
+        subheader: "Academics",
+        items: [
+          <div>
+            Grade: Distinction{" "}
+          </div>,
+          <div>Merit in Networking and Distributed Systems Focus Area</div>,
+        ],
+      },
       {
         subheader: "External Courses",
         items: [

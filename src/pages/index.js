@@ -60,18 +60,15 @@ export default function Home() {
               </NameWrapper>
               <OccupationWrapper item xs={12}>
                 <Occupation>
-                  Student | Part Time Freelance Developer
+                  Software Engineer @ <a href="https://www.okx.com/about.html" target="_blank">OKX</a>
                 </Occupation>
               </OccupationWrapper>
             </DetailsWrapper>
           </MeWrapper>
           <AboutMeWrapper item xs={12}>
             <AboutMe>
-             Hi There! I'm a Final Year student at NUS with a passion for 
-             building interesting and fun projects
-              <br/>
-              <br/>
-              I'm currently looking for full time opportunities
+              Hi There! I'm a Software Engineer with a passion for
+              building interesting and fun projects
             </AboutMe>
           </AboutMeWrapper>
           <ButtonsContainer>
