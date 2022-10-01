@@ -25,5 +25,4 @@ old_docs_stuff
 
 package-lock.json
 
-docs/.obsidian
-
+.obsidian
