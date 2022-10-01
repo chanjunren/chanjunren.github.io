@@ -1,1 +1,0 @@
-# Introduction To Container, Kubernetes and Openshift
