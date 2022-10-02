@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@master
       
       - name: Setting up node....
-        use: actions/setup-node@v2
+        uses: actions/setup-node@v2
         with:
           node-version: 18
 
