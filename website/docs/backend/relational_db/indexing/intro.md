@@ -1,4 +1,4 @@
-# Database Indexing
+# Introduction
 
 ### What is Indexing?
 - Way of sorting number of records on multiple fields
@@ -20,4 +20,3 @@
 ## Other Stuff
 - Blocking Factor: Number of records that can be stored on one block
 - Used to calculate number of blocks required to store table / index table
-- 
