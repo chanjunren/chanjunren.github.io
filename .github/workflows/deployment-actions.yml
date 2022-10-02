@@ -8,20 +8,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-  
-  steps:
-    - name: Checkig out...
-      uses: actions/checkout@v2
+  deploy:
+    runs-on: ubuntu-latest  
+    steps:
+      - uses: actions/checkout@master
     
-    - name: Setting up...
-      uses: actions/setup-node@v2
-      with:
-        node-version: 18.19.1
+      - uses: actions/setup-node@master
+        with:
+          node-version: 18.19.1
 
-    - name: Installing packages...
-      run: npm ci
+      - name: Installing packages...
+        run: npm ci
 
-    - name: Deploying...
-      run: npm run deploy
+      - name: Deploying...
+        run: npm run deploy
