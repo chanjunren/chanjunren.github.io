@@ -11,6 +11,16 @@ const sidebars = {
       label: "Backend",
       items: [
         {
+            type: "category",
+            label: "General",
+            items: [
+                {
+                    type: "doc",
+                    id: "backend/general_db_concepts/dbdwdl"
+                }
+            ]
+        }
+        ,{
           type: "category",
           label: "Relational Databases",
           items: [
@@ -21,6 +31,14 @@ const sidebars = {
                     {
                         type: "doc",
                         id: "backend/relational_db/indexing/intro"
+                    },
+                    {
+                        type: "doc",
+                        id: "backend/relational_db/indexing/disk_structure"
+                    },
+                    {
+                        type: "doc",
+                        id: "backend/relational_db/indexing/indexing"
                     }
                 ]
             }
@@ -32,7 +50,8 @@ const sidebars = {
             items: [
                 
             ]
-        }
+        },
+        
       ],
      },
      {
@@ -79,7 +98,6 @@ const sidebars = {
                     type: "doc",
                     id: "frontend/css/flexbox"
                 },
-
             ]
         }
         
