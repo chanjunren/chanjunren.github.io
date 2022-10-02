@@ -9,22 +9,28 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-    
-      - uses: actions/setup-node@master
+      # Check out repository so that job can access it
+      - name: Checking out...
+        uses: actions/checkout@master
+      
+      - name: Setting up node....
+        use: actions/setup-node@v2
         with:
           node-version: 18
 
-      - name: Installing packages...
-        run: npm i --force
-
-      - name: Build the app
-        run: npm run build && npm run export && touch ./out/.nojekyll
-
+      - name: Building...
+        run: |
+          cd website
+          npm i --force
+          npm run build
+      
       - name: Deploying...
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
         with:
-          branch: gh-pages
-          folder: out
+          target_branch: gh-pages
+          build_dir: website/build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
