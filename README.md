@@ -36,6 +36,6 @@
 ## Helpful Links
 - https://www.markdownguide.org/cheat-sheet/
 - https://docusaurus.io/docs/static-assets
-- https://docusaurus.io/docs/markdown-features/admonitions
+	- https://docusaurus.io/docs/markdown-features/admonitions
 
 
