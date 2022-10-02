@@ -18,7 +18,7 @@ jobs:
           node-version: 18
 
       - name: Installing packages...
-        run: npm i
+        run: npm i --force
 
       - name: Deploying...
         run: npm run deploy
