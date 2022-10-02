@@ -1,7 +1,3 @@
----
-id: 'Refactoring'
----
-
 # Refactoring - Improving the Design of Existing Code
 > By Martin Fowler
 
