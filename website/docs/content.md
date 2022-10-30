@@ -18,6 +18,7 @@ Below is a compilation of reading materials that has been recommended by others
 
 ## Books
 - [ ] Refactoring: Improving the Design of Existing Code
+- [ ] Java performance: The Definitive Guide
 - [ ] The Art of Readable Code
 - [ ] Clean Code: A Handbook of Agile Software Craftsmanship
 - [ ] Test Driven Development: By Example
