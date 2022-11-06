@@ -111,7 +111,8 @@ const sidebars = {
         { type: "category", label: "JVM", items: [
     {type: "doc" ,id: "books/jvm/jvm-1"},
     {type: "doc" ,id: "books/jvm/jvm-2"},
-    {type: "doc" ,id: "books/jvm/jvm-3"},
+    {type: "doc" ,id: "books/jvm/jvm-3-1"},
+    {type: "doc" ,id: "books/jvm/jvm-3-2"},
         ] },
       ],
     },

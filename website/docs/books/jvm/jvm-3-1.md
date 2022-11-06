@@ -62,6 +62,10 @@ Quick summary
     2. Lookout for
         - Low disk usage: not efficiently buffering data
         - High disk usage: buffering more than it can handle
+- Can be tricky 
+
+### Example where I/O is bottleneck 
+
 ```
 % iostat -xm 5
 avg-cpu:  %user   %nice %system %iowait  %steal   %idle
@@ -73,3 +77,40 @@ avg-cpu:  %user   %nice %system %iowait  %steal   %idle
           wMB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
           0.14    13.35     0.15    6.06    5.33    6.08   0.42   1.04
 ```
+| value | description | explanation |
+| ----- | ----------- | ----------- |
+| w_await | time to service each I/O write | Fairly low |
+| %util | Disk utilization | Also looks ok | 
+| %system | Time spent in kernel | quite high, if system is doing other I/O in applications maybe it's ok |
+| writes per second | as per name |  quite a lot of writes for 0.14MBps |
+
+### Example where disk cannot keep up with I/O Requests
+```
+% iostat -xm 5
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+          35.05    0.00    7.85   47.89    0.00    9.20
+
+          Device:         rrqm/s   wrqm/s     r/s     w/s    rMB/s
+          sda               0.00     0.20    1.00  163.40     0.00
+
+          wMB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
+          81.09  1010.19   142.74  866.47   97.60  871.17   6.08 100.00
+```
+| value | explanation |
+| ----- | ----------- |
+| %util | 100% is an indication |
+| w_await | 871ms => queue quite large |
+| wMB/s | 81.09 MB => quite large |
+
+### Indication for swapping
+- Applications might use large amounts of VIRTUAL memory => might lead to swapping => bad performance
+- Can monitor disk usage to monitor for swapping
+- Use _vmstat_
+    - _si_ swap in
+    - _so_ swap out
+
+## Network Usage
+- Bottlenecks can occur when too little (inefficient writing of data) or too high (too much data) throughput
+
+
+
