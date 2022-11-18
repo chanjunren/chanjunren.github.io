@@ -51,6 +51,15 @@ const sidebars = {
                 
             ]
         },
+        {
+            type: "category",
+            label: "AspectJ",
+            items: [
+                {type: "doc", id: "backend/aspectj/comparison"},                 
+                {type: "doc", id: "backend/aspectj/chapter1"},                 
+                {type: "doc", id: "backend/aspectj/chapter2"},                 
+                   ]
+        }
         
       ],
      },
