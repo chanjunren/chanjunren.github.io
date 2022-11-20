@@ -1,6 +1,10 @@
-# Documentation
+# My portfolio website
+![My chio banner](banner.png)
+![GitHub last commit](https://img.shields.io/github/last-commit/chanjunren/dot_files)
+--- 
+## Documentation
 
-## Adding a new section
+### Adding a new section
 - Create a new directory in the `docs` directory (or inside the corresponding parent directory)
 ```
 {
@@ -12,10 +16,10 @@
 }
 ```
 
-## Adding a new doc
+### Adding a new doc
 - Make the following changes in the `docs` key of the `sidebars` object in  `sidebars.js` 
 
-### As a folder
+#### As a folder
 - When a directory is used to represent a single document
 ```
 {
@@ -24,7 +28,7 @@
 }
 ```
 
-### As a standalone document
+#### As a standalone document
 - When a single markdown file is used to represent a singe document
 ```
 {
