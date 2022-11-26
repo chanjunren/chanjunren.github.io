@@ -56,6 +56,20 @@ const sidebars = {
             label: "AspectJ",
             items: [
                 {type: "doc", id: "backend/aspectj/comparison"},                 
+                {type: "category", label: "AspectJ with Spring", items: [
+                {
+                  type: "doc", id: "backend/aspectj/spring_aspectj/overview"
+                },
+                    {
+                      type: "doc", id: "backend/aspectj/spring_aspectj/pointcut"
+                    },
+                    {
+                      type: "doc", id: "backend/aspectj/spring_aspectj/advice"
+                    },
+                    {
+                      type: "doc", id: "backend/aspectj/spring_aspectj/introduction"
+                    }
+              ] },
                 {type: "doc", id: "backend/aspectj/chapter1"},                 
                 {type: "doc", id: "backend/aspectj/chapter2"},                 
                    ]
