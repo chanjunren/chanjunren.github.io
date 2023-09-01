@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+sidebar_label: Chapter 2
+---
 # AspectJ Language
 
 :::info

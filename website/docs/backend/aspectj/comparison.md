@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+sidebar_label: Comparison
+---
 # Spring AOP vs AspectJ
 
 ## Considerations

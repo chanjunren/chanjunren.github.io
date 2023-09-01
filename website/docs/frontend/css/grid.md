@@ -1,8 +1,10 @@
-# Grid
+---
+sidebar_position: 1
+sidebar_label: Grid
+---
 
 ## Grid Container Properties
 ### ```display```
-
 - Determines if the container is a grid container.
 - Example: display: grid; or display: inline-grid;
 
@@ -12,9 +14,8 @@
  
 ### ```grid-template-areas```
 - Defines a grid template by referencing the names of the grid areas.
-= Example:
-css
-```agsl
+- Example:
+```
 grid-template-areas:
 "header header header"
 "sidebar main main"
