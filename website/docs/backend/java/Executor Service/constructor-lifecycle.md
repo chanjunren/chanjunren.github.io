@@ -1,7 +1,13 @@
+---
+sidebar_position: 2
+sidebar_label: Constructor / lifecycle
+---
+
+
 # Constructor and Lifecycle Methods
 
 ## Pool Size Terms
-| Size          | Descriptio                                                                                         |
+| Size          | Description                                                                                       |
 |---------------|----------------------------------------------------------------------------------------------------|
 | Core Size     | Core number of threads that are initialized and can remain in the threadpool even when idle        |
 | Current Size  | Current number of threads, starts as core size, more are added depending on the type of threadpool |

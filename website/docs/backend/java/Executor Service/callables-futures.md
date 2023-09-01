@@ -1,3 +1,8 @@
+---
+sidebar_position: 2
+sidebar_label: Callables & Futures
+---
+
 # Callables and Futures
 
 ## Runnable
