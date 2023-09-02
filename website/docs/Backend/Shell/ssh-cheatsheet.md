@@ -18,7 +18,7 @@ sidebar_label: SSH Cheatsheet
 | ssh-add /path/to/private_key                                           | Add keys to the agent          |
 | ssh -L local_port:localhost:remote_port user@remote_server             | Local port forwarding          |
 | ssh -R remote_port:localhost:local_port user@remote_server             | Remote port forwarding         |
-| sudo restart ssh                                                       | Restart ssh server             |
+| sudo systemctl restart sshd                                            | Restart ssh server             |
 
 ## SSH Client
 > Role: Initiates the SSH communication. Often a user's computer.
