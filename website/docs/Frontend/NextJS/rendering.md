@@ -3,6 +3,8 @@ sidebar_position: 2
 sidebar_label: Rendering
 ---
 
+# Rendering
+
 > *Converting react code into HTML representation*<br/><br/>Takes place on either server or client
 
 ## Methods available on NextJS
