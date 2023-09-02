@@ -2,8 +2,9 @@
 sidebar_position: 1
 sidebar_label: Grid
 ---
+# Grid
 
-## Grid Container Properties
+## Container Properties
 ### ```display```
 - Determines if the container is a grid container.
 - Example: display: grid; or display: inline-grid;
