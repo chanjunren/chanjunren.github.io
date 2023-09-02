@@ -3,6 +3,8 @@ sidebar_position: 1
 sidebar_label: Networking
 ---
 
+# Networking
+
 ### Origin Servers
 > *Stores and runs original version of application code*
 - Does computation and sends response upon receiving request

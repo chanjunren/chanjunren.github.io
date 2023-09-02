@@ -2,6 +2,7 @@
 sidebar_position: 0
 sidebar_label: Compilation
 ---
+# Compilation
 
 ### NextJS Compiler 
 > *Transforms code into Javascript for browser to understand*
