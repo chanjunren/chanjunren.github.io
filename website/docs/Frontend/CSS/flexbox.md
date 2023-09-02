@@ -3,6 +3,8 @@ sidebar_position: 0
 sidebar_label: Flexbox
 ---
 
+# Flex
+
 :::info
 CSS Flexbox is a one-dimensional layout model that allows you to design complex layout structures with a more efficient and predictable way than traditional models, especially when it comes to distributing space and aligning items in complex layouts and when the sizes of your items are unknown or dynamic.
 :::
