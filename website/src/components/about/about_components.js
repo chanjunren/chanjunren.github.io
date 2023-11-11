@@ -21,7 +21,6 @@ export const ItemContainer = styled((props) => <Grid {...props} />)({});
 export const SectionBreak = (props) => {
   return (
     <><br/><br/></>
-    
   );
 };
 export const Header = styled("h1")(({ color }) => ({
