@@ -5,20 +5,38 @@ sidebar_label: SSH Cheatsheet
 
 # SSH Cheatsheet
 
-## SSH Commands
+## SSHD Commands (Windows)
+| Command                 | Description                       |
+|------------------------ | --------------------------------- |
+| Start-Service sshd      | Starting SSH server               |
+| Stop-Service sshd       | Stopping SSH server               |
+| Restart-Service sshd    | Restarting SSH server             |
+| Get-Service  sshd       | Retrieving status of SSH server   |
 
-| Command                                                                | Description                    |
-|----------------------------------------------------------------------- | ------------------------------ |
-| ssh username@remost_host                                               | Connect to remote system       |
-| scp /path/to/source_file username@remote_host:/path/to/destination     | Copy files to a remote system  |
-| ssh-keygen                                                             | Generate ssh key               |
-| ssh-copy-id user@remote_host                                           | Copy public key to server      |
-| ssh-add /path/to/private_key                                           | Add private key to SSH agent   |
-| eval $(ssh-agent -s)                                                   | Start the agent                |
-| ssh-add /path/to/private_key                                           | Add keys to the agent          |
-| ssh -L local_port:localhost:remote_port user@remote_server             | Local port forwarding          |
-| ssh -R remote_port:localhost:local_port user@remote_server             | Remote port forwarding         |
-| sudo systemctl restart sshd                                            | Restart ssh server             |
+:::info
+SSH on Windows logs events to the Windows Event Log. You can use the Event Viewer GUI (eventvwr.msc) or PowerShell commands to view these logs. Typically, you'd be interested in the 'Operational' logs under 'Applications and Services Logs -> OpenSSH'.
+:::
+
+## SSH Commands (Unix)
+| Command                                                                  | Description                    |
+|------------------------------------------------------------------------- | ------------------------------ |
+| ssh username@remost_host                                                 | Connect to remote system       |
+| scp /path/to/source_file username@remote_host:/path/to/destination       | Copy files to a remote system  |
+| ssh-keygen                                                               | Generate ssh key               |
+| ssh-copy-id user@remote_host                                             | Copy public key to server      |
+| ssh-add /path/to/private_key                                             | Add private key to SSH agent   |
+| eval $(ssh-agent -s)                                                     | Start the agent                |
+| ssh-add /path/to/private_key                                             | Add keys to the agent          |
+| ssh -L local_port:localhost:remote_port user@remote_server               | Local port forwarding          |
+| ssh -R remote_port:localhost:local_port user@remote_server               | Remote port forwarding         |
+| sudo systemctl restart sshd                                              | Restart ssh server             |
+
+## Some useful ssh flags
+| Flag    | Description          |
+|-------- | -------------------- |
+| p       | Port                 |
+| v       | Verbose              |
+| vvv     | Max verbose level    |
 
 ## SSH Client
 > Role: Initiates the SSH communication. Often a user's computer.
