@@ -2,8 +2,8 @@
 ![My chio banner](banner.png)
 ![GitHub last commit](https://img.shields.io/github/last-commit/chanjunren/dot_files)
 --- 
-## Documentation
 
+## Documentation
 ### Adding a new section
 - Create a new directory in the `docs` directory (or inside the corresponding parent directory)
 ```

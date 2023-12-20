@@ -1,0 +1,6 @@
+- XGET vs GET
+- Happens within a shard => avoid network overhead of multiple requests => reduce likelihood of conflicting changes: What does this mean for UPDATE? All shards are updated?
+- Partial update scripting questions
+- Fix for redo action on vim on vscode
+- There might be window whereby the shards are out of sync right? Since READ requests are round robin how does ES handle this
+- Plugin for formatting JSON / Tables
