@@ -395,4 +395,4 @@ Response: {
 }
 ```
 
-- Shows how the terms are analyzed / transformed
+- Shows how the terms are re-written
