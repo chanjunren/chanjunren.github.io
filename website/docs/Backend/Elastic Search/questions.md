@@ -4,3 +4,4 @@
 - Fix for redo action on vim on vscode
 - There might be window whereby the shards are out of sync right? Since READ requests are round robin how does ES handle this
 - Plugin for formatting JSON / Tables
+- So what is returned for empty values?
