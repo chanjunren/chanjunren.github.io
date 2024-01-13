@@ -33,7 +33,7 @@ I'm just summarising here, you should read the book for the problems that these 
         - Normalization: Converting tokens into a standard form to improve searchability
     - Created sorted list of unique tokens
     - List in which document each term appears
-![Inverted index diagram](assets/chapter6_inverted_index.png)
+![Inverted index diagram](assets/chapter6_inverted_idx.png)
 
 ## Analysis and analyzers
 ### Examples
