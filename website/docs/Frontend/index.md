@@ -1,9 +1,10 @@
 ---
-sidebar_position: 0
+sidebar_position: 1
 sidebar_label: Frontend
 ---
 
-
 # Frontend
 
-- Frontend konwledge dump / cheatsheets
+:::info
+🐙 Frontend related concepts / knowledge dump / cheatsheets
+:::
