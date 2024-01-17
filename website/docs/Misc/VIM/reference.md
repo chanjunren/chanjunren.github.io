@@ -1,4 +1,12 @@
-# VIM Cheatsheet
+---
+sidebar_position: 1
+sidebar_label: Reference
+---
+
+# VIM Reference
+:::info
+Stuff that I keep forgetting
+:::
 
 ## Motions
 - b: move back one word
@@ -8,6 +16,7 @@
 - t: to
 - dd: delete whole line
 - H M L: high, middle low
+
 
 ## Macros
 ### Recording a macro
