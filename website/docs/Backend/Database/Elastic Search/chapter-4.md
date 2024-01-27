@@ -12,7 +12,7 @@ Internal details, just reading for fun
 ```
 shard = hash(routing) % number_of_primary_shards
 ```
-- Routing avlue is an arbitrary string (defaults to document's _id)
+- Routing value is an arbitrary string (defaults to document's _id)
 
 - Discussion of routing value done in later chapter, but basically it's better to customise this value
 
@@ -47,7 +47,6 @@ By the time client receives successful resposne, all documents have been execute
 ### Available options
 - `replication`
 	- default value: `sync`
-	- 
 - `consistency`
 	- primary shard requires a `quorum` 
 	-  number of active shards before attempting write operation
