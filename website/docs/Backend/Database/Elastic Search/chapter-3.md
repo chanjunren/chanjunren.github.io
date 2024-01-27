@@ -34,11 +34,11 @@ Data is stored and indxed in shards
 	- URL safe
 	- Base64 encoded string UUIDs
 
-## Retriiving data
-### Retrieving entire document
+## Retrieving data
+### Entire document
 - HTTP GET
 
-### Retrieving part of document
+### Part of document
 - _source
 
 ### Checking if document exists
@@ -46,7 +46,7 @@ Data is stored and indxed in shards
 
 ## Deleting a document
 Sample response if document found
-```
+```json
 {
  "found" : true,
  "_index" : "website",
@@ -55,8 +55,9 @@ Sample response if document found
  "_version" : 3
 }
 ```
+
 Sample respones if document not found
-```
+```json
 {
  "found" : false,
  "_index" : "website",
@@ -75,6 +76,7 @@ Version is incremented even if not found => internal bookkeeping for ensuring ch
 - Reindex / replace document when updating
 	- Version number updated
 - Internally: Retrieve old document => Change => Delete old document => Index new document (but all done in a single API)
+
 :::info
 Internally, ES will mark the old document as deleted and has added an entirely new document (will be eventually deleted as more data is added)
 :::
@@ -121,8 +123,9 @@ Approaches to deal with concurrent updates to ensure that no data is lost
 ### Upsert
 - Updating a nonexisting document will fail
 - Specify `upsert` parameter to create document if it doesn't exist
-```
-POST /website/pageviews/1/_update
+
+`POST /website/pageviews/1/_update`
+```json
 {
  "script" : "ctx._source.views+=1",
  "upsert": {
@@ -135,15 +138,18 @@ POST /website/pageviews/1/_update
 - Smaller window between retrieve / reindex => smaller opportunity for conflicting changes
 - But doesn't mean zero chance
 - For cases whereby it doesn't matter that a document has been changed, can just reattempt 
-```
-POST /website/pageviews/1/_update?retry_on_conflict=5
+
+`POST /website/pageviews/1/_update?retry_on_conflict=5` 
+
+_Retry this update five times before failing_
+
+```json
 {
  "script" : "ctx._source.views+=1",
  "upsert": {
  "views": 0
  }
 }
-Retry this update five times before failing.
 ```
 
 ## Retrieving Multiple Documents
@@ -154,13 +160,15 @@ Retry this update five times before failing.
 
 ## `bulk` API
 - Allow multiple create, index, update, delete requests in a single step
-```
+
+```json
 { action: { metadata }}\n
 { request body }\n
 { action: { metadata }}\n
 { request body }\n
 ...
 ```
+
 - Every line (including the last line) must end with \n for efficient line separation
 - Cannot contain unescaped newline characters (must not be pretty printed, will interfere with parsing)
 
