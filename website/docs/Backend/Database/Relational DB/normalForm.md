@@ -33,10 +33,10 @@ sidebar_label: Normal Forms
 
 | OrderID | CustomerName | BookTitle         | BookPrice | DeliveryAddress |
 |---------|--------------|-------------------|-----------|-----------------|
-| 1       | John Doe     | Database Concepts | 50        | 123 Maple St   |
-| 1       | John Doe     | Cloud Computing   | 40        | 123 Maple St   |
-| 2       | Jane Smith   | Machine Learning  | 60        | 456 Oak Ave    |
-| 3       | John Doe     | Cloud Computing   | 40        | 123 Maple St   |
+| 1       | John Doe     | Database Concepts | 50        | 123 Maple St    |
+| 1       | John Doe     | Cloud Computing   | 40        | 123 Maple St    |
+| 2       | Jane Smith   | Machine Learning  | 60        | 456 Oak Ave     |
+| 3       | John Doe     | Cloud Computing   | 40        | 123 Maple St    |
 
 - But there is still redundant data
 
