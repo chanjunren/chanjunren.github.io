@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-sidebar_label: find
+sidebar_label: FIND
 ---
 
 # Find Cheatsheet
