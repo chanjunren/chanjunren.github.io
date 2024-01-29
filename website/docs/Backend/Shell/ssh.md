@@ -1,6 +1,6 @@
 ---
 sidebar_position: 0
-sidebar_label: SSH Cheatsheet
+sidebar_label: SSH
 ---
 
 # SSH Cheatsheet
