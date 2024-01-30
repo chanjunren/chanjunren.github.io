@@ -4,26 +4,26 @@ sidebar_label: Data in, data out
 ---
 # Data in, data out
 
-## Document
-:::info
-Top-level / root object that is serialized into JSON and stored on ES (has an ID)
-:::
+## Some terms
+| Term     | Description                                                                       |
+|----------|-----------------------------------------------------------------------------------|
+| Document | Top-level / root object that is serialized into JSON and stored on ES (has an ID) |
+| Index    | Logical namespace of a group of shards                                            |
+| Indexed  | Stored and made searchable                                                        |
+
 
 ### Metadata
 - Required fields:
-	- index: database
-	- type: something like a schema
-	- id: unique string to identify a document
+	- `index`: database
+	- `type`: something like a schema
+	- `id`: unique string to identify a document
 - These 3 fields uniquely identify a document
-:::info
-Data is stored and indxed in shards
-=> An index is a logical namespace of a group of shards
-:::
 - Others (covered in future chapter)
 
-## Indexing a Document
-- indexed: stored and made searchable
-
+:::info
+Data is stored and indexed in shards
+:::
+ 
 ### Specifying own ID
 - PUT verb (store this document AT this URL) e.g. `PUT /{index}/{type}/{id}`
 
@@ -37,9 +37,6 @@ Data is stored and indxed in shards
 ## Retrieving data
 ### Entire document
 - HTTP GET
-
-### Part of document
-- _source
 
 ### Checking if document exists
 - Use HEAD instead of GET
@@ -55,7 +52,6 @@ Sample response if document found
  "_version" : 3
 }
 ```
-
 Sample respones if document not found
 ```json
 {
@@ -75,41 +71,51 @@ Version is incremented even if not found => internal bookkeeping for ensuring ch
 - Documents are immutable
 - Reindex / replace document when updating
 	- Version number updated
-- Internally: Retrieve old document => Change => Delete old document => Index new document (but all done in a single API)
+- Internally (Done in a single API)
+	- Retrieve old document
+	- Change 
+	- Delete old document
+	- Index new document 
+- Adopts a **last-write-wins** approach by default
+- Uses **opimistic concurrency control** if version parameter specified
 
 :::info
 Internally, ES will mark the old document as deleted and has added an entirely new document (will be eventually deleted as more data is added)
 :::
 
-- Adopts a last-write-wins approach by default
-- Uses opimistic concurrency control if version parameter specified
 
 ### Dealing with conflicts
-Approaches to deal with concurrent updates to ensure that no data is lost
+> Approaches to deal with concurrent updates to ensure that no data is lost
+
 #### Pessimistic concurrency control
-- Assumes conflicting changes are likely to happen
+- Assumes _conflicting_ are _likely to happen_
 - Blocks access to a resource in order to prevent conflicts
 - e.g. locking a row before reading data
 
 #### Optmistic concurrency controls (Used by ES)
-- Assumes conflicts are unlikely
+- Assumes _conflicts_ are _unlikely_
 - Doesn't block operations
-- Underlying data modified between reading and writing => update fails
-- Up to application to handle the failure
-	- Reattempt update
-	- Report failure to user
+- Underlying data modified between reading and writing => **update fails**
+
+:::warning Handling failure
+It's up to the application to handle the failure
+- Reattempt update
+- Report failure to user
 	- ...
 
-- Simple example
-	- Init document
-	- Update document `PUT /website/blog/1?version=1` => version update to 2
-	- Updated document `PUT /website/blog/1?version=1` => error
+**Example**
+- Init document
+- Update document `PUT /website/blog/1?version=1` => version update to 2
+- Updated document `PUT /website/blog/1?version=1` => error
+:::
 
 ### Using versions from external system
 - Common setup: use some other DB as primary data source, ES to make data searchable
 - Can use version number of main DB with ES (e.g. timestamp)
 - Handling by ES is a bit different => checks that current `_version` is less than specified version
-- e.g. `PUT /website/blog/2?version=5&version_type=external`
+```
+PUT /website/blog/2?version=5&version_type=external
+```
 
 ### Partial Updates
 - Retrieve-change-reindex process as well
@@ -192,5 +198,3 @@ sand 1KB documents is very different from one thousand 1MB documents.
 
 A good bulk size to start playing with is around 5-15MB in size
 :::
-
-

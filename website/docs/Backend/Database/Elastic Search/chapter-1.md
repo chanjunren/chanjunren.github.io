@@ -13,25 +13,8 @@ sidebar_label: Introduction
 	- Number of servers
 	- Petabytes of structured / unstructured data
 
-## Indexing
+## Terminology
 ```
 Relation DB => Databases => Tables => Rows => Columns
 Elasticsearch => Indices => Types => Documents => Fields
 ```
-
-## Searching
-### Searching Lite
-
-### Search with Query DSL
-
-### Full text search
-- Relevance score
-
-### Phrase search
-- Match exact sequences of words
-
-### Highlighting searches
-- Why document matched this search
-
-## Analytics
-- A stonks GROUP_BY
