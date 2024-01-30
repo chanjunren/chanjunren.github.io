@@ -5,14 +5,16 @@ sidebar_label: Life inside a cluster
 # Life inside a cluster
 
 ## Terminology
-- Node: Running instance of elasticsearch
-- Cluster: >= 1 node
-- Master node: A single elected node in the cluster, responsible for cluster wide changes (creating / deleting index, adding / removing node)
-- Index: Logical namespace that points to one or more physical shards 
--Shard: Containers of data (stores documents), shards are allocated to node
-- Primary shard: Document store
-- Replica shard: Replica of primary shard
-- 
+
+| Term          | Description                                                                                   |
+|---------------|-----------------------------------------------------------------------------------------------|
+| Node          | Running instance of EES                                                                       |
+| Cluster       | >= 1 node                                                                                     |
+| Master node   | Single elected node in the cluster responsible for cluster wide changes (+/- index, +/- node) |
+| Shard         | <ul><li>Containers of data (stores documents)</li><li>Allocated to node</li></ul>             |
+| Primary Shard | Document store                                                                                |
+| Replica Shard | Replica of primary shard                                                                      |
+ 
 ![Cluster diagram](assets/chapter2_cluster.png)
 
 ## Adding failover
@@ -26,8 +28,9 @@ sidebar_label: Life inside a cluster
 - Increasing numebr of replicas
 
 ## Coping with failure
-- Scenario: One node killed
+:::warning Scenario: One node killed
 ![Node failure](assets/chapter2_failure.png)
+:::
 
 - Actions:
 	- One node promtoed to master (node 2)

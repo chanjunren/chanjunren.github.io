@@ -12,8 +12,7 @@ Internal details, just reading for fun
 ```
 shard = hash(routing) % number_of_primary_shards
 ```
-- Routing value is an arbitrary string (defaults to document's _id)
-
+- Routing value is an arbitrary string (defaults to document's `_id`)
 - Discussion of routing value done in later chapter, but basically it's better to customise this value
 
 :::warning
@@ -27,21 +26,21 @@ But, there are other strategies to scale an index (chapter 43)
 :::
 
 ### How Primary and Replica Shards interact
-- Copies of the same shard are never allocated to the same node
+- Copies of the same shard are **never** allocated to the same node
 - Every node is fully capable of serving any request
 	- Every node knows the location of every document in the cluster and can forward requests directly to required nodes
-- Good practice to round-robin through all nodes to spread the load
+- Good practice to _round-robin_ through all nodes to spread the load
 
 ## Creating, Indexing and Deleting a Document
-- ![CRUD Diagram](assets/chapter4_crud.png)
+![CRUD Diagram](assets/chapter4_crud.png)
 
 1. Client sends req to node 1
-2. Node uses _id to determine owner shard => forward to node that was allocated primary shard
+2. Node uses `_id` to determine owner shard => forward to node that was allocated primary shard
 3. Executes request on primary shard => success ? forward req to replica shards on node 1 / 2
 4. Node 3 reports success to requesting node
 
 :::info
-By the time client receives successful resposne, all documents have been executed on primary and replica shards
+🥳 By the time client receives successful response, all documents have been executed on primary and replica shards
 :::
 
 ### Available options
@@ -60,9 +59,7 @@ By the time client receives successful resposne, all documents have been execute
 
 ## Retrieving a Document
 - Document can be retrieved from primary / replica shard
-
 - For read rqeuests, the requesting node will choose a different shard copy on every request to for load balancing (round-robin)
-
 - It is possible that a document is not available on replica shard but on primary shard => might receive error that document doesn't exist
 
 ## Partial Updates
@@ -73,10 +70,8 @@ By the time client receives successful resposne, all documents have been execute
 4. If successful, forwards new version of the document in parallel to replica shards, reports success to rqeuesting node => reports success to client
 
 
-:::note
-Document-Based Replication is used 
-
-i.e. instead of just forwarding the change, the entire updated document is forwarded
+:::note Document-Based Replication is used 
+Instead of just forwarding the change, the entire updated document is forwarded
 
 Ensures that changs arrive in the same order they were sent
 :::
@@ -91,22 +86,25 @@ Ensures that changs arrive in the same order they were sent
 4. Return to client 
 ![Multidocument patterns diagram](assets/chapter4_multidocument.png)
 
-## Funny format design
+## Funny format design of `bulk` API
 :::info
 Why funny format rather than JSON using a JSON array?
 
 TLDR: Memory efficiency
 :::
-- JSON Array implementation
-	1. Parse JSON into an array (including document data)
-	2. Determine which shard a request should go to
-	3. Create array of requests for each shard
-	4. Serialize arrays into internal transport format
-	5. Send requests to each shard
+### JSON Array implementation
+1. Parse JSON into an array (including document data)
+2. Determine which shard a request should go to
+3. Create array of requests for each shard
+4. Serialize arrays into internal transport format
+5. Send requests to each shard
 
-- Disadvantage:
-	- A lot of RAM to hold copies of same data, but create many more data structures that JVM would have to garbage collect
-- Implementation:
-	 - Data is read directly, and just parses the `action` / `metadata` to determine which shard to handle each request
-- Advantage:
-	- No redundant copying of data / wasted data structures
+:::warning 😢 Disadvantage:
+A lot of RAM to hold copies of same data, but create many more data structures that JVM would have to garbage collect
+:::
+### Funny format Implementation
+> Data is read directly, and just parses the `action` / `metadata` to determine which shard to handle each request
+
+:::tip 😃 Advantage
+No redundant copying of data / wasted data structures
+:::
