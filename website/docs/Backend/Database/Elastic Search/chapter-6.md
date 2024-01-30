@@ -89,29 +89,31 @@ be properly searchable.
 
 #### Creating a mapping
 `PUT /gb`
-```
+
+```json
 {
- "mappings": {
- "tweet" : {
- "properties" : {
- "tweet" : {
- "type" : "string",
- "analyzer": "english"
- },
- "date" : {
- "type" : "date"
- },
- "name" : {
- "type" : "string"
- },
- "user_id" : {
- "type" : "long"
- }
- }
- }
- }
+  "mappings": {
+    "tweet": {
+      "properties": {
+        "tweet": {
+          "type": "string",
+          "analyzer": "english"
+        },
+        "date": {
+          "type": "date"
+        },
+        "name": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "long"
+        }
+      }
+    }
+  }
 }
 ```
+
 #### Modifying a mapping
 `PUT /gb/_mapping/tweet`
 ```
@@ -153,66 +155,69 @@ Output: 'Black-cats'
 
 _`user`, `tweet` and `name` are all objects_
 
-```
+```json
 {
- "gb": {
- "tweet": {
- "properties": {
- "tweet": { "type": "string" },
- "user": {
- "type": "object",
- "properties": {
- "id": { "type": "string" },
- "gender": { "type": "string" },
- "age": { "type": "long" },
- "name": {
- "type": "object",
- "properties": {
- "full": { "type": "string" },
- "first": { "type": "string" },
- "last": { "type": "string" }
- }
- }
- }
- }
- }
- }
- }
+  "gb": {
+    "tweet": {
+      "properties": {
+        "tweet": { "type": "string" },
+        "user": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string" },
+            "gender": { "type": "string" },
+            "age": { "type": "long" },
+            "name": {
+              "type": "object",
+              "properties": {
+                "full": { "type": "string" },
+                "first": { "type": "string" },
+                "last": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 ```
+
 #### How objects are indexed
 - Lucene doesn't understand inner objects
 - Lucene document consists flat list of key-value pairs
 
 _Flattened document_ 
-```
+```json
 {
- "tweet": [elasticsearch, flexible, very],
- "user.id": [@johnsmith],
- "user.gender": [male],
- "user.age": [26],
- "user.name.full": [john, smith],
- "user.name.first": [john],
- "user.name.last": [smith]
+  "tweet": ["elasticsearch", "flexible", "very"],
+  "user.id": ["@johnsmith"],
+  "user.gender": ["male"],
+  "user.age": [26],
+  "user.name.full": ["john", "smith"],
+  "user.name.first": ["john"],
+  "user.name.last": ["smith"]
 }
 ```
+
 ##### Arrays of inner objects
 _Indexed document_
-```
+
+```json
 {
- "followers": [
- { "age": 35, "name": "Mary White"},
- { "age": 26, "name": "Alex Jones"},
- { "age": 19, "name": "Lisa Smith"}
- ]
+  "followers": [
+    { "age": 35, "name": "Mary White" },
+    { "age": 26, "name": "Alex Jones" },
+    { "age": 19, "name": "Lisa Smith" }
+  ]
 }
 ```
 
 _Flattened document_
-```
+```json
 {
- "followers.age": [19, 26, 35],
- "followers.name": [alex, jones, lisa, smith, mary, white]
+  "followers.age": [19, 26, 35],
+  "followers.name": ["alex", "jones", "lisa", "smith", "mary", "white"]
 }
 
 ```
