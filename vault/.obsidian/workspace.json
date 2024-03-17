@@ -18,6 +18,18 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "48a05c20e2299f95",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "templates/zettel.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ]
       }
@@ -148,11 +160,11 @@
   },
   "active": "8479d4478de6e91f",
   "lastOpenFiles": [
+    "templates/zettel.md",
     "zettelkasten/threejs/performance_general.md",
     "zettelkasten/threejs/monitoring_fps.md",
     "zettelkasten/threejs/monitoring_draw_calls.md",
     "zettelkasten/threejs/fps limit.md",
-    "templates/zettel.md",
     "zettelkasten/Untitled.md",
     "README.md",
     "zettelkasten/threejs.md",

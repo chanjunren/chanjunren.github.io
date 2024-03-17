@@ -5,4 +5,4 @@ Tags:
 # {{title}}
 
 --- 
-# {{References}}
+# References
