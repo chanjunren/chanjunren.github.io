@@ -13,6 +13,12 @@
         "Alt"
       ],
       "key": "1"
+    },
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "1"
     }
   ],
   "workspace:edit-file-title": [
@@ -26,7 +32,8 @@
   "app:delete-file": [
     {
       "modifiers": [
-        "Alt"
+        "Mod",
+        "Shift"
       ],
       "key": "Backspace"
     }
@@ -38,5 +45,13 @@
       ],
       "key": "W"
     }
-  ]
+  ],
+  "workspace:goto-tab-1": [],
+  "workspace:goto-tab-2": [],
+  "workspace:goto-tab-3": [],
+  "workspace:goto-tab-4": [],
+  "workspace:goto-tab-5": [],
+  "workspace:goto-tab-6": [],
+  "workspace:goto-tab-7": [],
+  "workspace:goto-tab-8": []
 }
