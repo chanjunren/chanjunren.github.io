@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "1c9f7d0d10627db6",
+        "id": "84efc17b673ba5e0",
         "type": "tabs",
         "children": [
           {
-            "id": "284ff8c8807b55a6",
+            "id": "8479d4478de6e91f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/monitoring.md",
+                "file": "zettelkasten/threejs/performance_general.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/monitoring.md",
+                "file": "zettelkasten/threejs/performance_general.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/monitoring.md",
+                "file": "zettelkasten/threejs/performance_general.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/monitoring.md"
+                "file": "zettelkasten/threejs/performance_general.md"
               }
             }
           }
@@ -146,13 +146,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "284ff8c8807b55a6",
+  "active": "8479d4478de6e91f",
   "lastOpenFiles": [
+    "zettelkasten/threejs/performance_general.md",
+    "zettelkasten/threejs/monitoring_fps.md",
+    "zettelkasten/threejs/monitoring_draw_calls.md",
+    "zettelkasten/threejs/fps limit.md",
+    "templates/zettel.md",
     "zettelkasten/Untitled.md",
-    "zettelkasten/monitoring.md",
-    "zettelkasten/threejs.md",
     "README.md",
-    "templates/core.md",
+    "zettelkasten/threejs.md",
     "zettelkasten/threejs",
     "assets",
     "threejs/performance/monitoring stats.md",
