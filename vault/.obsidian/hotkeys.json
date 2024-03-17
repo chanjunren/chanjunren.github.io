@@ -5,24 +5,12 @@
         "Alt"
       ],
       "key": "T"
-    },
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "T"
     }
   ],
   "file-explorer:open": [
     {
       "modifiers": [
         "Alt"
-      ],
-      "key": "1"
-    },
-    {
-      "modifiers": [
-        "Mod"
       ],
       "key": "1"
     }
@@ -38,8 +26,7 @@
   "app:delete-file": [
     {
       "modifiers": [
-        "Mod",
-        "Shift"
+        "Alt"
       ],
       "key": "Backspace"
     }
@@ -52,13 +39,5 @@
       "key": "W"
     }
   ],
-  "workspace:goto-tab-1": [],
-  "workspace:goto-tab-2": [],
-  "workspace:goto-tab-3": [],
-  "workspace:goto-tab-4": [],
-  "workspace:goto-tab-5": [],
-  "workspace:goto-tab-6": [],
-  "workspace:goto-tab-7": [],
-  "workspace:goto-tab-8": [],
-  "workspace:new-tab": []
+  "editor:delete-paragraph": []
 }
