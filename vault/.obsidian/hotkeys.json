@@ -13,6 +13,12 @@
         "Alt"
       ],
       "key": "1"
+    },
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "1"
     }
   ],
   "workspace:edit-file-title": [
@@ -39,5 +45,6 @@
       "key": "W"
     }
   ],
-  "editor:delete-paragraph": []
+  "editor:delete-paragraph": [],
+  "workspace:goto-tab-1": []
 }
