@@ -10,6 +10,8 @@ Tags:
 | commit point            |                                   |
 | `elasticsearch refresh` | writing and opening a new segment |
 
+![[es_refresh_api_lucene_index.png]]
+
 --- 
 # References
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/near-real-time.html

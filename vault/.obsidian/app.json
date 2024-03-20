@@ -3,5 +3,6 @@
   "promptDelete": true,
   "newFileLocation": "folder",
   "newFileFolderPath": "zettelkasten",
-  "attachmentFolderPath": "assets"
+  "attachmentFolderPath": "assets",
+  "alwaysUpdateLinks": true
 }
