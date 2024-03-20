@@ -6,6 +6,7 @@ Road to me becoming a slightly smarter boi
 - [ ] Obsidian keybindings
 	- [ ] Changing tabs
 	- [ ] Saving file
+	- [ ] Selecting / copying markdown table 
 ## 🥋 References
 
 - [Setup](https://www.youtube.com/watch?v=E6ySG7xYgjY&t)

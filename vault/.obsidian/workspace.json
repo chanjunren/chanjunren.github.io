@@ -4,47 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "84efc17b673ba5e0",
+        "id": "955eaa24dbd025f8",
         "type": "tabs",
         "children": [
           {
-            "id": "8479d4478de6e91f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zettelkasten/threejs/monitoring_fps.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7608917374c00c8d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zettelkasten/css/floaty_trees_animation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "091c54090f0b4af1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zettelkasten/css/hand_wave_animation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1c2880a6166ccd99",
+            "id": "4972fd09f7c9a1eb",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -54,9 +18,31 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "f00ad056367b0dd7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zettelkasten/to_be_studied.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2673d01537391599",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.5.11"
+              }
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -122,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/es_realtime_search.md",
+                "file": "zettelkasten/to_be_studied.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/es_realtime_search.md",
+                "file": "zettelkasten/to_be_studied.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/es_realtime_search.md"
+                "file": "zettelkasten/to_be_studied.md"
               }
             }
           }
@@ -183,21 +169,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1c2880a6166ccd99",
+  "active": "f00ad056367b0dd7",
   "lastOpenFiles": [
     "zettelkasten/es_realtime_search.md",
+    "zettelkasten/to_be_studied.md",
+    "README.md",
+    "assets/es_refresh_api_lucene_index.png",
     "zettelkasten/css/hand_wave_animation.md",
     "zettelkasten/css/floaty_trees_animation.md",
     "zettelkasten/css",
-    "zettelkasten/threejs/monitoring_fps.md",
-    "zettelkasten/css_trees_loading_animation.md",
-    "zettelkasten/threejs/Untitled.md",
-    "zettelkasten/threejs/monitoring_draw_calls.md",
-    "Untitled.md",
     "zettelkasten/threejs/performance_general.md",
     "templates/zettel.md",
+    "zettelkasten/threejs/monitoring_fps.md",
+    "zettelkasten/threejs/monitoring_draw_calls.md",
     "zettelkasten/threejs/fps limit.md",
-    "README.md",
     "zettelkasten/threejs.md",
     "zettelkasten/threejs",
     "assets",
