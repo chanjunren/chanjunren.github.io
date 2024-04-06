@@ -4,43 +4,32 @@
     "type": "split",
     "children": [
       {
-        "id": "56b90e6b9acc4e8a",
+        "id": "9af06fe3591651d4",
         "type": "tabs",
         "children": [
           {
-            "id": "2531c1cb8d1fd6eb",
+            "id": "ab94121c6d097eac",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/message_translator.md",
+                "file": "zettelkasten/uml_cheatsheet.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "a2a60bc27c902bea",
+            "id": "f8bd7d4cdabccfe4",
             "type": "leaf",
             "state": {
               "type": "image",
               "state": {
-                "file": "assets/message_translator_layers.png"
-              }
-            }
-          },
-          {
-            "id": "55e54c07e92268b9",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "assets/camel_architecture.png"
+                "file": "assets/uml_interface.png"
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -106,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "assets/message_translator_layers.png",
+                "file": "zettelkasten/uml_cheatsheet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "assets/message_translator_layers.png",
+                "file": "zettelkasten/uml_cheatsheet.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "assets/message_translator_layers.png"
+                "file": "zettelkasten/uml_cheatsheet.md"
               }
             }
           }
@@ -167,13 +156,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a2a60bc27c902bea",
+  "active": "ab94121c6d097eac",
   "lastOpenFiles": [
-    "zettelkasten/message_translator.md",
-    "zettelkasten/message_endpoint.md",
-    "assets/message_translator_layers.png",
-    "zettelkasten/camel_architecture.md",
+    "assets/uml_interface.png",
+    "zettelkasten/uml_cheatsheet.md",
+    "assets/uml_composition.png",
+    "assets/uml_inheritance.png",
+    "assets/uml_class_diagram.png",
+    "zettelkasten/aliyun_canal_client.md",
     "assets/camel_architecture.png",
+    "zettelkasten/message_translator.md",
+    "assets/message_translator_layers.png",
+    "zettelkasten/message_endpoint.md",
+    "zettelkasten/camel_architecture.md",
     "assets/eip_channel_adapter.png",
     "zettelkasten/aliyun_canal.md",
     "zettelkasten/aliyun_canal_performance.md",
@@ -190,10 +185,6 @@
     "zettelkasten/es_realtime_search.md",
     "zettelkasten/skating/toe_shift.md",
     "assets/dts_how_it_works_1.png",
-    "assets/dts_how_it_works_5.png",
-    "assets/dts_how_it_works_6.png",
-    "assets/dts_how_it_works_4.png",
-    "assets/dts_how_it_works_3.png",
     "zettelkasten/data_type_size_comparisons.md",
     "zettelkasten/threejs/monitoring_fps.md",
     "zettelkasten/2024-03-31.md",
@@ -203,8 +194,6 @@
     "zettelkasten/threejs/monitoring_draw_calls.md",
     "zettelkasten/mobx_store.md",
     "README.md",
-    "zettelkasten/css/hand_wave_animation.md",
-    "zettelkasten/css/floaty_trees_animation.md",
     "zettelkasten/css",
     "zettelkasten/threejs",
     "assets",
