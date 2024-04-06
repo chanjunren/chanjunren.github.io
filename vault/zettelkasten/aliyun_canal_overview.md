@@ -1,8 +1,8 @@
 20240405 1432
 
-Tags: #backend #aliyun #canal
+Tags: #aliyun_canal
 
-# aliyun_canal
+# aliyun_canal_overview
 
 ```ad-info
 Data synchronization system based on MySQL binary log

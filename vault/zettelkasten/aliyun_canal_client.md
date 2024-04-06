@@ -1,6 +1,6 @@
 20240406 1357
 
-Tags:  
+Tags:  #aliyun_canal
 
 # aliyun_canal_client
 
