@@ -1,6 +1,0 @@
-- [ ] Rate limit (rolling window)
-- [ ] ElasticSearch 
-	- [ ] Refresh API
-	- [ ] Nested search
-- [ ] Data type size
-- [ ] Refresh: sliding window algorithms

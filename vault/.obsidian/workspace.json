@@ -4,40 +4,38 @@
     "type": "split",
     "children": [
       {
-        "id": "955eaa24dbd025f8",
+        "id": "56b90e6b9acc4e8a",
         "type": "tabs",
         "children": [
           {
-            "id": "4972fd09f7c9a1eb",
+            "id": "2531c1cb8d1fd6eb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/es_realtime_search.md",
+                "file": "zettelkasten/message_translator.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "f00ad056367b0dd7",
+            "id": "a2a60bc27c902bea",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "zettelkasten/to_be_studied.md",
-                "mode": "source",
-                "source": false
+                "file": "assets/message_translator_layers.png"
               }
             }
           },
           {
-            "id": "2673d01537391599",
+            "id": "55e54c07e92268b9",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "image",
               "state": {
-                "currentVersion": "1.5.11"
+                "file": "assets/camel_architecture.png"
               }
             }
           }
@@ -108,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/to_be_studied.md",
+                "file": "assets/message_translator_layers.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/to_be_studied.md",
+                "file": "assets/message_translator_layers.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/to_be_studied.md"
+                "file": "assets/message_translator_layers.png"
               }
             }
           }
@@ -169,27 +167,49 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f00ad056367b0dd7",
+  "active": "a2a60bc27c902bea",
   "lastOpenFiles": [
+    "zettelkasten/message_translator.md",
+    "zettelkasten/message_endpoint.md",
+    "assets/message_translator_layers.png",
+    "zettelkasten/camel_architecture.md",
+    "assets/camel_architecture.png",
+    "assets/eip_channel_adapter.png",
+    "zettelkasten/aliyun_canal.md",
+    "zettelkasten/aliyun_canal_performance.md",
+    "zettelkasten/channel_adapter.md",
+    "zettelkasten/content_enricher.md",
+    "assets/eip_content_enricher.png",
+    "zettelkasten/todo.md",
+    "assets/eip_message_endpoint.png",
+    "zettelkasten/dts_overview.md",
+    "zettelkasten/eip_overview.md",
+    "zettelkasten/Untitled.md",
+    "zettelkasten/Untitled 1.md",
+    "zettelkasten/es_api_interface.md",
     "zettelkasten/es_realtime_search.md",
-    "zettelkasten/to_be_studied.md",
+    "zettelkasten/skating/toe_shift.md",
+    "assets/dts_how_it_works_1.png",
+    "assets/dts_how_it_works_5.png",
+    "assets/dts_how_it_works_6.png",
+    "assets/dts_how_it_works_4.png",
+    "assets/dts_how_it_works_3.png",
+    "zettelkasten/data_type_size_comparisons.md",
+    "zettelkasten/threejs/monitoring_fps.md",
+    "zettelkasten/2024-03-31.md",
+    "Untitled.canvas",
+    "zettelkasten/snowflake_id.md",
+    "zettelkasten/threejs/performance_general.md",
+    "zettelkasten/threejs/monitoring_draw_calls.md",
+    "zettelkasten/mobx_store.md",
     "README.md",
-    "assets/es_refresh_api_lucene_index.png",
     "zettelkasten/css/hand_wave_animation.md",
     "zettelkasten/css/floaty_trees_animation.md",
     "zettelkasten/css",
-    "zettelkasten/threejs/performance_general.md",
-    "templates/zettel.md",
-    "zettelkasten/threejs/monitoring_fps.md",
-    "zettelkasten/threejs/monitoring_draw_calls.md",
-    "zettelkasten/threejs/fps limit.md",
-    "zettelkasten/threejs.md",
     "zettelkasten/threejs",
     "assets",
-    "threejs/performance/monitoring stats.md",
     "zettelkasten",
     "templates",
-    "Untitled 1.md",
     "threejs/performance"
   ]
 }
