@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/class_diagrams.md",
+                "file": "zettelkasten/baking_and_raytracing.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/class_diagrams.md",
+                "file": "zettelkasten/baking_and_raytracing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/class_diagrams.md",
+                "file": "zettelkasten/baking_and_raytracing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/class_diagrams.md"
+                "file": "zettelkasten/baking_and_raytracing.md"
               }
             }
           }
@@ -148,13 +148,14 @@
   },
   "active": "643899174c5708a4",
   "lastOpenFiles": [
+    "zettelkasten/baking_and_raytracing.md",
     "zettelkasten/aliyun_canal_client.md",
+    "zettelkasten/class_diagrams.md",
     "zettelkasten/aliyun_canal_overview.md",
     "assets/class_diagrams_association.png",
     "assets/class_diagrams_aggregation.png",
     "assets/class_diagram_dependency.png",
     "zettelkasten/aliyun_canal.md",
-    "zettelkasten/class_diagrams.md",
     "zettelkasten/activity_diagrams.md",
     "zettelkasten/state_machine_diagram.md",
     "zettelkasten/sequence_diagrams.md",
