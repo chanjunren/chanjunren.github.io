@@ -1,6 +1,5 @@
 # Dependencies
-website/node_modules
-home/node_modules
+/node_modules
 
 # Production
 /build
@@ -19,13 +18,3 @@ home/node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-iota-wiki
-old_blog_stuff
-old_docs_stuff
-
-package-lock.json
-
-.idea
-
-.website_v2/node_modules
