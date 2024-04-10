@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "1414d66d6e49543b",
+        "id": "b663d628558e988c",
         "type": "tabs",
         "children": [
           {
-            "id": "643899174c5708a4",
+            "id": "4bae33e8eb3d9432",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/baking_and_raytracing.md",
+                "file": "zettelkasten/3js_lights.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/baking_and_raytracing.md",
+                "file": "zettelkasten/3js_lights.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/baking_and_raytracing.md",
+                "file": "zettelkasten/3js_lights.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/baking_and_raytracing.md"
+                "file": "zettelkasten/3js_lights.md"
               }
             }
           }
@@ -146,10 +146,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "643899174c5708a4",
+  "active": "4bae33e8eb3d9432",
   "lastOpenFiles": [
     "zettelkasten/baking_and_raytracing.md",
-    "zettelkasten/aliyun_canal_client.md",
+    "zettelkasten/dts_overview.md",
+    "zettelkasten/3js_lights.md",
+    "zettelkasten/es_api_cheatsheet.md",
+    "zettelkasten/aliyun_canal_mq_client.md",
+    "zettelkasten/bill_of_materials.md",
+    "zettelkasten/aliyun_canal_api_client.md",
+    "zettelkasten/todo.md",
+    "zettelkasten/camel_architecture.md",
+    "zettelkasten/protobuf_overview.md",
+    "assets/aliyun_canal_client.png",
     "zettelkasten/class_diagrams.md",
     "zettelkasten/aliyun_canal_overview.md",
     "assets/class_diagrams_association.png",
@@ -166,24 +175,15 @@
     "assets/simple_example.png",
     "assets/uml_interface.png",
     "assets/uml_composition.png",
-    "assets/uml_inheritance.png",
     "zettelkasten/message_translator.md",
     "zettelkasten/message_endpoint.md",
-    "zettelkasten/camel_architecture.md",
     "zettelkasten/aliyun_canal_performance.md",
     "zettelkasten/channel_adapter.md",
     "zettelkasten/content_enricher.md",
-    "zettelkasten/todo.md",
-    "zettelkasten/dts_overview.md",
     "zettelkasten/eip_overview.md",
     "zettelkasten/Untitled.md",
     "zettelkasten/Untitled 1.md",
-    "zettelkasten/es_api_interface.md",
     "zettelkasten/es_realtime_search.md",
-    "zettelkasten/skating/toe_shift.md",
-    "zettelkasten/data_type_size_comparisons.md",
-    "zettelkasten/threejs/monitoring_fps.md",
-    "zettelkasten/2024-03-31.md",
     "Untitled.canvas",
     "zettelkasten/css",
     "zettelkasten/threejs",

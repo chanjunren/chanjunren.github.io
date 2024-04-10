@@ -4,10 +4,12 @@ Tags: #backend #dts
 
 # dts_overview
 
+```ad-tldr
+Service for migrating / replicating data
+```
+
 ### Use cases
-- Data migration
-- Data replication
-	- With high availability
+- High availability
 - Remote real time backup
 - Real time data integration
 - Cache refresh
