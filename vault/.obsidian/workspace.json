@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "cc4662f89faa1911",
+        "id": "716e2f8c51fbc953",
         "type": "tabs",
         "children": [
           {
-            "id": "31a9d259f78c1fe2",
+            "id": "708829a0e083c633",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -146,18 +146,23 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "31a9d259f78c1fe2",
+  "active": "708829a0e083c633",
   "lastOpenFiles": [
+    "zettelkasten/blender_dump.md",
+    "assets/blender_extrude_axe.png",
+    "assets/blender_inset_lampy.png",
+    "assets/blender_bisect_rocks.png",
+    "assets/blender_transform_pivot_pt_menu.png",
+    "zettelkasten/second_brain.md",
+    "zettelkasten/es_api_cheatsheet.md",
+    "zettelkasten/es_query_dsl.md",
     "zettelkasten/sql_date_functions_cheatsheet.md",
     "zettelkasten/pasta_test.md",
-    "zettelkasten/es_query_dsl.md",
-    "zettelkasten/es_api_cheatsheet.md",
     "zettelkasten/snowflake_id.md",
     "assets/Pasted image 20240406141718.png",
     "README.md",
     "zettelkasten/paste_LOL.md",
     "zettelkasten/design_doc_template.md",
-    "zettelkasten/second_brain.md",
     "templates/zettel.md",
     "zettelkasten/3js_lights.md",
     "zettelkasten/baking_and_raytracing.md",
@@ -177,13 +182,7 @@
     "zettelkasten/aliyun_canal.md",
     "zettelkasten/activity_diagrams.md",
     "zettelkasten/state_machine_diagram.md",
-    "zettelkasten/sequence_diagrams.md",
-    "zettelkasten/interaction_overview_diagrams.md",
     "assets/state_machine_diagram_example.png",
-    "assets/interaction_overview_example.png",
-    "assets/simple_example.png",
-    "assets/uml_interface.png",
-    "assets/uml_composition.png",
     "Untitled.canvas",
     "zettelkasten/css",
     "zettelkasten/threejs",
