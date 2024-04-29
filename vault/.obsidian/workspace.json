@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "cc4662f89faa1911",
+        "id": "90e7302aa965d247",
         "type": "tabs",
         "children": [
           {
-            "id": "31a9d259f78c1fe2",
+            "id": "ef4b6ba47be7b65d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/threejs/controls.md",
+                "file": "zettelkasten/threejs/materials.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/threejs/controls.md",
+                "file": "zettelkasten/threejs/materials.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/threejs/controls.md",
+                "file": "zettelkasten/threejs/materials.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/threejs/controls.md"
+                "file": "zettelkasten/threejs/materials.md"
               }
             }
           }
@@ -146,44 +146,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "31a9d259f78c1fe2",
+  "active": "ef4b6ba47be7b65d",
   "lastOpenFiles": [
-    "zettelkasten/threejs/threejs_scroll_animation.md",
-    "zettelkasten/threejs/controls.md",
-    "zettelkasten/threejs/lights.md",
-    "zettelkasten/threejs/threejs_resizing_windows.md",
-    "zettelkasten/threejs/threejs_textures.md",
-    "zettelkasten/threejs/transformations.md",
-    "zettelkasten/threejs/threejs_shadows.md",
-    "zettelkasten/threejs/threejs_particles.md",
-    "zettelkasten/threejs/threejs_materials.md",
-    "zettelkasten/threejs/geometries.md",
-    "zettelkasten/threejs/animation.md",
+    "zettelkasten/content_enricher.md",
+    "zettelkasten/class_diagrams.md",
+    "zettelkasten/threejs/materials.md",
+    "assets/3js_textures_uv_unwrapping.png",
+    "assets/3js_textures_repeat_wrap.png",
+    "assets/3js_textures_repeat_mirrored_wrap.png",
+    "assets/3js_textures_mipmap_example.png",
+    "assets/3js_textures_mag_filter_example.png",
+    "zettelkasten/threejs/textures.md",
+    "assets/3js_textures_rotation.png",
+    "assets/Pasted image 20240428170732.png",
+    "assets/Pasted image 20240428170642.png",
+    "assets/3js_textures_repeat_without_wrap.png",
+    "zettelkasten/settings_json_backup.md",
+    "assets/3js_textures_with_srgb_specified.png",
+    "zettelkasten/house_considerations.md",
     "zettelkasten/second_brain.md",
-    "zettelkasten/3js_lights.md",
+    "zettelkasten/threejs/transformations.md",
+    "zettelkasten/threejs/threejs_resizing_windows.md",
+    "zettelkasten/threejs/lights.md",
+    "zettelkasten/threejs/geometries.md",
+    "zettelkasten/threejs/controls.md",
+    "zettelkasten/threejs/animation.md",
     "zettelkasten/blender_dump.md",
-    "assets/blender_transform_pivot_pt_menu.png",
-    "assets/blender_inset_lampy.png",
-    "assets/blender_extrude_axe.png",
-    "assets/blender_bisect_rocks.png",
+    "zettelkasten/es_api_cheatsheet.md",
+    "zettelkasten/es_query_dsl.md",
     "zettelkasten/sql_date_functions_cheatsheet.md",
     "zettelkasten/pasta_test.md",
-    "zettelkasten/es_query_dsl.md",
-    "zettelkasten/es_api_cheatsheet.md",
     "zettelkasten/snowflake_id.md",
-    "assets/Pasted image 20240406141718.png",
     "README.md",
     "zettelkasten/paste_LOL.md",
     "zettelkasten/design_doc_template.md",
     "templates/zettel.md",
+    "zettelkasten/3js_lights.md",
     "zettelkasten/baking_and_raytracing.md",
     "zettelkasten/dts_overview.md",
-    "zettelkasten/aliyun_canal_mq_client.md",
-    "assets/aliyun_canal_client.png",
-    "assets/class_diagrams_association.png",
-    "assets/class_diagrams_aggregation.png",
-    "assets/class_diagram_dependency.png",
-    "assets/state_machine_diagram_example.png",
     "Untitled.canvas",
     "zettelkasten/css",
     "zettelkasten/threejs",
