@@ -1,6 +1,5 @@
-2  0240325 1812
-
-Tags: #elasticsearch
+🗓️ 20240325 1812
+📎 #elasticsearch
 
 # es_api_cheatsheet
 

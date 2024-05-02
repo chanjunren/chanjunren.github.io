@@ -1,6 +1,5 @@
-20240321 1110
-
-Tags: #backend #id_generation
+🗓️ 20240321 1110
+📎 #backend #id_generation
 
 # snowflake_id
 

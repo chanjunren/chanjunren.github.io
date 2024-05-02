@@ -1,6 +1,5 @@
-20240330 1823
-
-Tags: #mobx
+🗓️ 20240330 1823
+📎 #mobx
 
 # mobx_store
 ### layout

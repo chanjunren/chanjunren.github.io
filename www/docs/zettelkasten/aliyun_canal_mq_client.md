@@ -1,6 +1,5 @@
-20240409 0948
-
-Tags: #aliyun_canal 
+🗓️ 20240409 0948
+📎 #aliyun_canal 
 
 # aliyun_canal_mq_client
 ## Partitioning Strategies

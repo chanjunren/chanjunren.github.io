@@ -1,6 +1,5 @@
-20240409 0956
-
-Tags: #maven
+🗓️ 20240409 0956
+📎 #maven
 
 # bill_of_materials
 ```xml

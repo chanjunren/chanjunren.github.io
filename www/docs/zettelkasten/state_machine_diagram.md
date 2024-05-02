@@ -1,6 +1,5 @@
-20240406 1419
-
-Tags: #modeling
+🗓️ 20240406 1419
+📎 #modeling
 
 # state_machine_diagram
 ![[state_machine_diagram_example.png]]

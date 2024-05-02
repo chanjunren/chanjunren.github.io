@@ -1,6 +1,5 @@
-20240419 1430
-
-Tags: #sql
+🗓️ 20240419 1430
+📎  #sql #backend
 
 # sql_date_functions_cheatsheet
 

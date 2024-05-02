@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "316e676f34e94ad8",
+        "id": "3166e6caf8dd1ae4",
         "type": "tabs",
         "children": [
           {
-            "id": "8b3feeaa80adcdd2",
+            "id": "bea4afaf38ff0118",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/second_brain.md",
+                "file": "zettelkasten/activity_diagrams.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/second_brain.md",
+                "file": "zettelkasten/activity_diagrams.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/second_brain.md",
+                "file": "zettelkasten/activity_diagrams.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/second_brain.md"
+                "file": "zettelkasten/activity_diagrams.md"
               }
             }
           }
@@ -146,43 +146,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8b3feeaa80adcdd2",
+  "active": "bea4afaf38ff0118",
   "lastOpenFiles": [
+    "templates/zettel.md",
+    "zettelkasten/second_brain.md",
+    "zettelkasten/sequence_diagrams.md",
+    "zettelkasten/snowflake_id.md",
+    "zettelkasten/sql_date_functions_cheatsheet.md",
+    "zettelkasten/todo.md",
+    "zettelkasten/state_machine_diagram.md",
+    "zettelkasten/es_realtime_search.md",
+    "zettelkasten/protobuf_overview.md",
+    "zettelkasten/scratchpad.md",
+    "zettelkasten/mobx_store.md",
+    "zettelkasten/pasta_test.md",
+    "zettelkasten/message_translator.md",
+    "zettelkasten/message_endpoint.md",
+    "zettelkasten/blender_dump.md",
+    "zettelkasten/design_doc_template.md",
+    "zettelkasten/eip_overview.md",
+    "zettelkasten/es_api_cheatsheet.md",
+    "zettelkasten/es_query_dsl.md",
+    "zettelkasten/house_considerations.md",
+    "zettelkasten/interaction_overview_diagrams.md",
+    "zettelkasten/dts_overview.md",
+    "zettelkasten/blender_shortcuts.md",
+    "zettelkasten/camel_architecture.md",
+    "zettelkasten/channel_adapter.md",
+    "zettelkasten/class_diagrams.md",
     "assets/blender_face_orientation_menu.png",
     "assets/blender_face_orientation_initial.png",
-    "zettelkasten/threejs/baking_and_exporting.md",
     "assets/blender_baking_image_settings.png",
-    "zettelkasten/blender_dump.md",
-    "zettelkasten/blender_shortcuts.md",
-    "zettelkasten/second_brain.md",
-    "zettelkasten/threejs/materials.md",
-    "zettelkasten/content_enricher.md",
-    "zettelkasten/class_diagrams.md",
     "assets/3js_textures_uv_unwrapping.png",
     "assets/3js_textures_repeat_wrap.png",
     "assets/3js_textures_repeat_mirrored_wrap.png",
     "assets/3js_textures_mipmap_example.png",
     "assets/3js_textures_mag_filter_example.png",
-    "zettelkasten/threejs/textures.md",
     "assets/3js_textures_rotation.png",
     "assets/Pasted image 20240428170732.png",
-    "zettelkasten/settings_json_backup.md",
-    "zettelkasten/house_considerations.md",
-    "zettelkasten/threejs/transformations.md",
-    "zettelkasten/threejs/threejs_resizing_windows.md",
-    "zettelkasten/threejs/lights.md",
-    "zettelkasten/threejs/geometries.md",
-    "zettelkasten/threejs/controls.md",
-    "zettelkasten/threejs/animation.md",
-    "zettelkasten/es_api_cheatsheet.md",
-    "zettelkasten/es_query_dsl.md",
-    "zettelkasten/sql_date_functions_cheatsheet.md",
-    "zettelkasten/pasta_test.md",
-    "zettelkasten/snowflake_id.md",
-    "README.md",
-    "zettelkasten/paste_LOL.md",
-    "zettelkasten/design_doc_template.md",
-    "templates/zettel.md",
     "Untitled.canvas",
     "zettelkasten/css",
     "zettelkasten/threejs",

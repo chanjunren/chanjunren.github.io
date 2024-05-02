@@ -1,6 +1,5 @@
-20240406 1404
-
-Tags: #modeling
+🗓️ 20240406 1404
+📎 #modeling
 
 # class_diagrams
 

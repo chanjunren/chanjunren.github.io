@@ -1,6 +1,5 @@
-20240416 1107
-
-Tags: 
+🗓️ 20240416 1107
+📎 #elasticsearch 
 
 # es_query_dsl
 ```ad-quote

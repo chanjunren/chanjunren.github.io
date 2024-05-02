@@ -1,6 +1,5 @@
-20240428 1153
-
-Tags: 
+🗓️ 20240428 1153
+📎 #personal
 
 # house_considerations
 ```ad-note

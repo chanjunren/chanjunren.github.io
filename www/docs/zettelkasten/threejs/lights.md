@@ -1,27 +1,30 @@
+🗓️ 20240428 1004
 
-20240428 1004
-
-Tags: 
+📎 Tags:
 
 # lights
+
 ## AmbientLight
+
 - applies omnidirectional lighting on all geometries of the scene
+
 ### Parameters
+
 - color
 - intensity
+
 ```javascript
-const ambientLight = new THREE.AmbientLight(0xffffff, 1)
-scene.add(ambientLight)
+const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+scene.add(ambientLight);
 
 // Equals
-const ambientLight = new THREE.AmbientLight()
-ambientLight.color = new THREE.Color(0xffffff)
-ambientLight.intensity = 1
-scene.add(ambientLight)
+const ambientLight = new THREE.AmbientLight();
+ambientLight.color = new THREE.Color(0xffffff);
+ambientLight.intensity = 1;
+scene.add(ambientLight);
 ```
 
 ![](https://threejs-journey.com/assets/lessons/14/001.png)
-
 
 ```ad-abstract
 Don't really understand yet but jsut pasting this here for future JR
@@ -34,22 +37,22 @@ In real life, when you light up an object, the sides of the objects at the oppos
 
 ## DirectionalLight
 
--  will have a sun-like effect as if the sun rays were traveling in parallel
+- will have a sun-like effect as if the sun rays were traveling in parallel
 - Parameters:
 - color
 - intensity
 - Light comes from above by default
-- Can set `position` to adjust source accordingly 
+- Can set `position` to adjust source accordingly
 
 ```javascript
-const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.9)
-scene.add(directionalLight)
+const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.9);
+scene.add(directionalLight);
 ```
 
 ![](https://threejs-journey.com/assets/lessons/14/002.png)
 
 ```javascript
-directionalLight.position.set(1, 0.25, 0)
+directionalLight.position.set(1, 0.25, 0);
 ```
 
 ![](https://threejs-journey.com/assets/lessons/14/003.png)
@@ -57,15 +60,16 @@ directionalLight.position.set(1, 0.25, 0)
 ## HemisphereLight
 
 Faces facing the sky will be lit by one color while another color will lit faces facing the ground
-- parameter 
+
+- parameter
 - `color` (sky color)
-- `groundColor` 
+- `groundColor`
 - `intensity`
 - fade (to control how the light fade )
 
 ```javascript
-const hemisphereLight = new THREE.HemisphereLight(0xff0000, 0x0000ff, 0.9)
-scene.add(hemisphereLight)
+const hemisphereLight = new THREE.HemisphereLight(0xff0000, 0x0000ff, 0.9);
+scene.add(hemisphereLight);
 ```
 
 ![](https://threejs-journey.com/assets/lessons/14/004.png)
@@ -78,16 +82,16 @@ scene.add(hemisphereLight)
 - Parameters
 - `color`
 - intensity
-- Can be moved like an object 
+- Can be moved like an object
 - fade effects
 - Decay
-- distance 
+- distance
 
 ```javascript
-const pointLight = new THREE.PointLight(0xff9000, 1.5)
-scene.add(pointLight)
+const pointLight = new THREE.PointLight(0xff9000, 1.5);
+scene.add(pointLight);
 
-pointLight.position.set(1, - 0.5, 1)
+pointLight.position.set(1, -0.5, 1);
 ```
 
 ![](https://threejs-journey.com/assets/lessons/14/006.png)
@@ -99,28 +103,29 @@ pointLight.position.set(1, - 0.5, 1)
 - Parameters
 - `Color`
 - `intensity`
-- `width` 
+- `width`
 - `height`
 - Only works with [MeshStandardMaterial](https://threejs.org/docs/#api/en/materials/MeshStandardMaterial) and [MeshPhysicalMaterial](https://threejs.org/docs/#api/en/materials/MeshPhysicalMaterial)
 - Can use `lookAt`
 
 ```javascript
-const rectAreaLight = new THREE.RectAreaLight(0x4e00ff, 6, 1, 1)
-scene.add(rectAreaLight)
+const rectAreaLight = new THREE.RectAreaLight(0x4e00ff, 6, 1, 1);
+scene.add(rectAreaLight);
 ```
 
 ![](https://threejs-journey.com/assets/lessons/14/008.png)
 
-
 ```javascript
-rectAreaLight.position.set(- 1.5, 0, 1.5)
-rectAreaLight.lookAt(new THREE.Vector3())
+rectAreaLight.position.set(-1.5, 0, 1.5);
+rectAreaLight.lookAt(new THREE.Vector3());
 ```
 
 ![](https://threejs-journey.com/assets/lessons/14/009.png)
 
 ## SpotLight
+
 - works like a flashlight
+
 - It's a cone of light starting at a point and oriented in a direction
 - parameters
 - `color`
@@ -131,9 +136,16 @@ rectAreaLight.lookAt(new THREE.Vector3())
 - `decay`: how fast the light dims
 
 ```javascript
-const spotLight = new THREE.SpotLight(0x78ff00, 4.5, 10, Math.PI * 0.1, 0.25, 1)
-spotLight.position.set(0, 2, 3)
-scene.add(spotLight)
+const spotLight = new THREE.SpotLight(
+  0x78ff00,
+  4.5,
+  10,
+  Math.PI * 0.1,
+  0.25,
+  1
+);
+spotLight.position.set(0, 2, 3);
+scene.add(spotLight);
 ```
 
 ![](https://threejs-journey.com/assets/lessons/14/010.png)
@@ -141,7 +153,7 @@ scene.add(spotLight)
 Rotating our [SpotLight](https://threejs.org/docs/index.html#api/en/lights/SpotLight) is a little harder. The instance has a property named `target`, which is an [Object3D](https://threejs.org/docs/index.html#api/en/core/Object3D). The [SpotLight](https://threejs.org/docs/index.html#api/en/lights/SpotLight) is always looking at that `target` object. But if you try to change its position, the [SpotLight](https://threejs.org/docs/index.html#api/en/lights/SpotLight) won't budge:
 
 ```javascript
-spotLight.target.position.x = - 0.75
+spotLight.target.position.x = -0.75;
 ```
 
 ![](https://threejs-journey.com/assets/lessons/14/011.png)
@@ -149,7 +161,7 @@ spotLight.target.position.x = - 0.75
 That is due to our `target` not being in the scene. Simply add the `target` to the scene, and it should work:
 
 ```javascript
-scene.add(spotLight.target)
+scene.add(spotLight.target);
 ```
 
 ![](https://threejs-journey.com/assets/lessons/14/012.png)
@@ -159,8 +171,8 @@ scene.add(spotLight.target)
 - can cost a lot when it comes to performance
 - The GPU will have to do many calculations
 - like the distance from the face to the light, how much that face is facing the light, if the face is in the spot light cone, etc
-Best practise
-- Use less costly / less lights 
+  Best practise
+- Use less costly / less lights
 
 Minimal cost:
 
@@ -178,7 +190,8 @@ High cost:
 - RectAreaLight
 
 ## Baking
-- The idea is that you bake the light into the texture (using 3D software) 
+
+- The idea is that you bake the light into the texture (using 3D software)
 - :(
 - Lights cannot move (because there are none)
 - Need more textures
@@ -186,16 +199,17 @@ High cost:
 ![](https://threejs-journey.com/assets/lessons/14/013.jpg)
 
 ## Helpers
+
 ```ad-tldr
-Used for helping to **position** lights 
+Used for helping to **position** lights
 ```
+
 - [HemisphereLightHelper](https://threejs.org/docs/index.html#api/en/helpers/HemisphereLightHelper)
 - [DirectionalLightHelper](https://threejs.org/docs/index.html#api/en/helpers/DirectionalLightHelper)
 - [PointLightHelper](https://threejs.org/docs/index.html#api/en/helpers/PointLightHelper)
 - [RectAreaLightHelper](https://threejs.org/docs/index.html#examples/en/helpers/RectAreaLightHelper)
 - [SpotLightHelper](https://threejs.org/docs/index.html#api/en/helpers/SpotLightHelper)
 
+---
 
-
---- 
 # References

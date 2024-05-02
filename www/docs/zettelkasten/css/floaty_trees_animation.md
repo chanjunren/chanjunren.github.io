@@ -1,12 +1,13 @@
-20240319 1857
+️🗓️ 20240319 1857
 
-Tags:  #css #animation
+Tags: #css #animation
 
 # floaty_trees_animation
+
 ```ts
-import { FC } from 'react';
-import classNames from 'classnames';
-import styles from './index.module.less';
+import { FC } from "react";
+import classNames from "classnames";
+import styles from "./index.module.less";
 
 interface JrLoadingPlaceholderProps {
   className?: string;
@@ -24,12 +25,12 @@ const JrLoadingPlaceholder: FC<JrLoadingPlaceholderProps> = ({ className }) => {
 };
 
 export default JrLoadingPlaceholder;
-
 ```
 
 ```css
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -66,8 +67,10 @@ export default JrLoadingPlaceholder;
 .container span:nth-child(4) {
   animation-delay: 0.6s;
 }
-
 ```
---- 
+
+---
+
 # References
+
 - ChatGPT and I

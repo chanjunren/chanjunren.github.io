@@ -1,6 +1,5 @@
-20240319 2350
-
-Tags: 
+🗓️ 20240319 2350
+📎  #elasticsearch 
 
 # es_realtime_search
 | Term                    | Description                       |
