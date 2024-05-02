@@ -13,16 +13,12 @@ Tags:
 - Zettelkasten
 - ThreeJS playground
 ### 🤩Websites to reference
-- [https://www.github.com](https://www.github.com) (when signed out)
+- https://supabase.com/
+- https://chartogne-taillet.com/
 - [https://kaino-wagon.vercel.app/](https://kaino-wagon.vercel.app/)
-- Docusaurus configs
-- [https://github.com/iotaledger/iota-wiki](https://github.com/iotaledger/iota-wiki) 
-- https://www.artstation.com/kaino_university
 - https://threejs.org/
-- https://annoyingmuseum.zendesk.com/
 - https://threejs-journey.com/#summary
-- https://lego-van-gogh.vercel.app/
-- https://www.journeytojunipero.com/
+
 ### 📖 Libraries
 - [https://ui.shadcn.com/](https://ui.shadcn.com/)
 - [https://tailwindcss.com/](https://tailwindcss.com/)
@@ -32,6 +28,10 @@ Tags:
 
 ### Project Ideas dump
 - http://wildflower.resn.co.nz/
+
+### Courses
+- https://www.cgboost.com/courses/cubic-worlds
+- https://www.artstation.com/kaino_university
 
   
 
