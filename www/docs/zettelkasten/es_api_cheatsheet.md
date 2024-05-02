@@ -4,16 +4,18 @@
 # es_api_cheatsheet
 
 ### Get Mapping
-```json
+
+```
 GET /{index_name}/_mapping
 
 GET /{index1},{index2}/_mapping
 ```
 
 ### New index
-> _PUT /user_alerts_ 
+
+> PUT /otc_user_alert_index
+
 ```json
-PUT /otc_user_alert_index
 {
   "mappings": {
     "properties": {
@@ -35,7 +37,7 @@ PUT /otc_user_alert_index
         "type": "boolean"
       },
       "occurrences": {
-        "type": "nested", 
+        "type": "nested",
         "properties": {
           "id": {
             "type": "long"
@@ -65,7 +67,9 @@ PUT /otc_user_alert_index
 ```
 
 ### Nested Query
-> GET /my-index-000001/_search
+
+> GET /my-index-000001/\_search
+
 ```json
 {
   "query": {
@@ -92,32 +96,36 @@ PUT /otc_user_alert_index
 ```
 
 ### Query with script
-> POST /.../{index}/_update/90000460211 
+
+> POST /.../{index}/\_update/90000460211
+
 ```json
 {
-    "script": {
-        "source": "if (ctx._source.occurrences == null) { ctx._source.occurrences = []; } boolean updated = false; for (item in ctx._source.occurrences) { if (item.id == params.occurrence.id) { item.putAll(params.occurrence); updated = true; break; } } if (!updated) { ctx._source.occurrences.add(params.occurrence); }",
-        "params": {
-            "occurrence": {
-                "id": 15,
-                "created_date": 1683602203000,
-                "modified_date": 1683602203000,
-                "user_id": 90000460211,
-                "handle_type": 2,
-                "type": 1,
-                "metadata": "230509111336868",
-                "assigneeId": 564563454,
-                "handlerId": 123
-            }
-        }
-    },
-    "scripted_upsert": true,
-    "upsert": {}
+  "script": {
+    "source": "if (ctx._source.occurrences == null) { ctx._source.occurrences = []; } boolean updated = false; for (item in ctx._source.occurrences) { if (item.id == params.occurrence.id) { item.putAll(params.occurrence); updated = true; break; } } if (!updated) { ctx._source.occurrences.add(params.occurrence); }",
+    "params": {
+      "occurrence": {
+        "id": 15,
+        "created_date": 1683602203000,
+        "modified_date": 1683602203000,
+        "user_id": 90000460211,
+        "handle_type": 2,
+        "type": 1,
+        "metadata": "230509111336868",
+        "assigneeId": 564563454,
+        "handlerId": 123
+      }
+    }
+  },
+  "scripted_upsert": true,
+  "upsert": {}
 }
 ```
 
 ### Nested
 
---- 
+---
+
 # References
+
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html

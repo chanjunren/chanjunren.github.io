@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/activity_diagrams.md",
+                "file": "zettelkasten/second_brain.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/activity_diagrams.md",
+                "file": "zettelkasten/second_brain.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/activity_diagrams.md",
+                "file": "zettelkasten/second_brain.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/activity_diagrams.md"
+                "file": "zettelkasten/second_brain.md"
               }
             }
           }
@@ -149,6 +149,7 @@
   "active": "bea4afaf38ff0118",
   "lastOpenFiles": [
     "templates/zettel.md",
+    "zettelkasten/activity_diagrams.md",
     "zettelkasten/second_brain.md",
     "zettelkasten/sequence_diagrams.md",
     "zettelkasten/snowflake_id.md",
@@ -173,7 +174,6 @@
     "zettelkasten/blender_shortcuts.md",
     "zettelkasten/camel_architecture.md",
     "zettelkasten/channel_adapter.md",
-    "zettelkasten/class_diagrams.md",
     "assets/blender_face_orientation_menu.png",
     "assets/blender_face_orientation_initial.png",
     "assets/blender_baking_image_settings.png",
