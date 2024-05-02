@@ -1,6 +1,8 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type { Config } from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import tailwindPlugin from "./plugins/tailwind-plugin.cjs"; // add this
+
 
 const config: Config = {
   title: 'My Site',
@@ -66,9 +68,9 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
+          sidebarId: 'docs',
+          position: 'right',
+          label: 'zettelkasten',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
@@ -128,6 +130,7 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+  plugins: [tailwindPlugin]
 };
 
 export default config;
