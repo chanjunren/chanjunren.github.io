@@ -2,6 +2,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
 import tailwindPlugin from "./plugins/tailwind-plugin.cjs"; // add this
+import { obsidianToDocusaurusPreprocessor } from './src/utils/markdownPreprocessor';
 
 
 const config: Config = {
@@ -42,13 +43,7 @@ const config: Config = {
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -72,7 +67,6 @@ const config: Config = {
           position: 'right',
           label: 'zettelkasten',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',
@@ -130,7 +124,11 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
-  plugins: [tailwindPlugin]
+  plugins: [tailwindPlugin],
+  staticDirectories: ['docs/assets'],
+  markdown: {
+    preprocessor: obsidianToDocusaurusPreprocessor
+  }
 };
 
 export default config;
