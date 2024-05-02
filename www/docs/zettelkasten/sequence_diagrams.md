@@ -1,6 +1,5 @@
-20240406 1417
-
-Tags: #modeling
+🗓️ 20240406 1417
+📎 #modeling
 
 # sequence_diagrams
 ![[Pasted image 20240406141718.png]]

@@ -1,8 +1,8 @@
-{{date:YYYYMMDD}}{{time: HHmm}}
-
-Tags: 
+🗓️ {{date:YYYYMMDD}}{{time: HHmm}}
+📎
 
 # {{title}}
 
---- 
+---
+
 # References

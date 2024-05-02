@@ -1,10 +1,12 @@
-20240406 1413
-
-Tags: #modeling
+️🗓️ 20240406 1413
+📎 #modeling
 
 # activity_diagrams
+
 ![[simple_example.png]]
 
---- 
+---
+
 # References
+
 - NUS CS2103T Textbook

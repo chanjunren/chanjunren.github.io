@@ -1,6 +1,6 @@
-20240406 1950
+🗓️ 20240406 1950
+📎 #threejs
 
-Tags: #threejs
 # raytracing
 - Rendering technique for simulating how light interacts with objects
 	- Reflections

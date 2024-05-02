@@ -1,14 +1,17 @@
-20240319 2345
-
-Tags: #css #animation
+🗓️️ 20240319 2345
+📎 #css #animation
 
 # hand_wave_animation
+
 ```css
 @keyframes hand-wave-animation {
-  0%, 50%, 100% {
+  0%,
+  50%,
+  100% {
     transform: rotate(0deg);
   }
-  25%, 75% {
+  25%,
+  75% {
     transform: rotate(60deg);
   }
 }
@@ -20,7 +23,6 @@ Tags: #css #animation
   cursor: default;
 }
 
-
 .hand-wave:hover {
   animation-name: hand-wave-animation;
   animation-duration: 0.9999s;
@@ -29,8 +31,8 @@ Tags: #css #animation
 }
 ```
 
+---
 
-
---- 
 # References
+
 - ChatGPT and I

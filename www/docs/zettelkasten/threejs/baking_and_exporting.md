@@ -1,8 +1,9 @@
-20240430 1419
+🗓️ 20240430 1419
 
-Tags: 
+📎
 
 # baking_and_exporting
+
 ```ad-important
 Goal is to export blender model to 3JS
 
@@ -13,15 +14,17 @@ Need to:
 ```
 
 ## Shortcuts dump
+
 | Shortcut | Description      | Notes                      |
 | -------- | ---------------- | -------------------------- |
 | `u`      | open unwrap menu | select object in edit mode |
 |          |                  |                            |
 
 ## Optimisations
+
 ### Removing hidden faces
 
--  Basically, just remove additional faces that cannot be seen by the scene
+- Basically, just remove additional faces that cannot be seen by the scene
 - Consider how the camera will interact with the scene
 
 ```ad-tip
@@ -31,30 +34,33 @@ Switch between `wireframe` and `solid` to clearly see which faces are not needed
 Though it isn't mandatory, if some rocks are overflowing into the ground, you can fix that with the `bissect` tool we used in the previous lesson. Select all the faces in `Edit Mode`, press `F3` and search for `bissect`. Then slice the overflowing parts of the rocks you want to cut out.
 
 ### Fixing faces orientation
+
 - Faces in blender have a `front` and a `back`
 - Blender faces need to all face the **correct** side (🔵)
-     > Might cause baking issues otherwise
+  > Might cause baking issues otherwise
 - Faces can be affected by `extrudes` / `insets` other blender operations
 
 To fix:
+
 1. ![[blender_face_orientation_menu.png]]
 2. Fix all red faces
-![[blender_face_orientation_initial.png]]
+   ![[blender_face_orientation_initial.png]]
 
 3. To fix:
-	1. Select object
-	2. `Edit Mode`
-	3. Select faces
-	4. `F3` > search `flip` > `Mesh > Normals > Flio`
+   1. Select object
+   2. `Edit Mode`
+   3. Select faces
+   4. `F3` > search `flip` > `Mesh > Normals > Flio`
 
 ### Normalize scales
 
 #### Background
+
 - Objects scaled in `Edit Mode` > geometry scaled, not object
 - Objects scaled in `Object Mode` > object scaled, not geometry
 - For automatic UV unwrapping, blender takes into account **geometry size**
-	- This might cause the objects to take up less / more space
-	
+  - This might cause the objects to take up less / more space
+
 > Therefore, need to normalise scales
 
 In `Object Mode`, select all the objects with `A` , press `CTRL + A` to open the `Apply` menu and choose `Scale`:
@@ -68,6 +74,7 @@ We are done with the optimization and we can start to UV unwrap our scene.
 Don't forget to save.
 
 ## UV unwrapping
+
 - The idea is to unfold all the geometry composing our scene into a square
 
 The `UV Editor` displays a square that represents our unfold. We need to make everything fit inside that square. We could have used multiple textures, which would mean independent UV unwraps, but our scene isn't that complex or big.
@@ -252,17 +259,20 @@ Once you're happy with the result, you can deactivate the `Display Stretch`:
 ![](https://threejs-journey.com/assets/lessons/35/066.png)
 
 ## Baking
+
 ### Creating the texture
+
 1. Go to `UV` Editor
 2. `+ New`
+
 ```ad-note
 This isn't that important but, in Three.js, when looking at the model from specific angles, the mip mapping might let that color appear on edges of the geometry. A white tint will look like a reflection and users won't notice it.
 ```
-3. 
-![[blender_baking_image_settings.png]]
-4. Save as `Radiance HDR`
-### Saving the texture
 
+3.  ![[blender_baking_image_settings.png]]
+4.  Save as `Radiance HDR`
+
+### Saving the texture
 
 A saving window should open. Choose `Radiance HDR` as the `File Format` and change the name to `baked.hdr`. Make sure to save in the same folder as your `.blend` file:
 
@@ -579,5 +589,7 @@ Some more information:
 Name your file `portal.glb` and put it with your `baked.jpg` file.
 
 We now have both the `baked.jpg` file and the `portal.glb` files. In the next lesson, we are going to import them into Three.js as well as optimize the model a bit more.
---- 
+
+---
+
 # References

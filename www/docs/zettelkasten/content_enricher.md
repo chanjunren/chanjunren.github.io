@@ -1,6 +1,5 @@
-20240404 1505
-
-Tags: #backend #eip
+🗓️ 20240404 1505
+📎 #backend #eip
 
 # content_enricher
 ## Background

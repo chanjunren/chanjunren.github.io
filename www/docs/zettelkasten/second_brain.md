@@ -1,18 +1,23 @@
-20240410 1409
-
-Tags: 
+🗓️ 20240410 1409
+📎 #personal
 
 # second_brain
+
 ### 🐼Prerequisites
+
 - Finish threeJS course
 - Find and do blender course (skillshare)
+
 ### 😎 Features
+
 - Lbxx animation at the bottom
 - Similar to https://chester.how/
 - World map / family photos
 - Zettelkasten
 - ThreeJS playground
+
 ### 🤩Websites to reference
+
 - https://supabase.com/
 - https://chartogne-taillet.com/
 - [https://kaino-wagon.vercel.app/](https://kaino-wagon.vercel.app/)
@@ -20,24 +25,29 @@ Tags:
 - https://threejs-journey.com/#summary
 
 ### 📖 Libraries
+
 - [https://ui.shadcn.com/](https://ui.shadcn.com/)
 - [https://tailwindcss.com/](https://tailwindcss.com/)
-- [https://ui.aceternity.com/](https://ui.aceternity.com/) 
+- [https://ui.aceternity.com/](https://ui.aceternity.com/)
 - ThreeJS
+
 ### 💡Pictures dump
 
 ### Project Ideas dump
+
 - http://wildflower.resn.co.nz/
 
 ### Courses
+
 - https://www.cgboost.com/courses/cubic-worlds
 - https://www.artstation.com/kaino_university
 
-  
+---
 
---- 
 # References
+
 - https://www.reddit.com/r/blender/comments/101z60g/a_roadmap_for_learning_blender3d/
+
 ```ad-quote
 1.   Do beginners tutorials. I cannot stress this enough. Not only will this save you a great deal of time and frustration, but probably from rage quitting as well. Even if they don't teach you the specific thing you want, after doing the beginners tutorials you will at least have a feel for the program, understand the basic navigation controls and have the vocabulary to ask the right questions. Make notes as you go, particularly of hot keys. This is the the monkey-see-monkey-do phase.
 
