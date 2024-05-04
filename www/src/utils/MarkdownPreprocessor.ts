@@ -1,5 +1,3 @@
-// MarkdownPreprocessor.ts
-
 const OBSIDIAN_IMG_REGEX = /!\[\[([^\]]+)\]\]/g;
 const DATE_TAG_REGEX = /(🗓️\s*\d{8}\s*\d{4}\s*\n)/g;
 
