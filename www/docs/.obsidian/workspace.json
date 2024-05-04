@@ -173,7 +173,6 @@
     "zettelkasten/dts_overview.md",
     "zettelkasten/blender_shortcuts.md",
     "zettelkasten/camel_architecture.md",
-    "zettelkasten/channel_adapter.md",
     "assets/blender_face_orientation_menu.png",
     "assets/blender_face_orientation_initial.png",
     "assets/blender_baking_image_settings.png",
@@ -192,4 +191,3 @@
     "templates",
     "threejs/performance"
   ]
-}
