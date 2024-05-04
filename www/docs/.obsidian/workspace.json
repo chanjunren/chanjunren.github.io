@@ -148,8 +148,8 @@
   },
   "active": "bea4afaf38ff0118",
   "lastOpenFiles": [
-    "templates/zettel.md",
     "zettelkasten/activity_diagrams.md",
+    "templates/zettel.md",
     "zettelkasten/second_brain.md",
     "zettelkasten/sequence_diagrams.md",
     "zettelkasten/snowflake_id.md",
