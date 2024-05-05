@@ -52,6 +52,10 @@ const config: Config = {
     navbar: {
       items: [
         {
+          label: "🌳 home",
+          to: "home",
+        },
+        {
           type: "docSidebar",
           sidebarId: "docs",
           label: "🗃️ zettelkasten",
