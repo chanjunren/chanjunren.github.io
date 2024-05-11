@@ -97,7 +97,7 @@ GET /{index1},{index2}/_mapping
 
 ### Query with script
 
-> POST /.../{index}/\_update/90000460211
+> POST /.../my-index/update/90000460211
 
 ```json
 {
