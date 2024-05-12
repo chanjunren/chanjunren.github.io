@@ -1,3 +1,5 @@
+import DateWithTypewriterEffect from "@site/src/components/common/DateWithTypewriterEffect";
+import { useState } from "react";
 import { GalleryProject } from "../../types";
 import CardHeader from "./CardHeader";
 
@@ -7,15 +9,19 @@ type CarouselCardWrapperProps = GalleryProject & {
 
 const DefaultCarouselCard: React.FC<CarouselCardWrapperProps> = (props) => {
   const { card: Card, dob } = props;
+  const [hovering, setHovering] = useState<boolean>(false);
+
   return (
     <div
       className={
-        "group/card flex flex-col gap-2 hover:bg-gray-50/1 pb-4 pl-4 pr-4 rounded-sm"
+        "group/card flex flex-col gap-2 hover:bg-gray-50/1 pb-1 pl-4 pr-4 pt-4 rounded-md hover:bg-gray-100/10"
       }
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
     >
       <CardHeader {...props} />
       <Card />
-      <span>{dob}</span>
+      <DateWithTypewriterEffect date={dob} active={hovering} />
     </div>
   );
 };
