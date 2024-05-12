@@ -11,8 +11,9 @@ animation: typewriter var(--typewriterSpeed)
       steps(var(--typewriterCharacters)) 1s forwards
  */
 export const TAILWIND_ANIMATIONS: Config["theme"]["animations"] = {
-  "bouncing-show": "bouncing-show 0.7s linear forwards",
+  bouncingShow: "bouncing-show 0.7s linear forwards",
   typewriterDate: "typewriterDate 2s steps(12) forwards",
+  blink: "blink 1s infinite",
 };
 
 export const TAILWIND_KEYFRAMES: Config["theme"]["keyframes"] = {
@@ -23,5 +24,10 @@ export const TAILWIND_KEYFRAMES: Config["theme"]["keyframes"] = {
   typewriterDate: {
     from: { "border-right": "10px solid var(--ifm-font-color-base)" },
     to: { width: "100%" },
+  },
+  blink: {
+    "50%": {
+      opacity: "0",
+    },
   },
 };

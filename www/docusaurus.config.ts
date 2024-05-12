@@ -50,19 +50,16 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
+      title: "🌳",
       items: [
-        {
-          label: "🌳 home",
-          to: "home",
-        },
         {
           type: "docSidebar",
           sidebarId: "docs",
           label: "🗃️ zettelkasten",
         },
         {
-          label: "🎨 gallery",
-          to: "gallery",
+          label: "🎨 workspace",
+          to: "workspace",
         },
       ],
     },
