@@ -3,11 +3,11 @@ import { GALLERY_PROJECTS } from "../../projects";
 import { GalleryProject } from "../../types";
 import DefaultCarouselCard from "../DefaultCarouselCard";
 
-type GalleryCarouselProps = {
+type CarouselProps = {
   selectedProject: GalleryProject | null;
 };
 
-const GalleryCarousel: FC<GalleryCarouselProps> = ({ selectedProject }) => {
+const Carousel: FC<CarouselProps> = ({ selectedProject }) => {
   return (
     <div className="flex gap-5 h-[25%]">
       {GALLERY_PROJECTS.map((proj, idx) => (
@@ -21,4 +21,4 @@ const GalleryCarousel: FC<GalleryCarouselProps> = ({ selectedProject }) => {
   );
 };
 
-export default GalleryCarousel;
+export default Carousel;

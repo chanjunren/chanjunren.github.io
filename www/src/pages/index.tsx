@@ -1,10 +1,11 @@
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Heading from "@theme/Heading";
 import Layout from "@theme/Layout";
 import clsx from "clsx";
 
+import BestFooter from "../components/home/BestFooter";
+import BuildingInProgress from "../components/home/BuildingInProgress";
 import styles from "./index.module.css";
 
 function HomepageHeader() {
@@ -36,9 +37,9 @@ export default function Home(): JSX.Element {
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
     >
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
+      <main className="flex flex-col h-[90vh] justify-items-center items-center">
+        <BuildingInProgress />
+        <BestFooter />
       </main>
     </Layout>
   );

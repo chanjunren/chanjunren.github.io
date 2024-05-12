@@ -12,7 +12,7 @@ const CardHeader: FC<GalleryProject> = ({ tags, id }) => {
           <Tooltip.Trigger asChild>
             <button
               className={
-                "h-4 group-hover/card:animate-bouncing-show opacity-0 z-[-99] translate-y-[2rem] bg-transparent border-none p-0"
+                "h-4 group-hover/card:animate-bouncingShow opacity-0 z-[-99] translate-y-[2rem] bg-transparent border-none p-0"
               }
             >
               <FrameIcon />

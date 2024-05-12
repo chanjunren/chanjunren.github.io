@@ -47,17 +47,6 @@
   padding: 0.2rem 1rem;
 }
 
-[data-theme='light'] .navbar__link--active {
-  color: white;
-  background: black;
-}
-
-[data-theme='dark']  .navbar__link--active {
-  color: black;
-  background: white;
-
-}
-
 @media (min-width: 1000px) {
   nav.navbar.navbar--fixed-top {
     backdrop-filter: blur(5px);
