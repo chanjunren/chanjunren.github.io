@@ -13,9 +13,7 @@ const DefaultCarouselCard: React.FC<CarouselCardWrapperProps> = (props) => {
 
   return (
     <div
-      className={
-        "group/card flex flex-col gap-2 hover:bg-gray-50/1 pb-1 pl-4 pr-4 pt-4 rounded-md hover:bg-gray-100/10"
-      }
+      className={"group/card flex flex-col gap-2 cursor-pointer"}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
