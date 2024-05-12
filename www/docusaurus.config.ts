@@ -64,8 +64,8 @@ const config: Config = {
       ],
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.okaidia,
+      theme: prismThemes.duotoneLight,
+      darkTheme: prismThemes.duotoneDark,
     },
   } satisfies Preset.ThemeConfig,
   plugins: [
