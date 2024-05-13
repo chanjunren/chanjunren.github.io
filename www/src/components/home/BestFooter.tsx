@@ -16,9 +16,13 @@ const BestFooter: FC = () => {
           img={useBaseUrl("lbxx_booty_dance.gif")}
         />
       ) : (
+        // <Image
+        //   className="h-24 w-24 rounded-2xl bg-transparent"
+        //   img={useBaseUrl("lbxx_booty_dance_static.gif")}
+        // />
         <Image
           className="h-24 w-24 rounded-2xl bg-transparent"
-          img={useBaseUrl("lbxx_booty_dance_static.gif")}
+          img={useBaseUrl("lbxx_static.png")}
         />
       )}
       <span className="font-mono mt-5">

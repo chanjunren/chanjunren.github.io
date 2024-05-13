@@ -55,10 +55,10 @@ const config: Config = {
         {
           type: "docSidebar",
           sidebarId: "docs",
-          label: "🗃️ zettelkasten",
+          label: "zettelkasten",
         },
         {
-          label: "🎨 workspace",
+          label: "workspace",
           to: "workspace",
         },
       ],
