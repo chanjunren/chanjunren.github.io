@@ -2,7 +2,7 @@ name: deployment-actions
 
 on:
   push:
-    # branches: [master]
+    branches: [master]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -11,26 +11,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # Check out repository so that job can access it
-      - name: Checking out...
-        uses: actions/checkout@master
-
-      - name: Setting up node....
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@master
+      - uses: redkubes/docusaurus-deploy-action@v1
         with:
-          node-version: 18
-
-      - name: Building...
-        run: |
-          cd website
-          npm i --force
-          npm run build
-
-      - name: Deploying...
-        if: success()
-        uses: crazy-max/ghaction-github-pages@v2
-        with:
-          target_branch: gh-pages
-          build_dir: website/build
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          source-folder: website
+          git-user: chanjunren
+          git-password: ${{ secrets.GITHUB_TOKEN }}
+          deployment-branch: gh-pages
