@@ -1,4 +1,4 @@
-🗓️️ 20240319 2345
+🗓️ 20240319 2345
 📎 #css #animation
 
 # hand_wave_animation

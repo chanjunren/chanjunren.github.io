@@ -1,10 +1,9 @@
 ️🗓️ 20240319 1857
-
-Tags: #css #animation
+📎 #css #animation
 
 # floaty_trees_animation
 
-```ts
+```typescript
 import { FC } from "react";
 import classNames from "classnames";
 import styles from "./index.module.less";
