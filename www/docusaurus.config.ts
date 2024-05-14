@@ -1,6 +1,7 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
+import ALOGLIA_CONFIG from "./configs/algolia";
 import tailwindPlugin from "./plugins/tailwind-plugin.cjs"; // add this
 import { obsidianToDocusaurusPreprocessor } from "./src/utils/markdownPreprocessor";
 
@@ -65,6 +66,7 @@ const config: Config = {
         },
       ],
     },
+    algolia: ALOGLIA_CONFIG,
     prism: {
       theme: prismThemes.duotoneLight,
       darkTheme: prismThemes.duotoneDark,
