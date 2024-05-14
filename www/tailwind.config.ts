@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { TAILWIND_ANIMATIONS, TAILWIND_KEYFRAMES } from "./src/css/animations";
+import { TAILWIND_ANIMATIONS, TAILWIND_KEYFRAMES } from "./tailwind/animations";
 
 module.exports = {
   corePlugins: {

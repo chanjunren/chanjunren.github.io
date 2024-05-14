@@ -6,13 +6,16 @@ sidebar_label: Full-Body Search
 # Full-Body Search
 
 ## Empty Search
+
 `GET /_search`
+
 ```
 Body: {}
 Result: Returns all documents in all indices
 ```
 
 `GET /_search`
+
 ```
 Body: {
     "query": {
@@ -22,9 +25,9 @@ Body: {
 Result: Returns all documents in all indices
 ```
 
-
-_Searching one, many or _all indices_
+_Searching one, many or \_all indices_
 `GET /index_2014*/type1,type2/_search`
+
 ```
 Body: {}
 Result: ?? Idk
@@ -32,6 +35,7 @@ Result: ?? Idk
 
 _Paginated result_
 `GET /_search`
+
 ```
 body: {
     "from": 30,
@@ -46,6 +50,7 @@ ever, because GET with a request body is not universally supported, the search A
 also accepts POST requests:
 :::
 `POST /_search`
+
 ```
 {
  "from": 30,
@@ -54,9 +59,11 @@ also accepts POST requests:
 ```
 
 ## Query DSL
+
 - Search language that is used to interact with Lucene
 
 ### Structure of a Query clause
+
 ```
 Typical Structure:
 {
@@ -78,49 +85,60 @@ Targeting a specific field
 ```
 
 ### Combining Multiple Queries
-| Term | Description |
-| ---- | ----------- |
-| Leaf | Used to compare a field / fields to a query string |
-| Compound | Used to combineother query clauses |
+
+| Term     | Description                                        |
+| -------- | -------------------------------------------------- |
+| Leaf     | Used to compare a field / fields to a query string |
+| Compound | Used to combineother query clauses                 |
 
 ### Queries and Filters
+
 - Filter
-    - Asks yes | no question of every document
-    - Used for fields with exact values
+  - Asks yes | no question of every document
+  - Used for fields with exact values
 - Query
-    - Similar to filter
-    - Also ask: _how well does this document match?_
-    - Calculates how relevant a document is to the query
-    - Assigns document a relevance score
+  - Similar to filter
+  - Also ask: _how well does this document match?_
+  - Calculates how relevant a document is to the query
+  - Assigns document a relevance score
 
 #### Performance Differences:
+
 - Filters quick to caulculate, cacheable
 - Query calculates relevance as well
-    - Not cacheable
+  - Not cacheable
 - Basically, filters more performant than queries
 
 ## Filters
+
 ### `term`
+
 - Filter by exact values
+
 ```
 { "term": { "age": 26 }}
 { "term": { "date": "2014-09-01" }}
 { "term": { "public": true }}
 { "term": { "tag": "full_text" }}
 ```
+
 ### `terms`
+
 - Same as term filter, but can specify multiple values to match
+
 ```
 { "terms": { "tag": ["search", "full_text", "nosql" ]}}
 ```
 
 ### `range`
+
 - Numbers / date
 - Opeartors
-    - gt
-    - gte
-    - lt
-    - lte
+  - gt
+  - gte
+  - lt
+  - lte
+
 ```
 {
     "range": {
@@ -133,8 +151,10 @@ Targeting a specific field
 ```
 
 ### `exist` and `missing`
+
 - `exist`: field contains one or more specified values
 - `missing`: doesn't have specified values
+
 ```
 {
     "exists": {
@@ -144,12 +164,14 @@ Targeting a specific field
 ```
 
 ### `bool`
+
 - Used to combine multiple filter clauses
 - Params:
-    - `must`: clauses MUST match
-    - `must_not`: clauses MUST NOT match
-    - `should`: at least one clause must match
+  - `must`: clauses MUST match
+  - `must_not`: clauses MUST NOT match
+  - `should`: at least one clause must match
 - Each param can accept single filter clause / array of filter clauses
+
 ```
 {
     "bool": {
@@ -180,18 +202,19 @@ Targeting a specific field
 ```
 
 ## Queries
+
 ### `match_all`
+
 - Simply matches all documents
 - Default query used if non specified
 - Used if no query is specified
 
 ### `match`
-- Standard query used for full-text / exact value in almost any field
-    - Analysis will be performed for full-text field
-    - Exact match for fields containing exact values
-:::note
-Better to use filter instead of query for exact value matches
-:::
+
+- Standard query used for full-text / exact value in almost any field - Analysis will be performed for full-text field - Exact match for fields containing exact values
+  :::note
+  Better to use filter instead of query for exact value matches
+  :::
 
 ```
 { "match": {"age": 26 }}
@@ -201,7 +224,9 @@ Better to use filter instead of query for exact value matches
 ```
 
 ### `multi_match`
+
 - Allows you to run the same match query on multiple fields
+
 ```
 {
     "multi_match": {
@@ -212,12 +237,13 @@ Better to use filter instead of query for exact value matches
 ```
 
 ### `bool`
+
 - Used to combine multiple query clauses
-- Combines the _score from each `must` / `should` clause
+- Combines the \_score from each `must` / `should` clause
 - Params:
-    - `must` clauses that MUST match for document to be included
-    - `must_not` clauses that MUST NOT match for document to be included
-    - `should`: increase _score if clauses match
+  - `must` clauses that MUST match for document to be included
+  - `must_not` clauses that MUST NOT match for document to be included
+  - `should`: increase \_score if clauses match
 
 ```
 {
@@ -249,8 +275,11 @@ Better to use filter instead of query for exact value matches
     }
 }
 ```
+
 ## Combining Queries with Filters
+
 ### Filtering a Query
+
 ```
 Query:
 {
@@ -282,23 +311,28 @@ Beepboopbeepcombined:
 ```
 
 ### Just filter
-```
+
+```json
 {
-    "query": {
-        "filtered": {
-            "filter": {
-                "term": {
-                    "folder": "inbox"
-                }
-            }
-        },
-        "query": { // Can be omited
-            "match_all": {}
+  "query": {
+    "filtered": {
+      "filter": {
+        "term": {
+          "folder": "inbox"
         }
+      }
+    },
+    "query": {
+      // Can be omited
+      "match_all": {}
     }
+  }
 }
 ```
+
 ### Query as a filter
+
+```json
 {
     "query": {
         "filtered": {
@@ -321,9 +355,12 @@ Beepboopbeepcombined:
         }
     }
 }
+```
 
 ## Validating Queries
+
 - Used to check whether a query is valid
+
 ```
 GET /gb/tweet/_validate/query
 Body: {
@@ -345,6 +382,7 @@ Response: {
 ```
 
 ## Understanding errors
+
 ```
 GET /gb/tweet/_validate/query?explain
 {
@@ -368,7 +406,9 @@ Response
 ```
 
 ## Understanding Queries
+
 - For understanding how query is interpreted by ES
+
 ```
 GET /_validate/query?explain
 Body: {
