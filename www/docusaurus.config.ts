@@ -40,6 +40,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
+          exclude: ["**/templates/*"],
         },
         blog: false,
         theme: {

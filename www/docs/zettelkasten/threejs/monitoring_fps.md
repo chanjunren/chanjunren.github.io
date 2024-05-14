@@ -1,4 +1,5 @@
-20240317 1253
+🗓️ 20240317 1253
+📎
 
 Tags: #threejs #performance
 
@@ -32,7 +33,7 @@ Better for FPS reading to be consistently high 😃
 
 ---
 
-# {{References}}
+# References
 
 - https://threejs-journey.com/lessons/performance-tips
 - [stat.js](https://github.com/mrdoob/stats.js/)
