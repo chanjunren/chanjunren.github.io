@@ -6,8 +6,8 @@ import tailwindPlugin from "./plugins/tailwind-plugin.cjs"; // add this
 import { obsidianToDocusaurusPreprocessor } from "./src/utils/markdownPreprocessor";
 
 const config: Config = {
-  title: "Jun Ren",
-  tagline: "Dinosaurs are cool",
+  title: "jun ren's digital garden",
+  tagline: "勤奋决定你的下限，天赋决定你的上线",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here

@@ -1,26 +1,37 @@
-# 🚀 Hi there!
+# 🌲 my hypertext garden
 
-![My chio banner](banner.png)
-![GitHub last commit](https://img.shields.io/github/last-commit/chanjunren/dot_files)
+> 知之者不如好之者，好之者不如乐之者 - 子曰
+
+![GitHub last commit](https://img.shields.io/github/last-commit/chanjunren/chanjunren.github.io)
+![Last deployment](https://img.shields.io/github/actions/workflow/status/chanjunren/chanjunren.github.io/deploy.yml)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fchanjunren.github.io)
 
 ---
 
-Welcome to my personal portfolio website! I also use this as a store of my zettelkasten
+## 🍵 components
 
-## 🐼 Components
+### 🤓 home (wip)
 
-> [!TIP]
-> Brief overview of components
+No one asked but information about me and a (hopefully) cool landing page
 
-| Component          | Description                                          |
-| ------------------ | ---------------------------------------------------- |
-| `website`          | [Core of my portfolio](https://chanjunren.github.io) |
-| `website` > `docs` | Old notes (To be migrated to Zettelkasten)           |
-| `vault`            | Zettelkasten / notes store                           |
+### [🗃️ zettelkasten](https://www.youtube.com/watch?v=E6ySG7xYgjY&t)
 
-## 🥸 References
+dump of my personal notes for my own reference when I forget stuff :P
 
-- [Zettelkasten](https://www.youtube.com/watch?v=E6ySG7xYgjY&t)
-- https://www.markdownguide.org/cheat-sheet/
-- https://docusaurus.io/docs/static-assets
-  - https://docusaurus.io/docs/markdown-features/admonitions
+### 🎨 workspace (wip)
+
+mini projects that I'm quite proud of >:D
+
+## 🚀 technologies used
+
+- [docusaurus](https://docusaurus.io/)
+- [threeJS](https://threejs.org/)
+- [tailwind](https://tailwindcss.com/)
+- ...
+
+---
+
+## 🔖 references
+
+- [shields io](https://github.com/badges/shields)
+- https://jzhao.xyz/
