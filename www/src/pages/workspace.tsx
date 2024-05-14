@@ -6,7 +6,7 @@ import useGallery from "../components/gallery/hooks/useGallery";
 const Workspace: React.FC = () => {
   const { selectedProject } = useGallery([]);
   return (
-    <Layout title="Hello" description="Hello React Page">
+    <Layout title={"workspace"} description="Hello! Welcome to my workspace">
       <div className="flex flex-col w-full h-[90vh] p-10">
         <Spotlight />
         <Carousel selectedProject={selectedProject} />

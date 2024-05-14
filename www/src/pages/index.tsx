@@ -7,10 +7,7 @@ import BuildingInProgress from "../components/home/BuildingInProgress";
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
-    >
+    <Layout title={"home"} description="Hello! Welcome to my digital garden">
       <main className="flex flex-col h-[90vh] justify-items-center items-center">
         <BuildingInProgress />
         <BestFooter />
