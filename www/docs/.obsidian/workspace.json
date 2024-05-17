@@ -1,19 +1,19 @@
 {
   "main": {
-    "id": "82012f23e8f07da3",
+    "id": "51a4c47a6ba06f30",
     "type": "split",
     "children": [
       {
-        "id": "3166e6caf8dd1ae4",
+        "id": "159f59b52cdcc462",
         "type": "tabs",
         "children": [
           {
-            "id": "bea4afaf38ff0118",
+            "id": "213d96224ed61287",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/second_brain.md",
+                "file": "zettelkasten/camel_exchange.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "508ee55ccefaf628",
+    "id": "3d1742e387a55029",
     "type": "split",
     "children": [
       {
-        "id": "352d8c57fffaf7c2",
+        "id": "ea701068de98c366",
         "type": "tabs",
         "children": [
           {
-            "id": "b62bac08e17ff78d",
+            "id": "ae6fabfee84f5179",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,12 +43,12 @@
             }
           },
           {
-            "id": "d47db8ab3763a6b4",
+            "id": "3d95d13027d5091d",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "NUS CS2103T Textbook",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -58,7 +58,7 @@
             }
           },
           {
-            "id": "29f80e018b7d7b64",
+            "id": "69a4a46e2e7963f4",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -72,20 +72,20 @@
     "width": 300
   },
   "right": {
-    "id": "457b2c9315e1929f",
+    "id": "65a90fd930acf491",
     "type": "split",
     "children": [
       {
-        "id": "db9f19471e2babc7",
+        "id": "1fa809c4ce85a91f",
         "type": "tabs",
         "children": [
           {
-            "id": "3d9fb3b77f6bb49d",
+            "id": "58c44607a6066c8b",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/second_brain.md",
+                "file": "zettelkasten/camel_exchange.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,19 +97,19 @@
             }
           },
           {
-            "id": "c3c116e1b92acebe",
+            "id": "4b607bdd81fb6728",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/second_brain.md",
+                "file": "zettelkasten/camel_exchange.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "840a163a78f51af0",
+            "id": "da093485aeb87de6",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -120,12 +120,12 @@
             }
           },
           {
-            "id": "7680030a1428e180",
+            "id": "962324af9e1fb4b8",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/second_brain.md"
+                "file": "zettelkasten/camel_exchange.md"
               }
             }
           }
@@ -146,48 +146,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "bea4afaf38ff0118",
+  "active": "213d96224ed61287",
   "lastOpenFiles": [
-    "zettelkasten/activity_diagrams.md",
-    "templates/zettel.md",
-    "zettelkasten/second_brain.md",
-    "zettelkasten/sequence_diagrams.md",
-    "zettelkasten/snowflake_id.md",
-    "zettelkasten/sql_date_functions_cheatsheet.md",
-    "zettelkasten/todo.md",
-    "zettelkasten/state_machine_diagram.md",
-    "zettelkasten/es_realtime_search.md",
-    "zettelkasten/protobuf_overview.md",
     "zettelkasten/scratchpad.md",
-    "zettelkasten/mobx_store.md",
-    "zettelkasten/pasta_test.md",
-    "zettelkasten/message_translator.md",
-    "zettelkasten/message_endpoint.md",
-    "zettelkasten/blender_dump.md",
-    "zettelkasten/design_doc_template.md",
-    "zettelkasten/eip_overview.md",
-    "zettelkasten/es_api_cheatsheet.md",
-    "zettelkasten/es_query_dsl.md",
-    "zettelkasten/house_considerations.md",
-    "zettelkasten/interaction_overview_diagrams.md",
-    "zettelkasten/dts_overview.md",
-    "zettelkasten/blender_shortcuts.md",
-    "zettelkasten/camel_architecture.md",
-    "assets/blender_face_orientation_menu.png",
-    "assets/blender_face_orientation_initial.png",
-    "assets/blender_baking_image_settings.png",
-    "assets/3js_textures_uv_unwrapping.png",
-    "assets/3js_textures_repeat_wrap.png",
-    "assets/3js_textures_repeat_mirrored_wrap.png",
-    "assets/3js_textures_mipmap_example.png",
-    "assets/3js_textures_mag_filter_example.png",
-    "assets/3js_textures_rotation.png",
-    "assets/Pasted image 20240428170732.png",
-    "Untitled.canvas",
-    "zettelkasten/css",
-    "zettelkasten/threejs",
-    "assets",
-    "zettelkasten",
-    "templates",
-    "threejs/performance"
+    "zettelkasten/camel_exchange.md",
+    "zettelkasten/todo.md",
+    "zettelkasten/elasticsearch_aggregations_overview.md",
+    "zettelkasten/okr_lol.md",
+    "zettelkasten/work_study_log.md"
   ]
+}

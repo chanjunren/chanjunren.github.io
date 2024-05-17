@@ -1,15 +1,5 @@
 import { Config } from "tailwindcss";
 
-/**
- * @keyframes typewriter {
-  to {
-    left: 100%;
-  }
-}
-
-animation: typewriter var(--typewriterSpeed)
-      steps(var(--typewriterCharacters)) 1s forwards
- */
 export const TAILWIND_ANIMATIONS: Config["theme"]["animations"] = {
   bouncingShow: "bouncing-show 0.7s linear forwards",
   typewriterDate: "typewriterDate 2s steps(12) forwards",
