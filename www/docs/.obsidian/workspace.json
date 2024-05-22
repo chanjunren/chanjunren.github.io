@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/threejs/baking_and_exporting.md",
+                "file": "zettelkasten/threejs/importing_and_optimizing.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/threejs/baking_and_exporting.md",
+                "file": "zettelkasten/threejs/importing_and_optimizing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/threejs/baking_and_exporting.md",
+                "file": "zettelkasten/threejs/importing_and_optimizing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/threejs/baking_and_exporting.md"
+                "file": "zettelkasten/threejs/importing_and_optimizing.md"
               }
             }
           }
@@ -146,8 +146,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "213d96224ed61287",
+  "active": "ae6fabfee84f5179",
   "lastOpenFiles": [
+    "zettelkasten/threejs/baking_and_exporting.md",
+    "zettelkasten/threejs/importing_and_optimizing.md",
     "zettelkasten/spring_boot_dump.md",
     "zettelkasten/camel_exchange.md",
     "zettelkasten/dts_debug.md",
