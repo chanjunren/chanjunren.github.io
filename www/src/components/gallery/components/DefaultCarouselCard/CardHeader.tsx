@@ -6,7 +6,7 @@ import { GalleryProject } from "../../types";
 
 const CardHeader: FC<GalleryProject> = ({ tags, id }) => {
   return (
-    <header className="group/tags">
+    <header className="group/tags max-[996px]:hidden">
       <Tooltip.Provider delayDuration={0}>
         <Tooltip.Root>
           <Tooltip.Trigger asChild>

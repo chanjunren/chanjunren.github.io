@@ -10,7 +10,7 @@ type CarouselProps = {
 
 const Carousel: FC<CarouselProps> = ({ selectedProject, onCardSelected }) => {
   return (
-    <div className="flex gap-5 h-[20%] px-8">
+    <div className="flex gap-5 h-[20%] px-8 max-[996px]:hidden">
       {GALLERY_PROJECTS.map((proj, idx) => (
         <DefaultCarouselCard
           key={`gallery-carousel-card-${idx}`}

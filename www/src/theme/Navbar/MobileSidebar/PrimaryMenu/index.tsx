@@ -4,6 +4,7 @@ import * as Separator from "@radix-ui/react-separator";
 import MobileCarousel from "@site/src/components/gallery/components/MobileCarousel";
 import { WORKSPACE, getCurrentLocation } from "@site/src/utils/pathUtils";
 import NavbarItem, { type Props as NavbarItemConfig } from "@theme/NavbarItem";
+import styles from "./index.module.css";
 
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
@@ -30,7 +31,13 @@ export default function NavbarMobilePrimaryMenu(): JSX.Element {
           key={i}
         />
       ))}
-      {workspaceActive && <Separator.Root className="SeparatorRoot" />}
+      {workspaceActive && (
+        <Separator.Root
+          className={styles.separator}
+          style={{ margin: "15px 0" }}
+        />
+      )}
+
       {workspaceActive && <MobileCarousel />}
     </ul>
   );
