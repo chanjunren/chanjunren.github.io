@@ -13,6 +13,6 @@ module.exports = {
   theme: {
     keyframes: TAILWIND_KEYFRAMES,
     animation: TAILWIND_ANIMATIONS,
-    height: TAILWIND_HEIGHTS
+    height: TAILWIND_HEIGHTS,
   },
 } satisfies Config;

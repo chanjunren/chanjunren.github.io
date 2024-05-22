@@ -4,7 +4,7 @@ import Spotlight from "../components/gallery/components/Spotlight";
 import useGallery from "../components/gallery/hooks/useGallery";
 
 const Workspace: React.FC = () => {
-  const { selectedProject, onGalleryProjSelected } = useGallery([]);
+  const { selectedProject, onGalleryProjSelected } = useGallery();
   return (
     <Layout title={"workspace"} description="Hello! Welcome to my workspace">
       <div className="flex flex-col w-full h-screen-minus-navbar p-5">

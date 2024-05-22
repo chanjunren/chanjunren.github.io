@@ -6,7 +6,7 @@ import { GalleryCardProps, GalleryProject } from "./types";
 const DefaultImg: React.FC<Props> = (props: Props & GalleryCardProps) => (
   <Image
     {...props}
-    className={`h-[60%] rounded-md object-contain w-fit border-2 border-solid ${
+    className={`min-[996px]:h-[75px] w-fit rounded-xl  object-contain border-2 border-solid ${
       props.selected ? "opacity-80 border-white" : "border-transparent"
     }`}
   />
