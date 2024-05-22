@@ -5,15 +5,17 @@ import DefaultCarouselCard from "../DefaultCarouselCard";
 
 type CarouselProps = {
   selectedProject: GalleryProject | null;
+  onCardSelected: (GalleryProject) => void;
 };
 
-const Carousel: FC<CarouselProps> = ({ selectedProject }) => {
+const Carousel: FC<CarouselProps> = ({ selectedProject, onCardSelected }) => {
   return (
-    <div className="flex gap-5 h-[20%]">
+    <div className="flex gap-5 h-[20%] px-8">
       {GALLERY_PROJECTS.map((proj, idx) => (
         <DefaultCarouselCard
           key={`gallery-carousel-card-${idx}`}
-          {...proj}
+          project={proj}
+          onCardSelected={onCardSelected}
           selected={selectedProject && selectedProject.id === proj.id}
         />
       ))}
