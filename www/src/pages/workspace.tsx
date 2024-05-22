@@ -7,7 +7,7 @@ const Workspace: React.FC = () => {
   const { selectedProject } = useGallery([]);
   return (
     <Layout title={"workspace"} description="Hello! Welcome to my workspace">
-      <div className="flex flex-col w-full h-[90vh] p-10">
+      <div className="flex flex-col w-full h-screen-minus-navbar p-5">
         <Spotlight />
         <Carousel selectedProject={selectedProject} />
       </div>
