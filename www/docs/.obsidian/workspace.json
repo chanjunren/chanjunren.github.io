@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/camel_exchange.md",
+                "file": "zettelkasten/threejs/baking_and_exporting.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/camel_exchange.md",
+                "file": "zettelkasten/threejs/baking_and_exporting.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/camel_exchange.md",
+                "file": "zettelkasten/threejs/baking_and_exporting.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/camel_exchange.md"
+                "file": "zettelkasten/threejs/baking_and_exporting.md"
               }
             }
           }
@@ -148,8 +148,10 @@
   },
   "active": "213d96224ed61287",
   "lastOpenFiles": [
-    "zettelkasten/scratchpad.md",
+    "zettelkasten/spring_boot_dump.md",
     "zettelkasten/camel_exchange.md",
+    "zettelkasten/dts_debug.md",
+    "zettelkasten/scratchpad.md",
     "zettelkasten/todo.md",
     "zettelkasten/elasticsearch_aggregations_overview.md",
     "zettelkasten/okr_lol.md",
