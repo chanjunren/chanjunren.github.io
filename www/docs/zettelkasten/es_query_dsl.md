@@ -1,15 +1,8 @@
 🗓️ 20240416 1107
-📎 #elasticsearch 
+📎 #elasticsearch #wip
 
 # es_query_dsl
-```ad-quote
-_Think of the query DSL as AST of queries_
-> Es docs lol
-```
 
-## Leaf Query Clauses
-- *Use*: For matching particular values
-- `match`, `term`, `range`
 ## Compound Query Clauses
 - *Use*: 
 	- For combining clauses
@@ -20,28 +13,97 @@ _Think of the query DSL as AST of queries_
 - `must_not` - logical _NOT_
 - `should`  - logical _OR_
 
-## Expensive Queries
-- Generally execute slowly
-- Can affect cluster
-### Linear scans to identify matches
-- `script`
-- queries on certain fields of types that are *not indexed* but have *doc values* enabled
-	- `boolean`
-	- `numberic`
-	- `date`
-	- `ip`
-	- `geo_point`
-	- `keyword`
+### Logical "AND" Conditions
+- `must` or `filter`
+	- `filter` does not affect `score`
+- **All conditions specified must be satisfied** within these clauses for a document to match
+```json
+{
+  "query": {
+    "bool": {
+      "must": [ 
+        { "term": { "field1": "value1" } },
+        { "term": { "field2": "value2" } }
+      ]
+    }
+}
 
-### High upfront cost
-- `fuzzy` queries
-- `regexp` queries
-- `prefix` queries
-- `wildcard` queries
-- `range` queries on text / keyword fields
-### Joining queries
-...
+{
+  "query": {
+    "bool": {
+      "filter": [
+        { "term": { "field1": "value1" } },
+        { "term": { "field2": "value2" } }
+      ]
+    }
+ }
+```
+> match documents where `field1 == value1` and   `field2 == value2`
+
+
+### Logical "OR" Conditions
+- use `should` clause
+- **At least one** conditions in should satisfied > document match
+	- Can control this number with `minimum_should_match`
+
+
+```json
+{
+  "query": {
+    "bool": {
+      "should": [
+        { "term": { "field1": "value1" } },
+        { "term": { "field2": "value2" } }
+      ],
+      "minimum_should_match": 1
+    }
+}
+```
+> match documents where `field1 == value1` OR `field2 == value2`
+
+
+### Combining "AND" and "OR" Conditions
+```json
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "term": { "field1": "value1" } }
+      ],
+      "should": [
+        { "term": { "field2": "value2" } },
+        { "term": { "field3": "value3" } }
+      ],
+      "filter": [
+        { "term": { "field4": "value4" } }
+      ],
+      "minimum_should_match": 1
+    }
+  }
+}
+```
+
+- Match documents where
+	- `field1 == value1` AND
+	- `field4 == value4` AND
+	- `field2 == value2` || `field3 == value3`
+
+
+### Logical NOT
+- `must_not`
+
+## Leaf Query Clauses
+![[Pasted image 20240523174730.png]]
+
+### `match`
+### `term`
+### `range`
+### `exists`
+### `prefix`
+### `ids`
+### `fuzzy`
 
 --- 
 # References
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html
+- ChatGPT

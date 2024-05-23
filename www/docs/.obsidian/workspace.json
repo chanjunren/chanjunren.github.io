@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/threejs/importing_and_optimizing.md",
+                "file": "zettelkasten/es_query_dsl.md",
                 "mode": "source",
                 "source": false
               }
@@ -65,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/threejs/importing_and_optimizing.md",
+                "file": "zettelkasten/es_query_dsl.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/threejs/importing_and_optimizing.md",
+                "file": "zettelkasten/es_query_dsl.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/threejs/importing_and_optimizing.md"
+                "file": "zettelkasten/es_query_dsl.md"
               }
             }
           }
@@ -146,16 +147,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ae6fabfee84f5179",
+  "active": "213d96224ed61287",
   "lastOpenFiles": [
+    "assets/Pasted image 20240523174730.png",
+    "zettelkasten/elasticsearch_aggregations.md",
+    "zettelkasten/es_query_dsl.md",
+    "zettelkasten/es_expensive_queries.md",
     "zettelkasten/threejs/baking_and_exporting.md",
     "zettelkasten/threejs/importing_and_optimizing.md",
+    "zettelkasten/es_query_dsl_examples.md",
+    "zettelkasten/es_api_cheatsheet.md",
+    "zettelkasten/sql_date_functions_cheatsheet.md",
     "zettelkasten/spring_boot_dump.md",
     "zettelkasten/camel_exchange.md",
     "zettelkasten/dts_debug.md",
     "zettelkasten/scratchpad.md",
     "zettelkasten/todo.md",
-    "zettelkasten/elasticsearch_aggregations_overview.md",
     "zettelkasten/okr_lol.md",
     "zettelkasten/work_study_log.md"
   ]

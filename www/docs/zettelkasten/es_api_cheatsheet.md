@@ -124,6 +124,24 @@ GET /{index1},{index2}/_mapping
 
 ### Nested
 
+### Query with ID
+
+```json
+{
+  "query": {
+    "bool": {
+      "filter": {
+        "ids": {
+          "values": ["17052708"]
+        }
+      }
+    }
+  }
+}
+```
+
+> Query with ID
+
 ---
 
 # References

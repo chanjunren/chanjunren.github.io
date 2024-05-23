@@ -71,6 +71,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.duotoneLight,
       darkTheme: prismThemes.duotoneDark,
+      additionalLanguages: ["json"],
     },
   } satisfies Preset.ThemeConfig,
   plugins: [
