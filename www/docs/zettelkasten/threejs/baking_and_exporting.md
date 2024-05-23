@@ -1,24 +1,16 @@
 🗓️ 20240430 1419
-
-📎
+📎 #threejs
 
 # baking_and_exporting
 
 ```ad-important
 Goal is to export blender model to 3JS
 
-Need to:
+Steps:
 - Optimise
 - Unwrap
 - Bake
 ```
-
-## Shortcuts dump
-
-| Shortcut | Description      | Notes                      |
-| -------- | ---------------- | -------------------------- |
-| `u`      | open unwrap menu | select object in edit mode |
-|          |                  |                            |
 
 ## Optimisations
 
@@ -50,7 +42,7 @@ To fix:
    1. Select object
    2. `Edit Mode`
    3. Select faces
-   4. `F3` > search `flip` > `Mesh > Normals > Flio`
+   4. `F3` > search `flip` > `Mesh > Normals > Flip`
 
 ### Normalize scales
 
@@ -74,265 +66,79 @@ We are done with the optimization and we can start to UV unwrap our scene.
 Don't forget to save.
 
 ## UV unwrapping
+> Goal: unfold all the geometry composing our scene into `UV Editor`'s square
 
-- The idea is to unfold all the geometry composing our scene into a square
+### Notes
 
-The `UV Editor` displays a square that represents our unfold. We need to make everything fit inside that square. We could have used multiple textures, which would mean independent UV unwraps, but our scene isn't that complex or big.
+- Exclude Emission Materials (Put them in a separate collection)
 
-When you choose `Unwrap`, a small menu appears on the bottom left of the area (if you lost that menu, unwrap again):
-
-![](https://threejs-journey.com/assets/lessons/35/037.png)
-
-You should change the `Margin` to something like `0.065`:
-
-![](https://threejs-journey.com/assets/lessons/35/039.png)
-
-(You might have noticed that there are more islands in the above screenshot. This is due to an error in which I duplicated one of the fences at the same place. Ignore this.)
-
-Put those unwraps in a corner of the UV map:
-
-![](https://threejs-journey.com/assets/lessons/35/040.png)
-
-Again, the exact position isn't important and we will reorganize everything later.
-
-### Separating the Emission material[](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#separating-the-emission-material)
-
-We are going to repeat the whole process for the pole lights, but before doing so, we need to separate the objects that emit lights.
-
-We are doing this because we don't want to bake those objects. In the end, they are uniform colors and we are going to create materials within Three.js to give them those colors.
-
-We could have baked those objects, but it's a waste of space in the texture.
-
-Create a `emissions` collection and put the two lamps and the portal (only the emission part) in it:
-
-![](https://threejs-journey.com/assets/lessons/35/041.png)
-
-Make this collection unselectable so that we don't select them while doing the baking:
-
+  - Make them unselectable (so that they are not included in baking)
+  
 ![](https://threejs-journey.com/assets/lessons/35/042.png)
 
-### Pole lights[](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#pole-lights-1)
+- Mark seams > Unwrap
+- Use `Smart UV Project` for rocks
+  - Increase the Islands Margin to something like `0.025` to make some space between the islands.
 
-We can now unwrap the pole lights.
+### Reorganising
 
-As with the fences, start with only one and, once you are happy, duplicate it and put it in place of the other pole light.
-
-To help you focus on the object you want to unwrap, you can select it and press `/` on the numpad. This will isolate it:
-
-![](https://threejs-journey.com/assets/lessons/35/043.png)
-
-If you want to leave that isolation, press `/` again.
-
-You can try the unwrap on your own. Take your time, it's a long process. But with time, you'll be able to do it fast and efficiently.
-
-You'll probably get a different result than in the lesson and that's totally normal. There are so many different ways of unwrapping and we don't really know if we are doing mistakes yet. Just do your best and don't hesitate to create too many cuts.
-
-Here is how I did it:
-
-![](https://threejs-journey.com/assets/lessons/35/044.png)
-
-The lamp frame is especially hard to cut. Here, I decided to make only one cut that goes from the bottom up. This is not always a good idea because, as you can see, it creates some distortion once you unwrap it:
-
-![](https://threejs-journey.com/assets/lessons/35/045.png)
-
-But it's not that bad and at least we minimize the number of islands.
-
-The unwrap looks like this:
-
-![](https://threejs-journey.com/assets/lessons/35/046.png)
-
-Before reorganizing the islands, we can duplicate the pole in place of the other one and unwrap both of them together:
-
-![](https://threejs-journey.com/assets/lessons/35/047.png)
-
-Since the islands are curvy, Blender doesn't do a great job placing them. Optimize the placement a little bit and put them in another corner of the UV map. Always make sure to leave some space between them:
-
-![](https://threejs-journey.com/assets/lessons/35/048.png)
-
-### Portal[](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#portal-1)
-
-Apply the same process for the portal. Isolate each object, add the seams, test the result by unwrapping and once you're done with all the parts of the portal, select them all and unwrap everything.
-
-Here is the stair:
-
-![](https://threejs-journey.com/assets/lessons/35/049.png)
-
-Here are the bricks:
-
-![](https://threejs-journey.com/assets/lessons/35/050.png)
-
-And here is the whole portal:
-
-![](https://threejs-journey.com/assets/lessons/35/051.png)
-
-### Rocks[](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#rocks-1)
-
-Do not worry, we are **not** going to cut them ourselves. Even if we did, it would have taken ages and we would have ended up with distorted unwraps. Instead, we are going to use an automatic "smart" unwrap.
-
-- Select all the rocks.
-- Go into `Edit Mode`.
-- Select all the faces.
-- Press `U` and choose `Smart UV Project`.
-
-![](https://threejs-journey.com/assets/lessons/35/052.png)
-
-Validate the window that should open (we get access to the same parameters right after):
-
-![](https://threejs-journey.com/assets/lessons/35/053.png)
-
-And here is your automatic unwrap:
-
-![](https://threejs-journey.com/assets/lessons/35/054.png)
-
-Increase the Islands Margin to something like `0.025` to make some space between the islands.
-
-Unfortunately, we already used all the corners of our map. For now, let's move the unwraps out of the map. This isn't a problem because, in the end, we will reorganize everything.
-
-![](https://threejs-journey.com/assets/lessons/35/055.png)
-
-As you can see, automatic unwraps are decent. We could have used this technique for the whole scene. But, doing it on our own let us optimize things a bit more by minimizing the number of islands and reducing the seams. It's also a good way to keep the different groups of islands separated. This might get handy if we decide to remove an object. We will get the full area available for more unwrapping.
-
-### Trunks, logs and axe[](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#trunks-logs-and-axe)
-
-Cut the trunks. Don't forget to also add a cut for the ring all around each trunk.
-
-![](https://threejs-journey.com/assets/lessons/35/056.png)
-
-Cut the logs:
-
-![](https://threejs-journey.com/assets/lessons/35/057.png)
-
-Cut the axe:
-
-![](https://threejs-journey.com/assets/lessons/35/058.png)
-
-Unwrap them all (trunks, logs and axe) at once and place them somewhere outside of the UV map:
-
-![](https://threejs-journey.com/assets/lessons/35/059.png)
-
-### Reorganizing[](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#reorganizing)
-
-That's it, we've unwrapped the whole scene.
-
-Currently, however, the groups of islands are spread all around the UV map and even outside of it.
-
-Select all the unwrap objects (not the emissions objects). Then, go into `Edit Mode` and select all the faces to get a preview of the current UV unwrap:
-
-![](https://threejs-journey.com/assets/lessons/35/060.png)
-
-If you don't have this or if you have overlapping unwraps, try to figure out which object is the problem and fix it. You might also have forgotten some objects.
-
-Before trying to make everything fit inside the UV map, we need to make sure that the proportions are the same between the different groups. We don't want an object to take a smaller or bigger space than it really needs.
-
-Use the following icon on the top right part of the `UV Editor` (if you can't see it, enlarge the area):
-
-![](https://threejs-journey.com/assets/lessons/35/061.png)
-
-In the menu that should open, check `Display Stretch` and change it to `Area`:
+- `UV Editor` > check `Display Stretch` and change it to `Area`:
 
 ![](https://threejs-journey.com/assets/lessons/35/062.png)
 
-For some older versions of Blender, this option might be located in a different place. If you have a `Display` button on the top right corner, open it and you should find a `stretch` or `stretching` checkbox. If you don't have any of those, open the sidebar with `N` (if not already open) and go to the `view` tab to find the checkbox.
-
-You'll now know if the area taken by an island is bigger or smaller than the others by using the colors:
-
-![](https://threejs-journey.com/assets/lessons/35/063.png)
-
-Scale the different parts until everything has a similar color. The color might be different from mine.
+- Scale the parts until everything has a similar colour
 
 ![](https://threejs-journey.com/assets/lessons/35/064.png)
+  
 
-It's now time to make everything fit in the UV map. One very important step here is to listen to the Tetris music theme at the same time.
+### Tips
 
-![](https://threejs-journey.com/assets/lessons/35/065.png)
-
-Few tips:
-
-- Start by placing the groups in a rough square shape without looking at the UV map limits. Then resize the whole thing to make it fit in the UV map.
-- Keep some space between the islands.
-- You can scale some islands up to have a better quality for them in the final texture. It's good practice to do that for big surface or surfaces that the camera can see from up close. In our case, we can make the floor a little bit bigger.
-- If you have some room left, keep it. It might become useful if you forgot an object or if you want to add one.
-- The groups don't have to fit in perfect rectangles. Usually, I use one group with a lot of small islands like the rocks to fill the holes.
-
-Once you're happy with the result, you can deactivate the `Display Stretch`:
-
-![](https://threejs-journey.com/assets/lessons/35/066.png)
-
+1. Start by placing the groups in a rough square shape without looking at map limits 
+2. Resize the whole thing to make it fit in the UV map
+3. Keep some space between the islands
+4. You can scale some islands up to have a better quality for them in the final texture
+	- Good practice to do that for big surface or surfaces that the camera can see from up close
+	- In our case, we can make the floor a little bit bigger
+5. Leave some room in case you need to add some objects in future
 ## Baking
 
 ### Creating the texture
-
 1. Go to `UV` Editor
 2. `+ New`
 
 ```ad-note
+Idk what he means but I just leave it here
+
 This isn't that important but, in Three.js, when looking at the model from specific angles, the mip mapping might let that color appear on edges of the geometry. A white tint will look like a reflection and users won't notice it.
 ```
+```ad-info
+Intermediate file so that the final output texture JPEG can have better colours
+```
 
-3.  ![[blender_baking_image_settings.png]]
-4.  Save as `Radiance HDR`
+3.  Save as `Radiance HDR`
 
-### Saving the texture
+### Preparing the materials
+For each material, need to specify output image
+1. `Shader Editor` > 
+2. Check `Use Nodes`
+3. `Shift + A`  > `Texture` > `Image Texture`
+4. Specify image
 
-A saving window should open. Choose `Radiance HDR` as the `File Format` and change the name to `baked.hdr`. Make sure to save in the same folder as your `.blend` file:
+```ad-warning
+Make sure that this texture node is selected (it should have a white outline)
 
-![](https://threejs-journey.com/assets/lessons/35/072.png)
-
-We chose `Radiance HDR` as the `File Format` but some other formats can support high precision textures like `OpenEXR` However, the file is going to be huge.
-
-If you open the right menu of the `UV Editor` (press `N` while hovering the area) in the `Image` tab, you should see that the texture is now the `baked.hdr` file in the same folder:
-
-![](https://threejs-journey.com/assets/lessons/35/073.png)
-
-If you want to share your `.blend` file or move it in another folder, you'll have to keep the `baked.hdr` file with it.
-
-### Preparing the materials[](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#preparing-the-materials)
-
-We are almost ready to bake. Because we can have multiple textures in our project, we need a way to tell Blender that the texture we created is the one in which each object has to be baked. This information has to be provided on each material.
-
-We can start with the floor.
-
-Select the floor.
-
-To define in which texture the material should be baked, we need to use the `Shader Editor` . Take one of the areas (or create a new one) on your layout and change it to `Shader Editor`:
-
-![](https://threejs-journey.com/assets/lessons/35/074.png)
-
-This will be a `Shader Editor` for the `grass` material and it uses nodes. We won't go into details about nodes because we only need to create one and then make it active.
-
-![](https://threejs-journey.com/assets/lessons/35/075.png)
-
-If you can't see these two nodes, make sure `Use Nodes` on the top part of the area is checked:
-
-![](https://threejs-journey.com/assets/lessons/35/076.png)
-
-Also make sure that you selected the floor and that the `grass` material is applied to it.
-
-To create a new node, press `SHIFT + A` while hovering the `Shader Editor` area:
-
-![](https://threejs-journey.com/assets/lessons/35/077.png)
-
-Here, you can navigate to `Texture > Image Texture`
-
-![](https://threejs-journey.com/assets/lessons/35/078.png)
-
-This is an `Image Texture` node:
-
-![](https://threejs-journey.com/assets/lessons/35/079.png)
-
-Click on the drop-down image icon and choose our `baked` texture:
-
-![](https://threejs-journey.com/assets/lessons/35/080.png)
-
-And that's it. Our material now knows it's supposed to bake itself inside the `baked` texture. We don't need to link that node to another node. We just need it to be here.
-
-Make sure that this texture node is selected (it should have a white outline).
 
 If you have multiple texture nodes in your shader, the active one will be the one used for baking.
+```
+```ad-note
+Also, we leave the `Color Space` as linear
+
+This might sound strange because we learned that sRGB enables better color management, but don't forget that this is still an HDR texture and we are not going to use it directly in the WebGL
+```
 
 ![](https://threejs-journey.com/assets/lessons/35/081.png)
 
-Also, we leave the `Color Space` as linear. This might sound strange because we learned that sRGB enables better color management, but don't forget that this is still an HDR texture and we are not going to use it directly in the WebGL.
+
 
 ### Baking the floor[](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#baking-the-floor)
 
@@ -422,7 +228,7 @@ Here is the final baked texture:
 
 Don't forget to save both the `.blend` file and the image.
 
-### Troubleshooting[](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#troubleshooting)
+### Troubleshooting
 
 If you see some parts overlapping, select the object, go into `Edit Mode`, select all the faces and start moving the UV mapping to separate the islands a little. Then do the baking process of those parts again.
 
@@ -458,7 +264,7 @@ As you can see, we have the same ugly colors with high contrast.
 
 This tells us that, when baking in Blender, we are losing Filmic.
 
-### The noise issue[](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#the-noise-issue)
+### The noise issue
 
 Another problem is the visual noise. When you do a render and if you have checked the `denoise` parameter, you can see a smooth render without noise.
 
