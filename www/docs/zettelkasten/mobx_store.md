@@ -4,13 +4,13 @@
 # mobx_store
 ### layout
 ```typescript
-import { observable } from 'mobx';
+import { computed, observable } from 'mobx';
 
 type StoreMgtStateType = {
 	storeField: string;
 };
 
-export const storeMgtState = observable({
+export const storeMgtState = observable<StoreMgtStateType>({
 	storeField: "wassup"
 });
 
