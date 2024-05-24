@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "159f59b52cdcc462",
+        "id": "149778e059f1a421",
         "type": "tabs",
         "children": [
           {
-            "id": "213d96224ed61287",
+            "id": "8d5fff9601b8fa71",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/es_query_dsl.md",
+                "file": "zettelkasten/mobx_store.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/es_query_dsl.md",
+                "file": "zettelkasten/mobx_store.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/es_query_dsl.md",
+                "file": "zettelkasten/mobx_store.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/es_query_dsl.md"
+                "file": "zettelkasten/mobx_store.md"
               }
             }
           }
@@ -147,13 +147,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "213d96224ed61287",
+  "active": "8d5fff9601b8fa71",
   "lastOpenFiles": [
+    "zettelkasten/es_query_dsl.md",
+    "zettelkasten/threejs/baking_and_exporting.md",
     "assets/Pasted image 20240523174730.png",
     "zettelkasten/elasticsearch_aggregations.md",
-    "zettelkasten/es_query_dsl.md",
     "zettelkasten/es_expensive_queries.md",
-    "zettelkasten/threejs/baking_and_exporting.md",
     "zettelkasten/threejs/importing_and_optimizing.md",
     "zettelkasten/es_query_dsl_examples.md",
     "zettelkasten/es_api_cheatsheet.md",

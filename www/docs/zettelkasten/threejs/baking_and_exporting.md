@@ -44,6 +44,10 @@ To fix:
    3. Select faces
    4. `F3` > search `flip` > `Mesh > Normals > Flip`
 
+```ad-warning
+If some islands look unusually black during baking, the normals might be flipped
+```
+
 ### Normalize scales
 
 #### Background
@@ -102,6 +106,7 @@ Don't forget to save.
 5. Leave some room in case you need to add some objects in future
 ## Baking
 
+
 ### Creating the texture
 1. Go to `UV` Editor
 2. `+ New`
@@ -140,121 +145,34 @@ This might sound strange because we learned that sRGB enables better color manag
 
 
 
-### Baking the floor[](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#baking-the-floor)
+### Render Engine settings
+- Set `Render Engine` to `Cycles`
+- `Bake Type` > **Combined**
+- `View From` > **Active Camera**
+- `Margin` 
+	- Size: `16px`
+		- Controls how much baking will overflow (can adjust if there are overlaps)
+	- Type: `Extend`
+- `Clear Image` > Leave it unchecked (as the option suggest, will clear the image specified if checked)
 
-It's finally time to do our first bake.
+### Sampling
+> `Sampling > Render` section.
+- Set the Samples to `128` / `256`
+- Deactivate the `Denoise` (it will be done later, not used here because there are apparently some visual artefacts in some blender versions)
 
-First of all,
+## Exporting the image
 
-While the floor is still selected, in the `Properties` area, go to the `Render Properties` tab and then in the `Bake` section:
-
-![](https://threejs-journey.com/assets/lessons/35/082.png)
-
-If you can't see this section, you are probably using `Eevee`. Change the `Render Engine` to `Cycles`.
-
-The `Bake` button will start the baking process. Don’t click on it yet because we need to tweak some parameters.
-
-The `Bake Type` menu lets us choose what we want to bake. For example, this is where we could have created an `Ambient Occlusion` texture. Leave it on `Combined` in order to bake everything.
-
-![](https://threejs-journey.com/assets/lessons/35/083.png)
-
-The `View From` will decide where the camera should be when rendering each surface. This can have quite a huge impact on reflection. In our case, we can’t see much reflection because of the roughness of the materials, yet, we want something as close as the render we made earlier so we are going to go for `Active Camera`.
-
-![](https://threejs-journey.com/assets/lessons/35/084.png)
-
-The `Margin` property lets us control how much the baking will overflow from the area it is supposed to fill. We can keep `16 px` for now. If we see that the baked islands are overlapping on their neighbors, we can reduce the margin.
-
-Still in `Margin`, the `Type` property will decide if the margin will contain the pixels of the adjacent face or extend the existing face. Let’s use `Extend` which usually result in cleaner edges once used in WebGL.
-
-![](https://threejs-journey.com/assets/lessons/35/085.png)
-
-The `Clear Image` property will erase the current image in the texture each time we do a bake. Because we are not going to do all the baking at once, uncheck it.
-
-![](https://threejs-journey.com/assets/lessons/35/086.png)
-
-Before we can bake, we have to choose a `Sampling` quality. Scroll up to the `Sampling > Render` section.
-
-Set the Samples to `128` which might sound low, but it’s quite a huge texture and we don’t want to wait hours for the render to finish.
-
-Also deactivate the `Denoise` because we are going to apply it later on the final baked texture. Keeping it checked might result in visual artefacts for some Blender versions.
-
-![](https://threejs-journey.com/assets/lessons/35/087.png)
-
-Make sure you selected only the floor and that the Texture node is active. Now, hit the `Bake` button and wait.
-
-![](https://threejs-journey.com/assets/lessons/35/088.png)
-
-You can see the progress at the bottom of Blender:
-
-![](https://threejs-journey.com/assets/lessons/35/089.png)
-
-The floor is the biggest and longest part to render, but if you want to accelerate the process, you can change the `Sampling` to `128` and it should look good enough.
-
-Here is your floor baked onto the texture:
-
-![](https://threejs-journey.com/assets/lessons/35/090.png)
-
-If the baking has ended, but you can't see the result in the texture, it might be a Blender bug. Do not worry, the process probably worked alright. Save the image with `ALT + S` while hovering the `UV Editor` area. Then, click on the refresh button you can find in the menu on the right of that same area (press `N` to toggle the menu):
-
-![](https://threejs-journey.com/assets/lessons/35/091.png)
-
-Even if the baking worked, now is a good time to save the image. Since the image is a separate file in Blender, you have to save the image independently. If you try to leave Blender with an unsaved image, do not worry, Blender will alert you.
-
-To save the image, while hovering in the `UV Editor` area, press `ALT + S`.
-
-### Baking the other objects[](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#baking-the-other-objects)
-
-We can now repeat the process for the other objects. Let's start with the fences.
-
-Select the fences:
-
-![](https://threejs-journey.com/assets/lessons/35/092.png)
-
-Add the same `Image Texture` node and change it to the `baked` texture. Also make sure that the node is active:
-
-![](https://threejs-journey.com/assets/lessons/35/093.png)
-
-Click the `Bake` button and wait:
-
-You can continue like this with all the objects in the scene.
-
-If you try to bake the trunks, the axe handle or the logs, you'll see that the texture is already set in the `Shader Editor` nodes. It's because they are sharing the same material.
-
-You can try to bake multiple objects at once, as long as the texture node is set for all concerned materials.
-
-Here is the final baked texture:
-
-![](https://threejs-journey.com/assets/lessons/35/094.png)
-
-Don't forget to save both the `.blend` file and the image.
-
-### Troubleshooting
-
-If you see some parts overlapping, select the object, go into `Edit Mode`, select all the faces and start moving the UV mapping to separate the islands a little. Then do the baking process of those parts again.
-
-If some islands look unusually black, you might have flipped their normals accidentally. You need to locate them and flip them back.
-
-- Display the normal orientation like we did previously.
-- Locate the problematic ones (they should be red).
-- Select the object and go into `Edit Mode`.
-- Select the red faces.
-- Press `F3`, search for `flip` and choose `Mesh > Normals > Flip`.
-
-You can bake them on top of the previous bake.
-
-## Exporting the image [01:54:22](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#)[](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#exporting-the-image)
-
-### The color issue[](https://threejs-journey.com/lessons/baking-and-exporting-the-scene#the-color-issue)
-
-As you can see, the colors are all burned out. If you compare to the render, the colors will have less contrast and look like this:
-
-![](https://threejs-journey.com/assets/lessons/35/095.png)
-
-It's as if they are being toned in the render and that's exactly the case. When you do a render in Blender, a color manager named **Filmic** is used.
+### The color issue
+```ad-note
+A render in blender is toned by a color manager named **Filmic**
 
 You can find it at the bottom of the `Render Properties` tab in the `Color Management` section:
 
 ![](https://threejs-journey.com/assets/lessons/35/096.png)
+
+
+```
+
 
 If you want to test a render without Filmic, change the `View Transform` to `Standard` and do a render with `F12`:
 
