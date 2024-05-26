@@ -1,0 +1,2 @@
+- https://discoverthreejs.com/tips-and-tricks/
+- https://drei.pmnd.rs/?path=/docs/staging-accumulativeshadows--docs

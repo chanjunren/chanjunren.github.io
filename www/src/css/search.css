@@ -1,6 +1,6 @@
 :root {
   --docsearch-key-gradient: 240 3.7% 15.9% !important;
-  --docsearch-searchbox-background: var(--gray-transparent-bg) !important;
+  --docsearch-searchbox-background: var(--ifm-background-color) !important;
   --docsearch-container-background: none !important;
   --docsearch-hit-background: none !important;
   --docsearch-searchbox-focus-background: var(--ifm-background-color) !important;
@@ -22,10 +22,22 @@
   border: 2px solid var(--gray-transparent-bg) !important;
 }
 
+.DocSearch-Button {
+  padding: 10px 10px !important;
+  border: var(--borderWidth-thin) solid var(--gray-transparent-bg) !important;
+  background: transparent !important;
+  border-radius: 5px !important;
+}
+
 .DocSearch-Button:hover {
-  background: var(--gray-transparent-bg) !important;  
+  /* background: var(--gray-transparent-bg) !important;   */
   box-shadow: none !important;
   color: none !important;
+}
+
+.DocSearch-Button-Placeholder {
+  font-size: 0.9rem !important;
+  margin-right: 2rem;
 }
 
 .DocSearch-Container  {
@@ -71,6 +83,8 @@
 
 .DocSearch-Search-Icon {
   color: rgba(170, 170, 170, 0.5) !important;
+  width: 1rem;
+  height: 1rem;
 }
 
 .DocSearch-Button-Placeholder {
