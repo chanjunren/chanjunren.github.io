@@ -1,0 +1,73 @@
+:root {
+  --ifm-color-primary: #87a79f;
+  --ifm-color-primary-dark: #87a79f;
+  --ifm-color-primary-darker: #87a79f;
+  --ifm-color-primary-darkest: #87a79f;
+  --ifm-color-primary-light: #87a79f;
+  --ifm-color-primary-lighter: #87a79f;
+  --ifm-color-primary-lightest: #87a79f;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-size-base: 95%;
+  --ifm-heading-font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  --gray-transparent-bg: rgba(170, 170, 170, 0.25);
+
+  --ifm-color-emphasis-300: var(--ifm-color-emphasis-400);
+  --ifm-background-color: #faf8f8;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #87a79f;
+  --ifm-color-primary-dark: #87a79f;
+  --ifm-color-primary-darker: #87a79f;
+  --ifm-color-primary-darkest: #87a79f;
+  --ifm-color-primary-light: #87a79f;
+  --ifm-color-primary-lighter: #87a79f;
+  --ifm-color-primary-lightest: #87a79f;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --gray-transparent-bg: rgba(170, 170, 170, 0.1);
+}
+
+
+
+
+.navbar {
+  height: 3.5rem;
+  padding: 1rem;
+}
+
+.navbar__items {
+  gap: 1rem;
+}
+
+.navbar__inner {
+  align-content: center;
+}
+
+.navbar__item {
+  border-radius: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  color: rgba(150, 150, 150, 0.5);
+  transition: background-color 100ms linear;
+
+}
+
+.navbar__item:hover {
+  background-color: var(--gray-transparent-bg);
+  color: rgba(150, 150, 150, 0.5);
+}
+
+.navbar__link--active {
+  background-color: var(--gray-transparent-bg);
+  color: var(--ifm-navbar-link-color) !important;
+}
+
+@media (min-width: 1000px) {
+  nav.navbar.navbar--fixed-top {
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.01);
+  }
+}
