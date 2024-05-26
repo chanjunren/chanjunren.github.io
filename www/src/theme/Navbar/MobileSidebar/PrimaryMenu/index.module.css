@@ -1,5 +1,5 @@
 .separator {
-  background-color: var(--gray-bg);
+  background-color: var(--gray-transparent-bg);
 }
 
 .separator[data-orientation='horizontal'] {

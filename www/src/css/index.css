@@ -1,3 +1,6 @@
+@import url('./docusaurus.css');
+@import url('./search.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,32 +12,6 @@
  */
 
 /* You can override the default Infima variables here. */
-:root {
-  --ifm-color-primary: #87a79f;
-  --ifm-color-primary-dark: #87a79f;
-  --ifm-color-primary-darker: #87a79f;
-  --ifm-color-primary-darkest: #87a79f;
-  --ifm-color-primary-light: #87a79f;
-  --ifm-color-primary-lighter: #87a79f;
-  --ifm-color-primary-lightest: #87a79f;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-font-size-base: 85%;
-  --ifm-heading-font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
-  --gray-bg: rgba(170, 170, 170, 0.25);
-}
-
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #87a79f;
-  --ifm-color-primary-dark: #87a79f;
-  --ifm-color-primary-darker: #87a79f;
-  --ifm-color-primary-darkest: #87a79f;
-  --ifm-color-primary-light: #87a79f;
-  --ifm-color-primary-lighter: #87a79f;
-  --ifm-color-primary-lightest: #87a79f;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-    --gray-bg: rgba(170, 170, 170, 0.1);
-}
 
 * {
   font-family: var(--ifm-heading-font-family);
@@ -45,43 +22,25 @@
   color: white;
 }
 
-.navbar {
-  height: 3.5rem;
-  padding: 1rem;
+/* Style the scrollbar */
+::-webkit-scrollbar {
+    width: 12px !important; /* Width of the scrollbar */
+    height: 12px !important; /* Height of the scrollbar */
 }
 
-.navbar__items {
-  gap: 1rem;
+/* Style the scrollbar track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1 !important; /* Color of the scrollbar track */
+    border-radius: 10px !important; /* Rounded corners of the track */
 }
 
-.navbar__inner {
-  align-content: center;
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background: #888 !important; /* Color of the scrollbar thumb */
+    border-radius: 10px !important; /* Rounded corners of the thumb */
 }
 
-.navbar__item {
-  border-radius: 0.5rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
-  color: rgba(150, 150, 150, 0.5);
-  transition: background-color 100ms linear;
-
-}
-
-.navbar__item:hover {
-  background-color: var(--gray-bg);
-  color: rgba(150, 150, 150, 0.5);
-}
-
-.navbar__link--active {
-  background-color: var(--gray-bg);
-  color: var(--ifm-navbar-link-color) !important;
-}
-
-@media (min-width: 1000px) {
-  nav.navbar.navbar--fixed-top {
-    backdrop-filter: blur(5px);
-    background-color: rgba(255, 255, 255, 0.01);
-  }
+/* Style the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555 !important; /* Color of the scrollbar thumb when hovered */
 }
