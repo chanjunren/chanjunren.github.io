@@ -12,6 +12,10 @@
  */
 
 /* You can override the default Infima variables here. */
+:root {
+  --borderWidth-thin: max(1px, 0.0625rem);
+    
+}
 
 * {
   font-family: var(--ifm-heading-font-family);
