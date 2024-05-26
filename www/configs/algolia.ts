@@ -10,7 +10,7 @@ const ALOGLIA_CONFIG: ThemeConfig["algolia"] = {
   indexName: "chanjunrenio",
 
   // Optional: see doc section below
-  contextualSearch: true,
+  contextualSearch: false,
   searchParameters: {},
   searchPagePath: null,
 };
