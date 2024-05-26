@@ -5,7 +5,7 @@ const ALOGLIA_CONFIG: ThemeConfig["algolia"] = {
   appId: "050TJREE2O",
 
   // Public API key: it is safe to commit it
-  apiKey: "770d8cdc036f15f3cad30dd4595bcd74",
+  apiKey: "02ec9e7ad73e37a49de79d457cc7936b",
 
   indexName: "chanjunrenio",
 
