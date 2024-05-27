@@ -117,3 +117,7 @@
 .DocSearch-Logo svg * {
   fill: white !important;
 }
+
+.DocSearch-Logo a {
+  align-items: start;
+}
