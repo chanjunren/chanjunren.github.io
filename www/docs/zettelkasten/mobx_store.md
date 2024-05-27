@@ -15,7 +15,7 @@ export const storeMgtState = observable<StoreMgtStateType>({
 });
 
 function buildStore(storeState: StoreMgtStateType) {
-	const storeField = computed((storeState) => storeState.storeField)
+	const storeField = computed(() => storeState.storeField)
 
 	// Define actions and flows
 
