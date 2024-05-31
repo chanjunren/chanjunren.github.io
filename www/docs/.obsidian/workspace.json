@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "149778e059f1a421",
+        "id": "537f2095a77a8852",
         "type": "tabs",
         "children": [
           {
-            "id": "8d5fff9601b8fa71",
+            "id": "30a685edd7d769fa",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/mobx_store.md",
+                "file": "zettelkasten/spring_boot_application_lifecycle.md",
                 "mode": "source",
                 "source": false
               }
@@ -65,8 +65,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/mobx_store.md",
+                "file": "zettelkasten/spring_boot_application_lifecycle.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/mobx_store.md",
+                "file": "zettelkasten/spring_boot_application_lifecycle.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/mobx_store.md"
+                "file": "zettelkasten/spring_boot_application_lifecycle.md"
               }
             }
           }
@@ -147,18 +146,25 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8d5fff9601b8fa71",
+  "active": "30a685edd7d769fa",
   "lastOpenFiles": [
+    "zettelkasten/spring_boot_dump.md",
+    "zettelkasten/spring_boot_application_lifecycle.md",
+    "zettelkasten/threejs/orthographic_camera_and_near_far_values.md",
+    "zettelkasten/sql_date_functions_cheatsheet.md",
+    "zettelkasten/elasticsearch_aggregations.md",
+    "zettelkasten/tesasdmoklfnasoklf.md",
+    "zettelkasten/aliyun_canal_api_client.md",
+    "zettelkasten/es_realtime_search.md",
     "zettelkasten/es_query_dsl.md",
+    "zettelkasten/es_expensive_queries.md",
+    "zettelkasten/prefix_vs_match_phrase_prefix.md",
+    "zettelkasten/mobx_store.md",
     "zettelkasten/threejs/baking_and_exporting.md",
     "assets/Pasted image 20240523174730.png",
-    "zettelkasten/elasticsearch_aggregations.md",
-    "zettelkasten/es_expensive_queries.md",
     "zettelkasten/threejs/importing_and_optimizing.md",
     "zettelkasten/es_query_dsl_examples.md",
     "zettelkasten/es_api_cheatsheet.md",
-    "zettelkasten/sql_date_functions_cheatsheet.md",
-    "zettelkasten/spring_boot_dump.md",
     "zettelkasten/camel_exchange.md",
     "zettelkasten/dts_debug.md",
     "zettelkasten/scratchpad.md",

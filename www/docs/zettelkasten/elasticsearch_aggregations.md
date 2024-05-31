@@ -10,7 +10,6 @@
 | Metric aggregations   | calculate metrics from field values (e.g. `sum`, `average`)    |
 | Bucket aggregations   | group documents into buckets (bins) based on certain criterias |
 | Pipeline aggregations | take input from other aggregations                             |
-|                       |                                                                |
 
 ### Bucket aggregations
 - Create *buckets* of documents
