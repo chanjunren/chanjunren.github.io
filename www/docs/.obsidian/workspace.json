@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "b042f1d36b95467c",
+        "id": "998c382374955d11",
         "type": "tabs",
         "children": [
           {
-            "id": "b130549f86b5a8a4",
+            "id": "2f2a77a12120a631",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/threejs/environment_and_staging.md",
+                "file": "zettelkasten/threejs/load_models.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/threejs/environment_and_staging.md",
+                "file": "zettelkasten/threejs/load_models.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/threejs/environment_and_staging.md",
+                "file": "zettelkasten/threejs/load_models.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/threejs/environment_and_staging.md"
+                "file": "zettelkasten/threejs/load_models.md"
               }
             }
           }
@@ -146,8 +146,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b130549f86b5a8a4",
+  "active": "2f2a77a12120a631",
   "lastOpenFiles": [
+    "zettelkasten/threejs/load_models.md",
     "zettelkasten/threejs/environment_and_staging.md",
     "zettelkasten/spring_boot_application_lifecycle.md",
     "zettelkasten/spring_boot_dump.md",

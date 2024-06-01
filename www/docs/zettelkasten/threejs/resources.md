@@ -1,3 +1,4 @@
 - https://discoverthreejs.com/tips-and-tricks/
 - https://drei.pmnd.rs/?path=/docs/staging-accumulativeshadows--docs
 - https://github.com/protectwise/troika/tree/main/packages/troika-three-text
+- https://github.com/pmndrs/leva
