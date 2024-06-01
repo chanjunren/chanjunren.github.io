@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "537f2095a77a8852",
+        "id": "b042f1d36b95467c",
         "type": "tabs",
         "children": [
           {
-            "id": "30a685edd7d769fa",
+            "id": "b130549f86b5a8a4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/spring_boot_application_lifecycle.md",
+                "file": "zettelkasten/threejs/environment_and_staging.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/spring_boot_application_lifecycle.md",
+                "file": "zettelkasten/threejs/environment_and_staging.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/spring_boot_application_lifecycle.md",
+                "file": "zettelkasten/threejs/environment_and_staging.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/spring_boot_application_lifecycle.md"
+                "file": "zettelkasten/threejs/environment_and_staging.md"
               }
             }
           }
@@ -146,10 +146,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "30a685edd7d769fa",
+  "active": "b130549f86b5a8a4",
   "lastOpenFiles": [
-    "zettelkasten/spring_boot_dump.md",
+    "zettelkasten/threejs/environment_and_staging.md",
     "zettelkasten/spring_boot_application_lifecycle.md",
+    "zettelkasten/spring_boot_dump.md",
     "zettelkasten/threejs/orthographic_camera_and_near_far_values.md",
     "zettelkasten/sql_date_functions_cheatsheet.md",
     "zettelkasten/elasticsearch_aggregations.md",
