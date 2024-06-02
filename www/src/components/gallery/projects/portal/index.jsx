@@ -1,10 +1,7 @@
-import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { WORKSPACE_ASSETS } from "@site/src/utils/constants";
+import Portal from "./Portal";
 
-export default function Portal() {
-  const model = useGLTF(`${WORKSPACE_ASSETS}/portal/portal.glb`);
-  console.log("MODEL", model);
+export default function PortalWrapper() {
   return (
     <Canvas
       camera={{
@@ -14,14 +11,7 @@ export default function Portal() {
         position: [1, 2, 6],
       }}
     >
-      <>
-        <OrbitControls makeDefault />
-
-        <mesh scale={1.5}>
-          <boxGeometry />
-          <meshNormalMaterial />
-        </mesh>
-      </>
+      <Portal />
     </Canvas>
   );
 }

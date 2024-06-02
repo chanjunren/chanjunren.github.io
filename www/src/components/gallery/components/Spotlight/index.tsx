@@ -1,10 +1,8 @@
 import useGallery from "../../hooks/useGallery";
 
-const DefaultComponent: React.FC = () => <div>No project selected</div>;
-
 export default function Spotlight() {
   const { selectedProject } = useGallery();
-  const SpotlightProject = selectedProject?.display || DefaultComponent;
+  const SpotlightProject = selectedProject.display;
 
   return (
     <div className="flex-grow">

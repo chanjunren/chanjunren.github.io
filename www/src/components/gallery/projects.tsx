@@ -1,7 +1,7 @@
 import Image from "@docusaurus/plugin-ideal-image/lib/theme/IdealImage";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import type { Props } from "@theme/IdealImage";
-import Portal from "./projects/portal";
+import PortalWrapper from "./projects/portal";
 import { GalleryCardProps, GalleryProject } from "./types";
 
 const DefaultImg: React.FC<Props> = (props: Props & GalleryCardProps) => (
@@ -19,7 +19,7 @@ export const GALLERY_PROJECTS: GalleryProject[] = [
     card: (props: GalleryCardProps) => (
       <DefaultImg img={useBaseUrl("gallery/portal.png")} {...props} />
     ),
-    display: () => <Portal />,
+    display: () => <PortalWrapper />,
     dob: "220524",
     tags: ["threejs", "blender"],
   },
