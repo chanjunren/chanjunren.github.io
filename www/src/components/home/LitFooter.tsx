@@ -1,7 +1,7 @@
 import Image from "@docusaurus/plugin-ideal-image/lib/theme/IdealImage";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import { FC, useState } from "react";
-const BestFooter: FC = () => {
+const LitFooter: FC = () => {
   const [hovering, setHovering] = useState<boolean>(false);
 
   return (
@@ -36,4 +36,4 @@ const BestFooter: FC = () => {
   );
 };
 
-export default BestFooter;
+export default LitFooter;
