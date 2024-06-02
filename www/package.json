@@ -39,6 +39,7 @@
     "@docusaurus/tsconfig": "^3.4.0",
     "@docusaurus/types": "^3.4.0",
     "autoprefixer": "^10.4.19",
+    "glsl-shader-loader": "^0.1.6",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
     "ts-node": "^10.9.2",
