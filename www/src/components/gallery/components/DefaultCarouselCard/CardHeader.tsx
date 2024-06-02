@@ -4,15 +4,21 @@ import * as Tooltip from "@radix-ui/react-tooltip";
 import { FC } from "react";
 import { GalleryProject } from "../../types";
 
-const CardHeader: FC<GalleryProject> = ({ tags, id }) => {
+type CardHeaderProps = {
+  project: GalleryProject;
+  active: boolean;
+};
+
+const CardHeader: FC<CardHeaderProps> = ({ project, active }) => {
+  const { tags, id } = project;
   return (
     <header className="group/tags max-[996px]:hidden">
       <Tooltip.Provider delayDuration={0}>
-        <Tooltip.Root>
+        <Tooltip.Root open={active}>
           <Tooltip.Trigger asChild>
             <button
               className={
-                "h-4 group-hover/card:animate-bouncingShow opacity-0 z-[-99] translate-y-[2rem] bg-transparent border-none p-0"
+                "h-4 group-hover/card:animate-bouncingShow opacity-0 z-[-99] bg-transparent border-none p-0"
               }
             >
               <FrameIcon />

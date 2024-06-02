@@ -24,7 +24,7 @@ const DefaultCarouselCard: React.FC<CarouselCardWrapperProps> = ({
       onMouseLeave={() => setHovering(false)}
       onClick={() => onCardSelected(project)}
     >
-      <CardHeader {...project} />
+      <CardHeader project={project} active={hovering} />
       <Card selected={selected} />
       <DateWithTypewriterEffect date={dob} active={hovering || selected} />
     </div>
