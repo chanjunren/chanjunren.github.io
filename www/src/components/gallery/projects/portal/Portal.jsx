@@ -2,23 +2,45 @@ import {
   Center,
   OrbitControls,
   Sparkles,
+  shaderMaterial,
   useGLTF,
   useTexture,
 } from "@react-three/drei";
+import { extend, useFrame } from "@react-three/fiber";
 import { WORKSPACE_ASSETS } from "@site/src/utils/constants";
-import portalVertexShader from "../../../../glsl/portal/fragment.glsl";
+import { useRef } from "react";
+import { Color } from "three";
+import portalFragmentShader from "../../../../glsl/portal/fragment.glsl";
+import portalVertexShader from "../../../../glsl/portal/vertex.glsl";
 
 export default function Portal() {
   const model = useGLTF(`${WORKSPACE_ASSETS}/portal/portal.glb`);
   const bakedTexture = useTexture(`${WORKSPACE_ASSETS}/portal/texture.jpg`);
   console.log(portalVertexShader);
+  console.log(portalFragmentShader);
   const { portal, left_light, right_light, portal_light } = model.nodes;
   console.log(model.nodes);
   bakedTexture.flipY = false;
+
+  const PortalMaterial = shaderMaterial(
+    {
+      uTime: 0,
+      uColorStart: new Color(0xffffff),
+      uColorEnd: new Color(0xece4e4),
+    },
+    portalVertexShader,
+    portalFragmentShader
+  );
+  const portalMaterial = useRef();
+  useFrame((state, delta) => {
+    portalMaterial.current.uTime += delta;
+  });
+
+  extend({ PortalMaterial });
   return (
     <>
       <OrbitControls makeDefault />
-      <color args={["#030202"]} attach="background" />
+      <color args={["#1f1414"]} attach="background" />
       <Center>
         <mesh
           rotation={portal.rotation}
@@ -44,6 +66,13 @@ export default function Portal() {
           speed={0.2}
           count={40}
         />
+        <mesh
+          geometry={portal_light.geometry}
+          position={portal_light.position}
+          rotation={portal_light.rotation}
+        >
+          <portalMaterial ref={portalMaterial} />
+        </mesh>
       </Center>
     </>
   );

@@ -1,10 +1,11 @@
-varying vec2 vUv;
 uniform float uTime;
 uniform vec3 uColorStart;
 uniform vec3 uColorEnd;
 
-//	Classic Perlin 3D Noise 
-//	by Stefan Gustavson
+varying vec2 vUv;
+
+//    Classic Perlin 3D Noise 
+//    by Stefan Gustavson
 //
 vec4 permute(vec4 x){ return mod(((x*34.0)+1.0)*x, 289.0); }
 vec4 taylorInvSqrt(vec4 r){ return 1.79284291400159 - 0.85373472095314 * r; }
@@ -76,20 +77,29 @@ float cnoise(vec3 P)
     vec4 n_z = mix(vec4(n000, n100, n010, n110), vec4(n001, n101, n011, n111), fade_xyz.z);
     vec2 n_yz = mix(n_z.xy, n_z.zw, fade_xyz.y);
     float n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x); 
-    
+
     return 2.2 * n_xyz;
 }
 
 void main()
 {
+    // Displace the UV
     vec2 displacedUv = vUv + cnoise(vec3(vUv * 5.0, uTime * 0.1));
+
+    // Perlin noise
     float strength = cnoise(vec3(displacedUv * 5.0, uTime * 0.2));
 
+    // Outer glow
     float outerGlow = distance(vUv, vec2(0.5)) * 5.0 - 1.4;
     strength += outerGlow;
 
+    // Apply cool step
     strength += step(- 0.2, strength) * 0.8;
 
+    // // Clamp the value from 0 to 1
+    // strength = clamp(strength, 0.0, 1.0);
+
+    // Final color
     vec3 color = mix(uColorStart, uColorEnd, strength);
 
     gl_FragColor = vec4(color, 1.0);
