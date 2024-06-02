@@ -6,7 +6,7 @@ import { GalleryProject } from "../types";
 
 export default function useGallery() {
   const [selectedProject, setSelectedProject] = useState<GalleryProject | null>(
-    null
+    GALLERY_PROJECTS[0]
   );
 
   const history = useHistory();
@@ -16,9 +16,13 @@ export default function useGallery() {
     const urlParams = new URLSearchParams(location.search);
     const urlIdParam = urlParams.get("id");
 
-    if (urlIdParam && !selectedProject) {
+    if (urlIdParam) {
       const proj = GALLERY_PROJECTS.find((item) => item.id === urlIdParam);
-      setSelectedProject(proj);
+      if (proj) {
+        setSelectedProject(proj);
+      }
+    } else {
+      history.push(`?id=${selectedProject.id}`);
     }
   }, [location]);
 
