@@ -2,7 +2,9 @@ import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import ALOGLIA_CONFIG from "./configs/algolia";
 import PRISM_CONFIG from "./configs/prism";
-import tailwindPlugin from "./plugins/tailwind-plugin.cjs"; // add this
+import pluginIdealImage from "./plugins/ideal-image.cjs";
+import tailwindPlugin from "./plugins/tailwind.cjs";
+import customWebpack from "./plugins/webpack.cjs";
 import { obsidianToDocusaurusPreprocessor } from "./src/utils/markdownPreprocessor";
 
 const config: Config = {
@@ -72,16 +74,8 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
   plugins: [
     tailwindPlugin,
-    [
-      "@docusaurus/plugin-ideal-image",
-      {
-        quality: 70,
-        max: 1030, // max resized image's size.
-        min: 640, // min resized image's size. if original is lower, use that size.
-        steps: 2, // the max number of images generated between min and max (inclusive)
-        disableInDev: false,
-      },
-    ],
+    [pluginIdealImage.name, pluginIdealImage.options],
+    customWebpack,
   ],
   staticDirectories: ["docs/assets", "static"],
   markdown: {
