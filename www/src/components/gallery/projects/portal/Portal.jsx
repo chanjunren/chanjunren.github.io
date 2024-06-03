@@ -56,9 +56,6 @@ export default function Portal() {
         <mesh geometry={right_light.geometry} position={right_light.position}>
           <meshBasicMaterial color="#ffffe5" />
         </mesh>
-        <mesh geometry={portal_light.geometry} position={portal_light.position}>
-          <meshBasicMaterial color="#ffffff" />
-        </mesh>
         <Sparkles
           size={6}
           scale={[4, 2, 4]}
