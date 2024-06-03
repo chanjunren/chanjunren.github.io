@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/threejs/load_models.md",
+                "file": "zettelkasten/javascript_build_dump.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/threejs/load_models.md",
+                "file": "zettelkasten/javascript_build_dump.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/threejs/load_models.md",
+                "file": "zettelkasten/javascript_build_dump.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/threejs/load_models.md"
+                "file": "zettelkasten/javascript_build_dump.md"
               }
             }
           }
@@ -148,7 +148,10 @@
   },
   "active": "2f2a77a12120a631",
   "lastOpenFiles": [
+    "zettelkasten/javascript_build_dump.md",
     "zettelkasten/threejs/load_models.md",
+    "zettelkasten/threejs/3d_text.md",
+    "zettelkasten/README.md",
     "zettelkasten/threejs/environment_and_staging.md",
     "zettelkasten/spring_boot_application_lifecycle.md",
     "zettelkasten/spring_boot_dump.md",
@@ -171,7 +174,6 @@
     "zettelkasten/dts_debug.md",
     "zettelkasten/scratchpad.md",
     "zettelkasten/todo.md",
-    "zettelkasten/okr_lol.md",
-    "zettelkasten/work_study_log.md"
+    "zettelkasten/okr_lol.md"
   ]
 }
