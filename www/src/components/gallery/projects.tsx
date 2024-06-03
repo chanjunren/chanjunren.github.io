@@ -4,7 +4,7 @@ import type { Props } from "@theme/IdealImage";
 import PortalWrapper from "./projects/portal";
 import { GalleryCardProps, GalleryProject } from "./types";
 
-const DefaultImg: React.FC<Props> = (props: Props & GalleryCardProps) => (
+const ImageCard: React.FC<Props> = (props: Props & GalleryCardProps) => (
   <Image
     {...props}
     className={`min-[996px]:h-[75px] w-fit rounded-xl  object-contain border-2 border-solid ${
@@ -17,7 +17,7 @@ export const GALLERY_PROJECTS: GalleryProject[] = [
   {
     id: "threejs_portal",
     card: (props: GalleryCardProps) => (
-      <DefaultImg img={useBaseUrl("gallery/portal.png")} {...props} />
+      <ImageCard img={useBaseUrl("gallery/portal.png")} {...props} />
     ),
     display: () => <PortalWrapper />,
     dob: "220524",
