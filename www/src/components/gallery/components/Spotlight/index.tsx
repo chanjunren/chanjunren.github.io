@@ -5,7 +5,7 @@ export default function Spotlight() {
   const SpotlightProject = selectedProject.display;
 
   return (
-    <div className="flex-grow rounded-lg">
+    <div className="flex-grow px-8">
       <SpotlightProject />
     </div>
   );
