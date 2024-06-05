@@ -4,5 +4,6 @@
   "newFileLocation": "folder",
   "newFileFolderPath": "zettelkasten",
   "attachmentFolderPath": "assets",
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "showLineNumber": true
 }

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/javascript_build_dump.md",
+                "file": "zettelkasten/threejs/r3f_mouse_events.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/javascript_build_dump.md",
+                "file": "zettelkasten/threejs/r3f_mouse_events.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/javascript_build_dump.md",
+                "file": "zettelkasten/threejs/r3f_mouse_events.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/javascript_build_dump.md"
+                "file": "zettelkasten/threejs/r3f_mouse_events.md"
               }
             }
           }
@@ -148,6 +148,9 @@
   },
   "active": "2f2a77a12120a631",
   "lastOpenFiles": [
+    "zettelkasten/spel_overview.md",
+    "zettelkasten/threejs/r3f_mouse_events.md",
+    "zettelkasten/mvel_overview.md",
     "zettelkasten/javascript_build_dump.md",
     "zettelkasten/threejs/load_models.md",
     "zettelkasten/threejs/3d_text.md",
@@ -171,9 +174,6 @@
     "zettelkasten/es_query_dsl_examples.md",
     "zettelkasten/es_api_cheatsheet.md",
     "zettelkasten/camel_exchange.md",
-    "zettelkasten/dts_debug.md",
-    "zettelkasten/scratchpad.md",
-    "zettelkasten/todo.md",
-    "zettelkasten/okr_lol.md"
+    "zettelkasten/dts_debug.md"
   ]
 }
