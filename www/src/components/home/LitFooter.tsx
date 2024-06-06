@@ -5,26 +5,18 @@ const LitFooter: FC = () => {
   const [hovering, setHovering] = useState<boolean>(false);
 
   return (
-    <div
+    <footer
       className="flex flex-col items-center"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      {hovering ? (
-        <Image
-          className="h-24 w-24 bg-transparent"
-          img={useBaseUrl("lbxx_booty_dance.gif")}
-        />
-      ) : (
-        // <Image
-        //   className="h-24 w-24 rounded-2xl bg-transparent"
-        //   img={useBaseUrl("lbxx_booty_dance_static.gif")}
-        // />
-        <Image
-          className="h-24 w-24 rounded-2xl bg-transparent"
-          img={useBaseUrl("lbxx_static.png")}
-        />
-      )}
+      <section className="max-h-24 max-w-24 bg-transparent">
+        {hovering ? (
+          <Image img={useBaseUrl("lbxx_booty_dance.gif")} />
+        ) : (
+          <Image img={useBaseUrl("lbxx_static.png")} />
+        )}
+      </section>
       <span className="font-mono mt-5">
         Built with{" "}
         <a href="https://docusaurus.io/" target="_blank">
@@ -32,7 +24,7 @@ const LitFooter: FC = () => {
         </a>{" "}
         by Jun Ren
       </span>
-    </div>
+    </footer>
   );
 };
 
