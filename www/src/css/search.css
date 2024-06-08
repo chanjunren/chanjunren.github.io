@@ -5,7 +5,7 @@
   --docsearch-hit-background: none !important;
   --docsearch-searchbox-focus-background: var(--ifm-background-color) !important;
   --docsearch-searchbox-shadow: inset 0 0 0 2px var(--gray-transparent-bg) !important;
-  --docsearch-modal-background: white !important;
+  --docsearch-modal-background: #f8f7f6 !important;
   --docsearch-footer-background: var(--ifm-background-color) !important;
 
   /* Highlight icon button color */
