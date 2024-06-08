@@ -12,7 +12,7 @@
   --gray-transparent-bg: rgba(170, 170, 170, 0.25);
 
   --ifm-color-emphasis-300: var(--ifm-color-emphasis-400);
-  --ifm-background-color: #faf8f8;
+  --ifm-background-color: #f8f7f6	;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -65,9 +65,9 @@
   color: var(--ifm-navbar-link-color) !important;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 996px) {
   nav.navbar.navbar--fixed-top {
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.01);
   }
 }
