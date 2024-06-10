@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "998c382374955d11",
+        "id": "3d6879edd5de6314",
         "type": "tabs",
         "children": [
           {
-            "id": "2f2a77a12120a631",
+            "id": "bf7f71074882a016",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/r3f_post_processing.md",
+                "file": "zettelkasten/kubernetes_overview.md",
                 "mode": "source",
                 "source": false
               }
@@ -65,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/r3f_post_processing.md",
+                "file": "zettelkasten/kubernetes_overview.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/r3f_post_processing.md",
+                "file": "zettelkasten/kubernetes_overview.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/r3f_post_processing.md"
+                "file": "zettelkasten/kubernetes_overview.md"
               }
             }
           }
@@ -146,10 +147,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2f2a77a12120a631",
+  "active": "bf7f71074882a016",
   "lastOpenFiles": [
-    "zettelkasten/threejs/r3f_mouse_events.md",
+    "assets/k8s_overview.png",
+    "zettelkasten/kubernetes_overview.md",
+    "zettelkasten/sql_date_functions_cheatsheet.md",
     "zettelkasten/r3f_post_processing.md",
+    "zettelkasten/threejs/r3f_mouse_events.md",
     "zettelkasten/spel_overview.md",
     "zettelkasten/mvel_overview.md",
     "zettelkasten/javascript_build_dump.md",
@@ -160,7 +164,6 @@
     "zettelkasten/spring_boot_application_lifecycle.md",
     "zettelkasten/spring_boot_dump.md",
     "zettelkasten/threejs/orthographic_camera_and_near_far_values.md",
-    "zettelkasten/sql_date_functions_cheatsheet.md",
     "zettelkasten/elasticsearch_aggregations.md",
     "zettelkasten/tesasdmoklfnasoklf.md",
     "zettelkasten/aliyun_canal_api_client.md",
@@ -172,8 +175,6 @@
     "zettelkasten/threejs/baking_and_exporting.md",
     "assets/Pasted image 20240523174730.png",
     "zettelkasten/threejs/importing_and_optimizing.md",
-    "zettelkasten/es_query_dsl_examples.md",
-    "zettelkasten/es_api_cheatsheet.md",
-    "zettelkasten/camel_exchange.md"
+    "zettelkasten/es_query_dsl_examples.md"
   ]
 }

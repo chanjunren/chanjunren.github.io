@@ -6,7 +6,7 @@ const LitFooter: FC = () => {
 
   return (
     <footer
-      className="flex flex-col items-center"
+      className="flex flex-col items-center col-span-7 align-self-end"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
