@@ -10,11 +10,19 @@
 
   /* Highlight icon button color */
   --docsearch-highlight-color: var(--gray-transparent-bg) !important;
-  --docsearch-hit-active-color: var(--ifm-font-color-base) !important 
+  --docsearch-hit-active-color: var(--ifm-font-color-base) !important;
+
+  --docsearch-button-text-color: var(--ifm-color-emphasis-600);
+  --docsearch-button-bg-color: transparent;
+  --docsearch-button-border: 0.05rem solid var(--ifm-color-emphasis-400);
 }
 
 [data-theme='dark'] {
   --docsearch-modal-background: var(--ifm-background-color) !important;
+  --docsearch-button-text-color: var(--ifm-color-emphasis-600);
+  --docsearch-button-bg-color: rgba(170, 170, 170, 0.05);
+  --docsearch-button-border: none;
+
 }
 
 .DocSearch-Commands-Key {
@@ -24,8 +32,9 @@
 
 .DocSearch-Button {
   padding: 10px 10px !important;
-  border: var(--borderWidth-thin) solid var(--gray-transparent-bg) !important;
-  background: transparent !important;
+  backdrop-filter: blur(10px);
+  background-color: var(--docsearch-button-bg-color) !important;
+  border: var(--docsearch-button-border) !important;
   border-radius: 5px !important;
 }
 
@@ -38,6 +47,7 @@
 .DocSearch-Button-Placeholder {
   font-size: 0.9rem !important;
   margin-right: 2rem;
+  /* color: var(--docsearch-button-text-color) !important; */
 }
 
 .DocSearch-Container  {
@@ -67,7 +77,6 @@
   color: white !important;
   padding: 2px !important;
   border-radius: 0.3rem !important;
-
 }
 
 .DocSearch-Hit-path mark {
@@ -82,18 +91,12 @@
 }
 
 .DocSearch-Search-Icon {
-  color: rgba(170, 170, 170, 0.5) !important;
+  /* color: rgba(170, 170, 170, 0.5) !important; */
+  color: var(--docsearch-button-text-color) !important;
   width: 1rem;
   height: 1rem;
 }
 
-.DocSearch-Button-Placeholder {
-  color: rgba(170, 170, 170, 0.5) !important;
-}
-
-.DocSearch-Button-Placeholder {
-  color: rgba(170, 170, 170, 0.5) !important;
-}
 
 .DocSearch-Prefill {
   color: var(--ifm-color-primary) !important;
@@ -120,4 +123,21 @@
 
 .DocSearch-Logo a {
   align-items: start;
+}
+
+.DocSearch-Cancel {
+  color: rgba(170, 170, 170, 0.5) !important;
+}
+
+.DocSearch-Input {
+  font-size: 1rem !important;
+}
+
+.DocSearch-MagnifierLabel svg {
+  width: 1.3rem !important;
+  height: 1.3rem !important;
+}
+
+.DocSearch-Form {
+  box-shadow: none !important;
 }

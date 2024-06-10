@@ -16,10 +16,7 @@ import portalVertexShader from "../../../../glsl/portal/vertex.glsl";
 export default function Portal() {
   const model = useGLTF(`${WORKSPACE_ASSETS}/portal/portal.glb`);
   const bakedTexture = useTexture(`${WORKSPACE_ASSETS}/portal/texture.jpg`);
-  console.log(portalVertexShader);
-  console.log(portalFragmentShader);
   const { portal, left_light, right_light, portal_light } = model.nodes;
-  console.log(model.nodes);
   bakedTexture.flipY = false;
 
   const PortalMaterial = shaderMaterial(
@@ -40,7 +37,7 @@ export default function Portal() {
   return (
     <>
       <OrbitControls makeDefault />
-      <color args={["#1f1414"]} attach="background" />
+      {/* <color args={["#1f1414"]} attach="background" /> */}
       <Center>
         <mesh
           rotation={portal.rotation}

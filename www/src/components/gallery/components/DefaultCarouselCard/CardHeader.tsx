@@ -18,7 +18,7 @@ const CardHeader: FC<CardHeaderProps> = ({ project, active }) => {
           <Tooltip.Trigger asChild>
             <button
               className={
-                "h-4 group-hover/card:animate-bouncingShow opacity-0 z-[-99] bg-transparent border-none p-0"
+                "h-4 group-hover/card:opacity-100 opacity-0 z-[-99] bg-transparent border-none p-0"
               }
             >
               <FrameIcon />
@@ -30,7 +30,7 @@ const CardHeader: FC<CardHeaderProps> = ({ project, active }) => {
                 tags.length > 0 &&
                 tags.map((tag, idx) => (
                   <span
-                    className="p-2 rounded-md bg-black/70 mr-2 text-white"
+                    className="px-3 py-2 mr-2 rounded-3xl bg-transparent text-[var(--ifm-font-color-base)] border-[var(--ifm-font-color-base)]"
                     key={`${id}-tag-${idx}`}
                   >
                     {tag}
