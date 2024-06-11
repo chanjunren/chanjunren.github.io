@@ -14,7 +14,7 @@
   --ifm-color-emphasis-300: var(--ifm-color-emphasis-400);
   --ifm-background-color: #f8f7f6	;
 
-  ---reduced-emphasis-color: var(--ifm-color-emphasis-600);
+  --reduced-emphasis-color: var(--ifm-color-emphasis-600);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -30,7 +30,7 @@
   --gray-transparent-bg: rgba(170, 170, 170, 0.1);
 
   ---ifm-background-color: #171717;
-  ---reduced-emphasis-color: var(--ifm-color-emphasis-400);
+  --reduced-emphasis-color: var(--ifm-color-emphasis-400);
 }
 
 .navbar {
