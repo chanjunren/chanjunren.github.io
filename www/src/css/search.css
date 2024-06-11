@@ -22,7 +22,6 @@
   --docsearch-button-text-color: var(--ifm-color-emphasis-600);
   --docsearch-button-bg-color: rgba(170, 170, 170, 0.05);
   --docsearch-button-border: none;
-
 }
 
 .DocSearch-Commands-Key {
@@ -51,7 +50,8 @@
 }
 
 .DocSearch-Container  {
-  background-color: none !important;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.1);
   color: black !important;
 }
 
