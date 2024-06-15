@@ -1,23 +1,17 @@
 import { Config } from "tailwindcss";
 
 export const TAILWIND_ANIMATIONS: Config["theme"]["animations"] = {
-  // bouncingShow: "bouncing-show 0.7s linear forwards",
-  typewriterDate: "typewriterDate 2s steps(12) forwards",
-  blink: "blink 1s infinite",
+  typewriter:
+    "typewriter 1s steps(var(--text-length)) forwards, borderBlink 1.5s infinite",
 };
 
 export const TAILWIND_KEYFRAMES: Config["theme"]["keyframes"] = {
-  // "bouncing-show": {
-  //   "50%": { transform: "translateY(-0.20rem)" },
-  //   "100%": { transform: "translateY(0rem)", opacity: "1" },
-  // },
-  typewriterDate: {
-    from: { "border-right": "10px solid var(--ifm-font-color-base)" },
+  typewriter: {
     to: { width: "100%" },
   },
-  blink: {
+  borderBlink: {
     "50%": {
-      opacity: "0",
+      borderRightColor: "rgba(0,0,0,0)",
     },
   },
 };
