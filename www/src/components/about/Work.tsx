@@ -1,10 +1,10 @@
 import MiniSection from "../common/MiniSection";
 import PrimaryHeader from "../common/PrimaryHeader";
 
-export default function WorkExperience() {
+export default function Work() {
   //
   return (
-    <section className="col-span-4">
+    <section>
       <PrimaryHeader>💼 work</PrimaryHeader>
       <MiniSection
         title="Software Engineer II @ OKX"

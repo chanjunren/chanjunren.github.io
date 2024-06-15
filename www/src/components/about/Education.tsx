@@ -1,9 +1,9 @@
 import MiniSection from "../common/MiniSection";
 import PrimaryHeader from "../common/PrimaryHeader";
 
-export default function EducationSection() {
+export default function Education() {
   return (
-    <section className="col-span-2">
+    <section>
       <PrimaryHeader>📖 Education</PrimaryHeader>
       <MiniSection
         title="National University of Singapore"
