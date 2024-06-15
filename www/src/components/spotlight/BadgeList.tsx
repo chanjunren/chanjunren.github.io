@@ -7,7 +7,8 @@ type BadgeListProps = {
 };
 const BadgeList: FC<BadgeListProps> = ({ badges }) => {
   return (
-    <div>
+    <div className="flex items-center">
+      <span className="mr-3">Made with</span>
       {badges.map((badge, idx) => (
         <Badge key={`badge-${idx}`} type={badge} />
       ))}

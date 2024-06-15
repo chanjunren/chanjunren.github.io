@@ -1,3 +1,4 @@
+import * as Tooltip from "@radix-ui/react-tooltip";
 import { FC } from "react";
 import { BadgeType } from "../home/types";
 
@@ -5,8 +6,16 @@ const ThreeJSIcon = require("@site/static/badges/threeJs.svg").default;
 const BlenderIcon = require("@site/static/badges/blender.svg").default;
 const DocusaurusIcon = require("@site/static/badges/docusaurus.svg").default;
 const MyLoveIcon = require("@site/static/badges/myLove.svg").default;
+
 type BadgeProps = {
   type: BadgeType;
+};
+
+const BadgeLabel: { [key in BadgeType]: string } = {
+  THREE_JS: "threeJS",
+  BLENDER: "blender",
+  MY_LOVE: "my love",
+  DOCUSAURUS: "docusaurus",
 };
 
 const BadgeMap: { [key in BadgeType]: FC } = {
@@ -39,7 +48,27 @@ const BadgeMap: { [key in BadgeType]: FC } = {
 const Badge: FC<BadgeProps> = ({ type }) => {
   const BadgeComponent = BadgeMap[type];
 
-  return <BadgeComponent />;
+  return (
+    <Tooltip.Provider delayDuration={0}>
+      <Tooltip.Root>
+        <Tooltip.Trigger asChild>
+          <button className="w-fit bg-transparent border-none p-0">
+            <BadgeComponent />
+          </button>
+        </Tooltip.Trigger>
+        <Tooltip.Portal>
+          <Tooltip.Content
+            className="TooltipContent"
+            sideOffset={5}
+            side="bottom"
+          >
+            {BadgeLabel[type]}
+            <Tooltip.Arrow className="TooltipArrow" />
+          </Tooltip.Content>
+        </Tooltip.Portal>
+      </Tooltip.Root>
+    </Tooltip.Provider>
+  );
 };
 
 export default Badge;
