@@ -1,4 +1,3 @@
-import { Root as Separator } from "@radix-ui/react-separator";
 import { FC } from "react";
 import BuildingInProgress from "../components/about/BuildingInProgress";
 import LayoutWrapper from "../components/common/LayoutWrapper";
@@ -14,15 +13,15 @@ const Spotlight: FC = () => {
       title={"spotlight"}
       description="Hello! Welcome to my digital garden"
     >
-      <div className="flex gap-10 h-screen-navbar-footer">
+      {/* idk why h-full doesn't work */}
+      <div className="flex gap-10 h-[100%]">
         <ProjectCards />
-        <Separator
+        {/* <Separator
           decorative
           className="separatorRoot"
           // style={{ margin: "15px 0" }}
           orientation="vertical"
-        />
-
+        /> */}
         {selectedProject !== null ? (
           <div className="flex-grow flex flex-col">
             <ProjectInfo {...selectedProject} />

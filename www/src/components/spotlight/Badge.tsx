@@ -22,7 +22,7 @@ const BadgeMap: { [key in BadgeType]: FC } = {
   THREE_JS: () => (
     <ThreeJSIcon
       role="img"
-      className="h-12 w-12 rounded-lg p-2 hover:bg-[--gray-transparent-bg]"
+      className="h-12 w-12 rounded-lg p-2 hover:bg-[--gray-transparent-bg] "
     />
   ),
   BLENDER: () => (
