@@ -14,7 +14,9 @@ const LayoutWrapper: FC<PropsWithChildren<LayoutWrapperProps>> = ({
   return (
     <Layout title={title} description={description}>
       <main className="flex flex-col justify-between min-h-screen-minus-navbar p-10">
-        <div className="grid gap-x-10 gap-y-5 flex-grow">{children}</div>
+        <div className="grid gap-x-10 gap-y-5 flex-grow items-start">
+          {children}
+        </div>
         <LitFooter />
       </main>
     </Layout>

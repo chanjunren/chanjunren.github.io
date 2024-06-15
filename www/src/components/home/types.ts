@@ -2,6 +2,7 @@ export type GalleryCardProps = {
   selected: boolean;
   cardImgClass?: string;
   mini: boolean;
+  label: string;
 };
 
 export type GalleryProject = {
