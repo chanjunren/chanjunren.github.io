@@ -35,16 +35,7 @@ export default function PortalScene() {
   bakedTexture.flipY = false;
 
   return (
-    <Canvas
-      className="rounded-lg"
-      flat
-      camera={{
-        fov: 45,
-        near: 0.1,
-        far: 200,
-        position: [3, 1, 7],
-      }}
-    >
+    <>
       <OrbitControls makeDefault />
       {/* <color args={["#1f1414"]} attach="background" /> */}
       <Center>
@@ -60,6 +51,6 @@ export default function PortalScene() {
         />
         <PortalLight node={portal_light} />
       </Center>
-    </Canvas>
+    </>
   );
 }

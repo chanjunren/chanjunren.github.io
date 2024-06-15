@@ -11,7 +11,7 @@ const ProjectCard: React.FC<Props & GalleryCardProps> = ({
   <IdealImage
     onClick={onClick}
     img={img}
-    className={`rounded-xl h-full object-contain border-2 border-solid ${cardImgClass} ${
+    className={`rounded-xl !h-fit object-contain border-2 border-solid ${cardImgClass} ${
       selected ? "opacity-80 border-white" : "border-transparent"
     } ${mini ? "max-h-20" : ""}`}
   />

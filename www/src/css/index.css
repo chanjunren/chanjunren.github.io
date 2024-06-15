@@ -1,4 +1,5 @@
 @import url('./docusaurus.css');
+@import url('./separator.css');
 @import url('./search.css');
 
 @tailwind base;

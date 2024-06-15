@@ -1,10 +1,8 @@
 import PrimaryHeader from "../common/PrimaryHeader";
-import useGallery from "./hooks/useGallery";
 
 export default function WelcomeSection() {
-  const { selectedProject } = useGallery();
   return (
-    <section className={selectedProject ? "hidden" : ""}>
+    <section>
       <PrimaryHeader>🍵 welcome</PrimaryHeader>
       <p>
         This space serves as a means for me to organise my{" "}
