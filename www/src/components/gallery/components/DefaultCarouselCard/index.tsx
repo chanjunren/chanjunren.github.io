@@ -1,4 +1,4 @@
-import DateWithTypewriterEffect from "@site/src/components/common/DateWithTypewriterEffect";
+import TypewriterText from "@site/src/components/common/TypewriterText";
 import { useState } from "react";
 import { GalleryProject } from "../../types";
 import CardHeader from "./CardHeader";
@@ -26,7 +26,7 @@ const DefaultCarouselCard: React.FC<CarouselCardWrapperProps> = ({
     >
       <CardHeader project={project} active={hovering} />
       <Card selected={selected} />
-      <DateWithTypewriterEffect date={dob} active={hovering || selected} />
+      <TypewriterText text={dob} active={hovering || selected} />
     </div>
   );
 };
