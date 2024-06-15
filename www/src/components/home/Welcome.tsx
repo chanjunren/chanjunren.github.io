@@ -2,7 +2,7 @@ import PrimaryHeader from "../common/PrimaryHeader";
 
 export default function WelcomeSection() {
   return (
-    <section className="col-span-2">
+    <section className="">
       <PrimaryHeader>🍵 welcome</PrimaryHeader>
       <p>
         This space serves as a means for me to organise my{" "}

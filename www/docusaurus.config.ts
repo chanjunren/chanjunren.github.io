@@ -59,13 +59,14 @@ const config: Config = {
       title: "🌳",
       items: [
         {
+          label: "about",
+          to: "about",
+        },
+
+        {
           type: "docSidebar",
           sidebarId: "docs",
           label: "zettelkasten",
-        },
-        {
-          label: "workspace",
-          to: "workspace",
         },
       ],
     },
