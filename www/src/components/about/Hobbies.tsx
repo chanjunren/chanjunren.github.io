@@ -39,7 +39,7 @@ const Hobbies: FC = () => {
         <HobbyCard label="snowboarding" mediaUrl="cdn_url">
           🏂
         </HobbyCard>
-        <HobbyCard label="mahjong" mediaUrl="cdn_url">
+        <HobbyCard label="mahjong 💸" mediaUrl="cdn_url">
           🀄️
         </HobbyCard>
       </div>
