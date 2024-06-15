@@ -1,13 +1,16 @@
 import { GalleryProject } from "../../types";
-import PortalScene from "./PortalScene";
+import Description from "./Description";
+import Portal from "./Portal";
 
 const PortalProject: GalleryProject = {
   id: "threejs_portal",
+  title: "Simple threeJS portal",
   cardUrl: "gallery/portal.png",
-  display: () => <PortalScene />,
+  mainDisplay: () => <Portal />,
   dob: "220524",
-  tags: ["threejs", "blender"],
+  badges: ["THREE_JS", "BLENDER", "MY_LOVE"],
   // cardImgClass: "col-span-1 lg:col-span-2",
+  description: () => <Description />,
 };
 
 export default PortalProject;

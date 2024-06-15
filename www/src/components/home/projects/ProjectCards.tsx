@@ -9,34 +9,22 @@ export const GALLERY_PROJECTS: GalleryProject[] = [PortalProject];
 
 const ProjectCards: FC = () => {
   const { selectedProject, onGalleryProjSelected } = useGallery();
-  // const selectedProject = null;
+
+  const projects = GALLERY_PROJECTS.map((proj) => (
+    <ProjectCard
+      mini={selectedProject !== null}
+      onClick={() => onGalleryProjSelected(proj)}
+      selected={selectedProject?.id === proj?.id}
+      key={`proj-${proj.id}`}
+      img={useBaseUrl(proj.cardUrl)}
+      cardImgClass={proj.cardImgClass}
+    />
+  ));
 
   return selectedProject === null ? (
-    <>
-      {GALLERY_PROJECTS.map((proj) => (
-        <ProjectCard
-          mini={false}
-          onClick={() => onGalleryProjSelected(proj)}
-          selected={false}
-          key={`proj-${proj.id}`}
-          img={useBaseUrl(proj.cardUrl)}
-          cardImgClass={proj.cardImgClass}
-        />
-      ))}
-    </>
+    <>{projects}</>
   ) : (
-    <div className="flex gap-2 max-h-20">
-      {GALLERY_PROJECTS.map((proj) => (
-        <ProjectCard
-          mini={true}
-          onClick={() => onGalleryProjSelected(proj)}
-          selected={selectedProject?.id === proj?.id}
-          key={`proj-${proj.id}`}
-          img={useBaseUrl(proj.cardUrl)}
-          cardImgClass={proj.cardImgClass}
-        />
-      ))}
-    </div>
+    <div className="flex gap-2 max-h-20 min-w-20 aspect-auto">{projects}</div>
   );
 };
 

@@ -30,7 +30,7 @@ export default function useGallery() {
     if (proj.id === selectedProject?.id) {
       return;
     }
-    history.push(`?id=${proj.id}`);
+    history.push(`/spotlight?id=${proj.id}`);
     setSelectedProject(proj);
   };
 

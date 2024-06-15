@@ -6,10 +6,19 @@ export type GalleryCardProps = {
 
 export type GalleryProject = {
   id: string;
-  // What is shown in the spotlight when gallery card is selected
-  display: React.FC;
+  mainDisplay?: React.FC; // What is shown in the spotlight when gallery card is selected
   cardUrl: string;
+  title: string;
   dob: string;
-  tags?: string[];
+  badges?: BadgeType[];
   cardImgClass?: string;
+  description: React.FC;
 };
+
+export type BadgeType =
+  | "THREE_JS"
+  | "DOCUSAURUS"
+  // | "REACT"
+  | "BLENDER"
+  // | "GLSL"
+  | "MY_LOVE";
