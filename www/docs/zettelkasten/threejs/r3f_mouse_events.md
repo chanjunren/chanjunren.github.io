@@ -11,26 +11,7 @@
 export default function Experience() {
   // ...
 
-  const eventHandler = () => {
-    cube.current.material.color.set(`hsl(${Math.random() * 360}, 100%, 75%)`);
-  };
-
-  return (
-    <>
-      // ...
-      <mesh ref={cube} position-x={2} scale={1.5} onClick={eventHandler}>
-        <boxGeometry />
-        <meshStandardMaterial color="mediumpurple" />
-      </mesh>
-    </>
-  );
-}
-```
-
-## Event information
-
-```javascript
-const eventHandler = (event) => {
+  const eventHandler = (event) => {
   console.log("---");
   console.log("distance", event.distance); // Distance between camera and hit point
   console.log("point", event.point); // Hit point coordinates (in 3D)
@@ -47,6 +28,17 @@ const eventHandler = (event) => {
   console.log("ctrlKey", event.ctrlKey); // If the CTRL key was pressed
   console.log("metaKey", event.metaKey); // If the COMMAND key was pressed
 };
+
+  return (
+    <>
+      // ...
+      <mesh ref={cube} position-x={2} scale={1.5} onClick={eventHandler}>
+        <boxGeometry />
+        <meshStandardMaterial color="mediumpurple" />
+      </mesh>
+    </>
+  );
+}
 ```
 
 > A mix of native JavaScript event information and R3F-related event information
@@ -54,7 +46,7 @@ const eventHandler = (event) => {
 ## Other events
 
 ### onContextMenu
-
+		
 Triggered when the context menu should appear - Desktop > right click - Mobile > Pressing down for some time
 
 ### onDoubleClick

@@ -1,4 +1,4 @@
-🗓️ {{date:YYYYMMDD}}{{time: HHmm}}
+🗓️ {{date:DDMMYYYY}}{{time: HHmm}}
 📎
 
 # {{title}}

@@ -1,4 +1,4 @@
-🗓️ 20240606 1739
+🗓️ 16062024 1600
 📎
 
 # r3f_post_processing
@@ -11,39 +11,17 @@
 
 
 ## [Post Processing](https://github.com/pmndrs/postprocessing)
-Aims to solves issue by merging various passes into the least number of passes possible
+- Aims to solves issue by merging various passes into the least number of passes possible
+- Uses the term 'effects' instead
+- Order of adding effects is preserved
 
-```ad-note
-In fact, we don’t talk about passes anymore, but we talk about “effects”.
-```
-
-Those effects will be merged together into one or multiple passes (if needed) automatically while keeping the order in which we added them.
-
-We also have a directional light source and an ambient light source.
-
-The `@react-three/drei` dependency is already installed within the project and we are using the `OrbitControls` helper to be able to move the camera around.
-
-We also have `<Perf />` from `r3f-perf` in order to keep an eye on performance.
-
-## Implement [04:56](https://threejs-journey.com/lessons/post-processing-with-r3f#)[](https://threejs-journey.com/lessons/post-processing-with-r3f#implement)
-
-We need two dependencies, `@react-three/postprocessing`, and `postprocessing`.
-
-But for now, the only one we need to install is `@react-three/postprocessing` since this dependency will also install `postprocessing`.
-
-In the terminal, use `npm install @react-three/postprocessing@2.16` (we force the versions to prevent surprises, you can ignore potential vulnerability warnings).
-
-In `Experience.jsx`, import `EffectComposer` from `@react-three/postprocessing`:
+## Dependencies 
+- `@react-three/postprocessing`
+- `postprocessing`
 
 ```javascript
 import { EffectComposer } from '@react-three/postprocessing'
-```
 
-Although it’s the same name as the `EffectComposer` we used in native Three.js, it’s not the same class.
-
-Now, add it to the JSX:
-
-```javascript
 export default function Experience()
 {
     return <>
@@ -57,214 +35,87 @@ export default function Experience()
 }
 ```
 
-![](https://threejs-journey.com/assets/lessons/53/001.png)
-
 `EffectComposer` is now running, but the colors are now completely off.
-
-This is due to the tone mapping being deactivated in the post-processing rendering process for more appropriate color management.
-
-We can fix that by adding the tone mapping ourselves as an effect at the end of the `<EffectComposer>`.
-
-Import `ToneMapping` from `@react-three/postprocessing`:
-
-```javascript
-import { ToneMapping, Vignette, EffectComposer } from '@react-three/postprocessing'
-```
-
-Then, add `<ToneMapping>` inside `<EffectComposer>`:
-
-```javascript
-<EffectComposer>
-    <ToneMapping />
-</EffectComposer>
-```
-
-![](https://threejs-journey.com/assets/lessons/53/002.png)
-
-That’s better, but the picture looks gray-ish.
-
-This is due to the default tone mapping applied by `ToneMapping` named AgX. AgX is a quite recent tone mapping which looks okay, but it’s not the default one used by R3F.
-
-To change that, first we need to import the list from `postprocessing`. Yes, I’m talking about the original `postprocessing` library, not the React Three implementation.
-
-Because we’ve added `@react-three/postprocessing` to the project, we can already import things from `postprocessing` directly, but it’s considered good practice to add it ourselves to the project so that we don’t have to rely on other dependencies.
-
-In the terminal run `npm install postprocessing@6.35` (we force the versions to prevent surprises, you can ignore potential vulnerability warnings).
-
-To get the list of blends, import available tone mappins from `postprocessing`, we need to import `ToneMappingMode` from `postprocessing`:
-
-```javascript
-import { ToneMappingMode } from 'postprocessing'
-console.log(ToneMappingMode)
-```
-
-![](https://threejs-journey.com/assets/lessons/53/003.png)
-
-The one we want is `ACES_FILMIC` and we can apply it to the `<ToneMapping>` using the `mode` prop:
-
+### Fixing tone mapping
+- Problems:
+	- EffectComposer deactivates tone mapping in post-processing
+		- Causes the color to be off
+	- `ToneMapping` uses `AgX` tone mapping by default
+		- Not the one that R3F uses by default
+		- Causes the color to be gray-ish
 ```javascript
 <EffectComposer>
     <ToneMapping mode={ ToneMappingMode.ACES_FILMIC } />
 </EffectComposer>
 ```
-
 ![](https://threejs-journey.com/assets/lessons/53/004.png)
 
-The color is back.
-
-Remove the `console.log(ToneMappingMode)`.
-
-Note that we don’t even need to add the first render, since Post Processing will take care of that.
-
-Be careful, in the following parts, as you might have to reload the page after tweaking or adding an effect.
-
-### Multisampling[](https://threejs-journey.com/lessons/post-processing-with-r3f#multisampling)
-
-We can assign various attributes to the `<EffectComposer>`, but the most interesting one is `multisample`.
-
-As discussed in the previous lessons, multi-sampling is used to prevent the aliasing effect (the little stairs on the edges of geometries).
-
-By default, its value is at `8` and we can lower it down to `0` in order to disable it completely.
+```ad-note
+Tone mapping is the process of converting HDR colors to LDR output colors
+```
+### Multisampling
+- `multisampling` is used to prevent the aliasing effect 
+- Default value is 8
 
 ```javascript
-<EffectComposer multisampling={ 0 }>
+// To disable
+<EffectComposer multisampling={ 0 }> 
     <ToneMapping mode={ ToneMappingMode.ACES_FILMIC } />
 </EffectComposer>
 ```
 
 ![](https://threejs-journey.com/assets/lessons/53/005.jpg)
 
-(Note that you will probably not see a big difference in the screenshot above because of the image compression)
+## Resources
+- Post Processing:
+	-  [https://github.com/pmndrs/postprocessing](https://github.com/pmndrs/postprocessing)
+	- [https://pmndrs.github.io/postprocessing/public/docs/](https://pmndrs.github.io/postprocessing/public/docs/)
+	-  [https://pmndrs.github.io/postprocessing/public/demo/](https://pmndrs.github.io/postprocessing/public/demo/)
 
-Performance should be better when disabling multi-sampling, but we don’t really care about that in this lesson, so let’s remove it and keep the default value:
+- React-postprocessing:
+	-  [https://github.com/pmndrs/reactpostprocessing](https://github.com/pmndrs/react-postprocessing)
+	-  [https://github.com/pmndrs/postprocessing#included-effects](https://github.com/pmndrs/postprocessing#included-effects)
+	-  [https://docs.pmnd.rs/react-postprocessing/introduction](https://docs.pmnd.rs/react-postprocessing/introduction)
+
+## Vignette effect 
+
+Makes the corners of the render a little darker.
 
 ```javascript
+import { Vignette, EffectComposer } from "@react-three/postprocessing"
+
 <EffectComposer>
-    <ToneMapping mode={ ToneMappingMode.ACES_FILMIC } />
+  <ToneMapping mode={ToneMappingMode.ACES_FILMIC} />
+  <Vignette offset={0.3} darkness={0.9} />
 </EffectComposer>
-```
 
-## Finding effects and how to implement them [16:17](https://threejs-journey.com/lessons/post-processing-with-r3f#)[](https://threejs-journey.com/lessons/post-processing-with-r3f#finding-effects-and-how-to-implement-them)
-
-In the following part of the lesson, we are going to test a bunch of effects for the sake of learning.
-
-We are going to set very specific values without going too much into detail because it would take ages and be boring.
-
-But you should roam the documentation in order to discover the various effects, test them, and see how they work.
-
-Unfortunately, the documentation (though useful) is a bit messy and spread across react-postprocessing and Post Processing, which means you’ll have to dig a little in order to find what you are looking for.
-
-Here are the links that you might need.
-
-Post Processing:
-
-- The repository: [https://github.com/pmndrs/postprocessing](https://github.com/pmndrs/postprocessing)
-- The documentation (generated from the code): [https://pmndrs.github.io/postprocessing/public/docs/](https://pmndrs.github.io/postprocessing/public/docs/)
-- A demo page (you can change the effect within the debug UI): [https://pmndrs.github.io/postprocessing/public/demo/](https://pmndrs.github.io/postprocessing/public/demo/)
-
-React-postprocessing:
-
-- The repository: [https://github.com/pmndrs/reactpostprocessing](https://github.com/pmndrs/react-postprocessing)
-- The list of effects implemented from postprocessing to React postprocessing: [https://github.com/pmndrs/postprocessing#included-effects](https://github.com/pmndrs/postprocessing#included-effects)
-- The documentation (very similar to the repo, but more user-friendly): [https://docs.pmnd.rs/react-postprocessing/introduction](https://docs.pmnd.rs/react-postprocessing/introduction)
-
-## Vignette effect [21:10](https://threejs-journey.com/lessons/post-processing-with-r3f#)[](https://threejs-journey.com/lessons/post-processing-with-r3f#vignette-effect)
-
-Let’s start with a very common effect, the Vignette effect.
-
-Vignette will make the corners of the render a little darker.
-
-Import `Vignette` from `@react-three/postprocessing`:
-
-```javascript
-import { Vignette, EffectComposer } from '@react-three/postprocessing'
-```
-
-Then, add it to `<EffectComposer>`:
-
-```javascript
-<EffectComposer>
-    <ToneMapping mode={ ToneMappingMode.ACES_FILMIC } />
-    <Vignette />
-</EffectComposer>
-```
-
-![](https://threejs-journey.com/assets/lessons/53/006.png)
-
-Make sure to keep the `<ToneMapping>` as the very first effect of `<EffectComposer>`.
-
-Parameters of the effect are exposed as attributes.
-
-The following example with the Vignette effect demonstrates how we can change the offset and the darkness:
-
-```javascript
-<Vignette
-    offset={ 0.3 }
-    darkness={ 0.9 }
-/>
 ```
 
 ![](https://threejs-journey.com/assets/lessons/53/007.jpg)
 
-## Blending [22:38](https://threejs-journey.com/lessons/post-processing-with-r3f#)[](https://threejs-journey.com/lessons/post-processing-with-r3f#blending)
-
-There is a special attribute named `blendFunction` available within Vignette but also with every other effect to come.
-
-`blendFunction` works a bit like the blending you can find in image editing software (like Photoshop). It’s how the color of what we are drawing merges with what’s behind it.
-
-The default blending is “normal” and it simply draws the effect on top of the previous one.
-
-We can change it, but in order to do so, we need to get the list of blending from `postprocessing`.
-
-Since imported `ToneMappingMode` from `postprocessing`, we can already import `BlendFunction` the same way:
+## Blending 
+- a special attribute named `blendFunction` 
+	- available in every effect
+- for controlling how a color merges with another color behind it
+- there are many blend functions
 
 ```javascript
 import { BlendFunction, ToneMappingMode } from 'postprocessing'
+
+// To see all available blend functions
 console.log(BlendFunction)
-```
 
-![](https://threejs-journey.com/assets/lessons/53/008.jpg)
-
-As you can see, there are a lot of them.
-
-Finding the right one is hard, but with a debug UI it’s much easier and you can go through all of them with just a few clicks.
-
-We are not going to do that in the lesson, but feel free to add [Leva](https://github.com/pmndrs/leva) to the project.
-
-Still, we might as well test one out of curiosity:
-
-```javascript
 <Vignette
     offset={ 0.3 }
     darkness={ 0.9 }
     blendFunction={ BlendFunction.COLOR_BURN }
 />
 ```
-
 ![](https://threejs-journey.com/assets/lessons/53/009.jpg)
-
-Quite ugly, isn’t it?
-
-We can reinsert `BlendFunction.NORMAL` or remove it since it’s the default one:
-
-```javascript
-<Vignette
-    offset={ 0.3 }
-    darkness={ 0.9 }
-    blendFunction={ BlendFunction.NORMAL }
-/>
-```
-
-![](https://threejs-journey.com/assets/lessons/53/010.jpg)
-
-## Background bug [26:21](https://threejs-journey.com/lessons/post-processing-with-r3f#)[](https://threejs-journey.com/lessons/post-processing-with-r3f#background-bug)
-
-You might have noticed that the vignette effect doesn’t work on the background.
-
-It’s because the render is transparent by default and there is nothing to render there.
-
-We can fix that by adding a color like in the previous lessons:
-
+### Background bug 
+- Vignette effect doesn't work on background
+- This is because background is transparent by default (nothing to render there)
+- Can fix by adding a color to bg
 ```javascript
 export default function Experience()
 {
@@ -280,106 +131,43 @@ export default function Experience()
 
 ![](https://threejs-journey.com/assets/lessons/53/011.jpg)
 
-## Glitch effect [27:55](https://threejs-journey.com/lessons/post-processing-with-r3f#)[](https://threejs-journey.com/lessons/post-processing-with-r3f#glitch-effect)
-
-Let’s continue our discovery of effects with the Glitch effect.
-
-The Glitch effect will make the screen glitch randomly like in hack scenes in movies.
-
-Be careful with the following content if you are sensitive to flashes and fast movements.
-
-First, import `Glitch` from `@react-three/postprocessing`:
+## Glitch effect
 
 ```javascript
 import { Glitch, ToneMapping, Vignette, EffectComposer } from '@react-three/postprocessing'
-```
-
-Then, comment `<Vignette>` and add `<Glitch>` to `<EffectComposer>`:
-
-```javascript
-<EffectComposer>
-    {/* ... */}
-    <Glitch />
-</EffectComposer>
-```
-
-And again, we can play with its attributes:
-
-```javascript
-<Glitch
-    delay={ [ 0.5, 1 ] }
-    duration={ [ 0.1, 0.3 ] }
-    strength={ [ 0.2, 0.4 ] }
-/>
-```
-
-One of those attributes is the `mode` and the values are stored in the `GlitchMode` object, which is available in `postprocessing`.
-
-Now, import `GlitchMode` from `postprocessing`:
-
-```javascript
 import { GlitchMode, BlendFunction, ToneMappingMode } from 'postprocessing'
-console.log(GlitchMode)
+
+
+<EffectComposer>
+  <Glitch
+    delay={[0.5, 1]}
+    duration={[0.1, 0.3]}
+    strength={[0.2, 0.4]}
+    mode={GlitchMode.CONSTANT_MILD}
+  />
+</EffectComposer>
+
 ```
 
-![](https://threejs-journey.com/assets/lessons/53/014.jpg)
-
-And finally, we can choose one of those modes:
-
-```javascript
-<Glitch
-    delay={ [ 0.5, 1 ] }
-    duration={ [ 0.1, 0.3 ] }
-    strength={ [ 0.2, 0.4 ] }
-    mode={ GlitchMode.CONSTANT_MILD }
-/>
-```
-
-## Noise effect [33:14](https://threejs-journey.com/lessons/post-processing-with-r3f#)[](https://threejs-journey.com/lessons/post-processing-with-r3f#noise-effect)
-
-Let’s continue with the Noise effect that will add some parasites to the screen.
-
-Import `Noise` from `@react-three/postprocessing`:
-
+## Noise effect 
 ```javascript
 import { Noise, Glitch, ToneMapping, Vignette, EffectComposer } from '@react-three/postprocessing'
-```
 
-Then, comment`<Glitch>` and add `<Noise>` to `<EffectComposer>`:
-
-```javascript
 <EffectComposer>
     {/* ... */}
-    <Noise />
+    <Noise
+    blendFunction={ BlendFunction.SOFT_LIGHT }
+/>
 </EffectComposer>
 ```
 
 ![](https://threejs-journey.com/assets/lessons/53/016.jpg)
 
-The default result doesn’t look really appealing, but with the right tweaking, we can achieve a better result.
+- Can enhance result with `blendFunction`
+- 
 
-First, we can change the `blendFunction`.
-
-Remember that all effects can have a different blending and that we’ve already imported `BlendFunction` from `postprocessing`.
-
-Change `blendFunction` to `BlendFunction.SOFT_LIGHT`:
-
-```javascript
-<Noise
-    blendFunction={ BlendFunction.SOFT_LIGHT }
-/>
-```
 
 ![](https://threejs-journey.com/assets/lessons/53/017.jpg)
-
-It’s up to you to find the blending you prefer, but here’s a good list:
-
-- `BlendFunction.OVERLAY`
-- `BlendFunction.SCREEN`
-- `BlendFunction.SOFT_LIGHT`
-- `BlendFunction.AVERAGE`
-
-Another attribute that might help you get the best result is `premultiply`:
 
 ```javascript
 <Noise
@@ -392,9 +180,7 @@ Another attribute that might help you get the best result is `premultiply`:
 
 `premultiply` will multiply the noise with the input color before applying the blending.
 
-It usually results in a darker render but it blends better with the image.
-
-## Bloom effect [37:05](https://threejs-journey.com/lessons/post-processing-with-r3f#)[](https://threejs-journey.com/lessons/post-processing-with-r3f#bloom-effect)
+## Bloom effect
 
 Next on the list is the Bloom effect, which will make our scene glow.
 
