@@ -24,7 +24,7 @@ const Spotlight: FC = () => {
         {selectedProject !== null ? (
           <div className="flex-grow flex flex-col">
             <ProjectInfo {...selectedProject} />
-            <div className="flex-grow">
+            <div className="flex-grow max-w-screen">
               <selectedProject.mainDisplay />
             </div>
           </div>
