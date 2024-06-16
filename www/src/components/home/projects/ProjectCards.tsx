@@ -25,7 +25,7 @@ const ProjectCards: FC = () => {
   return selectedProject === null ? (
     <>{projects}</>
   ) : (
-    <div className="flex gap-2 max-h-20 min-w-20 md:hidden">{projects}</div>
+    <div className="gap-2 max-h-20 min-w-20 hidden lg:flex">{projects}</div>
   );
 };
 
