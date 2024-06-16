@@ -27,7 +27,7 @@ const ProjectCard: React.FC<Props & GalleryCardProps> = ({
       />
       {!mini && (
         <span
-          className={`text-white opacity-0 absolute bottom-4 right-3 bg-[rgba(7,7,7,0.85)] px-2 py-1 rounded-md ${
+          className={`text-white opacity-0 absolute bottom-4 right-3 bg-[rgba(7,7,7,0.85)] px-2 py-1 rounded-md transition-opacity duration-300 ${
             hovering ? "opacity-100" : ""
           }`}
         >
