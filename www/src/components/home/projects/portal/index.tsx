@@ -9,7 +9,7 @@ const PortalProject: GalleryProject = {
   mainDisplay: () => <Portal />,
   dob: "220524",
   badges: ["THREE_JS", "BLENDER", "MY_LOVE"],
-  // cardImgClass: "col-span-1 lg:col-span-2",
+  cardImgClass: "col-span-2 md:col-span-1",
   description: () => <Description />,
 };
 

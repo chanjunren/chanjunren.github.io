@@ -8,7 +8,7 @@ export default function Home(): JSX.Element {
       title={"home"}
       description="Hello! Welcome to my digital garden"
     >
-      <div className="grid xl:grid-cols-6 lg:grid-cols-5 grid-cols-1 gap-x-10 gap-y-5 items-start justify-items-center">
+      <div className="grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-10 gap-y-5 items-start justify-items-center">
         <WelcomeSection />
         <ProjectCards />
       </div>
