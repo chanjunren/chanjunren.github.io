@@ -24,7 +24,7 @@ function buildStore(storeState: StoreMgtStateType) {
 	}
 }
 
-const initialisedStore = buildStore(userAlertMgtState);
+const initialisedStore = buildStore(storeMgtState);
 
 export default function useStore() {
   return initialisedStore;
