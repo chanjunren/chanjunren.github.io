@@ -13,8 +13,7 @@ const Spotlight: FC = () => {
       title={"spotlight"}
       description="Hello! Welcome to my digital garden"
     >
-      {/* idk why h-full doesn't work */}
-      <div className="flex gap-10 h-[100%]">
+      <div className="flex gap-10 h-full">
         <ProjectCards />
         {/* <Separator
           decorative

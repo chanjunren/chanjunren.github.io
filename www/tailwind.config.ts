@@ -12,10 +12,12 @@ module.exports = {
   content: ["./src/**/*.{jsx,tsx,html}"],
   plugins: [],
   theme: {
-    keyframes: TAILWIND_KEYFRAMES,
-    animation: TAILWIND_ANIMATIONS,
-    height: TAILWIND_HEIGHTS,
-    minHeight: TAILWIND_MIN_HEIGHTS,
-    screens: TAILWIND_SCREENS,
+    extend: {
+      keyframes: TAILWIND_KEYFRAMES,
+      animation: TAILWIND_ANIMATIONS,
+      height: TAILWIND_HEIGHTS,
+      minHeight: TAILWIND_MIN_HEIGHTS,
+      screens: TAILWIND_SCREENS,
+    },
   },
 } satisfies Config;
