@@ -19,7 +19,7 @@
 - `@react-three/postprocessing`
 - `postprocessing`
 
-```javascript
+```tsx
 import { EffectComposer } from '@react-three/postprocessing'
 
 export default function Experience()
@@ -43,7 +43,7 @@ export default function Experience()
 	- `ToneMapping` uses `AgX` tone mapping by default
 		- Not the one that R3F uses by default
 		- Causes the color to be gray-ish
-```javascript
+```tsx
 <EffectComposer>
     <ToneMapping mode={ ToneMappingMode.ACES_FILMIC } />
 </EffectComposer>
@@ -57,7 +57,7 @@ Tone mapping is the process of converting HDR colors to LDR output colors
 - `multisampling` is used to prevent the aliasing effect 
 - Default value is 8
 
-```javascript
+```tsx
 // To disable
 <EffectComposer multisampling={ 0 }> 
     <ToneMapping mode={ ToneMappingMode.ACES_FILMIC } />
@@ -81,7 +81,7 @@ Tone mapping is the process of converting HDR colors to LDR output colors
 
 Makes the corners of the render a little darker.
 
-```javascript
+```tsx
 import { Vignette, EffectComposer } from "@react-three/postprocessing"
 
 <EffectComposer>
@@ -99,7 +99,7 @@ import { Vignette, EffectComposer } from "@react-three/postprocessing"
 - for controlling how a color merges with another color behind it
 - there are many blend functions
 
-```javascript
+```tsx
 import { BlendFunction, ToneMappingMode } from 'postprocessing'
 
 // To see all available blend functions
@@ -117,7 +117,7 @@ console.log(BlendFunction)
 - Vignette effect doesn't work on background
 - This is because background is transparent by default (nothing to render there)
 - Can fix by adding a color to bg
-```javascript
+```tsx
 export default function Experience()
 {
     return <>
@@ -134,7 +134,7 @@ export default function Experience()
 
 ## Glitch effect
 
-```javascript
+```tsx
 import { Glitch, ToneMapping, Vignette, EffectComposer } from '@react-three/postprocessing'
 import { GlitchMode, BlendFunction, ToneMappingMode } from 'postprocessing'
 
@@ -151,7 +151,7 @@ import { GlitchMode, BlendFunction, ToneMappingMode } from 'postprocessing'
 ```
 
 ## Noise effect 
-```javascript
+```tsx
 import { Noise, Glitch, ToneMapping, Vignette, EffectComposer } from '@react-three/postprocessing'
 
 <EffectComposer>
@@ -168,7 +168,7 @@ import { Noise, Glitch, ToneMapping, Vignette, EffectComposer } from '@react-thr
 
 ![](https://threejs-journey.com/assets/lessons/53/017.jpg)
 > Enhanced with blend function
-```javascript
+```tsx
 <Noise
     premultiply
     blendFunction={ BlendFunction.SOFT_LIGHT }
@@ -185,7 +185,7 @@ import { Noise, Glitch, ToneMapping, Vignette, EffectComposer } from '@react-thr
 ![](https://threejs-journey.com/assets/lessons/53/019.jpg)
 > Dark background setup for nicer effect
 
-```javascript
+```tsx
 import { Bloom, Noise, Glitch, ToneMapping, Vignette, EffectComposer } from '@react-three/postprocessing'
 
 <EffectComposer>
@@ -198,7 +198,7 @@ import { Bloom, Noise, Glitch, ToneMapping, Vignette, EffectComposer } from '@re
 
 ### How to target objects to glow
 - Must set a limitation i.e. `luminanceThreshold`
-```javascript
+```tsx
 <meshStandardMaterial color={ [ 1.5, 1, 4 ] } />
 ```
 #### Configuring RGB values
@@ -218,20 +218,20 @@ import { Bloom, Noise, Glitch, ToneMapping, Vignette, EffectComposer } from '@re
 ![](https://threejs-journey.com/assets/lessons/53/026.jpg)
 
 2. Add `emissive`, ezpz
-```javascript
+```tsx
 <meshStandardMaterial color="orange" emissive="orange" />
 ```
 ![](https://threejs-journey.com/assets/lessons/53/027.jpg)
 
 3. Making it brighter!
-```javascript
+```tsx
 <meshStandardMaterial color="orange" emissive="orange" emissiveIntensity={ 2 } />
 ```
 
 ![](https://threejs-journey.com/assets/lessons/53/028.jpg)
 
 4. EVENNN BRIGHTERRRRRR (set color to white)
-```javascript
+```tsx
 <meshStandardMaterial color="#ffffff" emissive="orange" emissiveIntensity={ 2 } />
 ```
 
@@ -260,7 +260,7 @@ import { Bloom, Noise, Glitch, ToneMapping, Vignette, EffectComposer } from '@re
 > Values are normalized according to `near` and `far`
 
 
-```javascript
+```tsx
 import { DepthOfField, Bloom, Noise, Glitch, ToneMapping, Vignette, EffectComposer } from '@react-three/postprocessing'
 ;<EffectComposer>
   {/* ... */}
@@ -280,7 +280,7 @@ Remember that `postprocessing` will take our shader and merge it with the othe
 ```
 
 ### Setup
-```javascript
+```tsx
 import { Effect } from 'postprocessing'
 
 export default class DrunkEffect extends Effect
@@ -293,7 +293,7 @@ export default class DrunkEffect extends Effect
 ```
 > Effect
 
-```javascript
+```tsx
 void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
 {
     
@@ -301,7 +301,7 @@ void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
 ```
 > Basic vertex shader
 
-```javascript
+```tsx
 const fragmentShader = /* glsl */`
     void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
     {
@@ -324,7 +324,7 @@ const fragmentShader = /* glsl */`
 
 ### Lets start bois
 1. Basic purple gradient
-```javascript
+```tsx
 const fragmentShader = /* glsl */`
     void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
     {
@@ -334,7 +334,7 @@ const fragmentShader = /* glsl */`
 ```
 
 2. Hit up the `Effect`
-```javascript
+```tsx
 export default class DrunkEffect extends Effect
 {
     constructor()
@@ -354,7 +354,7 @@ export default class DrunkEffect extends Effect
 
 Now, we need to implement it in react-postprocessing.
 
-```javascript
+```tsx
 import DrunkEffect from './DrunkEffect.jsx'
 
 export default function Drunk()
@@ -377,7 +377,7 @@ Parent
 ### Props
 Goal: make the effect wiggle with a sinus function with a configurable amplitude / frequency
 
-```javascript
+```tsx
 export default class DrunkEffect extends Effect
 {
     constructor(props)
@@ -400,7 +400,7 @@ export default class DrunkEffect extends Effect
 ![](https://threejs-journey.com/assets/lessons/53/041.jpg)
 
 ### Referencing the primitive
-```javascript
+```tsx
 import { useRef } from 'react'
 
 export default function Experience()
@@ -410,7 +410,7 @@ export default function Experience()
     // ...
 }
 ```
-```javascript
+```tsx
 <Drunk
     ref={ drunkRef }
     frequency={ 2 }
@@ -422,7 +422,7 @@ export default function Experience()
 
 - Use `ref` for easy manipulation
 - Use `forwardRef` from React (?) because of the warning above ^
-```javascript
+```tsx
 import { forwardRef } from 'react'
 
 export default forwardRef(function Drunk(props, ref)
@@ -436,7 +436,7 @@ export default forwardRef(function Drunk(props, ref)
 
 ### Getting back the render and make it look greenish
 Just need to update the `vertexShader`
-```javascript
+```tsx
 void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
 {
     vec4 color = inputColor;
@@ -457,7 +457,7 @@ void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
 - `mainImage` function is used for determining the final color of the pixel
 - `mainUv` function is for modifying the `uv` coordinates
 ```
-```javascript
+```tsx
 const fragmentShader = /* glsl */`
     void mainUv(inout vec2 uv)
     {
@@ -471,7 +471,7 @@ const fragmentShader = /* glsl */`
 `
 ```
 ### Using attributes
-```javascript
+```tsx
 import { Uniform } from 'three'
 
 export default class DrunkEffect extends Effect {
@@ -498,7 +498,7 @@ export default class DrunkEffect extends Effect {
 	- standard way to do it
 	- enables some methods although we won’t use them.
 
-```javascript
+```tsx
 const fragmentShader = /* glsl */`
     uniform float frequency;
     uniform float amplitude;
@@ -515,7 +515,7 @@ const fragmentShader = /* glsl */`
 ![](https://threejs-journey.com/assets/lessons/53/050.jpg)
 
 ### Controlling attributes with `Leva`
-```javascript
+```tsx
 import { useControls } from 'leva'
 
 export default function Experience()
@@ -538,7 +538,7 @@ export default function Experience()
 
 - First, in the `fragmentShader`, we are going to send the green color directly in the `outputColor` and keep the alpha from the `inputColor`:
 
-```javascript
+```tsx
 const fragmentShader = /* glsl */`
 
     // ...
@@ -554,7 +554,7 @@ const fragmentShader = /* glsl */`
 > Everything is now green, but here comes the trick. (?? Idk why)
 
 - Need to specify the `blendFunction` for the image to be back
-```javascript
+```tsx
 <Drunk
     ref={ drunkRef }
     { ...drunkProps }
@@ -562,7 +562,7 @@ const fragmentShader = /* glsl */`
 />
 ```
 
-```javascript
+```tsx
 super(
     'DrunkEffect',
     fragmentShader,
@@ -578,7 +578,7 @@ super(
 ### Animating
 
 1. Add `time`
-```javascript
+```tsx
 super(
     'DrunkEffect',
     fragmentShader,
@@ -593,7 +593,7 @@ super(
 )
 ```
 2. Update `fragmentShader`
-```javascript
+```tsx
 const fragmentShader = /* glsl */`
 
     uniform float frequency;
@@ -611,7 +611,7 @@ const fragmentShader = /* glsl */`
 
 3.  Make use of `update` method (called every frame)
 
-```javascript
+```tsx
 export default class DrunkEffect extends Effect
 {
     // ...
@@ -623,7 +623,7 @@ export default class DrunkEffect extends Effect
 }
 ```
 4. Update `Map`
-```javascript
+```tsx
 export default class DrunkEffect extends Effect
 {
     // ...
@@ -635,7 +635,7 @@ export default class DrunkEffect extends Effect
 }
 ```
 5. Take into account frame rate
-```javascript
+```tsx
 export default class DrunkEffect extends Effect
 {
     // ...
