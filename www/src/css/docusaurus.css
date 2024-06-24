@@ -33,6 +33,10 @@
   --reduced-emphasis-color: var(--ifm-color-emphasis-400);
 }
 
+main {
+  background-color: var(--ifm-background-color) !important;
+}
+
 .navbar {
   height: 3.5rem;
   padding: 1rem;
