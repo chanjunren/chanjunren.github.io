@@ -1,4 +1,4 @@
-🗓️ 20240430 1419
+	🗓️ 20240430 1419
 📎 #threejs
 
 # baking_and_exporting

@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "95906f624d1589e6",
+        "id": "649bb89eabf59a1f",
         "type": "tabs",
         "children": [
           {
-            "id": "5bdb325cb5d82d27",
+            "id": "e46e2ec5d3164d43",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/r3f_post_processing.md",
+                "file": "zettelkasten/threejs/baking_and_exporting.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/r3f_post_processing.md",
+                "file": "zettelkasten/threejs/baking_and_exporting.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/r3f_post_processing.md",
+                "file": "zettelkasten/threejs/baking_and_exporting.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/r3f_post_processing.md"
+                "file": "zettelkasten/threejs/baking_and_exporting.md"
               }
             }
           }
@@ -146,10 +146,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5bdb325cb5d82d27",
+  "active": "e46e2ec5d3164d43",
   "lastOpenFiles": [
-    "zettelkasten/r3f_post_processing.md",
-    "zettelkasten/r3f_post_processing.md",
+    "zettelkasten/threejs/environment_and_staging.md",
+    "zettelkasten/threejs/importing_and_optimizing.md",
+    "zettelkasten/threejs/r3f_post_processing.md",
+    "zettelkasten/blender_ideas.md",
+    "zettelkasten/blender_dump.md",
     "templates/zettel.md",
     "zettelkasten/threejs/r3f_mouse_events.md",
     "zettelkasten/kubernetes_overview.md",
@@ -161,7 +164,6 @@
     "zettelkasten/threejs/load_models.md",
     "zettelkasten/threejs/3d_text.md",
     "zettelkasten/README.md",
-    "zettelkasten/threejs/environment_and_staging.md",
     "zettelkasten/spring_boot_application_lifecycle.md",
     "zettelkasten/spring_boot_dump.md",
     "zettelkasten/threejs/orthographic_camera_and_near_far_values.md",
@@ -173,8 +175,6 @@
     "zettelkasten/es_expensive_queries.md",
     "zettelkasten/prefix_vs_match_phrase_prefix.md",
     "zettelkasten/mobx_store.md",
-    "zettelkasten/threejs/baking_and_exporting.md",
-    "assets/Pasted image 20240523174730.png",
-    "zettelkasten/threejs/importing_and_optimizing.md"
+    "assets/Pasted image 20240523174730.png"
   ]
 }
