@@ -12,7 +12,7 @@
   --gray-transparent-bg: rgba(170, 170, 170, 0.25);
 
   --ifm-color-emphasis-300: var(--ifm-color-emphasis-400);
-  --ifm-background-color: #f8f7f6 !important;
+  --ifm-background-color: #f8f7f6;
 
   --reduced-emphasis-color: var(--ifm-color-emphasis-600);
 }
