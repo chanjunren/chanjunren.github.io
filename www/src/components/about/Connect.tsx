@@ -3,6 +3,7 @@ import {
   LinkedInLogoIcon,
   ReaderIcon,
 } from "@radix-ui/react-icons";
+import * as Tooltip from "@radix-ui/react-tooltip";
 import IconButton from "../common/IconButton";
 import PrimaryHeader from "../common/PrimaryHeader";
 
@@ -26,11 +27,27 @@ export default function Connect() {
           </IconButton>
         </a>
 
-        <a href="https://www.github.com/chanjunren" target="_blank">
-          <IconButton>
-            <ReaderIcon />
-          </IconButton>
-        </a>
+        <Tooltip.Provider delayDuration={0}>
+          <Tooltip.Root>
+            <Tooltip.Trigger asChild>
+              <a href="https://www.github.com/chanjunren" target="_blank">
+                <IconButton>
+                  <ReaderIcon />
+                </IconButton>
+              </a>
+            </Tooltip.Trigger>
+            <Tooltip.Portal>
+              <Tooltip.Content
+                className="TooltipContent"
+                sideOffset={5}
+                side="bottom"
+              >
+                (My resume) I haven't been updating this hehe
+                <Tooltip.Arrow className="TooltipArrow" />
+              </Tooltip.Content>
+            </Tooltip.Portal>
+          </Tooltip.Root>
+        </Tooltip.Provider>
       </div>
     </section>
   );
