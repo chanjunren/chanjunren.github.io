@@ -1,10 +1,12 @@
-🗓️ 20240515 1438
-📎 #elasticsearch 
+🗓️ 15052024 1438
+📎 #elasticsearch
 
 # elasticsearch_aggregations
+
 - Summary of data
 
 ## Categories
+
 | Category              | Description                                                    |
 | --------------------- | -------------------------------------------------------------- |
 | Metric aggregations   | calculate metrics from field values (e.g. `sum`, `average`)    |
@@ -12,9 +14,11 @@
 | Pipeline aggregations | take input from other aggregations                             |
 
 ### Bucket aggregations
-- Create *buckets* of documents
-	- each bucket is associated with a criterion
+
+- Create _buckets_ of documents
+  - each bucket is associated with a criterion
 - can hold `sub-aggregations`
+
 ```json
 {
   "size": 0,
@@ -33,7 +37,7 @@
               "lte": "now/d"
             }
           }
-        },
+        }
       ]
     }
   },
@@ -58,10 +62,10 @@
     }
   }
 }
-
 ```
 
 ---
 
 # References
+
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html

@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "649bb89eabf59a1f",
+        "id": "9dfaf510879ee043",
         "type": "tabs",
         "children": [
           {
-            "id": "e46e2ec5d3164d43",
+            "id": "76159d96f4a2152d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/threejs/baking_and_exporting.md",
+                "file": "zettelkasten/blender_dump.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/threejs/baking_and_exporting.md",
+                "file": "zettelkasten/blender_dump.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/threejs/baking_and_exporting.md",
+                "file": "zettelkasten/blender_dump.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,16 +125,40 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/threejs/baking_and_exporting.md"
+                "file": "zettelkasten/blender_dump.md"
               }
             }
+          },
+          {
+            "id": "2b42a32b2e52b3b0",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "8afe0834901fe93d",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-chat-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "fe724a6c9b4b55c3",
+            "type": "leaf",
+            "state": {
+              "type": "smart_chatgpt",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 506.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -143,38 +167,41 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "smart-connections:Open: View Smart Connections": false,
+      "smart-connections:Open: Smart Chat Conversation": false
     }
   },
-  "active": "e46e2ec5d3164d43",
+  "active": "76159d96f4a2152d",
   "lastOpenFiles": [
+    "zettelkasten/log4j_custom_plugin.md",
+    "zettelkasten/blender_shortcuts.md",
+    "zettelkasten/skating/toe_reverse_shift.md",
+    "zettelkasten/skating/toe_seven_outer.md",
     "zettelkasten/threejs/environment_and_staging.md",
+    "zettelkasten/threejs/controls.md",
+    "zettelkasten/threejs/baking_and_exporting.md",
+    "zettelkasten/threejs/animation.md",
+    "zettelkasten/blender_dump.md",
+    "zettelkasten/threejs/orthographic_camera_and_near_far_values.md",
+    "zettelkasten/threejs/monitoring_fps.md",
+    "zettelkasten/threejs/monitoring_draw_calls.md",
+    "zettelkasten/threejs/materials.md",
+    "zettelkasten/threejs/load_models.md",
+    "zettelkasten/threejs/lights.md",
     "zettelkasten/threejs/importing_and_optimizing.md",
+    "zettelkasten/threejs/geometries.md",
+    "smart-chats",
+    "zettelkasten/threejs/performance_general.md",
+    "zettelkasten/design_doc_template.md",
+    "templates/zettel.md",
     "zettelkasten/threejs/r3f_post_processing.md",
     "zettelkasten/blender_ideas.md",
-    "zettelkasten/blender_dump.md",
-    "templates/zettel.md",
     "zettelkasten/threejs/r3f_mouse_events.md",
     "zettelkasten/kubernetes_overview.md",
     "assets/k8s_overview.png",
     "zettelkasten/sql_date_functions_cheatsheet.md",
     "zettelkasten/spel_overview.md",
-    "zettelkasten/mvel_overview.md",
-    "zettelkasten/javascript_build_dump.md",
-    "zettelkasten/threejs/load_models.md",
-    "zettelkasten/threejs/3d_text.md",
-    "zettelkasten/README.md",
-    "zettelkasten/spring_boot_application_lifecycle.md",
-    "zettelkasten/spring_boot_dump.md",
-    "zettelkasten/threejs/orthographic_camera_and_near_far_values.md",
-    "zettelkasten/elasticsearch_aggregations.md",
-    "zettelkasten/tesasdmoklfnasoklf.md",
-    "zettelkasten/aliyun_canal_api_client.md",
-    "zettelkasten/es_realtime_search.md",
-    "zettelkasten/es_query_dsl.md",
-    "zettelkasten/es_expensive_queries.md",
-    "zettelkasten/prefix_vs_match_phrase_prefix.md",
-    "zettelkasten/mobx_store.md",
     "assets/Pasted image 20240523174730.png"
   ]
 }
