@@ -1,20 +1,23 @@
-🗓️ 20240512 1457
+🗓️ 12052024 1457
 📎 #css
 
 # css_animation
 
 ## Animation
+
 ```css
 .objectToAnimate {
-	animation: name duration timing-function delay iteration-count direction fill-mode play-state;
+  animation: name duration timing-function delay iteration-count direction
+    fill-mode play-state;
 }
 ```
 
 ```css
 .defaultAnimationProperties {
-	animation: none 0s ease 0s 1 normal none running
+  animation: none 0s ease 0s 1 normal none running;
 }
 ```
+
 > Default values
 
 ### Timing Functions
@@ -41,20 +44,32 @@
 
 - **running**: Default state; animation runs as normal.
 - **paused**: Pauses the animation.
+
 ## Keyframes
+
 ```css
 @keyframes animationName {
-  from { /* Start state */ }
-  to { /* End state */ }
+  from {
+    /* Start state */
+  }
+  to {
+    /* End state */
+  }
   /* OR using percentages */
-  0% { /* Start state */ }
-  50% { /* Intermediate state */ }
-  100% { /* End state */ }
+  0% {
+    /* Start state */
+  }
+  50% {
+    /* Intermediate state */
+  }
+  100% {
+    /* End state */
+  }
 }
-
 ```
 
 ---
 
 # References
+
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations

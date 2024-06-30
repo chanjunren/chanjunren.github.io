@@ -1,7 +1,8 @@
-🗓️ 20240409 0956
+🗓️ 09042024 0956
 📎 #maven
 
 # bill_of_materials
+
 ```xml
 <dependencyManagement>
     <dependencies>
@@ -21,5 +22,6 @@
 - Control versions of project's dependencies
 - Reduces needs to specify versions of individual dependencies
 
---- 
+---
+
 # References

@@ -1,8 +1,10 @@
-🗓️ 20240330 1823
+🗓️ 30032024 1823
 📎 #mobx
 
 # mobx_store
+
 ### layout
+
 ```typescript
 import { computed, observable } from 'mobx';
 
@@ -33,5 +35,6 @@ export default function useStore() {
 
 ```
 
---- 
+---
+
 # References

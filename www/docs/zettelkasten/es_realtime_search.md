@@ -1,7 +1,8 @@
-🗓️ 20240319 2350
-📎  #elasticsearch 
+🗓️ 19032024 2350
+📎 #elasticsearch
 
 # es_realtime_search
+
 | Term                    | Description                       |
 | ----------------------- | --------------------------------- |
 | lucene index            | I don't know                      |
@@ -11,7 +12,9 @@
 
 ![[es_refresh_api_lucene_index.png]]
 
---- 
+---
+
 # References
+
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/near-real-time.html
-- 
+-

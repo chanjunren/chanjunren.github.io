@@ -1,8 +1,10 @@
-🗓️ 20240610 1600
+🗓️ 10062024 1600
 📎 #devops #kubernetes
 
 # kubernetes_overview
+
 ## What is k8s (Kubernetes)
+
 - container orchestration system
 - Used for container deployment and management
 - Its design is greatly impacted by Google’s internal system Borg
@@ -10,19 +12,20 @@
 ![[k8s_overview.png]]
 
 ## Architecture
+
 | Term            | Definition                                          |
 | --------------- | --------------------------------------------------- |
 | `cluster`       | set of nodes                                        |
 | `node`          | worker machine that runs containerized applications |
 | `control plane` | manages worker nodes / pods in the cluster          |
 
-- each cluster has **at least one**  worker node
+- each cluster has **at least one** worker node
 - To achieve fault tolerance / HA
-	- control plane usually runs across multiple computers
-	- cluster usually runs multiple nodes
+  - control plane usually runs across multiple computers
+  - cluster usually runs multiple nodes
 
+## Control Plane
 
-## Control Plane 
 | Component            | Description                                                                                          |
 | -------------------- | ---------------------------------------------------------------------------------------------------- |
 | `API server`         | talks to ALL components in k8s clusters (all operations on pods are executed through the API server) |
@@ -30,14 +33,14 @@
 | `controller manager` | runs controllers i.e. `Node` \| `Job` \| `EndpointSlice` \| `ServiceAccount`                         |
 | `etcd`               | key-value store for cluster data                                                                     |
 
-
 ## Worker Node
-| Component    | Description                                                                                           |
-| ------------ | ----------------------------------------------------------------------------------------------------- |
-| `pod`        | group of containers                                                                                   |
-| `container`  | smallest unit that k8s administers                                                                    |
-| `kubelet`    | agent running on **each node** in a `cluster`, ensure that containers are running in a pod            |
-| `kube-proxy` | network proxy running on each node<br/>routing requests (node  -> service, requests for work -> node) |
+
+| Component    | Description                                                                                          |
+| ------------ | ---------------------------------------------------------------------------------------------------- |
+| `pod`        | group of containers                                                                                  |
+| `container`  | smallest unit that k8s administers                                                                   |
+| `kubelet`    | agent running on **each node** in a `cluster`, ensure that containers are running in a pod           |
+| `kube-proxy` | network proxy running on each node<br/>routing requests (node -> service, requests for work -> node) |
 
 ## 2. Relationship Between Containers and Machine Instances
 
@@ -62,9 +65,9 @@
 
 - **Pods**: The smallest deployable units in Kubernetes. A pod can contain one or more containers that share the same network namespace, storage, and lifecycle.
 - **Purpose of Pods**:
-    - **Resource Sharing**: Containers within a pod can share resources such as storage volumes.
-    - **Networking**: Containers in a pod can communicate with each other using localhost, making it easier to manage inter-container communication.
-    - **Lifecycle Management**: Pods manage the lifecycle of containers, ensuring that they start, stop, and get restarted together.
+  - **Resource Sharing**: Containers within a pod can share resources such as storage volumes.
+  - **Networking**: Containers in a pod can communicate with each other using localhost, making it easier to manage inter-container communication.
+  - **Lifecycle Management**: Pods manage the lifecycle of containers, ensuring that they start, stop, and get restarted together.
 
 ### Benefits of Using Pods:
 
@@ -95,4 +98,5 @@ Kubernetes provides a robust framework for managing containerized applications b
 ---
 
 # References
+
 - https://blog.bytebytego.com/p/ep35-what-is-kubernetes

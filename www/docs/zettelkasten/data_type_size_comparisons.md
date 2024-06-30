@@ -1,15 +1,18 @@
-🗓️ 20240322 0107
-📎 
+🗓️ 22032024 0107
+📎
 
 # C
 
 # Java
+
 | Data type | Size   | Notes                           |
 | --------- | ------ | ------------------------------- |
 | `byte`    | 8 bit  | signed two's complement integer |
-| `short`   | 16 bit | range:  `-32768 ~ 32767`        |
+| `short`   | 16 bit | range: `-32768 ~ 32767`         |
 |           |        |                                 |
 
---- 
+---
+
 # References
+
 - https://www.promotic.eu/en/pmdoc/Subsystems/Db/MySql/DataTypes.htm
