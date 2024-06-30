@@ -10,8 +10,6 @@ export default function Education() {
         subtitle={"06.2018 - 06.2022"}
       >
         <span>🎮 Bachelor of Computing (Honours), Computer Science</span>
-        <span>🐽 Grade: Distinction</span>
-        <span>🥦 President of NUS Skating Club</span>
       </MiniSection>
     </section>
   );
