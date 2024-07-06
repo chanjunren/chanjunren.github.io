@@ -30,7 +30,7 @@ export default function Connect() {
         <Tooltip.Provider delayDuration={0}>
           <Tooltip.Root>
             <Tooltip.Trigger asChild>
-              <a href="/resume.pdf" target="_blank">
+              <a href="/documents/resume.pdf" target="_blank">
                 <IconButton>
                   <ReaderIcon />
                 </IconButton>

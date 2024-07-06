@@ -2,7 +2,7 @@ import Image from "@docusaurus/plugin-ideal-image/lib/theme/IdealImage";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import { FC, useState } from "react";
 
-const DocusaurusIcon = require("@site/static/badges/docusaurus.svg").default;
+const DocusaurusIcon = require("@site/static/svg/docusaurus.svg").default;
 
 const LitFooter: FC = () => {
   const [hovering, setHovering] = useState<boolean>(false);
