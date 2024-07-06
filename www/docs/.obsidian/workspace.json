@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "9dfaf510879ee043",
+        "id": "ec01b4081c3390a6",
         "type": "tabs",
         "children": [
           {
-            "id": "76159d96f4a2152d",
+            "id": "b01dfdd7ebab12bf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/blender_dump.md",
+                "file": "zettelkasten/redis_message_subscription.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/blender_dump.md",
+                "file": "zettelkasten/redis_message_subscription.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/blender_dump.md",
+                "file": "zettelkasten/redis_message_subscription.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/blender_dump.md"
+                "file": "zettelkasten/redis_message_subscription.md"
               }
             }
           },
@@ -154,7 +154,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -172,8 +172,12 @@
       "smart-connections:Open: Smart Chat Conversation": false
     }
   },
-  "active": "76159d96f4a2152d",
+  "active": "b01dfdd7ebab12bf",
   "lastOpenFiles": [
+    "zettelkasten/es_query_dsl.md",
+    "zettelkasten/redis_message_subscription.md",
+    "templates/zettel.md",
+    "zettelkasten/blender_dump.md",
     "zettelkasten/log4j_custom_plugin.md",
     "zettelkasten/blender_shortcuts.md",
     "zettelkasten/skating/toe_reverse_shift.md",
@@ -182,7 +186,6 @@
     "zettelkasten/threejs/controls.md",
     "zettelkasten/threejs/baking_and_exporting.md",
     "zettelkasten/threejs/animation.md",
-    "zettelkasten/blender_dump.md",
     "zettelkasten/threejs/orthographic_camera_and_near_far_values.md",
     "zettelkasten/threejs/monitoring_fps.md",
     "zettelkasten/threejs/monitoring_draw_calls.md",
@@ -194,14 +197,11 @@
     "smart-chats",
     "zettelkasten/threejs/performance_general.md",
     "zettelkasten/design_doc_template.md",
-    "templates/zettel.md",
     "zettelkasten/threejs/r3f_post_processing.md",
     "zettelkasten/blender_ideas.md",
     "zettelkasten/threejs/r3f_mouse_events.md",
     "zettelkasten/kubernetes_overview.md",
     "assets/k8s_overview.png",
-    "zettelkasten/sql_date_functions_cheatsheet.md",
-    "zettelkasten/spel_overview.md",
     "assets/Pasted image 20240523174730.png"
   ]
 }
