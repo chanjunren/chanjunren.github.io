@@ -2,10 +2,10 @@ import * as Tooltip from "@radix-ui/react-tooltip";
 import { FC } from "react";
 import { BadgeType } from "../home/types";
 
-const ThreeJSIcon = require("@site/static/badges/threeJs.svg").default;
-const BlenderIcon = require("@site/static/badges/blender.svg").default;
-const DocusaurusIcon = require("@site/static/badges/docusaurus.svg").default;
-const MyLoveIcon = require("@site/static/badges/myLove.svg").default;
+const ThreeJSIcon = require("@site/static/svg/threeJs.svg").default;
+const BlenderIcon = require("@site/static/svg/blender.svg").default;
+const DocusaurusIcon = require("@site/static/svg/docusaurus.svg").default;
+const MyLoveIcon = require("@site/static/svg/myLove.svg").default;
 
 type BadgeProps = {
   type: BadgeType;
