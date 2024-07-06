@@ -29,12 +29,12 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --gray-transparent-bg: rgba(170, 170, 170, 0.1);
 
-  ---ifm-background-color: #171717 !important;
+  --ifm-background-color: #171717 !important;
   --reduced-emphasis-color: var(--ifm-color-emphasis-400);
 }
 
 main {
-  background-color: var(---ifm-background-color) !important;
+  background-color: var(--ifm-background-color) !important;
 }
 
 .navbar {
