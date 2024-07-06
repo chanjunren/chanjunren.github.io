@@ -1,6 +1,6 @@
-import mahjongVideo from "@site/static/hobbies/mahjong.mp4";
-import skatingVideo from "@site/static/hobbies/skating.mp4";
-import snowboardingVideo from "@site/static/hobbies/snowboarding.mp4";
+import mahjongVideo from "@site/static/videos/mahjong.mp4";
+import skatingVideo from "@site/static/videos/skating.mp4";
+import snowboardingVideo from "@site/static/videos/snowboarding.mp4";
 import { FC, PropsWithChildren, useEffect, useRef, useState } from "react";
 import PrimaryHeader from "../common/PrimaryHeader";
 import TypewriterText from "../common/TypewriterText";
@@ -32,14 +32,14 @@ const HobbyCard: FC<PropsWithChildren<HobbyCardProps>> = ({
   const cardContent =
     mediaUrl && playing ? (
       <video
-        className="rounded-md h-20 w-20 md:h-32 md:w-32"
+        className="rounded-md h-32 w-32"
         ref={videoRef}
         playsInline
         src={mediaUrl}
         onEnded={handleVideoEnded}
       />
     ) : (
-      <span className="flex items-center justify-center text-4xl bg-[var(--gray-transparent-bg)] h-20 w-20 md:h-32 md:w-32 rounded-md cursor-pointer flex-grow">
+      <span className="flex items-center justify-center text-4xl bg-[var(--gray-transparent-bg)] h-32 w-32 rounded-md cursor-pointer flex-grow">
         {children}
       </span>
     );
@@ -61,7 +61,7 @@ const Hobbies: FC = () => {
   return (
     <section>
       <PrimaryHeader>🍉 hobbies</PrimaryHeader>
-      <div className="flex gap-5">
+      <div className="grid grid-cols-3 justify-items-start">
         <HobbyCard label="skating" mediaUrl={skatingVideo}>
           🛼
         </HobbyCard>

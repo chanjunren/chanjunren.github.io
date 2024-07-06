@@ -8,7 +8,7 @@ import LayoutWrapper from "../components/common/LayoutWrapper";
 const AboutMe: FC = () => {
   return (
     <LayoutWrapper title="home">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5 justify-center items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-center items-start">
         <Work />
         <Education />
         <Hobbies />
