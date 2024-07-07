@@ -32,14 +32,14 @@ const HobbyCard: FC<PropsWithChildren<HobbyCardProps>> = ({
   const cardContent =
     mediaUrl && playing ? (
       <video
-        className="rounded-md h-32 w-32"
+        className="rounded-md h-28 w-28 md:h-32 md:w-32"
         ref={videoRef}
         playsInline
         src={mediaUrl}
         onEnded={handleVideoEnded}
       />
     ) : (
-      <span className="flex items-center justify-center text-4xl bg-[var(--gray-transparent-bg)] h-32 w-32 rounded-md cursor-pointer flex-grow">
+      <span className="flex items-center justify-center text-4xl bg-[var(--gray-transparent-bg)] h-28 w-28 md:h-32 md:w-32 rounded-md cursor-pointer flex-grow">
         {children}
       </span>
     );
