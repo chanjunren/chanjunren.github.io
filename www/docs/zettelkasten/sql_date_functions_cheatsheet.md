@@ -3,71 +3,71 @@
 
 # sql_date_functions_cheatsheet
 
-> Current date and time.
 
 ```sql
   SELECT NOW();
 ```
+> Current date and time.
 
-> Current Date
 
 ```sql
 SELECT CURDATE();
 ```
+> Current Date
 
-> Adds a specified time interval to a date.
 
 ```sql
 SELECT DATE_ADD(NOW(), INTERVAL 7 DAY);
 ```
+> Adds a specified time interval to a date.
 
-> DATE_SUB(): Subtracts a specified time interval from a date.
 
 ```sql
 SELECT DATE_SUB(NOW(), INTERVAL 7 DAY);
 ```
+> DATE_SUB(): Subtracts a specified time interval from a date.
 
-> Returns the number of days between two dates.
 
 ```sql
 SELECT DATEDIFF(CURDATE(), '2024-04-01');
 ```
+> Returns the number of days between two dates.
 
-> Extract the day, month, and year from a date.
 
 ```sql
 SELECT DAY(NOW()), MONTH(NOW()), YEAR(NOW());
 ```
+> Extract the day, month, and year from a date.
 
-> Returns the weekday index for a date.
 
 ```sql
 SELECT DAYOFWEEK(NOW());
 ```
+> Returns the weekday index for a date.
 
-> Returns the day of the year for a date.
 
 ```sql
 SELECT DAYOFYEAR(NOW());
 ```
+> Returns the day of the year for a date.
 
-> Returns the last day of the month for a given date.
 
 ```sql
 SELECT LAST_DAY(NOW());
 ```
+> Returns the last day of the month for a given date.
 
-> Converts a string into a date.
 
 ```sql
 SELECT STR_TO_DATE('April 19, 2024', '%M %d, %Y');
 ```
+> Converts a string into a date.
 
-> Format a date value.
 
 ```sql
 SELECT DATE_FORMAT(NOW(), '%W, %M %d, %Y');
 ```
+> Format a date value.
 
 ---
 
