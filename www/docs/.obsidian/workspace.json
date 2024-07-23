@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/maven_phase.md",
+                "file": "zettelkasten/maven_build_study.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/maven_phase.md",
+                "file": "zettelkasten/maven_build_study.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/maven_phase.md",
+                "file": "zettelkasten/maven_build_study.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/maven_phase.md"
+                "file": "zettelkasten/maven_build_study.md"
               }
             }
           },
@@ -174,8 +174,9 @@
   },
   "active": "b660c75cc67ad650",
   "lastOpenFiles": [
-    "zettelkasten/maven_build_study.md",
+    "zettelkasten/apache_ant.md",
     "zettelkasten/maven_phase.md",
+    "zettelkasten/maven_build_study.md",
     "zettelkasten/sql_date_functions_cheatsheet.md",
     "zettelkasten/maven_scope.md",
     "zettelkasten/vo_bo_pojo_idk.md",
@@ -200,7 +201,6 @@
     "zettelkasten/threejs/load_models.md",
     "zettelkasten/threejs/lights.md",
     "zettelkasten/threejs/importing_and_optimizing.md",
-    "zettelkasten/threejs/geometries.md",
     "assets/k8s_overview.png",
     "assets/Pasted image 20240523174730.png"
   ]
