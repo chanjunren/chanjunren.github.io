@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "ec01b4081c3390a6",
+        "id": "0292f3542adde8be",
         "type": "tabs",
         "children": [
           {
-            "id": "b01dfdd7ebab12bf",
+            "id": "b660c75cc67ad650",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/redis_message_subscription.md",
+                "file": "zettelkasten/maven_phase.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/redis_message_subscription.md",
+                "file": "zettelkasten/maven_phase.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/redis_message_subscription.md",
+                "file": "zettelkasten/maven_phase.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/redis_message_subscription.md"
+                "file": "zettelkasten/maven_phase.md"
               }
             }
           },
@@ -172,10 +172,17 @@
       "smart-connections:Open: Smart Chat Conversation": false
     }
   },
-  "active": "b01dfdd7ebab12bf",
+  "active": "b660c75cc67ad650",
   "lastOpenFiles": [
-    "zettelkasten/es_query_dsl.md",
+    "zettelkasten/maven_build_study.md",
+    "zettelkasten/maven_phase.md",
+    "zettelkasten/sql_date_functions_cheatsheet.md",
+    "zettelkasten/maven_scope.md",
+    "zettelkasten/vo_bo_pojo_idk.md",
     "zettelkasten/redis_message_subscription.md",
+    "zettelkasten/Untitled.md",
+    "smart-chats",
+    "zettelkasten/es_query_dsl.md",
     "templates/zettel.md",
     "zettelkasten/blender_dump.md",
     "zettelkasten/log4j_custom_plugin.md",
@@ -194,13 +201,6 @@
     "zettelkasten/threejs/lights.md",
     "zettelkasten/threejs/importing_and_optimizing.md",
     "zettelkasten/threejs/geometries.md",
-    "smart-chats",
-    "zettelkasten/threejs/performance_general.md",
-    "zettelkasten/design_doc_template.md",
-    "zettelkasten/threejs/r3f_post_processing.md",
-    "zettelkasten/blender_ideas.md",
-    "zettelkasten/threejs/r3f_mouse_events.md",
-    "zettelkasten/kubernetes_overview.md",
     "assets/k8s_overview.png",
     "assets/Pasted image 20240523174730.png"
   ]
