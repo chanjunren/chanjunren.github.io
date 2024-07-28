@@ -1,7 +1,7 @@
 🗓️ 23072024 0958
 📎
 
-# maven_build_study
+# maven_plugins_dump
 
 ## Maven Compiler Plugin (maven-compiler-plugin)
 ```xml
@@ -220,7 +220,7 @@ How a specific profile's `<build>` interacts with the main `<build>`
 ```
 **Interaction**
 
-1. **Default Activation:** Because the `swimlane` profile is active by default, its build actions will execute whenever you run a Maven build (`mvn clean install`, `mvn package`, etc.).
+	1. **Default Activation:** Because the `swimlane` profile is active by default, its build actions will execute whenever you run a Maven build (`mvn clean install`, `mvn package`, etc.).
     
 2. **Early Execution:** The `maven-antrun-plugin` is configured to run in the `compile` phase. This means its actions will be executed _before_ the main `<build>` section's actions, which typically occur later in the lifecycle (like `test`, `package`, etc.).
     
@@ -231,8 +231,6 @@ How a specific profile's `<build>` interacts with the main `<build>`
 
 - **Purpose:** The `swimlane` profile seems to be designed to streamline the use of a specific test configuration. By activating it by default and executing early in the build, it ensures that the test configuration is in place before your code is compiled or tested.
 - **Customization:** If you want to use a different configuration (e.g., for production), you'd either deactivate this profile or create a new profile with a different `maven-antrun-plugin` configuration to copy in the appropriate files.
-
-Let me know if you have any further questions or would like a deeper dive into specific aspects of this setup!
 
 ---
 
