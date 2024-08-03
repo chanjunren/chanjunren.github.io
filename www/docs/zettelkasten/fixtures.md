@@ -27,9 +27,7 @@ then:
 
 You can often use closures within fixtures to define the actions that need to be performed to set up the test environment:
 
-Groovy
-
-```
+```groovy
 def setupDatabase = { 
     // Code to populate the database with test data
 }
@@ -37,9 +35,6 @@ def setupDatabase = {
 setup:
     setupDatabase() 
 ```
-
-Use code [with caution.](/faq#coding)
-
 **Key Takeaways:**
 
 - **Closures:** Blocks of code that capture their environment.
@@ -49,3 +44,4 @@ Use code [with caution.](/faq#coding)
 ---
 
 # References
+- Gemini
