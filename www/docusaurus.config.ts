@@ -5,6 +5,7 @@ import PRISM_CONFIG from "./configs/prism";
 import pluginIdealImage from "./plugins/ideal-image.cjs";
 import tailwindPlugin from "./plugins/tailwind.cjs";
 import customWebpack from "./plugins/webpack.cjs";
+import convertToDocusaurusMdx from "./src/remark/plugin";
 import { obsidianToDocusaurusPreprocessor } from "./src/utils/markdownPreprocessor";
 
 const config: Config = {
@@ -43,6 +44,7 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           exclude: ["**/templates/*"],
+          beforeDefaultRemarkPlugins: [convertToDocusaurusMdx],
         },
         blog: false,
         theme: {

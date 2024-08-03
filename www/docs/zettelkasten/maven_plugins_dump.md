@@ -205,7 +205,6 @@
                                             <fileset dir="src/main/resources/projects/config/test-SwimlaneEnvs"/>
                                         </copy>
                                     </tasks>
-                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
@@ -220,7 +219,7 @@ How a specific profile's `<build>` interacts with the main `<build>`
 ```
 **Interaction**
 
-	1. **Default Activation:** Because the `swimlane` profile is active by default, its build actions will execute whenever you run a Maven build (`mvn clean install`, `mvn package`, etc.).
+1. **Default Activation:** Because the `swimlane` profile is active by default, its build actions will execute whenever you run a Maven build (`mvn clean install`, `mvn package`, etc.).
     
 2. **Early Execution:** The `maven-antrun-plugin` is configured to run in the `compile` phase. This means its actions will be executed _before_ the main `<build>` section's actions, which typically occur later in the lifecycle (like `test`, `package`, etc.).
     

@@ -11,8 +11,12 @@
             "id": "301f0572e25720b5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "zettelkasten/maven_plugins_dump.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "zettelkasten/maven_plugins_dump.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "zettelkasten/maven_plugins_dump.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "zettelkasten/maven_plugins_dump.md"
+              }
             }
           },
           {
@@ -166,12 +174,12 @@
   },
   "active": "301f0572e25720b5",
   "lastOpenFiles": [
+    "zettelkasten/fixtures.md",
     "zettelkasten/maven_plugins_dump.md",
     "templates/zettel.md",
     "zettelkasten/ssl_overview.md",
     "zettelkasten/groovy_closures.md",
     "zettelkasten/closures.md",
-    "zettelkasten/fixtures.md",
     "faq.md",
     "zettelkasten/fixture.md",
     "zettelkasten/vo_bo_pojo_idk.md",
