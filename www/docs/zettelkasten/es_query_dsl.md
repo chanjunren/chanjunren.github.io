@@ -94,7 +94,7 @@
 
 ## Leaf Query Clauses
 
-![[Pasted image 20240523174730.png]]
+<!-- ![[Pasted image 20240523174730.png]] -->
 
 ### `match`
 
