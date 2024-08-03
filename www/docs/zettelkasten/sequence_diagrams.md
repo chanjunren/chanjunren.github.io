@@ -3,7 +3,7 @@
 
 # sequence_diagrams
 
-<!-- ![[Pasted image 20240406141718.png]] -->
+![[sequence_diagram_example.png]]
 
 ---
 
