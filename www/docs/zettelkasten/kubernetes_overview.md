@@ -1,5 +1,5 @@
 🗓️ 10062024 1600
-📎 #devops #kubernetes
+📎 #devops #kubernetes #wip 
 
 # kubernetes_overview
 
