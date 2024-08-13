@@ -1,39 +1,52 @@
 {
   "main": {
-    "id": "51a4c47a6ba06f30",
+    "id": "8219e47f6fcee62f",
     "type": "split",
     "children": [
       {
-        "id": "b88cbb5a308b21c4",
+        "id": "01385b7ab78045f6",
         "type": "tabs",
         "children": [
           {
-            "id": "95b595836ee45de1",
+            "id": "f61d46e77bbaafbe",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/skywalking.md",
+                "file": "zettelkasten/innodb_read_inconsistency.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4ec0fbbf9a5b04ce",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zettelkasten/innodb_gap_locks.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "3d1742e387a55029",
+    "id": "6cbfbd7d150957f3",
     "type": "split",
     "children": [
       {
-        "id": "ea701068de98c366",
+        "id": "c6dde33de90d0de7",
         "type": "tabs",
         "children": [
           {
-            "id": "ae6fabfee84f5179",
+            "id": "d5f81e0481964d53",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,12 +56,12 @@
             }
           },
           {
-            "id": "3d95d13027d5091d",
+            "id": "d6b696ade9ba071e",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#aliyun_canal",
+                "query": "tag:#inno_db",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -58,7 +71,7 @@
             }
           },
           {
-            "id": "69a4a46e2e7963f4",
+            "id": "2280534f3cbf7100",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -72,20 +85,20 @@
     "width": 300
   },
   "right": {
-    "id": "65a90fd930acf491",
+    "id": "899933c994d0a6e6",
     "type": "split",
     "children": [
       {
-        "id": "1fa809c4ce85a91f",
+        "id": "cb43fd483b3881b7",
         "type": "tabs",
         "children": [
           {
-            "id": "58c44607a6066c8b",
+            "id": "4a512a221cdcc4ea",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/skywalking.md",
+                "file": "zettelkasten/innodb_gap_locks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,19 +110,19 @@
             }
           },
           {
-            "id": "4b607bdd81fb6728",
+            "id": "7189f3a11f5325d1",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/skywalking.md",
+                "file": "zettelkasten/innodb_gap_locks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "da093485aeb87de6",
+            "id": "ae3e0137d2c88e5e",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -120,45 +133,21 @@
             }
           },
           {
-            "id": "962324af9e1fb4b8",
+            "id": "cad2fd4ecba1aed5",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/skywalking.md"
+                "file": "zettelkasten/innodb_gap_locks.md"
               }
             }
-          },
-          {
-            "id": "2b42a32b2e52b3b0",
-            "type": "leaf",
-            "state": {
-              "type": "smart-connections-view",
-              "state": {}
-            }
-          },
-          {
-            "id": "8afe0834901fe93d",
-            "type": "leaf",
-            "state": {
-              "type": "smart-connections-chat-view",
-              "state": {}
-            }
-          },
-          {
-            "id": "fe724a6c9b4b55c3",
-            "type": "leaf",
-            "state": {
-              "type": "smart_chatgpt",
-              "state": {}
-            }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 506.5
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -172,36 +161,53 @@
       "smart-connections:Open: Smart Chat Conversation": false
     }
   },
-  "active": "95b595836ee45de1",
+  "active": "4ec0fbbf9a5b04ce",
   "lastOpenFiles": [
+    "zettelkasten/innodb_read_inconsistency.md",
+    "zettelkasten/innodb_semaphore_metrics.md",
+    "zettelkasten/innodb_gap_locks.md",
+    "zettelkasten/innodb_deadlocks.md",
+    "zettelkasten/innodb_transaction_isolation_levels.md",
+    "zettelkasten/baking_and_raytracing.md",
+    "zettelkasten/aliyun_canal_overview.md",
     "zettelkasten/aliyun_canal_api_client.md",
+    "zettelkasten/innodb_concurrency_control.md",
     "zettelkasten/skywalking.md",
-    "zettelkasten/kubernetes_overview.md",
-    "zettelkasten/skywa.md",
-    "zettelkasten/obsidian.md",
-    "zettelkasten/maven_plugins_dump.md",
-    "zettelkasten/fixtures.md",
-    "templates/zettel.md",
-    "zettelkasten/ssl_overview.md",
-    "zettelkasten/groovy_closures.md",
-    "zettelkasten/closures.md",
-    "faq.md",
-    "zettelkasten/fixture.md",
     "zettelkasten/vo_bo_pojo_idk.md",
-    "zettelkasten/maven_phase.md",
-    "zettelkasten/apache_ant.md",
-    "zettelkasten/sql_date_functions_cheatsheet.md",
-    "zettelkasten/maven_scope.md",
-    "zettelkasten/redis_message_subscription.md",
-    "zettelkasten/Untitled.md",
-    "smart-chats",
-    "zettelkasten/es_query_dsl.md",
-    "zettelkasten/blender_dump.md",
-    "zettelkasten/log4j_custom_plugin.md",
-    "zettelkasten/blender_shortcuts.md",
-    "zettelkasten/skating/toe_reverse_shift.md",
-    "zettelkasten/skating/toe_seven_outer.md",
-    "assets/k8s_overview.png",
-    "assets/Pasted image 20240523174730.png"
+    "zettelkasten/todo.md",
+    "zettelkasten/to_read.md",
+    "zettelkasten/to_be_tidied/content.md",
+    "zettelkasten/to_be_tidied/Misc/index.md",
+    "zettelkasten/to_be_tidied/Misc/VIM/reference.md",
+    "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
+    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/sampling.png",
+    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/native.png",
+    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/instrumented.png",
+    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/blocking.png",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets/indexing_diskStructure.jpeg",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets/example_b_tree.png",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets/example_b_plus_tree.jpeg",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets/chatgpt_db_engine.png",
+    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3",
+    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-4.png",
+    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-3.png",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/multiColumnIndexes.md",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/intro.md",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/index.md",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/diskStructure.md",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/dataStructures.md",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets",
+    "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/salience.md",
+    "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/reverse-chaining.md",
+    "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/rete-algorithm.md",
+    "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/hashing-indexing.md",
+    "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/forward-chaining.md",
+    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources",
+    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing",
+    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/assets",
+    "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
+    "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples",
+    "zettelkasten/to_be_tidied/Backend/Redis/5-things-you-dont-know-about-redis-e-book.pdf"
   ]
 }
