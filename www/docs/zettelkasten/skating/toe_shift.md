@@ -12,7 +12,6 @@
 
 ```ad-info
 - The starting method for a straight swing (outer edge with inner swing) is not fixed, and usually, the direction from back to front is chosen
-<br/>
 - After starting, directly exert force for turning, controlling each turn of the single wheel to be between two cones, within the line of cones.
 ```
 
@@ -26,11 +25,7 @@
 ```ad-info
 - When exerting force, the auxiliary leg leads the hips to turn the supporting leg
 
-<br/>
-
 - Arms are naturally raised and leveled, and exert force in the opposite direction for counter-rotation (opposite to the direction of force exertion under the feet)
-
-<br/>
 
 - This creates a route of "arc + fixed-point turning," with the center of gravity leaning toward the forward direction, always keeping the single wheel directly under the center of gravity, and lightly pressing on the outer edge.
 ```

@@ -10,17 +10,11 @@
 
 ```ad-info
 - Supporting leg that is extended outward is on the advancing side, the body's center of gravity will lean more toward the supporting leg
-<br/>
 - When turning from front to back, the auxiliary leg kicks out in the direction of advancement, driving the waist to exert force
-<br/>
 - The ankle presses down on the inner edge or steps straight appropriately. When the waist and hips are not exerting enough force, you can slightly rotate to adjust the direction of the toes.
-<br/>
 - When turning from back to front, the auxiliary leg's calf should be kept as close as possible, pushing out the knee in the direction of advancement to drive the waist and hips to exert force
-<br/>
 - The ankle does the same as in the front-to-back turn, adapting to the situation
-<br/>
 - During the turning process, keep the turning point in the middle of the cone line, and the arms always exert force in the opposite direction to the feet
-<br/>
 - Beginners can also make a small pause in the middle of each turn (in the middle of the cone line) to adjust the body for better exertion of force in each turn.
 ```
 
