@@ -170,7 +170,6 @@ const roughnessTexture = textureLoader.load("/textures/door/roughness.jpg");
 ## UV unwrapping
 
 ```ad-summary
-<ins>Definition</ins>
 Process of projecting a 3D model's surface onto a 2D plane ot create a **uv map**
 
 

@@ -10,15 +10,10 @@
 
 ```ad-info
 - First, the rhythm of exertion and body posture in this movement are the same as those in the outward swing with the correct edge
-<br/>
 - Therefore, when the foot is pointed to the left, the arms should be pointed to the right.
-<br/>
 - When exerting force to move forward over the board, at the 90-degree point of the supporting foot, make a small pushing force in the opposite direction, and when reaching the middle of the next cone, adjust the body posture and pull backward. When exerting force backward, the auxiliary leg's calf should be kept as close as possible and not swung out
-<br/>
 - Pay attention to the issue of pressing the edge with the ankle
-<br/>
 - Beginners can try to pause in the middle of the cones when starting to practice, and fully execute the force exertion of turning the hips and swinging the arms forward and backward
-<br/>
 - At the same time, pay attention to maintaining the posture of passing the cones with a "negative angle" at the ankle.
 
 ```
