@@ -1,11 +1,11 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
+import convertToDocusaurusMdx from "remark-docusaurus-obsidian-bridge";
 import ALOGLIA_CONFIG from "./configs/algolia";
 import PRISM_CONFIG from "./configs/prism";
 import pluginIdealImage from "./plugins/ideal-image.cjs";
 import tailwindPlugin from "./plugins/tailwind.cjs";
 import customWebpack from "./plugins/webpack.cjs";
-import { obsidianToDocusaurusPreprocessor } from "./src/utils/markdownPreprocessor";
 
 const config: Config = {
   title: "jun ren's digital garden",
@@ -43,7 +43,7 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           exclude: ["**/templates/*"],
-          // beforeDefaultRemarkPlugins: [convertToDocusaurusMdx],
+          beforeDefaultRemarkPlugins: [convertToDocusaurusMdx],
         },
         blog: false,
         theme: {
@@ -80,9 +80,6 @@ const config: Config = {
     customWebpack,
   ],
   staticDirectories: ["docs/assets", "static"],
-  markdown: {
-    preprocessor: obsidianToDocusaurusPreprocessor,
-  },
 };
 
 export default config;
