@@ -1,12 +1,10 @@
 🗓️ 06042024 1418
-📎
-
-Tags: #modeling
+📎 #modeling
 
 # interaction_overview_diagrams
 
 ```ad-tldr
-Combination of activity and sequence diagrams
+Combination of [[activity_diagrams]] and [[sequence_diagrams]]
 ```
 
 ![[interaction_overview_example.png]]
