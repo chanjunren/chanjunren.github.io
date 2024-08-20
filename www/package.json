@@ -37,8 +37,8 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.5.2",
-    "@docusaurus/tsconfig": "^3.5.1",
-    "@docusaurus/types": "^3.5.1",
+    "@docusaurus/tsconfig": "^3.5.2",
+    "@docusaurus/types": "^3.5.2",
     "autoprefixer": "^10.4.19",
     "glsl-shader-loader": "^0.1.6",
     "postcss": "^8.4.38",
