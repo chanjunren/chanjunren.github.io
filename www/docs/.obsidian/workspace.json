@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/interaction_overview_diagrams.md",
+                "file": "zettelkasten/sql_create_table_cheatsheet.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/interaction_overview_diagrams.md",
+                "file": "zettelkasten/sql_create_table_cheatsheet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/interaction_overview_diagrams.md",
+                "file": "zettelkasten/sql_create_table_cheatsheet.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/interaction_overview_diagrams.md"
+                "file": "zettelkasten/sql_create_table_cheatsheet.md"
               }
             }
           }
@@ -161,6 +161,9 @@
   },
   "active": "4ec0fbbf9a5b04ce",
   "lastOpenFiles": [
+    "zettelkasten/es_query_dsl.md",
+    "zettelkasten/sql_create_table_cheatsheet.md",
+    "zettelkasten/interaction_overview_diagrams.md",
     "zettelkasten/innodb_gap_locks.md",
     "zettelkasten/innodb_read_inconsistency.md",
     "zettelkasten/innodb_semaphore_metrics.md",
@@ -197,9 +200,6 @@
     "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets",
     "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/salience.md",
     "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/reverse-chaining.md",
-    "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/rete-algorithm.md",
-    "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/hashing-indexing.md",
-    "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/forward-chaining.md",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources",
     "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources",
     "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing",
