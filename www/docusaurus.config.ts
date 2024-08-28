@@ -11,7 +11,7 @@ import dateTagReplacer from "./src/utils/dateTagReplacer";
 const config: Config = {
   title: "jun ren's digital garden",
   tagline: "勤奋决定你的下限，天赋决定你的上线",
-  favicon: "img/favicon.ico",
+  favicon: "images/favicon.ico",
 
   // Set the production url of your site here
   url: "https://chanjunren.github.io",
