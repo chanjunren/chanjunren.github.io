@@ -4,28 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "01385b7ab78045f6",
+        "id": "25148f04c01492b3",
         "type": "tabs",
         "children": [
           {
-            "id": "ef56f3e562291a9d",
+            "id": "53f79eea15ba1e00",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/design_doc_template.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "18cc800004d9dfdb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zettelkasten/state_machine_diagram.md",
+                "file": "zettelkasten/apm_metrics.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/design_doc_template.md",
+                "file": "zettelkasten/apm_metrics.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/design_doc_template.md",
+                "file": "zettelkasten/apm_metrics.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/design_doc_template.md"
+                "file": "zettelkasten/apm_metrics.md"
               }
             }
           }
@@ -158,11 +146,13 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "ef56f3e562291a9d",
+  "active": "53f79eea15ba1e00",
   "lastOpenFiles": [
-    "zettelkasten/mobx_store.md",
-    "assets/Pasted image 20240905140521.png",
-    "zettelkasten/redis_message_subscription.md",
+    "zettelkasten/sentinel_dump.md",
+    "zettelkasten/apm_metrics.md",
+    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/assets/chapter4_multidocument.png",
+    "zettelkasten/health_live_readiness_checks.md",
+    "zettelkasten/state_machine_diagram.md",
     "zettelkasten/todo.md",
     "zettelkasten/to_read_dump.md",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/sampling.png",
@@ -181,15 +171,6 @@
     "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/diskStructure.md",
     "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/dataStructures.md",
     "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets",
-    "zettelkasten/to_be_tidied/Backend/Database/Comparisons/tablestorage.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Comparisons/redis.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Comparisons/rds.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Comparisons/polardb.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Comparisons/lindorm.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Comparisons/index.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Comparisons/hbase.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Comparisons/elasticsearch.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Comparisons/clickhouse.md",
     "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/salience.md",
     "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/reverse-chaining.md",
     "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/rete-algorithm.md",
@@ -199,7 +180,13 @@
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/jvm-3-2.md",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/jvm-3-1.md",
+    "zettelkasten/to_be_tidied/Backend/Java/JVM/jvm-2.md",
+    "zettelkasten/to_be_tidied/Backend/Java/JVM/jvm-1.md",
+    "zettelkasten/to_be_tidied/Backend/Java/JVM/index.md",
     "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources",
+    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/pool-types.md",
+    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/executor-service.md",
+    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/constructor-lifecycle.md",
     "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing",
     "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/assets",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
