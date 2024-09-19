@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/micrometer_dump.md",
+                "file": "zettelkasten/tsconfig.json.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/micrometer_dump.md",
+                "file": "zettelkasten/tsconfig.json.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/micrometer_dump.md",
+                "file": "zettelkasten/tsconfig.json.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/micrometer_dump.md"
+                "file": "zettelkasten/tsconfig.json.md"
               }
             }
           }
@@ -148,9 +148,10 @@
   },
   "active": "53f79eea15ba1e00",
   "lastOpenFiles": [
+    "zettelkasten/micrometer_dump.md",
+    "zettelkasten/tsconfig.json.md",
     "zettelkasten/service_provider_interface.md",
     "zettelkasten/skywalking.md",
-    "zettelkasten/micrometer_dump.md",
     "zettelkasten/grafana_dump.md",
     "zettelkasten/apm_metrics.md",
     "zettelkasten/sentinel_dump.md",
@@ -186,7 +187,6 @@
     "zettelkasten/to_be_tidied/Backend/Java/JVM/jvm-3-1.md",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/jvm-2.md",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/jvm-1.md",
-    "zettelkasten/to_be_tidied/Backend/Java/JVM/index.md",
     "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources",
     "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing",
     "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/assets",
