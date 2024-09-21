@@ -1,3 +1,4 @@
+import BrowserOnly from "@docusaurus/BrowserOnly";
 import type { WrapperProps } from "@docusaurus/types";
 import TOC from "@theme-original/TOC";
 import LocalGraph from "@theme/LocalGraph";
@@ -8,7 +9,9 @@ type Props = WrapperProps<typeof TOCType>;
 export default function TOCWrapper(props: Props): JSX.Element {
   return (
     <>
-      <LocalGraph />
+      <BrowserOnly>
+        <LocalGraph />
+      </BrowserOnly>
       <TOC {...props} />
     </>
   );
