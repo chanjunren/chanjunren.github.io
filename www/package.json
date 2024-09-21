@@ -32,8 +32,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.23.0",
-    "remark-docusaurus-obsidian-bridge": "^1.0.2",
-    "three": "^0.165.0"
+    "three": "^0.165.0",
+    "vaultusaurus": "^1.0.3"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.5.2",

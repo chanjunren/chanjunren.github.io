@@ -1,6 +1,10 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
-import convertToDocusaurusMdx from "remark-docusaurus-obsidian-bridge";
+import {
+  docusaurusPluginVaultusaurus,
+  remarkVaultusaurus,
+  VaultusaurusPluginOptions,
+} from "vaultusaurus";
 import ALOGLIA_CONFIG from "./configs/algolia";
 import PRISM_CONFIG from "./configs/prism";
 import pluginIdealImage from "./plugins/ideal-image.cjs";
@@ -45,7 +49,7 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           exclude: ["**/templates/*"],
           beforeDefaultRemarkPlugins: [
-            [convertToDocusaurusMdx, { customReplacers: [dateTagReplacer] }],
+            [remarkVaultusaurus, { customReplacers: [dateTagReplacer] }],
           ],
         },
         blog: false,
@@ -81,6 +85,10 @@ const config: Config = {
     tailwindPlugin,
     [pluginIdealImage.name, pluginIdealImage.options],
     customWebpack,
+    [
+      docusaurusPluginVaultusaurus,
+      { ignoredTags: ["wip"] } satisfies VaultusaurusPluginOptions,
+    ],
   ],
   staticDirectories: ["docs/assets", "static"],
 };
