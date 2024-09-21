@@ -9,9 +9,7 @@ type Props = WrapperProps<typeof TOCType>;
 export default function TOCWrapper(props: Props): JSX.Element {
   return (
     <>
-      <BrowserOnly>
-        <LocalGraph />
-      </BrowserOnly>
+      <BrowserOnly>{() => <LocalGraph />}</BrowserOnly>
       <TOC {...props} />
     </>
   );
