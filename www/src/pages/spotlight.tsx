@@ -1,5 +1,5 @@
 import { FC } from "react";
-import BuildingInProgress from "../components/about/BuildingInProgress";
+import BuildingInProgress from "../components/home/BuildingInProgress";
 import useGallery from "../components/home/hooks/useGallery";
 import ProjectCards from "../components/home/projects/ProjectCards";
 import ProjectInfo from "../components/spotlight/ProjectInfo";

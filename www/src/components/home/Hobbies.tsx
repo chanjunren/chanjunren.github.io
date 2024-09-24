@@ -59,9 +59,9 @@ const HobbyCard: FC<PropsWithChildren<HobbyCardProps>> = ({
 
 const Hobbies: FC = () => {
   return (
-    <section>
+    <div>
       <PrimaryHeader>🍉 hobbies</PrimaryHeader>
-      <div className="grid grid-cols-3 justify-items-start">
+      <div className="grid grid-cols-3 justify-items-start gap-2">
         <HobbyCard label="skating" mediaUrl={skatingVideo}>
           🛼
         </HobbyCard>
@@ -72,7 +72,7 @@ const Hobbies: FC = () => {
           🀄️
         </HobbyCard>
       </div>
-    </section>
+    </div>
   );
 };
 
