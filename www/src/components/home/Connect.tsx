@@ -10,7 +10,7 @@ import PrimaryHeader from "../common/PrimaryHeader";
 export default function Connect() {
   //
   return (
-    <section>
+    <div className="mt-3">
       <PrimaryHeader>📟 socials</PrimaryHeader>
       <div className="flex gap-5">
         <a href="https://www.github.com/chanjunren" target="_blank">
@@ -49,6 +49,6 @@ export default function Connect() {
           </Tooltip.Root>
         </Tooltip.Provider>
       </div>
-    </section>
+    </div>
   );
 }
