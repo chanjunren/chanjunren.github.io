@@ -1,5 +1,5 @@
+import { GalleryCardProps } from "@site/src/types";
 import IdealImage, { Props } from "@theme/IdealImage";
-import { GalleryCardProps } from "../types";
 
 const ProjectCard: React.FC<Props & GalleryCardProps> = ({
   img,
