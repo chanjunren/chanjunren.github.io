@@ -1,6 +1,6 @@
 import * as Tooltip from "@radix-ui/react-tooltip";
+import { BadgeType } from "@site/src/types";
 import { FC } from "react";
-import { BadgeType } from "../home/types";
 
 const ThreeJSIcon = require("@site/static/svg/threeJs.svg").default;
 const BlenderIcon = require("@site/static/svg/blender.svg").default;
