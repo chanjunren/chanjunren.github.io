@@ -1,6 +1,6 @@
 export default function WelcomeSection() {
   return (
-    <section>
+    <section className="flex-grow w-full lg:w-auto">
       <header className="text-3xl mb-2">
         <span className="text-[var(--ifm-color-emphasis-400)]">#</span> Welcome
       </header>

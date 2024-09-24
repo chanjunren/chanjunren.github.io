@@ -46,7 +46,7 @@ const HobbyCard: FC<PropsWithChildren<HobbyCardProps>> = ({
 
   return (
     <div
-      className="flex flex-col items-center gap-3"
+      className="flex flex-col items-center gap-3 mt-2"
       onClick={() => setPlaying(true)}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
@@ -61,7 +61,7 @@ const Hobbies: FC = () => {
   return (
     <div>
       <PrimaryHeader>🍉 hobbies</PrimaryHeader>
-      <div className="grid grid-cols-3 justify-items-start gap-2">
+      <div className="flex gap-5">
         <HobbyCard label="skating" mediaUrl={skatingVideo}>
           🛼
         </HobbyCard>
