@@ -1,4 +1,4 @@
-import ProjectCards from "@site/src/components/home/ProjectCards";
+import ProjectGallery from "@site/src/components/projects/ProjectGallery";
 import ProjectInfo from "@site/src/components/spotlight/ProjectInfo";
 import { FC } from "react";
 import BuildingInProgress from "../components/home/BuildingInProgress";
@@ -13,7 +13,7 @@ const Spotlight: FC = () => {
     //   description="Hello! Welcome to my digital garden"
     // >
     <div className="flex gap-10 flex-grow p-10">
-      <ProjectCards />
+      <ProjectGallery view="list" />
       {/* <Separator
           decorative
           className="separatorRoot"
