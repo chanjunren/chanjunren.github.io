@@ -1,4 +1,4 @@
-import { GalleryProject } from "../../types";
+import { GalleryProject } from "@site/src/types";
 import Portal from "./Portal";
 
 const PortalProject: GalleryProject = {
