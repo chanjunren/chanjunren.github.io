@@ -1,9 +1,9 @@
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import { GalleryProject } from "@site/src/types";
 import { FC } from "react";
-import useGallery from "../hooks/useGallery";
+import PortalProject from "../projects/portal";
+import useGallery from "./hooks/useGallery";
 import ProjectCard from "./ProjectCard";
-import PortalProject from "./portal";
 
 export const GALLERY_PROJECTS: GalleryProject[] = [PortalProject];
 

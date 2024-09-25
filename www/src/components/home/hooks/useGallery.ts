@@ -1,8 +1,8 @@
 import { useHistory } from "@docusaurus/router";
+import { GALLERY_PROJECTS } from "@site/src/components/home/ProjectCards";
+import { GalleryProject } from "@site/src/types";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { GALLERY_PROJECTS } from "../projects/ProjectCards";
-import { GalleryProject } from "../types";
 
 export default function useGallery() {
   const [selectedProject, setSelectedProject] = useState<GalleryProject | null>(

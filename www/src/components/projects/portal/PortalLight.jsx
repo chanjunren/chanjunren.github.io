@@ -1,9 +1,9 @@
 import { shaderMaterial } from "@react-three/drei";
 import { extend, useFrame } from "@react-three/fiber";
+import portalFragmentShader from "@site/src/glsl/portal/fragment.glsl";
+import portalVertexShader from "@site/src/glsl/portal/vertex.glsl";
 import { useRef } from "react";
 import { Color } from "three";
-import portalFragmentShader from "../../../../glsl/portal/fragment.glsl";
-import portalVertexShader from "../../../../glsl/portal/vertex.glsl";
 
 export default function PortalLight({ node }) {
   const portalMaterial = useRef();

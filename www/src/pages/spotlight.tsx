@@ -1,8 +1,8 @@
+import ProjectCards from "@site/src/components/home/ProjectCards";
+import ProjectInfo from "@site/src/components/spotlight/ProjectInfo";
 import { FC } from "react";
 import BuildingInProgress from "../components/home/BuildingInProgress";
 import useGallery from "../components/home/hooks/useGallery";
-import ProjectCards from "../components/home/projects/ProjectCards";
-import ProjectInfo from "../components/spotlight/ProjectInfo";
 
 const Spotlight: FC = () => {
   const { selectedProject } = useGallery();
