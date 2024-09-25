@@ -61,7 +61,7 @@ const Hobbies: FC = () => {
   return (
     <div>
       <PrimaryHeader>🍉 hobbies</PrimaryHeader>
-      <div className="flex gap-5">
+      <div className="flex gap-5 flex-wrap">
         <HobbyCard label="skating" mediaUrl={skatingVideo}>
           🛼
         </HobbyCard>

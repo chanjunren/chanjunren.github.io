@@ -12,15 +12,15 @@ export default function Home(): ReactElement {
       title={"home"}
       description="Hello! Welcome to my digital garden"
     >
-      <div className="flex w-full gap-10 flex-wrap">
+      <div className="grid grid-cols-12 gap-10">
         <WelcomeSection />
-        <section>
+        <section className="lg:col-span-3 col-span-8">
           <Work />
+          <Education />
           <Connect />
         </section>
-        <section>
+        <section className="lg:col-span-2 col-span-4">
           <Hobbies />
-          <Education />
         </section>
         {/* <ProjectCards /> */}
       </div>
