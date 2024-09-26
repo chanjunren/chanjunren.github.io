@@ -4,6 +4,7 @@ import Portal from "./Portal";
 const PortalProject: GalleryProjectInfo = {
   id: "portal",
   title: "ThreeJS Portal",
+  subtitle: "ThreeJS",
   card: "images/portal.png",
   mainDisplay: () => <Portal />,
   dob: "220524",

@@ -5,6 +5,7 @@ import { DocusaurusIcon } from "../../common/Icons";
 const VaultusaurusProject: GalleryProjectInfo = {
   id: "vaultusaurus",
   title: "Vaultusaurus",
+  subtitle: "Docusaurus plugin",
   card: ({ onClick }) => (
     <div
       className="flex items-center w-full justify-center h-36 cursor-pointer"
