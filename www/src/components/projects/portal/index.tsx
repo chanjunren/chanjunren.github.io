@@ -4,7 +4,7 @@ import Portal from "./Portal";
 const PortalProject: GalleryProject = {
   id: "portal",
   title: "ThreeJS Portal",
-  cardUrl: "images/portal.png",
+  card: "images/portal.png",
   mainDisplay: () => <Portal />,
   dob: "220524",
   badges: ["THREE_JS", "BLENDER", "MY_LOVE"],

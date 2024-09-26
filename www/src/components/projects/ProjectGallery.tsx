@@ -1,4 +1,3 @@
-import useBaseUrl from "@docusaurus/useBaseUrl";
 import { GalleryProject } from "@site/src/types";
 import { FC, PropsWithChildren } from "react";
 import useGallery from "../home/hooks/useGallery";
@@ -26,10 +25,11 @@ const ProjectGallery: FC<ProjectGalleryProps> = ({ view }) => {
       onClick={() => onGalleryProjSelected(proj)}
       selected={selectedProject?.id === proj?.id}
       key={`proj-${proj.id}`}
-      img={useBaseUrl(proj.cardUrl)}
+      card={proj.card}
       cardImgClass={proj.cardImgClass}
     />
   ));
+
   const columns = [[], [], []] as JSX.Element[][];
 
   projectCards.forEach((card, index) => {
