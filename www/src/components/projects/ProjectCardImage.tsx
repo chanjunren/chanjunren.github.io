@@ -1,7 +1,7 @@
-import { GalleryCardProps } from "@site/src/types";
+import { GalleryCard } from "@site/src/types";
 import IdealImage from "@theme/IdealImage";
 
-const ProjectCardImage: React.FC<GalleryCardProps> = ({
+const ProjectCardImage: React.FC<GalleryCard> = ({
   onClick,
   card: cardImgUrl,
   cardImgClass,

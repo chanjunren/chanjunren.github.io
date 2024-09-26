@@ -1,13 +1,12 @@
 import { useHistory } from "@docusaurus/router";
 import { GALLERY_PROJECTS } from "@site/src/components/projects/ProjectGallery";
-import { GalleryProject } from "@site/src/types";
+import { GalleryProjectInfo } from "@site/src/types";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function useGallery() {
-  const [selectedProject, setSelectedProject] = useState<GalleryProject | null>(
-    null
-  );
+  const [selectedProject, setSelectedProject] =
+    useState<GalleryProjectInfo | null>(null);
 
   const history = useHistory();
   const location = useLocation();
@@ -26,7 +25,7 @@ export default function useGallery() {
     }
   }, [location]);
 
-  const onGalleryProjSelected = (proj: GalleryProject) => {
+  const onGalleryProjSelected = (proj: GalleryProjectInfo) => {
     if (proj.id === selectedProject?.id) {
       return;
     }
