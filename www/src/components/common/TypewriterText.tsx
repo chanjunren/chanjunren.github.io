@@ -3,9 +3,16 @@ import { FC } from "react";
 type TypewriterTextProps = {
   text: string;
   active: boolean;
+  size?: "lg" | "md";
+  className?: string;
 };
 
-const TypewriterText: FC<TypewriterTextProps> = ({ text, active }) => {
+const TypewriterText: FC<TypewriterTextProps> = ({
+  text,
+  active,
+  size = "md",
+  className,
+}) => {
   return (
     <span
       style={
@@ -17,7 +24,7 @@ const TypewriterText: FC<TypewriterTextProps> = ({ text, active }) => {
         active
           ? "animate-typewriter pr-1 border-r-8 border-r-[var(--ifm-font-color-base)]"
           : ""
-      }`}
+      } ${size === "lg" ? "text-xl" : ""} ${className}`}
     >
       {text}
     </span>

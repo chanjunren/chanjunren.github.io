@@ -13,7 +13,7 @@ const LayoutWrapper: FC<PropsWithChildren<LayoutWrapperProps>> = ({
 }) => {
   return (
     <Layout title={title} description={description}>
-      <main className="flex flex-col justify-between min-h-screen-minus-navbar p-10 items-center">
+      <main className="flex flex-col justify-between min-h-screen-minus-navbar p-5 items-center">
         {children}
         <LitFooter />
       </main>
