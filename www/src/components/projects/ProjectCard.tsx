@@ -1,17 +1,25 @@
-import useBaseUrl from "@docusaurus/useBaseUrl";
 import { GalleryCard } from "@site/src/types";
+import SecondaryHeader from "../common/SecondaryHeader";
 import ProjectCardImage from "./ProjectCardImage";
 
 const ProjectCard: React.FC<GalleryCard> = (props) => {
-  const { mini, label, card: Card, onClick } = props;
+  const { mini, info, onClick } = props;
+  const { title, subtitle, card: Card } = info;
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col">
       {typeof Card === "string" ? (
-        <ProjectCardImage {...props} card={useBaseUrl(Card)} />
+        <ProjectCardImage {...props} />
       ) : (
         <Card onClick={onClick} />
       )}
-      {!mini && <span className="m-1 self-end">{label.toUpperCase()}</span>}
+      {!mini && (
+        <>
+          <span className="self-end mt-2">{title.toUpperCase()}</span>
+          <SecondaryHeader className="self-end">
+            {subtitle.toUpperCase()}
+          </SecondaryHeader>
+        </>
+      )}
     </div>
   );
 };

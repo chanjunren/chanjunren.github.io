@@ -24,12 +24,11 @@ const ProjectGallery: FC<ProjectGalleryProps> = ({ view }) => {
 
   const projectCards = GALLERY_PROJECTS.map((proj) => (
     <ProjectCard
-      label={proj.title}
+      info={proj}
       mini={selectedProject !== null}
       onClick={() => onGalleryProjSelected(proj)}
       selected={selectedProject?.id === proj?.id}
       key={`proj-${proj.id}`}
-      card={proj.card}
       cardImgClass={proj.cardImgClass}
     />
   ));

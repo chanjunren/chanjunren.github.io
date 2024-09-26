@@ -7,10 +7,9 @@ export type ProjectInfo = {
 export type GalleryCard = {
   selected: boolean;
   cardImgClass?: string;
-  card: string | React.FC<GalleryCustomCard>;
   mini: boolean;
-  label: string;
   onClick: () => void;
+  info: GalleryProjectInfo;
 };
 
 export type GalleryProjectInfo = {
@@ -18,6 +17,7 @@ export type GalleryProjectInfo = {
   mainDisplay?: React.FC; // What is shown in the spotlight when gallery card is selected
   card: string | React.FC<GalleryCustomCard>;
   title: string;
+  subtitle: string;
   dob: string;
   badges?: BadgeType[];
   cardImgClass?: string;
