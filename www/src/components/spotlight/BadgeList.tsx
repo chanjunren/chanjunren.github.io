@@ -1,5 +1,5 @@
+import { BadgeType } from "@site/src/types";
 import { FC } from "react";
-import { BadgeType } from "../home/types";
 import Badge from "./Badge";
 
 type BadgeListProps = {
@@ -8,7 +8,6 @@ type BadgeListProps = {
 const BadgeList: FC<BadgeListProps> = ({ badges }) => {
   return (
     <div className="flex items-center">
-      <span className="mr-3">Made with</span>
       {badges.map((badge, idx) => (
         <Badge key={`badge-${idx}`} type={badge} />
       ))}
