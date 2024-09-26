@@ -2,12 +2,14 @@ import SecondaryHeader from "@site/src/components/common/SecondaryHeader";
 import TypewriterText from "@site/src/components/common/TypewriterText";
 import { GalleryProjectInfo } from "@site/src/types";
 import { FC } from "react";
+import DocusaurusLink from "../common/DocusaurusLink";
 import BadgeList from "./BadgeList";
 
 const ProjectInfo: FC<GalleryProjectInfo> = ({
   title,
   dob,
   badges,
+  repository,
   description: Description,
 }) => {
   return (
@@ -33,8 +35,14 @@ const ProjectInfo: FC<GalleryProjectInfo> = ({
           <span>{dob}</span>
         </div>
       </div>
-
-      <div className="lg:col-span-8 col-span-12">{/* Buttons */}</div>
+      <div className="lg:col-span-4 col-span-12">
+        <DocusaurusLink
+          className="lg:col-span-2 col-span-6"
+          to={repository}
+          subLabel="👨🏻‍💻"
+          label="Repository"
+        />
+      </div>
     </section>
   );
 };

@@ -16,7 +16,7 @@ const VaultusaurusProject: GalleryProjectInfo = {
       <span className="text-5xl">🔌</span>
     </div>
   ),
-  mainDisplay: () => (
+  banner: () => (
     <div className="flex items-center w-full justify-center h-36">
       <DocusaurusIcon className="h-14 w-14" />
       <Separator orientation="vertical" />
@@ -32,6 +32,7 @@ const VaultusaurusProject: GalleryProjectInfo = {
       Docusaurus-compatible format and rendering Obsidian's Local Graph
     </span>
   ),
+  repository: "https://github.com/chanjunren/vaultusaurus",
 };
 
 export default VaultusaurusProject;

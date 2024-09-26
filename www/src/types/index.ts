@@ -14,7 +14,7 @@ export type GalleryCard = {
 
 export type GalleryProjectInfo = {
   id: string;
-  mainDisplay?: React.FC; // What is shown in the spotlight when gallery card is selected
+  banner?: React.FC; // What is shown in the spotlight when gallery card is selected
   card: string | React.FC<GalleryCustomCard>;
   title: string;
   subtitle: string;
@@ -22,6 +22,7 @@ export type GalleryProjectInfo = {
   badges?: BadgeType[];
   cardImgClass?: string;
   description: React.FC;
+  repository: string;
 };
 
 export type GalleryCustomCard = {
