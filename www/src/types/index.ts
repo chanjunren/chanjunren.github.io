@@ -1,27 +1,31 @@
-import React, { ReactElement } from "react";
+import React from "react";
 
 export type ProjectInfo = {
   card: React.FC;
 };
 
-export type GalleryCardProps = {
+export type GalleryCard = {
   selected: boolean;
   cardImgClass?: string;
-  card: string | ReactElement;
+  card: string | React.FC<GalleryCustomCard>;
   mini: boolean;
   label: string;
   onClick: () => void;
 };
 
-export type GalleryProject = {
+export type GalleryProjectInfo = {
   id: string;
   mainDisplay?: React.FC; // What is shown in the spotlight when gallery card is selected
-  card: string | ReactElement;
+  card: string | React.FC<GalleryCustomCard>;
   title: string;
   dob: string;
   badges?: BadgeType[];
   cardImgClass?: string;
   description: React.FC;
+};
+
+export type GalleryCustomCard = {
+  onClick: () => void;
 };
 
 export type BadgeType =

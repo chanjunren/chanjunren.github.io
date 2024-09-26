@@ -1,9 +1,9 @@
-import ProjectGallery from "@site/src/components/projects/ProjectGallery";
-import ProjectInfo from "@site/src/components/spotlight/ProjectInfo";
 import { FC } from "react";
 import LayoutWrapper from "../components/common/LayoutWrapper";
 import BuildingInProgress from "../components/home/BuildingInProgress";
 import useGallery from "../components/home/hooks/useGallery";
+import ProjectGallery from "../components/projects/ProjectGallery";
+import ProjectInfo from "../components/spotlight/ProjectInfo";
 
 const Spotlight: FC = () => {
   const { selectedProject } = useGallery();

@@ -1,10 +1,10 @@
 import SecondaryHeader from "@site/src/components/common/SecondaryHeader";
 import TypewriterText from "@site/src/components/common/TypewriterText";
-import { GalleryProject } from "@site/src/types";
+import { GalleryProjectInfo } from "@site/src/types";
 import { FC } from "react";
 import BadgeList from "./BadgeList";
 
-const ProjectInfo: FC<GalleryProject> = ({
+const ProjectInfo: FC<GalleryProjectInfo> = ({
   title,
   dob,
   badges,

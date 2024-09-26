@@ -1,10 +1,14 @@
-import { GalleryProject } from "@site/src/types";
+import { GalleryProjectInfo } from "@site/src/types";
 import { FC, PropsWithChildren } from "react";
 import useGallery from "../home/hooks/useGallery";
 import PortalProject from "./portal";
 import ProjectCard from "./ProjectCard";
+import VaultusaurusProject from "./vaultusaurus";
 
-export const GALLERY_PROJECTS: GalleryProject[] = [PortalProject];
+export const GALLERY_PROJECTS: GalleryProjectInfo[] = [
+  VaultusaurusProject,
+  PortalProject,
+];
 
 type ProjectGalleryProps = {
   view: "gallery" | "list";

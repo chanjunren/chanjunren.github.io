@@ -1,11 +1,13 @@
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { BadgeType } from "@site/src/types";
 import { FC } from "react";
-
-const ThreeJSIcon = require("@site/static/svg/threeJs.svg").default;
-const BlenderIcon = require("@site/static/svg/blender.svg").default;
-const DocusaurusIcon = require("@site/static/svg/docusaurus.svg").default;
-const MyLoveIcon = require("@site/static/svg/myLove.svg").default;
+import {
+  BlenderIcon,
+  DocusaurusIcon,
+  MyLoveIcon,
+  ReactIcon,
+  ThreeJSIcon,
+} from "../common/Icons";
 
 type BadgeProps = {
   type: BadgeType;
@@ -16,6 +18,7 @@ const BadgeLabel: { [key in BadgeType]: string } = {
   BLENDER: "blender",
   MY_LOVE: "my love",
   DOCUSAURUS: "docusaurus",
+  REACT: "react",
 };
 
 const BadgeMap: { [key in BadgeType]: FC } = {
@@ -39,6 +42,12 @@ const BadgeMap: { [key in BadgeType]: FC } = {
   ),
   MY_LOVE: () => (
     <MyLoveIcon
+      role="img"
+      className="h-12 w-12 rounded-lg p-1 hover:bg-[--gray-transparent-bg]"
+    />
+  ),
+  REACT: () => (
+    <ReactIcon
       role="img"
       className="h-12 w-12 rounded-lg p-1 hover:bg-[--gray-transparent-bg]"
     />
