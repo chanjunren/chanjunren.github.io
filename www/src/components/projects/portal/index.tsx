@@ -6,10 +6,12 @@ const PortalProject: GalleryProjectInfo = {
   title: "ThreeJS Portal",
   subtitle: "ThreeJS",
   card: "images/portal.png",
-  mainDisplay: () => <Portal />,
+  banner: () => <Portal />,
   dob: "220524",
   badges: ["THREE_JS", "BLENDER", "MY_LOVE"],
   cardImgClass: "col-span-2 md:col-span-1",
+  repository:
+    "https://github.com/chanjunren/chanjunren.github.io/tree/master/www/src/components/projects/portal",
   description: () => (
     <span>
       Made from one of the lessons of Bruno Simon's{" "}

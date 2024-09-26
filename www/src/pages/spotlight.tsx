@@ -17,7 +17,7 @@ const Spotlight: FC = () => {
         <ProjectGallery view="list" />
         {selectedProject !== null ? (
           <div className="flex-grow flex flex-col max-w-screen gap-5">
-            <selectedProject.mainDisplay />
+            <selectedProject.banner />
             <ProjectInfo {...selectedProject} />
           </div>
         ) : (
