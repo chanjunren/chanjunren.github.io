@@ -75,7 +75,12 @@ const VaultusaurusProject: GalleryProjectInfo = {
         </div>
       </div>
       <span>
-        I was fascinated by Obsidian's
+        And thus I gave birth to Vaultusaurus - a Docusaurus plugin for
+        transforming Obsidian's markdown syntax into Docusaurus-compatible
+        format
+      </span>
+      <span>
+        I was also fascinated by Obsidian's
         <a
           className="mx-2"
           href="https://help.obsidian.md/Plugins/Graph+view"
@@ -83,14 +88,11 @@ const VaultusaurusProject: GalleryProjectInfo = {
         >
           graph view
         </a>
-        as it was fun playing with the graph, and it also served as a useful
-        tool for revision / have a bird eye view of how notes relate to one
-        another through tags and internal links
       </span>
       <span>
-        And thus I gave birth to Vaultusaurus - a Docusaurus plugin for
-        transforming Obsidian's markdown syntax into Docusaurus-compatible
-        format and rendering Obsidian's Local Graph
+        It's fun playing with the graph, and it also serves as a useful tool for
+        have a bird eye view of how notes relate to one another through tags and
+        internal links, so I included this in my plugin as well
       </span>
       <IdealImage img="https://raw.githubusercontent.com/chanjunren/vaultusaurus/master/assets/vaultusaurus_demo.png" />
       <span>
