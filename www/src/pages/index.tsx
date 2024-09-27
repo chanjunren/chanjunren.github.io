@@ -1,9 +1,9 @@
 import ProjectGallery from "@site/src/components/projects/ProjectGallery";
 import { ReactElement } from "react";
 import LayoutWrapper from "../components/common/LayoutWrapper";
-import Connect from "../components/home/Connect";
 import Education from "../components/home/Education";
 import Hobbies from "../components/home/Hobbies";
+import Socials from "../components/home/Socials";
 import WelcomeSection from "../components/home/Welcome";
 import Work from "../components/home/Work";
 
@@ -18,7 +18,7 @@ export default function Home(): ReactElement {
         <section className="lg:col-span-3 col-span-8">
           <Work />
           <Education />
-          <Connect />
+          <Socials />
         </section>
         <section className="lg:col-span-2 col-span-4">
           <Hobbies />
