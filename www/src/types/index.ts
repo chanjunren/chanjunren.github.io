@@ -18,12 +18,11 @@ export type GalleryProjectInfo = {
   card: string | React.FC<GalleryCustomCard>;
   title: string;
   subtitle: string;
-  dob: string;
-  badges?: BadgeType[];
   cardImgClass?: string;
   description: React.FC;
   repository: string;
   extraButtons?: React.FC<PropsWithClassName>;
+  metadata?: React.FC;
 };
 
 export type PropsWithClassName = {
