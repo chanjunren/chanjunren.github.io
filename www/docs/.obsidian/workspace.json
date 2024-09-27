@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/tsconfig.json.md",
+                "file": "zettelkasten/health_live_readiness_checks.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/tsconfig.json.md",
+                "file": "zettelkasten/health_live_readiness_checks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/tsconfig.json.md",
+                "file": "zettelkasten/health_live_readiness_checks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/tsconfig.json.md"
+                "file": "zettelkasten/health_live_readiness_checks.md"
               }
             }
           }
@@ -148,8 +148,8 @@
   },
   "active": "53f79eea15ba1e00",
   "lastOpenFiles": [
-    "zettelkasten/micrometer_dump.md",
     "zettelkasten/tsconfig.json.md",
+    "zettelkasten/micrometer_dump.md",
     "zettelkasten/service_provider_interface.md",
     "zettelkasten/skywalking.md",
     "zettelkasten/grafana_dump.md",

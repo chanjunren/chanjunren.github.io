@@ -1,6 +1,6 @@
-import { Separator } from "@radix-ui/react-separator";
 import { GalleryProjectInfo } from "@site/src/types";
 import { DocusaurusIcon } from "../../common/Icons";
+import SecondaryHeader from "../../common/SecondaryHeader";
 
 const VaultusaurusProject: GalleryProjectInfo = {
   id: "vaultusaurus",
@@ -8,18 +8,18 @@ const VaultusaurusProject: GalleryProjectInfo = {
   subtitle: "Docusaurus plugin",
   card: ({ onClick }) => (
     <div
-      className="flex items-center w-full justify-center h-36 cursor-pointer"
+      className="flex items-center w-full justify-center h-36 cursor-pointer gap-5"
       onClick={onClick}
     >
       <DocusaurusIcon className="h-14 w-14" />
-      <Separator orientation="vertical" />
+      <SecondaryHeader className="text-3xl">|</SecondaryHeader>
       <span className="text-5xl">🔌</span>
     </div>
   ),
   banner: () => (
-    <div className="flex items-center w-full justify-center h-36">
+    <div className="flex items-center w-full justify-center h-36 cursor-pointer gap-5">
       <DocusaurusIcon className="h-14 w-14" />
-      <Separator orientation="vertical" />
+      <SecondaryHeader className="text-3xl">|</SecondaryHeader>
       <span className="text-5xl">🔌</span>
     </div>
   ),
