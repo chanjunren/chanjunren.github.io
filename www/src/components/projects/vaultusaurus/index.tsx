@@ -1,3 +1,4 @@
+import DocusaurusLink from "@site/src/components/common/DocusaurusLink";
 import { GalleryProjectInfo } from "@site/src/types";
 import { DocusaurusIcon } from "../../common/Icons";
 
@@ -30,6 +31,16 @@ const VaultusaurusProject: GalleryProjectInfo = {
     </span>
   ),
   repository: "https://github.com/chanjunren/vaultusaurus",
+  extraButtons: ({ className }) => (
+    <>
+      <DocusaurusLink
+        className="lg:col-span-4 col-span-12"
+        to={"https://github.com/chanjunren/vaultusaurus/wiki"}
+        subLabel="📚"
+        label="Wiki"
+      />
+    </>
+  ),
 };
 
 export default VaultusaurusProject;

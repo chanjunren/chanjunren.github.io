@@ -23,6 +23,11 @@ export type GalleryProjectInfo = {
   cardImgClass?: string;
   description: React.FC;
   repository: string;
+  extraButtons?: React.FC<PropsWithClassName>;
+};
+
+export type PropsWithClassName = {
+  className?: string;
 };
 
 export type GalleryCustomCard = {

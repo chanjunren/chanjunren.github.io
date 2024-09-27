@@ -11,6 +11,7 @@ const ProjectInfo: FC<GalleryProjectInfo> = ({
   badges,
   repository,
   description: Description,
+  extraButtons: ExtraButtons,
 }) => {
   return (
     <section className="grid grid-cols-12 gap-5">
@@ -35,14 +36,13 @@ const ProjectInfo: FC<GalleryProjectInfo> = ({
           <span>{dob}</span>
         </div>
       </div>
-      <div className="lg:col-span-4 col-span-12">
-        <DocusaurusLink
-          className="lg:col-span-2 col-span-6"
-          to={repository}
-          subLabel="</>"
-          label="Repository"
-        />
-      </div>
+      <DocusaurusLink
+        className="lg:col-span-4 col-span-12"
+        to={repository}
+        subLabel="</>"
+        label="Repository"
+      />
+      <ExtraButtons className="lg:col-span-4 col-span-12" />
     </section>
   );
 };
