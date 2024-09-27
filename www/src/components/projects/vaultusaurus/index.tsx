@@ -1,4 +1,5 @@
 import DocusaurusLink from "@site/src/components/common/DocusaurusLink";
+import BadgeList from "@site/src/components/spotlight/BadgeList";
 import { GalleryProjectInfo } from "@site/src/types";
 import IdealImage from "@theme/IdealImage";
 import { DocusaurusIcon } from "../../common/Icons";
@@ -23,15 +24,16 @@ const VaultusaurusProject: GalleryProjectInfo = {
       <span className="text-5xl">🔌</span>
     </div>
   ),
-  dob: "03082024 - NOW",
-  badges: ["REACT"],
   cardImgClass: "col-span-2 md:col-span-1",
   description: () => (
     <div className="flex flex-col w-full gap-5">
       <span>
         I wanted to have a system for organizing what little I know and have a
         means of quickly accessing golden nuggets of knowledge that I have come
-        across, and through my Youtube adventures I came across the concept of a
+        across
+      </span>
+      <span>
+        And through my Youtube adventures I came across the concept of a
         <a
           className="ml-2"
           href="https://en.wikipedia.org/wiki/Zettelkasten"
@@ -56,19 +58,21 @@ const VaultusaurusProject: GalleryProjectInfo = {
         However, Obsidian's markdown syntax differs from that of Docusaurus{" "}
         {":("} resulting in these lackluster displays
       </span>
-      <div className="grid items-center justify-items-center gap-5">
-        <IdealImage
-          className="flex-grow"
-          img="https://raw.githubusercontent.com/chanjunren/vaultusaurus/master/assets/obsidian_demo.png"
-        />
-        <SecondaryHeader>Obsidian markdown</SecondaryHeader>
-        <IdealImage
-          className="flex-grow "
-          img="https://raw.githubusercontent.com/chanjunren/vaultusaurus/master/assets/docusaurus_without_plugin_demo.png"
-        />
-        <SecondaryHeader>
-          Corresponding markdown rendered by Docusaurus
-        </SecondaryHeader>
+      <div className="grid lg:grid-cols-2 grid-cols-1 items-end justify-items-center gap-5">
+        <div className="flex flex-col gap-5 items-center">
+          <IdealImage
+            className="flex-grow"
+            img="https://raw.githubusercontent.com/chanjunren/vaultusaurus/master/assets/obsidian_demo.png"
+          />
+          <SecondaryHeader>Obsidian markdown</SecondaryHeader>
+        </div>
+        <div className="flex flex-col gap-5 items-center">
+          <IdealImage
+            className="flex-grow "
+            img="https://raw.githubusercontent.com/chanjunren/vaultusaurus/master/assets/docusaurus_without_plugin_demo.png"
+          />
+          <SecondaryHeader>Corresponding docusaurus page</SecondaryHeader>
+        </div>
       </div>
       <span>
         I was fascinated by Obsidian's
@@ -96,6 +100,27 @@ const VaultusaurusProject: GalleryProjectInfo = {
     </div>
   ),
   repository: "https://github.com/chanjunren/vaultusaurus",
+  // Span of 8 / 12
+  metadata: () => (
+    <div className="lg:col-span-8 col-span-12 flex justify-between flex-wrap my-5">
+      <div className="flex flex-col gap-2">
+        <SecondaryHeader>Made with</SecondaryHeader>
+        <BadgeList badges={["REACT"]} />
+      </div>
+      <div className="flex flex-col gap-2">
+        <SecondaryHeader>Libraries</SecondaryHeader>
+        <div className="flex flex-col gap-1">
+          <span>MDAST</span>
+          <span>REMARK</span>
+          <span>D3</span>
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <SecondaryHeader>Date</SecondaryHeader>
+        <span>03082024 - NOW</span>
+      </div>
+    </div>
+  ),
   extraButtons: ({ className }) => (
     <>
       <DocusaurusLink
