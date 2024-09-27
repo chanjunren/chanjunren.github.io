@@ -7,7 +7,7 @@ import * as Tooltip from "@radix-ui/react-tooltip";
 import IconButton from "../common/IconButton";
 import PrimaryHeader from "../common/PrimaryHeader";
 
-export default function Connect() {
+export default function Socials() {
   //
   return (
     <div className="mt-3">
@@ -42,7 +42,7 @@ export default function Connect() {
                 sideOffset={5}
                 side="bottom"
               >
-                (My resume) I haven't been updating this hehe
+                Resume (I haven't been updating this :D)
                 <Tooltip.Arrow className="TooltipArrow" />
               </Tooltip.Content>
             </Tooltip.Portal>
