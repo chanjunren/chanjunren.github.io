@@ -18,6 +18,9 @@ module.exports = {
       height: TAILWIND_HEIGHTS,
       minHeight: TAILWIND_MIN_HEIGHTS,
       screens: TAILWIND_SCREENS,
+      backgroundImage: {
+        graphPaper: "url('/static/svg/patterns/graphPaper.svg')",
+      },
     },
   },
 } satisfies Config;

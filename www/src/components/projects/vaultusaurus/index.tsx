@@ -8,7 +8,7 @@ const VaultusaurusProject: GalleryProjectInfo = {
   subtitle: "Docusaurus plugin",
   card: ({ onClick }) => (
     <div
-      className="flex items-center w-full justify-center h-36 cursor-pointer gap-5"
+      className="flex items-center w-full justify-center h-36 cursor-pointer gap-5 bg-graphPaper rounded-xl border-[#D3D3D3] border-[1px] border-solid border-opacity-50"
       onClick={onClick}
     >
       <DocusaurusIcon className="h-14 w-14" />
@@ -17,7 +17,7 @@ const VaultusaurusProject: GalleryProjectInfo = {
     </div>
   ),
   banner: () => (
-    <div className="flex items-center w-full justify-center h-36 cursor-pointer gap-5">
+    <div className="flex items-center w-full justify-center h-36 cursor-pointer gap-5 bg-graphPaper">
       <DocusaurusIcon className="h-14 w-14" />
       <SecondaryHeader className="text-3xl">|</SecondaryHeader>
       <span className="text-5xl">🔌</span>
