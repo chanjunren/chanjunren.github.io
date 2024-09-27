@@ -11,7 +11,7 @@ const ProjectInfo: FC<GalleryProjectInfo> = ({
   badges,
   repository,
   description: Description,
-  extraButtons: ExtraButtons,
+  extraButtons: ExtraButtons = () => null,
 }) => {
   return (
     <section className="grid grid-cols-12 gap-5">

@@ -12,16 +12,14 @@ const Spotlight: FC = () => {
       title={"spotlight"}
       description="Hello! Welcome to my digital garden"
     >
-      <div className="flex gap-10 flex-grow p-10 w-full flex-col">
-        {selectedProject !== null ? (
-          <div className="flex-grow flex flex-col max-w-screen gap-20">
-            <selectedProject.banner />
-            <ProjectInfo {...selectedProject} />
-          </div>
-        ) : (
-          <BuildingInProgress />
-        )}
-      </div>
+      {selectedProject !== null ? (
+        <div className="flex-grow flex flex-col w-full p-10 justify-start gap-10">
+          <selectedProject.banner />
+          <ProjectInfo {...selectedProject} />
+        </div>
+      ) : (
+        <BuildingInProgress />
+      )}
     </LayoutWrapper>
   );
 };

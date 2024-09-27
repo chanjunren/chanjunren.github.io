@@ -34,7 +34,7 @@ const VaultusaurusProject: GalleryProjectInfo = {
   extraButtons: ({ className }) => (
     <>
       <DocusaurusLink
-        className="lg:col-span-4 col-span-12"
+        className={className}
         to={"https://github.com/chanjunren/vaultusaurus/wiki"}
         subLabel="📚"
         label="Wiki"
