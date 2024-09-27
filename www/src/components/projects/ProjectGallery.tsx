@@ -10,16 +10,11 @@ export const GALLERY_PROJECTS: GalleryProjectInfo[] = [
   PortalProject,
 ];
 
-type ProjectGalleryProps = {
-  view: "gallery" | "list";
-};
-
-const ProjectGalleryColumn: FC<ProjectGalleryProps & PropsWithChildren> = ({
-  children,
-}) => {
+const ProjectGalleryColumn: FC<PropsWithChildren> = ({ children }) => {
   return <div className="col-span-12 lg:col-span-4">{children}</div>;
 };
-const ProjectGallery: FC<ProjectGalleryProps> = ({ view }) => {
+
+const ProjectGallery: FC = () => {
   const { selectedProject, onGalleryProjSelected } = useGallery();
 
   const projectCards = GALLERY_PROJECTS.map((proj) => (
@@ -39,13 +34,13 @@ const ProjectGallery: FC<ProjectGalleryProps> = ({ view }) => {
     columns[index % 3].push(card);
   });
 
-  return view === "gallery" ? (
+  return (
     <>
-      <ProjectGalleryColumn view={view}>{columns[0]}</ProjectGalleryColumn>
-      <ProjectGalleryColumn view={view}>{columns[1]}</ProjectGalleryColumn>
-      <ProjectGalleryColumn view={view}>{columns[2]}</ProjectGalleryColumn>
+      <ProjectGalleryColumn>{columns[0]}</ProjectGalleryColumn>
+      <ProjectGalleryColumn>{columns[1]}</ProjectGalleryColumn>
+      <ProjectGalleryColumn>{columns[2]}</ProjectGalleryColumn>
     </>
-  ) : null;
+  );
 };
 
 export default ProjectGallery;
