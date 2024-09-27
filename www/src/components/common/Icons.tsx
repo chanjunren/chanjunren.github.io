@@ -7,4 +7,4 @@ export const BlenderIcon = require("@site/static/svg/blender.svg").default;
 
 export const MyLoveIcon = require("@site/static/svg/myLove.svg").default;
 
-export const ReactIcon = require("@site/static/svg/myLove.svg").default;
+export const ReactIcon = require("@site/static/svg/react.svg").default;

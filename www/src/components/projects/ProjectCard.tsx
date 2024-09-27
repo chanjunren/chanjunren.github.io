@@ -6,7 +6,7 @@ const ProjectCard: React.FC<GalleryCard> = (props) => {
   const { mini, info, onClick } = props;
   const { title, subtitle, card: Card } = info;
   return (
-    <div className="flex flex-col">
+    <div className={`flex flex-col ${mini ? "h-20" : ""}`}>
       {typeof Card === "string" ? (
         <ProjectCardImage {...props} />
       ) : (

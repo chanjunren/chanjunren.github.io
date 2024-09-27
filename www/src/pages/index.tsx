@@ -23,7 +23,7 @@ export default function Home(): ReactElement {
         <section className="lg:col-span-2 col-span-4">
           <Hobbies />
         </section>
-        <ProjectGallery view="gallery" />
+        <ProjectGallery />
       </div>
     </LayoutWrapper>
   );

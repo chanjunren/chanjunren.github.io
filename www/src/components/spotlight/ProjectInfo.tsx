@@ -23,13 +23,13 @@ const ProjectInfo: FC<GalleryProjectInfo> = ({
       <div className="lg:col-span-8 col-span-12">
         <Description />
       </div>
-      <div className="col-span-4">
+      <div className="lg:col-span-4 col-span-6">
         <div className="flex flex-col gap-2">
           <SecondaryHeader>Made with</SecondaryHeader>
           <BadgeList badges={badges} />
         </div>
       </div>
-      <div className="col-span-4">
+      <div className="lg:col-span-4 col-span-6">
         <div className="flex flex-col gap-2">
           <SecondaryHeader>Date</SecondaryHeader>
           <span>{dob}</span>
@@ -39,7 +39,7 @@ const ProjectInfo: FC<GalleryProjectInfo> = ({
         <DocusaurusLink
           className="lg:col-span-2 col-span-6"
           to={repository}
-          subLabel="👨🏻‍💻"
+          subLabel="</>"
           label="Repository"
         />
       </div>
