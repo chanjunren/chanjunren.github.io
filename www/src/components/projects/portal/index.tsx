@@ -13,13 +13,18 @@ const PortalProject: GalleryProjectInfo = {
   repository:
     "https://github.com/chanjunren/chanjunren.github.io/tree/master/www/src/components/projects/portal",
   description: () => (
-    <span>
-      Made from one of the lessons of Bruno Simon's{" "}
-      <a href="https://threejs-journey.com/" target="_blank">
-        course
-      </a>
-      !
-    </span>
+    <div className="flex flex-col gap-5">
+      <span>
+        Mini project as a reference for my takeaways from Bruno Simon's{" "}
+        <a href="https://threejs-journey.com/" target="_blank">
+          course
+        </a>
+        !
+      </span>
+      <span>
+        I highly recommend this course if you are interseted in ThreeJS
+      </span>
+    </div>
   ),
   metadata: () => (
     <>

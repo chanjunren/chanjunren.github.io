@@ -19,7 +19,7 @@ const VaultusaurusProject: GalleryProjectInfo = {
     </div>
   ),
   banner: () => (
-    <div className="flex items-center w-full justify-center h-36 cursor-pointer gap-5 bg-graphPaper">
+    <div className="flex items-center w-full justify-center h-36 gap-5 bg-graphPaper">
       <DocusaurusIcon className="h-14 w-14" />
       <span className="text-5xl">🔌</span>
     </div>
@@ -102,12 +102,12 @@ const VaultusaurusProject: GalleryProjectInfo = {
   repository: "https://github.com/chanjunren/vaultusaurus",
   // Span of 8 / 12
   metadata: () => (
-    <div className="lg:col-span-8 col-span-12 flex justify-between flex-wrap my-5">
-      <div className="flex flex-col gap-2">
+    <>
+      <div className="flex flex-col gap-2 lg:col-span-2 col-span-4">
         <SecondaryHeader>Made with</SecondaryHeader>
         <BadgeList badges={["REACT"]} />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 lg:col-span-2 col-span-4">
         <SecondaryHeader>Libraries</SecondaryHeader>
         <div className="flex flex-col gap-1">
           <span>MDAST</span>
@@ -115,11 +115,11 @@ const VaultusaurusProject: GalleryProjectInfo = {
           <span>D3</span>
         </div>
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 col-span-4">
         <SecondaryHeader>Date</SecondaryHeader>
         <span>03082024 - NOW</span>
       </div>
-    </div>
+    </>
   ),
   extraButtons: ({ className }) => (
     <>
@@ -132,8 +132,8 @@ const VaultusaurusProject: GalleryProjectInfo = {
       <DocusaurusLink
         className={className}
         to={"https://chanjunren.github.io/docs/zettelkasten/skywalking"}
-        subLabel="🐵"
-        label="See it in action"
+        subLabel="📃"
+        label="Sample"
       />
     </>
   ),
