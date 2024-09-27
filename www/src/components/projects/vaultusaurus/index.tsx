@@ -111,6 +111,7 @@ const VaultusaurusProject: GalleryProjectInfo = {
         <SecondaryHeader>Libraries</SecondaryHeader>
         <div className="flex flex-col gap-1">
           <span>MDAST</span>
+          <span>UNIST</span>
           <span>REMARK</span>
           <span>D3</span>
         </div>
