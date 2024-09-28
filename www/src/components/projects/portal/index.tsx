@@ -22,7 +22,7 @@ const PortalProject: GalleryProjectInfo = {
         !
       </span>
       <span>
-        I highly recommend this course if you are interseted in ThreeJS
+        I highly recommend this course if you are interested in ThreeJS
       </span>
     </div>
   ),
