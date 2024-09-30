@@ -1,6 +1,7 @@
 import { GalleryProjectInfo } from "@site/src/types";
 import { FC, PropsWithChildren } from "react";
 import useGallery from "../home/hooks/useGallery";
+import PixelLabInfo from "./pixelLab";
 import PortalProject from "./portal";
 import ProjectCard from "./ProjectCard";
 import VaultusaurusProject from "./vaultusaurus";
@@ -8,6 +9,7 @@ import VaultusaurusProject from "./vaultusaurus";
 export const GALLERY_PROJECTS: GalleryProjectInfo[] = [
   VaultusaurusProject,
   PortalProject,
+  PixelLabInfo,
 ];
 
 const ProjectGalleryColumn: FC<PropsWithChildren> = ({ children }) => {

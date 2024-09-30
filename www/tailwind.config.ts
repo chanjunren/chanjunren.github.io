@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { TAILWIND_ANIMATIONS, TAILWIND_KEYFRAMES } from "./tailwind/animations";
+import { TAILWIND_BG_IMAGES } from "./tailwind/backgroundImages";
 import { TAILWIND_HEIGHTS, TAILWIND_MIN_HEIGHTS } from "./tailwind/heights";
 import { TAILWIND_SCREENS } from "./tailwind/screens";
 
@@ -18,9 +19,7 @@ module.exports = {
       height: TAILWIND_HEIGHTS,
       minHeight: TAILWIND_MIN_HEIGHTS,
       screens: TAILWIND_SCREENS,
-      backgroundImage: {
-        graphPaper: "url('/static/svg/patterns/graphPaper.svg')",
-      },
+      backgroundImage: TAILWIND_BG_IMAGES,
     },
   },
 } satisfies Config;
