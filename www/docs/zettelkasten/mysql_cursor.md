@@ -11,9 +11,9 @@ a database object used to **retrieve, manipulate, and traverse** over a set of r
 
 - Allow row-by-row processing of result sets, giving developers the ability to apply procedural logic to each row
 
-| Standard SQL query                     | SQL Cursor                                                        |     |
-| -------------------------------------- | ----------------------------------------------------------------- | --- |
-| Operate on entire sets of data at once | Allow more granular control over how data is accessed / processed |     |
+| Standard SQL query                     | SQL Cursor                                                        |
+| -------------------------------------- | ----------------------------------------------------------------- |
+| Operate on entire sets of data at once | Allow more granular control over how data is accessed / processed |
 
 ## When to Use
 

@@ -14,14 +14,15 @@ Commonly used in:
 - text analytics 
 
 ## Types
+
 > Example sentence: The quick brown fox
 
-| Type               | Description                                                                                                                                          | Example                                                               |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Unigram (1-grams)  | Single tokens / words                                                                                                                                | ["The", "quick", "brown", "fox"]                                      |
-| Bigrams (2-grams)  | Sequences of two consecutive tokens / characters                                                                                                     | ["The quick", "quick brown", "brown fox"]                             |
-| Trigrams (3-grams) | Sequences of three consecutive tokens / characters                                                                                                   | ["The quick brown", "quick brown fox"]                                |
-| Character N-grams  | Instead of splitting the text into words, n-grams can also be generated at the **character** level<br><br>Useful for **substring matching / search** | Bigrams at the character level for the word "fox"<br><br>["fo", "ox"] |
+| Type               | Description                                                                                                                                      | Example                                                               |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| Unigram (1-grams)  | Single tokens / words                                                                                                                            | ["The", "quick", "brown", "fox"]                                      |
+| Bigrams (2-grams)  | Sequences of two consecutive tokens / characters                                                                                                 | ["The quick", "quick brown", "brown fox"]                             |
+| Trigrams (3-grams) | Sequences of three consecutive tokens / characters                                                                                               | ["The quick brown", "quick brown fox"]                                |
+| Character N-grams  | Instead of splitting the text into words, n-grams can also be generated at the **character** level (Useful for substring matching / search ) | Bigrams at the character level for the word "fox" => ["fo", "ox"] |
 
 ## Why Use N-grams?
 
