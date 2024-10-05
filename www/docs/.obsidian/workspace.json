@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/mysql_cursor.md",
+                "file": "zettelkasten/es_realtime_search.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/mysql_cursor.md",
+                "file": "zettelkasten/es_realtime_search.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/mysql_cursor.md",
+                "file": "zettelkasten/es_realtime_search.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/mysql_cursor.md"
+                "file": "zettelkasten/es_realtime_search.md"
               }
             }
           }
@@ -160,9 +160,9 @@
   },
   "active": "53f79eea15ba1e00",
   "lastOpenFiles": [
+    "zettelkasten/mysql_cursor.md",
     "zettelkasten/n_gram.md",
     "zettelkasten/mysql_cursor_vs_pagination.md",
-    "zettelkasten/mysql_cursor.md",
     "zettelkasten/mysql_cursor_lifecycle.md",
     "zettelkasten/es_ngram.md",
     "zettelkasten/state_machine_diagram.md",
