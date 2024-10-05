@@ -9,7 +9,7 @@
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | lucene index          | underlying data structure that Elasticsearch uses to store and retrieve information                                                           |
 | segment               | smaller part of a Lucene index <br/><br/>As documents are indexed, Elasticsearch splits data into multiple segments.                          |
-| commit point          | snapshot of all the segments at a given point in time <br><br/><br>**It marks the point where data has been committed and is now searchable** |
+| commit point          | snapshot of all the segments at a given point in time <br/>**It marks the point where data has been committed and is now searchable** |
 | elasticsearch refresh | refresh process in Elasticsearch ensures that newly indexed data becomes visible to search                                                    |
 
 
