@@ -1,5 +1,6 @@
 import { GalleryProjectInfo } from "@site/src/types";
 import SecondaryHeader from "../../common/SecondaryHeader";
+import PixelLab from "./PixelLab";
 
 const PixelLabInfo: GalleryProjectInfo = {
   id: "pixelLab",
@@ -19,19 +20,11 @@ const PixelLabInfo: GalleryProjectInfo = {
     </div>
   ),
   cardImgClass: "col-span-2 md:col-span-1",
-  description: () => (
-    <div className="flex flex-col w-full gap-5">
-      <span>CSS / SVG exploration (Coming Soon)</span>
-    </div>
-  ),
+  description: () => <PixelLab />,
   repository: "https://github.com/chanjunren/vaultusaurus",
   // Span of 8 / 12
   metadata: () => (
     <>
-      {/* <div className="flex flex-col gap-2 lg:col-span-2 col-span-4">
-        <SecondaryHeader>Made with</SecondaryHeader>
-        <BadgeList badges={["REACT"]} />
-      </div> */}
       <div className="flex flex-col gap-2 lg:col-span-2 col-span-4">
         <SecondaryHeader>Created with</SecondaryHeader>
         <div className="flex flex-col gap-1">
