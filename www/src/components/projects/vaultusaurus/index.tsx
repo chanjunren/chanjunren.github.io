@@ -15,7 +15,7 @@ const VaultusaurusProject: GalleryProjectInfo = {
       onClick={onClick}
     >
       <DocusaurusIcon className="h-14 w-14" />
-      <span className="text-5xl">🔌</span>
+      <span className="text-5xl">🗃️</span>
     </div>
   ),
   banner: () => (

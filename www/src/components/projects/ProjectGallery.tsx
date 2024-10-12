@@ -7,9 +7,9 @@ import ProjectCard from "./ProjectCard";
 import VaultusaurusProject from "./vaultusaurus";
 
 export const GALLERY_PROJECTS: GalleryProjectInfo[] = [
+  PixelLabInfo,
   VaultusaurusProject,
   PortalProject,
-  PixelLabInfo,
 ];
 
 const ProjectGalleryColumn: FC<PropsWithChildren> = ({ children }) => {
