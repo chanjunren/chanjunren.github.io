@@ -4,7 +4,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 const PRISM_CONFIG: ThemeConfig["prism"] = {
   theme: prismThemes.duotoneLight,
   darkTheme: prismThemes.duotoneDark,
-  additionalLanguages: ["json", "java"],
+  additionalLanguages: ["json", "java", "bash"],
 };
 
 export default PRISM_CONFIG;

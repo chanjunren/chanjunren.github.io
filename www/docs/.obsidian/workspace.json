@@ -25,13 +25,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/n_gram.md",
+                "file": "zettelkasten/kafka_cli_cheatsheet.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -97,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/es_realtime_search.md",
+                "file": "zettelkasten/kafka_cli_cheatsheet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/es_realtime_search.md",
+                "file": "zettelkasten/kafka_cli_cheatsheet.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/es_realtime_search.md"
+                "file": "zettelkasten/kafka_cli_cheatsheet.md"
               }
             }
           }
@@ -158,10 +159,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "53f79eea15ba1e00",
+  "active": "107e0d70f60fbd97",
   "lastOpenFiles": [
-    "zettelkasten/mysql_cursor.md",
     "zettelkasten/n_gram.md",
+    "zettelkasten/kafka_cli_cheatsheet.md",
+    "zettelkasten/es_realtime_search.md",
+    "zettelkasten/mysql_cursor.md",
     "zettelkasten/mysql_cursor_vs_pagination.md",
     "zettelkasten/mysql_cursor_lifecycle.md",
     "zettelkasten/es_ngram.md",
@@ -196,8 +199,6 @@
     "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets",
     "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/salience.md",
     "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/reverse-chaining.md",
-    "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/rete-algorithm.md",
-    "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/hashing-indexing.md",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources",
     "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources",
     "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing",
