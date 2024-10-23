@@ -1,81 +1,76 @@
 {
   "main": {
-    "id": "8219e47f6fcee62f",
+    "id": "429e27d1825465b6",
     "type": "split",
     "children": [
       {
-        "id": "25148f04c01492b3",
+        "id": "f9f75f08d7627544",
         "type": "tabs",
         "children": [
           {
-            "id": "53f79eea15ba1e00",
+            "id": "030473272117548d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/es_realtime_search.md",
+                "file": "zettelkasten/bash.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "107e0d70f60fbd97",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zettelkasten/kafka_cli_cheatsheet.md",
-                "mode": "source",
-                "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "bash"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "6cbfbd7d150957f3",
+    "id": "d25a686d4c814085",
     "type": "split",
     "children": [
       {
-        "id": "c6dde33de90d0de7",
+        "id": "0358344dee90510e",
         "type": "tabs",
         "children": [
           {
-            "id": "d5f81e0481964d53",
+            "id": "6e6abe9f390ff817",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
-            "id": "d6b696ade9ba071e",
+            "id": "82f3aff726255b32",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#inno_db",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
-            "id": "2280534f3cbf7100",
+            "id": "776b2ce1dac63961",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -85,20 +80,20 @@
     "width": 300
   },
   "right": {
-    "id": "899933c994d0a6e6",
+    "id": "d38b321f70b236f9",
     "type": "split",
     "children": [
       {
-        "id": "cb43fd483b3881b7",
+        "id": "599d7b7a34ac9e8d",
         "type": "tabs",
         "children": [
           {
-            "id": "4a512a221cdcc4ea",
+            "id": "0467a29e431d4620",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/kafka_cli_cheatsheet.md",
+                "file": "zettelkasten/todo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,40 +101,48 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for todo"
             }
           },
           {
-            "id": "7189f3a11f5325d1",
+            "id": "9679bc4e0be444df",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/kafka_cli_cheatsheet.md",
+                "file": "zettelkasten/todo.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from todo"
             }
           },
           {
-            "id": "ae3e0137d2c88e5e",
+            "id": "007ffe0005c4cc02",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
-            "id": "cad2fd4ecba1aed5",
+            "id": "51db92cce75ee6e6",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/kafka_cli_cheatsheet.md"
-              }
+                "file": "zettelkasten/todo.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of todo"
             }
           }
         ]
@@ -151,61 +154,61 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:打开快速切换": false,
-      "graph:查看关系图谱": false,
-      "canvas:新建白板": false,
-      "daily-notes:打开/创建今天的日记": false,
-      "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
     }
   },
-  "active": "107e0d70f60fbd97",
+  "active": "030473272117548d",
   "lastOpenFiles": [
-    "zettelkasten/n_gram.md",
-    "zettelkasten/kafka_cli_cheatsheet.md",
-    "zettelkasten/es_realtime_search.md",
-    "zettelkasten/mysql_cursor.md",
-    "zettelkasten/mysql_cursor_vs_pagination.md",
-    "zettelkasten/mysql_cursor_lifecycle.md",
-    "zettelkasten/es_ngram.md",
-    "zettelkasten/state_machine_diagram.md",
-    "zettelkasten/design_doc_template.md",
-    "zettelkasten/health_live_readiness_checks.md",
+    "zettelkasten/bash.md",
+    "zettelkasten/aliyun_canal_api_client.md",
     "zettelkasten/tsconfig.json.md",
-    "zettelkasten/micrometer_dump.md",
-    "zettelkasten/service_provider_interface.md",
-    "zettelkasten/skywalking.md",
-    "zettelkasten/grafana_dump.md",
-    "zettelkasten/apm_metrics.md",
-    "zettelkasten/sentinel_dump.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/assets/chapter4_multidocument.png",
-    "zettelkasten/todo.md",
     "zettelkasten/to_read_dump.md",
+    "zettelkasten/to_be_tidied/content.md",
+    "zettelkasten/to_be_tidied/Misc/index.md",
+    "zettelkasten/to_be_tidied/Misc/VIM/reference.md",
+    "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
+    "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
+    "zettelkasten/to_be_tidied/Misc/VIM",
+    "zettelkasten/to_be_tidied/Misc",
+    "zettelkasten/to_be_tidied/Frontend/index.md",
+    "zettelkasten/to_be_tidied/Frontend/Typescript/typesVsInterfaces.md",
+    "zettelkasten/to_be_tidied/Frontend/Typescript/index.md",
+    "zettelkasten/to_be_tidied/Frontend/Typescript",
+    "zettelkasten/to_be_tidied/Frontend/ThreeJS/summary.md",
+    "zettelkasten/to_be_tidied/Frontend/ThreeJS/shaders.md",
+    "zettelkasten/to_be_tidied/Frontend/ThreeJS/raycaster.md",
+    "zettelkasten/to_be_tidied/Frontend/ThreeJS/postprocessing.md",
+    "zettelkasten/to_be_tidied/Frontend/ThreeJS/index.md",
+    "zettelkasten/to_be_tidied/Frontend/ThreeJS/gltf.md",
+    "zettelkasten/to_be_tidied/Frontend/ThreeJS",
+    "zettelkasten/to_be_tidied/Frontend/NextJS/rendering.md",
+    "zettelkasten/to_be_tidied/Frontend/NextJS/networking.md",
+    "zettelkasten/to_be_tidied/Frontend/NextJS/index.md",
+    "zettelkasten/to_be_tidied/Frontend/NextJS/compilation.md",
+    "zettelkasten/to_be_tidied/Frontend/NextJS",
+    "zettelkasten/to_be_tidied/Frontend/Mobx/projectStructure.md",
+    "zettelkasten/to_be_tidied/Frontend/Mobx/index.md",
+    "zettelkasten/to_be_tidied/Frontend/Mobx",
+    "zettelkasten/to_be_tidied/Frontend/CSS/transitions.md",
+    "zettelkasten/to_be_tidied/Frontend/CSS/grid.md",
+    "zettelkasten/to_be_tidied/Frontend/CSS/flexbox.md",
+    "zettelkasten/to_be_tidied/Frontend/CSS/animations.md",
+    "zettelkasten/to_be_tidied/Frontend/CSS",
+    "zettelkasten/to_be_tidied/Frontend",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/sampling.png",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/native.png",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/instrumented.png",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/blocking.png",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets/indexing_diskStructure.jpeg",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets/example_b_tree.png",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets/example_b_plus_tree.jpeg",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets/chatgpt_db_engine.png",
-    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3",
     "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-4.png",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/multiColumnIndexes.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/intro.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/index.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/diskStructure.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/dataStructures.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets",
-    "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/salience.md",
-    "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples/reverse-chaining.md",
-    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources",
-    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing",
-    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/assets",
-    "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
-    "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
-    "zettelkasten/to_be_tidied/Backend/Rule Engine/Examples",
-    "zettelkasten/to_be_tidied/Backend/Redis/5-things-you-dont-know-about-redis-e-book.pdf"
+    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-3.png",
+    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-2.png",
+    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/executor-service-2.jpg",
+    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-1.png",
+    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/executor-service-1.jpg"
   ]
 }
