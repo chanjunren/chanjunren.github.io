@@ -1,4 +1,5 @@
-@import url('./docusaurus.css');
+/* @import url('./docusaurus.css'); */
+@import url('./docusaurus-rose-pine.css');
 @import url('./separator.css');
 @import url('./tooltip.css');
 @import url('./search.css');
@@ -23,7 +24,8 @@
 }
 
 ::selection {
-  background: rgba(135, 167, 159, 0.5);
+  /* background: rgba(135, 167, 159, 0.5); */
+  background: rgba(144, 140, 170, 0.5);
   color: white;
 }
 
