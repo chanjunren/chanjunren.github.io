@@ -12,7 +12,7 @@
 - `U` - update plugins
 
 ### Other commands
-- `:` - Trigger commandline (press )
+- `:` - Trigger commandline
 
 ### Split commands
 - `"` - Splits screen horizontally
@@ -33,9 +33,6 @@
 - `tmux ls` - view list of sessions
 - `tmux attach -t ${session}` - attach to a specific session
 - `tmux detach` - detaches session from terminal
-
-## TODO
-- Integrate TMUX startup in .zshrc
 
 ## Setup
 - https://github.com/tmux-plugins/tpm
