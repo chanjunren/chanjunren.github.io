@@ -80,14 +80,6 @@ main {
   color: var(--ifm-navbar-link-color) !important;
 }
 
-nav.navbar.navbar--fixed-top {
-  background-color: var(--ifm-background-color) !important;
-}
-
-.navbar-sidebar {
-  background-color: var(--ifm-background-color) !important;
-}
-
 @media (min-width: 996px) {
   nav.navbar.navbar--fixed-top {
     backdrop-filter: blur(10px);
