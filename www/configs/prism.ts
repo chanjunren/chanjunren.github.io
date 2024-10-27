@@ -1,10 +1,9 @@
 import { ThemeConfig } from "@docusaurus/types";
-import { themes as prismThemes } from "prism-react-renderer";
+import { themes } from "prism-react-renderer";
 
 const PRISM_CONFIG: ThemeConfig["prism"] = {
-  theme: prismThemes.duotoneLight,
-  darkTheme: prismThemes.duotoneDark,
   additionalLanguages: ["json", "java", "bash"],
+  theme: themes.nightOwl,
 };
 
 export default PRISM_CONFIG;
