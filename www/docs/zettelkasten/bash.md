@@ -118,6 +118,21 @@ echo "Original String: $STR"
 echo "String Length: ${#STR}"
 echo "Substring (7 characters from index 5): ${STR:5:7}"
 
+## FOR LOOP
+for i in {1..5}; do
+  echo "Iteration $i"
+done
+
+# Loop over a list of items
+for fruit in apple banana cherry; do
+  echo "I like $fruit"
+done
+
+for ((i = 1; i <= 5; i++)); do
+  echo "Counter: $i"
+done
+
+
 echo "=== End of Cheat Sheet ==="
 
 ```
