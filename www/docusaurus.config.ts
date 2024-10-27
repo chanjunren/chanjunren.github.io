@@ -64,12 +64,18 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "🌳",
+      logo: {
+        alt: "Site Logo",
+        src: "images/favicon.svg",
+        target: "_self",
+        width: 20,
+        height: 20,
+      },
       items: [
         {
           type: "docSidebar",
           sidebarId: "docs",
-          label: "zettelkasten",
+          label: "🌱 zettelkasten",
         },
       ],
     },

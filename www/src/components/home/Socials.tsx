@@ -15,7 +15,7 @@ export default function Socials() {
       <div className="flex gap-5">
         <a href="https://www.github.com/chanjunren" target="_blank">
           <IconButton>
-            <GitHubLogoIcon />
+            <GitHubLogoIcon style={{ color: "var(--ifm-font-color-base)" }} />
           </IconButton>
         </a>
         <a
@@ -23,7 +23,7 @@ export default function Socials() {
           target="_blank"
         >
           <IconButton>
-            <LinkedInLogoIcon />
+            <LinkedInLogoIcon style={{ color: "var(--ifm-font-color-base)" }} />
           </IconButton>
         </a>
 
@@ -32,7 +32,7 @@ export default function Socials() {
             <Tooltip.Trigger asChild>
               <a href="/documents/resume.pdf" target="_blank">
                 <IconButton>
-                  <ReaderIcon />
+                  <ReaderIcon style={{ color: "var(--ifm-font-color-base)" }} />
                 </IconButton>
               </a>
             </Tooltip.Trigger>
