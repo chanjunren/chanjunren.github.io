@@ -88,7 +88,13 @@ const config: Config = {
     customWebpack,
     [
       docusaurusPluginVaultusaurus,
-      { ignoredGraphTags: ["wip"] } satisfies VaultusaurusPluginOptions,
+      {
+        ignoredGraphTags: ["wip"],
+        graphStyle: {
+          graphBg: "#232136",
+          defaultColor: "#e0def4",
+        },
+      } satisfies VaultusaurusPluginOptions,
     ],
   ],
   staticDirectories: ["docs/assets", "static"],
