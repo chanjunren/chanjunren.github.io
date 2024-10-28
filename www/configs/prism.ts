@@ -3,7 +3,7 @@ import { themes } from "prism-react-renderer";
 
 const PRISM_CONFIG: ThemeConfig["prism"] = {
   additionalLanguages: ["json", "java", "bash"],
-  theme: themes.nightOwl,
+  theme: themes.palenight,
 };
 
 export default PRISM_CONFIG;
