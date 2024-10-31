@@ -1,7 +1,7 @@
 🗓️ 31102024 1149
 📎 #observability #prometheus
 
-# prometheus_overview
+# prometheus
 
 ```ad-summary
 Metrics based system that helps you collect / record metrics from your services
