@@ -60,7 +60,8 @@ Analytics technology that processes large volumes of historical data to find pat
 
 ```ad-example
 - For example, marketers could use data-mining tools to analyze user behaviors from records of every website visit
-<br/>
+
+
 - They might then use OLAP software to inspect those behaviors from various angles, such as duration, device, country, language, and browser type. 
  
 ```
