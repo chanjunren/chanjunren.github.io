@@ -4,7 +4,7 @@
 # star_schema
 
 ```ad-info
-[[OLAP]] data model
+[[olap]] data model
 ```
 
 | Components               | Description                                                                 |
