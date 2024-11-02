@@ -3,7 +3,7 @@
 
 # oltp_vs_olap
 
-| [[OLTP]] Systems                                                                              | [[olap]] systems                                                                   |
+| [[oltp]] Systems                                                                              | [[olap]] systems                                                                   |
 | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | Large number of transactions by large number of people                                        | Querying many records                                                              |
 | Fast response                                                                                 | Response can be much much slower than that of OLTP                                 |
