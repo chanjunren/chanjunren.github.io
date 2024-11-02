@@ -1,5 +1,5 @@
 🗓️ 01112024 2245
-📎 #data_processing 
+📎 #data_processing  #database
 
 # online_analytical_processing
 
@@ -12,112 +12,42 @@
 	- query
 	- generate reports from the multidimensional data in the OLAP cube
 
-| Terms                              | Description                                                                                                     |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| OLAP Cube                          | Data structure to organise / analyse large volumes of data (Optimised for quick and complex analytical queries) |
-| Multidimensional Expressions (MDX) | Queries for manipulating DBs                                                                                    |
+| Terms                              | Description                                                                                                         |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| OLAP Cube                          | **Data structure** to organise / analyse large volumes of data (Optimised for quick and complex analytical queries) |
+| Multidimensional Expressions (MDX) | **Queries** for manipulating DBs                                                                                    |
 
 ## OLAP types
 
+### Multidimensional online analytical processing (MOLAP)
 
-### **MOLAP**
+1. **Creating a data cube** - represents multidimensional data from a data warehouse
+2.  MOLAP system stores **precalculated data** in the hypercube
+3. **Data engineers** use MOLAP because this type of OLAP technology provides **fast analysis** 
 
-Multidimensional online analytical processing (MOLAP) involves creating a data cube that represents multidimensional data from a data warehouse. The MOLAP system stores precalculated data in the hypercube. Data engineers use MOLAP because this type of OLAP technology provides fast analysis. 
+### Relational online analytical processing (ROLAP)
+1. (ROLAP) allows data engineers to perform multidimensional data analysis on a **relational database**
+2. Data engineers use SQL queries to 
+	- retrieve specific information based on the required dimensions
+1. Suitable for analyzing **extensive and detailed** data
+2. **Slow query performance** compared to MOLAP. 
 
-### **ROLAP**
+### Hybrid online analytical processing (HOLAP)
 
-Instead of using a data cube, relational online analytical processing (ROLAP) allows data engineers to perform multidimensional data analysis on a relational database. In other words, data engineers use SQL queries to search for and retrieve specific information based on the required dimensions. ROLAP is suitable for analyzing extensive and detailed data. However, ROLAP has slow query performance compared to MOLAP. 
+1. Combines MOLAP and ROLAP to provide the best of both architectures
+2. HOLAP allows data engineers to 
+	- quickly retrieve analytical results from a data cube 
+	- extract detailed information from relational databases
 
-### **HOLAP**
+## Data modeling in OLAP
 
-Hybrid online analytical processing (HOLAP) combines MOLAP and ROLAP to provide the best of both architectures. HOLAP allows data engineers to quickly retrieve analytical results from a data cube and extract detailed information from relational databases. 
+```ad-summary
+Data modeling is the **representation of data** in data warehouses or OLAP databases
+```
 
-## What is data modeling in OLAP?
+-  Data modeling is essential in relational online analytical processing (ROLAP) because it analyzes data straight from the relational database
+- **Multidimensional data** stored as a [[star_schema]] or [[snowflake_schema]]
 
-Data modeling is the representation of data in data warehouses or online analytical processing (OLAP) databases. Data modeling is essential in relational online analytical processing (ROLAP) because it analyzes data straight from the relational database. It stores multidimensional data as a star or snowflake schema. 
-
-### **Star schema**
-
-The star schema consists of a fact table and multiple dimension tables. The fact table is a data table that contains numerical values related to a business process, and the dimension table contains values that describe each attribute in the fact table. The fact table refers to dimensional tables with foreign keys—unique identifiers that correlate to the respective information in the dimension table. 
-
-In a star schema, a fact table connects to several dimension tables so the data model looks like a star. The following is an example of a fact table for product sales: 
-
-- Product ID
-- Location ID
-- Salesperson ID
-- Sales amount
-
-The product ID tells the database system to retrieve information from the product dimension table, which might look as follows:
-
-- Product ID
-- Product name
-- Product type
-- Product cost
-
-Likewise, the location ID points to a location dimension table, which could consist of the following:
-
-- Location ID
-- Country
-- City
-
-The salesperson table might look as follows:
-
-- Salesperson ID
-- First name
-- Last name
-- Email
-
-### **Snowflake schema**
-
-The snowflake schema is an extension of the star schema. Some dimension tables might lead to one or more secondary dimension tables. This results in a snowflake-like shape when the dimension tables are put together. 
-
-For example, the product dimension table might contain the following fields:
-
-- Product ID
-- Product name
-- Product type ID
-- Product cost
-
-The product type ID connects to another dimension table as shown in the following example:
-
-- Product type ID
-- Type name
-- Version
-- Variant 
-
-## What are OLAP operations?
-
-Business analysts perform several basic analytical operations with a multidimensional online analytical processing (MOLAP) cube. 
-
-### **Roll up**
-
-In roll up, the online analytical processing (OLAP) system summarizes the data for specific attributes. In other words, it shows less-detailed data. For example, you might view product sales according to New York, California, London, and Tokyo. A roll-up operation would provide a view of the sales data based on countries, such as the US, the UK, and Japan. 
-
-### **Drill down**
-
-Drill down is the opposite of the roll-up operation. Business analysts move downward in the concept hierarchy and extract the details they require. For example, they can move from viewing sales data by years to visualizing it by months.
-
-### **Slice**
-
-Data engineers use the slice operation to create a two-dimensional view from the OLAP cube. For example, a MOLAP cube sorts data according to products, cities, and months. By slicing the cube, data engineers can create a spreadsheet-like table consisting of products and cities for a specific month. 
-
-### **Dice**
-
-Data engineers use the dice operation to create a smaller subcube from an OLAP cube. They determine the required dimensions and build a smaller cube from the original hypercube.
-
-### **Pivot**
-
-The pivot operation involves rotating the OLAP cube along one of its dimensions to get a different perspective on the multidimensional data model. For example, a three-dimensional OLAP cube has the following dimensions on the respective axes:
-
-- X-axis—product 
-- Y-axis—location
-- Z-axis—time
-
-Upon a pivot, the OLAP cube has the following configuration:
-
-- X-axis—location
-- Y-axis—time
-- Z-axis—product
 
 ## How does OLAP compare with other data analytics methods?
 
