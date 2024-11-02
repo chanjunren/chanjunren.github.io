@@ -1,16 +1,16 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
-import {
-  docusaurusPluginVaultusaurus,
-  remarkVaultusaurus,
-  VaultusaurusPluginOptions,
-} from "vaultusaurus";
 import ALOGLIA_CONFIG from "./configs/algolia";
 import PRISM_CONFIG from "./configs/prism";
 import pluginIdealImage from "./plugins/ideal-image.cjs";
 import tailwindPlugin from "./plugins/tailwind.cjs";
 import customWebpack from "./plugins/webpack.cjs";
 import dateTagReplacer from "./src/utils/dateTagReplacer";
+import {
+  docusaurusPluginVaultusaurus,
+  remarkVaultusaurus,
+  VaultusaurusPluginOptions,
+} from "./vaultusaurus";
 
 const config: Config = {
   title: "jun ren's digital garden",
