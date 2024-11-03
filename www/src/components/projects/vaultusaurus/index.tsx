@@ -2,6 +2,7 @@ import DocusaurusLink from "@site/src/components/common/DocusaurusLink";
 import BadgeList from "@site/src/components/spotlight/BadgeList";
 import { GalleryProjectInfo } from "@site/src/types";
 import IdealImage from "@theme/IdealImage";
+import HoverCard from "../../common/HoverCard";
 import { DocusaurusIcon } from "../../common/Icons";
 import SecondaryHeader from "../../common/SecondaryHeader";
 
@@ -10,13 +11,13 @@ const VaultusaurusProject: GalleryProjectInfo = {
   title: "Vaultusaurus",
   subtitle: "Docusaurus plugin",
   card: ({ onClick }) => (
-    <div
-      className="flex items-center w-full justify-center h-36 cursor-pointer gap-5 bg-graphPaper rounded-lg border-[#D3D3D3] border-[1px] border-solid border-opacity-40"
+    <HoverCard
+      className="flex items-center w-full justify-center h-44 gap-5"
       onClick={onClick}
     >
       <DocusaurusIcon className="h-14 w-14" />
       <span className="text-5xl">🗃️</span>
-    </div>
+    </HoverCard>
   ),
   banner: () => (
     <div className="flex items-center w-full justify-center h-36 gap-5 bg-graphPaper">

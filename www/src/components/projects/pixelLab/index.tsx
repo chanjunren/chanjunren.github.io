@@ -1,4 +1,5 @@
 import { GalleryProjectInfo } from "@site/src/types";
+import HoverCard from "../../common/HoverCard";
 import SecondaryHeader from "../../common/SecondaryHeader";
 import PixelLab from "./PixelLab";
 
@@ -7,12 +8,12 @@ const PixelLabInfo: GalleryProjectInfo = {
   title: "Pixel Lab",
   subtitle: "CSS / SVG Exploration",
   card: ({ onClick }) => (
-    <div
-      className="flex items-center w-full justify-center h-60 cursor-pointer gap-5 bg-circuitBoard rounded-lg"
+    <HoverCard
+      className="flex items-center w-full justify-center h-60 cursor-pointer gap-5 rounded-lg"
       onClick={onClick}
     >
       <span className="text-5xl">👾</span>
-    </div>
+    </HoverCard>
   ),
   banner: () => (
     <div className="flex items-center w-full justify-center h-60 cursor-pointer gap-5 bg-circuitBoard rounded-lg">

@@ -2,6 +2,7 @@ import mahjongVideo from "@site/static/videos/mahjong.mp4";
 import skatingVideo from "@site/static/videos/skating.mp4";
 import snowboardingVideo from "@site/static/videos/snowboarding.mp4";
 import { FC, PropsWithChildren, useEffect, useRef, useState } from "react";
+import HoverCard from "../common/HoverCard";
 import PrimaryHeader from "../common/PrimaryHeader";
 import TypewriterText from "../common/TypewriterText";
 
@@ -39,9 +40,9 @@ const HobbyCard: FC<PropsWithChildren<HobbyCardProps>> = ({
         onEnded={handleVideoEnded}
       />
     ) : (
-      <p className="flex items-center justify-center text-4xl bg-[var(--gray-transparent-bg)] rounded-md cursor-pointer flex-grow min-h-32 min-w-32">
+      <HoverCard className="flex items-center justify-center text-4xl flex-grow min-h-32 min-w-32">
         {children}
-      </p>
+      </HoverCard>
     );
 
   return (
@@ -61,7 +62,7 @@ const Hobbies: FC = () => {
   return (
     <div>
       <PrimaryHeader>🍉 hobbies</PrimaryHeader>
-      <div className="flex justify-start gap-3 flex-wrap">
+      <div className="flex justify-start gap-4 flex-wrap">
         <HobbyCard label="skating" mediaUrl={skatingVideo}>
           🛼
         </HobbyCard>

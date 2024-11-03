@@ -2,7 +2,7 @@ import PrimaryHeader from "../common/PrimaryHeader";
 
 export default function WelcomeSection() {
   return (
-    <section className="md:col-span-6 col-span-12">
+    <section className="md:col-span-7 col-span-12">
       <PrimaryHeader>
         <span className="text-[var(--ifm-color-emphasis-400)]">#</span> Welcome
       </PrimaryHeader>
