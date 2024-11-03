@@ -1,5 +1,5 @@
 🗓️ 17032024 1442
-📎 #threejs #performance #monitoring
+📎 #threejs #performance
 
 - Draw actions: _Drawing of triangles by GPU_
 - The lesser draw calls you have, the better
