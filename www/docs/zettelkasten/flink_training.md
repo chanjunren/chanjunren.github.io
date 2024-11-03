@@ -26,9 +26,9 @@ Flink applications composed of:
 ## Parallel dataflows
 ```ad-info
 Programs in flink are inherently **parallel** and **distributed**
+```
 
 <img src="https://nightlies.apache.org/flink/flink-docs-release-1.20/fig/learn-flink/parallel_dataflow.svg" />
-```
 
 - During execution, a stream has one or more stream partitions
 - Each operator has one or more operator subtasks

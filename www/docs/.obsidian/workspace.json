@@ -4,17 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "6de5ab03f1097024",
+        "id": "18eaa06b096db2f4",
         "type": "tabs",
         "children": [
           {
-            "id": "4f221d9929ec68d3",
+            "id": "de881313e7c1631a",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "type": "markdown",
+              "state": {
+                "file": "zettelkasten/flink_training.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -37,9 +39,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
+              }
             }
           },
           {
@@ -54,9 +54,7 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-search",
-              "title": "Search"
+              }
             }
           },
           {
@@ -64,9 +62,7 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "state": {}
             }
           }
         ]
@@ -90,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "zettelkasten/flink_training.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,9 +94,7 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks"
+              }
             }
           },
           {
@@ -108,11 +103,10 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "zettelkasten/flink_training.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links"
+              }
             }
           },
           {
@@ -123,9 +117,7 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
+              }
             }
           },
           {
@@ -133,9 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
-              "icon": "lucide-list",
-              "title": "Outline"
+              "state": {
+                "file": "zettelkasten/flink_training.md"
+              }
             }
           }
         ]
@@ -155,22 +147,23 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4f221d9929ec68d3",
+  "active": "de881313e7c1631a",
   "lastOpenFiles": [
+    "zettelkasten/oltp_vs_olap.md",
+    "zettelkasten/OLAP.md",
+    "zettelkasten/star_schema.md",
+    "zettelkasten/snowflake_schema.md",
+    "zettelkasten/oltp.md",
+    "zettelkasten/olap_operations.md",
+    "zettelkasten/olap.md",
     "zettelkasten/message_queue_features.md",
     "zettelkasten/message_queue_benefits.md",
     "zettelkasten/message_queue.md",
     "zettelkasten/flink_training.md",
-    "zettelkasten/olap.md",
-    "zettelkasten/oltp_vs_olap.md",
     "zettelkasten/OLTP.md",
-    "zettelkasten/olap_operations.md",
-    "zettelkasten/olap 1.md",
-    "zettelkasten/snowflake_schema.md",
-    "zettelkasten/star_schema.md",
-    "zettelkasten/prometheus_data_selection.md",
     "zettelkasten/ACID.md",
     "zettelkasten/prometheus.md",
+    "zettelkasten/prometheus_data_selection.md",
     "zettelkasten/prometheus_data_types.md",
     "zettelkasten/prometheus_summary_streaming.md",
     "zettelkasten/bash.md",
@@ -186,7 +179,6 @@
     "zettelkasten/to_be_tidied/Misc",
     "zettelkasten/to_be_tidied/Frontend/index.md",
     "zettelkasten/to_be_tidied/Frontend/Typescript/typesVsInterfaces.md",
-    "zettelkasten/to_be_tidied/Frontend/Typescript/index.md",
     "zettelkasten/to_be_tidied/Frontend/Typescript",
     "zettelkasten/to_be_tidied/Frontend/ThreeJS",
     "zettelkasten/to_be_tidied/Frontend/NextJS",
