@@ -1,23 +1,24 @@
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DocusaurusLink from "@site/src/components/common/DocusaurusLink";
 import BadgeList from "@site/src/components/spotlight/BadgeList";
 import { GalleryProjectInfo } from "@site/src/types";
 import IdealImage from "@theme/IdealImage";
-import HoverCard from "../../common/HoverCard";
 import { DocusaurusIcon } from "../../common/Icons";
 import SecondaryHeader from "../../common/SecondaryHeader";
+
+const VaultusaurusBanner =
+  require("@site/static/images/vaultusaurus_banner.png").default;
 
 const VaultusaurusProject: GalleryProjectInfo = {
   id: "vaultusaurus",
   title: "Vaultusaurus",
   subtitle: "Docusaurus plugin",
   card: ({ onClick }) => (
-    <HoverCard
-      className="flex items-center w-full justify-center h-44 gap-5"
+    <IdealImage
       onClick={onClick}
-    >
-      <DocusaurusIcon className="h-14 w-14" />
-      <span className="text-5xl">🗃️</span>
-    </HoverCard>
+      className="h-auto cursor-pointer rounded-md hover:shadow-2xl transition-all hover:-translate-y-5"
+      img={useBaseUrl("images/vaultusaurus_banner.png")}
+    />
   ),
   banner: () => (
     <div className="flex items-center w-full justify-center h-36 gap-5 bg-graphPaper">
