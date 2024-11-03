@@ -13,17 +13,11 @@ const MiniSection: FC<PropsWithChildren<MiniSectionProps>> = ({
   subtitle,
 }) => {
   return (
-    // <div className="flex gap-3">
-    //   <Image
-    //     className={"max-w-10 max-h- rounded-md"}
-    //     img={useBaseUrl(logoSrc)}
-    //   />
     <div className="flex flex-col gap-1 mb-5">
       {title}
       <SecondaryHeader>{subtitle}</SecondaryHeader>
       {children}
     </div>
-    // </div>
   );
 };
 

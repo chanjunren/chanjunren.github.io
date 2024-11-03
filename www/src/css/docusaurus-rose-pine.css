@@ -2,8 +2,7 @@
 :root {
   --ifm-font-size-base: 88%;
   --ifm-heading-font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
-  /* --gray-transparent-bg: rgba(170, 170, 170, 0.25); */
-  --gray-transparent-bg: rgba(206, 202, 205, 0.35);
+  --gray-transparent-bg: rgba(86, 82, 110, 0.10);
 }
 
 :root {
@@ -18,6 +17,8 @@
     --ifm-font-color-base: #575279 !important;
 
     --reduced-emphasis-color: var(--ifm-color-emphasis-600);
+
+    --rose-hover: #21202e;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -37,6 +38,8 @@
 
   --ifm-background-color: #191724 !important;
   --ifm-font-color-base: #e0def4 !important;
+
+  --rose-hover: #dfdad9;
 }
 
 main {
