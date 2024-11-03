@@ -11,14 +11,10 @@
             "id": "4f221d9929ec68d3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zettelkasten/olap.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "olap"
+              "title": "New tab"
             }
           }
         ]
@@ -161,6 +157,10 @@
   },
   "active": "4f221d9929ec68d3",
   "lastOpenFiles": [
+    "zettelkasten/message_queue_features.md",
+    "zettelkasten/message_queue_benefits.md",
+    "zettelkasten/message_queue.md",
+    "zettelkasten/flink_training.md",
     "zettelkasten/olap.md",
     "zettelkasten/oltp_vs_olap.md",
     "zettelkasten/OLTP.md",
@@ -188,10 +188,6 @@
     "zettelkasten/to_be_tidied/Frontend/Typescript/typesVsInterfaces.md",
     "zettelkasten/to_be_tidied/Frontend/Typescript/index.md",
     "zettelkasten/to_be_tidied/Frontend/Typescript",
-    "zettelkasten/to_be_tidied/Frontend/ThreeJS/summary.md",
-    "zettelkasten/to_be_tidied/Frontend/ThreeJS/shaders.md",
-    "zettelkasten/to_be_tidied/Frontend/ThreeJS/raycaster.md",
-    "zettelkasten/to_be_tidied/Frontend/ThreeJS/postprocessing.md",
     "zettelkasten/to_be_tidied/Frontend/ThreeJS",
     "zettelkasten/to_be_tidied/Frontend/NextJS",
     "zettelkasten/to_be_tidied/Frontend/Mobx",
