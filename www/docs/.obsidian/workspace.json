@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/flink_training.md",
+                "file": "zettelkasten/message_queue_benefits.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/flink_training.md",
+                "file": "zettelkasten/message_queue_benefits.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/flink_training.md",
+                "file": "zettelkasten/message_queue_benefits.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/flink_training.md"
+                "file": "zettelkasten/message_queue_benefits.md"
               }
             }
           }
@@ -149,6 +149,9 @@
   },
   "active": "de881313e7c1631a",
   "lastOpenFiles": [
+    "zettelkasten/message_queue_features.md",
+    "zettelkasten/Untitled.md",
+    "zettelkasten/flink_training.md",
     "zettelkasten/oltp_vs_olap.md",
     "zettelkasten/OLAP.md",
     "zettelkasten/star_schema.md",
@@ -156,10 +159,8 @@
     "zettelkasten/oltp.md",
     "zettelkasten/olap_operations.md",
     "zettelkasten/olap.md",
-    "zettelkasten/message_queue_features.md",
     "zettelkasten/message_queue_benefits.md",
     "zettelkasten/message_queue.md",
-    "zettelkasten/flink_training.md",
     "zettelkasten/OLTP.md",
     "zettelkasten/ACID.md",
     "zettelkasten/prometheus.md",
@@ -178,7 +179,6 @@
     "zettelkasten/to_be_tidied/Misc/VIM",
     "zettelkasten/to_be_tidied/Misc",
     "zettelkasten/to_be_tidied/Frontend/index.md",
-    "zettelkasten/to_be_tidied/Frontend/Typescript/typesVsInterfaces.md",
     "zettelkasten/to_be_tidied/Frontend/Typescript",
     "zettelkasten/to_be_tidied/Frontend/ThreeJS",
     "zettelkasten/to_be_tidied/Frontend/NextJS",
