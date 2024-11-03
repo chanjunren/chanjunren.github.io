@@ -32,21 +32,21 @@ const HobbyCard: FC<PropsWithChildren<HobbyCardProps>> = ({
   const cardContent =
     mediaUrl && playing ? (
       <video
-        className="rounded-md h-28 w-28 md:h-32 md:w-32"
+        className="rounded-md aspect-square h-32 w-32"
         ref={videoRef}
         playsInline
         src={mediaUrl}
         onEnded={handleVideoEnded}
       />
     ) : (
-      <span className="flex items-center justify-center text-4xl bg-[var(--gray-transparent-bg)] h-28 w-28 md:h-32 md:w-32 rounded-md cursor-pointer flex-grow">
+      <p className="flex items-center justify-center text-4xl bg-[var(--gray-transparent-bg)] rounded-md cursor-pointer flex-grow min-h-32 min-w-32">
         {children}
-      </span>
+      </p>
     );
 
   return (
     <div
-      className="flex flex-col items-center gap-3 mt-2"
+      className="flex flex-col items-center gap-3 mt-2 h-fit w-fit"
       onClick={() => setPlaying(true)}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
@@ -61,7 +61,7 @@ const Hobbies: FC = () => {
   return (
     <div>
       <PrimaryHeader>🍉 hobbies</PrimaryHeader>
-      <div className="flex gap-5 flex-wrap">
+      <div className="flex justify-start gap-3 flex-wrap">
         <HobbyCard label="skating" mediaUrl={skatingVideo}>
           🛼
         </HobbyCard>
