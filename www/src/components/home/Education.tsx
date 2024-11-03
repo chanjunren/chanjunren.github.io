@@ -3,7 +3,7 @@ import PrimaryHeader from "../common/PrimaryHeader";
 
 export default function Education() {
   return (
-    <div className="mt-14">
+    <div>
       <PrimaryHeader>📖 Education</PrimaryHeader>
       <MiniSection
         title="National University of Singapore"

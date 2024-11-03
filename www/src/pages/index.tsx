@@ -15,12 +15,10 @@ export default function Home(): ReactElement {
     >
       <div className="grid grid-cols-12 gap-10">
         <WelcomeSection />
-        <section className="lg:col-span-3 col-span-8">
+        <section className="lg:col-span-6 col-span-12 flex flex-col gap-10">
           <Work />
           <Education />
           <Socials />
-        </section>
-        <section className="lg:col-span-2 col-span-4">
           <Hobbies />
         </section>
         <ProjectGallery />
