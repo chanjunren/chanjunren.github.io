@@ -9,17 +9,16 @@ const PixelLabInfo: GalleryProjectInfo = {
   subtitle: "CSS / SVG Exploration",
   card: ({ onClick }) => (
     <HoverCard
-      className="flex items-center w-full justify-center h-60 cursor-pointer gap-5 rounded-lg"
+      className="flex justify-center items-center h-64 cursor-pointer gap-5 rounded-lg hover:-rotate-1"
       onClick={onClick}
     >
-      <span className="text-5xl">👾</span>
+      <p className="text-5xl text-center">🐴🐖</p>
+      <p className="text-5xl text-center">🐕🐍</p>
+      <p className="text-5xl text-center">🐄🐭</p>
+      <p className="text-5xl text-center">🐇🐉</p>
     </HoverCard>
   ),
-  banner: () => (
-    <div className="flex items-center w-full justify-center h-60 cursor-pointer gap-5 bg-circuitBoard rounded-lg">
-      <span className="text-5xl">👾</span>
-    </div>
-  ),
+  banner: () => null,
   cardImgClass: "col-span-2 md:col-span-1",
   description: () => <PixelLab />,
   repository: "https://github.com/chanjunren/vaultusaurus",
