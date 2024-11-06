@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/b_tree.md",
+                "file": "zettelkasten/elasticsearch_book_chapter_3.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "b_tree"
+              "title": "elasticsearch_book_chapter_3"
             }
           }
         ]
@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#javascript_build",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -160,6 +160,20 @@
   },
   "active": "76e17688bc5c4097",
   "lastOpenFiles": [
+    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/chapter-3.md",
+    "zettelkasten/elasticsearch_book_chapter_3.md",
+    "zettelkasten/elasticsearch.md",
+    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/chapter-1.md",
+    "zettelkasten/elasticsearch_cluster.md",
+    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/chapter-2.md",
+    "zettelkasten/css/hand_wave_animation.md",
+    "zettelkasten/css/floaty_trees_animation.md",
+    "zettelkasten/tsconfig.json.md",
+    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/questions.md",
+    "assets/chapter2_cluster.png",
+    "zettelkasten/b_tree.md",
+    "zettelkasten/to_be_tidied/Backend/Database/Comparisons/tablestorage.md",
+    "zettelkasten/to_be_tidied/Backend/Database/Comparisons/clickhouse.md",
     "zettelkasten/to_be_tidied/Frontend/index.md",
     "zettelkasten/to_be_tidied/Frontend/Typescript/typesVsInterfaces.md",
     "zettelkasten/to_be_tidied/Frontend/Typescript/index.md",
@@ -173,19 +187,6 @@
     "zettelkasten/leftmost_principle.md",
     "zettelkasten/to_be_tidied/Backend/Database/Relational DB/bestPractises.md",
     "zettelkasten/to_be_tidied/Backend/Database/Relational DB/normalForm.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/dataStructures.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/index.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/diskStructure.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/multiColumnIndexes.md",
-    "zettelkasten/b_plus_tree.md",
-    "zettelkasten/b_tree.md",
-    "zettelkasten/sql_date_functions_cheatsheet.md",
-    "zettelkasten/message_queue_features.md",
-    "zettelkasten/message_queue_benefits.md",
-    "zettelkasten/message_queue.md",
-    "zettelkasten/flink_training.md",
-    "zettelkasten/olap.md",
-    "zettelkasten/oltp_vs_olap.md",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
     "zettelkasten/to_be_tidied/Misc/VIM",
@@ -204,7 +205,6 @@
     "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-3.png",
     "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-2.png",
     "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/executor-service-2.jpg",
-    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-1.png",
-    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/executor-service-1.jpg"
+    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-1.png"
   ]
 }

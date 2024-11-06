@@ -32,7 +32,7 @@ But, there are other strategies to scale an index (chapter 43)
 - Good practice to _round-robin_ through all nodes to spread the load
 
 ## Creating, Indexing and Deleting a Document
-![CRUD Diagram](assets/chapter4_crud.png)
+![CRUD Diagram](chapter4_crud.png)
 
 1. Client sends req to node 1
 2. Node uses `_id` to determine owner shard => forward to node that was allocated primary shard
@@ -63,7 +63,7 @@ But, there are other strategies to scale an index (chapter 43)
 - It is possible that a document is not available on replica shard but on primary shard => might receive error that document doesn't exist
 
 ## Partial Updates
-![Partial update](assets/chapter4_partialupdate.png)
+![Partial update](chapter4_partialupdate.png)
 1. Client sends update request to `Node 1`
 2. Forwards request to `Node 3` (where primary shard is allocated)
 3. Retrieve-change-index, retries up to `retry_on_conflict` times before giving up
@@ -84,7 +84,7 @@ Ensures that changs arrive in the same order they were sent
 2. Forwards these in parallel to each participating node
 3. Collates their responses into a single response
 4. Return to client 
-![Multidocument patterns diagram](assets/chapter4_multidocument.png)
+![Multidocument patterns diagram](chapter4_multidocument.png)
 
 ## Funny format design of `bulk` API
 :::info
