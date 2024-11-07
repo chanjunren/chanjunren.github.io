@@ -14,23 +14,23 @@
 | Primary Shard | Document store                                                                                |
 | Replica Shard | Replica of primary shard                                                                      |
  
-![Cluster diagram](chapter2_cluster.png)
+![[chapter2_cluster.png]]
 
 ## Adding failover
 - Avoid single point of failure by running multiple nodes
 
 ## Horizontal scaling
-![Initial cluster](chapter2_hscale.png)
+![[chapter2_hscale.png]]
 - Adding one node
 
-![Horizontal scaling replicas](chapter2_hscale_replica.png)
+![[chapter2_hscale_replica.png]]
 - Increasing number of replicas
 
 ## Coping with failure
 ```ad-warning
 Scenario: One node killed
 
-![Node failure](chapter2_failure.png)
+![[chapter2_failure.png]]
 ```
 
 - Actions:
