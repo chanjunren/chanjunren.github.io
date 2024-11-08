@@ -13,12 +13,10 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/elasticsearch_book_chapter_3.md",
+                "file": "zettelkasten/skip_list.md",
                 "mode": "source",
                 "source": false
-              },
-              "icon": "lucide-file",
-              "title": "elasticsearch_book_chapter_3"
+              }
             }
           }
         ]
@@ -41,9 +39,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
+              }
             }
           },
           {
@@ -58,9 +54,7 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-search",
-              "title": "Search"
+              }
             }
           },
           {
@@ -68,9 +62,7 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "state": {}
             }
           }
         ]
@@ -93,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "zettelkasten/skip_list.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,9 +93,7 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks"
+              }
             }
           },
           {
@@ -111,11 +102,10 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "zettelkasten/skip_list.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links"
+              }
             }
           },
           {
@@ -126,9 +116,7 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
+              }
             }
           },
           {
@@ -136,9 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
-              "icon": "lucide-list",
-              "title": "Outline"
+              "state": {
+                "file": "zettelkasten/skip_list.md"
+              }
             }
           }
         ]
@@ -160,8 +148,9 @@
   },
   "active": "76e17688bc5c4097",
   "lastOpenFiles": [
-    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/chapter-3.md",
+    "zettelkasten/skip_list.md",
     "zettelkasten/elasticsearch_book_chapter_3.md",
+    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/chapter-3.md",
     "zettelkasten/elasticsearch.md",
     "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/chapter-1.md",
     "zettelkasten/elasticsearch_cluster.md",
@@ -186,7 +175,6 @@
     "zettelkasten/b_trees_comparisons.md",
     "zettelkasten/leftmost_principle.md",
     "zettelkasten/to_be_tidied/Backend/Database/Relational DB/bestPractises.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/normalForm.md",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
     "zettelkasten/to_be_tidied/Misc/VIM",
