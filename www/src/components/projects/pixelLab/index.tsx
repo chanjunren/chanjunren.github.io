@@ -12,10 +12,10 @@ const PixelLabInfo: GalleryProjectInfo = {
       className="flex justify-center items-center h-64 cursor-pointer gap-5 rounded-lg hover:-rotate-1"
       onClick={onClick}
     >
-      <p className="text-5xl text-center">🐴🐖</p>
-      <p className="text-5xl text-center">🐕🐍</p>
-      <p className="text-5xl text-center">🐄🐭</p>
-      <p className="text-5xl text-center">🐇🐉</p>
+      <p className="text-3xl text-center">🐴🐖</p>
+      <p className="text-3xl text-center">🐕🐍</p>
+      <p className="text-3xl text-center">🐄🐭</p>
+      <p className="text-3xl text-center">🐇🐉</p>
     </HoverCard>
   ),
   banner: () => null,
