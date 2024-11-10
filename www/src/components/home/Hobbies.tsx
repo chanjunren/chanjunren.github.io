@@ -1,27 +1,24 @@
 import mahjongVideo from "@site/static/videos/mahjong.mp4";
 import skatingVideo from "@site/static/videos/skating.mp4";
 import snowboardingVideo from "@site/static/videos/snowboarding.mp4";
-import { FC, PropsWithChildren, useEffect, useRef, useState } from "react";
-import HoverCard from "../common/HoverCard";
+import { FC, useEffect, useRef, useState } from "react";
 import PrimaryHeader from "../common/PrimaryHeader";
 import TypewriterText from "../common/TypewriterText";
 
 type HobbyCardProps = {
   label: string;
   mediaUrl?: string;
+  size?: "md" | "lg";
 };
 
-const HobbyCard: FC<PropsWithChildren<HobbyCardProps>> = ({
-  children,
-  label,
-  mediaUrl,
-}) => {
+const HobbyCard: FC<HobbyCardProps> = ({ label, mediaUrl, size = "md" }) => {
   const [hovering, setHovering] = useState<boolean>(false);
   const [playing, setPlaying] = useState<boolean>(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleVideoEnded = () => {
     setPlaying(false);
+    videoRef.current.currentTime = 0;
   };
 
   useEffect(() => {
@@ -30,30 +27,33 @@ const HobbyCard: FC<PropsWithChildren<HobbyCardProps>> = ({
     }
   }, [videoRef, playing]);
 
-  const cardContent =
-    mediaUrl && playing ? (
-      <video
-        className="rounded-md aspect-square h-32 w-32"
-        ref={videoRef}
-        playsInline
-        src={mediaUrl}
-        onEnded={handleVideoEnded}
-      />
-    ) : (
-      <HoverCard className="flex items-center justify-center text-2xl flex-grow min-h-32 min-w-32">
-        {children}
-      </HoverCard>
-    );
-
   return (
     <div
-      className="flex flex-col items-center gap-3 mt-2 h-fit w-fit"
+      className={`flex flex-col items-center gap-3`}
       onClick={() => setPlaying(true)}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      {cardContent}
-      <TypewriterText active={hovering} text={label} />
+      <div className={`overflow-hidden rounded-md transition-all`}>
+        <video
+          className={`rounded-md aspect-square ${size === "lg" && "h-56"} ${
+            size === "md" && "h-32"
+          }  h-${size} w-${size} cursor-pointer saturate-50 ${
+            playing ? "" : "lg:blur-md"
+          }`}
+          ref={videoRef}
+          playsInline
+          autoPlay={false}
+          src={mediaUrl}
+          onEnded={handleVideoEnded}
+        />
+      </div>
+
+      <TypewriterText
+        className={`${hovering ? "opacity-100" : "opacity-0"}`}
+        active={hovering}
+        text={label}
+      />
     </div>
   );
 };
@@ -62,16 +62,12 @@ const Hobbies: FC = () => {
   return (
     <div>
       <PrimaryHeader>🍉 hobbies</PrimaryHeader>
-      <div className="flex justify-start gap-4 flex-wrap">
-        <HobbyCard label="skating" mediaUrl={skatingVideo}>
-          🛼
-        </HobbyCard>
-        <HobbyCard label="snowboarding" mediaUrl={snowboardingVideo}>
-          🏂
-        </HobbyCard>
-        <HobbyCard label="mahjong 💸" mediaUrl={mahjongVideo}>
-          🀄️
-        </HobbyCard>
+      <div className="flex gap-5">
+        <HobbyCard size="lg" label="skating" mediaUrl={skatingVideo} />
+        <div className="flex flex-col gap-5">
+          <HobbyCard label="snowboarding" mediaUrl={snowboardingVideo} />
+          <HobbyCard label="mahjong 💸" mediaUrl={mahjongVideo} />
+        </div>
       </div>
     </div>
   );
