@@ -40,7 +40,7 @@ const HobbyCard: FC<PropsWithChildren<HobbyCardProps>> = ({
         onEnded={handleVideoEnded}
       />
     ) : (
-      <HoverCard className="flex items-center justify-center text-4xl flex-grow min-h-32 min-w-32">
+      <HoverCard className="flex items-center justify-center text-2xl flex-grow min-h-32 min-w-32">
         {children}
       </HoverCard>
     );
