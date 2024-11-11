@@ -36,7 +36,7 @@ const HobbyCard: FC<HobbyCardProps> = ({ label, mediaUrl, size = "md" }) => {
     >
       <div className={`overflow-hidden rounded-md transition-all`}>
         <video
-          className={`rounded-md aspect-square ${size === "lg" && "h-56"} ${
+          className={`rounded-md aspect-square ${size === "lg" && "h-44"} ${
             size === "md" && "h-32"
           }  h-${size} w-${size} cursor-pointer saturate-50 ${
             playing ? "" : "lg:blur-md"
