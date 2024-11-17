@@ -38,7 +38,7 @@ const HobbyCard: FC<HobbyCardProps> = ({ label, mediaUrl, size = "md" }) => {
         <video
           className={`rounded-md aspect-square ${size === "lg" && "h-44"} ${
             size === "md" && "h-32"
-          }  h-${size} w-${size} cursor-pointer lg:saturate-50 ${
+          }  h-${size} w-${size} cursor-pointer saturate-50 ${
             playing ? "" : "blur-md"
           }`}
           ref={videoRef}
