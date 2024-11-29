@@ -13,13 +13,15 @@ export default function Home(): ReactElement {
       title={"home"}
       description="Hello! Welcome to my digital garden"
     >
-      <div className="grid grid-cols-12 gap-10">
-        <WelcomeSection />
-        <section className="lg:col-span-5 col-span-12 flex flex-col gap-10">
+      <div className="grid grid-cols-12 gap-20">
+        <section className="md:col-span-8 col-span-12">
+          <WelcomeSection />
+          <Hobbies />
+        </section>
+        <section className="lg:col-span-4 col-span-12">
           <Work />
           <Education />
           <Socials />
-          <Hobbies />
         </section>
         <ProjectGallery />
       </div>
