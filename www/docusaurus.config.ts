@@ -75,7 +75,7 @@ const config: Config = {
         {
           type: "docSidebar",
           sidebarId: "docs",
-          label: "🌱 zettelkasten",
+          label: "zett.",
         },
       ],
     },
