@@ -7,7 +7,7 @@ import { DocusaurusIcon } from "../../common/Icons";
 import SecondaryHeader from "../../common/SecondaryHeader";
 
 const VaultusaurusBanner =
-  require("@site/static/images/vaultusaurus_banner.png").default;
+  require("@site/static/images/vaultusaurus_banner.webp").default;
 
 const VaultusaurusProject: GalleryProjectInfo = {
   id: "vaultusaurus",
@@ -17,7 +17,7 @@ const VaultusaurusProject: GalleryProjectInfo = {
     <IdealImage
       onClick={onClick}
       className="h-auto cursor-pointer rounded-md hover:shadow-2xl transition-all hover:-translate-y-5"
-      img={useBaseUrl("images/vaultusaurus_banner.png")}
+      img={useBaseUrl("images/vaultusaurus_banner.webp")}
     />
   ),
   banner: () => (

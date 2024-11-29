@@ -2,7 +2,7 @@ import PrimaryHeader from "../common/PrimaryHeader";
 
 export default function WelcomeSection() {
   return (
-    <section className="md:col-span-7 col-span-12">
+    <div>
       <PrimaryHeader>
         <span className="text-[var(--ifm-color-emphasis-400)]">#</span> Welcome
       </PrimaryHeader>
@@ -18,6 +18,6 @@ export default function WelcomeSection() {
         This space serves a collection of my personal notes and side projects
       </p>
       <p>Have fun exploring!</p>
-    </section>
+    </div>
   );
 }

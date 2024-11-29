@@ -7,7 +7,7 @@ const PortalProject: GalleryProjectInfo = {
   id: "portal",
   title: "ThreeJS Portal",
   subtitle: "ThreeJS",
-  card: "images/portal.png",
+  card: "images/portal.webp",
   banner: () => <Portal />,
   cardImgClass: "col-span-2 md:col-span-1",
   repository:
