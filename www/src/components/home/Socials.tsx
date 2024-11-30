@@ -1,7 +1,7 @@
 import {
+  BackpackIcon,
   GitHubLogoIcon,
   LinkedInLogoIcon,
-  ReaderIcon,
 } from "@radix-ui/react-icons";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import IconButton from "../common/IconButton";
@@ -32,7 +32,9 @@ export default function Socials() {
             <Tooltip.Trigger asChild>
               <a href="/documents/resume.pdf" target="_blank">
                 <IconButton>
-                  <ReaderIcon style={{ color: "var(--ifm-font-color-base)" }} />
+                  <BackpackIcon
+                    style={{ color: "var(--ifm-font-color-base)" }}
+                  />
                 </IconButton>
               </a>
             </Tooltip.Trigger>
