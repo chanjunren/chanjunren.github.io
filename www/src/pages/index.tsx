@@ -13,7 +13,7 @@ export default function Home(): ReactElement {
       title={"home"}
       description="Hello! Welcome to my digital garden"
     >
-      <div className="grid grid-cols-12 gap-20">
+      <div className="grid grid-cols-12 gap-10">
         <section className="md:col-span-8 col-span-12">
           <WelcomeSection />
           <Hobbies />
