@@ -10,7 +10,7 @@ import PrimaryHeader from "../common/PrimaryHeader";
 export default function Socials() {
   //
   return (
-    <div className="mt-14">
+    <section className="mt-14">
       <PrimaryHeader>📟 socials</PrimaryHeader>
       <div className="flex gap-5">
         <a href="https://www.github.com/chanjunren" target="_blank">
@@ -51,6 +51,6 @@ export default function Socials() {
           </Tooltip.Root>
         </Tooltip.Provider>
       </div>
-    </div>
+    </section>
   );
 }

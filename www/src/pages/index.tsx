@@ -4,7 +4,7 @@ import LayoutWrapper from "../components/common/LayoutWrapper";
 import Education from "../components/home/Education";
 import Hobbies from "../components/home/Hobbies";
 import Socials from "../components/home/Socials";
-import WelcomeSection from "../components/home/Welcome";
+import Welcome from "../components/home/Welcome";
 import Work from "../components/home/Work";
 
 export default function Home(): ReactElement {
@@ -14,15 +14,15 @@ export default function Home(): ReactElement {
       description="Hello! Welcome to my digital garden"
     >
       <div className="grid grid-cols-12 gap-10">
-        <section className="md:col-span-8 col-span-12">
-          <WelcomeSection />
+        <div className="md:col-span-8 col-span-12">
+          <Welcome />
           <Hobbies />
-        </section>
-        <section className="lg:col-span-4 col-span-12">
+        </div>
+        <div className="lg:col-span-4 col-span-12">
           <Work />
           <Education />
           <Socials />
-        </section>
+        </div>
         <ProjectGallery />
       </div>
     </LayoutWrapper>
