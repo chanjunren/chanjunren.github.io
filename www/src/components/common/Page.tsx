@@ -2,11 +2,11 @@ import Layout from "@theme/Layout";
 import { FC, PropsWithChildren } from "react";
 import LitFooter from "./LitFooter";
 
-type LayoutWrapperProps = {
+type PageProps = {
   title: string;
   description?: string;
 };
-const LayoutWrapper: FC<PropsWithChildren<LayoutWrapperProps>> = ({
+const Page: FC<PropsWithChildren<PageProps>> = ({
   title,
   description = "Hi there! I'm Jun Ren",
   children,
@@ -21,4 +21,4 @@ const LayoutWrapper: FC<PropsWithChildren<LayoutWrapperProps>> = ({
   );
 };
 
-export default LayoutWrapper;
+export default Page;
