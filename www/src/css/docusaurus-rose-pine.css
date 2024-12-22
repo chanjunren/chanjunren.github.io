@@ -1,28 +1,29 @@
-
 :root {
   --ifm-font-size-base: 88%;
-  --ifm-heading-font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
-  --gray-transparent-bg: rgba(86, 82, 110, 0.10);
+  /* --ifm-heading-font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; */
+  --ifm-heading-font-family: "Ubuntu Mono", serif;
+
+  --gray-transparent-bg: rgba(86, 82, 110, 0.1);
 }
 
 :root {
-    --ifm-color-primary: #d7827e;
-    --ifm-color-primary-dark: #cf6964;
-    --ifm-color-primary-darker: #cb5c57;
-    --ifm-color-primary-darkest: #b63e38;
-    --ifm-color-primary-light: #df9b98;
-    --ifm-color-primary-lighter: #e3a8a5;
-    --ifm-color-primary-lightest: #ebc1bf;
-    --ifm-background-color: #f8f7f6 !important;
-    --ifm-font-color-base: #575279 !important;
+  --ifm-color-primary: #d7827e;
+  --ifm-color-primary-dark: #cf6964;
+  --ifm-color-primary-darker: #cb5c57;
+  --ifm-color-primary-darkest: #b63e38;
+  --ifm-color-primary-light: #df9b98;
+  --ifm-color-primary-lighter: #e3a8a5;
+  --ifm-color-primary-lightest: #ebc1bf;
+  --ifm-background-color: #f8f7f6 !important;
+  --ifm-font-color-base: #575279 !important;
 
-    --reduced-emphasis-color: var(--ifm-color-emphasis-600);
+  --reduced-emphasis-color: var(--ifm-color-emphasis-600);
 
-    --rose-hover: #21202e;
+  --rose-hover: #21202e;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #eb6f92;
   --ifm-color-primary-dark: #e7517b;
   --ifm-color-primary-darker: #e54170;
