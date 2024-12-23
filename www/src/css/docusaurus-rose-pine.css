@@ -109,3 +109,7 @@ nav.navbar.navbar--fixed-top {
   width: 1rem;
   height: 1rem;
 }
+
+.col--3 {
+  --ifm-col-width: 33% !important;
+}
