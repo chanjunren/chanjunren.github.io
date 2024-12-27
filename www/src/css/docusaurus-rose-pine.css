@@ -110,6 +110,11 @@ nav.navbar.navbar--fixed-top {
   height: 1rem;
 }
 
+@media (min-width: 997px) {
+  .col[class*="docItemCol_"] {
+    max-width: 60% !important;
+  }
+}
 .col--3 {
   --ifm-col-width: 33% !important;
 }
