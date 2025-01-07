@@ -15,7 +15,7 @@ import dateTagReplacer from "./src/utils/dateTagReplacer";
 const config: Config = {
   title: "jun ren's digital garden",
   tagline: "勤奋决定你的下限，天赋决定你的上线",
-  favicon: "images/favicon.svg",
+  favicon: "images/cloud.webp",
 
   // Set the production url of your site here
   url: "https://chanjunren.github.io",
@@ -66,17 +66,17 @@ const config: Config = {
     navbar: {
       logo: {
         alt: "Site Logo",
-        src: "images/favicon.svg",
+        src: "images/cloud.webp",
         target: "_self",
-        width: 20,
-        height: 20,
+        width: 35,
+        height: 35,
       },
       items: [
-        {
-          type: "docSidebar",
-          sidebarId: "docs",
-          label: "zett.",
-        },
+        // {
+        //   type: "docSidebar",
+        //   sidebarId: "docs",
+        //   label: "zett.",
+        // },
       ],
     },
     algolia: ALOGLIA_CONFIG,

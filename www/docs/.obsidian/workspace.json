@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "0788b31bcfc04e3b",
+        "id": "a0f936ae3ad27e99",
         "type": "tabs",
         "children": [
           {
-            "id": "76e17688bc5c4097",
+            "id": "5b7bcd9f86b48b46",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zettelkasten/pelvic_positions.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/pelvic_positions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/pelvic_positions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "zettelkasten/pelvic_positions.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -146,11 +138,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "76e17688bc5c4097",
+  "active": "5b7bcd9f86b48b46",
   "lastOpenFiles": [
-    "zettelkasten/improving_flexibility.md",
-    "zettelkasten/pelvic_positions.md",
+    "zettelkasten/technical_documentation_template.md",
+    "zettelkasten/aliyun_canal_mq_client.md",
+    "zettelkasten/aliyun_canal_overview.md",
     "zettelkasten/mobility.md",
+    "zettelkasten/pelvic_positions.md",
+    "zettelkasten/improving_flexibility.md",
     "zettelkasten/stretching.md",
     "zettelkasten/flexibility.md",
     "zettelkasten/strengthening.md",
@@ -171,9 +166,6 @@
     "zettelkasten/modem_vs_router.md",
     "zettelkasten/redis_sink.md",
     "zettelkasten/skip_list.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/chapter-3.md",
-    "zettelkasten/elasticsearch.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/chapter-1.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
