@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/extract_transform_load.md",
+                "file": "zettelkasten/pelvic_positions.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/extract_transform_load.md",
+                "file": "zettelkasten/pelvic_positions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/extract_transform_load.md",
+                "file": "zettelkasten/pelvic_positions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/extract_transform_load.md"
+                "file": "zettelkasten/pelvic_positions.md"
               }
             }
           }
@@ -148,33 +148,33 @@
   },
   "active": "76e17688bc5c4097",
   "lastOpenFiles": [
+    "zettelkasten/improving_flexibility.md",
+    "zettelkasten/pelvic_positions.md",
+    "zettelkasten/mobility.md",
+    "zettelkasten/stretching.md",
+    "zettelkasten/flexibility.md",
+    "zettelkasten/strengthening.md",
+    "zettelkasten/flexibility_mobility_dump.md",
+    "zettelkasten/flex.md",
+    "zettelkasten/flexibility_mobility_exercise_types.md",
+    "zettelkasten/flexibi.md",
+    "zettelkasten/elasticsearch_book_chapter_3.md",
+    "zettelkasten/bash_dump.md",
+    "zettelkasten/innodb_concurrency_control.md",
+    "zettelkasten/interaction_overview_diagrams.md",
     "zettelkasten/sink.md",
+    "zettelkasten/prometheus_data_selection.md",
+    "zettelkasten/prometheus.md",
+    "zettelkasten/extract_transform_load.md",
     "zettelkasten/flink_dump.md",
     "zettelkasten/data_compute_platform.md",
     "zettelkasten/modem_vs_router.md",
     "zettelkasten/redis_sink.md",
-    "zettelkasten/extract_transform_load.md",
     "zettelkasten/skip_list.md",
-    "zettelkasten/elasticsearch_book_chapter_3.md",
     "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/chapter-3.md",
     "zettelkasten/elasticsearch.md",
     "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/chapter-1.md",
-    "zettelkasten/elasticsearch_cluster.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/chapter-2.md",
-    "zettelkasten/css/hand_wave_animation.md",
-    "zettelkasten/css/floaty_trees_animation.md",
-    "zettelkasten/tsconfig.json.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/questions.md",
     "assets/chapter2_cluster.png",
-    "zettelkasten/b_tree.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Comparisons/tablestorage.md",
-    "zettelkasten/to_be_tidied/Backend/Database/Comparisons/clickhouse.md",
-    "zettelkasten/to_be_tidied/Frontend/index.md",
-    "zettelkasten/to_be_tidied/Frontend/Typescript/typesVsInterfaces.md",
-    "zettelkasten/to_be_tidied/Frontend/Typescript/index.md",
-    "zettelkasten/to_be_tidied/Frontend/Mobx/projectStructure.md",
-    "zettelkasten/to_be_tidied/Frontend/Mobx/index.md",
-    "zettelkasten/to_be_tidied/Frontend/CSS/animations.md",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
     "zettelkasten/to_be_tidied/Misc/VIM",

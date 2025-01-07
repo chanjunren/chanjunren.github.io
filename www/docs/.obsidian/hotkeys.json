@@ -46,5 +46,21 @@
     }
   ],
   "editor:delete-paragraph": [],
-  "workspace:goto-tab-1": []
+  "workspace:goto-tab-1": [],
+  "editor:focus-left": [
+    {
+      "modifiers": [
+        "Ctrl"
+      ],
+      "key": "H"
+    }
+  ],
+  "editor:focus-right": [
+    {
+      "modifiers": [
+        "Ctrl"
+      ],
+      "key": "L"
+    }
+  ]
 }
