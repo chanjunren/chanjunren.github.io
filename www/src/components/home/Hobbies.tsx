@@ -8,7 +8,6 @@ import snowboardingPreview from "@site/static/images/snowboarding.webp";
 
 import { FC, useEffect, useRef, useState } from "react";
 import PrimaryHeader from "../common/PrimaryHeader";
-import TypewriterText from "../common/TypewriterText";
 
 type HobbyCardProps = {
   label: string;
@@ -40,7 +39,7 @@ const HobbyCard: FC<HobbyCardProps> = ({
 
   return (
     <div
-      className={`flex flex-col items-center gap-3`}
+      className={`flex flex-col items-center`}
       onClick={() => setPlaying(true)}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
@@ -49,8 +48,8 @@ const HobbyCard: FC<HobbyCardProps> = ({
         <video
           className={`rounded-md aspect-square ${size === "lg" && "h-44"} ${
             size === "md" && "h-32"
-          }  h-${size} w-${size} cursor-pointer saturate-50 ${
-            playing ? "" : "blur-md"
+          }  h-${size} w-${size} cursor-pointer ${
+            playing ? "saturate-50" : "saturate-0"
           }`}
           ref={videoRef}
           playsInline
@@ -60,19 +59,14 @@ const HobbyCard: FC<HobbyCardProps> = ({
           poster={preview}
         />
       </div>
-
-      <TypewriterText
-        className={`${hovering ? "opacity-100" : "opacity-0"}`}
-        active={hovering}
-        text={label}
-      />
+      <span>{label}</span>
     </div>
   );
 };
 
 const Hobbies: FC = () => {
   return (
-    <section className="mt-14">
+    <section>
       <PrimaryHeader>🍉 hobbies</PrimaryHeader>
       <div className="flex gap-5">
         <HobbyCard

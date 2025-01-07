@@ -20,6 +20,8 @@
   --reduced-emphasis-color: var(--ifm-color-emphasis-600);
 
   --rose-hover: #21202e;
+  --overlay: #f2e9e1;
+  --surface: #fffaf3;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -31,7 +33,6 @@
   --ifm-color-primary-light: #ef8da9;
   --ifm-color-primary-lighter: #f19db4;
   --ifm-color-primary-lightest: #f8cad7;
-  --ifm-background-color: #191724;
   /* --gray-transparent-bg: rgba(170, 170, 170, 0.1); */
 
   --gray-transparent-bg: rgba(82, 79, 103, 0.25);
@@ -41,6 +42,9 @@
   --ifm-font-color-base: #e0def4 !important;
 
   --rose-hover: #dfdad9;
+  --overlay: #26233a;
+  --surface: #1f1d2e;
+  --love: #31748f;
 }
 
 main {

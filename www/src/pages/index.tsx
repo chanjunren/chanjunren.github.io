@@ -1,26 +1,37 @@
-import ProjectGallery from "@site/src/components/projects/ProjectGallery";
+import homeWallpaper from "@site/static/images/test.webp";
 import { ReactElement } from "react";
+import CardButton from "../components/common/CardButton";
 import Page from "../components/common/Page";
-import Education from "../components/home/Education";
-import Hobbies from "../components/home/Hobbies";
 import Socials from "../components/home/Socials";
-import Welcome from "../components/home/Welcome";
-import Work from "../components/home/Work";
-
 export default function Home(): ReactElement {
   return (
     <Page title={"home"} description="Hello! Welcome to my digital garden">
-      <div className="grid grid-cols-12 gap-10">
-        <div className="md:col-span-8 col-span-12">
-          <Welcome />
-          <Hobbies />
-        </div>
-        <div className="lg:col-span-4 col-span-12">
-          <Work />
-          <Education />
+      <div className="flex-grow p-10 gap-10 flex flex-col md:flex-row items-center">
+        <img
+          className="rounded-lg md:w-96 md:h-96 w-60 h-60 hover:-rotate-2 transition-transform"
+          src={homeWallpaper}
+        />
+        <div className="flex flex-col gap-2 w-full">
+          <CardButton
+            extraProps="hover:scale-105"
+            title="About"
+            subtitle="whoami and whatido"
+            redirect="/about"
+          />
+          <CardButton
+            extraProps="hover:rotate-1"
+            redirect="/docs/zettelkasten"
+            title="zett"
+            subtitle="what i try to rmb"
+          />
+          <CardButton
+            extraProps="hover:scale-105"
+            redirect="gallery"
+            title="gallery"
+            subtitle="Stuff I did for fun"
+          />
           <Socials />
         </div>
-        <ProjectGallery />
       </div>
     </Page>
   );
