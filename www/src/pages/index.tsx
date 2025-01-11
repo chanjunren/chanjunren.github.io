@@ -1,4 +1,4 @@
-import homeWallpaper from "@site/static/images/test.webp";
+import homeWallpaper from "@site/static/images/wallpaper.webp";
 import { ReactElement } from "react";
 import CardButton from "../components/common/CardButton";
 import Page from "../components/common/Page";

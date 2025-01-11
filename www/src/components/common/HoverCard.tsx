@@ -12,7 +12,7 @@ const HoverCard: FC<PropsWithChildren<HoverCardProps>> = ({
   return (
     <div
       onClick={onClick}
-      className={`${className} rounded-md cursor-pointer bg-[var(--gray-transparent-bg)] hover:bg-[var(--rose-hover)] hover:shadow-2xl hover:scale-105 transition-all`}
+      className={`${className} rounded-md cursor-pointer bg-[var(--gray-transparent-bg)] hover:shadow-2xl transition-all`}
     >
       {children}
     </div>
