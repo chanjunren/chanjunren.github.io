@@ -15,18 +15,16 @@ export const GALLERY_PROJECTS: GalleryProjectInfo[] = [
 ];
 
 const ProjectGalleryColumn: FC<PropsWithChildren> = ({ children }) => {
-  return <div className="col-span-12 lg:col-span-4">{children}</div>;
+  return <div className="md:col-span-1 col-span-3">{children}</div>;
 };
 
 const ProjectGallery: FC = () => {
-  const { selectedProject, onGalleryProjSelected } = useGallery();
+  const { onGalleryProjSelected } = useGallery();
 
   const projectCards = GALLERY_PROJECTS.map((proj) => (
     <ProjectCard
       info={proj}
-      mini={selectedProject !== null}
       onClick={() => onGalleryProjSelected(proj)}
-      selected={selectedProject?.id === proj?.id}
       key={`proj-${proj.id}`}
       cardImgClass={proj.cardImgClass}
     />

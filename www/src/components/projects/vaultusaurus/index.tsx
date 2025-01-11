@@ -6,9 +6,6 @@ import IdealImage from "@theme/IdealImage";
 import { DocusaurusIcon } from "../../common/Icons";
 import SecondaryHeader from "../../common/SecondaryHeader";
 
-const VaultusaurusBanner =
-  require("@site/static/images/vaultusaurus_banner.webp").default;
-
 const VaultusaurusProject: GalleryProjectInfo = {
   id: "vaultusaurus",
   title: "Vaultusaurus",
@@ -16,7 +13,7 @@ const VaultusaurusProject: GalleryProjectInfo = {
   card: ({ onClick }) => (
     <IdealImage
       onClick={onClick}
-      className="h-auto cursor-pointer rounded-md hover:shadow-2xl transition-all hover:-translate-y-5"
+      className="h-auto cursor-pointer rounded-md"
       img={useBaseUrl("images/vaultusaurus_banner.webp")}
     />
   ),

@@ -5,9 +5,7 @@ export type ProjectInfo = {
 };
 
 export type GalleryCard = {
-  selected: boolean;
   cardImgClass?: string;
-  mini: boolean;
   onClick: () => void;
   info: GalleryProjectInfo;
 };
