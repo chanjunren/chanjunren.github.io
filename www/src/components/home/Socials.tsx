@@ -41,7 +41,7 @@ export default function Socials() {
             <div className="h-full">
               <CardButton
                 extraProps="hover:translate-y-1 h-full"
-                redirect="/documents/resume.pdf"
+                externalLink="/documents/resume.pdf"
                 graphic={<BackpackIcon style={LogoProps} />}
               />
             </div>
