@@ -9,7 +9,7 @@ const PixelLabInfo: GalleryProjectInfo = {
   subtitle: "CSS / SVG Exploration",
   card: ({ onClick }) => (
     <HoverCard
-      className="flex justify-center items-center h-64 cursor-pointer gap-5 rounded-lg hover:-rotate-1"
+      className="flex justify-center items-center h-64 cursor-pointer gap-5 rounded-lg"
       onClick={onClick}
     >
       <p className="text-3xl text-center">🐴🐖</p>

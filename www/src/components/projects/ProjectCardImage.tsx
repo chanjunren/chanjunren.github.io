@@ -6,8 +6,6 @@ const ProjectCardImage: React.FC<GalleryCard> = ({
   onClick,
   info,
   cardImgClass,
-  selected,
-  mini,
 }) => {
   const { card } = info;
   if (!card || typeof card !== "string") {
@@ -19,9 +17,7 @@ const ProjectCardImage: React.FC<GalleryCard> = ({
       onClick={onClick}
       card={useBaseUrl(card)}
       img={card}
-      className={`cursor-pointer rounded-lg !h-fit object-contain border-2 border-solid ${cardImgClass} 
-    ${selected ? "opacity-80 border-white" : "border-transparent"} 
-    ${mini ? "max-h-20" : ""}`}
+      className={`cursor-pointer rounded-lg !h-fit object-contain ${cardImgClass}`}
     />
   );
 };
