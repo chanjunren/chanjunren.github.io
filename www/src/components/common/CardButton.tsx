@@ -20,7 +20,7 @@ const CardButton: FC<ICardButton> = ({
 }) => {
   const content = (
     <div
-      className={`flex bg-opacity-5 bg-[var(--overlay)] md:px-10 md:py-5 px-6 py-4 rounded-md items-center gap-10 hover:border-[var(--ifm-font-color-base)] border-2 border-solid border-transparent cursor-pointer transition-all hover:shadow-lg ${extraProps} justify-center`}
+      className={`flex bg-opacity-5 bg-[var(--overlay)] md:px-10 md:py-5 px-6 py-4 rounded-md items-center place-items-center gap-10 hover:border-[var(--ifm-font-color-base)] border-2 border-solid border-transparent cursor-pointer transition-all hover:shadow-lg ${extraProps} justify-center`}
     >
       {graphic}
       {title && (
@@ -34,7 +34,7 @@ const CardButton: FC<ICardButton> = ({
   return redirect || externalLink ? (
     <a
       className="decoration-solid !no-underline !text-[var(--ifm-font-color-base)] transition-none"
-      href={redirect}
+      href={externalLink || redirect}
       target={externalLink ? "_blank" : "_self"}
     >
       {content}

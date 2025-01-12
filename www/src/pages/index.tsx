@@ -6,9 +6,9 @@ import Socials from "../components/home/Socials";
 export default function Home(): ReactElement {
   return (
     <Page title={"home"} description="Hello! Welcome to my digital garden">
-      <div className="flex-grow p-10 gap-10 flex flex-col md:flex-row items-center">
+      <div className="flex-grow gap-10 flex flex-col md:flex-row items-center">
         <img
-          className="rounded-lg md:w-96 md:h-96 w-60 h-60 hover:-rotate-2 hover:scale-105 transition-transform"
+          className="rounded-lg md:w-96 md:h-96 w-60 h-60"
           src={homeWallpaper}
         />
         <div className="flex flex-col gap-2 w-full">
@@ -22,13 +22,13 @@ export default function Home(): ReactElement {
             extraProps="hover:rotate-1"
             redirect="/docs/zettelkasten"
             title="zett"
-            subtitle="what i try to rmb"
+            subtitle="digital garden"
           />
           <CardButton
             extraProps="hover:scale-105"
             redirect="gallery"
             title="gallery"
-            subtitle="Stuff I made for fun"
+            subtitle="stuff i made"
           />
           <Socials />
         </div>

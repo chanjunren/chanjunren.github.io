@@ -1,5 +1,5 @@
-import Image from "@docusaurus/plugin-ideal-image/lib/theme/IdealImage";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import IdealImage from "@theme/IdealImage";
 import { FC, useState } from "react";
 import { DocusaurusIcon } from "./Icons";
 
@@ -14,9 +14,9 @@ const LitFooter: FC = () => {
         onMouseLeave={() => setHovering(false)}
       >
         {hovering ? (
-          <Image img={useBaseUrl("lbxx_booty_dance.gif")} />
+          <IdealImage img={useBaseUrl("lbxx_booty_dance.gif")} />
         ) : (
-          <Image img={useBaseUrl("lbxx_static.png")} />
+          <IdealImage img={useBaseUrl("lbxx_static.png")} />
         )}
       </section>
       <span className="flex justify-center gap-2 mt-3">
