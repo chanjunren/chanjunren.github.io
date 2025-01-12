@@ -1,22 +1,21 @@
 import { GalleryProjectInfo } from "@site/src/types";
-import HoverCard from "../../common/HoverCard";
 import SecondaryHeader from "../../common/SecondaryHeader";
+import SimpleCard from "../../common/SimpleCard";
 import PixelLab from "./PixelLab";
 
 const PixelLabInfo: GalleryProjectInfo = {
   id: "pixelLab",
   title: "Pixel Lab",
   subtitle: "CSS / SVG Exploration",
-  card: ({ onClick }) => (
-    <HoverCard
-      className="flex justify-center items-center h-64 cursor-pointer gap-5 rounded-lg"
-      onClick={onClick}
-    >
-      <p className="text-3xl text-center">🐴🐖</p>
-      <p className="text-3xl text-center">🐕🐍</p>
-      <p className="text-3xl text-center">🐄🐭</p>
-      <p className="text-3xl text-center">🐇🐉</p>
-    </HoverCard>
+  card: () => (
+    <SimpleCard className="cursor-not-allowed rounded-lg min-h-52 relative">
+      <p className="absolute bg-black bg-opacity-75 px-2 py-1 rounded-md text-white top-3 right-3 m-0">
+        locked
+      </p>
+      <p className="text-3xl absolute top-1/2 left-1/2 m-0 transform -translate-x-1/2 -translate-y-1/2">
+        🪴
+      </p>
+    </SimpleCard>
   ),
   banner: () => null,
   cardImgClass: "col-span-2 md:col-span-1",
