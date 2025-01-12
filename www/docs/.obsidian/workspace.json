@@ -11,8 +11,14 @@
             "id": "5b7bcd9f86b48b46",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "zettelkasten/improving_flexibility.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "improving_flexibility"
             }
           }
         ]
@@ -35,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -50,7 +58,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -58,7 +68,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -81,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "zettelkasten/flexibility_training_types.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,7 +101,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for flexibility_training_types"
             }
           },
           {
@@ -97,9 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "zettelkasten/flexibility_training_types.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from flexibility_training_types"
             }
           },
           {
@@ -110,7 +128,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -118,7 +138,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "zettelkasten/flexibility_training_types.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of flexibility_training_types"
             }
           }
         ]
@@ -140,18 +164,19 @@
   },
   "active": "5b7bcd9f86b48b46",
   "lastOpenFiles": [
+    "zettelkasten/flexibility_mobility_exercise_types.md",
+    "zettelkasten/improving_flexibility.md",
+    "zettelkasten/flexibility_training_types.md",
+    "zettelkasten/flexibility_mobility_dump.md",
     "zettelkasten/technical_documentation_template.md",
     "zettelkasten/aliyun_canal_mq_client.md",
     "zettelkasten/aliyun_canal_overview.md",
     "zettelkasten/mobility.md",
     "zettelkasten/pelvic_positions.md",
-    "zettelkasten/improving_flexibility.md",
     "zettelkasten/stretching.md",
     "zettelkasten/flexibility.md",
     "zettelkasten/strengthening.md",
-    "zettelkasten/flexibility_mobility_dump.md",
     "zettelkasten/flex.md",
-    "zettelkasten/flexibility_mobility_exercise_types.md",
     "zettelkasten/flexibi.md",
     "zettelkasten/elasticsearch_book_chapter_3.md",
     "zettelkasten/bash_dump.md",
@@ -165,7 +190,6 @@
     "zettelkasten/data_compute_platform.md",
     "zettelkasten/modem_vs_router.md",
     "zettelkasten/redis_sink.md",
-    "zettelkasten/skip_list.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
