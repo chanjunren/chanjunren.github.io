@@ -4,7 +4,7 @@ type HoverCardProps = {
   className?: string;
   onClick?: MouseEventHandler;
 };
-const HoverCard: FC<PropsWithChildren<HoverCardProps>> = ({
+const SimpleCard: FC<PropsWithChildren<HoverCardProps>> = ({
   children,
   className,
   onClick,
@@ -12,11 +12,11 @@ const HoverCard: FC<PropsWithChildren<HoverCardProps>> = ({
   return (
     <div
       onClick={onClick}
-      className={`${className} rounded-md cursor-pointer bg-[var(--gray-transparent-bg)] transition-all`}
+      className={`${className} rounded-md cursor-pointer bg-[var(--gray-transparent-bg)]`}
     >
       {children}
     </div>
   );
 };
 
-export default HoverCard;
+export default SimpleCard;
