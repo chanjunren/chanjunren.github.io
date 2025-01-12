@@ -16,7 +16,7 @@ const Spotlight: FC = () => {
         path="/gallery"
       />
       {selectedProject !== null ? (
-        <div className="flex-grow flex flex-col w-full p-10 justify-start gap-10">
+        <div className="flex-grow flex flex-col w-full justify-start gap-10">
           <selectedProject.banner />
           <ProjectInfo {...selectedProject} />
         </div>
