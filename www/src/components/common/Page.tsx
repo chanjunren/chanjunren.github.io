@@ -17,7 +17,7 @@ const Page: FC<PropsWithChildren<PageProps>> = ({
     <Layout title={title} description={description}>
       <main
         id="view-transition-container"
-        className="flex flex-col justify-between h-screen-minus-navbar p-7 items-center"
+        className="flex flex-col justify-between min-h-screen-minus-navbar p-7 items-center gap-10"
       >
         {children}
         {footer}
