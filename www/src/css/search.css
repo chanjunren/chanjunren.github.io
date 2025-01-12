@@ -98,7 +98,13 @@
   color: var(--docsearch-button-text-color) !important;
   width: 1rem;
   height: 1rem;
-  margin-right: 1rem;
+  margin-right: 0;
+}
+
+@media (min-width: 996px) {
+  .DocSearch-Search-Icon {
+    margin-right: 1rem;
+  }
 }
 
 .DocSearch-Prefill {
