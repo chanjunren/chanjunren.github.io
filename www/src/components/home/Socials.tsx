@@ -4,36 +4,22 @@ import {
   LinkedInLogoIcon,
 } from "@radix-ui/react-icons";
 import * as Tooltip from "@radix-ui/react-tooltip";
-import { CSSProperties } from "react";
 import CardButton from "../common/CardButton";
 
-const LogoProps: CSSProperties = {
-  color: "var(--ifm-font-color-base)",
-  minWidth: "1.2rem",
-  minHeight: "1.2rem",
-};
+const LogoProps = "text-[var(--ifm-font-color-base)] h-4 w-4";
 
 export default function Socials() {
   return (
-    <div className="grid grid-cols-3 justify-center gap-5">
+    <div className="grid grid-cols-3 justify-center gap-3">
       <CardButton
         extraProps="hover:translate-y-1"
-        graphic={
-          <a href="https://www.github.com/chanjunren" target="_blank">
-            <GitHubLogoIcon style={LogoProps} />
-          </a>
-        }
+        externalLink="https://www.github.com/chanjunren"
+        graphic={<GitHubLogoIcon className={LogoProps} />}
       />
       <CardButton
         extraProps="hover:translate-y-1"
-        graphic={
-          <a
-            href="https://www.linkedin.com/in/jun-ren-chan-90240a175/"
-            target="_blank"
-          >
-            <LinkedInLogoIcon style={LogoProps} />
-          </a>
-        }
+        externalLink="https://www.linkedin.com/in/jun-ren-chan-90240a175/"
+        graphic={<LinkedInLogoIcon className={LogoProps} />}
       />
       <Tooltip.Provider delayDuration={0}>
         <Tooltip.Root>
@@ -42,7 +28,7 @@ export default function Socials() {
               <CardButton
                 extraProps="hover:translate-y-1 h-full"
                 externalLink="/documents/resume.pdf"
-                graphic={<BackpackIcon style={LogoProps} />}
+                graphic={<BackpackIcon className={LogoProps} />}
               />
             </div>
           </Tooltip.Trigger>
