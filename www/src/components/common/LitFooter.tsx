@@ -20,11 +20,11 @@ const LitFooter: FC = () => {
         )}
       </section>
       <span className="flex justify-center gap-2 mt-3">
-        Built with{" "}
+        built with{" "}
         <a href="https://docusaurus.io/" target="_blank">
           <DocusaurusIcon className="h-6 w-6" />
         </a>{" "}
-        by CJR
+        by cjr
       </span>
     </footer>
   );
