@@ -1,7 +1,7 @@
 🗓️ 03112024 1135
-📎 #flink
+📎 
 
-# flink_training
+# flink
 
 ```ad-abstract
 - How to implement streaming data processing pipelines and why Flink manages state
@@ -21,7 +21,6 @@ Flink applications composed of:
 1. Streaming data sources ([[message_queue]])
 2. **Operators** - for transforming data
 3. Send result streams to **sinks** (applications that need this data)
-
 
 ## Parallel dataflows
 ```ad-info
@@ -72,7 +71,7 @@ State is managed locally on each parallel instance either on
 <img src="https://nightlies.apache.org/flink/flink-docs-release-1.20/fig/learn-flink/local-state.png"/>
 
 ## Fault Tolerance via State Snapshots
-- Flink is able to provide fault-tolerant, exactly-once semantics through a combination of **state snapshots** and **stream replay**
+- Flink is able to provide fault-tolerant, exactly-once semantics ([[stream_processing_semantics]]) through a combination of **state snapshots** and **stream replay**
 
 ### Snapshots
 - Capture **entire state** of the distributed pipeline **asynchronously**
