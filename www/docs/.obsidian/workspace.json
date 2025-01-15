@@ -13,10 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/bill_of_materials.md",
+                "file": "zettelkasten/flink_data_pipelines_etl.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "flink_data_pipelines_etl"
             }
           }
         ]
@@ -39,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -48,13 +52,15 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#javascript_build",
+                "query": "7b",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,14 +68,18 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "d38b321f70b236f9",
@@ -85,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/bill_of_materials.md",
+                "file": "zettelkasten/flexibility_training_types.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -93,7 +103,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for flexibility_training_types"
             }
           },
           {
@@ -102,10 +114,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/bill_of_materials.md",
+                "file": "zettelkasten/flexibility_training_types.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from flexibility_training_types"
             }
           },
           {
@@ -116,7 +130,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -125,8 +141,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/bill_of_materials.md"
-              }
+                "file": "zettelkasten/flexibility_training_types.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of flexibility_training_types"
             }
           }
         ]
@@ -148,51 +166,51 @@
   },
   "active": "5b7bcd9f86b48b46",
   "lastOpenFiles": [
-    "zettelkasten/maven_phase.md",
-    "zettelkasten/flink.md",
+    "zettelkasten/datastream_api.md",
+    "zettelkasten/flink_data_pipelines_etl.md",
+    "zettelkasten/class_diagrams.md",
     "zettelkasten/stream_processing_semantics.md",
-    "zettelkasten/exactly_once_semantics.md",
-    "zettelkasten/flink_dump.md",
-    "zettelkasten/sink.md",
-    "zettelkasten/connector_and_sinks.md",
     "zettelkasten/kerberos.md",
     "zettelkasten/gemini_state_backend.md",
+    "zettelkasten/flink.md",
+    "zettelkasten/exactly_once_semantics.md",
     "zettelkasten/compute_storage_separation_architecture.md",
-    "zettelkasten/improving_flexibility.md",
-    "zettelkasten/flexibility_mobility_exercise_types.md",
-    "zettelkasten/flexibility_training_types.md",
-    "zettelkasten/flexibility_mobility_dump.md",
-    "zettelkasten/technical_documentation_template.md",
-    "zettelkasten/aliyun_canal_mq_client.md",
-    "zettelkasten/aliyun_canal_overview.md",
-    "zettelkasten/mobility.md",
+    "zettelkasten/threejs/r3f_text.md",
     "zettelkasten/pelvic_positions.md",
     "zettelkasten/stretching.md",
-    "zettelkasten/flexibility.md",
     "zettelkasten/strengthening.md",
-    "zettelkasten/flex.md",
-    "zettelkasten/flexibi.md",
+    "zettelkasten/skip_list.md",
+    "zettelkasten/sink.md",
+    "zettelkasten/modem_vs_router.md",
+    "zettelkasten/mobility.md",
+    "zettelkasten/leftmost_principle.md",
+    "zettelkasten/improving_flexibility.md",
+    "zettelkasten/flink_dump.md",
+    "zettelkasten/flexibility_training_types.md",
+    "zettelkasten/extract_transform_load.md",
+    "zettelkasten/elasticsearch_cluster.md",
     "zettelkasten/elasticsearch_book_chapter_3.md",
-    "zettelkasten/bash_dump.md",
+    "zettelkasten/elasticsearch.md",
+    "zettelkasten/domain_driven_design.md",
+    "assets/chapter6_inverted_idx.png",
+    "assets/chapter4_partialupdate.png",
+    "assets/chapter4_multidocument.png",
+    "assets/chapter4_crud.png",
+    "assets/chapter2_hscale_replica.png",
+    "assets/chapter2_hscale.png",
+    "assets/chapter2_failure.png",
     "assets/chapter2_cluster.png",
+    "zettelkasten/to_be_tidied/Frontend/Mobx",
+    "zettelkasten/to_be_tidied/Backend/Design",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets/indexing_diskStructure.jpeg",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets/example_b_plus_tree.jpeg",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing/assets",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB/Indexing",
+    "zettelkasten/to_be_tidied/Backend/Database/Relational DB",
+    "zettelkasten/to_be_tidied/Backend/Database/Elastic Search/assets",
+    "zettelkasten/to_be_tidied/Backend/Database/Comparisons",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
-    "zettelkasten/to_be_tidied/Misc/VIM",
-    "zettelkasten/to_be_tidied/Misc",
-    "zettelkasten/to_be_tidied/Frontend/Typescript",
-    "zettelkasten/to_be_tidied/Frontend/ThreeJS",
-    "zettelkasten/to_be_tidied/Frontend/NextJS",
-    "zettelkasten/to_be_tidied/Frontend/Mobx",
-    "zettelkasten/to_be_tidied/Frontend/CSS",
-    "zettelkasten/to_be_tidied/Frontend",
-    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/sampling.png",
-    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/native.png",
-    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/instrumented.png",
-    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/blocking.png",
-    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-4.png",
-    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-3.png",
-    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-2.png",
-    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/executor-service-2.jpg",
-    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-1.png"
+    "zettelkasten/to_be_tidied/Misc/VIM"
   ]
 }
