@@ -4,16 +4,34 @@
     "type": "split",
     "children": [
       {
-        "id": "da6784c6ae75b13b",
+        "id": "c3c51dd49b1cf1ce",
         "type": "tabs",
         "children": [
           {
-            "id": "89c86cbae56e2b52",
+            "id": "2547ba439df649d8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/flink_data_pipelines_etl.md",
+                "file": "zettelkasten/flink_windows.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "83fee55504d10af8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "080c185bcb705305",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zettelkasten/flink_notions_of_time.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/flink_data_pipelines_etl.md",
+                "file": "zettelkasten/flink_windows.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/flink_data_pipelines_etl.md",
+                "file": "zettelkasten/flink_windows.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/flink_data_pipelines_etl.md"
+                "file": "zettelkasten/flink_windows.md"
               }
             }
           }
@@ -146,10 +164,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "89c86cbae56e2b52",
+  "active": "2547ba439df649d8",
   "lastOpenFiles": [
-    "zettelkasten/bill_of_materials.md",
+    "zettelkasten/flink_notions_of_time.md",
+    "zettelkasten/flink_windows.md",
+    "zettelkasten/flink_watermarks.md",
+    "zettelkasten/maven_plugins_dump.md",
+    "zettelkasten/maven_test_pipeline_setup.md",
     "zettelkasten/flink_data_pipelines_etl.md",
+    "zettelkasten/flink_architecture.md",
+    "zettelkasten/bill_of_materials.md",
     "zettelkasten/datastream_api.md",
     "zettelkasten/maven_phase.md",
     "zettelkasten/flink.md",
@@ -168,12 +192,6 @@
     "zettelkasten/technical_documentation_template.md",
     "zettelkasten/aliyun_canal_mq_client.md",
     "zettelkasten/aliyun_canal_overview.md",
-    "zettelkasten/mobility.md",
-    "zettelkasten/pelvic_positions.md",
-    "zettelkasten/stretching.md",
-    "zettelkasten/flexibility.md",
-    "zettelkasten/strengthening.md",
-    "zettelkasten/flex.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
