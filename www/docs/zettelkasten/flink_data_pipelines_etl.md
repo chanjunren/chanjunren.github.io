@@ -91,36 +91,31 @@ Basically, because Flink has some good features:
 | `close()`               | Called at the end of the operator's lifecycle                                                   |
 | `getRuntimeContext()`   | Provides access to Flink’s runtime context, including state management                          |
 
-### An Example with Keyed State 
+### Keyed State
+State that is **partitioned by key** when working with a keyed stream (e.g., using `keyBy`)
 
-In this example, imagine you have a stream of events that you want to de-duplicate, so that you only keep the first event with each key. Here’s an application that does that, using a `RichFlatMapFunction` called `Deduplicator`:
-
-```java
-private static class Event {
-    public final String key;
-    public final long timestamp;
-    ...
-}
-
-public static void main(String[] args) throws Exception {
-    StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-
-    env.addSource(new EventSource())
-        .keyBy(e -> e.key)
-        .flatMap(new Deduplicator())
-        .print();
-
-    env.execute();
-}
+```ad-info
+Flink maintains a separate **key/value store** for each key, allowing state to be tied to specific keys in the stream.
 ```
 
-To accomplish this, `Deduplicator` will need to somehow remember, for each key, whether or not there has already been an event for that key. It will do so using Flink’s *keyed state* interface.
 
-When you are working with a keyed stream like this one, Flink will maintain a key/value store for each item of state being managed.
+#### `ValueState`
+A simple form of keyed state where **one value per key** is stored (there are other forms)
 
-Flink supports several different types of keyed state, and this example uses the simplest one, namely `ValueState`. This means that *for each key*, Flink will store a single object – in this case, an object of type `Boolean`.
+How it Works
+1. Initialization
+- A `ValueStateDescriptor` is used to define the name and type of the state.
+- Done in `open()`
+- State is accessed via `getRuntimeContext().getState(descriptor)`.
 
-Our `Deduplicator` class has two methods: `open()` and `flatMap()`. The open method establishes the use of managed state by defining a `ValueStateDescriptor<Boolean>`. The arguments to the constructor specify a name for this item of keyed state (“keyHasBeenSeen”), and provide information that can be used to serialize these objects (in this case, `Types.BOOLEAN`).
+2. Access and Update
+- During processing, Flink dynamically associates the state with the key of the current event.
+- Methods like `value()` and `update()` allow reading and updating the state.
+
+#### **Distributed State Management**
+- Keyed state (including `ValueState`) is **sharded across Flink nodes**, with each parallel instance managing state for its assigned keys
+- The state for a key is **local** to the parallel instance handling that key and is not shared across nodes.
+
 
 ```java
 public static class Deduplicator extends RichFlatMapFunction<Event, Event> {
@@ -142,51 +137,64 @@ public static class Deduplicator extends RichFlatMapFunction<Event, Event> {
 }
 ```
 
-When the flatMap method calls `keyHasBeenSeen.value()`, Flink’s runtime looks up the value of this piece of state *for the key in context*, and only if it is `null` does it go ahead and collect the event to the output. It also updates `keyHasBeenSeen` to `true` in this case.
+### Clearing State
+If keyed state is not cleared, it will keep growing for every distinct key encountered
 
-This mechanism for accessing and updating key-partitioned state may seem rather magical, since the key is not explicitly visible in the implementation of our `Deduplicator`. When Flink’s runtime calls the `open` method of our `RichFlatMapFunction`, there is no event, and thus no key in context at that moment. But when it calls the `flatMap` method, the key for the event being processed is available to the runtime, and is used behind the scenes to determine which entry in Flink’s state backend is being operated on.
+Therefore, keyed state should be cleared when it's no longer needed
 
-When deployed to a distributed cluster, there will be many instances of this `Deduplicator`, each of which will responsible for a disjoint subset of the entire keyspace. Thus, when you see a single item of `ValueState`, such as
-
-```java
-ValueState<Boolean> keyHasBeenSeen;
-```
-
-understand that this represents not just a single Boolean, but rather a distributed, sharded, key/value store.
-
-### Clearing State [#](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/etl/#clearing-state)
-
-There’s a potential problem with the example above: What will happen if the key space is unbounded? Flink is storing somewhere an instance of `Boolean` for every distinct key that is used. If there’s a bounded set of keys then this will be fine, but in applications where the set of keys is growing in an unbounded way, it’s necessary to clear the state for keys that are no longer needed. This is done by calling `clear()` on the state object, as in:
-
+This can be done through:
+- Manual clearing
 ```java
 keyHasBeenSeen.clear();
 ```
+- Timers: Clear state after a period of inactivity (e.g., with ProcessFunction).
+- [State Time-to-Live (TTL)](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/dev/datastream/fault-tolerance/state/#state-time-to-live-ttl) 
 
-You might want to do this, for example, after a period of inactivity for a given key. You’ll see how to use Timers to do this when you learn about `ProcessFunction`s in the section on event-driven applications.
+### Non-keyed (Operator) State 
+```ad-note
+Rarely needed in user-defined functions
+```
+- Primarily used in implementation of sources and sinks
+- Operates different
 
-There’s also a [State Time-to-Live (TTL)](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/dev/datastream/fault-tolerance/state/#state-time-to-live-ttl) option that you can configure with the state descriptor that specifies when you want the state for stale keys to be automatically cleared.
+## Connected Streams 
+- Pattern for allowing a single operator to process two input streams simultaneously
+- Enable dynamic transformations by streaming in thresholds, rules, or parameters
+- Common use cases: 
+	- **Streaming joins** 
+	- Advanced processing requiring interaction between two streams
 
-### Non-keyed State [#](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/etl/#non-keyed-state)
-
-It is also possible to work with managed state in non-keyed contexts. This is sometimes called [operator state](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/dev/datastream/fault-tolerance/state/#operator-state). The interfaces involved are somewhat different, and since it is unusual for user-defined functions to need non-keyed state, it is not covered here. This feature is most often used in the implementation of sources and sinks.
-
-[Back to top](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/etl/#top)
-
-## Connected Streams [#](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/etl/#connected-streams)
-
-Sometimes instead of applying a pre-defined transformation like this:
 
 ![simple transformation](https://nightlies.apache.org/flink/flink-docs-release-1.20/fig/transformation.svg)
-
-you want to be able to dynamically alter some aspects of the transformation – by streaming in thresholds, or rules, or other parameters. The pattern in Flink that supports this is something called *connected streams*, wherein a single operator has two input streams, like this:
+> Simple transformation
 
 ![connected streams](https://nightlies.apache.org/flink/flink-docs-release-1.20/fig/connected-streams.svg)
+> Connected stream
 
-Connected streams can also be used to implement streaming joins.
 
-### Example [#](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/etl/#example)
+### Keying Requirement
+- Both streams must be keyed in a compatible way (same keying logic and keyspace)
+- Ensures that events with the same key from both streams are **processed by the same parallel instance**
+### Features
+**State Sharing**:
+- Connected streams can share **keyed state**.
+- For example, one stream can update state, while the other uses it for processing.
 
-In this example, a control stream is used to specify words which must be filtered out of the `streamOfWords`. A `RichCoFlatMapFunction` called `ControlFunction` is applied to the connected streams to get this done.
+**RichCoFlatMapFunction**:
+- A special function that processes connected streams.
+- Provides `flatMap1` for the first stream and `flatMap2` for the second stream.
+- Supports **stateful processing** via the rich function interface.
+
+
+### Considerations
+1. **Race Conditions**:
+    - The order of `flatMap1` and `flatMap2` calls is not guaranteed.
+    - Flink processes events from the two streams independently, which can lead to race conditions.
+    - Use managed state to buffer events if ordering is critical.
+	
+2. **Custom Operators**:
+    - For precise control over input consumption, use a custom operator implementing `InputSelectable`.
+
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -209,9 +217,6 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
-Note that the two streams being connected must be keyed in compatible ways. The role of a `keyBy` is to partition a stream’s data, and when keyed streams are connected, they must be partitioned in the same way. This ensures that all of the events from both streams with the same key are sent to the same instance. This makes it possible, then, to join the two streams on that key, for example.
-
-In this case the streams are both of type `DataStream<String>`, and both streams are keyed by the string. As you will see below, this `RichCoFlatMapFunction` is storing a Boolean value in keyed state, and this Boolean is shared by the two streams.
 
 ```java
 public static class ControlFunction extends RichCoFlatMapFunction<String, String, String> {
@@ -237,27 +242,12 @@ public static class ControlFunction extends RichCoFlatMapFunction<String, String
 }
 ```
 
-A `RichCoFlatMapFunction` is a kind of `FlatMapFunction` that can be applied to a pair of connected streams, and it has access to the rich function interface. This means that it can be made stateful.
 
-The `blocked` Boolean is being used to remember the keys (words, in this case) that have been mentioned on the `control` stream, and those words are being filtered out of the `streamOfWords` stream. This is *keyed* state, and it is shared between the two streams, which is why the two streams have to share the same keyspace.
-
-`flatMap1` and `flatMap2` are called by the Flink runtime with elements from each of the two connected streams – in our case, elements from the `control` stream are passed into `flatMap1`, and elements from `streamOfWords` are passed into `flatMap2`. This was determined by the order in which the two streams are connected with `control.connect(streamOfWords)`.
-
-It is important to recognize that you have no control over the order in which the `flatMap1` and `flatMap2` callbacks are called. These two input streams are racing against each other, and the Flink runtime will do what it wants to regarding consuming events from one stream or the other. In cases where timing and/or ordering matter, you may find it necessary to buffer events in managed Flink state until your application is ready to process them. (Note: if you are truly desperate, it is possible to exert some limited control over the order in which a two-input operator consumes its inputs by using a custom Operator that implements the [InputSelectable](https://nightlies.apache.org/flink/flink-docs-release-1.20/api/java//org/apache/flink/streaming/api/operators/InputSelectable.html)
-
-[Back to top](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/etl/#top)
-
-## Hands-on [#](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/etl/#hands-on)
-
-The hands-on exercise that goes with this section is the [Rides and Fares](https://github.com/apache/flink-training/blob/release-1.20//rides-and-fares) .
-
-[Back to top](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/etl/#top)
-
-## Further Reading [#](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/etl/#further-reading)
-
+## Further Reading
 - [DataStream Transformations](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/dev/datastream/operators/overview/#datastream-transformations)
 - [Stateful Stream Processing](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/concepts/stateful-stream-processing/)
 
 ---
 
 # References
+- https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/learn-flink/etl/
