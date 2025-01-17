@@ -2,42 +2,70 @@
 📎
 
 # flink_architecture
-# Flink Architecture [#](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/concepts/flink-architecture/#flink-architecture)
 
-Flink is a distributed system and requires effective allocation and management of compute resources in order to execute streaming applications. It integrates with all common cluster resource managers such as [Hadoop YARN](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html) and [Kubernetes](https://kubernetes.io/), but can also be set up to run as a standalone cluster or even as a library.
+## Overview
+Flink is a distributed system and requires effective allocation and management of compute resources in order to execute streaming applications
 
-This section contains an overview of Flink’s architecture and describes how its main components interact to execute applications and recover from failures.
-
-## Anatomy of a Flink Cluster [#](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/concepts/flink-architecture/#anatomy-of-a-flink-cluster)
-
-The Flink runtime consists of two types of processes: a _JobManager_ and one or more _TaskManagers_.
+It integrates with all common cluster resource managers such as [Hadoop YARN](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html) and [[kubernetes]], but can also be set up to run as a standalone cluster or even as a library
 
 ![The processes involved in executing a Flink dataflow](https://nightlies.apache.org/flink/flink-docs-release-1.17/fig/processes.svg)
+## Client
+- Not part of runtime / program execution
+- Used to prepare and send a dataflow (??) to the `JobManager`
+- Can disconnect after that
 
-The _Client_ is not part of the runtime and program execution, but is used to prepare and send a dataflow to the JobManager. After that, the client can disconnect (_detached mode_), or stay connected to receive progress reports (_attached mode_). The client runs either as part of the Java/Scala program that triggers the execution, or in the command line process `./bin/flink run ...`.
+
+| Mode     | Description                                       |
+| -------- | ------------------------------------------------- |
+| Attached | Not disconnected > For receiving progress reports |
+| Detached | Disconnected                                      |
+
+```ad-info
+The client runs either as part of the Java/Scala program that triggers the execution, or in the command line process `./bin/flink run ...`
+```
+
+## Flink Runtime
+
+```ad-abstract
+The Flink runtime consists of two types of processes: a _JobManager_ and one or more _TaskManagers_
+```
+
+
 
 The JobManager and TaskManagers can be started in various ways: directly on the machines as a [standalone cluster](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/deployment/resource-providers/standalone/overview/), in containers, or managed by resource frameworks like [YARN](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/deployment/resource-providers/yarn/). TaskManagers connect to JobManagers, announcing themselves as available, and are assigned work.
 
-### JobManager [#](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/concepts/flink-architecture/#jobmanager)
+## JobManager
+- Decides when to schedule next task / set of tasks
+- Reacts to finished tasks / execution failures
+- Coordinates 
+	- Checkpoints
+	- Coordinates recovery on failures
 
-The _JobManager_ has a number of responsibilities related to coordinating the distributed execution of Flink Applications: it decides when to schedule the next task (or set of tasks), reacts to finished tasks or execution failures, coordinates checkpoints, and coordinates recovery on failures, among others. This process consists of three different components:
+### ResourceManager
+> Responsible for resource de-/allocation and provisioning in a Flink cluster - manages **task slots**
 
-- **ResourceManager**
+- **Task slot** - unit of resource scheduling in a Flink cluster 
+- Flink implements multiple ResourceManagers for different environments and resource providers such as YARN, Kubernetes and standalone deployments
+
+```ad-note
+In a standalone setup, the ResourceManager can only distribute the slots of available TaskManagers and cannot start new TaskManagers on its own.
+```
     
-    The _ResourceManager_ is responsible for resource de-/allocation and provisioning in a Flink cluster — it manages **task slots**, which are the unit of resource scheduling in a Flink cluster (see [TaskManagers](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/concepts/flink-architecture/#taskmanagers)). Flink implements multiple ResourceManagers for different environments and resource providers such as YARN, Kubernetes and standalone deployments. In a standalone setup, the ResourceManager can only distribute the slots of available TaskManagers and cannot start new TaskManagers on its own.
+### Dispatcher
     
-- **Dispatcher**
+- Provides a REST interface to submit Flink applications for execution 
+- Starts a new JobMaster for each submitted job
+- Runs the Flink WebUI to provide information about job executions
     
-    The _Dispatcher_ provides a REST interface to submit Flink applications for execution and starts a new JobMaster for each submitted job. It also runs the Flink WebUI to provide information about job executions.
-    
-- **JobMaster**
-    
-    A _JobMaster_ is responsible for managing the execution of a single [JobGraph](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/concepts/glossary/#logical-graph). Multiple jobs can run simultaneously in a Flink cluster, each having its own JobMaster.
+### JobMaster
+
+A _JobMaster_ is responsible for managing the execution of a single [JobGraph](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/concepts/glossary/#logical-graph). Multiple jobs can run simultaneously in a Flink cluster, each having its own JobMaster.
     
 
 There is always at least one JobManager. A high-availability setup might have multiple JobManagers, one of which is always the _leader_, and the others are _standby_ (see [High Availability (HA)](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/deployment/ha/overview/)).
 
-### TaskManagers [#](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/concepts/flink-architecture/#taskmanagers)
+
+## TaskManagers
 
 The _TaskManagers_ (also called _workers_) execute the tasks of a dataflow, and buffer and exchange the data streams.
 
@@ -97,21 +125,6 @@ The jobs of a Flink Application can either be submitted to a long-running [Flin
     
 
 > Formerly, a Flink Session Cluster was also known as a Flink Cluster in `session mode`.
-
-### Flink Job Cluster (deprecated) [#](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/concepts/flink-architecture/#flink-job-cluster-deprecated)
-
-> Per-job mode is only supported by YARN and has been deprecated in Flink 1.15. It will be dropped in [FLINK-26000](https://issues.apache.org/jira/browse/FLINK-26000). Please consider application mode to launch a dedicated cluster per-job on YARN.
-
-- **Cluster Lifecycle**: in a Flink Job Cluster, the available cluster manager (like YARN) is used to spin up a cluster for each submitted job and this cluster is available to that job only. Here, the client first requests resources from the cluster manager to start the JobManager and submits the job to the Dispatcher running inside this process. TaskManagers are then lazily allocated based on the resource requirements of the job. Once the job is finished, the Flink Job Cluster is torn down.
-    
-- **Resource Isolation**: a fatal error in the JobManager only affects the one job running in that Flink Job Cluster.
-    
-- **Other considerations**: because the ResourceManager has to apply and wait for external resource management components to start the TaskManager processes and allocate resources, Flink Job Clusters are more suited to large jobs that are long-running, have high-stability requirements and are not sensitive to longer startup times.
-    
-
-> Formerly, a Flink Job Cluster was also known as a Flink Cluster in `job (or per-job) mode`.
-
-> Flink Job Clusters are only supported with YARN.
 
 ---
 

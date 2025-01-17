@@ -1,7 +1,7 @@
 🗓️ 10062024 1600
 📎 #devops #kubernetes #wip 
 
-# kubernetes_overview
+# kubernetes
 
 ## What is k8s (Kubernetes)
 

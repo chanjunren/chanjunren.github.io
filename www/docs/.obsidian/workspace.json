@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "c3c51dd49b1cf1ce",
+        "id": "899f34cba48face9",
         "type": "tabs",
         "children": [
           {
-            "id": "2547ba439df649d8",
+            "id": "5cc2e63203312103",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/flink_window_functions.md",
+                "file": "zettelkasten/flink_architecture.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "flink_architecture"
             }
           }
         ]
@@ -39,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -54,7 +58,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,14 +68,17 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "d38b321f70b236f9",
@@ -85,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/flink_window_functions.md",
+                "file": "zettelkasten/flink_architecture.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -93,7 +102,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for flink_architecture"
             }
           },
           {
@@ -102,10 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/flink_window_functions.md",
+                "file": "zettelkasten/flink_architecture.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from flink_architecture"
             }
           },
           {
@@ -116,7 +129,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -125,8 +140,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/flink_window_functions.md"
-              }
+                "file": "zettelkasten/flink_architecture.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of flink_architecture"
             }
           }
         ]
@@ -146,21 +163,25 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2547ba439df649d8",
+  "active": "5cc2e63203312103",
   "lastOpenFiles": [
+    "zettelkasten/flink_architecture.md",
+    "zettelkasten/kubernetes.md",
+    "zettelkasten/flink_side_outputs.md",
+    "zettelkasten/flink_process_functions.md",
+    "zettelkasten/flink_notions_of_time.md",
+    "zettelkasten/flink_window_assigners.md",
+    "zettelkasten/flink_window_functions.md",
     "zettelkasten/flink_windows.md",
+    "zettelkasten/spring_boot_application_lifecycle.md",
+    "zettelkasten/datastream_api.md",
     "zettelkasten/stream_processing_semantics.md",
     "zettelkasten/kerberos.md",
     "zettelkasten/gemini_state_backend.md",
-    "zettelkasten/flink_window_functions.md",
-    "zettelkasten/flink_window_assigners.md",
     "zettelkasten/flink_watermarks.md",
-    "zettelkasten/flink_notions_of_time.md",
     "zettelkasten/flink_data_pipelines_etl.md",
-    "zettelkasten/flink_architecture.md",
     "zettelkasten/flink.md",
     "zettelkasten/exactly_once_semantics.md",
-    "zettelkasten/datastream_api.md",
     "zettelkasten/compute_storage_separation_architecture.md",
     "zettelkasten/flink_training.md",
     "zettelkasten/flink_dump.md",
@@ -170,10 +191,6 @@
     "zettelkasten/maven_phase.md",
     "zettelkasten/sink.md",
     "zettelkasten/connector_and_sinks.md",
-    "zettelkasten/improving_flexibility.md",
-    "zettelkasten/flexibility_mobility_exercise_types.md",
-    "zettelkasten/flexibility_training_types.md",
-    "zettelkasten/flexibility_mobility_dump.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
