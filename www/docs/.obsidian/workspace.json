@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/flink_windows.md",
+                "file": "zettelkasten/flink_window_functions.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/flink_windows.md",
+                "file": "zettelkasten/flink_window_functions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/flink_windows.md",
+                "file": "zettelkasten/flink_window_functions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/flink_windows.md"
+                "file": "zettelkasten/flink_window_functions.md"
               }
             }
           }
@@ -148,10 +148,10 @@
   },
   "active": "2547ba439df649d8",
   "lastOpenFiles": [
+    "zettelkasten/flink_windows.md",
     "zettelkasten/stream_processing_semantics.md",
     "zettelkasten/kerberos.md",
     "zettelkasten/gemini_state_backend.md",
-    "zettelkasten/flink_windows.md",
     "zettelkasten/flink_window_functions.md",
     "zettelkasten/flink_window_assigners.md",
     "zettelkasten/flink_watermarks.md",

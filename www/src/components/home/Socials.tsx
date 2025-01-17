@@ -6,11 +6,11 @@ import {
 import * as Tooltip from "@radix-ui/react-tooltip";
 import CardButton from "../common/CardButton";
 
-const LogoProps = "text-[var(--ifm-font-color-base)] h-4 w-4";
+const LogoProps = "text-[var(--ifm-font-color-base)] h-5 w-5";
 
 export default function Socials() {
   return (
-    <div className="grid grid-cols-3 justify-center gap-3">
+    <div className="grid grid-cols-3 justify-center gap-2">
       <CardButton
         extraProps="hover:translate-y-1"
         externalLink="https://www.github.com/chanjunren"

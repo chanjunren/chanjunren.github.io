@@ -6,12 +6,12 @@ import Socials from "../components/home/Socials";
 export default function Home(): ReactElement {
   return (
     <Page title={"home"} description="Hello! Welcome to my digital garden">
-      <div className="flex-grow gap-10 flex flex-col md:flex-row justify-center items-center">
+      <div className="flex-grow gap-3 flex flex-col md:flex-row justify-center items-center">
         <img
           className="rounded-lg md:w-96 md:h-96 w-60 h-60"
           src={homeWallpaper}
         />
-        <div className="flex flex-col gap-2 w-full">
+        <div className="flex flex-col gap-2 md:w-96 md:h-96 w-60 h-60">
           <CardButton
             extraProps="hover:scale-105"
             title="About"
