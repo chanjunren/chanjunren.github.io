@@ -11,7 +11,7 @@ export default function Home(): ReactElement {
           className="rounded-lg md:w-96 md:h-96 w-60 h-60"
           src={homeWallpaper}
         />
-        <div className="flex flex-col gap-2 md:w-96 md:h-96 w-60 h-60">
+        <div className="flex flex-col gap-2 md:w-96 w-60">
           <CardButton
             extraProps="hover:scale-105"
             title="About"
