@@ -16,9 +16,7 @@
                 "file": "zettelkasten/flink_windows.md",
                 "mode": "source",
                 "source": false
-              },
-              "icon": "lucide-file",
-              "title": "flink_windows"
+              }
             }
           }
         ]
@@ -41,9 +39,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
+              }
             }
           },
           {
@@ -58,9 +54,7 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-search",
-              "title": "Search"
+              }
             }
           },
           {
@@ -68,9 +62,7 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "state": {}
             }
           }
         ]
@@ -101,9 +93,7 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for flink_windows"
+              }
             }
           },
           {
@@ -115,9 +105,7 @@
                 "file": "zettelkasten/flink_windows.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from flink_windows"
+              }
             }
           },
           {
@@ -128,9 +116,7 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
+              }
             }
           },
           {
@@ -140,9 +126,7 @@
               "type": "outline",
               "state": {
                 "file": "zettelkasten/flink_windows.md"
-              },
-              "icon": "lucide-list",
-              "title": "Outline of flink_windows"
+              }
             }
           }
         ]
@@ -164,32 +148,32 @@
   },
   "active": "2547ba439df649d8",
   "lastOpenFiles": [
-    "zettelkasten/flink_dump.md",
+    "zettelkasten/stream_processing_semantics.md",
+    "zettelkasten/kerberos.md",
+    "zettelkasten/gemini_state_backend.md",
     "zettelkasten/flink_windows.md",
     "zettelkasten/flink_window_functions.md",
     "zettelkasten/flink_window_assigners.md",
-    "zettelkasten/flink_notions_of_time.md",
     "zettelkasten/flink_watermarks.md",
-    "zettelkasten/maven_plugins_dump.md",
-    "zettelkasten/maven_test_pipeline_setup.md",
+    "zettelkasten/flink_notions_of_time.md",
     "zettelkasten/flink_data_pipelines_etl.md",
     "zettelkasten/flink_architecture.md",
-    "zettelkasten/bill_of_materials.md",
-    "zettelkasten/datastream_api.md",
-    "zettelkasten/maven_phase.md",
     "zettelkasten/flink.md",
-    "zettelkasten/stream_processing_semantics.md",
     "zettelkasten/exactly_once_semantics.md",
+    "zettelkasten/datastream_api.md",
+    "zettelkasten/compute_storage_separation_architecture.md",
+    "zettelkasten/flink_training.md",
+    "zettelkasten/flink_dump.md",
+    "zettelkasten/maven_plugins_dump.md",
+    "zettelkasten/maven_test_pipeline_setup.md",
+    "zettelkasten/bill_of_materials.md",
+    "zettelkasten/maven_phase.md",
     "zettelkasten/sink.md",
     "zettelkasten/connector_and_sinks.md",
-    "zettelkasten/kerberos.md",
-    "zettelkasten/gemini_state_backend.md",
-    "zettelkasten/compute_storage_separation_architecture.md",
     "zettelkasten/improving_flexibility.md",
     "zettelkasten/flexibility_mobility_exercise_types.md",
     "zettelkasten/flexibility_training_types.md",
     "zettelkasten/flexibility_mobility_dump.md",
-    "zettelkasten/technical_documentation_template.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
