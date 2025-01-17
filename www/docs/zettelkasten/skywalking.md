@@ -6,7 +6,7 @@
 An open-source application performance monitoring (APM) system designed for
 - distributed systems (esp. microservices)
 - cloud-native architectures
-- containerised environments (e.g. [[kubernetes_overview]])
+- containerised environments (e.g. [[kubernetes]])
 
 ```ad-abstract
 A health check and diagnostic tool for your applications

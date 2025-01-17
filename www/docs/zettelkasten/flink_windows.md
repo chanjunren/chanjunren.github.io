@@ -3,18 +3,12 @@
 
 # flink_windows
 
-
-> Enable **aggregated processing** of subsets of **unbounded streams**
-
-```ad-summary
-Splits the stream into “buckets” of finite size, over which we can apply **computations**
-
-```
-
-Example of analytics
-- Page views per minute
-- Sessions per user per week
-- Maximum temperature per sensor per minute
+- Enable **aggregated processing** of subsets of **unbounded streams**
+> Splits the stream into “buckets” of finite size, over which we can apply **computations**
+- Example of analytics
+	- Page views per minute
+	- Sessions per user per week
+	- Maximum temperature per sensor per minute
 
 ## Components
 
