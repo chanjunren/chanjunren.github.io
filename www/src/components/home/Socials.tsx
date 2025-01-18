@@ -38,7 +38,7 @@ export default function Socials() {
               sideOffset={5}
               side="bottom"
             >
-              resume (I haven't been updating this :D)
+              resume
               <Tooltip.Arrow className="TooltipArrow" />
             </Tooltip.Content>
           </Tooltip.Portal>
