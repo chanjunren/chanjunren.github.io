@@ -4,8 +4,11 @@ import { ReactElement } from "react";
 
 export default function VaultusaurusDemo({ onClick }): ReactElement {
   return (
-    <div onClick={onClick} className="cursor-pointer rounded-lg relative">
-      <p className="absolute bg-black bg-opacity-75 px-2 py-1 rounded-md text-white top-4 right-4">
+    <div
+      onClick={onClick}
+      className="cursor-pointer rounded-lg relative h-[495px] overflow-hidden"
+    >
+      <p className="absolute bg-black bg-opacity-75 px-2 py-1 rounded-md text-2xl top-4 right-4">
         ❣️
       </p>
       <BrowserOnly>

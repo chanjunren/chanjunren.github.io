@@ -8,6 +8,7 @@ const PortalProject: GalleryProjectInfo = {
   title: "ThreeJS Portal",
   subtitle: "ThreeJS",
   card: "images/portal.webp",
+  containerCss: "md:col-span-4",
   banner: () => <Portal />,
   repository:
     "https://github.com/chanjunren/chanjunren.github.io/tree/master/www/src/components/projects/portal",

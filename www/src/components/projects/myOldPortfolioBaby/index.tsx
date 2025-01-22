@@ -15,6 +15,7 @@ const MyOldPortfolioBaby: GalleryProjectInfo = {
       card={useBaseUrl("images/oldPortfolioBanner.webp")}
     />
   ),
+  containerCss: "md:col-span-3",
   card: "/images/oldPortfolioCard.webp",
   repository:
     "https://github.com/chanjunren/chanjunren.github.io/commit/2282566cd128e868124903f9bab5d3344671ae5e",

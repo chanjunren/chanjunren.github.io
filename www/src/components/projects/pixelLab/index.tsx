@@ -7,8 +7,9 @@ const PixelLabInfo: GalleryProjectInfo = {
   id: "pixelLab",
   title: "Pixel Lab",
   subtitle: "CSS / SVG Exploration",
+  containerCss: "md:col-span-2",
   card: () => (
-    <SimpleCard className="cursor-not-allowed rounded-lg min-h-44 relative">
+    <SimpleCard className="cursor-not-allowed rounded-lg relative">
       <p className="absolute bg-black bg-opacity-75 px-2 py-1 rounded-md text-white top-4 right-4">
         locked
       </p>
