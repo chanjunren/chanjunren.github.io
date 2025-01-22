@@ -1,70 +1,9 @@
-🗓️ 15012025 2227
+🗓️ 20012025 1436
 📎
 
-# flink_data_pipelines_etl
+# flink_state
 
-```ad-abstract
-One very common use case for Apache [[flink]] is to implement ETL (extract, transform, load) pipelines that
-
-1. Take data from one or more sources
-2. Perform some transformations and/or enrichments
-3. Store the results somewhere
-```
-
-## Stateless Transformations
-
-### `map()` / `flatmap()`
-
-Similar to Java streams so I won't talk about this
-
-## Keyed Streams 
-
-### `keyBy()` 
-
-For partitioning a stream around one of its attributes
-
-```ad-warning
-Causes a network shuffle > expensive operation since it involves network communication (between nodes) along with serialization and deserialization
-```
-
-![keyBy and network shuffle](https://nightlies.apache.org/flink/flink-docs-release-1.20/fig/keyBy.png)
-
-### Computed keys
-
-`KeySelectors` (functions that determine keys used for partioning) not limited to field extraction
-
-| Requirement                                              | Description                                                  |
-| -------------------------------------------------------- | ------------------------------------------------------------ |
-| Deterministic (same result given same input)             | Ensures consistent / correct behavior in distributed systems |
-| has valid implementations of `hashCode()` and `equals()` | Used by Flink for partitioning                               |
-
-- ❌ KeySelectors that generate random numbers
-- ❌ Arrays, enums
-- ✅ Tuples
-- ✅ Composite Keys
-- ✅ POJOs
-
-## Aggregations on Keyed Streams
-
-- Flink provides support for stream aggregations e.g.
-  - `maxBy()`
-  - ...
-  - `reduce()` - can implement your own aggregator
-
-```ad-warning
-Flink needs to keep track of the state of aggregations for each distinct key > amount of **state** grows with each distinct key
-
-Whenever the key space is unbounded, then so is the amount of state Flink will need
-```
-
-### Key Considerations
-
-- **Bounded Key Spaces**: Design your keys to ensure the key space remains manageable (e.g., limit the number of unique keys).
-- **State Management**: Use **state backends** (e.g., RocksDB) and enable **checkpointing** to handle large state sizes efficiently.
-
-## Stateful Transformations
-
-### Why is Flink Involved in Managing State? 
+## Why is Flink Involved in Managing State? 
 
 Basically, because Flink has some good features:
 
@@ -91,7 +30,7 @@ Basically, because Flink has some good features:
 | `close()`               | Called at the end of the operator's lifecycle                                                   |
 | `getRuntimeContext()`   | Provides access to Flink’s runtime context, including state management                          |
 
-### Keyed State
+## Keyed State
 State that is **partitioned by key** when working with a keyed stream (e.g., using `keyBy`)
 
 ```ad-info
@@ -99,7 +38,7 @@ Flink maintains a separate **key/value store** for each key, allowing state to b
 ```
 
 
-#### `ValueState`
+### `ValueState`
 A simple form of keyed state where **one value per key** is stored (there are other forms)
 
 How it Works
@@ -112,7 +51,7 @@ How it Works
 - During processing, Flink dynamically associates the state with the key of the current event.
 - Methods like `value()` and `update()` allow reading and updating the state.
 
-#### **Distributed State Management**
+### **Distributed State Management**
 - Keyed state (including `ValueState`) is **sharded across Flink nodes**, with each parallel instance managing state for its assigned keys
 - The state for a key is **local** to the parallel instance handling that key and is not shared across nodes.
 
@@ -251,3 +190,6 @@ public static class ControlFunction extends RichCoFlatMapFunction<String, String
 
 # References
 - https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/learn-flink/etl/
+---
+
+# References
