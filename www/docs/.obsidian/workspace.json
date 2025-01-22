@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "899f34cba48face9",
+        "id": "2c347a7868f82bb8",
         "type": "tabs",
         "children": [
           {
-            "id": "5cc2e63203312103",
+            "id": "a00e1731c8325d5c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/flink_keyed_streams.md",
+                "file": "zettelkasten/ddia_chapter_3.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/flink_keyed_streams.md",
+                "file": "zettelkasten/ddia_chapter_3.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/flink_keyed_streams.md",
+                "file": "zettelkasten/ddia_chapter_3.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/flink_keyed_streams.md"
+                "file": "zettelkasten/ddia_chapter_3.md"
               }
             }
           }
@@ -146,10 +146,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5cc2e63203312103",
+  "active": "a00e1731c8325d5c",
   "lastOpenFiles": [
-    "zettelkasten/flink_state.md",
+    "zettelkasten/ddia_chapter_3.md",
+    "zettelkasten/ddia_chapter_2.md",
+    "zettelkasten/ddia_chapter_1.md",
     "zettelkasten/flink_keyed_streams.md",
+    "zettelkasten/flink_state.md",
     "zettelkasten/flink_architecture.md",
     "zettelkasten/kubernetes.md",
     "zettelkasten/flink_side_outputs.md",
@@ -171,9 +174,6 @@
     "zettelkasten/flink_dump.md",
     "zettelkasten/maven_plugins_dump.md",
     "zettelkasten/maven_test_pipeline_setup.md",
-    "zettelkasten/bill_of_materials.md",
-    "zettelkasten/maven_phase.md",
-    "zettelkasten/sink.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",

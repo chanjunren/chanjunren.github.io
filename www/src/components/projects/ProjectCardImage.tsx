@@ -13,7 +13,7 @@ const ProjectCardImage: React.FC<GalleryCard> = ({ onClick, info }) => {
       onClick={onClick}
       card={useBaseUrl(card)}
       img={card}
-      className={`cursor-pointer rounded-lg  min-h-44`}
+      className={`cursor-pointer rounded-lg h-[210px] aspect-video md:object-fill overflow-hidden`}
     />
   );
 };

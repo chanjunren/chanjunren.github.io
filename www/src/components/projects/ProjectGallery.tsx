@@ -5,12 +5,14 @@ import MyOldPortfolioBaby from "./myOldPortfolioBaby";
 import PixelLabInfo from "./pixelLab";
 import PortalProject from "./portal";
 import ProjectCard from "./ProjectCard";
+import ThreeJSCheat from "./threeJsCheat";
 import VaultusaurusProject from "./vaultusaurus";
 
 export const GALLERY_PROJECTS: GalleryProjectInfo[] = [
-  PixelLabInfo,
   VaultusaurusProject,
   PortalProject,
+  PixelLabInfo,
+  ThreeJSCheat,
   MyOldPortfolioBaby,
 ];
 

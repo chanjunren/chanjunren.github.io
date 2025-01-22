@@ -10,7 +10,7 @@ const VaultusaurusProject: GalleryProjectInfo = {
   id: "vaultusaurus",
   title: "Vaultusaurus",
   subtitle: "Docusaurus plugin",
-  containerCss: "md:col-span-2 row-span-2",
+  containerCss: "md:col-span-6 md:row-span-2",
   card: ({ onClick }) => <VaultusaurusDemo onClick={onClick} />,
   banner: () => (
     <div className="flex items-center w-full justify-center h-36 gap-5 bg-graphPaper">
