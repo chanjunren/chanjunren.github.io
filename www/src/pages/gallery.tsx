@@ -7,11 +7,11 @@ export default function Gallery(): ReactElement {
   return (
     <Page title={"gallery"} description="Hello! Welcome to my digital garden">
       <RedirectButton
-        className="md:col-span-2 self-start mb-5"
+        className="md:col-span-2 self-start"
         label="home"
         path="/"
       />
-      <div className="flex-grow grid lg:grid-cols-12 grid-cols-1 gap-x-4 lg:gap-y-1 gap-y-5 max-w-7xl auto-rows-fr">
+      <div className="flex-grow grid lg:grid-cols-12 gap-x-4 md:gap-y-3 gap-y-5 lg:max-w-5xl auto-rows-[240px] lg:auto-rows-[190px]">
         <ProjectGallery />
       </div>
     </Page>

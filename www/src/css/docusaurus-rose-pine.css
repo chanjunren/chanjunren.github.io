@@ -114,7 +114,7 @@ nav.navbar.navbar--fixed-top {
   height: 1rem;
 }
 
-@media (min-width: 997px) {
+@media (min-width: 996px) {
   .col[class*="docItemCol_"] {
     max-width: 60% !important;
   }

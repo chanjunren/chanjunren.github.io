@@ -10,11 +10,7 @@ const Spotlight: FC = () => {
 
   return (
     <Page title={"spotlight"} description="Hello! Welcome to my digital garden">
-      <RedirectButton
-        className="self-start mb-5"
-        label="gallery"
-        path="/gallery"
-      />
+      <RedirectButton className="self-start" label="gallery" path="/gallery" />
       {selectedProject !== null ? (
         <div className="flex-grow flex flex-col w-full justify-start gap-10">
           <selectedProject.banner />
