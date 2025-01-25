@@ -6,7 +6,7 @@ export default function VaultusaurusDemo({ onClick }): ReactElement {
   return (
     <div
       onClick={onClick}
-      className="cursor-pointer rounded-lg relative h-[200px] lg:h-[480px] overflow-hidden"
+      className="cursor-pointer rounded-lg relative overflow-hidden shadow-md"
     >
       <p className="absolute bg-black bg-opacity-75 px-2 py-1 rounded-md text-2xl top-4 right-4">
         ❣️
