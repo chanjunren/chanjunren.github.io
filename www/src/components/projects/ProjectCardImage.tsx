@@ -2,11 +2,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import { GalleryCard } from "@site/src/types";
 import IdealImage from "@theme/IdealImage";
 
-const ProjectCardImage: React.FC<GalleryCard> = ({
-  onClick,
-  info,
-  cardImgClass,
-}) => {
+const ProjectCardImage: React.FC<GalleryCard> = ({ onClick, info }) => {
   const { card } = info;
   if (!card || typeof card !== "string") {
     return null;
@@ -17,7 +13,7 @@ const ProjectCardImage: React.FC<GalleryCard> = ({
       onClick={onClick}
       card={useBaseUrl(card)}
       img={card}
-      className={`cursor-pointer rounded-lg !h-fit object-contain ${cardImgClass}`}
+      className={`cursor-pointer rounded-lg  min-h-44`}
     />
   );
 };

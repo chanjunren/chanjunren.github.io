@@ -16,7 +16,6 @@ const MyOldPortfolioBaby: GalleryProjectInfo = {
     />
   ),
   card: "/images/oldPortfolioCard.webp",
-  cardImgClass: "col-span-2 md:col-span-1",
   repository:
     "https://github.com/chanjunren/chanjunren.github.io/commit/2282566cd128e868124903f9bab5d3344671ae5e",
   description: () => (

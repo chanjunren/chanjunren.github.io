@@ -1,21 +1,26 @@
-import useBaseUrl from "@docusaurus/useBaseUrl";
 import DocusaurusLink from "@site/src/components/common/DocusaurusLink";
 import BadgeList from "@site/src/components/spotlight/BadgeList";
 import { GalleryProjectInfo } from "@site/src/types";
 import IdealImage from "@theme/IdealImage";
 import { DocusaurusIcon } from "../../common/Icons";
 import SecondaryHeader from "../../common/SecondaryHeader";
+import SimpleCard from "../../common/SimpleCard";
 
 const VaultusaurusProject: GalleryProjectInfo = {
   id: "vaultusaurus",
   title: "Vaultusaurus",
   subtitle: "Docusaurus plugin",
+  containerCss: "md:col-span-2",
   card: ({ onClick }) => (
-    <IdealImage
+    <SimpleCard
       onClick={onClick}
-      className="h-auto cursor-pointer rounded-md"
-      img={useBaseUrl("images/vaultusaurus_banner.webp")}
-    />
+      className="cursor-pointer rounded-lg relative"
+    >
+      <p className="absolute bg-black bg-opacity-75 px-2 py-1 rounded-md text-white top-3 right-3 m-0">
+        ❣️
+      </p>
+      <DocusaurusIcon className="w-8 h-8 text-sm absolute top-1/2 left-1/2 m-0 transform -translate-x-1/2 -translate-y-1/2" />
+    </SimpleCard>
   ),
   banner: () => (
     <div className="flex items-center w-full justify-center h-36 gap-5 bg-graphPaper">
@@ -23,7 +28,6 @@ const VaultusaurusProject: GalleryProjectInfo = {
       <span className="text-5xl">🔌</span>
     </div>
   ),
-  cardImgClass: "col-span-2 md:col-span-1",
   description: () => (
     <div className="flex flex-col w-full gap-5">
       <span>
