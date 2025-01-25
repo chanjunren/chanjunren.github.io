@@ -4,24 +4,14 @@ import { GalleryProjectInfo } from "@site/src/types";
 import IdealImage from "@theme/IdealImage";
 import { DocusaurusIcon } from "../../common/Icons";
 import SecondaryHeader from "../../common/SecondaryHeader";
-import SimpleCard from "../../common/SimpleCard";
+import VaultusaurusDemo from "./VaultusaurusDemo";
 
 const VaultusaurusProject: GalleryProjectInfo = {
   id: "vaultusaurus",
   title: "Vaultusaurus",
   subtitle: "Docusaurus plugin",
-  containerCss: "md:col-span-2",
-  card: ({ onClick }) => (
-    <SimpleCard
-      onClick={onClick}
-      className="cursor-pointer rounded-lg relative"
-    >
-      <p className="absolute bg-black bg-opacity-75 px-2 py-1 rounded-md text-white top-3 right-3 m-0">
-        ❣️
-      </p>
-      <DocusaurusIcon className="w-8 h-8 text-sm absolute top-1/2 left-1/2 m-0 transform -translate-x-1/2 -translate-y-1/2" />
-    </SimpleCard>
-  ),
+  containerCss: "md:col-span-2 row-span-2",
+  card: ({ onClick }) => <VaultusaurusDemo onClick={onClick} />,
   banner: () => (
     <div className="flex items-center w-full justify-center h-36 gap-5 bg-graphPaper">
       <DocusaurusIcon className="h-14 w-14" />

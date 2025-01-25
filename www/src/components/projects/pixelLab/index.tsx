@@ -9,7 +9,7 @@ const PixelLabInfo: GalleryProjectInfo = {
   subtitle: "CSS / SVG Exploration",
   card: () => (
     <SimpleCard className="cursor-not-allowed rounded-lg min-h-44 relative">
-      <p className="absolute bg-black bg-opacity-75 px-2 py-1 rounded-md text-white top-3 right-3 m-0">
+      <p className="absolute bg-black bg-opacity-75 px-2 py-1 rounded-md text-white top-4 right-4">
         locked
       </p>
       <p className="text-3xl absolute top-1/2 left-1/2 m-0 transform -translate-x-1/2 -translate-y-1/2">

@@ -11,7 +11,7 @@ export default function Gallery(): ReactElement {
         label="home"
         path="/"
       />
-      <div className="flex-grow grid md:grid-cols-4 grid-cols-1 gap-5 max-w-6xl">
+      <div className="flex-grow grid md:grid-cols-4 grid-cols-1 gap-7 max-w-7xl">
         <ProjectGallery />
       </div>
     </Page>
