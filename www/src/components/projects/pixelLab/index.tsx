@@ -8,7 +8,7 @@ const PixelLabInfo: GalleryProjectInfo = {
   title: "Pixel Lab",
   subtitle: "CSS / SVG Exploration",
   card: () => (
-    <SimpleCard className="cursor-not-allowed rounded-lg min-h-52 relative">
+    <SimpleCard className="cursor-not-allowed rounded-lg min-h-44 relative">
       <p className="absolute bg-black bg-opacity-75 px-2 py-1 rounded-md text-white top-3 right-3 m-0">
         locked
       </p>
@@ -18,7 +18,6 @@ const PixelLabInfo: GalleryProjectInfo = {
     </SimpleCard>
   ),
   banner: () => null,
-  cardImgClass: "col-span-2 md:col-span-1",
   description: () => <PixelLab />,
   repository: "https://github.com/chanjunren/vaultusaurus",
   // Span of 8 / 12

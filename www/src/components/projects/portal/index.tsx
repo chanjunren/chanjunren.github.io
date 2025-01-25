@@ -9,7 +9,6 @@ const PortalProject: GalleryProjectInfo = {
   subtitle: "ThreeJS",
   card: "images/portal.webp",
   banner: () => <Portal />,
-  cardImgClass: "col-span-2 md:col-span-1",
   repository:
     "https://github.com/chanjunren/chanjunren.github.io/tree/master/www/src/components/projects/portal",
   description: () => (

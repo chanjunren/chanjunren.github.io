@@ -12,7 +12,7 @@ const SimpleCard: FC<PropsWithChildren<HoverCardProps>> = ({
   return (
     <div
       onClick={onClick}
-      className={`${className} rounded-md bg-[var(--gray-transparent-bg)]`}
+      className={`${className} rounded-md bg-[var(--gray-transparent-bg)] h-full`}
     >
       {children}
     </div>

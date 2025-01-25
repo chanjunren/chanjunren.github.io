@@ -5,7 +5,6 @@ export type ProjectInfo = {
 };
 
 export type GalleryCard = {
-  cardImgClass?: string;
   onClick: () => void;
   info: GalleryProjectInfo;
 };
@@ -14,9 +13,9 @@ export type GalleryProjectInfo = {
   id: string;
   banner?: React.FC; // What is shown in the spotlight when gallery card is selected
   card: string | React.FC<GalleryCustomCard>;
+  containerCss?: string;
   title: string;
   subtitle: string;
-  cardImgClass?: string;
   description: React.FC;
   repository: string;
   extraButtons?: React.FC<PropsWithClassName>;
