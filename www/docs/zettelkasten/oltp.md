@@ -1,11 +1,20 @@
-🗓️ 01112024 2102
+****🗓️ 01112024 2102
 📎 #data_processing
 
 # online_transactional_processing
 
 ```ad-tldr
-Type of data processing for large number of concurrent transactions
+Type of data processing for large number of **concurrent transactions**
+
+Typically user facing
 ```
+
+## Access Pattern
+
+> Usually only touch a small number of records in one query
+
+- Application requests records using some kind of key, and the storage engine uses an index to find the data for the requested key
+- Disk seek time is often the bottleneck
 
 ## Requirements
 | Requirement                             | Description                                                           |

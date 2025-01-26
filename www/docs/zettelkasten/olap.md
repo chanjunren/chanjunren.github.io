@@ -3,6 +3,14 @@
 
 # online_analytical_processing
 
+## Access Pattern
+- Much lower volume of requests compared to [[oltp]]
+- Each query usually much more demanding (many million of records scanned in a short time)
+- Primarily used by BAs, not users
+
+
+## Dump
+- Disk bandwidth is often the bottleneck
 
 ## **How does OLAP work?** 
 1. **Collection** -  OLAP server collects data from multiple data sources (RDBs / Data warehouses)
@@ -17,7 +25,7 @@
 | OLAP Cube                          | **Data structure** to organise / analyse large volumes of data (Optimised for quick and complex analytical queries) |
 | Multidimensional Expressions (MDX) | **Queries** for manipulating DBs                                                                                    |
 
-## OLAP types
+## Types
 
 ### Multidimensional online analytical processing (MOLAP)
 
