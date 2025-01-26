@@ -3,23 +3,22 @@
 
 # data_models
 
-## **Hierarchical Model**
+## Hierarchical Model
 
-- **Description:** Represents data as one big tree.
+> Represents data as one big tree.
+
 - **Use Case:** Organizational charts, file systems.
 - **Strengths:**
-    - Simple to understand and implement.
-    - Effective for strictly hierarchical data.
+    - Simple to understand and implement
+    - Effective for strictly hierarchical data
 - **Weaknesses:**
-    - Poor at handling many-to-many relationships.
+    - Poor at handling **many-to-many** relationships
     - Changes to hierarchy require schema changes.
 - **Example:** IBM IMS, Windows Registry.
 
----
+## Relational Model
 
-## **Relational Model**
-
-- **Description:** Based on a structured schema of tables, designed to address the limitations of the hierarchical model.
+> Based on a structured schema of tables, designed to address the limitations of the hierarchical model
 - **Use Case:** E-commerce platforms, banking systems.
 - **Strengths:**
     - Flexible and widely used.
@@ -29,11 +28,9 @@
     - Joins can be a bottleneck in large datasets.
 - **Example:** PostgreSQL, MySQL, Oracle.
 
----
+## Non-Relational Models
 
-## **Non-Relational Models**
-
-### **Document Model**
+### Document Model
 
 - **Description:** Data is stored as self-contained documents (e.g., JSON, BSON).
 - **Use Case:** Product catalogs, content management systems.
@@ -44,9 +41,10 @@
     - Relationships between documents are harder to enforce.
 - **Example:** MongoDB, Couchbase.
 
-### **Graph Model**
+### Graph Model
 
-- **Description:** Designed for highly connected data with complex relationships (nodes and edges).
+> Designed for highly connected data with complex relationships (nodes and edges)
+
 - **Use Case:** Social networks, recommendation systems, fraud detection.
 - **Strengths:**
     - Efficient for traversing relationships.
@@ -54,8 +52,6 @@
 - **Weaknesses:**
     - Less mature and standardized than relational databases.
 - **Example:** Neo4j, JanusGraph.
-
----
 
 ## **Transition to Non-Relational Models**
 
