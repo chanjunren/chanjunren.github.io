@@ -1,7 +1,7 @@
 🗓️ 03092024 1125
 📎 
 
-# db_pool_suspension
+# pool_suspension
 
 ```ad-abstract
 In the context of connection pools, like HikariCP, refers to a feature or mechanism that allows the pool to temporarily stop serving new connections without immediately shutting down the pool or discarding all existing connections

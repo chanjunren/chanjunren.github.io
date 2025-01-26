@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "e51cc8b72a7ab361",
+        "id": "c570740602e4228a",
         "type": "tabs",
         "children": [
           {
-            "id": "7ba66801dc50adf9",
+            "id": "2ada8ee0a4d2e056",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "zettelkasten/sstables.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "sstables"
             }
           }
         ]
@@ -159,11 +163,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "7ba66801dc50adf9",
+  "active": "2ada8ee0a4d2e056",
   "lastOpenFiles": [
-    "zettelkasten/olap.md",
-    "zettelkasten/data_models.md",
     "zettelkasten/db_disk_management.md",
+    "zettelkasten/lsm_trees.md",
+    "zettelkasten/sstables.md",
+    "zettelkasten/hash_indexes.md",
+    "zettelkasten/pool_suspension.md",
+    "zettelkasten/data_models.md",
+    "zettelkasten/olap.md",
     "zettelkasten/oltp.md",
     "zettelkasten/flink_state.md",
     "zettelkasten/flink_keyed_streams.md",
@@ -183,10 +191,6 @@
     "zettelkasten/spring_boot_application_lifecycle.md",
     "zettelkasten/datastream_api.md",
     "zettelkasten/stream_processing_semantics.md",
-    "zettelkasten/kerberos.md",
-    "zettelkasten/gemini_state_backend.md",
-    "zettelkasten/flink_watermarks.md",
-    "zettelkasten/flink_data_pipelines_etl.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
