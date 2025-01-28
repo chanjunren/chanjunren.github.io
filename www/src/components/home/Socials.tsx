@@ -5,7 +5,7 @@ import {
 } from "@radix-ui/react-icons";
 import HomeButton from "../common/HomeButton";
 
-const LogoProps = "text-[var(--ifm-font-color-base)] h-4 w-4";
+const LogoProps = "text-[var(--ifm-font-color-base)] h-5 w-5";
 
 export default function Socials() {
   return (
