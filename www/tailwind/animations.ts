@@ -2,7 +2,7 @@ import { Config } from "tailwindcss";
 
 export const TAILWIND_ANIMATIONS: Config["theme"]["animations"] = {
   typewriter:
-    "typewriter 1s steps(var(--text-length)) forwards, borderBlink 1.5s infinite",
+    "typewriter 1s steps(var(--text-length)) forwards, borderBlink 3s infinite",
   handwave: "handwave 1s ease-in-out",
 };
 
