@@ -1,8 +1,9 @@
-import { ArchiveIcon, ImageIcon } from "@radix-ui/react-icons";
+import { ImageIcon } from "@radix-ui/react-icons";
 import { Separator } from "@radix-ui/react-separator";
 import homeWallpaper from "@site/static/images/wallpaper.webp";
 import { ReactElement } from "react";
 import HomeButton from "../components/common/HomeButton";
+import { LeafIcon } from "../components/common/Icons";
 import Page from "../components/common/Page";
 import Socials from "../components/home/Socials";
 export default function Home(): ReactElement {
@@ -17,14 +18,10 @@ export default function Home(): ReactElement {
           <HomeButton link="/about" main={"我"} subtitle="whoami" />
           <HomeButton
             link="/docs/zettelkasten"
-            main={<ArchiveIcon />}
+            main={<LeafIcon className="w-4 h-4" />}
             subtitle="digital garden"
           />
-          <HomeButton
-            link="/gallery"
-            main={<ImageIcon />}
-            subtitle="stuff i did"
-          />
+          <HomeButton link="/gallery" main={<ImageIcon />} subtitle="gallery" />
           <Separator className="separatorRoot w-5" orientation="horizontal" />
           <Socials />
         </div>
