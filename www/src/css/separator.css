@@ -1,6 +1,6 @@
 .separatorRoot[data-orientation='horizontal'] {
   height: 1px;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .separatorRoot[data-orientation='vertical'] {

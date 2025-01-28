@@ -3,20 +3,33 @@ import {
   GitHubLogoIcon,
   LinkedInLogoIcon,
 } from "@radix-ui/react-icons";
-import * as Tooltip from "@radix-ui/react-tooltip";
-import CardButton from "../common/CardButton";
+import HomeButton from "../common/HomeButton";
 
-const LogoProps = "text-[var(--ifm-font-color-base)] h-5 w-5";
+const LogoProps = "text-[var(--ifm-font-color-base)] h-4 w-4";
 
 export default function Socials() {
   return (
-    <div className="grid grid-cols-3 justify-center gap-2">
-      <CardButton
-        extraProps="hover:translate-y-1"
-        externalLink="https://www.github.com/chanjunren"
-        graphic={<GitHubLogoIcon className={LogoProps} />}
+    <>
+      <HomeButton
+        link="https://www.github.com/chanjunren"
+        subtitle="github"
+        external
+        main={<GitHubLogoIcon className={LogoProps} />}
       />
-      <CardButton
+      <HomeButton
+        link="https://www.linkedin.com/in/jun-ren-chan-90240a175/"
+        subtitle="linkedin"
+        external
+        main={<LinkedInLogoIcon className={LogoProps} />}
+      />
+      <HomeButton
+        link="/documents/resume.pdf"
+        subtitle="resume"
+        external
+        main={<BackpackIcon className={LogoProps} />}
+      />
+
+      {/* <CardButton
         extraProps="hover:translate-y-1"
         externalLink="https://www.linkedin.com/in/jun-ren-chan-90240a175/"
         graphic={<LinkedInLogoIcon className={LogoProps} />}
@@ -43,7 +56,7 @@ export default function Socials() {
             </Tooltip.Content>
           </Tooltip.Portal>
         </Tooltip.Root>
-      </Tooltip.Provider>
-    </div>
+      </Tooltip.Provider> */}
+    </>
   );
 }
