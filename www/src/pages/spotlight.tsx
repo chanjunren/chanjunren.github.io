@@ -9,13 +9,17 @@ const Spotlight: FC = () => {
   const { selectedProject } = useGallery();
 
   return (
-    <Page title={"spotlight"} description="Hello! Welcome to my digital garden">
+    <Page
+      title={"spotlight"}
+      description="Hello! Welcome to my digital garden"
+      className="lg:max-w-5xl flex flex-col justify-start gap-10"
+    >
       <RedirectButton className="self-start" label="gallery" path="/gallery" />
       {selectedProject !== null ? (
-        <div className="flex-grow flex flex-col w-full justify-start gap-10">
+        <>
           <selectedProject.banner />
           <ProjectInfo {...selectedProject} />
-        </div>
+        </>
       ) : (
         <BuildingInProgress />
       )}
