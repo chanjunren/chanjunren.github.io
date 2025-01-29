@@ -7,9 +7,13 @@ import Work from "../components/home/Work";
 
 export default function About(): ReactElement {
   return (
-    <Page title={"about"} description="Hello! Welcome to my digital garden">
-      <RedirectButton className="self-start mb-5" label="home" path="/" />
-      <div className="grid md:grid-cols-2 items-center flex-grow gap-10 pb-10">
+    <Page
+      className="flex flex-col"
+      title={"about"}
+      description="Hello! Welcome to my digital garden"
+    >
+      <RedirectButton className="mb-10" label="home" path="/" />
+      <div className="grid md:grid-cols-2 flex-grow items-center self-center">
         <div>
           <Work />
           <Education />

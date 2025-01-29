@@ -2,26 +2,30 @@ import Layout from "@theme/Layout";
 import { FC, PropsWithChildren, ReactElement } from "react";
 import LitFooter from "./LitFooter";
 
-type PageProps = {
+type IPage = {
   title: string;
   description?: string;
   footer?: ReactElement;
+  className?: string;
 };
-const Page: FC<PropsWithChildren<PageProps>> = ({
+
+const Page: FC<PropsWithChildren<IPage>> = ({
   title,
   description = "Hi there! I'm Jun Ren",
   children,
   footer = <LitFooter />,
+  className,
 }) => {
   return (
-    <Layout title={title} description={description}>
-      <main
-        id="view-transition-container"
-        className="flex flex-col justify-between min-h-screen-minus-navbar p-7 items-center gap-10"
-      >
+    <Layout
+      wrapperClassName="flex flex-col justify-between min-h-screen-minus-navbar p-7 items-center gap-10"
+      title={title}
+      description={description}
+    >
+      <main className={`lg:max-w-5xl w-full flex-grow ${className}`}>
         {children}
-        {footer}
       </main>
+      {footer}
     </Layout>
   );
 };
