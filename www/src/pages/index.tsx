@@ -1,5 +1,4 @@
-import { ImageIcon } from "@radix-ui/react-icons";
-import { Separator } from "@radix-ui/react-separator";
+import { DividerHorizontalIcon, ImageIcon } from "@radix-ui/react-icons";
 import homeWallpaper from "@site/static/images/wallpaper.webp";
 import { ReactElement } from "react";
 import HomeButton from "../components/common/HomeButton";
@@ -34,7 +33,8 @@ export default function Home(): ReactElement {
           main={<ImageIcon className="w-5 h-5" />}
           subtitle="gallery"
         />
-        <Separator className="separatorRoot w-5" orientation="horizontal" />
+        {/* <Separator className="separatorRoot w-5" orientation="horizontal" /> */}
+        <DividerHorizontalIcon className="opacity-30" />
         <Socials />
       </div>
     </Page>
