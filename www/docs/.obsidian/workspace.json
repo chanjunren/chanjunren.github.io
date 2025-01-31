@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/hologres_architecture.md",
+                "file": "zettelkasten/hologres_indexes.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/hologres_architecture.md",
+                "file": "zettelkasten/hologres_indexes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/hologres_architecture.md",
+                "file": "zettelkasten/hologres_indexes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/hologres_architecture.md"
+                "file": "zettelkasten/hologres_indexes.md"
               }
             }
           }
@@ -148,12 +148,13 @@
   },
   "active": "3deaf98f8c54e2b9",
   "lastOpenFiles": [
+    "zettelkasten/hologres_architecture.md",
+    "zettelkasten/hologres_indexes.md",
     "zettelkasten/hologres.md",
     "zettelkasten/pangu.md",
     "zettelkasten/column_oriented_storage.md",
     "zettelkasten/row_oriented_storage.md",
     "zettelkasten/oltp.md",
-    "zettelkasten/hologres_architecture.md",
     "zettelkasten/storage_computing_architectures.md",
     "zettelkasten/storage_disaggregation_architecture.md",
     "zettelkasten/compute_storage_separation_architecture.md",
@@ -173,7 +174,6 @@
     "zettelkasten/flink_state.md",
     "zettelkasten/kubernetes.md",
     "zettelkasten/flink_side_outputs.md",
-    "zettelkasten/flink_process_functions.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
