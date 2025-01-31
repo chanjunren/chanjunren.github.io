@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
+import NavButton from "../components/common/NavButton";
 import Page from "../components/common/Page";
-import RedirectButton from "../components/common/RedirectButton";
 import ProjectGallery from "../components/projects/ProjectGallery";
 
 export default function Gallery(): ReactElement {
@@ -10,7 +10,7 @@ export default function Gallery(): ReactElement {
       description="Hello! Welcome to my digital garden"
       className="flex-grow"
     >
-      <RedirectButton
+      <NavButton
         className="md:col-span-2 self-start mb-5"
         label="home"
         path="/"
