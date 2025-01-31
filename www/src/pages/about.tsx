@@ -8,12 +8,12 @@ import Work from "../components/home/Work";
 export default function About(): ReactElement {
   return (
     <Page
-      className="flex flex-col"
+      className="flex flex-col justify-center"
       title={"about"}
       description="Hello! Welcome to my digital garden"
     >
       <RedirectButton className="mb-10" label="home" path="/" />
-      <div className="grid md:grid-cols-2 flex-grow items-center self-center">
+      <div className="grid md:grid-cols-2 items-center self-center">
         <div>
           <Work />
           <Education />

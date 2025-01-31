@@ -89,7 +89,7 @@ const config: Config = {
     [
       docusaurusPluginVaultusaurus,
       {
-        ignoredGraphTags: ["wip"],
+        ignoredGraphTags: ["wip", "backend"],
         graphStyle: {
           graphBg: "#232136",
           defaultColor: "#e0def4",
