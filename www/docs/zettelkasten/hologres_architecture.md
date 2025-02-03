@@ -20,25 +20,7 @@ Hologres is ecologically compatible with PostgreSQL 11. You can use the standard
 ```
         
 ### HoloWorker
-#### Hologres Query Engine (HQE)
-> main module of Hologres QE
-- Uses a scalable Massively Parallel Processing (MPP) architecture to implement full parallel computing
-- Uses vectorization operators to make maximum use of CPUs and achieve ultimate query performance. HQE is the 
-
-####  PostgreSQL Query Engine (PQE)
-> provides compatibility with PostgreSQL
-
-- PQE supports a variety of PostgreSQL extensions, such as PostGIS and user-defined functions (UDFs) that are written in PL/Java, PL/SQL, or PL/Python
-- The functions and operators that are not supported by HQE can be executed by using PQE
-- HQE has been continuously optimized in each version
-- The final goal is to integrate all features of PQE.
-
-#### Seahawks Query Engine (SQE)
-> Allows Hologres to seamlessly connect to MaxCompute
-
-- Provides high-performance access to all types of MaxCompute files, **without the need to migrate or import data**
-- Also allows Hologres to access complex tables such as hash tables and range-clustered tables, and implement interactive analysis of PB-level batch data.
-
+#### [[hologres_qe]]
 #### SE
 - SE manages and processes data
 - Allows you to perform create, read, update, and delete (CRUD) operations on data
