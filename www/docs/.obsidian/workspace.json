@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "567772fded765140",
+        "id": "45bf314dda8426b4",
         "type": "tabs",
         "children": [
           {
-            "id": "dbedd31f0d892842",
+            "id": "017ae51ad9826ad6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/hologres_storage_modes.md",
+                "file": "zettelkasten/class_loading.md",
                 "mode": "source",
                 "source": false
               }
@@ -87,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/hologres_storage_modes.md",
+                "file": "zettelkasten/class_loading.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/hologres_storage_modes.md",
+                "file": "zettelkasten/class_loading.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/hologres_storage_modes.md"
+                "file": "zettelkasten/class_loading.md"
               }
             }
           }
@@ -148,20 +148,24 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "dbedd31f0d892842",
+  "active": "017ae51ad9826ad6",
   "lastOpenFiles": [
-    "zettelkasten/hologres_sql_optimization.md",
+    "zettelkasten/hologres_clustering_key.md",
+    "zettelkasten/class_loading.md",
+    "zettelkasten/view.md",
+    "zettelkasten/materialized_view.md",
+    "zettelkasten/hologres_specific_tables.md",
+    "zettelkasten/hologres_qe.md",
     "zettelkasten/hologres_storage_modes.md",
+    "zettelkasten/hologres_sql_optimization.md",
     "zettelkasten/hologres_table_creation_best_practises.md",
     "zettelkasten/hologres_shard.md",
     "zettelkasten/hologres_indexes.md",
     "zettelkasten/hologres_worker_compute_nodes.md",
     "zettelkasten/hologres_storage_engine.md",
-    "zettelkasten/hologres_clustering_key.md",
     "zettelkasten/hologres_distribution_key.md",
     "zettelkasten/hologres_table_group.md",
     "zettelkasten/data_skew.md",
-    "zettelkasten/hologres_qe.md",
     "zettelkasten/hologres_architecture.md",
     "zettelkasten/hologres.md",
     "zettelkasten/materialization.md",
@@ -172,10 +176,6 @@
     "zettelkasten/procedural_programming.md",
     "zettelkasten/object_oriented_programming.md",
     "zettelkasten/logic_programming.md",
-    "zettelkasten/imperative_programming.md",
-    "zettelkasten/functional_programming.md",
-    "zettelkasten/flutter_dump.md",
-    "zettelkasten/event_driven_programming.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
