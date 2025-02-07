@@ -1,5 +1,5 @@
 import BrowserOnly from "@docusaurus/BrowserOnly";
-import LocalGraph from "@theme/LocalGraph";
+import VaultusaurusGraph from "@theme/VaultusaurusGraph";
 import { ReactElement } from "react";
 
 export default function VaultusaurusDemo({ onClick }): ReactElement {
@@ -13,7 +13,7 @@ export default function VaultusaurusDemo({ onClick }): ReactElement {
       </p>
       <BrowserOnly>
         {() => (
-          <LocalGraph
+          <VaultusaurusGraph
             customGraph={{
               links: [
                 {
