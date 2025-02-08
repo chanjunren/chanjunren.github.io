@@ -49,7 +49,7 @@ const HobbyCard: FC<HobbyCardProps> = ({
         className={`overflow-hidden rounded-md transition-all relative items-center justify-center`}
       >
         {!playing && (
-          <PlayIcon className="bg-black bg-opacity-80 rounded-md text-white absolute left-1/2 top-1/2 z-10 p-1 h-6 w-6 -translate-x-1/2 -translate-y-1/2 cursor-pointer" />
+          <PlayIcon className="bg-gray-700 backdrop-blur-sm bg-opacity-5 rounded-md text-white absolute left-1/2 top-1/2 z-10 p-1 h-6 w-6 -translate-x-1/2 -translate-y-1/2 cursor-pointer" />
         )}
         <video
           className={`rounded-md aspect-square shadow-md ${
