@@ -20,7 +20,7 @@ const HomeButton: FC<IHomeButton> = ({
 
   return (
     <a
-      className={`!no-underline !text-[var(--ifm-font-color-base)] text-center flex items-center ${className} md:min-w-48`}
+      className={`rounded-md w-48 !no-underline !text-[var(--ifm-font-color-base)] text-center flex items-center ${className} md:p-0 md:bg-transparent p-3 bg-gray-600 bg-opacity-10 backdrop-blur-md`}
       href={link}
       target={external ? "_blank" : "_self"}
       onMouseEnter={() => setHover(true)}
@@ -34,6 +34,7 @@ const HomeButton: FC<IHomeButton> = ({
           text={subtitle}
         />
       )}
+      {subtitle && <span className="ml-3 block md:hidden">{subtitle}</span>}
     </a>
   );
 };
