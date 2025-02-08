@@ -1,9 +1,9 @@
 :root {
-  --ifm-font-size-base: 93.5%;
+  --ifm-font-size-base: 80%;
   /* --ifm-heading-font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; */
-  --ifm-heading-font-family: "Ubuntu Mono", serif;
+  --ifm-heading-font-family: "JetBrains Mono", serif;
 
-  --gray-transparent-bg: rgba(86, 82, 110, 0.1);
+  --gray-transparent-bg: rgba(86, 82, 110, 0.05);
 }
 
 :root {
