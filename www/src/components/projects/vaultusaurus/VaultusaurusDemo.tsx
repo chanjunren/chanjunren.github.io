@@ -15,6 +15,7 @@ export default function VaultusaurusDemo({ onClick }): ReactElement {
         {() => (
           <VaultusaurusGraph
             expandable={false}
+            enableGlobalGraph={false}
             customGraph={{
               links: [
                 {
