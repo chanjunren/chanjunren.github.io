@@ -22,7 +22,7 @@ const Page: FC<PropsWithChildren<IPage>> = ({
       title={title}
       description={description}
     >
-      <main className={`lg:max-w-5xl w-full flex-grow ${className}`}>
+      <main className={`lg:max-w-6xl w-full flex-grow ${className}`}>
         {children}
       </main>
       {footer}

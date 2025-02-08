@@ -12,7 +12,7 @@ export default function About(): ReactElement {
       title={"about"}
       description="Hello! Welcome to my digital garden"
     >
-      <NavButton className="mb-10" label="home" path="/" />
+      <NavButton className="mb-10 justify-self-start" label="home" path="/" />
       <div className="grid md:grid-cols-2 items-center self-center">
         <div>
           <Work />
