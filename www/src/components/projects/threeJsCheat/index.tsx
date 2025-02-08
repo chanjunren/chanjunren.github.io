@@ -5,7 +5,7 @@ const ThreeJSCheat: GalleryProjectInfo = {
   id: "threeJsLab",
   title: "ThreeJS Cheat Sheet",
   subtitle: "threeJS",
-  containerCss: "lg:col-span-3",
+  containerCss: "md:col-span-3",
   card: () => (
     <SimpleCard className="cursor-not-allowed rounded-lg relative">
       <p className="absolute bg-black bg-opacity-75 px-2 py-1 rounded-md text-white top-3 right-3 m-0">

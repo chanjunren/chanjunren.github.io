@@ -11,13 +11,13 @@ export default function Home(): ReactElement {
     <Page
       title={"home"}
       description="Hello! Welcome to my digital garden"
-      className="flex-grow gap-3 flex justify-center items-center relative"
+      className="flex-grow gap-10 md:gap-3 flex flex-col md:flex-row justify-center items-center relative"
     >
       <img
-        className="rounded-lg md:w-96 md:h-96 w-64 h-72 overflow-hidden absolute"
+        className="rounded-lg md:w-96 md:h-96 overflow-hidden md:absolute aspect-square"
         src={homeWallpaper}
       />
-      <div className="flex flex-col md:gap-7 gap-6 items-start justify-center md:left-80 left-40 relative">
+      <div className="md:flex md:flex-col md:gap-7 md:left-80 md:relative grid grid-cols-2 gap-5">
         <HomeButton
           link="/about"
           main={<span className="text-lg align-middle text-center">我</span>}
@@ -34,7 +34,7 @@ export default function Home(): ReactElement {
           subtitle="gallery"
         />
         {/* <Separator className="separatorRoot w-5" orientation="horizontal" /> */}
-        <DividerHorizontalIcon className="opacity-30" />
+        <DividerHorizontalIcon className="opacity-30 hidden md:block" />
         <Socials />
       </div>
     </Page>
