@@ -1,5 +1,5 @@
 :root {
-  --ifm-font-size-base: 77%;
+  --ifm-font-size-base: 80%;
   /* --ifm-heading-font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; */
   --ifm-heading-font-family: "JetBrains Mono", serif;
 
@@ -68,6 +68,12 @@ main {
   align-content: center;
 }
 
+
+.navbar__logo > svg {
+  width: 30px !important;
+  height: 30px !important;
+}
+
 .navbar__item {
   border-radius: 0.5rem;
   padding-top: 0.25rem;
@@ -119,6 +125,7 @@ nav.navbar.navbar--fixed-top {
     max-width: 60% !important;
   }
 }
+
 .col--3 {
   --ifm-col-width: 33% !important;
 }
