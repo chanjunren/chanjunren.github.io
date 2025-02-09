@@ -33,7 +33,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.23.0",
     "three": "^0.165.0",
-    "vaultusaurus": "^2.0.5"
+    "vaultusaurus": "^2.0.12"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.7.0",

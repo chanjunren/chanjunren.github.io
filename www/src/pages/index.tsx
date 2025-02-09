@@ -14,7 +14,7 @@ export default function Home(): ReactElement {
       className="flex-grow gap-10 md:gap-3 flex flex-col md:flex-row justify-center items-center relative"
     >
       <img
-        className="rounded-lg md:w-96 md:h-96 overflow-hidden md:absolute aspect-square"
+        className="rounded-lg md:w-96 md:h-96 overflow-hidden md:absolute aspect-square shadow-md"
         src={homeWallpaper}
       />
       <div className="md:flex md:flex-col md:gap-7 md:left-80 md:relative grid grid-cols-2 gap-5">
