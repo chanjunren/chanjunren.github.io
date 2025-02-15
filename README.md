@@ -16,9 +16,9 @@ No one asked but information about me and a (hopefully) cool landing page
 
 ### [🗃️ zettelkasten](https://www.youtube.com/watch?v=E6ySG7xYgjY&t)
 
-dump of my personal notes for my own reference when I forget stuff :P
+dump of my personal notes for my own reference
 
-### 🎨 workspace (wip)
+### 🎨 workspace
 
 mini projects that I'm quite proud of >:D
 
