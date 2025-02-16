@@ -36,7 +36,15 @@ export default function PortalScene() {
 
   return (
     <>
-      <OrbitControls makeDefault />
+      <OrbitControls
+        minPolarAngle={Math.PI / 4}
+        maxPolarAngle={Math.PI / 2}
+        minAzimuthAngle={-Math.PI / 4}
+        maxAzimuthAngle={Math.PI / 4}
+        enableDamping
+        dampingFactor={0.05}
+        makeDefault
+      />
       {/* <color args={["#1f1414"]} attach="background" /> */}
       <Center>
         <PortalMesh portal={portal} texture={bakedTexture} />
