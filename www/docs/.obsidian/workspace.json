@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "e1a70336f1bdd153",
+        "id": "6dc31acd17ac1d66",
         "type": "tabs",
         "children": [
           {
-            "id": "2633bfcf3550579e",
+            "id": "cae8268b1019e176",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zettelkasten/css_animation.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "css_animation"
+              "title": "New tab"
             }
           }
         ]
@@ -40,7 +36,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -52,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#javascript_build",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -93,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/css_animation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for css_animation"
+              "title": "Backlinks"
             }
           },
           {
@@ -112,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/css_animation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from css_animation"
+              "title": "Outgoing links"
             }
           },
           {
@@ -127,7 +122,9 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "Tags"
@@ -139,10 +136,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/css_animation.md"
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of css_animation"
+              "title": "Outline"
             }
           }
         ]
@@ -162,34 +161,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2633bfcf3550579e",
+  "active": "cae8268b1019e176",
   "lastOpenFiles": [
-    "zettelkasten/bash_dump.md",
-    "zettelkasten/apm_metrics.md",
-    "zettelkasten/b_plus_tree.md",
-    "zettelkasten/aliyun_canal_overview.md",
+    "zettelkasten/css_siml.md",
+    "zettelkasten/css_animation.md",
     "zettelkasten/svg_primitives.md",
     "zettelkasten/svg_foundations.md",
     "zettelkasten/vim.md",
-    "zettelkasten/class_loading.md",
-    "zettelkasten/hologres_clustering_key.md",
     "zettelkasten/view.md",
+    "zettelkasten/vectorization.md",
+    "zettelkasten/type_systems.md",
+    "zettelkasten/storage_disaggregation_architecture.md",
+    "zettelkasten/storage_computing_architectures.md",
+    "zettelkasten/sstables.md",
+    "zettelkasten/row_oriented_storage.md",
+    "zettelkasten/programming_paradigms.md",
+    "zettelkasten/procedural_programming.md",
+    "zettelkasten/pool_suspension.md",
+    "zettelkasten/pangu.md",
+    "zettelkasten/object_oriented_programming.md",
+    "zettelkasten/mysql_column_data_size.md",
     "zettelkasten/materialized_view.md",
-    "zettelkasten/hologres_specific_tables.md",
-    "zettelkasten/hologres_qe.md",
-    "zettelkasten/hologres_storage_modes.md",
-    "zettelkasten/hologres_sql_optimization.md",
-    "zettelkasten/hologres_table_creation_best_practises.md",
-    "zettelkasten/hologres_shard.md",
-    "zettelkasten/hologres_indexes.md",
-    "zettelkasten/hologres_worker_compute_nodes.md",
-    "zettelkasten/hologres_storage_engine.md",
-    "zettelkasten/hologres_distribution_key.md",
-    "zettelkasten/hologres_table_group.md",
-    "zettelkasten/data_skew.md",
-    "zettelkasten/hologres_architecture.md",
-    "zettelkasten/hologres.md",
     "zettelkasten/materialization.md",
+    "zettelkasten/lsm_trees.md",
+    "zettelkasten/logic_programming.md",
+    "zettelkasten/imperative_programming.md",
+    "zettelkasten/hologres_worker_compute_nodes.md",
+    "zettelkasten/hologres_table_group.md",
+    "zettelkasten/hologres_table_creation_best_practises.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",

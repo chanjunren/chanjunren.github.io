@@ -45,15 +45,17 @@ The `<animate>` element allows you to animate properties of an SVG element.
 
 ## Possible `begin` Mouse Events
 
-|**Mouse Event**|**Description**|
-|---|---|
-|`click`|Starts animation when the element is clicked.|
-|`mousedown`|Starts animation when the mouse button is pressed.|
-|`mouseup`|Starts animation when the mouse button is released.|
-|`mouseover`|Starts animation when the mouse enters the element.|
-|`mouseout`|Starts animation when the mouse leaves the element.|
-|`mousemove`|Starts animation when the mouse moves over the element.|
-
+| **Mouse Event** | **Description**                                         |
+| --------------- | ------------------------------------------------------- |
+| `click`         | element is clicked                                      |
+| `mousedown`     | when the mouse button is pressed                        |
+| `mouseup`       | when the mouse button is released                       |
+| `mouseover`     | when mouse enters - bubbles                             |
+| `mouseout`      | when mouse leaves - bubbles                             |
+| `mouseenter`    | when mouse enters - no bubbles                          |
+| `mouseleave`    | when mouse leaves - no bubbles                          |
+| `mousemove`     | Starts animation when the mouse moves over the element. |
+> bubbles - triggered for the element and all its nested elements
 ## Chaining animations
 
 ```xml
