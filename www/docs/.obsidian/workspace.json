@@ -11,10 +11,14 @@
             "id": "cae8268b1019e176",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "zettelkasten/innodb_transaction_isolation_levels.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "innodb_transaction_isolation_levels"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "zettelkasten/innodb_transaction_isolation_levels.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for innodb_transaction_isolation_levels"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "zettelkasten/innodb_transaction_isolation_levels.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from innodb_transaction_isolation_levels"
             }
           },
           {
@@ -136,12 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "zettelkasten/innodb_transaction_isolation_levels.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of innodb_transaction_isolation_levels"
             }
           }
         ]
@@ -163,6 +170,12 @@
   },
   "active": "cae8268b1019e176",
   "lastOpenFiles": [
+    "zettelkasten/phantom_reads.md",
+    "zettelkasten/innodb_locks.md",
+    "zettelkasten/coffman_conditions.md",
+    "zettelkasten/innodb_gap_locks.md",
+    "zettelkasten/innodb_transaction_isolation_levels.md",
+    "zettelkasten/innodb_deadlocks.md",
     "zettelkasten/css_siml.md",
     "zettelkasten/css_animation.md",
     "zettelkasten/svg_primitives.md",
@@ -183,12 +196,6 @@
     "zettelkasten/mysql_column_data_size.md",
     "zettelkasten/materialized_view.md",
     "zettelkasten/materialization.md",
-    "zettelkasten/lsm_trees.md",
-    "zettelkasten/logic_programming.md",
-    "zettelkasten/imperative_programming.md",
-    "zettelkasten/hologres_worker_compute_nodes.md",
-    "zettelkasten/hologres_table_group.md",
-    "zettelkasten/hologres_table_creation_best_practises.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
