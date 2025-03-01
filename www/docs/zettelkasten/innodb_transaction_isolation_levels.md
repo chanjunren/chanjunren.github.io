@@ -22,15 +22,20 @@ Higher isolation levels offer stronger guarantees of data consistency but can al
 	- non-repeatable reads
 	- phantom reads
 
-> Rarely used in practice due to its lack of data consistency guarantees
+```ad-note
+Rarely used in practice due to its lack of data consistency guarantees
+```
 ### READ COMMITTED
-Transactions can only read committed data from other transactions.
-    - Protects against dirty reads but not against non-repeatable reads or phantom reads.
-    - Commonly used when some level of inconsistency is acceptable.
+> Transactions can only read committed data from other transactions
+- Protects against dirty reads but not against non-repeatable reads or phantom reads
+- Commonly used when some level of inconsistency is acceptable
 	
 ### REPEATABLE READ 
-- Inno_DB's default 
-- Transactions see a consistent snapshot of the data as it existed at the start of the transaction.
+> Transactions see a consistent snapshot of the data as it existed at the start of the transaction
+
+```ad-note
+Inno_DB's default
+```
 - Protects against 
 	- dirty reads 
 	- non-repeatable reads 
@@ -39,8 +44,7 @@ Transactions can only read committed data from other transactions.
 - A good balance between **consistency** and **concurrency** for many applications
 
 ### SERIALIZABLE
-    
-- Transactions executed as if they were running serially
+> Transactions executed as if they were running serially
 - Provides the **highest** level of consistency 
 - Protects against all concurrency issues.
 - Can **significantly impact performance** due to 
