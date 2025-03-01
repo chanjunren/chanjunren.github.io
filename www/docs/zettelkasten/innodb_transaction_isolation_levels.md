@@ -3,14 +3,19 @@
 
 # innodb_transaction_isolation_levels
 
+```ad-summary
 Define the degree to which a transaction is isolated from the effects of other concurrent transactions
+```
 
+
+```ad-note
 Higher isolation levels offer stronger guarantees of data consistency but can also lead to increased locking and the potential for deadlocks.
+```
 
 ## Isolation Levels
 
 ### READ UNCOMMITTED
-Transactions can read uncommitted changes made by other transactions.
+> Transactions can read uncommitted changes made by other transactions.
 - Lowest isolation level 
 - Offers **no protection** against
 	- dirty reads
@@ -42,7 +47,7 @@ Transactions can only read committed data from other transactions.
 	- Increased locking 
 	- Potential for deadlocks
 
-### How Isolation Levels Affect Deadlocks
+## How Isolation Levels Affect Deadlocks
 - **Higher Isolation Levels:** 
 	- Generally lead to more locking
 	- Increased likelihood of deadlocks
