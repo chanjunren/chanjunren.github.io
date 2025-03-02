@@ -13,12 +13,10 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/innodb_transaction_isolation_levels.md",
+                "file": "zettelkasten/netty.md",
                 "mode": "source",
                 "source": false
-              },
-              "icon": "lucide-file",
-              "title": "innodb_transaction_isolation_levels"
+              }
             }
           }
         ]
@@ -40,11 +38,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
+                "sortOrder": "alphabetical"
+              }
             }
           },
           {
@@ -59,9 +54,7 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-search",
-              "title": "Search"
+              }
             }
           },
           {
@@ -69,9 +62,7 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "state": {}
             }
           }
         ]
@@ -94,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/innodb_transaction_isolation_levels.md",
+                "file": "zettelkasten/netty.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,9 +93,7 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for innodb_transaction_isolation_levels"
+              }
             }
           },
           {
@@ -113,12 +102,10 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/innodb_transaction_isolation_levels.md",
+                "file": "zettelkasten/netty.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from innodb_transaction_isolation_levels"
+              }
             }
           },
           {
@@ -128,12 +115,8 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
+                "useHierarchy": true
+              }
             }
           },
           {
@@ -142,13 +125,8 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/innodb_transaction_isolation_levels.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of innodb_transaction_isolation_levels"
+                "file": "zettelkasten/netty.md"
+              }
             }
           }
         ]
@@ -170,11 +148,11 @@
   },
   "active": "cae8268b1019e176",
   "lastOpenFiles": [
+    "zettelkasten/innodb_transaction_isolation_levels.md",
     "zettelkasten/phantom_reads.md",
     "zettelkasten/innodb_locks.md",
     "zettelkasten/coffman_conditions.md",
     "zettelkasten/innodb_gap_locks.md",
-    "zettelkasten/innodb_transaction_isolation_levels.md",
     "zettelkasten/innodb_deadlocks.md",
     "zettelkasten/css_siml.md",
     "zettelkasten/css_animation.md",

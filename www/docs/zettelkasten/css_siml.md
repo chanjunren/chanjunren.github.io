@@ -109,5 +109,5 @@ The `<animate>` element allows you to animate properties of an SVG element.
 ---
 # References
 - ChatGPT
-🔹 [MDN: SVG `<animate>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animate)  
-🔹 [W3C SMIL Animation Events](https://www.w3.org/TR/SVG11/animate.html#BeginAttribute)
+- [MDN: SVG `<animate>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animate)  
+- [W3C SMIL Animation Events](https://www.w3.org/TR/SVG11/animate.html#BeginAttribute)
