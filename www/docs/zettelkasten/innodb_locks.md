@@ -3,8 +3,14 @@
 
 # innodb_locks
 
+```ad-abstract
+Locking mechanisms help:
+- ensure consistency
+- prevent conflicts
+- control concurrency in transactions
+```
+
 ## row level
-Locking mechanisms help ensure consistency, prevent conflicts, and control concurrency in transactions. Here's an enhanced breakdown including **why each lock is used**.
 
 | **Lock Type**               | **Description**                                                 | **Why It’s Used (Purpose)**                                                                                      | **Example**                                             |
 | --------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
