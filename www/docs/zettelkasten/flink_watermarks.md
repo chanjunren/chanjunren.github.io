@@ -2,17 +2,18 @@
 📎
 
 # flink_watermarks
+
+```ad-summary
+Mechanism to tell flink when to **stop waiting for earlier events** and proceed with processing
+```
 ## Background
 -  **Out-of-Order Events:**
 	- Streams often contain events that arrive in an order different from when they occurred
 	- Some buffering and delay are needed to ensure correct processing order
 - **Progress Without Infinite Waiting:**
 	- To avoid waiting indefinitely for earlier events, watermarks provide a mechanism to decide when to move forward with processing.
-## Purpose
-Define when to stop waiting for earlier events and proceed with processing
 
 ## Requirements 
-
 > What is needed to process data based on event time([[flink_notions_of_time]])
 
 - Timestamp Extractor 

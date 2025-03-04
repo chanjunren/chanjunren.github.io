@@ -4,7 +4,7 @@
 # flink_process_functions
 
 ```ad-abstract
-A `ProcessFunction` combines event processing with timers and state
+A `ProcessFunction` combines event processing with timers and [[flink_state]]
 
 Basic for creating **event-driven applications** with Flink
 ```

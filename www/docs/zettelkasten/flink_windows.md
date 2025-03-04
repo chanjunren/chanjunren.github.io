@@ -12,12 +12,12 @@
 
 ## Components
 
-| Component                  | Description                                    |
-| -------------------------- | ---------------------------------------------- |
-| [[flink_window_assigners]] | Assign events to windows                       |
-| [[flink_window_functions]] | Process events in window                       |
-| Triggers                   | Determine when to process a window             |
-| Evictors                   | Remove elements from windows before processing |
+| Component                  | Description                                                        |
+| -------------------------- | ------------------------------------------------------------------ |
+| [[flink_window_assigners]] | Assign events to windows                                           |
+| [[flink_window_functions]] | Process events in window                                           |
+| Triggers                   | Trigger computation when [[flink_watermarks]] surpasses window end |
+| Evictors                   | Remove elements from windows before processing                     |
 ## Surprises 
 
 ### Sliding Windows Make Copies 

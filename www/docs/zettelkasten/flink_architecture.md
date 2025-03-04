@@ -1,4 +1,4 @@
-🗓️ 16012025 1129
+- [ ] 🗓️ 16012025 1129
 📎
 
 # flink_architecture
@@ -44,7 +44,7 @@ Represents a fixed subset of resources of the TaskManager
 - Decides when to schedule next task / set of tasks
 - Reacts to finished tasks / execution failures
 - Coordinates 
-	- Checkpoints
+	- [[flink_checkpointing]]
 	- Coordinates recovery on failures
 
 ### ResourceManager
@@ -86,16 +86,11 @@ In a standalone setup, the ResourceManager can only distribute the slots of avai
 	- increases overall throughput while decreasing latency
 - [configuring chaining behavior](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/dev/datastream/operators/overview/#task-chaining-and-resource-groups) for details.
 
-```ad-seealso
-What does chaining operators together even mean
-```
-
 The sample dataflow in the figure below is executed with five subtasks, and hence with five parallel threads.
 
 ![Operator chaining into Tasks](https://nightlies.apache.org/flink/flink-docs-release-1.17/fig/tasks_chains.svg)
 
 ## Task Slots and Resources
-
 - Each worker (TaskManager) is a _JVM process_
 - May execute one or more subtasks in separate threads
 - To control how many tasks a TaskManager accepts, it has so called **task slots** (at least one)
