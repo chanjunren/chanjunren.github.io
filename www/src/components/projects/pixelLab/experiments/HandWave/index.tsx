@@ -5,17 +5,18 @@ const Handwave: FC = () => {
   const [wave, setWave] = useState<boolean>(false);
 
   return (
-    <ExperimentBackground>
+    <ExperimentBackground
+      onMouseEnter={() => {
+        if (!wave) {
+          setWave(true);
+          setTimeout(() => {
+            setWave(false);
+          }, 1000);
+        }
+      }}
+    >
       <div
-        onMouseEnter={() => {
-          if (!wave) {
-            setWave(true);
-            setTimeout(() => {
-              setWave(false);
-            }, 1000);
-          }
-        }}
-        className={`handwave w-fit text-4xl cursor-crosshair ${
+        className={`handwave w-fit text-3xl cursor-cell ${
           wave ? "animate-handwave" : ""
         }`}
       >
