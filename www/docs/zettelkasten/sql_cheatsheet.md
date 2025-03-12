@@ -1,7 +1,27 @@
 🗓️ 19042024 1430
 📎 #sql #backend
 
-# sql_date_functions_cheatsheet
+## dump
+
+```sql
+SELECT * FROM users
+WHERE JSON_EXTRACT(CAST(details AS JSON), '$.age') > 25;
+```
+> Extracting SQL
+
+```sql
+SELECT 
+    DATE_FORMAT(FROM_UNIXTIME(task_submitted_time), '%Y-%m-%d %H:%i') AS minute, 
+    COUNT(*) AS task_count
+FROM segmentation_labeling_task_log
+WHERE task_submitted_time >= UNIX_TIMESTAMP(NOW() - INTERVAL 2 HOUR)
+GROUP BY minute
+ORDER BY minute;
+
+```
+> Handling epochs
+
+## date_functions
 
 
 ```sql
