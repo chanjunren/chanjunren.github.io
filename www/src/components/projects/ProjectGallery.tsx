@@ -1,11 +1,11 @@
 import { GalleryProjectInfo } from "@site/src/types";
 import { FC } from "react";
 import useGallery from "../home/hooks/useGallery";
-import MyOldPortfolioBaby from "./myOldPortfolioBaby";
-import PixelLabInfo from "./pixelLab";
+import ThreeJSCheat from "./3jscheatsheet";
+import MyOldPortfolioBaby from "./oldportfolio";
+import PixelLabInfo from "./pixellab";
 import PortalProject from "./portal";
 import ProjectCard from "./ProjectCard";
-import ThreeJSCheat from "./threeJsCheat";
 import VaultusaurusProject from "./vaultusaurus";
 
 export const GALLERY_PROJECTS: GalleryProjectInfo[] = [
