@@ -5,8 +5,8 @@ const ExperimentBackground: FC<
 > = ({ children, ...props }) => {
   return (
     <div
-      className="h-20 aspect-square flex items-center justify-center hover:bg-[var(--gray-transparent-bg)] rounded-md transition-all"
       {...props}
+      className={`h-20 aspect-square flex items-center justify-center hover:bg-[var(--gray-transparent-bg)] rounded-md transition-all ${props.className}`}
     >
       {children}
     </div>

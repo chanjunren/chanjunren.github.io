@@ -1,8 +1,7 @@
 import { GalleryProjectInfo } from "@site/src/types";
 import SecondaryHeader from "../../common/SecondaryHeader";
 import SimpleCard from "../../common/SimpleCard";
-import PixelLab from "./PixelLab";
-import PixelLabDescription from "./PixelLabDescription";
+import Experiments from "./Experiments";
 
 const PixelLabInfo: GalleryProjectInfo = {
   id: "pixelLab",
@@ -19,8 +18,12 @@ const PixelLabInfo: GalleryProjectInfo = {
       </p>
     </SimpleCard>
   ),
-  banner: () => <PixelLab />,
-  description: () => <PixelLabDescription />,
+  banner: () => <Experiments />,
+  description: () => (
+    <div className="flex flex-col w-full gap-5">
+      <span>Mini projects for exploring CSS / SVG related features!</span>
+    </div>
+  ),
   repository: "https://github.com/chanjunren/vaultusaurus",
   metadata: () => (
     <>
