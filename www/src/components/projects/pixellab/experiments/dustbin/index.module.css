@@ -1,0 +1,10 @@
+.dustbin:hover .lid {
+   transform: rotate(50deg);   
+   animation-fill-mode: both;
+}
+
+.dustbin .lid {
+   transform: rotate(0deg);  
+   transform-origin: 22px 12px;
+   transition: transform 0.15s ease-in;
+}
