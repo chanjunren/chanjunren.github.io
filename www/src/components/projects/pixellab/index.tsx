@@ -14,7 +14,7 @@ const PixelLabInfo: GalleryProjectInfo = {
       className="cursor-pointer rounded-lg relative"
     >
       <p className="text-3xl absolute top-1/2 left-1/2 m-0 transform -translate-x-1/2 -translate-y-1/2">
-        🪴
+        📟
       </p>
     </SimpleCard>
   ),
