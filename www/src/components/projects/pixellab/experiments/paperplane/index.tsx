@@ -28,7 +28,7 @@ const PaperPlane: FC = () => {
           setActive(true);
           setTimeout(() => {
             setActive(false);
-          }, 4000);
+          }, 5000);
         }
       }}
     >
