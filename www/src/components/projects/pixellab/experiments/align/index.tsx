@@ -8,7 +8,7 @@ const AlignIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
         stroke-linejoin="round"
         stroke-linecap="round"
         stroke="currentColor"
-        stroke-width="1.5"
+        stroke-width="0.9"
         fill="none"
       >
         <line x1="4" y1="4" x2="4" y2="20" />
