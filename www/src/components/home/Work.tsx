@@ -5,7 +5,7 @@ export default function Work() {
   //
   return (
     <section>
-      <PrimaryHeader>💼 work</PrimaryHeader>
+      <PrimaryHeader className="justify-self-center">💼 work</PrimaryHeader>
       <MiniSection
         title="Software Engineer II @ OKX"
         subtitle={"06.2022 - Present"}
