@@ -6,7 +6,7 @@ const PrimaryHeader: FC<PropsWithChildren<{ className?: string }>> = ({
 }) => {
   return (
     <h4
-      className={`uppercase font-light bg-gray-600 bg-opacity-10 backdrop-blur-2xl w-fit rounded-3xl px-5 py-3 mb-10 ${className}`}
+      className={`text-sm uppercase font-light bg-gray-600 bg-opacity-10 backdrop-blur-2xl w-fit rounded-3xl px-5 py-3 mb-10 ${className}`}
     >
       {children}
     </h4>
