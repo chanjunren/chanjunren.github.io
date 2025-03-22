@@ -40,19 +40,19 @@ const HobbyCard: FC<HobbyCardProps> = ({
 
   return (
     <div
-      className={`flex flex-col items-center relative`}
+      className={`flex flex-col items-center relative py-3 px-5 h-fit`}
       onClick={() => setPlaying(true)}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
       <div
-        className={`overflow-hidden rounded-md transition-all relative items-center justify-center`}
+        className={`overflow-hidden transition-all relative items-center justify-center`}
       >
         {!playing && (
           <PlayIcon className="bg-gray-700 backdrop-blur-sm bg-opacity-5 rounded-md text-white absolute left-1/2 top-1/2 z-10 p-1 h-6 w-6 -translate-x-1/2 -translate-y-1/2 cursor-pointer" />
         )}
         <video
-          className={`rounded-md aspect-square shadow-md ${
+          className={`rounded-md bg-white shadow-md p-2 aspect-square ${
             size === "lg" && "h-44"
           } ${
             size === "md" && "h-32"
