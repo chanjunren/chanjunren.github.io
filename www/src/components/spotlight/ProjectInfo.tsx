@@ -5,6 +5,7 @@ import DocusaurusLink from "../common/DocusaurusLink";
 
 const ProjectInfo: FC<GalleryProjectInfo> = ({
   title,
+  displayTitle = true,
   repository,
   description: Description,
   extraButtons: ExtraButtons = () => null,
@@ -12,22 +13,26 @@ const ProjectInfo: FC<GalleryProjectInfo> = ({
 }) => {
   return (
     <section className="grid grid-cols-12 gap-5">
-      <TypewriterText
-        text={title.toUpperCase()}
-        active
-        size="lg"
-        className="lg:col-span-4 col-span-12 row-span-5"
-      />
+      {displayTitle && (
+        <TypewriterText
+          text={title.toUpperCase()}
+          active
+          size="lg"
+          className="lg:col-span-4 col-span-12 row-span-5"
+        />
+      )}
       <div className="lg:col-span-8 col-span-12">
         <Description />
       </div>
       <Metadata />
-      <DocusaurusLink
-        className="lg:col-span-4 col-span-12"
-        to={repository}
-        subLabel="</>"
-        label="Repository"
-      />
+      {repository && (
+        <DocusaurusLink
+          className="lg:col-span-4 col-span-12"
+          to={repository}
+          subLabel="</>"
+          label="Repository"
+        />
+      )}
       <ExtraButtons className="lg:col-span-4 col-span-12" />
     </section>
   );
