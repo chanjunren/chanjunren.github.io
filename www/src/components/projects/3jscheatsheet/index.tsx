@@ -1,24 +1,36 @@
 import { GalleryProjectInfo } from "@site/src/types";
+import { FC } from "react";
 import SimpleCard from "../../common/SimpleCard";
+import BuildingInProgress from "../../home/BuildingInProgress";
+import FloatingMenu from "./floatingmenu";
 
-const ThreeJSCheat: GalleryProjectInfo = {
+const ThreeJsCheatsheet: FC = () => {
+  return (
+    <div className="w-full flex-grow content-center justify-items-center">
+      <FloatingMenu />
+      <BuildingInProgress />
+    </div>
+  );
+};
+
+const ThreeJsCheatsheetInfo: GalleryProjectInfo = {
   id: "threeJsLab",
-  title: "ThreeJS Cheat Sheet",
+  title: "Three JS Cheatsheet",
+  displayTitle: false,
   subtitle: "threeJS",
   containerCss: "md:col-span-3",
-  card: () => (
-    <SimpleCard className="cursor-not-allowed rounded-lg relative">
-      <p className="absolute bg-black bg-opacity-75 px-2 py-1 rounded-md text-white top-3 right-3 m-0">
-        locked
-      </p>
+  card: ({ onClick }) => (
+    <SimpleCard
+      className="rounded-lg relative cursor-pointer"
+      onClick={onClick}
+    >
       <p className="text-3xl absolute top-1/2 left-1/2 m-0 transform -translate-x-1/2 -translate-y-1/2">
         🍉
       </p>
     </SimpleCard>
   ),
-  banner: () => null,
+  banner: () => <ThreeJsCheatsheet />,
   description: () => <></>,
-  repository: "https://github.com/chanjunren/vaultusaurus",
   metadata: () => <></>,
   extraButtons: ({ className }) => (
     <>
@@ -38,4 +50,4 @@ const ThreeJSCheat: GalleryProjectInfo = {
   ),
 };
 
-export default ThreeJSCheat;
+export default ThreeJsCheatsheetInfo;

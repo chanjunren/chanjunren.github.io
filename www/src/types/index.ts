@@ -15,9 +15,10 @@ export type GalleryProjectInfo = {
   card: string | React.FC<GalleryCustomCard>;
   containerCss?: string;
   title: string;
+  displayTitle?: boolean;
   subtitle: string;
   description: React.FC;
-  repository: string;
+  repository?: string;
   extraButtons?: React.FC<PropsWithClassName>;
   metadata?: React.FC;
 };

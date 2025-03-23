@@ -1,7 +1,7 @@
 import { GalleryProjectInfo } from "@site/src/types";
 import { FC } from "react";
 import useGallery from "../home/hooks/useGallery";
-import ThreeJSCheat from "./3jscheatsheet";
+import ThreeJsCheatsheetInfo from "./3jscheatsheet";
 import MyOldPortfolioBaby from "./oldportfolio";
 import PixelLabInfo from "./pixellab";
 import PortalProject from "./portal";
@@ -12,7 +12,7 @@ export const GALLERY_PROJECTS: GalleryProjectInfo[] = [
   VaultusaurusProject,
   PortalProject,
   PixelLabInfo,
-  ThreeJSCheat,
+  ThreeJsCheatsheetInfo,
   MyOldPortfolioBaby,
 ];
 
