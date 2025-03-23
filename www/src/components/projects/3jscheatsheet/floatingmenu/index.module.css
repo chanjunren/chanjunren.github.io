@@ -1,4 +1,8 @@
 :root {
+  --accent: light-dark(
+      hsl(var(--hue, 30) 100% 50%),
+      hsl(var(--hue, 30) 100% 70%)
+    );
   --ease: linear(
     0 0%,
     0.0027 3.64%,
@@ -17,6 +21,17 @@
     0.9922 93.75%,
     1 100%
   );
+}
+
+.barBackground {
+  position: absolute;
+  pointer-events: none;
+  background-color: var(--gray-transparent-bg);
+  border-radius: 1.5rem;
+  inset: 0%;
+  clip-path: inset(2% 10% 2% 50% round 1.5rem);
+  /* clip-path: inset(5% calc(var(--x2) * 1% + 5%) 5% calc(var(--x1) * 1% + 5%)); */
+
 }
 
 .menuItem {
