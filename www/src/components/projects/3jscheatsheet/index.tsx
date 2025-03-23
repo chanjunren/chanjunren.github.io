@@ -17,6 +17,7 @@ const ThreeJsCheatsheetInfo: GalleryProjectInfo = {
   id: "threeJsLab",
   title: "Three JS Cheatsheet",
   displayTitle: false,
+  displayNav: false,
   subtitle: "threeJS",
   containerCss: "md:col-span-3",
   card: ({ onClick }) => (

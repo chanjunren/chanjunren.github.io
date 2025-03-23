@@ -7,6 +7,10 @@ import ProjectInfo from "../components/spotlight/ProjectInfo";
 
 const Spotlight: FC = () => {
   const { selectedProject } = useGallery();
+  const showNav =
+    selectedProject?.displayNav === undefined
+      ? true
+      : selectedProject.displayNav;
 
   return (
     <Page
@@ -14,7 +18,9 @@ const Spotlight: FC = () => {
       description="Hello! Welcome to my digital garden"
       className="lg:max-w-5xl flex flex-col justify-start gap-10"
     >
-      <NavButton className="self-start" label="gallery" path="/gallery" />
+      {showNav && (
+        <NavButton className="self-start" label="gallery" path="/gallery" />
+      )}
       {selectedProject !== null ? (
         <>
           <selectedProject.banner />
