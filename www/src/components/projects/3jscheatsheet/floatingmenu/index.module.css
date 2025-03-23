@@ -1,0 +1,65 @@
+@layer transition {
+  :root {
+    @property --left {
+      syntax: '<number>';
+      inherits: false;
+      initial-value: 0;
+    }
+
+    @property --right {
+      syntax: '<number>';
+      inherits: false;
+      initial-value: 0;
+    }
+
+    --ease: linear(0 0%,
+      0.0027 3.64%,
+      0.0106 7.29%,
+      0.0425 14.58%,
+      0.0957 21.87%,
+      0.1701 29.16%,
+      0.2477 35.19%,
+      0.3401 41.23%,
+      0.5982 55.18%,
+      0.7044 61.56%,
+      0.7987 68.28%,
+      0.875 75%,
+      0.9297 81.25%,
+      0.9687 87.5%,
+      0.9922 93.75%,
+      1 100%);
+
+    --inset-y: 20%;
+    --duration: 0.5;
+    --delay: 0.2;
+  }
+
+
+  .barBackground {
+    position: absolute;
+    pointer-events: none;
+    background-color: var(--gray-transparent-bg);
+    inset: 0%;
+    clip-path: inset(var(--inset-y) calc(var(--right) * 1%) var(--inset-y) calc(var(--left) * 1%) round 0.5rem);
+    transition-property: --left, --right, clip-path;
+    transition-timing-function: var(--ease);
+    transition-duration: calc(var(--duration) * 1s), calc(var(--duration) * 1s), 0.26s;
+    --d: calc((var(--duration) * var(--delay)) * 1s);
+  }
+
+  .left {
+    transition-delay: 0s, var(--d), 0s;
+  }
+
+  .right {
+    transition-delay: var(--d), 0s, 0s;
+  }
+}
+
+.menuItem {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
