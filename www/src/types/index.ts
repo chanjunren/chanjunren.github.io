@@ -16,6 +16,7 @@ export type GalleryProjectInfo = {
   containerCss?: string;
   title: string;
   displayTitle?: boolean;
+  displayNav?: boolean;
   subtitle: string;
   description: React.FC;
   repository?: string;
