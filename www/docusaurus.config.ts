@@ -5,7 +5,7 @@ import {
   remarkVaultusaurus,
   VaultusaurusPluginOptions,
 } from "vaultusaurus";
-import ALOGLIA_CONFIG from "./configs/algolia";
+import ALGOLIA_CONFIG from "./configs/algolia";
 import PRISM_CONFIG from "./configs/prism";
 import pluginIdealImage from "./plugins/ideal-image.cjs";
 import tailwindPlugin from "./plugins/tailwind.cjs";
@@ -82,7 +82,7 @@ const config: Config = {
         // },
       ],
     },
-    algolia: ALOGLIA_CONFIG,
+    algolia: ALGOLIA_CONFIG,
     prism: PRISM_CONFIG,
   } satisfies Preset.ThemeConfig,
   plugins: [

@@ -1,6 +1,6 @@
 import { ThemeConfig } from "@docusaurus/theme-search-algolia";
 
-const ALOGLIA_CONFIG: ThemeConfig["algolia"] = {
+const ALGOLIA_CONFIG: ThemeConfig["algolia"] = {
   // The application ID provided by Algolia
   appId: "050TJREE2O",
 
@@ -15,4 +15,4 @@ const ALOGLIA_CONFIG: ThemeConfig["algolia"] = {
   searchPagePath: null,
 };
 
-export default ALOGLIA_CONFIG;
+export default ALGOLIA_CONFIG;
