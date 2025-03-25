@@ -21,17 +21,16 @@
     0.9922 93.75%,
     1 100%
   );
+
+  --inset-y: 20%
 }
 
 .barBackground {
   position: absolute;
   pointer-events: none;
   background-color: var(--gray-transparent-bg);
-  border-radius: 1.5rem;
   inset: 0%;
-  clip-path: inset(2% 10% 2% 50% round 1.5rem);
-  /* clip-path: inset(5% calc(var(--x2) * 1% + 5%) 5% calc(var(--x1) * 1% + 5%)); */
-
+  clip-path: inset(var(--inset-y) calc(var(--right) * 1%) var(--inset-y) calc(var(--left) * 1%) round 0.5rem);
 }
 
 .menuItem {

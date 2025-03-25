@@ -22,14 +22,17 @@ const topics: ThreeJsTopicInfoComponent[] = [
 ];
 
 const FloatingMenu: FC = () => {
-  const { currentTopic, onMenuItemSelect, x1, x2, menuRef } = useFloatingMenu();
+  const { currentTopic, onMenuItemSelect, left, right, menuRef } =
+    useFloatingMenu();
+
+  console.log("LEFT_RIGHT", left, right);
 
   return (
     <nav
       style={
         {
-          "--x1": x1,
-          "--x2": x2,
+          "--left": left,
+          "--right": right,
         } as CSSProperties
       }
       ref={menuRef}

@@ -1,10 +1,12 @@
 import { useRef, useState } from "react";
 import { THREEJS_TOPIC } from "../constants";
 
+const EXTRA = -5;
+
 export default function useFloatingMenu() {
   const [currentTopic, setCurrentTopic] = useState<THREEJS_TOPIC | null>();
-  const [x1, setX1] = useState<number>(20);
-  const [x2, setX2] = useState<number>(80);
+  const [left, setLeft] = useState<number>(20);
+  const [right, setRight] = useState<number>(80);
   const menuRef = useRef<HTMLDivElement>(null);
 
   // x1: (x0 - xc) / Wc
@@ -16,7 +18,22 @@ export default function useFloatingMenu() {
     const currentMenuItem = (
       e.target as HTMLButtonElement
     ).getBoundingClientRect();
-    const menu = menuRef.current?.getBoundingClientRect();
+    const menuContainer = menuRef.current?.getBoundingClientRect();
+
+    const newLeft =
+      (100 * (currentMenuItem.x - menuContainer.x)) / menuContainer.width +
+      EXTRA;
+    const newRight =
+      (100 *
+        (menuContainer.x +
+          menuContainer.width -
+          currentMenuItem.x -
+          currentMenuItem.width)) /
+        menuContainer.width +
+      EXTRA;
+
+    setRight(newRight);
+    setLeft(newLeft);
     setCurrentTopic(topic);
   }
 
@@ -24,7 +41,7 @@ export default function useFloatingMenu() {
     currentTopic,
     onMenuItemSelect,
     menuRef,
-    x1,
-    x2,
+    left,
+    right,
   };
 }
