@@ -1,8 +1,16 @@
 :root {
-  --accent: light-dark(
-      hsl(var(--hue, 30) 100% 50%),
-      hsl(var(--hue, 30) 100% 70%)
-    );
+  @property --left {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+  }
+
+  @property --right {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+  }
+
   --ease: linear(
     0 0%,
     0.0027 3.64%,
@@ -22,16 +30,34 @@
     1 100%
   );
 
-  --inset-y: 20%
+  --inset-y: 20%;
+  --duration: 0.5;
+  --delay: 0.2;
 }
 
 .barBackground {
   position: absolute;
   pointer-events: none;
-  background-color: var(--gray-transparent-bg);
+  /* background-color: var(--gray-transparent-bg); */
+  background-color: red;
+  opacity: 50%;
   inset: 0%;
   clip-path: inset(var(--inset-y) calc(var(--right) * 1%) var(--inset-y) calc(var(--left) * 1%) round 0.5rem);
+  /* transition-property: --left, --right, translate; */
+  transition-timing-function: var(--ease);
+  transition-duration: calc(var(--duration) * 1s), calc(var(--duration) * 1s),
+      0.26s;
+  --d: calc((var(--duration) * var(--delay)) * 1s);
 }
+/* 
+.barBackground .left {
+  transition-delay: 0s, 0.5s, 0s;
+}
+
+.barBackground .right {
+  transition-delay: 0.5s, 0s, 0s;
+}
+ */
 
 .menuItem {
   all: unset;

@@ -1,16 +1,15 @@
 import { useRef, useState } from "react";
 import { THREEJS_TOPIC } from "../constants";
 
-const EXTRA = -5;
+const offset = -5;
 
 export default function useFloatingMenu() {
   const [currentTopic, setCurrentTopic] = useState<THREEJS_TOPIC | null>();
-  const [left, setLeft] = useState<number>(20);
-  const [right, setRight] = useState<number>(80);
+  const [left, setLeft] = useState<number | null>(100);
+  const [right, setRight] = useState<number | null>(100);
+  const [direction, setDirection] = useState<"left" | "right">();
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // x1: (x0 - xc) / Wc
-  // x2: (x0 + w0 - xc) / Wc
   function onMenuItemSelect(
     e: React.MouseEvent<HTMLButtonElement>,
     topic: THREEJS_TOPIC
@@ -22,7 +21,7 @@ export default function useFloatingMenu() {
 
     const newLeft =
       (100 * (currentMenuItem.x - menuContainer.x)) / menuContainer.width +
-      EXTRA;
+      offset;
     const newRight =
       (100 *
         (menuContainer.x +
@@ -30,7 +29,13 @@ export default function useFloatingMenu() {
           currentMenuItem.x -
           currentMenuItem.width)) /
         menuContainer.width +
-      EXTRA;
+      offset;
+
+    if ((left == 100 && right == 100) || newLeft > left) {
+      setDirection("right");
+    } else {
+      setDirection("left");
+    }
 
     setRight(newRight);
     setLeft(newLeft);
@@ -43,5 +48,6 @@ export default function useFloatingMenu() {
     menuRef,
     left,
     right,
+    direction,
   };
 }

@@ -22,10 +22,8 @@ const topics: ThreeJsTopicInfoComponent[] = [
 ];
 
 const FloatingMenu: FC = () => {
-  const { currentTopic, onMenuItemSelect, left, right, menuRef } =
+  const { currentTopic, onMenuItemSelect, left, right, menuRef, direction } =
     useFloatingMenu();
-
-  console.log("LEFT_RIGHT", left, right);
 
   return (
     <nav
@@ -40,7 +38,7 @@ const FloatingMenu: FC = () => {
         "flex gap-5 absolute top-28 left-1/2 transform -translate-x-1/2 shadow-md p-5 rounded-3xl"
       )}
     >
-      <div className={styles.barBackground} />
+      <div className={classNames(styles.barBackground, direction)} />
       {topics.map(({ icon: Icon, key }) => (
         <button
           key={key}
