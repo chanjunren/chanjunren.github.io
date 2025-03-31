@@ -38,7 +38,12 @@ const FloatingMenu: FC = () => {
         "flex gap-5 absolute top-28 left-1/2 transform -translate-x-1/2 shadow-md p-5 rounded-3xl"
       )}
     >
-      <div className={classNames(styles.barBackground, direction)} />
+      <div
+        className={classNames(
+          styles.barBackground,
+          direction === "left" ? styles.left : styles.right
+        )}
+      />
       {topics.map(({ icon: Icon, key }) => (
         <button
           key={key}
