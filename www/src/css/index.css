@@ -7,6 +7,7 @@
 @import url("./separator.css");
 @import url("./tooltip.css");
 @import url("./search.css");
+@import url("./markdown.css");
 
 @tailwind base;
 @tailwind components;
