@@ -1,0 +1,11 @@
+.markdown h1:first-child {
+    --ifm-h1-font-size: 1.7rem;
+}
+
+.markdown>h2 {
+    --ifm-h2-font-size: 1.5rem;
+}
+
+.markdown>h3 {
+    --ifm-h3-font-size: 1.3rem;
+}
