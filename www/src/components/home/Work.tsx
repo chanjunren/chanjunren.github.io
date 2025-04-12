@@ -4,8 +4,8 @@ import PrimaryHeader from "../common/PrimaryHeader";
 export default function Work() {
   //
   return (
-    <section>
-      <PrimaryHeader className="justify-self-center">💼 work</PrimaryHeader>
+    <section className="col-span-12">
+      <PrimaryHeader>💼 work</PrimaryHeader>
       <MiniSection
         title="Software Engineer II @ OKX"
         subtitle={"06.2022 - Present"}

@@ -3,10 +3,8 @@ import PrimaryHeader from "../common/PrimaryHeader";
 
 export default function Education() {
   return (
-    <section className="mt-14">
-      <PrimaryHeader className="justify-self-center">
-        📖 Education
-      </PrimaryHeader>
+    <section className="col-span-12">
+      <PrimaryHeader>📖 Education</PrimaryHeader>
       <MiniSection
         title="National University of Singapore"
         subtitle={"06.2018 - 06.2022"}

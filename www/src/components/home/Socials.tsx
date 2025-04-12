@@ -4,12 +4,14 @@ import {
   LinkedInLogoIcon,
 } from "@radix-ui/react-icons";
 import HomeButton from "../common/HomeButton";
+import PrimaryHeader from "../common/PrimaryHeader";
 
 const LogoProps = "text-[var(--ifm-font-color-base)] h-5 w-5";
 
 export default function Socials() {
   return (
-    <>
+    <section className="col-span-2">
+      <PrimaryHeader>📞 socials</PrimaryHeader>
       <HomeButton
         link="https://www.github.com/chanjunren"
         subtitle="github"
@@ -57,6 +59,6 @@ export default function Socials() {
           </Tooltip.Portal>
         </Tooltip.Root>
       </Tooltip.Provider> */}
-    </>
+    </section>
   );
 }
