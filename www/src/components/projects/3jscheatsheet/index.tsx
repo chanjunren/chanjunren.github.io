@@ -1,14 +1,14 @@
 import { GalleryProjectInfo } from "@site/src/types";
 import { FC } from "react";
 import SimpleCard from "../../common/SimpleCard";
-import BuildingInProgress from "../../home/BuildingInProgress";
 import FloatingMenu from "./floatingmenu";
+import Geometries from "./geometries";
 
 const ThreeJsCheatsheet: FC = () => {
   return (
     <div className="w-full flex-grow content-center justify-items-center">
       <FloatingMenu />
-      <BuildingInProgress />
+      <Geometries />
     </div>
   );
 };
