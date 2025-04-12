@@ -1,39 +1,29 @@
-import { ImageIcon } from "@radix-ui/react-icons";
 import { ReactElement } from "react";
-import HomeButton from "../components/common/HomeButton";
-import { LeafIcon } from "../components/common/Icons";
 import Page from "../components/common/Page";
+import About from "../components/home/About";
+import Education from "../components/home/Education";
+import Gallery from "../components/home/Gallery";
+import Hobbies from "../components/home/Hobbies";
 import Socials from "../components/home/Socials";
+import Work from "../components/home/Work";
 
 export default function Home(): ReactElement {
   return (
     <Page
       title={"home"}
       description="Hello! Welcome to my digital garden"
-      className="flex-grow gap-10 flex-col justify-center flex items-center md:ml-52"
+      className="flex-grow grid grid-cols-12 gap-7"
     >
-      {/* <img
-        className="rounded-lg md:w-96 md:h-96 overflow-hidden md:absolute aspect-square shadow-md"
-        src={homeWallpaper}
-      /> */}
-      {/* <div className="md:flex md:flex-col md:gap-7 md:left-80 md:relative grid grid-cols-2 gap-5"> */}
-      <HomeButton
-        link="/about"
-        main={<span className="text-lg align-middle text-center">我</span>}
-        subtitle="whoami"
-      />
-      <HomeButton
-        link="/docs/zettelkasten"
-        main={<LeafIcon className="w-5 h-5" />}
-        subtitle="digital garden"
-      />
-      <HomeButton
-        link="/gallery"
-        main={<ImageIcon className="w-5 h-5" />}
-        subtitle="gallery"
-      />
+      <div className="col-span-5 flex flex-col gap-10">
+        <About />
+        <Hobbies />
+      </div>
+      <div className="col-span-5 flex flex-col">
+        <Work />
+        <Education />
+      </div>
       <Socials />
-      {/* </div> */}
+      <Gallery />
     </Page>
   );
 }

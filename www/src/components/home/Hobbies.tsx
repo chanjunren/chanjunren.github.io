@@ -72,7 +72,7 @@ const HobbyCard: FC<HobbyCardProps> = ({
 
 const Hobbies: FC = () => {
   return (
-    <section>
+    <section className="col-span-4">
       <PrimaryHeader>🍉 hobbies</PrimaryHeader>
       <div className="flex gap-5">
         <HobbyCard
