@@ -14,15 +14,15 @@ export default function Home(): ReactElement {
       description="Hello! Welcome to my digital garden"
       className="flex-grow grid grid-cols-12 gap-7"
     >
-      <div className="col-span-5 flex flex-col gap-10">
+      <div className="md:col-span-4 col-span-12 flex flex-col gap-10">
         <About />
-        <Hobbies />
+        <Socials />
       </div>
-      <div className="col-span-5 flex flex-col">
+      <div className="md:col-span-4 col-span-12 flex flex-col">
         <Work />
         <Education />
       </div>
-      <Socials />
+      <Hobbies />
       <Gallery />
     </Page>
   );
