@@ -20,7 +20,7 @@ const HomeButton: FC<IHomeButton> = ({
 
   return (
     <a
-      className={`rounded-md w-52 !no-underline !text-[var(--ifm-font-color-base)] text-center flex items-center ${className} md:p-0 md:bg-transparent p-3 bg-gray-400 bg-opacity-10 backdrop-blur-2xl justify-center md:justify-start`}
+      className={`rounded-md !no-underline !text-[var(--ifm-font-color-base)] text-center flex items-center ${className} md:p-0 md:bg-transparent p-3 bg-gray-400 bg-opacity-10 backdrop-blur-2xl justify-center md:justify-start`}
       href={link}
       target={external ? "_blank" : "_self"}
       onMouseEnter={() => setHover(true)}

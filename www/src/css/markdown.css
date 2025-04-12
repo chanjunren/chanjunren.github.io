@@ -1,5 +1,6 @@
 .markdown h1:first-child {
-    --ifm-h1-font-size: 0.9rem;
+    --ifm-h1-font-size: 1.7rem;
+    /* --ifm-h1-font-size: 0.9rem; */
     /* background-color: rgb(75 85 99 / 0.07);
     border-radius: 1rem;
     padding-inline: 0.75rem;
