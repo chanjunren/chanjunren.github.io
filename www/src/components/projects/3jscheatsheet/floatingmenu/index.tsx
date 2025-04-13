@@ -35,7 +35,7 @@ const FloatingMenu: FC = () => {
       }
       ref={menuRef}
       className={classNames(
-        "flex gap-5 absolute top-28 left-1/2 transform -translate-x-1/2 shadow-md p-5 rounded-md"
+        "flex gap-5 absolute top-28 left-1/2 transform -translate-x-1/2 shadow-md p-5 rounded-md z-10"
       )}
     >
       <div

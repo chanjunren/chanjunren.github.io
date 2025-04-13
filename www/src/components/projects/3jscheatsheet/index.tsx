@@ -1,24 +1,13 @@
 import { GalleryProjectInfo } from "@site/src/types";
-import { FC } from "react";
 import SimpleCard from "../../common/SimpleCard";
-import FloatingMenu from "./floatingmenu";
-import Geometries from "./geometries";
-
-const ThreeJsCheatsheet: FC = () => {
-  return (
-    <div className="w-full flex-grow content-center justify-items-center">
-      <FloatingMenu />
-      <Geometries />
-    </div>
-  );
-};
+import Playground from "./Playground";
 
 const ThreeJsCheatsheetInfo: GalleryProjectInfo = {
   id: "threeJsLab",
-  title: "Three JS Cheatsheet",
+  title: "3JS Lab",
   displayTitle: false,
   displayNav: false,
-  subtitle: "threeJS",
+  subtitle: "3JS",
   containerCss: "md:col-span-3",
   card: ({ onClick }) => (
     <SimpleCard
@@ -26,11 +15,11 @@ const ThreeJsCheatsheetInfo: GalleryProjectInfo = {
       onClick={onClick}
     >
       <p className="text-3xl absolute top-1/2 left-1/2 m-0 transform -translate-x-1/2 -translate-y-1/2">
-        🍉
+        🎛️
       </p>
     </SimpleCard>
   ),
-  banner: () => <ThreeJsCheatsheet />,
+  banner: () => <Playground />,
   description: () => <></>,
   metadata: () => <></>,
   extraButtons: ({ className }) => (
