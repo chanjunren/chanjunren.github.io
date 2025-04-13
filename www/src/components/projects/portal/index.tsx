@@ -5,8 +5,8 @@ import Portal from "./Portal";
 
 const PortalProject: GalleryProjectInfo = {
   id: "portal",
-  title: "ThreeJS Portal",
-  subtitle: "ThreeJS",
+  title: "Portal",
+  subtitle: "3JS",
   card: "images/portal.webp",
   containerCss: "md:col-span-3",
   banner: () => <Portal />,
