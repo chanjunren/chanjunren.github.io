@@ -63,7 +63,7 @@ const config: Config = {
   themeConfig: {
     image: "img/docusaurus-social-card.jpg",
     colorMode: {
-      disableSwitch: true,
+      disableSwitch: false,
       defaultMode: "light",
     },
     navbar: {
