@@ -1,5 +1,6 @@
 import Layout from "@theme/Layout";
 import { FC, PropsWithChildren, ReactElement } from "react";
+import FloatingMenu from "../home/floatingmenu";
 import LitFooter from "./LitFooter";
 
 type IPage = {
@@ -18,7 +19,7 @@ const Page: FC<PropsWithChildren<IPage>> = ({
 }) => {
   return (
     <Layout
-      wrapperClassName="flex flex-col justify-between min-h-screen-minus-navbar p-7 items-center gap-10"
+      wrapperClassName="flex flex-col justify-between min-h-screen-minus-navbar pt-7 px-7 items-center gap-10"
       title={title}
       description={description}
     >
@@ -26,6 +27,7 @@ const Page: FC<PropsWithChildren<IPage>> = ({
         {children}
       </main>
       {footer}
+      <FloatingMenu />
     </Layout>
   );
 };

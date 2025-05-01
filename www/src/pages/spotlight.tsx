@@ -1,5 +1,4 @@
 import { FC } from "react";
-import NavButton from "../components/common/NavButton";
 import Page from "../components/common/Page";
 import BuildingInProgress from "../components/home/BuildingInProgress";
 import useGallery from "../components/home/hooks/useGallery";
@@ -18,7 +17,7 @@ const Spotlight: FC = () => {
       description="Hello! Welcome to my digital garden"
       className="lg:max-w-5xl flex flex-col justify-start gap-10"
     >
-      {showNav && <NavButton className="self-start" label="back" path="/" />}
+      {/* {showNav && <NavButton className="self-start" label="back" path="/" />} */}
       {selectedProject !== null ? (
         <>
           <selectedProject.banner />

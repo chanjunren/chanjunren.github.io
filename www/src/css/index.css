@@ -30,6 +30,22 @@
   font-family: var(--ifm-heading-font-family);
 }
 
+.navbar__logo {
+  display: none;
+}
+
+.theme-doc-breadcrumbs {
+  display: none;
+}
+
+.theme-doc-toc-mobile {
+  display: none;
+}
+
+.navbar__items--right {
+  display: none;
+}
+
 ::selection {
   /* background: rgba(135, 167, 159, 0.5); */
   background: rgba(144, 140, 170, 0.5);
@@ -134,10 +150,20 @@ nav.navbar.navbar--fixed-top {
 }
 
 @media (min-width: 996px) {
+  :root {
+    --ifm-navbar-height: 0;
+  }
   .col[class*="docItemCol_"] {
     max-width: 60% !important;
   }
+
+
+  .navbar {
+    display: none;
+  }
+
 }
+
 
 .col--3 {
   --ifm-col-width: 33% !important;

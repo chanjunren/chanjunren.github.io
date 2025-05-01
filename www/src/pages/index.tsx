@@ -4,7 +4,6 @@ import About from "../components/home/About";
 import Education from "../components/home/Education";
 import Gallery from "../components/home/Gallery";
 import Hobbies from "../components/home/Hobbies";
-import Socials from "../components/home/Socials";
 import Work from "../components/home/Work";
 
 export default function Home(): ReactElement {
@@ -16,7 +15,6 @@ export default function Home(): ReactElement {
     >
       <div className="md:col-span-4 col-span-12 flex flex-col gap-10">
         <About />
-        <Socials />
       </div>
       <div className="md:col-span-4 col-span-12 flex flex-col">
         <Work />
