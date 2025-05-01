@@ -52,7 +52,7 @@ const HobbyCard: FC<HobbyCardProps> = ({
           <PlayIcon className="bg-gray-700 backdrop-blur-sm bg-opacity-5 rounded-md text-white absolute left-1/2 top-1/2 z-10 p-1 h-6 w-6 -translate-x-1/2 -translate-y-1/2 cursor-pointer" />
         )}
         <video
-          className={`rounded-md bg-white shadow-md p-2 aspect-square ${
+          className={`rounded-md shadow-md aspect-square ${
             size === "lg" && "h-44"
           } ${
             size === "md" && "h-32"
