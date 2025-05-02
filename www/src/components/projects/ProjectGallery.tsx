@@ -7,14 +7,12 @@ import PixelLabInfo from "./pixellab";
 import PortalProject from "./portal";
 import ProjectCard from "./ProjectCard";
 import VaultusaurusProject from "./vaultusaurus";
-import Zettelkasten from "./zettelkasten";
 
 export const GALLERY_PROJECTS: GalleryProjectInfo[] = [
   VaultusaurusProject,
-  Zettelkasten,
+  ThreeJsCheatsheetInfo,
   PortalProject,
   MyOldPortfolioBaby,
-  ThreeJsCheatsheetInfo,
   PixelLabInfo,
 ];
 
