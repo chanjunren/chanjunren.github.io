@@ -1,14 +1,13 @@
 import {
   BackpackIcon,
-  CardStackIcon,
   DividerVerticalIcon,
   GitHubLogoIcon,
   HomeIcon,
   LinkedInLogoIcon,
+  Pencil2Icon,
 } from "@radix-ui/react-icons";
 import { IconProps } from "@radix-ui/react-icons/dist/types";
 import * as Tooltip from "@radix-ui/react-tooltip";
-import classNames from "classnames";
 import { FC } from "react";
 
 type ThreeJsTopicInfoComponent = {
@@ -25,9 +24,9 @@ const topics: ThreeJsTopicInfoComponent[] = [
   { type: "link", icon: HomeIcon, link: "/", label: "home" },
   {
     type: "link",
-    icon: CardStackIcon,
+    icon: Pencil2Icon,
     link: "/docs/zettelkasten",
-    label: "zettelkasten",
+    label: "notes",
   },
   {
     type: "custom",
@@ -56,10 +55,10 @@ const topics: ThreeJsTopicInfoComponent[] = [
 const FloatingMenu: FC = () => {
   return (
     <nav
-      className={classNames(
+      className={
         "flex gap-2 sticky bottom-5 shadow-md " +
-          "rounded-full z-10 bg-white w-fit max-w-full inset-x-0 mx-auto p-5"
-      )}
+        "rounded-full z-10 bg-white w-fit max-w-full inset-x-0 mx-auto p-5"
+      }
     >
       {topics.map(
         ({ type, icon: Icon, link: key, custom: CustomItem, label }, index) =>
@@ -81,7 +80,7 @@ const FloatingMenu: FC = () => {
                 <Tooltip.Portal>
                   <Tooltip.Content
                     className="TooltipContent"
-                    sideOffset={20}
+                    sideOffset={22}
                     side="bottom"
                   >
                     <span>{label || "Hello"}</span>

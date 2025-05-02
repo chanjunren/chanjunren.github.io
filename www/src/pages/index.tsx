@@ -11,11 +11,9 @@ export default function Home(): ReactElement {
     <Page
       title={"home"}
       description="Hello! Welcome to my digital garden"
-      className="flex-grow grid grid-cols-12 gap-7"
+      className="flex-grow grid grid-cols-12 md:gap-10 gap-y-20"
     >
-      <div className="md:col-span-4 col-span-12 flex flex-col gap-10">
-        <About />
-      </div>
+      <About />
       <div className="md:col-span-4 col-span-12 flex flex-col">
         <Work />
         <Education />
