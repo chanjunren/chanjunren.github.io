@@ -8,6 +8,7 @@ import {
 } from "@radix-ui/react-icons";
 import { IconProps } from "@radix-ui/react-icons/dist/types";
 import * as Tooltip from "@radix-ui/react-tooltip";
+import SearchBarWrapper from "@site/src/theme/SearchBar";
 import { FC } from "react";
 
 type ThreeJsTopicInfoComponent = {
@@ -23,10 +24,22 @@ type ThreeJsTopicInfoComponent = {
 const topics: ThreeJsTopicInfoComponent[] = [
   { type: "link", icon: HomeIcon, link: "/", label: "home" },
   {
+    type: "custom",
+    custom: () => <DividerVerticalIcon className="self-center opacity-20" />,
+  },
+  {
     type: "link",
     icon: Pencil2Icon,
     link: "/docs/zettelkasten",
     label: "notes",
+  },
+  // {
+  //   type: "custom",
+  //   custom: () => <span>cmd + k</span>,
+  // },
+  {
+    type: "custom",
+    custom: () => <SearchBarWrapper />,
   },
   {
     type: "custom",
@@ -57,7 +70,7 @@ const FloatingMenu: FC = () => {
     <nav
       className={
         "flex gap-2 sticky bottom-5 shadow-md " +
-        "rounded-full z-10 bg-white w-fit max-w-full inset-x-0 mx-auto p-5"
+        "rounded-full z-10 bg-white w-fit max-w-full inset-x-0 mx-auto p-4"
       }
     >
       {topics.map(
@@ -74,13 +87,13 @@ const FloatingMenu: FC = () => {
                     target={type === "externalLink" ? "_blank" : "_self"}
                     key={"menuItem" + index}
                   >
-                    <Icon className="w-8 h-8 p-1 text-lg" />
+                    <Icon className="w-7 h-7 p-1" />
                   </a>
                 </Tooltip.Trigger>
                 <Tooltip.Portal>
                   <Tooltip.Content
                     className="TooltipContent"
-                    sideOffset={22}
+                    sideOffset={18}
                     side="bottom"
                   >
                     <span>{label || "Hello"}</span>
