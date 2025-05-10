@@ -32,10 +32,11 @@
 }
 
 .DocSearch-Button {
-  padding: 10px 10px !important;
+  /* padding: 10px 10px !important; */
+  padding:0 !important;
   backdrop-filter: blur(10px);
   background-color: var(--docsearch-button-bg-color) !important;
-  border: var(--docsearch-button-border) !important;
+  border: none;
   border-radius: 5px !important;
 }
 
