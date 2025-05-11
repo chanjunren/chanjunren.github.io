@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "430c2fb016855955",
+        "id": "aa650241f2b2d1c1",
         "type": "tabs",
         "children": [
           {
-            "id": "0cbb2f6ea1bfc438",
+            "id": "61ee4ed886c35b8b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/debug.md",
+                "file": "zettelkasten/textures_3js.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "debug"
+              "title": "textures_3js"
             }
           }
         ]
@@ -168,8 +168,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0cbb2f6ea1bfc438",
+  "active": "61ee4ed886c35b8b",
   "lastOpenFiles": [
+    "zettelkasten/threejs/textures.md",
+    "assets/3js_textures_albedo_example.png",
+    "zettelkasten/textures_3js.md",
+    "zettelkasten/mipmapping.md",
+    "zettelkasten/texture_format.md",
+    "zettelkasten/texture_transformations.md",
+    "assets/3js_textures_rotation.png",
+    "zettelkasten/uv_unwrapping.md",
+    "zettelkasten/physically_based_rendering.md",
     "assets/Pasted image 20250502004048.png",
     "zettelkasten/debug.md",
     "zettelkasten/readiness_checks.md",
@@ -189,13 +198,6 @@
     "zettelkasten/kappa_architecture.md",
     "zettelkasten/extract_transform_load.md",
     "zettelkasten/netty.md",
-    "zettelkasten/delta_lake.md",
-    "zettelkasten/data_lakes.md",
-    "zettelkasten/data_lakehouse.md",
-    "zettelkasten/svg_primitives.md",
-    "zettelkasten/css_animation.md",
-    "zettelkasten/flink_windows.md",
-    "zettelkasten/flink_window_functions.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
@@ -212,9 +214,6 @@
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/instrumented.png",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/blocking.png",
     "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-4.png",
-    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-3.png",
-    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-2.png",
-    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/executor-service-2.jpg",
-    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-1.png"
+    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-3.png"
   ]
 }
