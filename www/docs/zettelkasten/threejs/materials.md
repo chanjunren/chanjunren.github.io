@@ -204,8 +204,8 @@ const matcapTexture = textureLoader.load("/textures/matcaps/8.png");
 ## MeshDepthMaterial
 
 - simply colors the geometry in:
-  - white if it's close to the camera's `near` value
-  - black if it's close to the `far` value of the camera
+- white if it's close to the camera's `near` value
+- black if it's close to the `far` value of the camera
 
 ```javascript
 // // MeshMatcapMaterial
