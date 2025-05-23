@@ -13,6 +13,47 @@ It advocates modeling based on the reality of business as relevant to your use c
 - Large teams with multiple teams, where a common language / understanding is crucial
 - Business rules and logic are complex and central to application functionality
 
+
+```text
+├── domain/
+ │   ├── model/        (Entities, Value Objects, Aggregates)
+ │   │   ├── order/
+ │   │   │   ├── Order.java          (Aggregate Root)
+ │   │   │   ├── OrderItem.java      (Entity within Order Aggregate)
+ │   │   │   └── ProductId.java      (Value Object)
+ │   │   └── customer/
+ │   │       ├── Customer.java       (Aggregate Root)
+ │   │       └── Address.java        (Value Object)
+ │   ├── service/      (Domain Services)
+ │   │   └── PricingService.java
+ │   ├── event/        (Domain Events)
+ │   │   └── OrderCreatedEvent.java
+ │   └── repository/   (Interfaces for Repositories)
+ │       ├── OrderRepository.java
+ │       └── CustomerRepository.java
+ │
+ ├── application/
+ │   ├── dto/          (Data Transfer Objects)
+ │   │   ├── CreateOrderRequest.java
+ │   │   └── OrderDTO.java
+ │   ├── service/      (Application Services - use case orchestrators)
+ │   │   └── OrderApplicationService.java
+ │   └── impl/         (Implementation of application services)
+ │       └── OrderApplicationServiceImpl.java
+ │
+ └── infrastructure/
+     ├── persistence/  (Implementation of Repositories, DB interaction)
+     │   ├── jpa/
+     │   │   ├── OrderJpaRepository.java
+     │   │   └── CustomerJpaRepository.java
+     │   └── config/
+     │       └── PersistenceConfig.java
+     ├── messaging/    (Event publishing/handling, message queues)
+     │   └── OrderEventPublisher.java
+     └── rest/         (REST Controllers - entry points for API)
+         └── OrderController.java
+```
+
 ## Core Layers
 
 ### Domain Layer
