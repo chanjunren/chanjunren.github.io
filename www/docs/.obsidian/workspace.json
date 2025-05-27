@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/benchmark_test.md",
+                "file": "zettelkasten/data_warehouse_naming_conventions.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/benchmark_test.md",
+                "file": "zettelkasten/data_warehouse_naming_conventions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/benchmark_test.md",
+                "file": "zettelkasten/data_warehouse_naming_conventions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/benchmark_test.md"
+                "file": "zettelkasten/data_warehouse_naming_conventions.md"
               }
             }
           }
@@ -148,8 +148,10 @@
   },
   "active": "61ee4ed886c35b8b",
   "lastOpenFiles": [
-    "zettelkasten/textures_3js.md",
+    "zettelkasten/learning_agility.md",
+    "zettelkasten/data_warehouse_naming_conventions.md",
     "zettelkasten/benchmark_test.md",
+    "zettelkasten/textures_3js.md",
     "zettelkasten/threejs/textures.md",
     "assets/3js_textures_albedo_example.png",
     "zettelkasten/mipmapping.md",
@@ -175,8 +177,6 @@
     "zettelkasten/medallion_architecture.md",
     "zettelkasten/lambda_architecture.md",
     "zettelkasten/kappa_architecture.md",
-    "zettelkasten/extract_transform_load.md",
-    "zettelkasten/netty.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
