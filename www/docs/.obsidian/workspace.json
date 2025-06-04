@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/data_warehouse_naming_conventions.md",
+                "file": "zettelkasten/akt_day_1.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/data_warehouse_naming_conventions.md",
+                "file": "zettelkasten/akt_day_1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/data_warehouse_naming_conventions.md",
+                "file": "zettelkasten/akt_day_1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/data_warehouse_naming_conventions.md"
+                "file": "zettelkasten/akt_day_1.md"
               }
             }
           }
@@ -148,8 +148,11 @@
   },
   "active": "61ee4ed886c35b8b",
   "lastOpenFiles": [
-    "zettelkasten/learning_agility.md",
+    "zettelkasten/mental_toughness.md",
+    "zettelkasten/akt_day_1.md",
     "zettelkasten/data_warehouse_naming_conventions.md",
+    "zettelkasten/akt_day_2.md",
+    "zettelkasten/learning_agility.md",
     "zettelkasten/benchmark_test.md",
     "zettelkasten/textures_3js.md",
     "zettelkasten/threejs/textures.md",
@@ -174,9 +177,6 @@
     "zettelkasten/sql_cheatsheet.md",
     "zettelkasten/data_warehouses.md",
     "zettelkasten/sentinel.md",
-    "zettelkasten/medallion_architecture.md",
-    "zettelkasten/lambda_architecture.md",
-    "zettelkasten/kappa_architecture.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
