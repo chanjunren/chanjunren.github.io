@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "61ee4ed886c35b8b",
+            "id": "d59375bf9c085f06",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/data_warehouse_naming_conventions.md",
+                "file": "zettelkasten/skating_wheeling.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/data_warehouse_naming_conventions.md",
+                "file": "zettelkasten/skating_wheeling.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/data_warehouse_naming_conventions.md",
+                "file": "zettelkasten/skating_wheeling.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/data_warehouse_naming_conventions.md"
+                "file": "zettelkasten/skating_wheeling.md"
               }
             }
           }
@@ -146,37 +146,37 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "61ee4ed886c35b8b",
+  "active": "d59375bf9c085f06",
   "lastOpenFiles": [
-    "zettelkasten/learning_agility.md",
+    "zettelkasten/skating_spins.md",
+    "zettelkasten/skating_speed_slalom.md",
+    "zettelkasten/skating_sitting.md",
+    "zettelkasten/skating_improving_toe_height.md",
+    "zettelkasten/slalom_basics.md",
+    "zettelkasten/skating_wheeling.md",
+    "zettelkasten/skating_technical_tricks_matrix.md",
+    "zettelkasten/skating_pt.md",
+    "zettelkasten/skating_jumping.md",
+    "zettelkasten/skating_combo.md",
+    "assets/skating_technical_tricks_matrix.png",
+    "zettelkasten/akt_day_1.md",
+    "zettelkasten/skating_toe_tricks.md",
+    "zettelkasten/skating_toe_shift.md",
+    "zettelkasten/akt_day_5.md",
+    "zettelkasten/akt_day_6.md",
+    "zettelkasten/akt_day_3.md",
+    "zettelkasten/akt_day_4.md",
+    "zettelkasten/akt_day_2.md",
+    "zettelkasten/skating/toe_reverse_shift.md",
+    "zettelkasten/skating/toe_shift.md",
+    "zettelkasten/to_be_tidied/Frontend/Typescript/typesVsInterfaces.md",
+    "zettelkasten/mental_toughness.md",
     "zettelkasten/data_warehouse_naming_conventions.md",
+    "zettelkasten/learning_agility.md",
     "zettelkasten/benchmark_test.md",
-    "zettelkasten/textures_3js.md",
-    "zettelkasten/threejs/textures.md",
     "assets/3js_textures_albedo_example.png",
-    "zettelkasten/mipmapping.md",
-    "zettelkasten/texture_format.md",
-    "zettelkasten/texture_transformations.md",
     "assets/3js_textures_rotation.png",
-    "zettelkasten/uv_unwrapping.md",
-    "zettelkasten/physically_based_rendering.md",
     "assets/Pasted image 20250502004048.png",
-    "zettelkasten/debug.md",
-    "zettelkasten/readiness_checks.md",
-    "zettelkasten/liveness_checks.md",
-    "zettelkasten/health_checks.md",
-    "zettelkasten/health_live_readiness_checks.md",
-    "zettelkasten/aliyun_canal_api_client.md",
-    "zettelkasten/aliyun_canal_overview.md",
-    "zettelkasten/apache_spark.md",
-    "zettelkasten/flink_process_functions.md",
-    "zettelkasten/data_processing_architectures.md",
-    "zettelkasten/sql_cheatsheet.md",
-    "zettelkasten/data_warehouses.md",
-    "zettelkasten/sentinel.md",
-    "zettelkasten/medallion_architecture.md",
-    "zettelkasten/lambda_architecture.md",
-    "zettelkasten/kappa_architecture.md",
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
     "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
@@ -192,7 +192,6 @@
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/native.png",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/instrumented.png",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/blocking.png",
-    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-4.png",
-    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-3.png"
+    "zettelkasten/to_be_tidied/Backend/Java/Executor Service/resources/pooltypes-4.png"
   ]
 }
