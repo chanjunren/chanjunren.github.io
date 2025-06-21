@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/skating_wheeling.md",
+                "file": "zettelkasten/skating_choreo.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/skating_wheeling.md",
+                "file": "zettelkasten/skating_choreo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/skating_wheeling.md",
+                "file": "zettelkasten/skating_choreo.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/skating_wheeling.md"
+                "file": "zettelkasten/skating_choreo.md"
               }
             }
           }
@@ -148,12 +148,13 @@
   },
   "active": "d59375bf9c085f06",
   "lastOpenFiles": [
+    "zettelkasten/skating_wheeling.md",
+    "zettelkasten/skating_choreo.md",
     "zettelkasten/skating_spins.md",
     "zettelkasten/skating_speed_slalom.md",
     "zettelkasten/skating_sitting.md",
     "zettelkasten/skating_improving_toe_height.md",
     "zettelkasten/slalom_basics.md",
-    "zettelkasten/skating_wheeling.md",
     "zettelkasten/skating_technical_tricks_matrix.md",
     "zettelkasten/skating_pt.md",
     "zettelkasten/skating_jumping.md",
