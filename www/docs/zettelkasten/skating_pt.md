@@ -15,12 +15,12 @@
 - squat with wall (10 mins)
 
 ## dynamic stretching 
-scoop both hands with alternating heel toe
-twist and hands up
-chicken leg stretch
-quad stretch
-crab walk (both directions)
-twist and crossover (both directions)
+- scoop both hands with alternating heel toe
+- twist and hands up
+- chicken leg stretch
+- quad stretch
+- crab walk (both directions)
+- twist and crossover (both directions)
 
 ## core pt
 - 2 sets (second set dynamic movements,
@@ -35,18 +35,15 @@ twist and crossover (both directions)
 - glute bridge (4 mins)
 - russian twist (100 times, left right considered 2)
 
-  
 ## leg pt
-- 2 sets
-- squats (30)
-- sumo squat (30)
-- closed knee squats (30)
-- squat jumps (50)
-- skater rdl (30)
-- one leg jump (1 min)
-- tip toe exercise (30)
-- pistol squats (12)
-- wall sit (10 mins)
+- 30 x 3 deep squat
+- (7) 15 / side x 3 pistol squat
+- 30 x 3 wide squat
+- 20 x 3 squat jump
+- 20 x 3 lunge jump
+- 10 / side x 3 single leg jump
+- 10 / side x 3 single heel raise
+- 2 min x 2 马步
 
 ---
 # references
