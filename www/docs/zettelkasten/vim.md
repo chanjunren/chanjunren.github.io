@@ -4,75 +4,65 @@
 # VIM
 
 ```ad-note
-Checkout [this](/documents/intro_to_vim.pdf) for a quick intro to vim!
+JR's very own intro to vim over [here](/documents/intro_to_vim.pdf)! 🤓
 ```
+
+## Command cheatsheet
+> Commands in VIM generally follow this pattern
+
+```
+:[range][command][arguments]
+```
+
+| Part          | Description                                              | Example                             |
+| ------------- | -------------------------------------------------------- | ----------------------------------- |
+| `:`           | Starts an **ex** command                                 | `:w`, `:s/...`                      |
+| `[range]`     | Optional line range                                      | `:%`, `5,10`, `.,$`                 |
+| `[command]`   | The **action** to perform                                | `s`, `d`, `y`, `w`, `g`, `m`        |
+| `[arguments]` | Optional **arguments**, like patterns, flags, file names | `/pattern/`, `/repl/gi`, `file.txt` |
+
+## Yank & Registers Cheatsheet
+
+| Command           | Description                                                       |
+| ----------------- | ----------------------------------------------------------------- |
+| `"*y` or `"+y`    | Yank into **system clipboard** (`"*` = primary, `"+` = clipboard) |
+| `"aY`             | Yank into **register `a`** (can be any letter `a`–`z`)            |
+| `"0p`             | Paste from the **default yank register**                          |
+| `"*p`             | Paste from **system clipboard**                                   |
+| `:reg`            | Show **all registers and contents**                               |
+| `yy` / `dd` / `p` | Yank, delete, and paste using **default register**                |
+| `"ap`             | Paste from register `a`                                           |
 
 ## Macros
 
-1. Begin recording with q command
-2. Choose register (a-z)
-3. Edit however you want
-4. End recording with q command
+1. Begin recording with `q` command
+2. Choose **register** (a-z)
+3. Perform actions
+4. End recording with `q` command
 
-```vim
-# On lines 5 -10
-:5,10norm! @a
+### using registers
 
-# Line 5 to end of file
-:5,$norm! @a
+| Command         | Description                |
+| --------------- | -------------------------- |
+| `:5,10norm! @a` | Do from lines 5-10         |
+| `:5,$norm! @a`  | From line 5 to end of file |
 
-# All lines
-:g/pattern/norm! @a
+## Replace Cheatsheet
 
-
-# Visually selected lines
-:'<,'>norm! @a
-```
-
-## Replacing text
-
-```vi
-# Replace the first occurrence of a pattern in a line
-:s/pattern/replacement/
-
-# Replace all occurrences of a pattern in a line
-:s/pattern/replacement/g
-
-# Replace from the current line to the end of the file
-:.,$s/pattern/replacement/g
-
-# Replace in the entire file
-:%s/pattern/replacement/g
-
-# Replace in a specific range of lines (e.g., line 5 to line 10)
-:5,10s/pattern/replacement/g
-
-# Replace with confirmation for each occurrence
-:%s/pattern/replacement/gc
-
-# Use \ to escape special characters (e.g., . or *)
-:%s/escaped\.pattern/replacement/g
-
-# Use & in the replacement to refer to the matched pattern
-:%s/pattern/replace with & and more/g
-
-# Make the search case-insensitive
-:%s/pattern/replacement/gi
-
-# Make the search case-sensitive (override the default setting)
-:%s/pattern/replacement/gI
-
-# Replace across multiple lines using \n for new lines
-:%s/pattern\nanother line/replacement/g
-
-# Replace "foo" with "bar" in the entire file
-:%s/foo/bar/g
-
-# Replace "hello" with "world" in lines 5 to 10, with confirmation
-:5,10s/hello/world/gc
-
-```
-
+| Command                    | Description                                                  |
+| -------------------------- | ------------------------------------------------------------ |
+| `:s/pat/repl/`             | Replace **first** match in current line                      |
+| `:s/pat/repl/g`            | Replace **all** matches in current line                      |
+| `:.,$s/pat/repl/g`         | Replace from **current line to end**                         |
+| `:%s/pat/repl/g`           | Replace in **entire file**                                   |
+| `:5,10s/pat/repl/g`        | Replace from **line 5 to 10**                                |
+| `:%s/pat/repl/gc`          | Replace in file, **confirm each** (`c = confirm`)            |
+| `:%s/escaped\.pat/repl/g`  | Use `\` to **escape special chars** like `.` or `*`          |
+| `:%s/pat/replace & more/g` | Use `&` to refer to the matched **original pattern**         |
+| `:%s/pat/repl/gi`          | Case-**insensitive** replacement                             |
+| `:%s/pat/repl/gI`          | Case-**sensitive**, even if `ignorecase` is on               |
+| `:%s/pat\nnext/repl/g`     | Replace across **multiple lines** using `\n`                 |
+| `:5,10s/hello/world/gc`    | Replace "hello" with "world" in lines 5–10, with **confirm** |
 ## Mapping types
 
 | Type                    | Description                                                                             |
