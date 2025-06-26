@@ -10,6 +10,8 @@
 4. [[svg_viewbox]]
 5. [[svg_animation]]
 6. [[svg_chaining_animations]]
+7. [[svg_limitations_with_css]]
+8. [[svg_smil]]
 
 ---
 # References
