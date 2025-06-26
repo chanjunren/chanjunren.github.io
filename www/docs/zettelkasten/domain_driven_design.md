@@ -15,43 +15,35 @@ It advocates modeling based on the reality of business as relevant to your use c
 
 
 ```text
-├── domain/
- │   ├── model/        (Entities, Value Objects, Aggregates)
- │   │   ├── order/
- │   │   │   ├── Order.java          (Aggregate Root)
- │   │   │   ├── OrderItem.java      (Entity within Order Aggregate)
- │   │   │   └── ProductId.java      (Value Object)
- │   │   └── customer/
- │   │       ├── Customer.java       (Aggregate Root)
- │   │       └── Address.java        (Value Object)
- │   ├── service/      (Domain Services)
- │   │   └── PricingService.java
- │   ├── event/        (Domain Events)
- │   │   └── OrderCreatedEvent.java
- │   └── repository/   (Interfaces for Repositories)
- │       ├── OrderRepository.java
- │       └── CustomerRepository.java
- │
- ├── application/
- │   ├── dto/          (Data Transfer Objects)
- │   │   ├── CreateOrderRequest.java
- │   │   └── OrderDTO.java
- │   ├── service/      (Application Services - use case orchestrators)
- │   │   └── OrderApplicationService.java
- │   └── impl/         (Implementation of application services)
- │       └── OrderApplicationServiceImpl.java
- │
- └── infrastructure/
-     ├── persistence/  (Implementation of Repositories, DB interaction)
-     │   ├── jpa/
-     │   │   ├── OrderJpaRepository.java
-     │   │   └── CustomerJpaRepository.java
-     │   └── config/
-     │       └── PersistenceConfig.java
-     ├── messaging/    (Event publishing/handling, message queues)
-     │   └── OrderEventPublisher.java
-     └── rest/         (REST Controllers - entry points for API)
-         └── OrderController.java
+/
+├── {domain-name}/                
+│   ├── domain/
+│   │   ├── model/            # Domain models
+│   │   │   ├── po/           # Domain entities (Persistent Objects)
+│   │   │   └── vo/           # Value Objects (domain-specific immutable objects)
+│   │   ├── repository/       # Repository interfaces
+│   │   ├── event/            # Domain events
+│   │   ├── enums/            # Domain-specific enums 
+│   │   └── constants/        # Domain-specific constants 
+│   │
+│   ├── application/          # Business workflows & data access
+│   │   ├── dto/              # Application layer DTOs
+│   │   │   ├── request/      # API request DTOs
+│   │   │   └── response/     # API response DTOs
+│   │   ├── bo/               # Business Objects (application layer business logic)
+│   │   ├── {Domain}DataProvider.java       # Main service interface
+│   │   └── impl/
+│   │       ├── {Domain}DataSourceImpl.java # Main orchestrator
+│   │       ├── {Domain}DataProviderV1.java # Implementation variant 1
+│   │       └── {Domain}DataProviderV2.java # Implementation variant 2
+│   │
+│   └── infrastructure/       # Technical implementations
+│       ├── persistence/      # Database mappers (ORM mappers, etc.)
+│       │   └── dto/          # Database/persistence DTOs (ResultMaps, projections)
+│       └── messaging/        # External messaging (Message queues, etc.)
+│           └── dto/          # External messaging DTOs
+│               ├── request/  # Outbound message DTOs
+│               └── response/ # Inbound message DTOs{}
 ```
 
 ## Core Layers
