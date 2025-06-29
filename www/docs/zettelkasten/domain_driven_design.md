@@ -81,6 +81,10 @@ Coordination layer
 - **Data Access**
 - Integration with external services
 
+## Dump
+- Domain Services are called by Application Services, never the other way around. The dependency flows: Application → Domain → Infrastructure.
+
+
 ---
 
 # References
