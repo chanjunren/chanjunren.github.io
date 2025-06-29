@@ -4,21 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "aa650241f2b2d1c1",
+        "id": "30d9fe15ff63f514",
         "type": "tabs",
         "children": [
           {
-            "id": "61ee4ed886c35b8b",
+            "id": "f4f701b190ff5e20",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/vim.md",
+                "file": "zettelkasten/skating_pt.md",
                 "mode": "source",
                 "source": false
-              },
-              "icon": "lucide-file",
-              "title": "vim"
+              }
             }
           }
         ]
@@ -40,11 +38,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
+                "sortOrder": "alphabetical"
+              }
             }
           },
           {
@@ -59,9 +54,7 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-search",
-              "title": "Search"
+              }
             }
           },
           {
@@ -69,9 +62,7 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "state": {}
             }
           }
         ]
@@ -94,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/vim.md",
+                "file": "zettelkasten/skating_pt.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,9 +93,7 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for vim"
+              }
             }
           },
           {
@@ -113,12 +102,10 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/vim.md",
+                "file": "zettelkasten/skating_pt.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from vim"
+              }
             }
           },
           {
@@ -128,12 +115,8 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
+                "useHierarchy": true
+              }
             }
           },
           {
@@ -142,13 +125,8 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/vim.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of vim"
+                "file": "zettelkasten/skating_pt.md"
+              }
             }
           }
         ]
@@ -168,8 +146,21 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "61ee4ed886c35b8b",
+  "active": "f4f701b190ff5e20",
   "lastOpenFiles": [
+    "zettelkasten/skating_basics.md",
+    "zettelkasten/vim.md",
+    "zettelkasten/skating_pt.md",
+    "zettelkasten/domain_driven_design.md",
+    "zettelkasten/data_warehouse_naming_conventions.md",
+    "zettelkasten/svg_roadmap.md",
+    "zettelkasten/svg_smil.md",
+    "zettelkasten/svg_limitations_with_css.md",
+    "zettelkasten/svg_chaining_animations.md",
+    "zettelkasten/svg_path_animation.md",
+    "zettelkasten/skating_improving_toe_height.md",
+    "zettelkasten/svg_animation.md",
+    "zettelkasten/svg_shapes.md",
     "zettelkasten/svg_viewbox.md",
     "zettelkasten/svg_smil.md",
     "zettelkasten/svg_shapes.md",
@@ -183,20 +174,7 @@
     "zettelkasten/slalom_basics.md",
     "zettelkasten/skating_wheeling.md",
     "zettelkasten/skating_technical_tricks_matrix.md",
-    "zettelkasten/skating_spins.md",
-    "zettelkasten/skating_speed_slalom.md",
-    "zettelkasten/skating_sitting.md",
-    "zettelkasten/skating_pt.md",
-    "zettelkasten/skating_jumping.md",
-    "zettelkasten/skating_improving_toe_height.md",
-    "zettelkasten/skating_combo.md",
-    "zettelkasten/skating_choreo.md",
     "assets/skating_technical_tricks_matrix.png",
-    "zettelkasten/data_warehouse_naming_conventions.md",
-    "zettelkasten/learning_agility.md",
-    "zettelkasten/benchmark_test.md",
-    "zettelkasten/textures_3js.md",
-    "zettelkasten/threejs/textures.md",
     "assets/3js_textures_albedo_example.png",
     "assets/3js_textures_rotation.png",
     "assets/Pasted image 20250502004048.png",
