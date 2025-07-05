@@ -22,7 +22,7 @@
 
 ## leg pt
 - 30 x 3 deep squat
-- (7) 15 / side x 3 pistol squat
+- (10) 15 / side x 3 pistol squat
 - 30 x 3 wide squat
 - 20 x 3 squat jump
 - 20 x 3 lunge jump
