@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "30d9fe15ff63f514",
+        "id": "805f2782993dc8b5",
         "type": "tabs",
         "children": [
           {
-            "id": "f4f701b190ff5e20",
+            "id": "80f2d327bb6d0072",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/skating_pt.md",
+                "file": "zettelkasten/bob_bowman_golden_rules.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/skating_pt.md",
+                "file": "zettelkasten/bob_bowman_golden_rules.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/skating_pt.md",
+                "file": "zettelkasten/bob_bowman_golden_rules.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/skating_pt.md"
+                "file": "zettelkasten/bob_bowman_golden_rules.md"
               }
             }
           }
@@ -146,11 +146,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f4f701b190ff5e20",
+  "active": "80f2d327bb6d0072",
   "lastOpenFiles": [
+    "zettelkasten/bob_bowman_golden_rules.md",
+    "zettelkasten/skating_pt.md",
     "zettelkasten/skating_basics.md",
     "zettelkasten/vim.md",
-    "zettelkasten/skating_pt.md",
     "zettelkasten/domain_driven_design.md",
     "zettelkasten/data_warehouse_naming_conventions.md",
     "zettelkasten/svg_roadmap.md",
@@ -173,7 +174,6 @@
     "zettelkasten/svg_animation.md",
     "zettelkasten/slalom_basics.md",
     "zettelkasten/skating_wheeling.md",
-    "zettelkasten/skating_technical_tricks_matrix.md",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
     "assets/3js_textures_rotation.png",
