@@ -18,7 +18,6 @@
 - Clearly defined timeframe
 - Roadmap for the journey
 
-
 | Type        | Timeframe    | Description                  |
 | ----------- | ------------ | ---------------------------- |
 | Dream       | 5 - 10 years | General and broad            |
@@ -97,3 +96,4 @@ Get comfortable being uncomfortable
 
 ---
 # References
+- https://youtu.be/h7_1RyfIWcs?si=o8YQTQwLCzIsTmsP

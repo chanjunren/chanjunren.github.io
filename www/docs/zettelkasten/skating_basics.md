@@ -3,57 +3,68 @@
 
 # skating_basics
 
-cross
-back cross
-snake
-back snake
-forward snake fan ren
-backwards snake fan ren
+## focus
+- 手臂
+- 视线
+- 重心
+- 刃
 
-double crazy
-stroll
-back double crazy
-back stroll
-crazy sun
+## warmup
+basics
+- cross
+- back cross
+- snake
+- back snake
+- forward snake fan ren
+- backwards snake fan ren
 
-mabrouk
-crazy
-sun
-reverse sun
-sun reverse sun
+- double crazy
+- stroll
+- back double crazy
+- back stroll
+- crazy sun
 
-nelson
-backwards nelson
-mega
-reverse nelson
-(snake nelsons?)
+- mabrouk
+- crazy
+- sun
+- reverse sun
+- sun reverse sun
 
-italian
-mexican
-total cross
+- nelson
+- backwards nelson
+- mega
+- reverse nelson
+- (snake nelsons?)
 
-heel toe / toe toe
+- italian
+- mexican
+- total cross
+
+
+heel toe / toe toe ([[skating_spins]])
 - snake
 - cross
 - back snake
 - back cross
 - final
-oliver
+- oliver
 
-forward one foot (both side)
-backwards one foot (both side)
-3 + 3
-shift
-rekil 
-back rekil
-reverse shift
-one foot brush
+[[skating_wheeling]]
+	- forward one foot (both side)
+	- backwards one foot (both side)
+	- 3 + 3
+	- shift
+	- rekil 
+	- back rekil
+	- reverse shift
+	- one foot brush
 
-crab jump
-x jump
-bicycle jump
-wiper
-jump jump back one foot
+ [[skating_jumping]]
+	- crab jump
+	- x jump
+	- bicycle jump
+	- wiper
+	- jump jump back one foot
 
 ---
 # References
