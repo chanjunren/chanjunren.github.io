@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/rhythm.md",
+                "file": "zettelkasten/prometheus.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/rhythm.md",
+                "file": "zettelkasten/prometheus.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/rhythm.md",
+                "file": "zettelkasten/prometheus.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/rhythm.md"
+                "file": "zettelkasten/prometheus.md"
               }
             }
           }
@@ -148,6 +148,9 @@
   },
   "active": "9527788dace53d35",
   "lastOpenFiles": [
+    "zettelkasten/grafana.md",
+    "zettelkasten/time_series_database.md",
+    "zettelkasten/prometheus.md",
     "zettelkasten/skating_goals.md",
     "zettelkasten/rhythm.md",
     "zettelkasten/bob_bowman_golden_rules.md",
@@ -171,9 +174,6 @@
     "zettelkasten/svg_viewbox.md",
     "zettelkasten/svg_smil.md",
     "zettelkasten/svg_shapes.md",
-    "zettelkasten/svg_roadmap.md",
-    "zettelkasten/svg_path_model.md",
-    "zettelkasten/svg_path_animation.md",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
     "assets/3js_textures_rotation.png",

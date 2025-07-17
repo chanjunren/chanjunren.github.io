@@ -62,7 +62,7 @@ const FloatingMenu: FC = () => {
     <nav
       className={
         "flex gap-4 sticky bottom-5 shadow-md " +
-        "rounded-full z-10 bg-white w-fit max-w-full inset-x-0 mx-auto px-6 py-3"
+        "rounded-md z-10 bg-white w-fit max-w-full inset-x-0 mx-auto px-6 py-3"
       }
     >
       {topics.map(
