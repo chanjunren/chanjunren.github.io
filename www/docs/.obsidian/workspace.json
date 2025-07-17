@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/prometheus.md",
+                "file": "zettelkasten/svg_smil.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/prometheus.md",
+                "file": "zettelkasten/svg_smil.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/prometheus.md",
+                "file": "zettelkasten/svg_smil.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/prometheus.md"
+                "file": "zettelkasten/svg_smil.md"
               }
             }
           }
@@ -160,8 +160,8 @@
   },
   "active": "9527788dace53d35",
   "lastOpenFiles": [
-    "zettelkasten/time_series_database.md",
     "zettelkasten/prometheus.md",
+    "zettelkasten/time_series_database.md",
     "zettelkasten/grafana.md",
     "zettelkasten/skating_goals.md",
     "zettelkasten/rhythm.md",

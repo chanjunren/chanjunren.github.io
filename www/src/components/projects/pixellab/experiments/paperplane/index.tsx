@@ -9,7 +9,7 @@ const PaperPlaneIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
       <path
         fill="none"
         stroke="currentColor"
-        stroke-width="1.5"
+        stroke-width="2"
         stroke-linejoin="round"
         d="M27,22.2
            l-4.8,10.012l8.391-7.115L22.2,32.212V20.4L61.375,1.125L22.2,20.4l-21-1.9c-0.9-0.3-1.4-1.3-1.1-2.3L60.8,0

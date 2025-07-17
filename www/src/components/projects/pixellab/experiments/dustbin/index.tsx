@@ -9,7 +9,7 @@ const DustbinIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
         stroke-linejoin="round"
         stroke-linecap="round"
         stroke="currentColor"
-        stroke-width="0.8"
+        stroke-width="1.2"
         fill="none"
       >
         <g className="body">
