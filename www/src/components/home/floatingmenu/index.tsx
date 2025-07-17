@@ -68,7 +68,7 @@ const FloatingMenu: FC = () => {
       {topics.map(
         ({ type, icon: Icon, link: key, custom: CustomItem, label }, index) =>
           type === "link" || type === "externalLink" ? (
-            <Tooltip.Provider delayDuration={0}>
+            <Tooltip.Provider delayDuration={0} key={"menuItem" + index}>
               <Tooltip.Root>
                 <Tooltip.Trigger asChild>
                   <a

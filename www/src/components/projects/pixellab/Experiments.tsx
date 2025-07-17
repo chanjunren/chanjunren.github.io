@@ -2,6 +2,7 @@ import { FC } from "react";
 import PrimaryHeader from "../../common/PrimaryHeader";
 import Align from "./experiments/align";
 import Dustbin from "./experiments/dustbin";
+import Graph from "./experiments/graph";
 import Handwave from "./experiments/handwave";
 import PaperPlane from "./experiments/paperplane";
 
@@ -14,6 +15,7 @@ const Experiments: FC = () => {
         <PaperPlane />
         <Align />
         <Dustbin />
+        <Graph />
       </div>
     </>
   );
