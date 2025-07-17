@@ -16,7 +16,7 @@ Pull based monitoring system
 	- List can be configured
 		- Statically
 		- Dynamically through service discovery
-2. Stores data in a **Time Series Database** (TSDB)
+2. Stores data in a [[time_series_database]](TSDB)
 	- Can use to generate alerts through an Alertmanager
 	- Or query
 
