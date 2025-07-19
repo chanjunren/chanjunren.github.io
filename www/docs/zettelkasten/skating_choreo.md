@@ -3,6 +3,7 @@
 
 # skating_choreo
 
+
 ```ad-abstract
 i asked chatgpt how to think about music
 ```

@@ -27,6 +27,7 @@
     "@react-three/fiber": "^8.16.7",
     "classnames": "^2.5.1",
     "clsx": "^2.0.0",
+    "debounce": "^2.2.0",
     "leva": "^0.9.35",
     "prism-react-renderer": "^2.3.0",
     "r3f-perf": "^7.2.1",
