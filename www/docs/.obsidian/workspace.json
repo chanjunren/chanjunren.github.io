@@ -4,28 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "90b22ca75e7a3e93",
+        "id": "f1182da9e6b0d145",
         "type": "tabs",
         "children": [
           {
-            "id": "9527788dace53d35",
+            "id": "a5487d0e843a1e56",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "zettelkasten/svg_smil.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "cfd11cf745619a45",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zettelkasten/time_series_database.md",
                 "mode": "source",
                 "source": false
               }
@@ -81,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "d38b321f70b236f9",
@@ -158,10 +147,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9527788dace53d35",
+  "active": "a5487d0e843a1e56",
   "lastOpenFiles": [
-    "zettelkasten/prometheus.md",
+    "zettelkasten/svg_smil_timing.md",
+    "zettelkasten/svg_smil.md",
     "zettelkasten/time_series_database.md",
+    "zettelkasten/jbwkz_the_hit.md",
+    "zettelkasten/skating_choreo.md",
+    "zettelkasten/prometheus.md",
     "zettelkasten/grafana.md",
     "zettelkasten/skating_goals.md",
     "zettelkasten/rhythm.md",
@@ -176,15 +169,11 @@
     "zettelkasten/domain_driven_design.md",
     "zettelkasten/data_warehouse_naming_conventions.md",
     "zettelkasten/svg_roadmap.md",
-    "zettelkasten/svg_smil.md",
     "zettelkasten/svg_limitations_with_css.md",
     "zettelkasten/svg_chaining_animations.md",
     "zettelkasten/svg_path_animation.md",
     "zettelkasten/skating_improving_toe_height.md",
     "zettelkasten/svg_animation.md",
-    "zettelkasten/svg_shapes.md",
-    "zettelkasten/svg_viewbox.md",
-    "zettelkasten/svg_smil.md",
     "zettelkasten/svg_shapes.md",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",

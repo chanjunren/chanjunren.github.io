@@ -64,6 +64,15 @@
 - You can add multiple `<animate>` elements to a single shape to **layer or chain animations**.
 - Enables more complex effects without increasing DOM size or requiring JS orchestration.
 
+
+### Triggering animations manually
+1. Setting the `begin` attribute to `indefinite`;
+2. Using the `beginElement` method to start the animation.
+
+```ad-note
+In React, we can grab the `animate` element using the `useRef` hook and trigger the animation in response to something using the `useEffect` hook
+```
+
 ---
 
 # References
