@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import ExperimentBackground from "../../helpers/ExperimentBackground";
 
-const Handwave: FC = () => {
+const HandWave: FC = () => {
   const [wave, setWave] = useState<boolean>(false);
 
   return (
@@ -26,4 +26,4 @@ const Handwave: FC = () => {
   );
 };
 
-export default Handwave;
+export default HandWave;
