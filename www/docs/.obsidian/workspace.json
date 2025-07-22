@@ -4,19 +4,55 @@
     "type": "split",
     "children": [
       {
-        "id": "f1182da9e6b0d145",
+        "id": "687bfb2546abed5d",
         "type": "tabs",
         "children": [
           {
-            "id": "a5487d0e843a1e56",
+            "id": "ea538cbd2b4518ba",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/svg_smil.md",
+                "file": "zettelkasten/skating_goals.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "skating_goals"
+            }
+          },
+          {
+            "id": "581e2ee8d50634fd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zettelkasten/bob_bowman_golden_rules.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "bob_bowman_golden_rules"
+            }
+          }
+        ]
+      },
+      {
+        "id": "df2d974a1c70b41d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "db6b6eda558e2aef",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "zettelkasten/bob_bowman_golden_rules.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "bob_bowman_golden_rules"
             }
           }
         ]
@@ -38,8 +74,11 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
-              }
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -54,7 +93,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,15 +103,16 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "d38b321f70b236f9",
@@ -86,7 +128,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/svg_smil.md",
+                "file": "zettelkasten/skating_goals.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +136,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for skating_goals"
             }
           },
           {
@@ -103,10 +147,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/svg_smil.md",
+                "file": "zettelkasten/skating_goals.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from skating_goals"
             }
           },
           {
@@ -116,8 +162,12 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
-              }
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -126,8 +176,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/svg_smil.md"
-              }
+                "file": "zettelkasten/skating_goals.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of skating_goals"
             }
           }
         ]
@@ -147,18 +202,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a5487d0e843a1e56",
+  "active": "ea538cbd2b4518ba",
   "lastOpenFiles": [
-    "zettelkasten/svg_smil_timing.md",
-    "zettelkasten/svg_smil.md",
-    "zettelkasten/time_series_database.md",
-    "zettelkasten/jbwkz_the_hit.md",
-    "zettelkasten/skating_choreo.md",
-    "zettelkasten/prometheus.md",
-    "zettelkasten/grafana.md",
-    "zettelkasten/skating_goals.md",
-    "zettelkasten/rhythm.md",
     "zettelkasten/bob_bowman_golden_rules.md",
+    "zettelkasten/skating_goals.md",
+    "zettelkasten/time_series_database.md",
+    "zettelkasten/svg_smil_timing.md",
+    "zettelkasten/grafana.md",
+    "zettelkasten/rhythm.md",
     "zettelkasten/skating_basics.md",
     "zettelkasten/skating_wheeling.md",
     "zettelkasten/slalom_basics.md",
@@ -169,11 +220,15 @@
     "zettelkasten/domain_driven_design.md",
     "zettelkasten/data_warehouse_naming_conventions.md",
     "zettelkasten/svg_roadmap.md",
+    "zettelkasten/svg_smil.md",
     "zettelkasten/svg_limitations_with_css.md",
     "zettelkasten/svg_chaining_animations.md",
     "zettelkasten/svg_path_animation.md",
     "zettelkasten/skating_improving_toe_height.md",
     "zettelkasten/svg_animation.md",
+    "zettelkasten/svg_shapes.md",
+    "zettelkasten/svg_viewbox.md",
+    "zettelkasten/svg_smil.md",
     "zettelkasten/svg_shapes.md",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
