@@ -10,7 +10,7 @@ import PaperPlane from "./experiments/paperplane";
 const Experiments: FC = () => {
   return (
     <div
-      className="grid grid-cols-5 rounded-lg border-gray-200 border-solid p-4 justify-items-center gap-8 w-fit self-center mb-10"
+      className="grid grid-cols-2 md:grid-cols-5 rounded-lg border-gray-200 border-solid p-8 justify-items-center gap-8 w-fit self-center mb-10"
       style={{
         backgroundImage: `repeating-linear-gradient(
             45deg,
