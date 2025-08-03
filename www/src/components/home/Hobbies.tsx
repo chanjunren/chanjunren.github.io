@@ -6,9 +6,9 @@ import mahjongPreview from "@site/static/images/mahjong.webp";
 import skatingPreview from "@site/static/images/skating.webp";
 import snowboardingPreview from "@site/static/images/snowboarding.webp";
 
-import { PlayIcon } from "@radix-ui/react-icons";
 import { FC, useEffect, useRef, useState } from "react";
 import PrimaryHeader from "../common/PrimaryHeader";
+import TypewriterText from "../common/TypewriterText";
 
 type HobbyCardProps = {
   label: string;
@@ -40,23 +40,28 @@ const HobbyCard: FC<HobbyCardProps> = ({
 
   return (
     <div
-      className={`flex flex-col items-center relative py-3 px-5 h-fit`}
+      className={`flex flex-col items-center relative h-fit`}
       onClick={() => setPlaying(true)}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
       <div
-        className={`overflow-hidden transition-all relative items-center justify-center`}
+        className={`overflow-hidden transition-all relative items-center justify-center rounded-md aspect-square ${
+          size === "lg" && "h-44"
+        } ${size === "md" && "h-36"}`}
       >
-        {!playing && (
-          <PlayIcon className="bg-gray-700 backdrop-blur-sm bg-opacity-5 rounded-md text-white absolute left-1/2 top-1/2 z-10 p-1 h-6 w-6 -translate-x-1/2 -translate-y-1/2 cursor-pointer" />
+        {hovering && !playing && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center backdrop-blur-sm rounded-md cursor-pointer">
+            <TypewriterText
+              className="cursor-pointer text-shadow-lg"
+              text={label}
+              active={hovering}
+              color="rgb(255, 255, 255)"
+            />
+          </div>
         )}
         <video
-          className={`rounded-md shadow-md aspect-square ${
-            size === "lg" && "h-44"
-          } ${
-            size === "md" && "h-32"
-          }  h-${size} w-${size} cursor-pointer ${"saturate-50"}`}
+          className={`rounded-md saturate-50 h-full cursor-pointer transition-all duration-300`}
           ref={videoRef}
           playsInline
           autoPlay={false}
@@ -65,7 +70,6 @@ const HobbyCard: FC<HobbyCardProps> = ({
           poster={preview}
         />
       </div>
-      <span>{label}</span>
     </div>
   );
 };
@@ -74,7 +78,7 @@ const Hobbies: FC = () => {
   return (
     <section className="md:col-span-4 col-span-12">
       <PrimaryHeader>🍉 hobbies</PrimaryHeader>
-      <div className="flex">
+      <div className="flex gap-5">
         <HobbyCard
           size="lg"
           label="skating"

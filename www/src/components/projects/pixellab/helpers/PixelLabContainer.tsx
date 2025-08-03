@@ -11,7 +11,7 @@ const PixelLabContainer: FC<
       >
         {children}
       </div>
-      <span className="pb-5">{label}.</span>
+      <span className="pb-5">[{label}]</span>
     </div>
   );
 };
