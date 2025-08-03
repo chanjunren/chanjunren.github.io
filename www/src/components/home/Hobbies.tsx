@@ -40,36 +40,36 @@ const HobbyCard: FC<HobbyCardProps> = ({
 
   return (
     <div
-      className={`flex flex-col items-center relative h-fit`}
+      className={`cursor-pointer relative ${size === "lg" && "h-44"} ${
+        size === "md" && "h-36"
+      }`}
       onClick={() => setPlaying(true)}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
       <div
-        className={`overflow-hidden transition-all relative items-center justify-center rounded-md aspect-square ${
-          size === "lg" && "h-44"
-        } ${size === "md" && "h-36"}`}
+        className={`absolute inset-0 z-10 flex items-center justify-center rounded-md cursor-pointer transition-all duration-300 ${
+          hovering && !playing
+            ? "opacity-100 backdrop-blur-sm"
+            : "opacity-0 backdrop-blur-none pointer-events-none"
+        }`}
       >
-        {hovering && !playing && (
-          <div className="absolute inset-0 z-10 flex items-center justify-center backdrop-blur-sm rounded-md cursor-pointer">
-            <TypewriterText
-              className="cursor-pointer text-shadow-lg"
-              text={label}
-              active={hovering}
-              color="rgb(255, 255, 255)"
-            />
-          </div>
-        )}
-        <video
-          className={`rounded-md saturate-50 h-full cursor-pointer transition-all duration-300`}
-          ref={videoRef}
-          playsInline
-          autoPlay={false}
-          src={mediaUrl}
-          onEnded={handleVideoEnded}
-          poster={preview}
+        <TypewriterText
+          className="cursor-pointer text-shadow-md"
+          text={label}
+          active={hovering && !playing}
+          color="rgb(255, 255, 255)"
         />
       </div>
+      <video
+        className={`rounded-md saturate-50 h-full`}
+        ref={videoRef}
+        playsInline
+        autoPlay={false}
+        src={mediaUrl}
+        onEnded={handleVideoEnded}
+        poster={preview}
+      />
     </div>
   );
 };
