@@ -1,11 +1,12 @@
 import { FC, useState } from "react";
-import ExperimentBackground from "../../helpers/ExperimentBackground";
+import PixelLabContainer from "../../helpers/PixelLabContainer";
 
 const HandWave: FC = () => {
   const [wave, setWave] = useState<boolean>(false);
 
   return (
-    <ExperimentBackground
+    <PixelLabContainer
+      label="001"
       onMouseEnter={() => {
         if (!wave) {
           setWave(true);
@@ -22,7 +23,7 @@ const HandWave: FC = () => {
       >
         👋🏻
       </div>
-    </ExperimentBackground>
+    </PixelLabContainer>
   );
 };
 

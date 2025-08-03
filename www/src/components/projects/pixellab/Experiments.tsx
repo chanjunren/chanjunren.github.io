@@ -1,5 +1,4 @@
 import { FC } from "react";
-import PrimaryHeader from "../../common/PrimaryHeader";
 import Align from "./experiments/align";
 import BouncingDownload from "./experiments/download";
 import Dustbin from "./experiments/dustbin";
@@ -9,17 +8,25 @@ import PaperPlane from "./experiments/paperplane";
 
 const Experiments: FC = () => {
   return (
-    <>
-      <PrimaryHeader className="!justify-self-center">🚧 WIP</PrimaryHeader>
-      <div className="grid grid-cols-5">
-        <HandWave />
-        <PaperPlane />
-        <Align />
-        <Dustbin />
-        <Graph />
-        <BouncingDownload />
-      </div>
-    </>
+    <div
+      className="grid grid-cols-5 rounded-lg border-gray-200 border-solid p-4 justify-items-center gap-8 w-fit self-center mb-10"
+      style={{
+        backgroundImage: `repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(209, 213, 219, 0.25) 10px,
+            rgba(209, 213, 219, 0.25) 11px
+          )`,
+      }}
+    >
+      <HandWave />
+      <PaperPlane />
+      <Align />
+      <Dustbin />
+      <Graph />
+      <BouncingDownload />
+    </div>
   );
 };
 

@@ -1,11 +1,11 @@
 import classnames from "classnames";
 import { FC, SVGProps, useState } from "react";
-import ExperimentBackground from "../../helpers/ExperimentBackground";
+import PixelLabContainer from "../../helpers/PixelLabContainer";
 import styles from "./index.module.css";
 
 const PaperPlaneIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
-    <svg {...props} viewBox="0 0 64 38" width={"100%"}>
+    <svg {...props} width={28} viewBox="0 0 64 48">
       <path
         fill="none"
         stroke="currentColor"
@@ -22,7 +22,8 @@ const PaperPlaneIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
 const PaperPlane: FC = () => {
   const [active, setActive] = useState<boolean>(false);
   return (
-    <ExperimentBackground
+    <PixelLabContainer
+      label="002"
       onClick={() => {
         if (!active) {
           setActive(true);
@@ -36,7 +37,7 @@ const PaperPlane: FC = () => {
         aria-live={active ? "assertive" : "off"}
         className={classnames(styles.paperplane, active ? styles.active : "")}
       />
-    </ExperimentBackground>
+    </PixelLabContainer>
   );
 };
 

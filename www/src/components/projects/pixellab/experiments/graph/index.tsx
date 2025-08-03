@@ -1,5 +1,5 @@
 import { FC, SVGProps } from "react";
-import ExperimentBackground from "../../helpers/ExperimentBackground";
+import PixelLabContainer from "../../helpers/PixelLabContainer";
 
 const GraphIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
@@ -33,8 +33,8 @@ const GraphIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
 
 export default function Graph() {
   return (
-    <ExperimentBackground>
+    <PixelLabContainer label="005">
       <GraphIcon width={40} />
-    </ExperimentBackground>
+    </PixelLabContainer>
   );
 }
