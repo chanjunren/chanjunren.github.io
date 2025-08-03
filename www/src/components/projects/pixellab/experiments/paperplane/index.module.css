@@ -13,10 +13,6 @@
     }
 }
 
-.paperplane {
-    padding: 1.5rem;
-}
-
 .paperplane[aria-live='assertive'] {
     animation: paperplane 5s ease-in-out;
     transform-origin: 32px 19px;

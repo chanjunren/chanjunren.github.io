@@ -1,9 +1,9 @@
 import { FC, SVGProps } from "react";
-import ExperimentBackground from "../../helpers/ExperimentBackground";
+import PixelLabContainer from "../../helpers/PixelLabContainer";
 
 const AlignIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
-    <svg {...props} viewBox="0 0 24 24">
+    <svg {...props} width={65} viewBox="0 0 24 24">
       <g
         stroke-linejoin="round"
         stroke-linecap="round"
@@ -23,9 +23,9 @@ const AlignIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
 
 const Align: FC = () => {
   return (
-    <ExperimentBackground className="group cursor-cell">
+    <PixelLabContainer label="003" className="group cursor-cell">
       <AlignIcon className="p-6" />
-    </ExperimentBackground>
+    </PixelLabContainer>
   );
 };
 

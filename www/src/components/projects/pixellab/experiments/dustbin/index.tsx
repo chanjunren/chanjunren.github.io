@@ -1,5 +1,5 @@
 import { FC, SVGProps } from "react";
-import ExperimentBackground from "../../helpers/ExperimentBackground";
+import PixelLabContainer from "../../helpers/PixelLabContainer";
 import styles from "./index.module.css";
 
 const DustbinIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
@@ -28,8 +28,8 @@ const DustbinIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
 
 export default function Dustbin() {
   return (
-    <ExperimentBackground className={styles.dustbin}>
+    <PixelLabContainer label="004" className={styles.dustbin}>
       <DustbinIcon width={40} />
-    </ExperimentBackground>
+    </PixelLabContainer>
   );
 }

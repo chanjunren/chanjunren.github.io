@@ -1,5 +1,5 @@
 import { FC, SVGProps } from "react";
-import ExperimentBackground from "../../helpers/ExperimentBackground";
+import PixelLabContainer from "../../helpers/PixelLabContainer";
 
 const DownloadIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
@@ -58,9 +58,9 @@ const DownloadIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
 
 const BouncingDownload: FC = () => {
   return (
-    <ExperimentBackground className="group cursor-cell">
+    <PixelLabContainer label="006" className="group cursor-cell">
       <DownloadIcon />
-    </ExperimentBackground>
+    </PixelLabContainer>
   );
 };
 
