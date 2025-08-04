@@ -14,7 +14,7 @@ export function Data({ data }) {
         points={toPoints(data, "data")}
         stroke="currentColor"
         strokeWidth="0.3"
-        fill="#EAEC8A"
+        fill="var(--ifm-color-primary)"
         fillOpacity="0.18"
         markerStart={`url(#${id})`}
         markerMid={`url(#${id})`}
