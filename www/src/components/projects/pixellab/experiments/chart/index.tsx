@@ -14,6 +14,7 @@ export default function Chart() {
   return (
     <PixelLabContainer label="007">
       <svg
+        id="chart"
         onClick={() => {
           setData({
             neutral: randomBetween(1, 30),
@@ -25,6 +26,7 @@ export default function Chart() {
         }}
         viewBox="0 0 100 100"
         width="100"
+        className="cursor-pointer"
       >
         <Background data={data} />
         <Data data={data} />
