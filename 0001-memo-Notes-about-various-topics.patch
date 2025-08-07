@@ -1,0 +1,513 @@
+From a93e37431ca5cdf220938ca45d8454cad63bfbf8 Mon Sep 17 00:00:00 2001
+From: "junren.chan" <junren.chan@okg.com>
+Date: Thu, 7 Aug 2025 10:53:15 +0800
+Subject: [PATCH] :memo: Notes about various topics
+
+---
+ www/docs/.obsidian/workspace.json            | 74 +++++++-------------
+ www/docs/zettelkasten/concurrency_control.md | 34 +++++++++
+ www/docs/zettelkasten/data_federation.md     | 45 ++++++++++++
+ www/docs/zettelkasten/hot_cold_storage.md    | 18 +++++
+ www/docs/zettelkasten/htap.md                | 50 +++++++++++++
+ www/docs/zettelkasten/optimistic_locking.md  | 22 ++++++
+ www/docs/zettelkasten/pessimistic_locking.md | 26 +++++++
+ www/docs/zettelkasten/svg_path.md            | 13 ++++
+ www/docs/zettelkasten/vector_search.md       | 62 ++++++++++++++++
+ 9 files changed, 296 insertions(+), 48 deletions(-)
+ create mode 100644 www/docs/zettelkasten/concurrency_control.md
+ create mode 100644 www/docs/zettelkasten/data_federation.md
+ create mode 100644 www/docs/zettelkasten/hot_cold_storage.md
+ create mode 100644 www/docs/zettelkasten/htap.md
+ create mode 100644 www/docs/zettelkasten/optimistic_locking.md
+ create mode 100644 www/docs/zettelkasten/pessimistic_locking.md
+ create mode 100644 www/docs/zettelkasten/svg_path.md
+ create mode 100644 www/docs/zettelkasten/vector_search.md
+
+diff --git a/www/docs/.obsidian/workspace.json b/www/docs/.obsidian/workspace.json
+index e7f6636..d1b2c25 100644
+--- a/www/docs/.obsidian/workspace.json
++++ b/www/docs/.obsidian/workspace.json
+@@ -13,12 +13,10 @@
+             "state": {
+               "type": "markdown",
+               "state": {
+-                "file": "zettelkasten/svg_animate_transform.md",
++                "file": "zettelkasten/concurrency_control.md",
+                 "mode": "source",
+                 "source": false
+-              },
+-              "icon": "lucide-file",
+-              "title": "svg_animate_transform"
++              }
+             }
+           }
+         ]
+@@ -40,11 +38,8 @@
+             "state": {
+               "type": "file-explorer",
+               "state": {
+-                "sortOrder": "alphabetical",
+-                "autoReveal": false
+-              },
+-              "icon": "lucide-folder-closed",
+-              "title": "Files"
++                "sortOrder": "alphabetical"
++              }
+             }
+           },
+           {
+@@ -59,9 +54,7 @@
+                 "collapseAll": false,
+                 "extraContext": false,
+                 "sortOrder": "alphabetical"
+-              },
+-              "icon": "lucide-search",
+-              "title": "Search"
++              }
+             }
+           },
+           {
+@@ -69,9 +62,7 @@
+             "type": "leaf",
+             "state": {
+               "type": "bookmarks",
+-              "state": {},
+-              "icon": "lucide-bookmark",
+-              "title": "Bookmarks"
++              "state": {}
+             }
+           }
+         ]
+@@ -94,7 +85,7 @@
+             "state": {
+               "type": "backlink",
+               "state": {
+-                "file": "zettelkasten/svg_animate_transform.md",
++                "file": "zettelkasten/concurrency_control.md",
+                 "collapseAll": false,
+                 "extraContext": false,
+                 "sortOrder": "alphabetical",
+@@ -102,9 +93,7 @@
+                 "searchQuery": "",
+                 "backlinkCollapsed": false,
+                 "unlinkedCollapsed": true
+-              },
+-              "icon": "links-coming-in",
+-              "title": "Backlinks for svg_animate_transform"
++              }
+             }
+           },
+           {
+@@ -113,12 +102,10 @@
+             "state": {
+               "type": "outgoing-link",
+               "state": {
+-                "file": "zettelkasten/svg_animate_transform.md",
++                "file": "zettelkasten/concurrency_control.md",
+                 "linksCollapsed": false,
+                 "unlinkedCollapsed": true
+-              },
+-              "icon": "links-going-out",
+-              "title": "Outgoing links from svg_animate_transform"
++              }
+             }
+           },
+           {
+@@ -128,12 +115,8 @@
+               "type": "tag",
+               "state": {
+                 "sortOrder": "frequency",
+-                "useHierarchy": true,
+-                "showSearch": false,
+-                "searchQuery": ""
+-              },
+-              "icon": "lucide-tags",
+-              "title": "Tags"
++                "useHierarchy": true
++              }
+             }
+           },
+           {
+@@ -142,13 +125,8 @@
+             "state": {
+               "type": "outline",
+               "state": {
+-                "file": "zettelkasten/svg_animate_transform.md",
+-                "followCursor": false,
+-                "showSearch": false,
+-                "searchQuery": ""
+-              },
+-              "icon": "lucide-list",
+-              "title": "Outline of svg_animate_transform"
++                "file": "zettelkasten/concurrency_control.md"
++              }
+             }
+           }
+         ]
+@@ -170,8 +148,19 @@
+   },
+   "active": "480ddcdbceb5d967",
+   "lastOpenFiles": [
+-    "zettelkasten/svg_roadmap.md",
++    "zettelkasten/optimistic_locking.md",
++    "zettelkasten/pessimistic_locking.md",
++    "zettelkasten/concurrency_control.md",
++    "zettelkasten/innodb_concurrency_control.md",
++    "zettelkasten/htap.md",
++    "zettelkasten/oltp_vs_olap.md",
++    "zettelkasten/vector_search.md",
++    "zettelkasten/data_federation.md",
++    "zettelkasten/hot_cold_storage.md",
++    "zettelkasten/vectorization.md",
++    "zettelkasten/svg_path.md",
+     "zettelkasten/svg_animate_transform.md",
++    "zettelkasten/svg_roadmap.md",
+     "zettelkasten/svg_animation.md",
+     "zettelkasten/svg_basics.md",
+     "zettelkasten/svg_smil.md",
+@@ -185,17 +174,6 @@
+     "zettelkasten/skating_basics.md",
+     "zettelkasten/skating_wheeling.md",
+     "zettelkasten/slalom_basics.md",
+-    "zettelkasten/skating_spins.md",
+-    "zettelkasten/skating_sitting.md",
+-    "zettelkasten/skating_pt.md",
+-    "zettelkasten/vim.md",
+-    "zettelkasten/domain_driven_design.md",
+-    "zettelkasten/data_warehouse_naming_conventions.md",
+-    "zettelkasten/svg_limitations_with_css.md",
+-    "zettelkasten/svg_chaining_animations.md",
+-    "zettelkasten/svg_path_animation.md",
+-    "zettelkasten/skating_improving_toe_height.md",
+-    "zettelkasten/svg_shapes.md",
+     "assets/skating_technical_tricks_matrix.png",
+     "assets/3js_textures_albedo_example.png",
+     "assets/3js_textures_rotation.png",
+diff --git a/www/docs/zettelkasten/concurrency_control.md b/www/docs/zettelkasten/concurrency_control.md
+new file mode 100644
+index 0000000..38ed1a2
+--- /dev/null
++++ b/www/docs/zettelkasten/concurrency_control.md
+@@ -0,0 +1,34 @@
++🗓️ 07082025 1049
++📎
++
++# concurrency_control
++
++> Concurrency control ensures **correctness and consistency** when **multiple transactions** or **threads** access shared resources **at the same time**.
++
++### 🔥 Goals:
++- **Prevent conflicts** (e.g., dirty reads, lost updates)
++- **Ensure isolation** (ACID property)
++- **Maintain performance and throughput**
++
++## 🧱 Types of Concurrency Problems
++
++| Problem                 | Description                               | Example                                                      |
++| ----------------------- | ----------------------------------------- | ------------------------------------------------------------ |
++| **Lost Update**         | Two writes overwrite each other           | T1 and T2 read the same record and both update it            |
++| **Dirty Read**          | Read uncommitted changes                  | T1 writes, T2 reads before T1 commits                        |
++| **Non-repeatable Read** | Same read returns different results       | T1 reads, T2 modifies and commits, T1 reads again            |
++| **Phantom Read**        | Rows appear/disappear in repeated queries | T1: `SELECT *`, T2 inserts, T1 re-queries and sees more rows |
++
++## 🧠 Summary Table
++
++|              | [[optimistic_locking]]    | [[pessimistic_locking]]   |
++| ------------ | ------------------------- | ------------------------- |
++| Assumption   | Low contention            | High contention           |
++| Concurrency  | High                      | Low                       |
++| Risk         | Retry on failure          | Blocking, deadlocks       |
++| Overhead     | Lightweight               | Heavyweight               |
++| Common Usage | Web apps, distributed sys | Databases, legacy systems |
++
++---
++# References
++- ChatGPT
+\ No newline at end of file
+diff --git a/www/docs/zettelkasten/data_federation.md b/www/docs/zettelkasten/data_federation.md
+new file mode 100644
+index 0000000..c2a8e7a
+--- /dev/null
++++ b/www/docs/zettelkasten/data_federation.md
+@@ -0,0 +1,45 @@
++🗓️ 07082025 1038
++📎
++
++# data_federation
++> **Data Federation** is the technique of **querying and integrating data from multiple, distributed sources** (databases, data lakes, APIs, etc.) **as if they were a single source** — **without physically moving or copying the data**.
++
++## 🛠️ How It Works (High-Level)
++Instead of ETL-ing all data into one place:
++- A **federated engine** sits on top of the data sources
++- When a query comes in, it:
++    1. Breaks it into subqueries
++    2. Sends subqueries to each data source
++    3. Aggregates the results
++    4. Returns a unified response
++
++## 💼 When to Use It
++
++| Use Case                                 | Why Data Federation Helps                   |
++| ---------------------------------------- | ------------------------------------------- |
++| Data is spread across services/databases | Avoids centralization or duplication        |
++| Need fast insights across systems        | Real-time querying without pre-aggregation  |
++| Can't move data due to compliance        | Leaves data _in-place_ (good for GDPR etc.) |
++## ✅ Pros
++- No need to duplicate data
++- Real-time / near real-time access
++- Flexible for ad-hoc queries
++- Good for hybrid/multi-cloud environments
++## ⚠️ Cons
++- **Performance** depends on underlying sources
++- **Complexity** in query planning and optimization
++- **Limited joins** across incompatible systems
++- **Latency** can be high if sources are slow or far apart
++## 🔍 Examples of Data Federation Tools
++
++| Tool / Platform                | Description                                |
++| ------------------------------ | ------------------------------------------ |
++| **Presto / Trino**             | Open-source distributed SQL query engine   |
++| **Google BigQuery Federation** | Query Cloud SQL, GCS, Sheets from BigQuery |
++| **Athena Federated Queries**   | Query multiple AWS sources                 |
++| **Denodo**                     | Enterprise data virtualization platform    |
++| **Starburst**                  | Commercial Presto/Trino offering           |
++
++---
++# References
++- ChatGPT
+\ No newline at end of file
+diff --git a/www/docs/zettelkasten/hot_cold_storage.md b/www/docs/zettelkasten/hot_cold_storage.md
+new file mode 100644
+index 0000000..e84a91e
+--- /dev/null
++++ b/www/docs/zettelkasten/hot_cold_storage.md
+@@ -0,0 +1,18 @@
++🗓️ 07082025 1038
++📎
++
++# hot_cold_storage
++
++| Feature                | 🔥 **Hot Storage**                                | ❄️ **Cold Storage**                       |
++| ---------------------- | ------------------------------------------------- | ----------------------------------------- |
++| **Purpose**            | Frequent, fast access                             | Infrequent, archival access               |
++| **Access speed**       | Very fast (ms to sec)                             | Slower (minutes to hours)                 |
++| **Cost**               | Higher storage cost                               | Much cheaper per GB                       |
++| **Use cases**          | Active data, real-time apps, dashboards           | Backups, historical logs, compliance data |
++| **Examples (Cloud)**   | Amazon S3 Standard, Google Cloud Storage Standard | Amazon Glacier, Google Coldline/Archive   |
++| **Durability**         | Usually same (11 9s, etc.)                        | Same durability, but slower retrieval     |
++| **Availability (SLA)** | Higher                                            | Lower                                     |
++
++---
++# References
++- ChatGPT
+\ No newline at end of file
+diff --git a/www/docs/zettelkasten/htap.md b/www/docs/zettelkasten/htap.md
+new file mode 100644
+index 0000000..c240e57
+--- /dev/null
++++ b/www/docs/zettelkasten/htap.md
+@@ -0,0 +1,50 @@
++🗓️ 07082025 1042
++📎
++ 
++# htap
++> **HTAP** = **Hybrid Transactional and Analytical Processing**
++
++It’s a **database architecture** that **supports both [[oltp]] and [[olap]] workloads** **on the same system**, often in real time — **without needing ETL**.
++
++## 🚀 Why HTAP is a Big Deal
++
++|🔍 Traditional|🔥 HTAP|
++|---|---|
++|OLTP + OLAP are separate|Unified system|
++|ETL delays|Real-time sync|
++|High infra complexity|Simpler architecture|
++|Costly duplication|Single source of truth|
++
++## 🧩 How Does HTAP Work?
++
++HTAP systems often:
++1. Store **data once**, but in formats suited for both workloads
++2. Use **multi-engine architectures** (row store + column store)
++3. Separate compute for **isolation** (no interference)
++4. Leverage **MVCC**, **HTAP schedulers**, or **replication** to optimize for both use cases
++
++## 🛠️ Real-World Examples
++
++| System                  | HTAP Capabilities                                                   |
++| ----------------------- | ------------------------------------------------------------------- |
++| **TiDB** (PingCAP)      | OLTP (MySQL-like) + OLAP (TiFlash)                                  |
++| **SingleStore**         | Unified row/column engine                                           |
++| **CockroachDB**         | OLTP + some analytical support                                      |
++| **MySQL + HeatWave**    | HTAP via in-memory analytics                                        |
++| **ClickHouse**          | OLAP-focused, but moving toward HTAP with insert speed improvements |
++| **DorisDB / StarRocks** | Emerging HTAP-style performance                                     |
++
++## ✅ Benefits
++- 💡 Real-time analytics on live data
++- 🚫 No need for ETL pipelines
++- 🔒 Strong consistency for both workloads
++- 💸 Lower infra & ops cost
++
++## ⚠️ Challenges
++- Still a maturing field — not all HTAP systems are equal
++- Balancing latency (OLTP) with throughput (OLAP)
++- Can be harder to tune for both workloads simultaneously
++
++---
++# References
++- ChatGPT
+\ No newline at end of file
+diff --git a/www/docs/zettelkasten/optimistic_locking.md b/www/docs/zettelkasten/optimistic_locking.md
+new file mode 100644
+index 0000000..a310de7
+--- /dev/null
++++ b/www/docs/zettelkasten/optimistic_locking.md
+@@ -0,0 +1,22 @@
++🗓️ 07082025 1051
++📎
++
++# optimistic_locking
++> **“Assume no conflict. Check at the end.”**
++### 🧰 Mechanism:
++- Allow multiple transactions to **proceed in parallel**
++- Use **versioning** or **timestamps**
++- At commit, verify no one else changed the data
++### 🟢 Pros:
++- Better concurrency
++- No blocking → more performant under **low contention**
++### 🔴 Cons:
++- Can fail often under **high contention**
++- Requires **conflict detection + retry logic**
++### 🛠️ Common in:
++- ORMs (e.g., JPA `@Version`)
++- Web apps / distributed systems
++
++---
++# References
++- ChatGPT
+\ No newline at end of file
+diff --git a/www/docs/zettelkasten/pessimistic_locking.md b/www/docs/zettelkasten/pessimistic_locking.md
+new file mode 100644
+index 0000000..c91bd22
+--- /dev/null
++++ b/www/docs/zettelkasten/pessimistic_locking.md
+@@ -0,0 +1,26 @@
++🗓️ 07082025 1052
++📎
++
++# pessimistic_locking
++
++> **“Assume conflict will happen. Lock early.”**
++
++### 🧰 Mechanism:
++- Acquire **lock** before accessing data
++- Other transactions **block** until lock is released
++
++### 🟢 Pros:
++- Safe: avoids conflicts
++- Good for **high-contention** systems
++
++### 🔴 Cons:
++- Can lead to **deadlocks**
++- **Lower concurrency**
++- Blocking = slower performance
++### 🛠️ Common in:
++- Traditional RDBMS (e.g., `SELECT ... FOR UPDATE`)
++- Critical sections in threads (`synchronized`, `ReentrantLock`)
++
++---
++# References
++- ChatGPT
+\ No newline at end of file
+diff --git a/www/docs/zettelkasten/svg_path.md b/www/docs/zettelkasten/svg_path.md
+new file mode 100644
+index 0000000..4fa9ff9
+--- /dev/null
++++ b/www/docs/zettelkasten/svg_path.md
+@@ -0,0 +1,13 @@
++🗓️ 05082025 1702
++📎
++
++# svg_path
++- The `path` element lets you draw any shape you can think of by using a _series of commands_.
++- Each command is a _letter_ followed by a _list of numbers_.
++- The _cursor_ is the "pen" that is used to draw the path from the list of commands. Each command relies on it to know where it should start drawing from, and each command moves it to a new position.
++- Each command has a _relative_ counterpart that uses coordinates relative to the _cursor_'s current position.
++
++At this point, we kinda know the basics, but we haven't actually drawn anything. In the next section, we'll take a look at some of the drawing commands to start making some icons!
++
++---
++# References
+diff --git a/www/docs/zettelkasten/vector_search.md b/www/docs/zettelkasten/vector_search.md
+new file mode 100644
+index 0000000..7d2a286
+--- /dev/null
++++ b/www/docs/zettelkasten/vector_search.md
+@@ -0,0 +1,62 @@
++🗓️ 07082025 1037
++📎
++
++# vector_search
++> **Vector search** is a technique for finding **similar items** based on **numerical vector representations** (aka embeddings) of data, instead of doing keyword or exact-match lookups.
++
++## 🔍 Why Use Vector Search?
++Traditional search:
++- Looks for **exact keyword matches**
++- Doesn't understand **meaning or context**
++Vector search:
++- Finds items that are **semantically similar**, even if the words used are different
++
++## 💡 How It Works (Simplified)
++1. **Convert data to vectors (embeddings)**
++    - e.g. a sentence like "I love pizza" → `[0.3, -0.7, 0.1, ...]`
++2. **Store all vectors** in a special database or index
++3. When you query (e.g. "best food"),
++    - it’s also converted into a vector
++## 🧭 Common Use Cases
++
++| Use Case                            | Description                                         |
++| ----------------------------------- | --------------------------------------------------- |
++| 🔍 **Semantic Search**              | Search documents/images by meaning, not exact words |
++| 🧑‍🤝‍🧑 **Recommendation Systems** | Find similar products/users based on embeddings     |
++| 🧠 **AI Chatbots / RAG**            | Retrieve relevant knowledge chunks before answering |
++| 🖼️ **Image Search**                | Find visually similar images                        |
++| 🧬 **Genomics**                     | Compare DNA embeddings                              |
++
++## 🛠️ Tools / Frameworks for Vector Search
++
++|Tool|Description|
++|---|---|
++|**FAISS** (Meta)|Fast indexing of vectors (C++/Python)|
++|**Annoy** (Spotify)|Approximate Nearest Neighbor in Rust|
++|**Milvus / Qdrant**|Scalable vector DBs with APIs|
++|**Weaviate**|Full-featured vector DB with modules|
++|**Pinecone**|Managed vector DB service|
++|**Elasticsearch + kNN**|Vector plugin for hybrid search|
++
++## ✅ Pros
++- Understands **semantics**, not just keywords
++- Enables **fuzzy**, context-aware search
++- Great for **unstructured data**: text, images, audio, etc.
++
++## ⚠️ Cons
++- Slower than keyword search (but getting faster!)
++- Needs **preprocessing**: embedding generation
++- **Scalability** and **freshness** challenges with large data
++
++### 🧠 Vector Search vs Keyword Search
++
++| Keyword Search | Vector Search          |                                       |
++| -------------- | ---------------------- | ------------------------------------- |
++| Based on       | Exact words            | Semantic meaning                      |
++| Example Query  | "red shoes"            | "comfortable running gear"            |
++| Finds          | Pages with "red shoes" | Pages about sneakers or running shoes |
++| Under the hood | Inverted index         | Vector similarity (ANN)               |
++
++---
++# References
++- ChatGPT
+\ No newline at end of file
+-- 
+2.39.5 (Apple Git-154)
+
