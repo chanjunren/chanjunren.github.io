@@ -13,12 +13,10 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/svg_animate_transform.md",
+                "file": "zettelkasten/concurrency_control.md",
                 "mode": "source",
                 "source": false
-              },
-              "icon": "lucide-file",
-              "title": "svg_animate_transform"
+              }
             }
           }
         ]
@@ -40,11 +38,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
+                "sortOrder": "alphabetical"
+              }
             }
           },
           {
@@ -59,9 +54,7 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-search",
-              "title": "Search"
+              }
             }
           },
           {
@@ -69,9 +62,7 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "state": {}
             }
           }
         ]
@@ -94,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/svg_animate_transform.md",
+                "file": "zettelkasten/concurrency_control.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,9 +93,7 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for svg_animate_transform"
+              }
             }
           },
           {
@@ -113,12 +102,10 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/svg_animate_transform.md",
+                "file": "zettelkasten/concurrency_control.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from svg_animate_transform"
+              }
             }
           },
           {
@@ -128,12 +115,8 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
+                "useHierarchy": true
+              }
             }
           },
           {
@@ -142,13 +125,8 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/svg_animate_transform.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of svg_animate_transform"
+                "file": "zettelkasten/concurrency_control.md"
+              }
             }
           }
         ]
@@ -170,8 +148,19 @@
   },
   "active": "480ddcdbceb5d967",
   "lastOpenFiles": [
-    "zettelkasten/svg_roadmap.md",
+    "zettelkasten/optimistic_locking.md",
+    "zettelkasten/pessimistic_locking.md",
+    "zettelkasten/concurrency_control.md",
+    "zettelkasten/innodb_concurrency_control.md",
+    "zettelkasten/htap.md",
+    "zettelkasten/oltp_vs_olap.md",
+    "zettelkasten/vector_search.md",
+    "zettelkasten/data_federation.md",
+    "zettelkasten/hot_cold_storage.md",
+    "zettelkasten/vectorization.md",
+    "zettelkasten/svg_path.md",
     "zettelkasten/svg_animate_transform.md",
+    "zettelkasten/svg_roadmap.md",
     "zettelkasten/svg_animation.md",
     "zettelkasten/svg_basics.md",
     "zettelkasten/svg_smil.md",
@@ -185,17 +174,6 @@
     "zettelkasten/skating_basics.md",
     "zettelkasten/skating_wheeling.md",
     "zettelkasten/slalom_basics.md",
-    "zettelkasten/skating_spins.md",
-    "zettelkasten/skating_sitting.md",
-    "zettelkasten/skating_pt.md",
-    "zettelkasten/vim.md",
-    "zettelkasten/domain_driven_design.md",
-    "zettelkasten/data_warehouse_naming_conventions.md",
-    "zettelkasten/svg_limitations_with_css.md",
-    "zettelkasten/svg_chaining_animations.md",
-    "zettelkasten/svg_path_animation.md",
-    "zettelkasten/skating_improving_toe_height.md",
-    "zettelkasten/svg_shapes.md",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
     "assets/3js_textures_rotation.png",
