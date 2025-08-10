@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/concurrency_control.md",
+                "file": "zettelkasten/svg_line_command_basics.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/concurrency_control.md",
+                "file": "zettelkasten/svg_line_command_basics.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/concurrency_control.md",
+                "file": "zettelkasten/svg_line_command_basics.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/concurrency_control.md"
+                "file": "zettelkasten/svg_line_command_basics.md"
               }
             }
           }
@@ -148,9 +148,11 @@
   },
   "active": "480ddcdbceb5d967",
   "lastOpenFiles": [
+    "zettelkasten/svg_basic_curve_commands.md",
+    "zettelkasten/svg_line_command_basics.md",
+    "zettelkasten/concurrency_control.md",
     "zettelkasten/optimistic_locking.md",
     "zettelkasten/pessimistic_locking.md",
-    "zettelkasten/concurrency_control.md",
     "zettelkasten/innodb_concurrency_control.md",
     "zettelkasten/htap.md",
     "zettelkasten/oltp_vs_olap.md",
@@ -172,8 +174,6 @@
     "zettelkasten/grafana.md",
     "zettelkasten/rhythm.md",
     "zettelkasten/skating_basics.md",
-    "zettelkasten/skating_wheeling.md",
-    "zettelkasten/slalom_basics.md",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
     "assets/3js_textures_rotation.png",
