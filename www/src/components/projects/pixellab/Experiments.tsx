@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Align from "./experiments/align";
 import Chart from "./experiments/chart";
+import Checkbox from "./experiments/checkbox";
 import BouncingDownload from "./experiments/download";
 import Dustbin from "./experiments/dustbin";
 import Graph from "./experiments/graph";
@@ -28,6 +29,7 @@ const Experiments: FC = () => {
       <Graph />
       <BouncingDownload />
       <Chart />
+      <Checkbox />
     </div>
   );
 };
