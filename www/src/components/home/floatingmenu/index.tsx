@@ -8,7 +8,6 @@ import {
 } from "@radix-ui/react-icons";
 import { IconProps } from "@radix-ui/react-icons/dist/types";
 import * as Tooltip from "@radix-ui/react-tooltip";
-import SearchBarWrapper from "@site/src/theme/SearchBar";
 import { FC } from "react";
 
 type ThreeJsTopicInfoComponent = {
@@ -28,10 +27,6 @@ const topics: ThreeJsTopicInfoComponent[] = [
     icon: Pencil2Icon,
     link: "/docs/zettelkasten",
     label: "notes",
-  },
-  {
-    type: "custom",
-    custom: () => <SearchBarWrapper />,
   },
   {
     type: "custom",
@@ -62,7 +57,7 @@ const FloatingMenu: FC = () => {
     <nav
       className={
         "flex gap-4 sticky bottom-5 shadow-md " +
-        "rounded-md z-10 bg-white w-fit max-w-full inset-x-0 mx-auto px-6 py-3"
+        "rounded-md z-10 bg-white w-fit max-w-full inset-x-0 mx-auto px-6 py-5"
       }
     >
       {topics.map(
