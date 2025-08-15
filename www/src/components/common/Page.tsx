@@ -1,5 +1,6 @@
 import Layout from "@theme/Layout";
 import { FC, PropsWithChildren, ReactElement } from "react";
+import FloatingMenu from "../home/floatingmenu";
 import LitFooter from "./LitFooter";
 
 type IPage = {
@@ -26,6 +27,7 @@ const Page: FC<PropsWithChildren<IPage>> = ({
         {children}
       </main>
       {footer}
+      <FloatingMenu />
     </Layout>
   );
 };
