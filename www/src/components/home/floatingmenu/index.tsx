@@ -10,7 +10,7 @@ import { IconProps } from "@radix-ui/react-icons/dist/types";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { FC } from "react";
 
-type ThreeJsTopicInfoComponent = {
+type IFloatingMenuItem = {
   type: "link" | "externalLink" | "custom";
   icon?: React.ForwardRefExoticComponent<
     IconProps & React.RefAttributes<SVGSVGElement>
@@ -20,7 +20,7 @@ type ThreeJsTopicInfoComponent = {
   custom?: FC;
 };
 
-const topics: ThreeJsTopicInfoComponent[] = [
+const topics: IFloatingMenuItem[] = [
   { type: "link", icon: HomeIcon, link: "/", label: "home" },
   {
     type: "link",
