@@ -3,7 +3,7 @@ import PixelLabContainer from "../../helpers/PixelLabContainer";
 
 const CheckboxIcon: FC = () => {
   return (
-    <svg viewBox="0 0 24 24" width="60" stroke="currentColor">
+    <svg viewBox="0 0 24 24" width="45" stroke="currentColor">
       <rect
         width="8"
         height="8"
@@ -15,7 +15,7 @@ const CheckboxIcon: FC = () => {
       />
       <path
         className="checkmark"
-        d="M7.75 11.75L10 14.25L16.25 7.75"
+        d="M7.75 11.75 L10 14.25 L16.25 7.75"
         strokeWidth="1.5"
         fill="none"
       />
@@ -25,7 +25,7 @@ const CheckboxIcon: FC = () => {
 
 export default function Checkbox() {
   return (
-    <PixelLabContainer label="008">
+    <PixelLabContainer label="009">
       <CheckboxIcon />
     </PixelLabContainer>
   );

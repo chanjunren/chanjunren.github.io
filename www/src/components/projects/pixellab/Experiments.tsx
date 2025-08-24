@@ -6,6 +6,7 @@ import BouncingDownload from "./experiments/download";
 import Dustbin from "./experiments/dustbin";
 import Graph from "./experiments/graph";
 import HandWave from "./experiments/handwave";
+import NanCircle1 from "./experiments/nancircle1";
 import PaperPlane from "./experiments/paperplane";
 
 const Experiments: FC = () => {
@@ -29,6 +30,7 @@ const Experiments: FC = () => {
       <Graph />
       <BouncingDownload />
       <Chart />
+      <NanCircle1 />
       <Checkbox />
     </div>
   );
