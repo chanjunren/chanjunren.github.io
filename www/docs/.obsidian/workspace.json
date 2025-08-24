@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/svg_line_command_basics.md",
+                "file": "zettelkasten/java_concurrency_data_structures.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/svg_line_command_basics.md",
+                "file": "zettelkasten/java_concurrency_data_structures.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/svg_line_command_basics.md",
+                "file": "zettelkasten/java_concurrency_data_structures.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/svg_line_command_basics.md"
+                "file": "zettelkasten/java_concurrency_data_structures.md"
               }
             }
           }
@@ -148,8 +148,10 @@
   },
   "active": "480ddcdbceb5d967",
   "lastOpenFiles": [
-    "zettelkasten/svg_basic_curve_commands.md",
+    "zettelkasten/segmented_locking.md",
+    "zettelkasten/java_concurrency_data_structures.md",
     "zettelkasten/svg_line_command_basics.md",
+    "zettelkasten/svg_basic_curve_commands.md",
     "zettelkasten/concurrency_control.md",
     "zettelkasten/optimistic_locking.md",
     "zettelkasten/pessimistic_locking.md",
@@ -172,8 +174,6 @@
     "zettelkasten/time_series_database.md",
     "zettelkasten/svg_smil_timing.md",
     "zettelkasten/grafana.md",
-    "zettelkasten/rhythm.md",
-    "zettelkasten/skating_basics.md",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
     "assets/3js_textures_rotation.png",
