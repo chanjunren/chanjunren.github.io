@@ -150,3 +150,7 @@
 .DocSearch-Form {
   box-shadow: none !important;
 }
+
+.DocSearch-Commands {
+  display: none !important;
+}
