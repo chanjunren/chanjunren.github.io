@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "ab2084e3c0cb64d1",
+        "id": "5fd0405af0bddb0f",
         "type": "tabs",
         "children": [
           {
-            "id": "a63a8138f34cbf37",
+            "id": "5c738946df7562c4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/sql_joins.md",
+                "file": "zettelkasten/jvm_options.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/sql_joins.md",
+                "file": "zettelkasten/jvm_options.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/sql_joins.md",
+                "file": "zettelkasten/jvm_options.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/sql_joins.md"
+                "file": "zettelkasten/jvm_options.md"
               }
             }
           }
@@ -146,10 +146,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a63a8138f34cbf37",
+  "active": "5c738946df7562c4",
   "lastOpenFiles": [
-    "zettelkasten/sql_recursion.md",
+    "zettelkasten/databricks_cluster_config.md",
+    "zettelkasten/sql_cte.md",
+    "zettelkasten/jvm_options.md",
     "zettelkasten/sql_joins.md",
+    "zettelkasten/sql_recursion.md",
     "zettelkasten/jar_types.md",
     "assets/Pasted image 20250828105751.png",
     "zettelkasten/etcd.md",
@@ -172,9 +175,6 @@
     "zettelkasten/svg_path.md",
     "zettelkasten/svg_animate_transform.md",
     "zettelkasten/svg_roadmap.md",
-    "zettelkasten/svg_animation.md",
-    "zettelkasten/svg_basics.md",
-    "zettelkasten/svg_smil.md",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
     "assets/3js_textures_rotation.png",
