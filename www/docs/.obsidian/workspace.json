@@ -4,17 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "2371b454f98f249b",
+        "id": "5fd0405af0bddb0f",
         "type": "tabs",
         "children": [
           {
-            "id": "b212a12c9eb9324e",
+            "id": "5c738946df7562c4",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "type": "markdown",
+              "state": {
+                "file": "zettelkasten/optimistic_locking.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -36,11 +38,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
+                "sortOrder": "alphabetical"
+              }
             }
           },
           {
@@ -55,9 +54,7 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-search",
-              "title": "Search"
+              }
             }
           },
           {
@@ -65,9 +62,7 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "state": {}
             }
           }
         ]
@@ -90,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "zettelkasten/optimistic_locking.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,9 +93,7 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks"
+              }
             }
           },
           {
@@ -108,11 +102,10 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "zettelkasten/optimistic_locking.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links"
+              }
             }
           },
           {
@@ -122,12 +115,8 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
+                "useHierarchy": true
+              }
             }
           },
           {
@@ -136,12 +125,8 @@
             "state": {
               "type": "outline",
               "state": {
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline"
+                "file": "zettelkasten/optimistic_locking.md"
+              }
             }
           }
         ]
@@ -161,35 +146,35 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b212a12c9eb9324e",
+  "active": "5c738946df7562c4",
   "lastOpenFiles": [
-    "zettelkasten/short_term_t_bills.md",
-    "zettelkasten/financial_literacy.md",
-    "zettelkasten/real_estate.md",
-    "zettelkasten/exchange_traded_funds.md",
-    "zettelkasten/central_provident_fund.md",
-    "zettelkasten/robo_advisors.md",
+    "zettelkasten/interest_calculation_methods.md",
+    "zettelkasten/sg_schemes_reference.md",
+    "zettelkasten/interest_rate_schemes_cheatsheet.md",
+    "zettelkasten/supplementary_retirement_scheme.md",
+    "zettelkasten/financial_planning.md",
+    "zettelkasten/video_transcoding_thresholds.md",
+    "zettelkasten/video_transcoding_strategy.md",
+    "zettelkasten/video_transcoding.md",
+    "zettelkasten/video_storage_strategy.md",
+    "zettelkasten/http_2_multiplexed_conditions.md",
+    "zettelkasten/cloud_storage.md",
+    "zettelkasten/chunked_uploading.md",
+    "zettelkasten/cdn.md",
+    "zettelkasten/backend_for_frontend.md",
+    "zettelkasten/adaptive_streaming_architecture.md",
     "zettelkasten/singapore_saving_bonds.md",
+    "zettelkasten/short_term_t_bills.md",
+    "zettelkasten/robo_advisors.md",
     "zettelkasten/high_interest_saving_accounts.md",
     "zettelkasten/games.md",
+    "zettelkasten/financial_literacy.md",
+    "zettelkasten/exchange_traded_funds.md",
+    "zettelkasten/central_provident_fund.md",
+    "zettelkasten/optimistic_locking.md",
     "zettelkasten/jvm_options.md",
     "zettelkasten/databricks_cluster_config.md",
-    "zettelkasten/sql_cte.md",
-    "zettelkasten/sql_joins.md",
-    "zettelkasten/sql_recursion.md",
-    "zettelkasten/jar_types.md",
     "assets/Pasted image 20250828105751.png",
-    "zettelkasten/etcd.md",
-    "zettelkasten/raft.md",
-    "zettelkasten/java_concurrency_guidelines.md",
-    "zettelkasten/java_concurrency_data_structures.md",
-    "zettelkasten/segmented_locking.md",
-    "zettelkasten/svg_line_command_basics.md",
-    "zettelkasten/svg_basic_curve_commands.md",
-    "zettelkasten/concurrency_control.md",
-    "zettelkasten/optimistic_locking.md",
-    "zettelkasten/pessimistic_locking.md",
-    "zettelkasten/innodb_concurrency_control.md",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
     "assets/3js_textures_rotation.png",
