@@ -1,5 +1,6 @@
+import { usePrevious } from "@site/src/components/hooks/usePrevious";
 import { useEffect, useId, useRef } from "react";
-import { toPoints, usePrevious } from "./utils";
+import { toPoints } from "./utils";
 
 export function Data({ data }) {
   const id = useId();
