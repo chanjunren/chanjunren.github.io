@@ -4,19 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "5fd0405af0bddb0f",
+        "id": "2371b454f98f249b",
         "type": "tabs",
         "children": [
           {
-            "id": "5c738946df7562c4",
+            "id": "b212a12c9eb9324e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zettelkasten/jvm_options.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -38,8 +36,11 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
-              }
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -54,7 +55,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,7 +65,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -85,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/jvm_options.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -93,7 +97,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
             }
           },
           {
@@ -102,10 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/jvm_options.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
             }
           },
           {
@@ -115,8 +122,12 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
-              }
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -125,8 +136,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/jvm_options.md"
-              }
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
             }
           }
         ]
@@ -146,11 +161,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5c738946df7562c4",
+  "active": "b212a12c9eb9324e",
   "lastOpenFiles": [
+    "zettelkasten/short_term_t_bills.md",
+    "zettelkasten/financial_literacy.md",
+    "zettelkasten/real_estate.md",
+    "zettelkasten/exchange_traded_funds.md",
+    "zettelkasten/central_provident_fund.md",
+    "zettelkasten/robo_advisors.md",
+    "zettelkasten/singapore_saving_bonds.md",
+    "zettelkasten/high_interest_saving_accounts.md",
+    "zettelkasten/games.md",
+    "zettelkasten/jvm_options.md",
     "zettelkasten/databricks_cluster_config.md",
     "zettelkasten/sql_cte.md",
-    "zettelkasten/jvm_options.md",
     "zettelkasten/sql_joins.md",
     "zettelkasten/sql_recursion.md",
     "zettelkasten/jar_types.md",
@@ -166,15 +190,6 @@
     "zettelkasten/optimistic_locking.md",
     "zettelkasten/pessimistic_locking.md",
     "zettelkasten/innodb_concurrency_control.md",
-    "zettelkasten/htap.md",
-    "zettelkasten/oltp_vs_olap.md",
-    "zettelkasten/vector_search.md",
-    "zettelkasten/data_federation.md",
-    "zettelkasten/hot_cold_storage.md",
-    "zettelkasten/vectorization.md",
-    "zettelkasten/svg_path.md",
-    "zettelkasten/svg_animate_transform.md",
-    "zettelkasten/svg_roadmap.md",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
     "assets/3js_textures_rotation.png",
