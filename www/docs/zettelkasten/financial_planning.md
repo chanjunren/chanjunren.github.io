@@ -16,42 +16,42 @@
 ## 2. Current Financial Position
 
 ### Income Tracking
-| Income Source | Type    | Monthly (S$) | Annual (S$) | Notes                |
-|---------------|---------|--------------|-------------|----------------------|
-| Primary Job   | Active  | 11,500       | 161,000     | Software Engineer (11.5k × 14 months) |
-| Side Projects | Active  | 500          | 6,000       | Freelance/Consulting |
-| Investments   | Passive | 200          | 2,400       | Dividends/Interest   |
-| **Total**     |         | **12,200**   | **169,400** |                      |
+| Income Source | Type    | Monthly (S$) | Annual (S$) | Notes |
+|---------------|---------|--------------|-------------|-------|
+| Primary Job   | Active  |              |             |       |
+| Side Projects | Active  |              |             |       |
+| Investments   | Passive |              |             |       |
+| **Total**     |         |              |             |       |
 
 ### Tax Savings Calculation (Annual)
-| Item | Amount (S$) | Tax Bracket | Tax Savings (S$) | Notes |
-|------|-------------|-------------|------------------|-------|
-| **Gross Income** | 169,400 | | | Before deductions |
-| **CPF Contributions** | -32,200 | 20% | 6,440 | Employee portion (20% of salary) |
-| **SRS Contributions** | -15,000 | 20% | 3,000 | Voluntary retirement savings |
-| **Taxable Income** | 122,200 | | | After deductions |
-| **Total Tax Savings** | | | **9,440** | Annual tax relief |
+| Item                  | Amount (S$) | Tax Bracket | Tax Savings (S$) | Notes |
+|-----------------------|-------------|-------------|------------------|-------|
+| **Gross Income**      |             |             |                  |       |
+| **CPF Contributions** |             |             |                  |       |
+| **SRS Contributions** |             |             |                  |       |
+| **Taxable Income**    |             |             |                  |       |
+| **Total Tax Savings** |             |             |                  |       |
 
 ### Expense Tracking
 | Category                        | Type       | Monthly (S$) | Annual (S$) | % of Income | Notes |
 |---------------------------------|------------|--------------|-------------|-------------|-------|
 | **Needs (50%)**                 |            |              |             |             |       |
-| Rent/Mortgage                   | Fixed      | 2,500        | 30,000      | 29%         |       |
-| Utilities                       | Fixed      | 200          | 2,400       | 2%          |       |
-| Groceries                       | Variable   | 600          | 7,200       | 7%          |       |
-| Transport                       | Variable   | 300          | 3,600       | 3%          |       |
-| Insurance                       | Fixed      | 400          | 4,800       | 5%          |       |
-| Phone/Internet                  | Fixed      | 100          | 1,200       | 1%          |       |
+| Rent/Mortgage                   | Fixed      |              |             |             |       |
+| Utilities                       | Fixed      |              |             |             |       |
+| Groceries                       | Variable   |              |             |             |       |
+| Transport                       | Variable   |              |             |             |       |
+| Insurance                       | Fixed      |              |             |             |       |
+| Phone/Internet                  | Fixed      |              |             |             |       |
 | **Wants (30%)**                 |            |              |             |             |       |
-| Dining Out                      | Variable   | 800          | 9,600       | 9%          |       |
-| Entertainment                   | Variable   | 400          | 4,800       | 5%          |       |
-| Shopping                        | Variable   | 500          | 6,000       | 6%          |       |
-| Travel                          | Variable   | 900          | 10,800      | 10%         |       |
+| Dining Out                      | Variable   |              |             |             |       |
+| Entertainment                   | Variable   |              |             |             |       |
+| Shopping                        | Variable   |              |             |             |       |
+| Travel                          | Variable   |              |             |             |       |
 | **Savings & Investments (20%)** |            |              |             |             |       |
-| Emergency Fund                  | Savings    | 1,000        | 12,000      | 11%         |       |
-| Investments                     | Investment | 800          | 9,600       | 9%          |       |
-| **Total**                       |            | **8,500**    | **102,000** | **98%**     |       |
-| **Net Surplus**                 |            | **200**      | **2,400**   | **2%**      |       |
+| Emergency Fund                  | Savings    |              |             |             |       |
+| Investments                     | Investment |              |             |             |       |
+| **Total**                       |            |              |             |             |       |
+| **Net Surplus**                 |            |              |             |             |       |
 
 ## 3. 5-Year Forecast & Budget Planning
 
@@ -63,11 +63,11 @@
 - [ ] Any income opportunities to explore?
 
 ### Budget Allocation Target vs Actual
-| Category              | Target % | Target Amount (S$) | Actual % | Actual Amount (S$) | Variance   |
-|-----------------------|----------|--------------------|----------|--------------------|------------|
-| Needs                 | 50%      | 4,350              | 48%      | 4,200              | ✅ Under    |
-| Wants                 | 30%      | 2,610              | 32%      | 2,800              | ❌ Over     |
-| Savings & Investments | 20%      | 1,740              | 20%      | 1,800              | ✅ On Track |
+| Category              | Target % | Target Amount (S$) | Actual % | Actual Amount (S$) | Variance |
+|-----------------------|----------|--------------------|----------|--------------------|----------|
+| Needs                 | 50%      |                    |          |                    |          |
+| Wants                 | 30%      |                    |          |                    |          |
+| Savings & Investments | 20%      |                    |          |                    |          |
 
 ## 4. Investment Strategy by Timeline
 
