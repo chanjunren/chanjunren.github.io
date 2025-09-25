@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/optimistic_locking.md",
+                "file": "zettelkasten/elasticsearch_types.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/optimistic_locking.md",
+                "file": "zettelkasten/elasticsearch_types.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/optimistic_locking.md",
+                "file": "zettelkasten/elasticsearch_types.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/optimistic_locking.md"
+                "file": "zettelkasten/elasticsearch_types.md"
               }
             }
           }
@@ -148,6 +148,8 @@
   },
   "active": "5c738946df7562c4",
   "lastOpenFiles": [
+    "zettelkasten/optimistic_locking.md",
+    "zettelkasten/elasticsearch_types.md",
     "zettelkasten/interest_calculation_methods.md",
     "zettelkasten/sg_schemes_reference.md",
     "zettelkasten/interest_rate_schemes_cheatsheet.md",
@@ -171,9 +173,7 @@
     "zettelkasten/financial_literacy.md",
     "zettelkasten/exchange_traded_funds.md",
     "zettelkasten/central_provident_fund.md",
-    "zettelkasten/optimistic_locking.md",
     "zettelkasten/jvm_options.md",
-    "zettelkasten/databricks_cluster_config.md",
     "assets/Pasted image 20250828105751.png",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
