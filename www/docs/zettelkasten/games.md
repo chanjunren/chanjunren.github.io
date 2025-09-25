@@ -7,6 +7,7 @@
 - Zelda
 - It takes two
 - Peak
+- Kingdom hearts
 
 ---
 # References
