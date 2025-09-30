@@ -8,7 +8,8 @@ import {
 } from "@radix-ui/react-icons";
 import { IconProps } from "@radix-ui/react-icons/dist/types";
 import * as Tooltip from "@radix-ui/react-tooltip";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 type IFloatingMenuItem = {
   type: "link" | "externalLink" | "custom";
@@ -53,10 +54,13 @@ const topics: IFloatingMenuItem[] = [
 ];
 
 const FloatingMenu: FC = () => {
-  return (
+  const [mounted, setMounted] = useState<boolean>(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null; // SSR-safe
+  return createPortal(
     <nav
       className={
-        "flex gap-4 sticky bottom-5 shadow-md " +
+        "flex gap-4 absolute bottom-5 shadow-md " +
         "rounded-md z-10 bg-white w-fit max-w-full inset-x-0 mx-auto px-6 py-5"
       }
     >
@@ -92,7 +96,8 @@ const FloatingMenu: FC = () => {
             <CustomItem />
           )
       )}
-    </nav>
+    </nav>,
+    document.body
   );
 };
 

@@ -19,7 +19,7 @@ const Page: FC<PropsWithChildren<IPage>> = ({
 }) => {
   return (
     <Layout
-      wrapperClassName="flex flex-col justify-between min-h-screen-minus-navbar pt-7 px-7 items-center gap-10"
+      wrapperClassName="flex flex-col min-h-screen-minus-navbar pt-7 px-7 items-center gap-10 lg:pb-28 pb-40"
       title={title}
       description={description}
     >
