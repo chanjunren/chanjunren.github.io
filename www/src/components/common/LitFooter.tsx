@@ -7,7 +7,7 @@ const LitFooter: FC = () => {
   const [hovering, setHovering] = useState<boolean>(false);
 
   return (
-    <footer className="flex flex-col items-center align-self-end gap-2">
+    <footer className="flex flex-col items-center align-self-end gap-2 pt-5">
       <section
         className="max-h-24 max-w-24 bg-transparent"
         onMouseEnter={() => setHovering(true)}
