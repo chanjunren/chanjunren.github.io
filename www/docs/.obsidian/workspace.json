@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/elasticsearch_types.md",
+                "file": "zettelkasten/elasticsearch_text_searches.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/elasticsearch_types.md",
+                "file": "zettelkasten/elasticsearch_text_searches.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/elasticsearch_types.md",
+                "file": "zettelkasten/elasticsearch_text_searches.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/elasticsearch_types.md"
+                "file": "zettelkasten/elasticsearch_text_searches.md"
               }
             }
           }
@@ -148,8 +148,21 @@
   },
   "active": "5c738946df7562c4",
   "lastOpenFiles": [
-    "zettelkasten/optimistic_locking.md",
+    "zettelkasten/elasticsearch_analyzers.md",
+    "zettelkasten/elasticsearch_scoring_relevance.md",
+    "zettelkasten/networking_etc_hosts.md",
+    "zettelkasten/networking_advanced_debugging.md",
+    "zettelkasten/networking_interfaces.md",
+    "zettelkasten/networking_ports_connections.md",
+    "zettelkasten/networking_http_tools.md",
+    "zettelkasten/networking_connectivity.md",
+    "zettelkasten/networking_dns_tools.md",
+    "zettelkasten/networking_dump.md",
+    "zettelkasten/elasticsearch_text_searches.md",
     "zettelkasten/elasticsearch_types.md",
+    "zettelkasten/elasticsearch_text_search_types.md",
+    "zettelkasten/dns.md",
+    "zettelkasten/optimistic_locking.md",
     "zettelkasten/interest_calculation_methods.md",
     "zettelkasten/sg_schemes_reference.md",
     "zettelkasten/interest_rate_schemes_cheatsheet.md",
@@ -161,19 +174,6 @@
     "zettelkasten/video_storage_strategy.md",
     "zettelkasten/http_2_multiplexed_conditions.md",
     "zettelkasten/cloud_storage.md",
-    "zettelkasten/chunked_uploading.md",
-    "zettelkasten/cdn.md",
-    "zettelkasten/backend_for_frontend.md",
-    "zettelkasten/adaptive_streaming_architecture.md",
-    "zettelkasten/singapore_saving_bonds.md",
-    "zettelkasten/short_term_t_bills.md",
-    "zettelkasten/robo_advisors.md",
-    "zettelkasten/high_interest_saving_accounts.md",
-    "zettelkasten/games.md",
-    "zettelkasten/financial_literacy.md",
-    "zettelkasten/exchange_traded_funds.md",
-    "zettelkasten/central_provident_fund.md",
-    "zettelkasten/jvm_options.md",
     "assets/Pasted image 20250828105751.png",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
