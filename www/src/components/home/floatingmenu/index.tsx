@@ -60,7 +60,7 @@ const FloatingMenu: FC = () => {
   return createPortal(
     <nav
       className={
-        "flex gap-4 absolute bottom-5 shadow-md " +
+        "flex gap-4 fixed bottom-5 shadow-md " +
         "rounded-md z-10 bg-white w-fit max-w-full inset-x-0 mx-auto px-6 py-5"
       }
     >
