@@ -11,7 +11,7 @@ const MyOldPortfolioBaby: GalleryProjectInfo = {
   subtitle: "RIP",
   banner: () => (
     <IdealImage
-      className="rounded-lg"
+      className="rounded-lg pt-7"
       img={"images/oldPortfolioBanner.webp"}
       card={useBaseUrl("images/oldPortfolioBanner.webp")}
     />

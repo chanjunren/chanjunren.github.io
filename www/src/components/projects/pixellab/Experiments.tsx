@@ -12,16 +12,26 @@ import PaperPlane from "./experiments/paperplane";
 const Experiments: FC = () => {
   return (
     <div
-      className="grid grid-cols-2 md:grid-cols-5 rounded-lg border-gray-200 border-solid p-8 justify-items-center gap-8 w-fit self-center mb-10"
-      style={{
-        backgroundImage: `repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 10px,
-            rgba(209, 213, 219, 0.25) 10px,
-            rgba(209, 213, 219, 0.25) 11px
-          )`,
-      }}
+      className="grid grid-cols-2 md:grid-cols-7 rounded-lg p-8 justify-items-center self-center mb-10 w-screen"
+      style={
+        {
+          "--grid-line": "var(--gray-transparent-bg)",
+          "--grid-size": "16px",
+          backgroundImage: `
+      repeating-linear-gradient(
+        0deg,
+        var(--grid-line) 0 1px,
+        transparent 1px var(--grid-size)
+      ),
+      repeating-linear-gradient(
+        90deg,
+        var(--grid-line) 0 1px,
+        transparent 1px var(--grid-size)
+
+      )
+    `,
+        } as React.CSSProperties
+      }
     >
       <HandWave />
       <PaperPlane />
