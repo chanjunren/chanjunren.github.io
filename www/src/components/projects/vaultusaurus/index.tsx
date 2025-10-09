@@ -13,7 +13,7 @@ const VaultusaurusProject: GalleryProjectInfo = {
   containerCss: "md:col-span-6 md:row-span-2",
   card: ({ onClick }) => <VaultusaurusDemo onClick={onClick} />,
   banner: () => (
-    <div className="flex items-center w-full justify-center h-36 gap-5 bg-graphPaper">
+    <div className="flex items-center justify-center h-52 gap-5 bg-graphPaper self-center w-screen">
       <DocusaurusIcon className="h-14 w-14" />
       <span className="text-5xl">🔌</span>
     </div>
