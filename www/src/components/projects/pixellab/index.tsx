@@ -22,6 +22,12 @@ const PixelLabInfo: GalleryProjectInfo = {
   description: () => (
     <div className="flex flex-col w-full gap-5">
       <span>Mini projects for exploring CSS / SVG related features!</span>
+      <span>
+        Some of these are from Nanda Syahrasyad's{" "}
+        <a href="https://www.svg-animations.how/" target="_blank">
+          SVG course
+        </a>
+      </span>
     </div>
   ),
   repository: "https://github.com/chanjunren/vaultusaurus",
@@ -36,7 +42,7 @@ const PixelLabInfo: GalleryProjectInfo = {
       </div>
       <div className="flex flex-col gap-2 col-span-4">
         <SecondaryHeader>Date</SecondaryHeader>
-        <span>COMING SOON</span>
+        <span>Pasting here as I learn :D</span>
       </div>
     </>
   ),
