@@ -15,7 +15,7 @@ const Experiments: FC = () => {
       className="grid grid-cols-2 md:grid-cols-7 rounded-lg p-8 justify-items-center self-center mb-10 w-screen"
       style={
         {
-          "--grid-line": "var(--gray-transparent-bg)",
+          "--grid-line": "rgba(152, 147, 165, 0.2)",
           "--grid-size": "16px",
           backgroundImage: `
       repeating-linear-gradient(

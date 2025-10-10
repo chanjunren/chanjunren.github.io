@@ -5,8 +5,8 @@ import Geometries from "./geometries";
 const Playground: FC = () => {
   return (
     <>
-      <div className="h-[80vh]">
-        <PrimaryHeader className="!justify-self-end">🚧 WIP</PrimaryHeader>
+      <div className="h-[80vh] flex flex-col items-center mt-8">
+        <PrimaryHeader>🚧 WIP</PrimaryHeader>
         <Geometries />
       </div>
     </>
