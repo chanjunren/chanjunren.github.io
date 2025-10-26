@@ -1,5 +1,6 @@
 🗓️ 03092024 1153
-📎 #resilience #microservices
+
+# health_checks
 
 > General term that can encompass both [[liveness_checks]] and [[readiness_checks]]
 

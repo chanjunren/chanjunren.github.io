@@ -9,6 +9,7 @@
 @import url("./tooltip.css");
 @import url("./search.css");
 @import url("./markdown.css");
+@import url("./custom-utilities.css");
 
 @tailwind base;
 @tailwind components;

@@ -3,7 +3,9 @@ sidebar_position: 0
 sidebar_label: 🗃️ read_me
 ---
 
-### 🌱 Welcome to my hypertext garden
+# README
+
+> 🌱 Welcome to my hypertext garden
 
 This section serves as a collection of notes for topics I'm currently interested in or learning about
 <br/>
