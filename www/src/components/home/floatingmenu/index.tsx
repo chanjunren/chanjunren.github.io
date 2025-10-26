@@ -1,31 +1,27 @@
-import {
-  BackpackIcon,
-  DividerVerticalIcon,
-  GitHubLogoIcon,
-  HomeIcon,
-  LinkedInLogoIcon,
-  Pencil2Icon,
-} from "@radix-ui/react-icons";
-import { IconProps } from "@radix-ui/react-icons/dist/types";
+import { DividerVerticalIcon } from "@radix-ui/react-icons";
 import * as Tooltip from "@radix-ui/react-tooltip";
-import { FC, useEffect, useState } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import HeaderTag from "../../common/HeaderTag";
 
 type IFloatingMenuItem = {
   type: "link" | "externalLink" | "custom";
-  icon?: React.ForwardRefExoticComponent<
-    IconProps & React.RefAttributes<SVGSVGElement>
-  >;
+  icon?: ReactNode;
   link?: string;
   label?: string;
   custom?: FC;
 };
 
 const topics: IFloatingMenuItem[] = [
-  { type: "link", icon: HomeIcon, link: "/", label: "home" },
   {
     type: "link",
-    icon: Pencil2Icon,
+    icon: <HeaderTag label="窝" color="rose" />,
+    link: "/",
+    label: "home",
+  },
+  {
+    type: "link",
+    icon: <HeaderTag color="pine" label="涂" />,
     link: "/docs/zettelkasten",
     label: "notes",
   },
@@ -35,19 +31,19 @@ const topics: IFloatingMenuItem[] = [
   },
   {
     type: "externalLink",
-    icon: BackpackIcon,
+    icon: <HeaderTag label="履" color="foam" />,
     link: "/documents/resume.pdf",
     label: "resume",
   },
   {
     type: "externalLink",
-    icon: GitHubLogoIcon,
+    icon: <HeaderTag label="吉特" color="iris" />,
     link: "https://www.github.com/chanjunren",
     label: "github",
   },
   {
     type: "externalLink",
-    icon: LinkedInLogoIcon,
+    icon: <HeaderTag label="力" color="muted" />,
     link: "https://www.linkedin.com/in/jun-ren-chan-90240a175/",
     label: "linkedin",
   },
@@ -65,7 +61,7 @@ const FloatingMenu: FC = () => {
       }
     >
       {topics.map(
-        ({ type, icon: Icon, link: key, custom: CustomItem, label }, index) =>
+        ({ type, icon, link: key, custom: CustomItem, label }, index) =>
           type === "link" || type === "externalLink" ? (
             <Tooltip.Provider delayDuration={0} key={"menuItem" + index}>
               <Tooltip.Root>
@@ -78,13 +74,13 @@ const FloatingMenu: FC = () => {
                     target={type === "externalLink" ? "_blank" : "_self"}
                     key={"menuItem" + index}
                   >
-                    <Icon className="w-6 h-6" />
+                    {icon}
                   </a>
                 </Tooltip.Trigger>
                 <Tooltip.Portal>
                   <Tooltip.Content
                     className="TooltipContent"
-                    sideOffset={3}
+                    sideOffset={17}
                     side="bottom"
                   >
                     <span>{label}</span>
