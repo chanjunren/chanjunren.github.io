@@ -1,0 +1,59 @@
+---
+globs: **/zettelkasten/**/*.md
+alwaysApply: false
+---
+
+# Zettelkasten: atomic ideas, big picture first, interconnected thinking
+
+# Structure
+- Follow template: 🗓️ timestamp (DDMMYYYY HHmm), 📎 (empty), h1 title, content, References
+- snake_case filenames = h1 title
+- One atomic concept per note
+
+# Writing
+- Lead with: "**Core Concept**: [one sentence]"
+- Structure: WHY → WHAT → HOW → Trade-offs
+- Short sentences. Bullets over paragraphs. No fluff.
+- Details subordinate to main idea
+
+# Linking
+- Use [[wiki-links]] liberally (aim 2-3+ per note)
+- Add "Related Concepts" section at end
+- Build webs, not islands
+
+# Content
+- Synthesize in your own words
+- Capture insights and "aha moments"
+- Include examples only when clarifying
+- Note trade-offs honestly (pros AND cons)
+
+# Formatting
+- h2-h3 for major sections only
+- Bold key terms on first mention
+- Tables for comparisons / definitions
+
+# Admonitions
+Use admonitions to highlight important information. Syntax:
+```
+\`\`\`ad-<type>
+Content goes here
+\`\`\`
+```
+
+Available types and when to use them:
+- `ad-note` - General notes, neutral information
+- `ad-abstract`/`ad-summary`/`ad-tldr` - Key takeaways, summaries
+- `ad-info` - Supplementary information, context
+- `ad-tip`/`ad-hint`/`ad-important` - Helpful advice, best practices
+- `ad-success`/`ad-check`/`ad-done` - Successful outcomes, completed items
+- `ad-question`/`ad-help`/`ad-faq` - Questions to consider, help needed
+- `ad-warning`/`ad-caution`/`ad-attention` - Important warnings, gotchas
+- `ad-failure`/`ad-fail`/`ad-missing` - Common mistakes, failure cases
+- `ad-danger`/`ad-error` - Critical issues, errors to avoid
+- `ad-bug` - Known bugs or issues
+- `ad-example` - Code examples, use cases
+- `ad-quote`/`ad-cite` - Quotations, citations
+
+Guidelines:
+- Use sparingly (1-3 per note max) to maintain focus
+- Place at natural breaks in content flow
