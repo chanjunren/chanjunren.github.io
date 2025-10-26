@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/elasticsearch_text_searches.md",
+                "file": "zettelkasten/stock_quick_start.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/elasticsearch_text_searches.md",
+                "file": "zettelkasten/stock_quick_start.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/elasticsearch_text_searches.md",
+                "file": "zettelkasten/stock_quick_start.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/elasticsearch_text_searches.md"
+                "file": "zettelkasten/stock_quick_start.md"
               }
             }
           }
@@ -148,6 +148,13 @@
   },
   "active": "5c738946df7562c4",
   "lastOpenFiles": [
+    "zettelkasten/passive_investing.md",
+    "zettelkasten/technical_analysis.md",
+    "zettelkasten/stock_quick_start.md",
+    "zettelkasten/value_investing.md",
+    "zettelkasten/junction_table_design.md",
+    "zettelkasten/elasticsearch_text_searches.md",
+    "zettelkasten/networking_dump.md",
     "zettelkasten/elasticsearch_analyzers.md",
     "zettelkasten/elasticsearch_scoring_relevance.md",
     "zettelkasten/networking_etc_hosts.md",
@@ -157,8 +164,6 @@
     "zettelkasten/networking_http_tools.md",
     "zettelkasten/networking_connectivity.md",
     "zettelkasten/networking_dns_tools.md",
-    "zettelkasten/networking_dump.md",
-    "zettelkasten/elasticsearch_text_searches.md",
     "zettelkasten/elasticsearch_types.md",
     "zettelkasten/elasticsearch_text_search_types.md",
     "zettelkasten/dns.md",
@@ -169,11 +174,6 @@
     "zettelkasten/supplementary_retirement_scheme.md",
     "zettelkasten/financial_planning.md",
     "zettelkasten/video_transcoding_thresholds.md",
-    "zettelkasten/video_transcoding_strategy.md",
-    "zettelkasten/video_transcoding.md",
-    "zettelkasten/video_storage_strategy.md",
-    "zettelkasten/http_2_multiplexed_conditions.md",
-    "zettelkasten/cloud_storage.md",
     "assets/Pasted image 20250828105751.png",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
