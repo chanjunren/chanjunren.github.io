@@ -1,5 +1,4 @@
 🗓️ 21062025 1644
-📎
 
 # svg_basics
 
@@ -44,4 +43,4 @@
 - External SVGs must include `xmlns`
 
 ---
-# References
+## References

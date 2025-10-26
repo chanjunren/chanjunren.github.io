@@ -1,5 +1,4 @@
 🗓️ 09042024 0956
-📎 #maven
 
 # bill_of_materials
 
@@ -24,4 +23,4 @@
 
 ---
 
-# References
+## References

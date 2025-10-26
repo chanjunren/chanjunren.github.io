@@ -1,5 +1,4 @@
 🗓️ 08102025 1037
-📎
 
 # junction_table_design
 
@@ -286,4 +285,4 @@ user_relations (
 
 
 ---
-# References
+## References

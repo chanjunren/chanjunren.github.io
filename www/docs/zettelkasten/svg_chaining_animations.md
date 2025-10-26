@@ -1,5 +1,4 @@
 🗓️ 21062025 1702
-📎
 
 # svg_chaining_animations
 ## Use `aria-pressed` for Toggle State Styling
@@ -28,4 +27,4 @@
 - No need for JS-based animation libraries for basic morphing effects.
 
 ---
-# References
+## References

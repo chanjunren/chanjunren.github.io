@@ -1,5 +1,4 @@
 🗓️ 10052025 2154
-📎
 
 # physically_based_rendering
 
@@ -14,4 +13,4 @@ For now, we will simply focus on how to load textures, how to use them, what tra
 
 
 ---
-# References
+## References

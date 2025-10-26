@@ -1,5 +1,4 @@
 🗓️ 06032025 1830
-📎
 
 # delta_lake
 - File based format
@@ -15,4 +14,4 @@
 - uses delta tables
 
 ---
-# References
+## References

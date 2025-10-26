@@ -1,5 +1,4 @@
 🗓️ 03112024 1146
-📎
 
 # message_queue
 
@@ -37,5 +36,5 @@ When a message needs to be **processed by more than one consumer**, message queu
 
 ---
 
-# References
+## References
 - https://aws.amazon.com/message-queue/

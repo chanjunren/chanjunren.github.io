@@ -1,5 +1,4 @@
 🗓️ 05042024 1432
-📎 #aliyun_canal
 
 # aliyun_canal_overview
 
@@ -35,7 +34,7 @@ Data synchronization system based on MySQL binary log
 
 ---
 
-# References
+## References
 
 - https://github.com/alibaba/canal/wiki/Introduction
 - https://github.com/alibaba/canal/wiki/Performance

@@ -1,5 +1,4 @@
 🗓️ 02032025 0119
-📎
 
 # innodb_locks
 
@@ -44,4 +43,4 @@ Locking mechanisms help:
 - **Table Locks** → Used for **bulk updates** but can cause performance bottlenecks.
 - **Auto-Increment Locks** → Prevents duplicate **ID assignments**.
 ---
-# References
+## References

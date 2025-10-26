@@ -1,5 +1,4 @@
 🗓️ 21062025 1716
-📎
 
 # svg_path_animation
 ## Morphing and Path Animation Are Uniquely SVG
@@ -30,4 +29,4 @@
 | **JavaScript** | You need **fine-grained control** over timing and shape transitions | More flexible but more complex and potentially slower |
 
 ---
-# References
+## References

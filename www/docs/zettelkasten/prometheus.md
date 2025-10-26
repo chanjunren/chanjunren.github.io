@@ -86,6 +86,6 @@ Prometheus easily integrates with many service discovery platforms
 
 ---
 
-# References
+## References
 - https://www.youtube.com/watch?v=STVMGrYIlfg&list=PLyBW7UHmEXgylLwxdVbrBQJ-fJ_jMvh8h
 - https://prometheus.io/docs/introduction/overview/

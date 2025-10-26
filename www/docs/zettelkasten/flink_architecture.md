@@ -1,5 +1,4 @@
 - [ ] 🗓️ 16012025 1129
-📎
 
 # flink_architecture
 
@@ -183,5 +182,5 @@ The difference between these options is mainly related to the cluster’s lifecy
 
 ---
 
-# References
+## References
 - https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/concepts/flink-architecture/

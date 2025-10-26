@@ -1,5 +1,4 @@
 🗓️ 03022025 1106
-📎
 
 # hologres_distribution_key
 
@@ -599,5 +598,5 @@ In the following examples, three tables are joined. If you want to join more tha
     - [DROP TABLE](https://www.alibabacloud.com/help/en/hologres/developer-reference/drop-table)
 
 ---
-# References
+## References
 - https://www.alibabacloud.com/help/en/hologres/user-guide/distribution-key

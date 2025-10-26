@@ -1,5 +1,4 @@
 🗓️ 06042024 1419
-📎 #modeling
 
 # state_machine_diagram
 
@@ -7,6 +6,6 @@
 
 ---
 
-# References
+## References
 
 - NUS CS2103T Textbook

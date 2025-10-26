@@ -1,5 +1,4 @@
 🗓️ 02032025 0116
-📎
 
 # coffman_conditions
 
@@ -25,5 +24,5 @@ For example:
 
 
 ---
-# References
+## References
 - ChatGPT

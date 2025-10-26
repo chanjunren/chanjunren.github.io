@@ -1,5 +1,4 @@
 🗓️ 05042024 1232
-📎 #eip
 
 # channel_adapter
 
@@ -43,6 +42,6 @@ Use a Channel Adapter to decouple logic for interacting with a `messageChannel`
 
 ---
 
-# References
+## References
 
 - Enterprise Integration Patterns by Gregor Hohpe, Bobby Woolf

@@ -1,5 +1,4 @@
 🗓️ 02022025 1435
-📎
 
 # programming_paradigms
 
@@ -79,5 +78,5 @@ These paradigms are not mutually exclusive—many modern languages (e.g., Python
 
 ---
 
-# References
+## References
 - Deepseek

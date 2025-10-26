@@ -35,4 +35,4 @@ Instead, it uses the **sort values** from the last document of the previous page
 
 ---
 
-# References
+## References

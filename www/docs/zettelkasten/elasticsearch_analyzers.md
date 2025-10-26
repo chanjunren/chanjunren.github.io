@@ -1,5 +1,4 @@
 🗓️ 04102025 0040
-📎
 
 # Elasticsearch Analyzers
 
@@ -114,7 +113,7 @@ GET /my_index/_analyze
 
 ---
 
-# References
+## References
 
 - [Analyzer Reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyzers.html)
 - [Custom Analyzers](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-custom-analyzer.html)

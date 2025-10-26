@@ -1,5 +1,4 @@
 🗓️ 21092025 1519
-📎
 
 # financial_planning
 
@@ -116,5 +115,5 @@
 - [ ] Calculate optimal SRS contribution for tax savings
 
 ---
-# References
+## References
 - takeaways from https://youtu.be/SVhdsNiO7Qs?si=7GpjuCo_TC8bo_TW

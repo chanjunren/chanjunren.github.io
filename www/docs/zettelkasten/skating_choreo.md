@@ -1,5 +1,4 @@
 🗓️ 21062025 1406
-📎
 
 # skating_choreo
 
@@ -76,4 +75,4 @@ if you want, i can help you analyze a specific song and suggest types of movemen
 keep skating, and let the music move you.
 
 ---
-# references
+## References

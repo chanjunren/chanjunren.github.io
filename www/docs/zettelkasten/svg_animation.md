@@ -1,5 +1,4 @@
 🗓️ 21062025 1658
-📎
 
 # svg_animation
 
@@ -34,4 +33,4 @@
 - Use pseudo-classes like `button:hover .lid` to trigger animations on interaction.
 
 ---
-# References
+## References

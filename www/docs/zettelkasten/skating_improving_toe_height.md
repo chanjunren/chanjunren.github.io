@@ -1,5 +1,4 @@
 🗓️ 21062025 1328
-📎
 
 # skating_improving_toe_height
 
@@ -38,5 +37,5 @@ chatgpt say this is impt
 - **track progress**: record max toe-wheel hold time weekly.
 
 ---
-# references
+## References
 - chatgpt

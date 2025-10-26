@@ -1,5 +1,4 @@
 🗓️ 30042024 1419
-📎 #threejs
 
 # baking_and_exporting
 
@@ -316,4 +315,4 @@ We now have both the `baked.jpg` file and the `portal.glb` files. In the nex
 
 ---
 
-# References
+## References

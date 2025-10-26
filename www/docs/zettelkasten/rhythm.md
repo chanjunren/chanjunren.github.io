@@ -1,5 +1,4 @@
 🗓️ 06072025 0847
-📎
 
 # rhythm
 > Exercises to develop sense of rhythm
@@ -24,5 +23,5 @@
 ## count out loud
 - 1 2 3 4 while clapping to the beat
 - metronome with vocal count
-# References
+## References
 - https://www.youtube.com/watch?v=JISh_c8oUsw&t=8s&ab_channel=RuairiGlasheen

@@ -1,5 +1,4 @@
 🗓️ 03022025 1132
-📎
 
 # query_engine
 ## Benefits
@@ -78,5 +77,5 @@ After Hologres QE determines the correct execution plan, Hologres QE uses SE to 
 ```
 
 ---
-# References
+## References
 - https://www.alibabacloud.com/help/en/hologres/product-overview/qe

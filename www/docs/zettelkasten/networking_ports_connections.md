@@ -1,5 +1,4 @@
 🗓️ 04102025 0030
-📎
 
 # Ports & Connections Tools
 
@@ -190,7 +189,7 @@ $ lsof -i tcp -s TCP:ESTABLISHED
 
 ---
 
-# References
+## References
 
 - [netstat manual](https://linux.die.net/man/8/netstat)
 - [ss manual](https://man7.org/linux/man-pages/man8/ss.8.html)

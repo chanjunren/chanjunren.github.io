@@ -1,5 +1,4 @@
 🗓️ 06042024 1417
-📎 #modeling
 
 # sequence_diagrams
 
@@ -7,6 +6,6 @@
 
 ---
 
-# References
+## References
 
 - NUS CS2103T Textbook

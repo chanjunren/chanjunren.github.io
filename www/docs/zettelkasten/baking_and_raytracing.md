@@ -1,5 +1,4 @@
 🗓️ 06042024 1950
-📎 #threejs
 
 # raytracing
 
@@ -29,4 +28,4 @@
 
 ---
 
-# References
+## References

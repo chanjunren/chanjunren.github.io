@@ -1,5 +1,4 @@
 🗓️ 21062025 1321
-📎
 
 # skating_wheeling
  ## general
@@ -87,5 +86,5 @@ Keep the center of gravity leaning toward the forward direction, and always keep
 - ding position by bringing swinging knee up and right hand in front
 
 ---
-# references
+## References
 - akt skating camp

@@ -1,5 +1,4 @@
 🗓️ 06112024 2344
-📎
 
 # elasticsearch_cluster
 
@@ -42,5 +41,5 @@ Scenario: One node killed
 
 ---
 
-# References
+## References
 - Chapter 2 of ElasticSearch Oreilly book

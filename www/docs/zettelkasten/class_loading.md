@@ -1,5 +1,4 @@
 🗓️ 04022025 0952
-📎
 
 # class_loading
 
@@ -58,5 +57,5 @@ Java uses a **hierarchical class loading mechanism** with the following types of
     - Class loaders can enforce security policies by controlling which classes are loaded and from where.
 
 ---
-# References
+## References
 - Deepseek

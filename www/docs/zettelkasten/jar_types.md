@@ -1,5 +1,4 @@
 🗓️ 28082025 1056
-📎
 
 # jar_types
 ## 🎯 Core Concept
@@ -47,4 +46,4 @@
 **Fix**: Add `<classifier>boot</classifier>` to generate both types
 
 ---
-# References
+## References

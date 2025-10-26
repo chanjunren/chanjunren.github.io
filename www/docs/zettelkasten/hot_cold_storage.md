@@ -1,5 +1,4 @@
 🗓️ 07082025 1038
-📎
 
 # hot_cold_storage
 
@@ -14,5 +13,5 @@
 | **Availability (SLA)** | Higher                                            | Lower                                     |
 
 ---
-# References
+## References
 - ChatGPT

@@ -1,5 +1,4 @@
 🗓️ 22012025 2344
-📎
 
 # data_models
 
@@ -60,5 +59,5 @@
     - Increasing need to handle semi-structured and unstructured data.
 ---
 
-# References
+## References
 - DDIA Chapter 2

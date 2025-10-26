@@ -1,5 +1,4 @@
 🗓️ 21062025 1651
-📎
 
 # svg_viewbox
 
@@ -43,4 +42,4 @@
 - `preserveAspectRatio` fine-tunes how content is aligned and scaled.
 
 ---
-# References
+## References

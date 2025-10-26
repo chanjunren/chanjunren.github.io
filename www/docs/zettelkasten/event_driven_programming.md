@@ -1,5 +1,4 @@
 🗓️ 02022025 1442
-📎
 
 # event_driven_programming
 ```ad-summary
@@ -23,5 +22,5 @@ Event-driven programming focuses on responding to events (e.g., user actions, se
 	- GUI frameworks like Qt
  
 ---
-# References
+## References
 - Deepseek

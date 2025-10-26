@@ -1,5 +1,4 @@
 🗓️ 05092025 1514
-📎
 
 # databricks_cluster_config
 
@@ -95,7 +94,7 @@
 
 
 ---
-# References
+## References
 - [Databricks Cluster Configuration](https://docs.databricks.com/clusters/configure.html)
 - [AWS Instance Types](https://aws.amazon.com/ec2/instance-types/)
 - [Photon Engine Guide](https://docs.databricks.com/compute/photon.html)

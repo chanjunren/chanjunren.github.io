@@ -1,5 +1,4 @@
 🗓️ 17052024 1125
-📎 #apache_camel
 
 # camel_exchange
 
@@ -62,7 +61,7 @@ Only when there is a need to maintain a separate response message that is distin
 
 ---
 
-# References
+## References
 
 - ChatGPT
 - https://camel.apache.org/manual/exchange.html

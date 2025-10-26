@@ -1,5 +1,4 @@
 🗓️ 09092025 1449
-📎
 
 # http_2_multiplexed_conditions
 
@@ -30,4 +29,4 @@ Request 3: ████ (also simultaneous!)
 
 
 ---
-# References
+## References

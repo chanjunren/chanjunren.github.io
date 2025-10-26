@@ -37,5 +37,5 @@ To learn more about which rendering method is right for your specific use case, 
 :::
 ---
 
-## References
+### References
 - [NextJS Official Documentation](https://nextjs.org/learn/foundations/how-nextjs-works)

@@ -1,5 +1,4 @@
 ️🗓️ 06042024 1357
-📎 #aliyun_canal
 
 # aliyun_canal_api_client
 
@@ -57,7 +56,7 @@
 
 ---
 
-# References
+## References
 
 - https://github.com/alibaba/canal/wiki/ClientAPI
 - https://alibaba.github.io/canal/apidocs/1.0.13/com/alibaba/otter/canal/client/CanalConnector.html

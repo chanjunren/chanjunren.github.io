@@ -1,5 +1,4 @@
 🗓️ 21092025 1613
-📎
 
 # exchange_traded_funds
 - good
@@ -14,4 +13,4 @@
 
 
 ---
-# References
+## References

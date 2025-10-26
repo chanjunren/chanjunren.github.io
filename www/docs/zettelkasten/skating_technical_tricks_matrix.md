@@ -1,5 +1,4 @@
 🗓️ 21062025 1318
-📎
 
 # skating_technical_tricks_matrix
 
@@ -16,5 +15,5 @@ Your basics determine your upper limit
 - spins
 
 ---
-# References
+## References
 - https://www.worldslalomseries.com/rules/

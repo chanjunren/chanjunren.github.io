@@ -24,6 +24,6 @@
 
 ---
 
-# References
+## References
 
 - Enterprise Integration Patterns by Gregor Hohpe, Bobby Woolf

@@ -1,5 +1,4 @@
 🗓️ 15102025 0035
-📎
 
 # technical_analysis
 
@@ -38,5 +37,5 @@ Active traders with time and risk tolerance who enjoy charts
 ⚠️ Not for long-term investors or full-time workers
 
 ---
-# References
+## References
 - "Technical Analysis of the Financial Markets" by John Murphy

@@ -1,5 +1,4 @@
 🗓️ 03022025 1603
-📎
 
 # hologres_specific_tables
 
@@ -25,5 +24,5 @@ Hologres can query the data in the foreign table as if it were stored locally, b
 Example: Querying data stored in MaxCompute or OSS (Object Storage Service) directly from Hologres
 
 ---
-# References
+## References
 - Deepseek

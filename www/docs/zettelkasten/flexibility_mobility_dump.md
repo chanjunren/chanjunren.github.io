@@ -1,5 +1,4 @@
 🗓️ 03092024 0134
-📎 #wip
 
 # flexibility_mobility_dump
 ### Overview
@@ -69,5 +68,5 @@ By structuring your workouts in this manner, you can systematically work towards
 
 ---
 
-# References
+## References
 - ChatGPT summarising what my friend told me

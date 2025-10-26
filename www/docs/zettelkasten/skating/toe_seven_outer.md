@@ -1,6 +1,5 @@
 ️🗓️ 30032024 1051
 
-📎 #skating
 
 # toe_seven_outer
 
@@ -12,6 +11,6 @@
 
 ---
 
-# References
+## References
 
 - https://www.douyin.com/video/7349391669470530868

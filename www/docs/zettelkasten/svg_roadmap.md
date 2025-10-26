@@ -1,5 +1,4 @@
 🗓️ 21062025 1652
-📎
 
 # svg_roadmap
 
@@ -14,4 +13,4 @@
 8. [[svg_smil]]
 
 ---
-# References
+## References

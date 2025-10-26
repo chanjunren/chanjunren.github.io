@@ -1,5 +1,4 @@
 🗓️ 10052025 2145
-📎
 
 # textures_3js
 
@@ -94,4 +93,4 @@ Always make sure that you have the right to use the texture if it's not for pers
 
 ---
 
-# References
+## References

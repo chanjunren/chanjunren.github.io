@@ -1,5 +1,4 @@
 🗓️ 16102024 1102
-📎 #kafka
 
 # kafka_cli_cheatsheet
 
@@ -9,5 +8,5 @@ bin/kafka-console-consumer.sh --topic {KAFKA_TOPIC} --from-beginning --bootstrap
 
 ---
 
-# References
+## References
 - https://kafka.apache.org/quickstart

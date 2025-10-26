@@ -1,5 +1,4 @@
 🗓️ 28072025 1359
-📎
 
 # prometheus_histograms
 A histogram in Prometheus **samples observations into buckets** — useful for tracking **latency, durations, sizes**.
@@ -46,4 +45,4 @@ static final Histogram requestLatency = Histogram.build()
 - Higher granularity buckets = more precision = more cardinality
 
 ---
-# References
+## References

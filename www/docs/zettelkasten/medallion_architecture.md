@@ -1,5 +1,4 @@
 🗓️ 07032025 1618
-📎
 
 # medallion_architecture
 
@@ -40,4 +39,4 @@ So you can see that the data is curated as it moves through the different layers
 - ACID transactions, time travel
 
 ---
-# References
+## References

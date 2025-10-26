@@ -79,5 +79,5 @@ In most cases, it's recommended to avoid cursors if possible and use **set-based
 
 ---
 
-# References
+## References
 - ChatGPT

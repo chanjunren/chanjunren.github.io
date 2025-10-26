@@ -1,5 +1,4 @@
 🗓️ 09092025 1153
-📎
 
 # video_storage_strategy
 
@@ -51,4 +50,4 @@ Databases are optimized for small, structured queries. Video chunks are large, u
 - File Organization
 
 ---
-# References
+## References

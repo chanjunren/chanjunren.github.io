@@ -1,5 +1,4 @@
 🗓️ 11052025 2029
-📎
 
 # uv_unwrapping
 
@@ -11,4 +10,4 @@ How [[textures_3js]] cover geometries
 
 ---
 
-# References
+## References

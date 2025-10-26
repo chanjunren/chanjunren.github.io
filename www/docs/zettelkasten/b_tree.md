@@ -1,5 +1,4 @@
 🗓️ 05112024 2350
-📎
 
 # b_tree 
 
@@ -42,5 +41,5 @@ The height of a B-Tree is logarithmic relative to the number of keys, ensuring e
 
 ---
 
-# References
+## References
 - https://builtin.com/data-science/b-tree-index

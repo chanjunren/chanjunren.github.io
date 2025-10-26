@@ -1,9 +1,8 @@
 🗓️ 24072024 1410
-📎
 
 # groovy_closures
 
 ---
 
-# References
+## References
 - https://groovy-lang.org/closures.html

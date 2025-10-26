@@ -1,5 +1,4 @@
 🗓️ 31102024 1637
-📎 #prometheus
 
 # prometheus_summary_streaming
 
@@ -33,4 +32,4 @@ This algorithm
 
 ---
 
-# References
+## References

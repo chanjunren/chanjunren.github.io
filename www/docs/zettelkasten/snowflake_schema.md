@@ -26,5 +26,5 @@ This results in a snowflake-like shape when the dimension tables are put togethe
 
 ---
 
-# References
+## References
 - https://aws.amazon.com/what-is/olap/

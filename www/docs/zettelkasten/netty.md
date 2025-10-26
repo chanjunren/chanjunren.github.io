@@ -1,5 +1,4 @@
 🗓️ 20022025 1859
-📎
 
 # netty
 
@@ -116,5 +115,5 @@ _A high-performance, event-driven networking framework based on Java NIO_
 - **Microservices communication**.
 
 ---
-# References
+## References
 - ChatGPT

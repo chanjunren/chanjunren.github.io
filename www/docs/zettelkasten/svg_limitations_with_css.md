@@ -1,5 +1,4 @@
 🗓️ 22062025 1049
-📎
 
 # svg_limitations_with_css
 # Morphing & Path Animation in SVG
@@ -32,4 +31,4 @@
 | **JavaScript** | You need **fine-grained control** over timing and shape transitions | More flexible but more complex and potentially slower |
 
 ---
-# References
+## References

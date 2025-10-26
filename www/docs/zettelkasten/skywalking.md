@@ -1,5 +1,4 @@
 🗓️ 05082024 1036
-📎 #monitoring
 
 # skywalking
 
@@ -37,5 +36,5 @@ Skywalking works by collecting data from various points in your application and 
 
 ---
 
-# References
+## References
 - Gemini

@@ -1,5 +1,4 @@
 🗓️ 13012025 1733
-📎
 
 # gemini_state_backend
 The **GeminiStateBackend** in the context of Alibaba Cloud's **Realtime Compute for Apache Flink** is a specialized **state backend** designed to manage state data in Flink applications. It is specifically optimized for **compute-storage separation architecture**, which is a hallmark of Alibaba Cloud's real-time computing solutions.
@@ -73,4 +72,4 @@ The **state backend** in Apache Flink determines how the application state and c
 
 ---
 
-# References
+## References

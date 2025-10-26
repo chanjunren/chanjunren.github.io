@@ -1,5 +1,4 @@
 🗓️ 03062024 1644
-📎 #wip
 
 # rate_limiting_concepts
 
@@ -140,6 +139,6 @@
 
 ---
 
-# References
+## References
 
 - https://cloud.google.com/architecture/rate-limiting-strategies-techniques

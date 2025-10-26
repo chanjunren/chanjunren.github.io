@@ -1,5 +1,4 @@
 🗓️ 24092025 1116
-📎
 
 # elasticsearch_types
 
@@ -23,5 +22,5 @@
 - Choose appropriate numeric types based on value ranges and precision needs
 
 ---
-# References
+## References
 - Cursor

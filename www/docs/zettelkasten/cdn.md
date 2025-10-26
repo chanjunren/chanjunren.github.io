@@ -1,5 +1,4 @@
 🗓️ 09092025 1203
-📎
 
 # cdn
 
@@ -28,4 +27,4 @@ User Request > CDN Edge > (if not cached) > OSS > CDN Edge > User
 - Geographic Performance: Speed by user location
 
 ---
-# References
+## References

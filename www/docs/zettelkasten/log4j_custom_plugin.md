@@ -1,5 +1,4 @@
 🗓️ 28062024 1001
-📎 #log4j2
 
 # log4j_custom_plugin
 ```ad-info
@@ -95,6 +94,6 @@ public class LogFilter extends AbstractFilter {
 
 ---
 
-# References
+## References
 - https://logging.apache.org/log4j/2.x/manual/plugins.html
 - https://www.kdgregory.com/index.php?page=logging.log4j2Plugins

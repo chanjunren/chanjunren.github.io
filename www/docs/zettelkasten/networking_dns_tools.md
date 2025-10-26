@@ -1,5 +1,4 @@
 🗓️ 04102025 0030
-📎
 
 # DNS Tools
 
@@ -174,7 +173,7 @@ Registrant Country: US
 
 ---
 
-# References
+## References
 
 - [dig manual](https://linux.die.net/man/1/dig)
 - [DNS records explained](https://www.cloudflare.com/learning/dns/dns-records/)

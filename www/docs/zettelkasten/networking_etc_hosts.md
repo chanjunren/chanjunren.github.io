@@ -302,7 +302,7 @@ $ dig +short example.com
 
 ---
 
-# References
+## References
 
 - [[networking_dns_tools]] - DNS tools (note: dig bypasses /etc/hosts)
 - [/etc/hosts documentation](https://man7.org/linux/man-pages/man5/hosts.5.html)

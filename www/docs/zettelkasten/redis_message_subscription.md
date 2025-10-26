@@ -32,6 +32,6 @@
 
 ---
 
-# References
+## References
 
 - Gemini

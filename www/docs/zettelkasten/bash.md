@@ -1,5 +1,4 @@
 🗓️ 23102024 2344
-📎 #shell
 
 # bash
 
@@ -139,4 +138,4 @@ echo "=== End of Cheat Sheet ==="
 
 ---
 
-# References
+## References

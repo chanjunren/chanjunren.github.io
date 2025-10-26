@@ -1,5 +1,4 @@
 🗓️ 06032025 1753
-📎
 
 # data_lakes
 
@@ -21,5 +20,5 @@
 - too many small files
 
 ---
-# References
+## References
 - https://www.youtube.com/watch?v=myLiFw9AUKY&t=331s

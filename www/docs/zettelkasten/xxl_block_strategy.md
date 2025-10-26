@@ -1,5 +1,4 @@
 🗓️ 01032025 1251
-📎
 
 # xxl_block_strategy
 
@@ -13,5 +12,5 @@
 | **Concurrency (Parallel Execution)** (`Concurrency`) | Allows multiple instances of the job to run simultaneously.         | When jobs can safely run in parallel.                        | Maximizes throughput.                  | Can lead to resource contention.                 |
 
 ---
-# References
+## References
 - ChatGPT

@@ -1,5 +1,4 @@
 🗓️ 31012025 1652
-📎
 
 ```ad-abstract
 Traditional storage-computing architectures
@@ -22,5 +21,5 @@ Traditional storage-computing architectures
 
 ---
 
-# References
+## References
 - https://www.alibabacloud.com/help/en/hologres/product-overview/architecture

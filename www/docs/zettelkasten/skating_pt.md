@@ -1,5 +1,4 @@
 🗓️ 21062025 1350
-📎
 
 # skating_pt
 
@@ -42,5 +41,5 @@
 - squat with wall (10 mins)
 
 ---
-# references
+## References
 - akt skating camp

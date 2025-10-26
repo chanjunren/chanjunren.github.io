@@ -1,5 +1,4 @@
 🗓️ 19112024 1503
-📎
 
 # extract_transform_load
 
@@ -46,7 +45,7 @@ ETL is a foundational process in modern data management that facilitates effecti
 
 ---
 
-# References
+## References
 - https://www.geeksforgeeks.org/etl-process-in-data-warehouse/
 - https://www.informatica.com/sg/resources/articles/what-is-etl.html
 - https://www.snowflake.com/guides/what-etl/

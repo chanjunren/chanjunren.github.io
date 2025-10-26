@@ -1,5 +1,4 @@
 🗓️ 21062025 1341
-📎
 
 # skating_speed_slalom
 
@@ -10,5 +9,5 @@
 
 
 ---
-# References
+## References
 - akt skating camp

@@ -1,5 +1,4 @@
 🗓️ 21092025 1630
-📎
 
 # supplementary_retirement_scheme
 
@@ -140,6 +139,6 @@
 | **Early withdrawal penalty** | Waived upon death         | N/A                       |
 
 ---
-# References
+## References
 - [IRAS SRS Information](https://www.iras.gov.sg/taxes/individual-income-tax/basics-of-individual-income-tax/tax-reliefs/supplementary-retirement-scheme-(srs)-relief)
 - [MAS SRS Guidelines](https://www.mas.gov.sg/regulation/retirement-schemes/supplementary-retirement-scheme)

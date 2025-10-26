@@ -1,5 +1,4 @@
 🗓️ 06112024 0018
-📎
 
 # b_trees_comparisons
 
@@ -16,4 +15,4 @@
 
 ---
 
-# References
+## References

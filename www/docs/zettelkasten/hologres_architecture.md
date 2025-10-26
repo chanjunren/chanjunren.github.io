@@ -1,5 +1,4 @@
 🗓️ 31012025 1649
-📎
 
 # hologres_architecture
 
@@ -54,6 +53,6 @@ Holo Master maintains component availability within each worker node
 
 ---
 
-# References
+## References
 - https://www.alibabacloud.com/help/en/hologres/product-overview/architecture
 - Summarised by ChatGPT

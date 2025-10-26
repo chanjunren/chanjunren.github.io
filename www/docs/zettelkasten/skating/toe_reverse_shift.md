@@ -1,6 +1,5 @@
 ️🗓️ 30032024 1054
 
-📎 #skating
 
 # toe_reverse_shift
 
@@ -20,4 +19,4 @@
 
 ---
 
-# References
+## References

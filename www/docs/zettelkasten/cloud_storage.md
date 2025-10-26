@@ -1,5 +1,4 @@
 **🗓️ 09092025 1411
-📎
 
 # cloud_storage
 ## ☁️ What OSS/S3 Provides
@@ -62,5 +61,5 @@
 - Think of OSS/S3 as a reliable, scalable hard drive in the cloud - it stores your files safely and serves them quickly, but you still need to build the application logic around it.
 
 ---
-# References
+## References
 - Cursor

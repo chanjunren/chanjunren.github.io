@@ -1,5 +1,4 @@
 🗓️ 06042024 1404
-📎 #modeling
 
 # class_diagrams
 
@@ -70,6 +69,6 @@ One common approach to managing dependencies and reducing coupling is the use of
 
 ---
 
-# References
+## References
 
 - NUS CS2103T Textbook

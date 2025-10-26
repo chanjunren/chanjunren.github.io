@@ -1,5 +1,4 @@
 🗓️ 15102025 0036
-📎
 
 # passive_investing
 
@@ -30,6 +29,6 @@ Buy and hold diversified [[exchange_traded_funds]]:
 Long-term goals (10+ years), busy professionals, beginners, low-stress investors
 
 ---
-# References
+## References
 - "A Random Walk Down Wall Street" by Burton Malkiel
 - [[financial_planning]] [[exchange_traded_funds]] [[value_investing]] [[technical_analysis]]

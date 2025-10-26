@@ -23,5 +23,5 @@ sidebar_label: Compilation
 - Other pages are pre-loaded after initial page is loaded
 
 
-## References
+### References
 - [NextJS Official Documentation](https://nextjs.org/learn/foundations/how-nextjs-works)

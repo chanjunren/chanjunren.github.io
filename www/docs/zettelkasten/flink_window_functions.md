@@ -1,5 +1,4 @@
 🗓️ 17012025 0116
-📎
 
 # flink_window_functions
 
@@ -123,5 +122,5 @@ When the allowed lateness is greater than zero, only those events that are so la
 
 ---
 
-# References
+## References
 - https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/streaming_analytics/

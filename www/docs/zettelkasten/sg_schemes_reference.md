@@ -1,5 +1,4 @@
 🗓️ 21092025 1800
-📎
 
 # sg_schemes_reference
 
@@ -123,7 +122,7 @@
 3. **Government securities** (tax-free interest)
 
 ---
-# References
+## References
 - [CPF Interest Rates](https://www.cpf.gov.sg/member/infohub/educational-resources/cpf-interest-rates)
 - [IRAS Tax Rates](https://www.iras.gov.sg/taxes/individual-income-tax/basics-of-individual-income-tax/tax-rates)
 - [MAS Investment Products](https://www.mas.gov.sg/investor-education)

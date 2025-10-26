@@ -1,5 +1,4 @@
 🗓️ 11052025 2125
-📎
 
 # texture_transformations
 
@@ -89,4 +88,4 @@ The texture will now rotate on its center.
 
 
 ---
-# References
+## References

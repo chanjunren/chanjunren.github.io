@@ -1,5 +1,4 @@
 🗓️ 02102024 1120
-📎
 
 # n_gram
 ## Definition
@@ -55,4 +54,4 @@ This is especially useful for **partial matches**, where you want the search to 
 
 ---
 
-# References
+## References

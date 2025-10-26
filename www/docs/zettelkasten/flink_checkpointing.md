@@ -1,5 +1,4 @@
 🗓️ 04032025 2318
-📎
 
 # flink_checkpointing
 
@@ -16,4 +15,4 @@
 | State storage        | saving checkpoint snapshots | HDFS, S3, Ceph, etc.           |
 
 ---
-# References
+## References

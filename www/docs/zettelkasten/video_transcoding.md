@@ -1,5 +1,4 @@
 🗓️ 09092025 1432
-📎
 
 # video_transcoding
 ```ad-tldr
@@ -39,5 +38,5 @@ Original: 1080p @ 5000kbps (high quality source)
 - Container: MP4 for broad compatibility
 
 ---
-# References
+## References
 - Cursor

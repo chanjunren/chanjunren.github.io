@@ -1,5 +1,4 @@
 🗓️ 07112024 1105
-📎
 
 # skip_list
 **Probabilistic data structure** that facilitates efficient search, insertion, and deletion operations within a sorted sequence of elements
@@ -53,5 +52,5 @@ on average, each element appears in (1 / (1-p))​ layers > **logarithmic heig
 
 ---
 
-# References
+## References
 - Perplexity AI

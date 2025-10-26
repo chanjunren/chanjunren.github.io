@@ -1,5 +1,4 @@
 🗓️ 25072024 1518
-📎
 
 # ssl_overview
 ## Concepts
@@ -23,4 +22,4 @@ Firewall or Network Restrictions: Firewalls or network configurations can someti
 
 ---
 
-# References
+## References

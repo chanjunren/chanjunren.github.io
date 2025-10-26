@@ -1,5 +1,4 @@
 🗓️ 06032025 1756
-📎
 
 # data_lakehouse
 - combine benefits of [[data_lakes]] and [[data_warehouses]]
@@ -16,5 +15,5 @@
 - end to end streaming
 
 ---
-# References
+## References
 	- https://www.youtube.com/watch?v=myLiFw9AUKY&t

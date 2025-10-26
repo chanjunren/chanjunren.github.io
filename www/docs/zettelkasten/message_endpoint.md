@@ -1,5 +1,4 @@
 🗓️ 04042024 1212
-📎 #eip
 
 # message_endpoint
 
@@ -27,6 +26,6 @@ Basically an interface for
 
 ---
 
-# References
+## References
 
 - Enterprise Integration Patterns by Gregor Hohpe, Bobby Woolf

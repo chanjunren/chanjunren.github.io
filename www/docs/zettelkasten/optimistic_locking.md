@@ -1,5 +1,4 @@
 🗓️ 07082025 1051
-📎
 
 # optimistic_locking
 > **“Assume no conflict. Check at the end.”**
@@ -18,5 +17,5 @@
 - Web apps / distributed systems
 
 ---
-# References
+## References
 - ChatGPT

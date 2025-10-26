@@ -1,5 +1,4 @@
 🗓️ 21092025 1551
-📎
 
 # singapore_saving_bonds
 
@@ -51,6 +50,6 @@
 > **For detailed SRS information**: See [[supplementary_retirement_scheme]]
 
 ---
-# References
+## References
 - [MAS Official SSB Page](https://www.mas.gov.sg/bonds-and-bills/savings-bonds)
 - Current rates updated monthly on MAS website

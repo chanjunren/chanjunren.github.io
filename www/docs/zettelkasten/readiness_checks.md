@@ -1,5 +1,4 @@
 🗓️ 14042025 1637
-📎
 
 # readiness_checks
 > Determines if an application is ready to start accepting traffic
@@ -20,5 +19,5 @@ If this check fails, the container orchestrator will not route traffic to that i
 
 
 ---
-# References
+## References
 - ChatGPT

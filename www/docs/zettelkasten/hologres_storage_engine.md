@@ -1,5 +1,4 @@
 🗓️ 03022025 1344
-📎
 
 # hologres_storage_engine
 - The **storage engine** in Hologres manages data on [[hologres_shard]] and provides CRUD  operations
@@ -15,5 +14,5 @@
 - Improper configuration can lead to uneven resource usage and performance degradation.
 
 ---
-# References
+## References
 - https://www.alibabacloud.com/help/en/hologres/user-guide/table-group-and-shard-count

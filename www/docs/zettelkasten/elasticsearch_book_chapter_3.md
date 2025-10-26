@@ -1,5 +1,4 @@
 🗓️ 06112024 2346
-📎
 
 # elasticsearch_book_chapter_3
 
@@ -201,5 +200,5 @@ A good bulk size to start playing with is around 5-15MB in size
 
 ---
 
-# References
+## References
 - Elasticsearch Oreilly book chapter 3

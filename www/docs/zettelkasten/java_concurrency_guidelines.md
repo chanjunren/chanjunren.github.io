@@ -1,5 +1,4 @@
 🗓️ 27082025 2330
-📎
 
 # java_concurrency_guidelines
 
@@ -67,4 +66,4 @@
 - The **Advisory** rules improve **debuggability, maintainability, and long-term scalability**.
 
 ---
-# References
+## References

@@ -1,5 +1,4 @@
 🗓️ 27012025 0108
-📎
 
 # sstables
 
@@ -122,4 +121,4 @@ Let me know if you'd like an example or deeper explanation of anything!
 
 ---
 
-# References
+## References

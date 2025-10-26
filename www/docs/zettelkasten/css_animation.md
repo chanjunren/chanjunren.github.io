@@ -1,5 +1,4 @@
 🗓️ 12052024 1457
-📎 #css
 
 # css_animation
 
@@ -103,6 +102,6 @@
 
 ---
 
-# References
+## References
 
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations

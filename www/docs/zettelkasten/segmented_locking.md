@@ -1,5 +1,4 @@
 🗓️ 19082025 1445
-📎
 
 # segmented_locking
 ## 🔐 Traditional Locking Problem
@@ -46,5 +45,5 @@ Single Lock Approach:
 - Fine-Grained Control: Minimizes critical sections
 
 ---
-# References
+## References
 - Cursor

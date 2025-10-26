@@ -1,5 +1,4 @@
 🗓️ 07012025 1342
-📎
 
 # strengthening
 Strengthening ensures you can actively control your joints through their full range of motion, which improves both stability and functional movement patterns. It also:
@@ -11,4 +10,4 @@ Strengthening ensures you can actively control your joints through their full ra
 
 ---
 
-# References
+## References

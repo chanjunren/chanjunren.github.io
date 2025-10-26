@@ -1,5 +1,4 @@
 🗓️ 02112024 1230
-📎
 
 # olap_operations
  
@@ -38,5 +37,5 @@ Creating a **smaller subcube** from an OLAP cube
 
 ---
 
-# References
+## References
 - https://aws.amazon.com/what-is/olap/

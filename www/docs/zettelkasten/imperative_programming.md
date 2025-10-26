@@ -1,5 +1,4 @@
 🗓️ 02022025 1443
-📎
 
 # imperative_programming
 ```ad-summary
@@ -25,5 +24,5 @@ Imperative programming focuses on describing **how** a program operates, using
 
 ---
 
-# References
+## References
 - Deepseek

@@ -1,5 +1,4 @@
 🗓️ 27012025 0105
-📎
 
 # hash_indexes
 
@@ -18,6 +17,6 @@ Used in simple key-value stores where range queries aren't important.
 
 ---
 
-# References
+## References
 - DDIA Chapter 3
 - ChatGPT

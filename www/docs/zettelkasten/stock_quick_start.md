@@ -1,5 +1,4 @@
 🗓️ 15102025 0035
-📎
 
 # stock_quick_start
 
@@ -10,4 +9,4 @@
 
 
 ---
-# References
+## References

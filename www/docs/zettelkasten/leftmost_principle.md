@@ -1,5 +1,4 @@
 🗓️ 06112024 0023
-📎
 
 # leftmost_principle
 
@@ -34,4 +33,4 @@ In summary, both B-Trees and B+ Trees utilize the leftmost principle to optimize
 
 ---
 
-# References
+## References

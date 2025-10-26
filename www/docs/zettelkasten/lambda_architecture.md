@@ -1,5 +1,4 @@
 🗓️ 07032025 1549
-📎
 
 # lambda_architecture
 > batch + streaming hybrid, considered a subset of streaming architecture
@@ -36,4 +35,4 @@ Lambda Architecture is designed to **handle both batch and real-time data** by u
 - When you want **fault tolerance** and the ability to **recompute historical data**.
 
 ---
-# References
+## References

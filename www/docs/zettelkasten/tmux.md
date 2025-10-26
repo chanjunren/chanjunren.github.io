@@ -1,5 +1,4 @@
 🗓️ 19102024 1034
-📎 #config
 
 # tmux
 
@@ -39,5 +38,5 @@
 
 ---
 
-# References
+## References
 - ChatGPT

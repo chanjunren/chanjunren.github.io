@@ -1,5 +1,4 @@
 🗓️ 06042024 1650
-📎
 
 # protobuf_overview
 
@@ -50,6 +49,6 @@ similar to XML, but smaller, faster, and simpler.
 
 ---
 
-# References
+## References
 
 - ChatGPT

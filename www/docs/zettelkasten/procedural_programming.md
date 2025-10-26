@@ -1,5 +1,4 @@
 🗓️ 02022025 1439
-📎
 
 # procedural_programming
 ```ad-summary
@@ -25,5 +24,5 @@ Programs are structured as a sequence of instructions.
 - **Examples:** C, Pascal, Fortran.
     
 ---
-# References
+## References
 - Deepseek

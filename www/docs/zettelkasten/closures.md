@@ -1,5 +1,4 @@
 🗓️ 24072024 1142
-📎
 
 # closures
 
@@ -22,5 +21,5 @@ greeting("Alice") // Call the closure
 
 ---
 
-# References
+## References
 - Gemini

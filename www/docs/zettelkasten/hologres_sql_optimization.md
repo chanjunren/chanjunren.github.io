@@ -1,5 +1,4 @@
 🗓️ 03022025 1110
-📎
 
 ## Basic principles
 ```ad-abstract
@@ -37,5 +36,5 @@ Reduce I/O resource consumption and optimize concurrency
 - This helps improve the efficiency of range queries and field sorting
 
 ---
-# References
+## References
 - https://www.alibabacloud.com/help/en/hologres/getting-started/hologres-index-to-get-started-quickly

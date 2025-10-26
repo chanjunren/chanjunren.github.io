@@ -1,5 +1,4 @@
 🗓️ 31052024 1426
-📎 #spring
 
 # spring_boot_application_lifecycle
 
@@ -38,7 +37,7 @@
 
 ---
 
-# References
+## References
 
 - https://reflectoring.io/spring-bean-lifecycle/
 - ChatGeePeeTee

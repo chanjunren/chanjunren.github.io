@@ -1,5 +1,4 @@
 🗓️ 31082025 1142
-📎
 
 # sql_joins
 
@@ -15,4 +14,4 @@
 | **SELF JOIN**       | Table joins **itself**                          | Compare rows within the same table                         | Find employees who report to the same manager      |
 
 ---
-# References
+## References

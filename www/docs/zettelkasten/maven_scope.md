@@ -1,5 +1,4 @@
 🗓️ 23072024 0956
-📎 #maven
 
 # maven_scope
 In Maven (which seems to be the build tool you're using based on the dependency structure), the `<scope>` tag controls how a dependency is included in your project and its lifecycle phases. It determines:
@@ -39,4 +38,4 @@ Let me know if you'd like a more tailored recommendation based on the specific r
 
 ---
 
-# References
+## References

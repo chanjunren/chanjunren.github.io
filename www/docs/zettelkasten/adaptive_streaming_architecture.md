@@ -1,5 +1,4 @@
 🗓️ 09092025 1158
-📎
 
 # adaptive_streaming_architecture
 ```ad-tldr
@@ -32,4 +31,4 @@ video.mp4 →
 - CDN friendly: Segments cache well
 
 ---
-# References
+## References

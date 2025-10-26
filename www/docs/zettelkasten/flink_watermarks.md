@@ -1,5 +1,4 @@
 🗓️ 16012025 1848
-📎
 
 # flink_watermarks
 
@@ -43,5 +42,5 @@ DataStream<Event> withTimestampsAndWatermarks =
 
 ---
 
-# References
+## References
 - https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/learn-flink/streaming_analytics/

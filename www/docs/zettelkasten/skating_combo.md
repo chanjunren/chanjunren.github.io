@@ -1,5 +1,4 @@
 🗓️ 21062025 1344
-📎
 
 # skating_combo
 
@@ -10,5 +9,5 @@
 - different music same moves
 
 ---
-# References
+## References
 - akt skating camp

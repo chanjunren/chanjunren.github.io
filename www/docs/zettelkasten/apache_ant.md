@@ -1,5 +1,4 @@
 🗓️ 23072024 1124
-📎
 
 # apache_ant
 Build automation tool written in Java
@@ -65,5 +64,5 @@ This simple build file defines two targets:
 
 ---
 
-# References
+## References
 - Gemini

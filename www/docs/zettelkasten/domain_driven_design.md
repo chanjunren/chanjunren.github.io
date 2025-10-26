@@ -1,5 +1,4 @@
 🗓️ 06112024 0031
-📎
 
 # domain_driven_design
 ```ad-abstract
@@ -87,4 +86,4 @@ Coordination layer
 
 ---
 
-# References
+## References

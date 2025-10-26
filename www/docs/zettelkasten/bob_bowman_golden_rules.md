@@ -1,5 +1,4 @@
 🗓️ 06072025 0730
-📎
 
 # bob_bowman_golden_rules
 
@@ -95,5 +94,5 @@ Get comfortable being uncomfortable
 - Visualize success everyday
 
 ---
-# References
+## References
 - https://youtu.be/h7_1RyfIWcs?si=o8YQTQwLCzIsTmsP

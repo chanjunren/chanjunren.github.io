@@ -1,5 +1,4 @@
 🗓️ 18022025 1441
-📎
 
 # flink_savepoints
 
@@ -91,5 +90,5 @@ Once the first full checkpoint completes, all subsequent checkpoints will be tak
 ![CLAIM mode](https://nightlies.apache.org/flink/flink-docs-release-1.20/fig/restore-mode-claim.svg)
 
 ---
-# References
+## References
 - https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/ops/state/savepoints/
