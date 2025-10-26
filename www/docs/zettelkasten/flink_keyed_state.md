@@ -1,5 +1,4 @@
 🗓️ 04032025 2259
-📎
 
 - State that is **partitioned by key** when working with a keyed stream (e.g., using `keyBy`)
 	- **Efficient local state updates** (avoiding transaction overhead).
@@ -28,4 +27,4 @@ Can be done through
 
 
 ---
-# References
+## References

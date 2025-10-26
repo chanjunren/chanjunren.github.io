@@ -1,5 +1,4 @@
 🗓️ 07012025 1337
-📎
 
 # stretching
 - Targets tight, shortened muscles, allowing joints to move through a greater range
@@ -28,4 +27,4 @@ Passive stretching focuses on increasing muscle length and reducing stiffness > 
 
 ---
 
-# References
+## References

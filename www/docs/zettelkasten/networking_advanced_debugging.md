@@ -280,7 +280,7 @@ Deep packet analysis:
 
 ---
 
-# References
+## References
 
 - [[networking_connectivity]] - Start with basic tools first
 - [tcpdump manual](https://www.tcpdump.org/manpages/tcpdump.1.html)

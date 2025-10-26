@@ -1,5 +1,4 @@
 🗓️ 16062024 1600
-📎
 
 # r3f_post_processing
 ## Issues with vanilla post processing
@@ -650,4 +649,4 @@ export default class DrunkEffect extends Effect
 
 ---
 
-# References
+## References

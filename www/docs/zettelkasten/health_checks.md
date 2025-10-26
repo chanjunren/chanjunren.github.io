@@ -23,5 +23,5 @@
 
 ---
 
-# References
+## References
 - ChatGPT

@@ -1,5 +1,4 @@
 🗓️ 05042024 1804
-📎 #apache_camel
 
 # camel_architecture
 
@@ -21,6 +20,6 @@ Route has:
 
 ---
 
-# References
+## References
 
 - https://camel.apache.org/manual/architecture.html

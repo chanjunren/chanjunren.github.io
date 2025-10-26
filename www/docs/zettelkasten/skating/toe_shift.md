@@ -1,6 +1,5 @@
 ️🗓️ 30032024 1321
 
-📎
 
 # toe_shift
 
@@ -45,6 +44,6 @@
 
 ---
 
-# References
+## References
 
 - https://v.douyin.com/iFEwd12Q/

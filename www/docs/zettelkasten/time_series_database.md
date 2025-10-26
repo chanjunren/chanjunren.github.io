@@ -1,5 +1,4 @@
 🗓️ 12072025 1023
-📎
 
 # time_series_database
 
@@ -10,4 +9,4 @@
 - **Scaling limits**: Single Prometheus typically handles ~1–2 million series. Exceeding this requires strategies like sharding, federation, or adopting specialized TSDBs
 
 ---
-# References
+## References

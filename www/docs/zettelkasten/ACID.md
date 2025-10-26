@@ -1,5 +1,4 @@
 🗓️ 01112024 2123
-📎
 
 # ACID
 ## Atomic
@@ -31,5 +30,5 @@ The transaction’s results will not be lost in a failure
 
 ---
 
-# References
+## References
 - https://www.oracle.com/sg/database/what-is-oltp/

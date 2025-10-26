@@ -184,7 +184,7 @@ wget -r -np -k https://example.com
 
 ---
 
-# References
+## References
 
 - [[networking_connectivity]] - Use ping first to check if host is reachable
 - [curl manual](https://curl.se/docs/manual.html)

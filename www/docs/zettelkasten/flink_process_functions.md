@@ -1,5 +1,4 @@
 🗓️ 17012025 2042
-📎
 
 # flink_process_functions
 
@@ -138,5 +137,5 @@ The RocksDB state backend can append to `ListState` without going through (de)
 
 ---
 
-# References
+## References
 - https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/event_driven/#process-functions

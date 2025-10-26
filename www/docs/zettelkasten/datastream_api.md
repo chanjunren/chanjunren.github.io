@@ -1,5 +1,4 @@
 🗓️ 15012025 2139
-📎
 
 # datastream_api
 
@@ -80,5 +79,5 @@ Endpoints where processed data is sent or stored after computation
 
 ---
 
-# References
+## References
 - https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/datastream_api/

@@ -1,5 +1,4 @@
 🗓️ 20052025 0952
-📎
 
 # timeout_configs
 
@@ -23,6 +22,6 @@ SHOW VARIABLES LIKE '%timeout%';
 ```
 
 ---
-# References
+## References
 - https://github.com/brettwooldridge/HikariCP?tab=readme-ov-file#gear-configuration-knobs-baby
 - ChatGPT

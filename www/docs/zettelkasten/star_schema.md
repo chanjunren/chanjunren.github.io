@@ -48,5 +48,5 @@ A fact table connects to several dimension tables so the data model looks like a
 
 ---
 
-# References
+## References
 - https://aws.amazon.com/what-is/olap/

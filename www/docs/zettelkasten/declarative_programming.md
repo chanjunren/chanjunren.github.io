@@ -1,5 +1,4 @@
 🗓️ 02022025 1441
-📎
 
 # declarative_programming
 ```ad-summary
@@ -21,5 +20,5 @@ It describes the desired result without specifying the step-by-step process
 - **Examples:** SQL, Prolog, HTML.
 
 ---
-# References
+## References
 - Deepseek

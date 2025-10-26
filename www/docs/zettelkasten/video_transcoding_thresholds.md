@@ -1,5 +1,4 @@
 🗓️ 09092025 1455
-📎
 
 # video_transcoding_thresholds
 ## 📊 Chunked Upload Thresholds
@@ -24,4 +23,4 @@
 
 
 ---
-# References
+## References

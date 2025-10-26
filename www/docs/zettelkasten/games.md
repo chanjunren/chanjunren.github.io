@@ -1,5 +1,4 @@
 🗓️ 21092025 1533
-📎
 
 # games
 
@@ -10,4 +9,4 @@
 - Kingdom hearts
 
 ---
-# References
+## References

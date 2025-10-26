@@ -1,5 +1,4 @@
 🗓️ 22062025 1113
-📎
 
 # svg_smil
 
@@ -34,6 +33,6 @@
 
 ---
 
-# References
+## References
 
 - https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/fill

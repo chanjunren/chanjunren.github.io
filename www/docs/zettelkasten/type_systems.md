@@ -1,5 +1,4 @@
 🗓️ 02022025 1418
-📎
 
 # type_systems
 ## Statically Typed Languages
@@ -47,5 +46,5 @@
 - Allows for more flexible coding
 
 ---
-# References
+## References
 - Deepseek

@@ -1,5 +1,4 @@
 🗓️ 06052024 1654
-📎 #threejs
 
 # r3f_mouse_events
 
@@ -280,6 +279,6 @@ root.render(
 
 ---
 
-# References
+## References
 
 - https://threejs-journey.com/lessons/mouse-events-with-r3f

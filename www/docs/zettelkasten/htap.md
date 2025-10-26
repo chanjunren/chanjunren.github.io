@@ -1,5 +1,4 @@
 🗓️ 07082025 1042
-📎
  
 # htap
 > **HTAP** = **Hybrid Transactional and Analytical Processing**
@@ -46,5 +45,5 @@ HTAP systems often:
 - Can be harder to tune for both workloads simultaneously
 
 ---
-# References
+## References
 - ChatGPT

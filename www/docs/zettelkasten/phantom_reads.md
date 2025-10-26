@@ -1,5 +1,4 @@
 🗓️ 02032025 0120
-📎
 
 # phantom_reads
 
@@ -10,4 +9,4 @@ Unlike regular inconsistencies, phantom reads affect **sets of rows**, not just 
 ```
 
 ---
-# References
+## References

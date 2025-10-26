@@ -1,5 +1,4 @@
 🗓️ 29042024 1830
-📎
 
 # materials
 
@@ -442,6 +441,6 @@ Covered in a later chapter
 
 ---
 
-# References
+## References
 
 - ThreeJS Chapter 1 Lesson 11

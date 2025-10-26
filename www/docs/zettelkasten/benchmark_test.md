@@ -1,5 +1,4 @@
 🗓️ 26052025 1213
-📎
 
 # benchmark_test
 ```java
@@ -140,4 +139,4 @@ public class CacheBenchmark {
 ```
 
 ---
-# References
+## References

@@ -1,5 +1,4 @@
 🗓️ 09092025 1448
-📎
 
 # video_transcoding_strategy
 
@@ -66,4 +65,4 @@
 
 
 ---
-# References
+## References

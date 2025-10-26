@@ -1,5 +1,4 @@
 🗓️ 16012025 1122
-📎
 
 # flink_notions_of_time
 
@@ -28,5 +27,5 @@ The Taxi data sources used in the hands-on exercises take care of these details 
 
 ---
 
-# References
+## References
 - https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/learn-flink/streaming_analytics/

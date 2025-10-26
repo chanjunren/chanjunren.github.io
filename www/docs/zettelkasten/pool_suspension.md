@@ -49,5 +49,5 @@ While HikariCP does not provide built-in pool suspension, you can implement your
 
 ---
 
-# References
+## References
 - ChatGPT

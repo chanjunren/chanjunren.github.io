@@ -1,5 +1,4 @@
 🗓️ 05082025 0103
-📎
 
 # svg_animate_transform
 ### 🧩 SMIL Basics
@@ -106,4 +105,4 @@ CopyEdit
     - `translate`, `scale`, `rotate`, `skewX`, `skewY`
 
 ---
-# References
+## References

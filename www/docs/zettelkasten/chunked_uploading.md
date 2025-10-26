@@ -1,5 +1,4 @@
 🗓️ 09092025 1151
-📎
 
 # chunked_uploading
 ## Core Principle
@@ -28,4 +27,4 @@ INITIATED > UPLOADING > ASSEMBLED > VALIDATED > COMPLETE
 - Multiple concurrent uploads
 
 ---
-# References
+## References

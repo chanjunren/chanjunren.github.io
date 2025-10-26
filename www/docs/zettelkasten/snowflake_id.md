@@ -22,6 +22,6 @@
 
 ---
 
-# References
+## References
 
 - https://en.wikipedia.org/wiki/Snowflake_ID

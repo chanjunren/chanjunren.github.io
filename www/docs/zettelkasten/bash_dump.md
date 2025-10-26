@@ -1,5 +1,4 @@
 🗓️20102024 0117
-📎 #bash
 
 # bash_dump
 
@@ -17,5 +16,5 @@ In summary: This line runs the tmux ls command but discards both its output and 
 
 ---
 
-# References
+## References
 - ChatGPT

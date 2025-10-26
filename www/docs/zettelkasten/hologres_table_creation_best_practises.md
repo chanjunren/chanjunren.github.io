@@ -1,5 +1,4 @@
 🗓️ 03022025 1403
-📎
 
 # hologres_table_creation_best_practises
 
@@ -19,4 +18,4 @@
     - For large datasets or high-concurrency workloads, increase the shard count to improve parallelism.
 
 ---
-# References
+## References

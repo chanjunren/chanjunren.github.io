@@ -1,5 +1,4 @@
 🗓️ 13092024 1525
-📎
 
 # micrometer_dump
 Library for recording metrics for this 
@@ -20,5 +19,5 @@ Library for recording metrics for this
 
 ---
 
-# References
+## References
 - https://docs.micrometer.io/micrometer/reference/concepts.html

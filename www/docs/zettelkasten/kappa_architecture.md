@@ -1,5 +1,4 @@
 🗓️ 07032025 1552
-📎
 
 # kappa_architecture
 > streaming only
@@ -26,4 +25,4 @@
 - When working with **event-driven architectures** (e.g., real-time analytics, fraud detection, IoT data).
 
 ---
-# References
+## References

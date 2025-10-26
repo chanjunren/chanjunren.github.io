@@ -1,5 +1,4 @@
 🗓️ 07012025 1542
-📎
 
 # pelvic_positions
 
@@ -66,4 +65,4 @@ Understanding your pelvic position and addressing imbalances with stretches and 
 
 ---
 
-# References
+## References

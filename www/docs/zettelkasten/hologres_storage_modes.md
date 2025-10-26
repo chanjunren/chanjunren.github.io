@@ -1,5 +1,4 @@
 🗓️ 03022025 1420
-📎
 
 # hologres_storage_modes
 
@@ -15,5 +14,5 @@ COMMIT;
 ```
 
 ---
-# References
+## References
 - https://www.alibabacloud.com/help/en/hologres/user-guide/storage-models-of-tables

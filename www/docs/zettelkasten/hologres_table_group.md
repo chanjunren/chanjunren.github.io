@@ -1,5 +1,4 @@
 🗓️ 03022025 1236
-📎
 
 # hologres_table_group
 - In Hologres, data is stored in shards on [[pangu]]
@@ -43,5 +42,5 @@ A table group is a unique concept in Hologres and differs from PostgreSQL's **t
 - Tables cannot be moved to another table group unless re-created or moved using a specific function.
 
 ---
-# References
+## References
 - https://www.alibabacloud.com/help/en/hologres/user-guide/basic-concepts

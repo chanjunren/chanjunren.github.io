@@ -1,5 +1,4 @@
 🗓️ 27082025 2343
-📎
 
 # etcd
 
@@ -44,4 +43,4 @@ When you use etcd:
 
 
 ---
-# References
+## References

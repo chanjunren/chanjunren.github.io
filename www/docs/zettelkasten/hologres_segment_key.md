@@ -1,5 +1,4 @@
 🗓️ 03022025 1107
-📎
 
 # hologres_segment_key
 If you want to perform UPDATE operations based on primary keys or perform queries that involve range filter conditions on large-sized datasets, you can configure event time columns for tables. The system sorts data files based on the event time columns and combine the data files. This reduces duplicate files and filters out files as many as possible. This way, the query efficiency is improved. Proper settings of event time columns help improve the processing efficiency, query speed, and overall performance of databases. This topic describes how to configure event time columns for tables in Hologres.
@@ -271,5 +270,5 @@ The preceding content indicates that event time columns can be used to accelerat
     - [DROP TABLE](https://www.alibabacloud.com/help/en/hologres/developer-reference/drop-table)
 
 ---
-# References
+## References
 - https://www.alibabacloud.com/help/en/hologres/user-guide/segment-key

@@ -1,5 +1,4 @@
 🗓️ 21092025 1800
-📎
 
 # interest_calculation_methods
 
@@ -185,7 +184,7 @@ Where n = compounding frequency per year
 - 3% compounded monthly = 3.04% effective annual rate
 
 ---
-# References
+## References
 - [Compound Interest Calculator](https://www.calculator.net/compound-interest-calculator.html)
 - [CPF Interest Calculation](https://www.cpf.gov.sg/member/infohub/educational-resources/cpf-interest-rates)
 - [MAS T-Bills Information](https://www.mas.gov.sg/bonds-and-bills/treasury-bills)

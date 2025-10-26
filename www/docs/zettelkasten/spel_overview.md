@@ -1,5 +1,4 @@
 🗓️ 05062024 1549
-📎 #scripting
 
 # spel_overview
 
@@ -60,4 +59,4 @@ System.out.println(message); // Outputs "Hello World"
 
 ---
 
-# References
+## References

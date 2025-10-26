@@ -1,5 +1,4 @@
 🗓️ 03112024 1333
-📎
 
 # message_queue_benefits
 
@@ -40,5 +39,5 @@ Once you've built microservices without servers, deployments onto servers, or in
 
 ---
 
-# References
+## References
 - https://aws.amazon.com/message-queue/benefits/

@@ -1,5 +1,4 @@
 🗓️ 15102025 0035
-📎
 
 # value_investing
 
@@ -41,6 +40,6 @@ Long-term investors (5+ years) who enjoy financial analysis and want to beat mar
 Not for beginners → start with [[passive_investing]]
 
 ---
-# References
+## References
 - "The Intelligent Investor" by Benjamin Graham
 - [[passive_investing]] [[technical_analysis]] [[financial_planning]]

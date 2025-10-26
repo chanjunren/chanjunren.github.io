@@ -1,5 +1,4 @@
 🗓️ 03022025 1215
-📎
 
 # data_skew
 
@@ -22,4 +21,4 @@
     - As data grows, skewed segments can become even more overloaded, making it harder to scale the system effectively.
 
 ---
-# References
+## References

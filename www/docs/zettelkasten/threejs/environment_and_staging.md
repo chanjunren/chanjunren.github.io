@@ -1,5 +1,4 @@
 🗓️ 06012024 1500
-📎 #threejs
 
 # environment_and_staging_features
 

@@ -1,5 +1,4 @@
 🗓️ 27082025 2344
-📎
 
 # raft
 ## **Raft?** 
@@ -31,5 +30,5 @@
 - Even if the leader crashes, the new leader has the latest committed log.
 
 ---
-# References
+## References
 - ChatGPT

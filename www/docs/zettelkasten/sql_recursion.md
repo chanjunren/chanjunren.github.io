@@ -1,5 +1,4 @@
 🗓️ 31082025 1113
-📎
 
 # sql_recursion
 ## How Recursive CTEs Work
@@ -29,4 +28,4 @@ Memory pressure builds up due to these factors:
 | **Missing indexes**          | Each recursive step does a full table scan.              | No index on `id` or `parent_id`.                                             |
 
 ---
-# References
+## References

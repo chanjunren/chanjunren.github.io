@@ -1,5 +1,4 @@
 🗓️ 22112024 1523
-📎
 
 # sink
 
@@ -13,5 +12,5 @@ In flow networks, a sink is a specific node or vertex **where flow is directed t
 
 ---
 
-# References
+## References
 - 

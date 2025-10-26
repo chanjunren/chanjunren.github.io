@@ -1,5 +1,4 @@
 🗓️ 06042024 1418
-📎 #modeling
 
 # interaction_overview_diagrams
 
@@ -11,6 +10,6 @@ Combination of [[activity_diagrams]] and [[sequence_diagrams]]
 
 ---
 
-# References
+## References
 
 - NUS CS2103T Textbook

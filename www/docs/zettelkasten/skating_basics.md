@@ -1,5 +1,4 @@
 🗓️ 29062025 1155
-📎
 
 # skating_basics
 
@@ -67,4 +66,4 @@ heel toe / toe toe ([[skating_spins]])
 	- jump jump back one foot
 
 ---
-# References
+## References

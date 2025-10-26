@@ -1,5 +1,4 @@
 🗓️ 21062025 1647
-📎
 
 # svg_shapes
 
@@ -89,4 +88,4 @@
 - All shapes are absolutely positioned within it
 
 ---
-# References
+## References

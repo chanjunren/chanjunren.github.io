@@ -1,5 +1,4 @@
 🗓️ 15052024 1438
-📎 #elasticsearch
 
 # elasticsearch_aggregations
 
@@ -66,6 +65,6 @@
 
 ---
 
-# References
+## References
 
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html

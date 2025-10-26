@@ -1,5 +1,4 @@
 🗓️ 22062025 1113
-📎
 
 # svg_smil
 
@@ -75,7 +74,7 @@ In React, we can grab the `animate` element using the `useRef` hook and trig
 
 ---
 
-# References
+## References
 
 - https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/fill
 - https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/begin#event-value

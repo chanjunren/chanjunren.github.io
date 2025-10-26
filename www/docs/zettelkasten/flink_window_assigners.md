@@ -1,5 +1,4 @@
 🗓️ 17012025 0114
-📎
 
 # flink_window_assigners
 
@@ -39,5 +38,5 @@ Apache flink suggests to use [ProcessFunction](https://nightlies.apache.org/flin
 
 ---
 
-# References
+## References
 - https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/streaming_analytics/

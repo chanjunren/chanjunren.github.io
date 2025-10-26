@@ -1,5 +1,4 @@
 🗓️ 07012025 1335
-📎
 
 # improving_flexibility
 
@@ -39,4 +38,4 @@ Your body has mechanisms (like the stretch reflex) that prevent excessive range 
 
 ---
 
-# References
+## References

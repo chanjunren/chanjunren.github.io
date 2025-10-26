@@ -23,5 +23,5 @@ sidebar_label: Networking
 - Can handle both execution and caching
 - Can make app more performant
 
-## References
+### References
 - [NextJS Official Documentation](https://nextjs.org/learn/foundations/how-nextjs-works)

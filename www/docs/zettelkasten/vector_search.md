@@ -1,5 +1,4 @@
 🗓️ 07082025 1037
-📎
 
 # vector_search
 > **Vector search** is a technique for finding **similar items** based on **numerical vector representations** (aka embeddings) of data, instead of doing keyword or exact-match lookups.
@@ -58,5 +57,5 @@ Vector search:
 | Under the hood | Inverted index         | Vector similarity (ANN)               |
 
 ---
-# References
+## References
 - ChatGPT

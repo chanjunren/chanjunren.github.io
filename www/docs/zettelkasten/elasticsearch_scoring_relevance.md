@@ -1,5 +1,4 @@
 🗓️ 04102025 0040
-📎
 
 # Elasticsearch Scoring & Relevance
 
@@ -75,7 +74,7 @@ Use `constant_score` to wrap queries when you don't need scoring (all results ge
 
 ---
 
-# References
+## References
 
 - [Elasticsearch Relevance](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-context.html)
 - [Function Score Query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-function-score-query.html)

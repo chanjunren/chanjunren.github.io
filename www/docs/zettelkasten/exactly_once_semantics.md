@@ -1,5 +1,4 @@
 🗓️ 15012025 0959
-📎
 
 # exactly_once_semantics
 
@@ -24,6 +23,6 @@ In the context of stream-processing, it Means that
 
 ---
 
-# References
+## References
 - https://developer.confluent.io/courses/architecture/transactions/?utm_medium=sem&utm_source=google&utm_campaign=ch.sem_br.nonbrand_tp.prs_tgt.dsa_mt.dsa_rgn.apac_lng.eng_dv.all_con.confluent-developer&utm_term=&creative=&device=c&placement=&gad_source=1&gclid=Cj0KCQiAs5i8BhDmARIsAGE4xHyBvVNNHeSoorHlncNwyGGDhfTq0qKRxE1nfDY8a3DOlGXft0fs7cIaAh9jEALw_wcB
 - ChatGPT

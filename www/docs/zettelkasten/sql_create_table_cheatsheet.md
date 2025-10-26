@@ -66,4 +66,4 @@ CREATE TABLE IF NOT EXISTS `data_types_cheatsheet`
 
 ---
 
-# References
+## References

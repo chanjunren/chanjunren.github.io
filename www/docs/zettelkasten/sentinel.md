@@ -66,4 +66,4 @@
 - The **second rule** will degrade the service if **more than 20% of requests take longer than 1.2 seconds** during a 5-second window.
 ---
 
-# References
+## References

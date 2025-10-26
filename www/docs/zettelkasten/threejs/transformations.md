@@ -130,6 +130,6 @@ mesh.rotation.y = Math.PI * 0.25
 - Inherits from the **Object3D** class, it has access to the previously-mentioned properties and methods 
 
 --- 
-# References
+## References
 - https://threejs.org/docs/#api/en/math/Vector3
 - https://threejs.org/docs/index.html#api/en/math/Euler

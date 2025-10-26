@@ -1,5 +1,4 @@
 🗓️ 19082025 1420
-📎
 
 # java_concurrency_data_structures
 
@@ -72,4 +71,4 @@
 	- Flexible: Any concurrent collection
 
 ---
-# References
+## References

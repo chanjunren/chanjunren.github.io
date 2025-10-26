@@ -1,5 +1,4 @@
 🗓️ 09082025 1715
-📎
 
 # svg_line_command_basics
 
@@ -27,5 +26,5 @@ M 10 10 L 50 40
 - Mix commands (`L`, `H`, `V`) to simplify shapes like rectangles, bookmarks, and icons.
 
 ---
-# References
+## References
 - ChatGPT

@@ -1,5 +1,4 @@
 🗓️ 15012025 2227
-📎
 
 # flink_keyed_streams
 
@@ -242,5 +241,5 @@ public static class ControlFunction extends RichCoFlatMapFunction<String, String
 
 ---
 
-# References
+## References
 - https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/learn-flink/etl/

@@ -1,5 +1,4 @@
 🗓️ 04102025 0025
-📎
 
 # Networking Tools Overview
 
@@ -63,7 +62,7 @@ Website not loading?
 
 ---
 
-# References
+## References
 
 - [[networking_dns_tools]] - DNS tools (dig, nslookup, host, whois)
 - [[networking_connectivity]] - Connectivity tools (ping, traceroute)

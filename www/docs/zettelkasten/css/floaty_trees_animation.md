@@ -70,6 +70,6 @@ export default JrLoadingPlaceholder;
 
 ---
 
-# References
+## References
 
 - ChatGPT and I

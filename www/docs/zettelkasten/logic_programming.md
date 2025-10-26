@@ -1,5 +1,4 @@
 🗓️ 02022025 1442
-📎
 
 # logic_programming
 
@@ -25,5 +24,5 @@ The program infers solutions based on these rules
 	- Datalog
 
 ---
-# References
+## References
 - Deepseek

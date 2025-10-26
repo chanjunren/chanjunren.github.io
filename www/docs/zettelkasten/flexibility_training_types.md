@@ -1,5 +1,4 @@
 🗓️ 12012025 1528
-📎
 
 # flexibility_training_types
 
@@ -69,5 +68,5 @@
 
 ---
 
-# References
+## References
 - https://youtu.be/EVjOa4eIxVE?si=xKTjqeuNUjCrzT6i and ChatGPT

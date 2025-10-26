@@ -91,6 +91,6 @@ SELECT DATE_FORMAT(NOW(), '%W, %M %d, %Y');
 
 ---
 
-# References
+## References
 
 - Chat Gee Pee Tee

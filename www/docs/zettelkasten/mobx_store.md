@@ -1,5 +1,4 @@
 🗓️ 30032024 1823
-📎 #mobx
 
 # mobx_store
 
@@ -63,5 +62,5 @@ export default function useStore() {
 
 ---
 
-# References
+## References
 - https://mobx.js.org/README.html

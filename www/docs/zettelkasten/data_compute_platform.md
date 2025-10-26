@@ -1,5 +1,4 @@
 🗓️ 19112024 1415
-📎
 
 # data_compute_platform
 
@@ -47,5 +46,5 @@ By integrating various components of the data lifecycle into a cohesive system, 
 
 ---
 
-# References
+## References
 - Perplexity

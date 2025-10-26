@@ -1,5 +1,4 @@
 🗓️ 22012025 2336
-📎
 
 # ddia_chapter_1
 
@@ -44,5 +43,5 @@ Faults:
 
 ---
 
-# References
+## References
 - DDIA Chapter 1

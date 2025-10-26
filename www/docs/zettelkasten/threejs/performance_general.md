@@ -89,7 +89,7 @@ renderer.shadowMap.needsUpdate = true;
 
 ---
 
-# References
+## References
 
 - https://threejs-journey.com/lessons/performance-tips
 - https://github.com/BinomialLLC/basis_universal

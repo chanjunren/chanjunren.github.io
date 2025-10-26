@@ -1,5 +1,4 @@
 🗓️ 12092024 1134
-📎 #apm
 
 # apm_metrics
 
@@ -12,5 +11,5 @@
 
 ---
 
-# References
+## References
 - ChatGPT

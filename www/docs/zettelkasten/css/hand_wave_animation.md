@@ -33,6 +33,6 @@
 
 ---
 
-# References
+## References
 
 - ChatGPT and I

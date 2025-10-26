@@ -1,5 +1,4 @@
 🗓️ 23072024 1413
-📎
 
 # fixtures
 - state or data you set up before running tests
@@ -43,5 +42,5 @@ setup:
 
 ---
 
-# References
+## References
 - Gemini

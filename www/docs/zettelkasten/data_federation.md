@@ -1,5 +1,4 @@
 🗓️ 07082025 1038
-📎
 
 # data_federation
 > **Data Federation** is the technique of **querying and integrating data from multiple, distributed sources** (databases, data lakes, APIs, etc.) **as if they were a single source** — **without physically moving or copying the data**.
@@ -41,5 +40,5 @@ Instead of ETL-ing all data into one place:
 | **Starburst**                  | Commercial Presto/Trino offering           |
 
 ---
-# References
+## References
 - ChatGPT

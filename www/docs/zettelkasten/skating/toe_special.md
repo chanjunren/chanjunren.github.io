@@ -1,6 +1,5 @@
 ️🗓️ 30032024 1057
 
-📎 #skating
 
 # toe_special
 
@@ -20,6 +19,6 @@
 
 ---
 
-# References
+## References
 
 - https://v.douyin.com/iFEWtB7s/

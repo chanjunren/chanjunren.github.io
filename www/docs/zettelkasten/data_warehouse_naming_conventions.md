@@ -1,5 +1,4 @@
 🗓️ 27052025 1356
-📎
 
 # data_warehouse_naming_conventions
 ## Common Layer Prefixes
@@ -26,5 +25,5 @@
 | `_bak` / `_backup` | Backup Table               | Used for temporary backups, often before destructive operations.                                                   |
 
 ---
-# References
+## References
 - ChatGPT

@@ -1,5 +1,4 @@
 🗓️ 11052025 2141
-📎
 
 # mipmapping
 
@@ -43,4 +42,4 @@ Only use the mipmaps for the `minFilter` property. If you are using the `THRE
 
 
 ---
-# References
+## References

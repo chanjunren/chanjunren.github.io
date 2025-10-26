@@ -1,5 +1,4 @@
 🗓️ 31032025 1143
-📎 #wip
 
 # hyprland_dump
 
@@ -85,5 +84,5 @@ Needed for any graphical application, Wayland or not
 
 ---
 
-# References
+## References
 - CHatGPT

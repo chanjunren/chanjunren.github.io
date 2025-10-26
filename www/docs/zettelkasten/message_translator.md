@@ -1,5 +1,4 @@
 🗓️ 04042024 1225
-📎 #eip
 
 # message_translator
 
@@ -33,6 +32,6 @@ Not very how useful this is but I'm just leaving it here for reference
 
 ---
 
-# References
+## References
 
 - Enterprise Integration Patterns by Gregor Hohpe, Bobby Woolf

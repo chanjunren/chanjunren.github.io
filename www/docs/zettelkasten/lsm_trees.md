@@ -1,5 +1,4 @@
 🗓️ 27012025 0117
-📎
 
 # lsm_trees
 > A data structure that organizes **SSTables** into levels or tiers for write efficiency.
@@ -29,6 +28,6 @@ Look up the most recent data from memory (memtable) and older data from disk (SS
 
 ---
 
-# References
+## References
 - DDIA Chapter 3
 - ChatGPT

@@ -1,5 +1,4 @@
 🗓️ 15012025 1021
-📎
 
 # stream_processing_semantics
 - Refer to the **guarantees** a stream processing system provides regarding the processing of events in a data stream
@@ -17,4 +16,4 @@
 
 ---
 
-# References
+## References

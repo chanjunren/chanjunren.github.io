@@ -40,6 +40,6 @@ Spin rounds per wait: 29778623.00 RW-shared, 52192763.00 RW-excl, 12.10 RW-sx
 
 ---
 
-# References
+## References
 - https://dev.mysql.com/doc/refman/8.4/en/innodb-deadlock-example.html
 - gemini

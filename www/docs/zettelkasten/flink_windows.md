@@ -1,5 +1,4 @@
 🗓️ 16012025 1856
-📎
 
 # flink_windows
 
@@ -72,5 +71,5 @@ The reason why this works:
 
 ---
 
-# References
+## References
 - https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/streaming_analytics/ 

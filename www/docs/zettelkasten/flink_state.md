@@ -1,5 +1,4 @@
 🗓️ 20012025 1436
-📎
 
 # flink_state
 
@@ -22,5 +21,5 @@
 - [[flink_keyed_state]]
 
 
-# References
+## References
 - https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/learn-flink/etl/

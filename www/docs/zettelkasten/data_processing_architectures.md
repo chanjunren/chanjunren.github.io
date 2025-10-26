@@ -1,5 +1,4 @@
 🗓️ 07032025 1550
-📎
 
 # data_processing_architectures
 
@@ -18,5 +17,5 @@ Describes the flow of data from raw input to final insights, ensuring efficiency
 	- [[lambda_architecture]]
 - [[data_lakes]] architecture
 ---
-# References
+## References
 - ChatGPT

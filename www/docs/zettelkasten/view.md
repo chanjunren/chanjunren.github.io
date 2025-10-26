@@ -1,5 +1,4 @@
 🗓️ 03022025 1559
-📎
 
 # view
 > A virtual table that represents the result of a predefined query
@@ -15,5 +14,5 @@ Creating a view that shows only active users from a larger user table
 ```
 
 ---
-# References
+## References
 - Deepseek

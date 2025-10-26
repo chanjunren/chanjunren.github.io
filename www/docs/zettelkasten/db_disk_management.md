@@ -1,5 +1,4 @@
 🗓️ 22012025 2351
-📎
 
 # db_disk_management
 
@@ -47,6 +46,6 @@ This is important because you need to know:
 
 ---
 
-# References
+## References
 - DDIA Chapter 3
 - ChatGPT

@@ -1,5 +1,4 @@
 🗓️ 03112024 1334
-📎
 
 # message_queue_features
 
@@ -56,5 +55,5 @@ A dead-letter queue is a queue to which other queues can send messages that can'
 
 ---
 
-# References
+## References
 - https://aws.amazon.com/message-queue/features/

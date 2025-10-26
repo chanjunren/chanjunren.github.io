@@ -1,5 +1,4 @@
 🗓️ 03092024 1501
-📎 #java
 
 # java_models
 ## POJO (Plain ordinary Java object) 
@@ -33,5 +32,5 @@
 
 ---
 
-# References
+## References
 - https://topic.alibabacloud.com/a/java-povobodaodtopojo-explanation_1_27_20218372.html

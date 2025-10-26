@@ -1,5 +1,4 @@
 🗓️ 03022025 1601
-📎
 
 # materialized_view
  > A physical table that stores the result of a predefined query
@@ -16,5 +15,5 @@ Creating a materialized view that stores daily sales totals
 ```
 
 ---
-# References
+## References
 - Deepseek

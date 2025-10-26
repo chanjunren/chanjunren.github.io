@@ -1,5 +1,4 @@
 🗓️ 05102024 1201
-📎 #elasticsearch
 
 # es_realtime_search
 
@@ -23,7 +22,7 @@
 
 ---
 
-# References
+## References
 
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/near-real-time.html
 -

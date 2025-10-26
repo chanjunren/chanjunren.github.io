@@ -75,5 +75,5 @@ Offsetting allows for comparing sets of data across different time frames, which
 
 ---
 
-# References
+## References
 - https://www.youtube.com/watch?v=xIAEEQwUBXQ&list=PLyBW7UHmEXgylLwxdVbrBQJ-fJ_jMvh8h&index=4 

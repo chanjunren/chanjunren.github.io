@@ -1,5 +1,4 @@
 🗓️ 31012025 1810
-📎
 
 # pangu
 Pangu is a high-reliability, high-availability, and high-performance distributed file system developed by Alibaba Cloud. It has a history of nearly ten years. As a unified storage core of Alibaba Cloud, Pangu 1.0 stably and efficiently supported the rapid development of multiple business lines of Alibaba Cloud, including [ECS](https://www.alibabacloud.com/product/ecs), [NAS](https://www.alibabacloud.com/product/nas), [OSS](https://www.alibabacloud.com/product/oss), [Table Store](https://www.alibabacloud.com/product/table-store), [MaxCompute](https://www.alibabacloud.com/product/maxcompute), and AnalyticDB. In recent years, Alibaba Cloud redesigned and implemented the second-generation storage engine Pangu 2.0. It provides better storage services not only for Alibaba Cloud but also for businesses of Alibaba Group and Ant Financial. There are two reasons for the upgrade: hardware improvements and demands from the business.
@@ -112,5 +111,5 @@ Although Pangu has reached the leading position in the industry, new technologie
 
 ---
 
-# References
+## References
 - https://www.alibabacloud.com/blog/pangu-the-high-performance-distributed-file-system-by-alibaba-cloud_594059

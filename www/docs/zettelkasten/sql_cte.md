@@ -1,5 +1,4 @@
 🗓️ 02092025 1020
-📎
 
 # sql_cte
 
@@ -93,4 +92,4 @@ Used for **hierarchical data**, **graphs**, **paths**, **ancestor/descendant tre
 Do you want me to also make a **visual diagram** showing:
 
 ---
-# References
+## References

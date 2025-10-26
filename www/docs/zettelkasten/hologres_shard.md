@@ -1,5 +1,4 @@
 🗓️ 03022025 1236
-📎
 
 # hologres_shard
 
@@ -19,5 +18,5 @@
 - If a worker fails, its shards are reallocated to healthy workers to maintain even distribution.
 
 ---
-# References
+## References
 - https://www.alibabacloud.com/help/en/hologres/user-guide/table-group-and-shard-count

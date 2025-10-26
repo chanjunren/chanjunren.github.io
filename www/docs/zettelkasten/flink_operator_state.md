@@ -1,5 +1,4 @@
 🗓️ 04032025 2310
-📎
 
 # flink_operator_state
 
@@ -12,4 +11,4 @@ Rarely needed in user-defined functions
 
 
 ---
-# References
+## References

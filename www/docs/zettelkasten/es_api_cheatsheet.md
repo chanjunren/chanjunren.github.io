@@ -1,5 +1,4 @@
 🗓️ 25032024 1812
-📎 #elasticsearch
 
 # es_api_cheatsheet
 
@@ -144,6 +143,6 @@ GET /{index1},{index2}/_mapping
 
 ---
 
-# References
+## References
 
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html

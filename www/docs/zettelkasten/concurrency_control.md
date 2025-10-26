@@ -1,5 +1,4 @@
 🗓️ 07082025 1049
-📎
 
 # concurrency_control
 
@@ -30,5 +29,5 @@
 | Common Usage | Web apps, distributed sys | Databases, legacy systems |
 
 ---
-# References
+## References
 - ChatGPT

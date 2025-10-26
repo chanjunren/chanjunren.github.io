@@ -1,5 +1,4 @@
 ****🗓️ 01112024 2102
-📎 #data_processing
 
 # online_transactional_processing
 
@@ -32,5 +31,5 @@ Typically user facing
 
 ---
 
-# References
+## References
 - https://www.oracle.com/sg/database/what-is-oltp/

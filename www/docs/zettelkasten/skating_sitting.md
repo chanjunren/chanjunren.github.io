@@ -1,5 +1,4 @@
 🗓️ 21062025 1337
-📎
 
 # skating_sitting
 
@@ -15,5 +14,5 @@
 
 
 ---
-# References
+## References
 - akt skating camp

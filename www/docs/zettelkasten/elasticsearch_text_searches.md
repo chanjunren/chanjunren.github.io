@@ -1,5 +1,4 @@
 🗓️ 04102025 0034
-📎
 
 # Elasticsearch Text Search Cheatsheet
 
@@ -71,7 +70,7 @@ Pattern matching with `*` and `?` - useful but can be slow, especially with lead
 
 ---
 
-# References
+## References
 
 - [[elasticsearch_scoring_relevance]] - How results are ranked and scored
 - [[elasticsearch_analyzers]] - How text is processed and tokenized

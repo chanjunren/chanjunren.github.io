@@ -1,5 +1,4 @@
 🗓️ 07082025 1052
-📎
 
 # pessimistic_locking
 
@@ -22,5 +21,5 @@
 - Critical sections in threads (`synchronized`, `ReentrantLock`)
 
 ---
-# References
+## References
 - ChatGPT

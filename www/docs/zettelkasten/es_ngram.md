@@ -1,5 +1,4 @@
 🗓️ 02102024 1122
-📎 #wip
 
 # es_n_gram
 ## How N-grams Work in Elasticsearch
@@ -56,5 +55,5 @@ This creates a tokenizer that splits the text into n-grams of size 2 to 3, allow
 
 ---
 
-# References
+## References
 - ChatGPT

@@ -44,4 +44,4 @@ Gradient Texture + ColorRamp: Create a custom gradient effect by feeding a gradi
 Principled BSDF + Material Output: Create a realistic material using the Principled BSDF node and connect it to the Material Output to apply it to a 3D object.
 
 --- 
-# References
+## References

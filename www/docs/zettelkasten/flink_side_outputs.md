@@ -1,5 +1,4 @@
 🗓️ 17012025 1959
-📎
 
 # flink_side_outputs
 
@@ -42,5 +41,5 @@ Alternatively, you can use two OutputTags with the same name to refer to the sam
 
 ---
 
-# References
+## References
 - https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/event_driven/#side-outputs

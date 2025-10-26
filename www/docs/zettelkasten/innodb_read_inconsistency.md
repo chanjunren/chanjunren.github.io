@@ -1,5 +1,4 @@
 🗓️ 13082024 1208
-📎
 
 # innodb_read_inconsistency
 **Why `READ COMMITTED` Can Lead to Inconsistency**
@@ -44,5 +43,5 @@ Let me know if you have more questions or want to explore specific scenarios!
 
 ---
 
-# References
+## References
 - Gemini

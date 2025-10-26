@@ -1,5 +1,4 @@
 🗓️ 03022025 1200
-📎
 
 # materialization
 - **What it is**: The process of physically creating intermediate results (e.g., temporary tables or data structures) during query execution
@@ -8,5 +7,5 @@
 - Deferring it avoids unnecessary data reads or computations, improving efficiency.
 
 ---
-# References
+## References
 - Deepseek

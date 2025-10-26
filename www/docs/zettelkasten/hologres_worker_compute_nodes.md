@@ -1,5 +1,4 @@
 🗓️ 03022025 1348
-📎
 
 # hologres_worker_compute_nodes
 - **Workers** are the compute nodes in Hologres that process queries and manage [[hologres_storage_engine]]s
@@ -27,5 +26,5 @@ If the shard count is not proportional to the number of workers, some workers ma
 -  The query engine can access data on shards by calling these operations to implement high-performance data writes or reads
 
 ---
-# References
+## References
 - https://www.alibabacloud.com/help/en/hologres/user-guide/table-group-and-shard-count

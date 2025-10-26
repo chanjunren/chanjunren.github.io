@@ -115,5 +115,5 @@ Automatically updates aggregate views **immediately after source data changes**
     Supports **real-time feature storage, vector retrievals, and ML-based queries** via integration with **Alibaba Cloud’s PAI**
 
 ---
-# References
+## References
 - https://www.alibabacloud.com/help/en/hologres/product-overview/what-is-hologres

@@ -1,5 +1,4 @@
 🗓️ 31082025 1203
-📎
 
 # jvm_options
 
@@ -91,5 +90,5 @@
 - Always keep paths in persistent volumes for containers.
 
 ---
-# References
+## References
 

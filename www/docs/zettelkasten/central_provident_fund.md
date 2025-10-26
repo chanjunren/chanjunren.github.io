@@ -1,5 +1,4 @@
 🗓️ 21092025 1555
-📎
 
 # central_provident_fund
 
@@ -98,6 +97,6 @@
 - **Insurance proceeds**: If bought through CPF
 
 ---
-# References
+## References
 - [Official CPF Website](https://www.cpf.gov.sg)
 - [CPF Contribution Rates](https://www.cpf.gov.sg/member/infohub/educational-resources/cpf-contribution-rates)

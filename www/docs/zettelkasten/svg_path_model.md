@@ -1,5 +1,4 @@
 🗓️ 21062025 1648
-📎
 
 # svg_path_model
 ## Path-Based Mental Model
@@ -37,4 +36,4 @@
 | Manipulation | Move element later in code to bring forward |
 
 ---
-# References
+## References

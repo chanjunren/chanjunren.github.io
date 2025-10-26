@@ -1,5 +1,4 @@
 🗓️ 21062025 1316
-📎
 
 # skating_spins
 
@@ -48,5 +47,5 @@ In the early stage, you can practice with backward snake steps using both feet, 
 - when going to the next cone, need to be outer edge
 - take initiative to move my left leg, don’t wait
 ---
-# references
+## References
 - akt skating camp

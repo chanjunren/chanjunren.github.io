@@ -1,5 +1,4 @@
 🗓️ 21092025 1545
-📎
 
 # short_term_t_bills
 
@@ -64,6 +63,6 @@
 - **Emergency fund**: Not suitable due to lack of liquidity
 
 ---
-# References
+## References
 - [MAS T-Bills Information](https://www.mas.gov.sg/bonds-and-bills/auctions-and-issuance-calendar)
 - Auction results published on MAS website

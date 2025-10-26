@@ -1,5 +1,4 @@
 🗓️ 14042025 1636
-📎
 
 # liveness_checks
 > Used to determine if an application is still running and should not be restarted
@@ -20,5 +19,5 @@ If a liveness check fails, the container orchestrator (like Kubernetes) will kil
 
 
 ---
-# References
+## References
 - ChatGPT

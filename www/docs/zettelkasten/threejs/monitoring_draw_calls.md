@@ -6,7 +6,7 @@
 
 ---
 
-# References
+## References
 
 - https://threejs-journey.com/lessons/performance-tips
 - [Spector.js](https://chrome.google.com/webstore/detail/spectorjs/denbgaamihkadbghdceggmchnflmhpmk)

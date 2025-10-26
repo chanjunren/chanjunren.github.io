@@ -1,5 +1,4 @@
 🗓️ 03022025 1114
-📎
 
 # hologres_clustering_key
 ## Overview
@@ -557,7 +556,7 @@ Hologres V1.3 and later optimize the performance of using clustering keys in the
         
     
 
-## References
+### References
 
 For more information about the DDL statements for Hologres internal tables, see the following topics:
 
@@ -568,5 +567,5 @@ For more information about the DDL statements for Hologres internal tables, see 
 - [DROP TABLE](https://www.alibabacloud.com/help/en/hologres/developer-reference/drop-table)
 
 ---
-# References
+## References
 - https://www.alibabacloud.com/help/en/hologres/user-guide/clustering-key

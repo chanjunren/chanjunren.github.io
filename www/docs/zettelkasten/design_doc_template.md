@@ -1,5 +1,4 @@
 🗓️ 28032024 1449
-📎 #template
 
 # design_doc_template
 ### Problem Context
@@ -44,5 +43,5 @@ Space for you to add any relevant links or detailed figures that you didn’t wa
 
 
 --- 
-# References
+## References
 - https://www.linkedin.com/posts/ryanlpeterman_6-software-engineering-templates-i-wish-i-activity-7177443401196298240-Gfxj?utm_source=share&utm_medium=member_desktop

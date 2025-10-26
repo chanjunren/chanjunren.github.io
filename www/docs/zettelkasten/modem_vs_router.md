@@ -1,5 +1,4 @@
 🗓️ 19112024 1801
-📎
 
 # modem_vs_router
 ## Modem
@@ -55,4 +54,4 @@ Some modern devices combine both functions into a single unit, often referred to
 
 ---
 
-# References
+## References

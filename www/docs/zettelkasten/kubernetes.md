@@ -97,6 +97,6 @@ Kubernetes provides a robust framework for managing containerized applications b
 
 ---
 
-# References
+## References
 
 - https://blog.bytebytego.com/p/ep35-what-is-kubernetes

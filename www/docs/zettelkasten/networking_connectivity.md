@@ -117,7 +117,7 @@ traceroute to google.com (142.250.185.78), 30 hops max, 60 byte packets
 
 ---
 
-# References
+## References
 
 - [[networking_dns_tools]] - Use if ping shows "Unknown host"
 - [ping manual](https://linux.die.net/man/8/ping)

@@ -1,5 +1,4 @@
 🗓️ 21062025 1338
-📎
 
 # skating_jumping
 
@@ -9,4 +8,4 @@
 - jump up
 
 ---
-# References
+## References

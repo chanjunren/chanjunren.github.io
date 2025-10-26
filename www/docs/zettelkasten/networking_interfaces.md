@@ -1,5 +1,4 @@
 🗓️ 04102025 0030
-📎
 
 # Network Interface & Configuration Tools
 
@@ -210,7 +209,7 @@ $ cat /etc/hosts
 
 ---
 
-# References
+## References
 
 - [ip manual](https://man7.org/linux/man-pages/man8/ip.8.html)
 - [ifconfig manual](https://linux.die.net/man/8/ifconfig)

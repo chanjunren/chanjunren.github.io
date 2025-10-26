@@ -1,5 +1,4 @@
 🗓️ 02022025 1441
-📎
 
 # functional_programming
 
@@ -24,5 +23,5 @@
 - **Examples:** Haskell, Lisp, Erlang, Scala, JavaScript (with FP techniques).
  
 ---
-# References
+## References
 - Deepseek

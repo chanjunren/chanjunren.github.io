@@ -1,5 +1,4 @@
 🗓️ 09042024 0948
-📎 #aliyun_canal
 
 # aliyun_canal_mq_client
 
@@ -33,6 +32,6 @@ canal.mq.partitionHash=mytest.person:id,mytest.role:id
 
 ---
 
-# References
+## References
 
 - https://github.com/alibaba/canal/wiki/Canal-Kafka-RocketMQ-QuickStart

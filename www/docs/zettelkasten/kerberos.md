@@ -1,5 +1,4 @@
 🗓️ 14012025 1109
-📎
 
 # kerberos
 
@@ -110,4 +109,4 @@ Kerberos is a robust and time-tested authentication protocol that ensures secure
 
 ---
 
-# References
+## References

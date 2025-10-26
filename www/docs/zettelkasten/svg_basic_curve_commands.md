@@ -1,5 +1,4 @@
 🗓️ 09082025 1751
-📎
 
 # svg_basic_curve_commands
 
@@ -50,4 +49,4 @@ C x1 y1 x2 y2 x y
 - Think of cubic as an **extended version** of quadratic.
 
 ---
-# References
+## References

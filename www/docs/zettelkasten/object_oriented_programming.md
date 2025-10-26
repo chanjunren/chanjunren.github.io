@@ -1,5 +1,4 @@
 🗓️ 02022025 1435
-📎
 
 # object_oriented_programming
 
@@ -31,5 +30,5 @@ Enables flexibility and dynamic behavior (e.g., method overriding).
 - **Examples:** Java, C++, Python, Ruby.
 
 ---
-# References
+## References
 - Deepseek
