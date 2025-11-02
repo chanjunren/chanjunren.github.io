@@ -1,4 +1,4 @@
-🗓️ 02112024 2230
+🗓️ 02112024 2252
 📎
 
 # go_pointers
@@ -8,6 +8,32 @@
 ## Why It Matters
 
 Control whether functions modify original values. Required for understanding Go's method receivers and memory model.
+
+## When to Use
+
+✅ **Use when:**
+- Need to modify original value
+- Large structs (avoid copy overhead)
+- Optional values (nil)
+
+❌ **Don't use when:**
+- Small types (int, bool, string)
+- Can use value semantics
+
+## vs Java References
+
+Unlike Java references, Go is pass-by-value even for pointers. Explicit nil checking required. No pointer arithmetic.
+
+```ad-danger
+Nil pointer dereference causes panic. Always check: `if p != nil { *p = 5 }`
+\`\`\`
+
+## Trade-offs
+
+**Pros**: Direct mutation, memory efficiency  
+**Cons**: Complexity, nil panics, shared mutable state
+
+To understand why pointers are passed by value, see [[go_pass_by_value]].
 
 ## Quick Reference
 
@@ -34,41 +60,49 @@ modify(&x)
 | Pointer type | `*Type` | Type definition |
 | Zero value | `nil` | Uninitialized |
 
-## When to Use
+## Examples
 
-✅ **Use when:**
-- Need to modify original value
-- Large structs (avoid copy)
-- Optional values (`nil`)
-
-❌ **Don't use when:**
-- Small types (int, bool, string)
-- Can use value semantics
-
-## vs Java References
-
-Unlike Java references:
-- Go is pass-by-value (even pointers)
-- Explicit nil checking required
-- No pointer arithmetic
-
-## Common Pitfalls
-
-```ad-danger
-Nil pointer dereference causes panic:
+```ad-example
+**Modifying struct fields:**
 ```go
-var p *int
-*p = 5  // PANIC
+type User struct {
+    Name  string
+    Score int
+}
+
+// Value receiver - no mutation
+func (u User) IncreaseScoreWrong(points int) {
+    u.Score += points  // Only modifies copy
+}
+
+// Pointer receiver - mutates original
+func (u *User) IncreaseScore(points int) {
+    u.Score += points  // Modifies original
+}
+
+user := User{Name: "Alice", Score: 10}
+user.IncreaseScoreWrong(5)
+fmt.Println(user.Score)  // 10 (unchanged)
+
+user.IncreaseScore(5)
+fmt.Println(user.Score)  // 15 (changed)
 ```
-Always check: `if p != nil { *p = 5 }`
+
+**Optional values with nil:**
+```go
+func findUser(id int) *User {
+    if id < 0 {
+        return nil  // Not found
+    }
+    return &User{Name: "Alice"}
+}
+
+user := findUser(5)
+if user != nil {
+    fmt.Println(user.Name)  // Safe access
+}
+```
 \`\`\`
-
-## Trade-offs
-
-**Pros**: Direct mutation, memory efficiency  
-**Cons**: Complexity, nil panics, shared mutable state
-
-To understand why pointers are passed by value, see [[go_pass_by_value]].
 
 ## References
 

@@ -1,4 +1,4 @@
-🗓️ 02112024 2232
+🗓️ 02112024 2254
 📎
 
 # go_error_handling
@@ -8,6 +8,34 @@
 ## Why It Matters
 
 Forces explicit handling at each call site. No hidden control flow. Foundation of Go's reliability.
+
+## When to Use
+
+✅ **Return error when:**
+- Operation can fail
+- Caller decides handling
+
+❌ **Don't return error when:**
+- Programming errors (use panic)
+- Can handle internally
+
+## vs Java Exceptions
+
+**Java:** try/catch (hidden control flow)  
+**Go:** Explicit if err != nil at each call
+
+Go errors are values - can inspect, wrap, pass around.
+
+```ad-warning
+Wrapping without `%w` loses error chain. Use `fmt.Errorf("context: %w", err)` not `%v`.
+\`\`\`
+
+## Trade-offs
+
+**Pros**: Explicit, clear flow, composable  
+**Cons**: Verbose, repetitive checks
+
+Error wrapping builds on [[go_interfaces]] (error interface).
 
 ## Quick Reference
 
@@ -35,42 +63,60 @@ var ErrNotFound = errors.New("not found")
 | `%w` | Wrap error | `fmt.Errorf("save: %w", err)` |
 | `errors.Is` | Check type | `errors.Is(err, ErrNotFound)` |
 
-## When to Use
+## Examples
 
-✅ **Return error when:**
-- Operation can fail
-- Caller decides handling
-
-❌ **Don't return error when:**
-- Programming errors (use panic)
-- Can handle internally
-
-## vs Java Exceptions
-
-**Java:** `try/catch` (hidden control flow)  
-**Go:** Explicit `if err != nil` at each call
-
-Go errors are values - can inspect, wrap, pass around.
-
-## Common Pitfalls
-
-```ad-warning
-Wrapping without `%w` loses error chain:
+```ad-example
+**Error wrapping with context:**
 ```go
-// ❌ BAD
-fmt.Errorf("failed: %v", err)
+func SaveUser(user *User) error {
+    if err := validate(user); err != nil {
+        return fmt.Errorf("validation failed: %w", err)
+    }
+    
+    if err := db.Insert(user); err != nil {
+        return fmt.Errorf("failed to save user %s: %w", user.Name, err)
+    }
+    
+    return nil
+}
 
-// ✅ GOOD
-fmt.Errorf("failed: %w", err)
+// Caller can check root cause
+err := SaveUser(user)
+if errors.Is(err, sql.ErrNoRows) {
+    // Handle specific database error
+}
+```
+
+**Sentinel errors for control flow:**
+```go
+var (
+    ErrNotFound    = errors.New("user not found")
+    ErrInvalidData = errors.New("invalid user data")
+)
+
+func FindUser(id int) (*User, error) {
+    if id < 0 {
+        return nil, ErrInvalidData
+    }
+    
+    user := db.Query(id)
+    if user == nil {
+        return nil, ErrNotFound
+    }
+    
+    return user, nil
+}
+
+// Caller checks specific errors
+user, err := FindUser(5)
+if errors.Is(err, ErrNotFound) {
+    return nil, status.Error(codes.NotFound, "user not found")
+}
+if errors.Is(err, ErrInvalidData) {
+    return nil, status.Error(codes.InvalidArgument, "bad request")
+}
 ```
 \`\`\`
-
-## Trade-offs
-
-**Pros**: Explicit, clear flow, composable  
-**Cons**: Verbose, repetitive checks
-
-Error wrapping builds on [[go_interfaces]] (error interface).
 
 ## References
 

@@ -1,4 +1,4 @@
-🗓️ 02112024 2234
+🗓️ 02112024 2256
 📎
 
 # go_defer
@@ -8,6 +8,33 @@
 ## Why It Matters
 
 Guarantees cleanup (files, connections, locks) without try-finally blocks. Prevents resource leaks.
+
+## When to Use
+
+✅ **Use for:**
+- Cleanup of resources
+- Unlocking mutexes
+- Closing files/connections
+
+❌ **Don't use for:**
+- Long-running operations
+- Loops (defers accumulate)
+
+## vs Java try-with-resources
+
+**Java:** try-with-resources auto-closes  
+**Go:** defer + Close() - explicit but guaranteed
+
+```ad-warning
+Defer in loop accumulates until function ends. Wrap in func() for per-iteration cleanup.
+\`\`\`
+
+## Trade-offs
+
+**Pros**: Guaranteed cleanup, clear intent  
+**Cons**: Delayed execution, loop gotcha
+
+Defer is commonly used with [[go_error_handling]] for cleanup before returns.
 
 ## Quick Reference
 
@@ -24,6 +51,14 @@ defer fmt.Println("First")
 defer fmt.Println("Second")
 defer fmt.Println("Third")
 // Prints: Third, Second, First
+
+// Loop pattern
+for _, f := range files {
+    func() {
+        f, _ := os.Open(f)
+        defer f.Close()  // Closes each iteration
+    }()
+}
 ```
 
 | Pattern | Use Case |
@@ -33,61 +68,60 @@ defer fmt.Println("Third")
 | `defer mu.Unlock()` | Release locks |
 | `defer resp.Body.Close()` | HTTP responses |
 
-## When to Use
+## Examples
 
-✅ **Use for:**
-- Cleanup of resources
-- Unlocking mutexes
-- Closing files/connections
-
-❌ **Don't use for:**
-- Long-running operations
-- Loops (defers accumulate)
-
-## vs Java try-with-resources
-
-**Java:**
-```java
-try (Connection c = getConn()) {
-    // use c
-}  // auto-closed
+```ad-example
+**Database transaction with rollback:**
+```go
+func TransferMoney(from, to int, amount float64) error {
+    tx, err := db.Begin()
+    if err != nil {
+        return err
+    }
+    defer tx.Rollback()  // Safe to call even after Commit
+    
+    if err := debit(tx, from, amount); err != nil {
+        return err  // Rollback happens automatically
+    }
+    
+    if err := credit(tx, to, amount); err != nil {
+        return err  // Rollback happens automatically
+    }
+    
+    return tx.Commit()  // On success, commit wins
+}
 ```
 
-**Go:**
+**Mutex unlock pattern:**
 ```go
-c, _ := getConn()
-defer c.Close()
-// use c
-// closed when function returns
-```
-
-## Common Pitfalls
-
-```ad-warning
-Defer in loop accumulates, doesn't execute until function ends:
-```go
-// ❌ BAD
-for _, f := range files {
-    f, _ := os.Open(f)
-    defer f.Close()  // All close at end
+type SafeCounter struct {
+    mu    sync.Mutex
+    count int
 }
 
-// ✅ GOOD
-for _, f := range files {
-    func() {
-        f, _ := os.Open(f)
-        defer f.Close()  // Closes each iteration
-    }()
+func (c *SafeCounter) Increment() {
+    c.mu.Lock()
+    defer c.mu.Unlock()  // Guaranteed unlock even if panic
+    
+    c.count++
+    // Complex logic here
+    // Unlock happens regardless of return path
+}
+```
+
+**HTTP response cleanup:**
+```go
+func FetchData(url string) ([]byte, error) {
+    resp, err := http.Get(url)
+    if err != nil {
+        return nil, err
+    }
+    defer resp.Body.Close()  // Always close body
+    
+    return io.ReadAll(resp.Body)
 }
 ```
 \`\`\`
-
-## Trade-offs
-
-**Pros**: Guaranteed cleanup, clear intent  
-**Cons**: Delayed execution, loop gotcha
-
-Defer is commonly used with [[go_error_handling]] for cleanup before returns.
 
 ## References
 
