@@ -253,15 +253,7 @@ case string:
 }
 ```
 
-## Related Concepts
-
-- [[go_concurrency_model]] - Goroutines and scheduling
-- [[go_interfaces]] - Interface patterns
-- [[go_error_handling]] - Error patterns
-- [[go_testing]] - Testing in Go
-- [[go_modules]] - Dependency management
-
-### References
+## References
 
 - [Tour of Go](https://go.dev/tour/) - Interactive tutorial
 - [Effective Go](https://go.dev/doc/effective_go) - Best practices

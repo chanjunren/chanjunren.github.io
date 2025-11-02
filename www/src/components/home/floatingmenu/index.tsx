@@ -1,4 +1,3 @@
-import { DividerVerticalIcon } from "@radix-ui/react-icons";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { FC, ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
@@ -15,23 +14,23 @@ type IFloatingMenuItem = {
 const topics: IFloatingMenuItem[] = [
   {
     type: "link",
-    icon: <HeaderTag label="窝" color="rose" />,
+    icon: <HeaderTag label="哈喽" color="rose" />,
     link: "/",
     label: "home",
   },
   {
     type: "link",
-    icon: <HeaderTag color="pine" label="涂" />,
+    icon: <HeaderTag color="pine" label="数园" />,
     link: "/docs/zettelkasten",
     label: "notes",
   },
-  {
-    type: "custom",
-    custom: () => <DividerVerticalIcon className="self-center opacity-20" />,
-  },
+  // {
+  //   type: "custom",
+  //   custom: () => <DividerVerticalIcon className="self-center opacity-20" />,
+  // },
   {
     type: "externalLink",
-    icon: <HeaderTag label="履" color="foam" />,
+    icon: <HeaderTag label="请我" color="foam" />,
     link: "/documents/resume.pdf",
     label: "resume",
   },
@@ -43,7 +42,7 @@ const topics: IFloatingMenuItem[] = [
   },
   {
     type: "externalLink",
-    icon: <HeaderTag label="力" color="muted" />,
+    icon: <HeaderTag label="力银" color="muted" />,
     link: "https://www.linkedin.com/in/jun-ren-chan-90240a175/",
     label: "linkedin",
   },
