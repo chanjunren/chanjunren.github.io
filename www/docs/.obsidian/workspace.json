@@ -11,12 +11,8 @@
             "id": "5c738946df7562c4",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zettelkasten/stock_quick_start.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/stock_quick_start.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/stock_quick_start.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "zettelkasten/stock_quick_start.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -148,48 +140,48 @@
   },
   "active": "5c738946df7562c4",
   "lastOpenFiles": [
-    "zettelkasten/go_sync_primitives.md",
-    "zettelkasten/go_context.md",
-    "zettelkasten/goroutines_channels.md",
-    "zettelkasten/go_modules.md",
-    "zettelkasten/go_testing.md",
-    "zettelkasten/go_error_handling.md",
-    "zettelkasten/go_interfaces.md",
-    "zettelkasten/go_concurrency_model.md",
-    "zettelkasten/golang_basics.md",
-    "zettelkasten/passive_investing.md",
-    "zettelkasten/technical_analysis.md",
-    "zettelkasten/stock_quick_start.md",
-    "zettelkasten/value_investing.md",
-    "zettelkasten/junction_table_design.md",
-    "zettelkasten/elasticsearch_text_searches.md",
-    "zettelkasten/networking_dump.md",
-    "zettelkasten/elasticsearch_analyzers.md",
-    "zettelkasten/elasticsearch_scoring_relevance.md",
-    "zettelkasten/networking_etc_hosts.md",
-    "zettelkasten/networking_advanced_debugging.md",
-    "zettelkasten/networking_interfaces.md",
-    "zettelkasten/networking_ports_connections.md",
-    "zettelkasten/networking_http_tools.md",
-    "zettelkasten/networking_connectivity.md",
-    "zettelkasten/networking_dns_tools.md",
-    "zettelkasten/elasticsearch_types.md",
+    "zettelkasten/languages/go/go_goroutines.md",
+    "zettelkasten/languages/go/go_pass_by_value.md",
+    "zettelkasten/languages/go/go_dependency_injection.md",
+    "zettelkasten/languages/go/go_context.md",
+    "zettelkasten/languages/go/go_type_assertions.md",
+    "zettelkasten/languages/go/go_interfaces.md",
+    "zettelkasten/languages/go/go_defer.md",
+    "zettelkasten/languages/go/go_error_handling.md",
+    "zettelkasten/languages/go/go_pointers.md",
+    "zettelkasten/languages/go/go_learning_plan.md",
+    "zettelkasten/languages/go",
+    "zettelkasten/languages",
+    "zettelkasten/backend/languages/go/go_type_assertions.md",
+    "zettelkasten/backend/languages/go/go_pointers.md",
+    "zettelkasten/backend/languages/go/go_interfaces.md",
+    "zettelkasten/backend/languages/go/go_error_handling.md",
+    "zettelkasten/backend/languages/go/go_defer.md",
+    "zettelkasten/backend/languages/go/go_context.md",
+    "zettelkasten/backend/languages/go/go_dependency_injection.md",
+    "zettelkasten/backend/languages/go/architecture/go_dependency_injection.md",
+    "zettelkasten/backend/languages/go/fundamentals/go_type_assertions.md",
+    "zettelkasten/backend/languages/go/fundamentals/go_pointers.md",
+    "zettelkasten/backend/languages/go/fundamentals/go_interfaces.md",
+    "zettelkasten/backend/languages/go/fundamentals/go_defer.md",
+    "zettelkasten/backend/languages/go/fundamentals/go_error_handling.md",
+    "zettelkasten/backend/languages/go/fundamentals/go_context.md",
+    "zettelkasten/backend/languages/go/tooling",
+    "zettelkasten/backend/languages/go/architecture",
+    "zettelkasten/backend/languages/go/fundamentals",
+    "zettelkasten/backend/languages/go/testing",
+    "zettelkasten/backend/languages/go/concurrency",
+    "zettelkasten/backend/languages/go/README.md",
+    "zettelkasten/backend/languages/go",
+    "zettelkasten/backend/languages",
+    "zettelkasten/languages/go/README.md",
+    "zettelkasten/languages/go/tooling",
     "assets/Pasted image 20250828105751.png",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
     "assets/3js_textures_rotation.png",
     "assets/Pasted image 20250502004048.png",
     "assets/chapter2_cluster.png",
-    "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pptx",
-    "zettelkasten/to_be_tidied/Misc/VIM/Intro to VIM.pdf",
-    "zettelkasten/to_be_tidied/Misc/VIM",
-    "zettelkasten/to_be_tidied/Misc",
-    "zettelkasten/to_be_tidied/Frontend/Typescript",
-    "zettelkasten/to_be_tidied/Frontend/ThreeJS",
-    "zettelkasten/to_be_tidied/Frontend/NextJS",
-    "zettelkasten/to_be_tidied/Frontend/Mobx",
-    "zettelkasten/to_be_tidied/Frontend/CSS",
-    "zettelkasten/to_be_tidied/Frontend",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/sampling.png",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/native.png",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/instrumented.png",

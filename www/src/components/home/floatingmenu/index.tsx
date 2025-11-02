@@ -1,3 +1,4 @@
+import { DividerVerticalIcon } from "@radix-ui/react-icons";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { FC, ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
@@ -24,10 +25,10 @@ const topics: IFloatingMenuItem[] = [
     link: "/docs/zettelkasten",
     label: "notes",
   },
-  // {
-  //   type: "custom",
-  //   custom: () => <DividerVerticalIcon className="self-center opacity-20" />,
-  // },
+  {
+    type: "custom",
+    custom: () => <DividerVerticalIcon className="self-center opacity-20" />,
+  },
   {
     type: "externalLink",
     icon: <HeaderTag label="请我" color="foam" />,
