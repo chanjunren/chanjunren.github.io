@@ -3,57 +3,66 @@ globs: **/zettelkasten/**/*.md
 alwaysApply: false
 ---
 
-# Zettelkasten: atomic ideas, big picture first, interconnected thinking
+# Zettelkasten: atomic notes for learning and reference
 
-# Structure
-- Follow template: 🗓️ timestamp (DDMMYYYY HHmm), 📎 (empty), h1 title, content, References
-- snake_case filenames = h1 title
-- One atomic concept per note
+## Accuracy & Verification
+- **Ensure correctness**: Verify facts before writing, especially technical details
+- **When uncertain**: Search credible sources (official docs, Go blog, language specs)
+- **No hallucination**: Only link to notes that actually exist
+- **Cite sources**: Include references for complex or non-obvious information
 
-# Writing
+## Structure
+- Template: 🗓️ timestamp (DDMMYYYY HHmm), 📎 (empty), h1 title, content, References
+- Filename = h1 title (snake_case)
+- **One atomic concept per note** - if explaining multiple things, split into separate notes
+- **Flat structure** - avoid nested directories unless absolutely necessary
+
+## Writing Style
 - Lead with: "**Core Concept**: [one sentence]"
-- Structure: WHY → WHAT → HOW → Trade-offs
-- Short sentences. Bullets over paragraphs. No fluff.
-- Details subordinate to main idea
+- Structure: **Core Concept → Why → When to Use → Trade-offs → Quick Reference (at bottom)**
+- Short sentences. Bullets. No fluff.
+- **Minimize analogies** - only if genuinely clarifying
+- **Be concise** - cut ruthlessly
 
-# Linking
-- Use [[wiki-links]] liberally (aim 2-3+ per note)
-- Add "Related Concepts" section at end
-- Build webs, not islands
+## Linking Rules
+- Link inline with explicit relationship: "This builds on [[prerequisite]] because..."
+- **NO "Related Concepts" sections** - lazy linking forbidden
+- Link only when: prerequisite, contrast, or logical next step
 
-# Content
-- Synthesize in your own words
-- Capture insights and "aha moments"
-- Include examples only when clarifying
-- Note trade-offs honestly (pros AND cons)
+## Content Requirements
 
-# Formatting
-- h2-h3 for major sections only
+**Must have:**
+- Core Concept (one sentence)
+- Why it matters (1-2 sentences)
+- When to use / when not to use
+- Trade-offs
+- Quick Reference (at bottom - syntax/table/bullets for cheatsheet use)
+
+**Optional (if clarifying):**
+- Key distinction (A vs B)
+- Common pitfalls (gotchas)
+- Comparison (e.g., Java vs Go)
+
+**Forbidden:**
+- Excessive analogies or mental models
+- Historical background (unless explains WHY)
+- Multiple examples (one clear example max)
+- Obvious explanations
+
+## Formatting
+- h2-h3 for sections only
 - Bold key terms on first mention
-- Tables for comparisons / definitions
+- Tables for comparisons
 
-# Admonitions
-Use admonitions to highlight important information. Syntax:
+## Admonitions
+Use sparingly (max 2 per note) for:
+- `ad-warning` - Gotchas
+- `ad-danger` - Critical errors
+- `ad-example` - Code examples
+
+Syntax:
 ```
-\`\`\`ad-<type>
-Content goes here
+\`\`\`ad-warning
+Content
 \`\`\`
 ```
-
-Available types and when to use them:
-- `ad-note` - General notes, neutral information
-- `ad-abstract`/`ad-summary`/`ad-tldr` - Key takeaways, summaries
-- `ad-info` - Supplementary information, context
-- `ad-tip`/`ad-hint`/`ad-important` - Helpful advice, best practices
-- `ad-success`/`ad-check`/`ad-done` - Successful outcomes, completed items
-- `ad-question`/`ad-help`/`ad-faq` - Questions to consider, help needed
-- `ad-warning`/`ad-caution`/`ad-attention` - Important warnings, gotchas
-- `ad-failure`/`ad-fail`/`ad-missing` - Common mistakes, failure cases
-- `ad-danger`/`ad-error` - Critical issues, errors to avoid
-- `ad-bug` - Known bugs or issues
-- `ad-example` - Code examples, use cases
-- `ad-quote`/`ad-cite` - Quotations, citations
-
-Guidelines:
-- Use sparingly (1-3 per note max) to maintain focus
-- Place at natural breaks in content flow
