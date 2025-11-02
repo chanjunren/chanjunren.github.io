@@ -19,7 +19,7 @@ alwaysApply: false
 
 ## Writing Style
 - Lead with: "**Core Concept**: [one sentence]"
-- Structure: **Core Concept → Why → When to Use → Trade-offs → Quick Reference (at bottom)**
+- Structure: **Core Concept → Why → When to Use → Trade-offs → Quick Reference → Examples (optional, at bottom)**
 - Short sentences. Bullets. No fluff.
 - **Minimize analogies** - only if genuinely clarifying
 - **Be concise** - cut ruthlessly
@@ -42,6 +42,7 @@ alwaysApply: false
 - Key distinction (A vs B)
 - Common pitfalls (gotchas)
 - Comparison (e.g., Java vs Go)
+- Examples (at bottom, after Quick Reference - for complex topics only)
 
 **Forbidden:**
 - Excessive analogies or mental models
