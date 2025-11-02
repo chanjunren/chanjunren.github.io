@@ -247,13 +247,7 @@ if errors.Is(err, context.DeadlineExceeded) {
 }
 ```
 
-## Related Concepts
-
-- [[go_concurrency_model]] - Goroutines and runtime
-- [[goroutines_channels]] - Communication patterns
-- [[golang_basics]] - Go fundamentals
-
-### References
+## References
 
 - [Go Context Package](https://pkg.go.dev/context)
 - [Context Blog Post](https://go.dev/blog/context)
