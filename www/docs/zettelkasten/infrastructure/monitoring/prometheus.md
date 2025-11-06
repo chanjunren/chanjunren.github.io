@@ -1,5 +1,4 @@
 🗓️ 31102024 1149
-📎 #observability #prometheus
 
 # prometheus
 

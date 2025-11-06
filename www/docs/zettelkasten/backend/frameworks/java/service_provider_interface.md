@@ -8,7 +8,6 @@ API intended to be implemented / extended by 3rd party interface
 | ------------------ | -------------------------------------- |
 | `service`          | Set of interfaces and abstract classes |
 | `service provider` | Implementation of a `service`          |
-> Related to  [[micrometer_dump]] 
 ---
 
 ## References

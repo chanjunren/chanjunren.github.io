@@ -1,5 +1,4 @@
 🗓️ 06112025 0030
-📎 #micrometer #observability #java
 
 # micrometer_metric_types
 
@@ -15,6 +14,8 @@ Choosing the correct Micrometer metric type determines how data is exported to P
 
 **When to Use**: Count events - requests, errors, tasks completed, messages processed
 
+**Unit**: Dimensionless count
+
 **Java Example**:
 ```java
 Counter counter = Counter.builder("http.requests")
@@ -27,6 +28,7 @@ counter.increment(5.0);     // +5
 ```
 
 **Prometheus Export**: Becomes [[prometheus_data_types]] Counter → query with `rate()`, `increase()`
+- Exported as: `http_requests_total`
 
 **Trade-offs**:
 - ✅ Accurate for counting events
@@ -39,11 +41,18 @@ counter.increment(5.0);     // +5
 
 **When to Use**: API response times, database query duration, method execution time
 
+**Unit**: Seconds (automatically converted from any time unit)
+
 **Java Example**:
 ```java
 Timer timer = Timer.builder("http.request.duration")
     .tag("endpoint", "/api/users")
-    .publishPercentiles(0.5, 0.95, 0.99)
+    .publishPercentiles(0.5, 0.95, 0.99)  // Optional: client-side percentiles
+    .serviceLevelObjectives(              // Optional: custom buckets
+        Duration.ofMillis(10),
+        Duration.ofMillis(50),
+        Duration.ofMillis(100)
+    )
     .register(meterRegistry);
 
 // Method 1: Manual timing
@@ -61,23 +70,45 @@ timer.record(Duration.ofMillis(123));
 ```
 
 **Prometheus Export**: Becomes [[prometheus_histograms]] (default) or Summary
+- Exported as: `http_request_duration_seconds_*`
 - `_count` - total number of events
-- `_sum` - total duration
+- `_sum` - total duration in seconds
 - `_bucket` - histogram buckets for percentile calculation
+- `_max` - maximum observed value
+
+**Configuration Options**:
+
+1. **No SLOs specified** (default):
+   - Uses default buckets: `[1ms, 10ms, 50ms, 100ms, 500ms, 1s, 5s, 10s, 30s, 1m]`
+   - Exports histogram buckets at these boundaries
+   - Calculate percentiles server-side: `histogram_quantile(0.95, rate(metric_bucket[5m]))`
+
+2. **With `.serviceLevelObjectives()`**:
+   - Uses your custom bucket boundaries
+   - Better accuracy for your specific latency profile
+   - Example: `.serviceLevelObjectives(Duration.ofMillis(10), Duration.ofMillis(50))`
+
+3. **With `.publishPercentiles()`**:
+   - Adds pre-calculated client-side percentiles as separate metrics
+   - Creates `{quantile="0.95"}` labels
+   - ❌ Cannot aggregate across instances
+   - Use only for single-instance apps
 
 **Query with**: `histogram_quantile()`, `rate()`
 
 **Trade-offs**:
 - ✅ Flexible percentile calculation server-side
 - ✅ Can aggregate across instances
-- ❌ Approximate percentiles only
-- ❌ More cardinality (bucket labels)
+- ❌ Approximate percentiles only (bucket-based)
+- ❌ More cardinality (one series per bucket)
 
 ## Gauge
 
 **What**: Current value that can go up or down
 
 **When to Use**: Memory usage, queue size, active threads, cache hit rate, temperature
+
+**Unit**: Depends on what you're measuring (bytes, count, ratio, etc.) - specify with `.baseUnit()`
 
 **Java Example**:
 ```java
@@ -91,12 +122,19 @@ AtomicInteger activeConnections = new AtomicInteger(0);
 Gauge.builder("connections.active", activeConnections, AtomicInteger::get)
     .register(meterRegistry);
 
-// Method 3: Cache stats
+// Method 3: Cache stats with explicit unit
 Gauge.builder("cache.hit.ratio", cache, c -> c.stats().hitRate())
+    .baseUnit("ratio")  // Optional: specify unit
+    .register(meterRegistry);
+
+// Method 4: Memory with bytes
+Gauge.builder("jvm.memory.used", memoryBean, MemoryMXBean::getHeapMemoryUsage)
+    .baseUnit("bytes")
     .register(meterRegistry);
 ```
 
 **Prometheus Export**: Becomes [[prometheus_data_types]] Gauge → query with `avg_over_time()`, `delta()`
+- Exported as: `queue_size`, `jvm_memory_used_bytes`, etc.
 
 **Trade-offs**:
 - ✅ Shows current state instantly
@@ -114,12 +152,15 @@ Gauges require a strong reference. If the measured object is garbage collected, 
 
 **When to Use**: Request payload sizes, response sizes, transaction amounts, batch sizes
 
+**Unit**: Specify with `.baseUnit()` - typically bytes, count, or currency
+
 **Java Example**:
 ```java
 DistributionSummary summary = DistributionSummary.builder("request.size")
     .tag("endpoint", "/api/upload")
     .baseUnit("bytes")
-    .publishPercentiles(0.5, 0.95, 0.99)
+    .publishPercentiles(0.5, 0.95, 0.99)  // Optional
+    .serviceLevelObjectives(1024, 4096, 16384)  // Optional: custom buckets
     .register(meterRegistry);
 
 summary.record(1024);      // Record 1KB
@@ -127,6 +168,8 @@ summary.record(2048);      // Record 2KB
 ```
 
 **Prometheus Export**: Becomes [[prometheus_histograms]] or Summary (same as Timer, but for sizes not durations)
+- Exported as: `request_size_bytes_*`
+- Same bucket/percentile behavior as Timer
 
 **Trade-offs**:
 - ✅ Aggregatable percentiles
@@ -140,6 +183,8 @@ summary.record(2048);      // Record 2KB
 **What**: Measures duration of tasks still running + already completed
 
 **When to Use**: Batch jobs, background tasks, data migrations, long-running operations
+
+**Unit**: Seconds (for duration metrics)
 
 **Java Example**:
 ```java
@@ -156,10 +201,11 @@ try {
 }
 ```
 
-**Prometheus Export**: Multiple metrics
-- `_active_count` - number of currently running tasks
-- `_duration_sum` - total duration of active tasks
-- `_max` - longest currently running task
+**Prometheus Export**: Multiple gauge metrics (not histograms)
+- Exported as: `batch_job_duration_seconds_*`
+- `_active_count` - number of currently running tasks (dimensionless)
+- `_duration_sum` - total duration of active tasks (seconds)
+- `_max` - longest currently running task (seconds)
 
 **Query with**: Direct values (no rate needed)
 
@@ -206,28 +252,33 @@ FunctionTimer.builder("cache.gets", cache,
 
 **When to Use**: Application uptime, time since last event
 
+**Unit**: Seconds (converted from specified TimeUnit)
+
 **Java Example**:
 ```java
 AtomicLong startTime = new AtomicLong(System.currentTimeMillis());
 
 TimeGauge.builder("app.uptime", startTime,
-    TimeUnit.MILLISECONDS,
+    TimeUnit.MILLISECONDS,  // Input unit
     t -> System.currentTimeMillis() - t.get())
     .register(meterRegistry);
 ```
 
+**Prometheus Export**: Becomes Gauge
+- Exported as: `app_uptime_seconds` (converted to seconds)
+
 ## Quick Reference
 
-| Type | Use Case | Prometheus Type | Query Functions |
-|------|----------|-----------------|-----------------|
-| **Counter** | Count events | Counter | `rate()`, `increase()` |
-| **Timer** | Measure durations | Histogram | `histogram_quantile()`, `rate()` |
-| **Gauge** | Current state | Gauge | `avg_over_time()`, direct value |
-| **DistributionSummary** | Measure sizes | Histogram | `histogram_quantile()` |
-| **LongTaskTimer** | Track running tasks | Gauge (multiple) | Direct values |
-| **FunctionCounter** | Poll external counter | Counter | `rate()`, `increase()` |
-| **FunctionTimer** | Poll external timer | Histogram | `histogram_quantile()` |
-| **TimeGauge** | Measure time values | Gauge | Direct value |
+| Type                    | Use Case              | Prometheus Type  | Query Functions                  |
+|-------------------------|-----------------------|------------------|----------------------------------|
+| **Counter**             | Count events          | Counter          | `rate()`, `increase()`           |
+| **Timer**               | Measure durations     | Histogram        | `histogram_quantile()`, `rate()` |
+| **Gauge**               | Current state         | Gauge            | `avg_over_time()`, direct value  |
+| **DistributionSummary** | Measure sizes         | Histogram        | `histogram_quantile()`           |
+| **LongTaskTimer**       | Track running tasks   | Gauge (multiple) | Direct values                    |
+| **FunctionCounter**     | Poll external counter | Counter          | `rate()`, `increase()`           |
+| **FunctionTimer**       | Poll external timer   | Histogram        | `histogram_quantile()`           |
+| **TimeGauge**           | Measure time values   | Gauge            | Direct value                     |
 
 ## Decision Tree
 
@@ -290,6 +341,5 @@ Timer.builder("queue.message.processing.duration")
 
 - [Micrometer Concepts](https://docs.micrometer.io/micrometer/reference/concepts.html)
 - [Micrometer Meter Types](https://docs.micrometer.io/micrometer/reference/concepts/meters.html)
-- [[prometheus_data_types]] - Prometheus metric types these map to
-- [[micrometer_to_prometheus_mapping]] - how Micrometer exports to Prometheus
+
 
