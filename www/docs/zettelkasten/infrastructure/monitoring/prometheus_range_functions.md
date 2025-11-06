@@ -2,7 +2,11 @@
 
 # prometheus_range_functions
 
-**Core Concept**: Aggregate time series data over time windows to compute rates, averages, and statistics.
+**Core Concept**: Quick reference for range functions - see [[prometheus_range_function_calculations]] for detailed formulas and examples.
+
+## When to Use
+
+Range functions transform arrays of samples from range selectors `[5m]` into single values. Understanding [[prometheus_time_series_basics]] and [[prometheus_range_function_calculations]] is essential for knowing what these actually calculate.
 
 ## Rate & Counter Functions
 
@@ -13,7 +17,7 @@
 | `increase()` | Total increase in range      | "How many X in last Y?"                   |
 
 ```ad-tip
-`rate()` vs `irate()`: Use `rate()` for most cases. Only use `irate()` for catching spikes < 1 minute.
+Use `rate()` for most cases. Only use `irate()` for catching spikes < 1 minute.
 ```
 
 ## Aggregation Functions
@@ -57,34 +61,21 @@
 | `[24h]` | Daily patterns             |
 
 ```ad-warning
-Range must be > scrape interval (if scrape = 30s, use ≥ 1-2m)
+Range must be ≥ 2x scrape interval (if scrape = 30s, use ≥ 1m)
 ```
-
-## Common Patterns
-
-**Rate vs Increase**
-- `rate(metric[5m]) * 300` = `increase(metric[5m])`
-- Use `rate()` for per-second rates, `increase()` for total counts
-
-**Smoothing vs Responsiveness**
-- Longer ranges = smoother but slower to react
-- `rate(metric[10m])` - smooth, slow
-- `irate(metric[1m])` - responsive, noisy
-
-**Percentiles**
-- Histogram: `histogram_quantile(0.95, rate(http_duration_bucket[5m]))` - accurate
-- Gauge: `quantile_over_time(0.95, http_duration_seconds[5m])` - approximate
 
 ## Key Rules
 
 - `rate()` for counters, `deriv()`/`delta()` for gauges
 - `rate()` handles counter resets, `delta()` doesn't
-- Range must be > scrape interval
+- Range must be ≥ 2x scrape interval
+- Use [[prometheus_data_types]] to understand which functions work with which metric types
 
 ---
 ## References
 
-- [Prometheus Query Functions Documentation](https://prometheus.io/docs/prometheus/latest/querying/functions/)
+- [Prometheus Query Functions](https://prometheus.io/docs/prometheus/latest/querying/functions/)
 - [Robust Perception: Rate vs irate](https://www.robustperception.io/rate-then-sum-never-sum-then-rate)
-- [Prometheus Best Practices](https://prometheus.io/docs/practices/naming/)
+- [[prometheus_range_function_calculations]] - detailed formulas and examples
+- [[prometheus_time_series_basics]] - understanding the input data
 
