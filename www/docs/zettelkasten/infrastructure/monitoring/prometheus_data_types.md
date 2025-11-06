@@ -3,99 +3,86 @@
 
 # prometheus_data_types
 
-> How to use correctly
+**Core Concept**: Prometheus has four metric types (Counter, Gauge, Histogram, Summary) - each suited for different measurement patterns and queried with specific functions.
 
-## Gauges
-- Represents a current measurement 
-- Can go up or down
-- e.g. memory usage
+## Why It Matters
 
-```go
-// Use Set() when you know the absolute
-// value from some other source.
-queueLength.Set(0)
-
-// Use these methods when your code directly observes
-// the increase or decrease of something, such as
-// adding an item to a queue.
-
-queueLength.Inc() // Increment by 1.
-queueLength.Dec() // Decrement by 1.
-queueLength.Add(23)
-queueLength.Sub(42)
-
-// When you want to know the time of when something happened
-myTimestamp.SetToCurrentTime()
-```
-> Gauge methods
-
-```
-# No labels
-queue_length 42
-```
-> Exposition
-
-```promql
-# Figure out how long ago an event happened
-time() - process_start_time_seconds 
-```
-> PromQL
-
-### Sample use cases
-1. REST API latency
-2. Database query performance
-3. SLA
+Choosing the wrong metric type leads to incorrect queries and misleading visualizations. Understanding [[prometheus_time_series_basics]] helps you see how these types are stored as time series.
 
 ## Counters
-- Cumulative count over time
-- Only allowed to go up
 
-```ad-note
-Counter resets - Counter resets to 0 upon restart, but this is handled gracefully with **Functions**
-```
+**What**: Cumulative count that only increases (resets to 0 on restart)
 
-```java
+**When to Use**: Count events - requests, errors, bytes sent, tasks completed
+
+**Go Example**:
+```go
 totalRequests.Inc()
 ```
-> Instrumentation methods
 
-
-### Relevant functions
-- Usually don't consider the absolute values
-- Consider things like **What's the rate of increase here, averaged over the preceding time window?**
-
-```ad-note
-Handles counter resets gracefully by treating any decrease as a reset and corrects it as much as possible
+**Exposition**:
+```
+http_requests_total{status="200"} 1543
+http_requests_total{status="500"} 12
 ```
 
-| Function     | Description |
-| ------------ | ----------- |
-| `rate()`     |             |
-| `irate()`    |             |
-| `increase()` |             |
+**Query with**: `rate()`, `increase()`, `irate()` - see [[prometheus_range_function_calculations]] for formulas
+
+```ad-warning
+Never use raw counter values in alerts/dashboards - always use `rate()` or `increase()` because counters reset on restart.
+```
+
+## Gauges
+
+**What**: Current measurement that can go up or down
+
+**When to Use**: Measure current state - memory usage, queue length, temperature, active connections
+
+**Go Example**:
+```go
+queueLength.Set(42)     // Set absolute value
+queueLength.Inc()       // Increment by 1
+queueLength.Dec()       // Decrement by 1
+queueLength.Add(23)     // Add amount
+queueLength.Sub(10)     // Subtract amount
+```
+
+**Exposition**:
+```
+queue_length 42
+memory_usage_bytes 1073741824
+```
+
+**Query with**: `avg_over_time()`, `max_over_time()`, `delta()`, `deriv()` - see [[prometheus_range_function_calculations]]
+
+**Common Pattern**:
+```promql
+# How long ago did something happen?
+time() - process_start_time_seconds
+```
 
 ## Summaries
-For tracking distributions as a percentile / quantile
 
+**What**: Pre-calculated percentiles computed client-side using [[prometheus_summary_streaming]]
+
+**When to Use**: Single instance metrics where you know required percentiles upfront
+
+**Go Example**:
 ```go
-requestDurations := prometheus.NewSummary(prometheus.SummaryOpts {
+requestDurations := prometheus.NewSummary(prometheus.SummaryOpts{
 	Name: "http_request_duration_seconds",
 	Help: "A summary of HTTP Request durations in seconds",
 	Objectives: map[float64]float64{
-		// 50th percentile with a max absolute error of 0.05
-		0.5: 0.05,
-		// 90th percentile with a max absolute error of 0.01
-		0.9: 0.01,
-		// 99th percentile with a max absolute error of 0.0001
-		0.99: 0.001
+		0.5: 0.05,   // p50 with ±0.05 error
+		0.9: 0.01,   // p90 with ±0.01 error
+		0.99: 0.001, // p99 with ±0.001 error
 	}
 })
 
-
 requestDurations.Observe(2.3)
 ```
-> Summary metric will output quantiles based on [[prometheus_summary_streaming]]
 
+**Exposition**:
 ```
 http_request_duration_seconds{quantile="0.5"} 0.052
 http_request_duration_seconds{quantile="0.90"} 0.0564
@@ -103,7 +90,12 @@ http_request_duration_seconds{quantile="0.99"} 2.372
 http_request_duration_seconds_sum 88364.234
 http_request_duration_seconds_count 227420
 ```
-> Exposition
+
+**Trade-offs**:
+- ✅ Accurate quantiles pre-calculated
+- ✅ Low query cost (values already computed)
+- ❌ Cannot aggregate across instances (each calculates independently)
+- ❌ Cannot change quantiles after deployment
 
 ## Histograms
 - Tracking distribution of numeric values
