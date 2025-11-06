@@ -76,6 +76,4 @@ Range must be ≥ 2x scrape interval (if scrape = 30s, use ≥ 1m)
 
 - [Prometheus Query Functions](https://prometheus.io/docs/prometheus/latest/querying/functions/)
 - [Robust Perception: Rate vs irate](https://www.robustperception.io/rate-then-sum-never-sum-then-rate)
-- [[prometheus_range_function_calculations]] - detailed formulas and examples
-- [[prometheus_time_series_basics]] - understanding the input data
 

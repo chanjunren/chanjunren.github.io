@@ -1,5 +1,4 @@
 🗓️ 31102024 1524
-📎 #prometheus #observability 
 
 # prometheus_data_types
 

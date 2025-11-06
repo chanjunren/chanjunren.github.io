@@ -1,5 +1,4 @@
 🗓️ 06112025 0000
-📎 #prometheus #observability
 
 # prometheus_time_series_basics
 
@@ -148,6 +147,4 @@ y - years
 
 - [Prometheus Data Model](https://prometheus.io/docs/concepts/data_model/)
 - [Querying Basics](https://prometheus.io/docs/prometheus/latest/querying/basics/)
-- [[prometheus_range_functions]] - what calculations happen on range vectors
-- [[prometheus_data_types]] - counter vs gauge behavior affects calculations
 

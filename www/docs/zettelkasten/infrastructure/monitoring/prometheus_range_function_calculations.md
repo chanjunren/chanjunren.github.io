@@ -1,5 +1,4 @@
 🗓️ 06112025 0001
-📎 #prometheus #observability
 
 # prometheus_range_function_calculations
 
@@ -309,6 +308,4 @@ predict_linear(metric[1h], 3600)  # predict 1h ahead
 
 - [Prometheus Query Functions](https://prometheus.io/docs/prometheus/latest/querying/functions/)
 - [Robust Perception: rate() vs irate()](https://www.robustperception.io/rate-then-sum-never-sum-then-rate)
-- [[prometheus_time_series_basics]] - understanding the input data
-- [[prometheus_data_types]] - which functions work with which metric types
 

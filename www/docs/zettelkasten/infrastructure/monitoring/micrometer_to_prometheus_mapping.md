@@ -1,5 +1,4 @@
 🗓️ 06112025 0031
-📎 #micrometer #prometheus #observability
 
 # micrometer_to_prometheus_mapping
 
@@ -345,7 +344,5 @@ LongTaskTimer → metric_name_seconds_active_count{labels}
 
 - [Micrometer Prometheus Documentation](https://docs.micrometer.io/micrometer/reference/implementations/prometheus.html)
 - [Prometheus Naming Best Practices](https://prometheus.io/docs/practices/naming/)
-- [[micrometer_metric_types]] - choosing the right Micrometer type
-- [[prometheus_data_types]] - resulting Prometheus metric types
-- [[prometheus_histograms]] - understanding bucket exports
+
 
