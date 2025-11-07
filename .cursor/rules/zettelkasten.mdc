@@ -12,13 +12,13 @@ alwaysApply: false
 - **Cite sources**: Include references for complex or non-obvious information
 
 ## Structure
-- Template: 🗓️ timestamp (DDMMYYYY HHmm), 📎 (empty), h1 title, content, References
+- Template: 🗓️ created datetime (DDMMYYYY HHmm), h1 title, content, References
 - Filename = h1 title (snake_case)
 - **One atomic concept per note** - if explaining multiple things, split into separate notes
 - **Flat structure** - avoid nested directories unless absolutely necessary
 
 ## Writing Style
-- Lead with: "**Core Concept**: [one sentence]"
+- Lead with: "**Core Concept**: [one sentence or point form if multiple key aspects]"
 - Structure: **Core Concept → Why → When to Use → Trade-offs → Quick Reference → Examples (optional, at bottom)**
 - Short sentences. Bullets. No fluff.
 - **Minimize analogies** - only if genuinely clarifying
