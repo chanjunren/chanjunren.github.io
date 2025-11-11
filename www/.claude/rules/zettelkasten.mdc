@@ -1,0 +1,61 @@
+---
+globs: **/zettelkasten/**/*.md
+alwaysApply: false
+---
+
+# Zettelkasten: atomic notes for learning and reference
+
+## Structure
+- Template: 🗓️ created datetime (DDMMYYYY HHmm), h1 title, content, References
+- Filename = h1 title (snake_case)
+- One atomic concept per note
+- Organized by topic subdirectories (backend, frontend, infrastructure, etc.)
+
+## Writing Style
+- **Core Concept**: Point form bullets when multiple aspects, one sentence if single aspect
+- Structure: **Core Concept → Why → When to Use → Trade-offs**
+- Short sentences. Bullets. No fluff. Cut ruthlessly.
+- Minimize analogies (only if genuinely clarifying)
+- Focus on concepts, not code (unless cheatsheet requested)
+
+## Content Requirements
+
+**Must have:**
+- Core Concept
+- Why it matters (1-2 sentences)
+- When to use / when not to use
+- Trade-offs
+
+**Optional:**
+- Key distinctions (A vs B)
+- Common pitfalls
+- Comparisons
+- Common patterns (conceptual only)
+
+**Only if user asks for cheatsheet:**
+- Quick Reference (syntax/code examples)
+- Implementation examples
+- Configuration snippets
+
+**Forbidden:**
+- Excessive analogies or mental models
+- Historical background (unless explains WHY)
+- Code examples (unless cheatsheet requested)
+- Obvious explanations
+
+## Linking
+- Link inline with explicit relationship: "This builds on [[prerequisite]] because..."
+- NO "Related Concepts" sections
+- Link only when: prerequisite, contrast, or logical next step
+
+## Formatting
+- h2-h3 for sections
+- Bold key terms on first mention
+- Tables for comparisons
+- Admonitions sparingly (max 2): `ad-warning`, `ad-danger`, `ad-example`
+
+## Accuracy
+- Verify facts before writing
+- Search credible sources when uncertain
+- Only link to notes that exist
+- Cite sources for complex information
