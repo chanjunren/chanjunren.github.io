@@ -5,65 +5,57 @@ alwaysApply: false
 
 # Zettelkasten: atomic notes for learning and reference
 
-## Accuracy & Verification
-- **Ensure correctness**: Verify facts before writing, especially technical details
-- **When uncertain**: Search credible sources (official docs, Go blog, language specs)
-- **No hallucination**: Only link to notes that actually exist
-- **Cite sources**: Include references for complex or non-obvious information
-
 ## Structure
 - Template: 🗓️ created datetime (DDMMYYYY HHmm), h1 title, content, References
 - Filename = h1 title (snake_case)
-- **One atomic concept per note** - if explaining multiple things, split into separate notes
-- **Flat structure** - avoid nested directories unless absolutely necessary
+- One atomic concept per note
+- Flat structure (avoid nested directories)
 
 ## Writing Style
-- Lead with: "**Core Concept**: [one sentence or point form if multiple key aspects]"
-- Structure: **Core Concept → Why → When to Use → Trade-offs → Quick Reference → Examples (optional, at bottom)**
-- Short sentences. Bullets. No fluff.
-- **Minimize analogies** - only if genuinely clarifying
-- **Be concise** - cut ruthlessly
-
-## Linking Rules
-- Link inline with explicit relationship: "This builds on [[prerequisite]] because..."
-- **NO "Related Concepts" sections** - lazy linking forbidden
-- Link only when: prerequisite, contrast, or logical next step
+- **Core Concept**: Point form bullets when multiple aspects, one sentence if single aspect
+- Structure: **Core Concept → Why → When to Use → Trade-offs**
+- Short sentences. Bullets. No fluff. Cut ruthlessly.
+- Minimize analogies (only if genuinely clarifying)
+- Focus on concepts, not code (unless cheatsheet requested)
 
 ## Content Requirements
 
 **Must have:**
-- Core Concept (one sentence)
+- Core Concept
 - Why it matters (1-2 sentences)
 - When to use / when not to use
 - Trade-offs
-- Quick Reference (at bottom - syntax/table/bullets for cheatsheet use)
 
-**Optional (if clarifying):**
-- Key distinction (A vs B)
-- Common pitfalls (gotchas)
-- Comparison (e.g., Java vs Go)
-- Examples (at bottom, after Quick Reference - for complex topics only)
+**Optional:**
+- Key distinctions (A vs B)
+- Common pitfalls
+- Comparisons
+- Common patterns (conceptual only)
+
+**Only if user asks for cheatsheet:**
+- Quick Reference (syntax/code examples)
+- Implementation examples
+- Configuration snippets
 
 **Forbidden:**
 - Excessive analogies or mental models
 - Historical background (unless explains WHY)
-- Multiple examples (one clear example max)
+- Code examples (unless cheatsheet requested)
 - Obvious explanations
 
+## Linking
+- Link inline with explicit relationship: "This builds on [[prerequisite]] because..."
+- NO "Related Concepts" sections
+- Link only when: prerequisite, contrast, or logical next step
+
 ## Formatting
-- h2-h3 for sections only
+- h2-h3 for sections
 - Bold key terms on first mention
 - Tables for comparisons
+- Admonitions sparingly (max 2): `ad-warning`, `ad-danger`, `ad-example`
 
-## Admonitions
-Use sparingly (max 2 per note) for:
-- `ad-warning` - Gotchas
-- `ad-danger` - Critical errors
-- `ad-example` - Code examples
-
-Syntax:
-```
-\`\`\`ad-warning
-Content
-\`\`\`
-```
+## Accuracy
+- Verify facts before writing
+- Search credible sources when uncertain
+- Only link to notes that exist
+- Cite sources for complex information
