@@ -6,56 +6,58 @@ alwaysApply: false
 # Zettelkasten: atomic notes for learning and reference
 
 ## Structure
-- Template: 🗓️ created datetime (DDMMYYYY HHmm), h1 title, content, References
+- Template: 🗓️ datetime (DDMMYYYY HHmm), h1 title, content, References
 - Filename = h1 title (snake_case)
 - One atomic concept per note
-- Organized by topic subdirectories (backend, frontend, infrastructure, etc.)
 
-## Writing Style
-- **Core Concept**: Point form bullets when multiple aspects, one sentence if single aspect
-- Structure: **Core Concept → Why → When to Use → Trade-offs**
-- Short sentences. Bullets. No fluff. Cut ruthlessly.
-- Minimize analogies (only if genuinely clarifying)
-- Focus on concepts, not code (unless cheatsheet requested)
+## Content
 
-## Content Requirements
+**Opening (required):**
+- **What it is**: Clear definition (1-2 sentences)
+- **Problem it solves**: Why this concept exists
 
-**Must have:**
-- Core Concept
-- Why it matters (1-2 sentences)
+**Body (use if relevant):**
 - When to use / when not to use
-- Trade-offs
-
-**Optional:**
 - Key distinctions (A vs B)
-- Common pitfalls
+- Trade-offs or gotchas
+- How it works (high-level only)
+
+**Style:**
+- Point form by default (bullet points, short statements)
+- Use h3 headings for subsections instead of bolded items
+- Bold key terms on first mention
+- Cut ruthlessly - details only if they aid understanding
+- No historical background unless it explains WHY
+- No obvious explanations
+
+## Formatting
+
+**Headings:**
+- h2 for main sections, h3 for subsections
+- Never use h4+
+- Use natural headings (not generic "Why", "When")
+- Prefer h3 subsections over bolded list items for structure
+
+**Tables:**
+- Definitions of related terms
 - Comparisons
-- Common patterns (conceptual only)
+- Structured data
 
-**Only if user asks for cheatsheet:**
-- Quick Reference (syntax/code examples)
-- Implementation examples
-- Configuration snippets
-
-**Forbidden:**
-- Excessive analogies or mental models
-- Historical background (unless explains WHY)
-- Code examples (unless cheatsheet requested)
-- Obvious explanations
-
-## Linking
-- Link inline with explicit relationship: "This builds on [[prerequisite]] because..."
+**Links:**
+- Inline naturally: "See [[other_note]] for X"
+- NO "related to X because..." explanations
 - NO "Related Concepts" sections
 - Link only when: prerequisite, contrast, or logical next step
 
-## Formatting
-- h2-h3 for sections
-- Bold key terms on first mention
-- Tables for comparisons
-- Admonitions sparingly (max 2): `ad-warning`, `ad-danger`, `ad-example`
+**Admonitions:**
+- Max 2 per note
+- Types: `ad-warning`, `ad-danger`, `ad-example`
+- Use for: common pitfalls, critical gotchas, important examples
+- Keep concise (1-2 sentences)
 
-## Accuracy
-- Verify facts before writing
-- Search credible sources when uncertain
-- Only link to notes that exist
-- Cite sources for complex information
+**References:**
+- Only verified sources at bottom
+
+## Code/Implementation
+- Default: concepts only, no code
+- If user asks for cheatsheet: add Quick Reference section with syntax/examples
