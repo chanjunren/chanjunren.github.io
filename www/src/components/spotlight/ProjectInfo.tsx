@@ -1,7 +1,7 @@
 import { GalleryProjectInfo } from "@site/src/types";
 import { FC } from "react";
 import DocusaurusLink from "../common/DocusaurusLink";
-import HeaderTag from "../common/HeaderTag";
+import CustomTag from "../ui/CustomTag";
 
 const ProjectInfo: FC<GalleryProjectInfo> = ({
   title,
@@ -15,12 +15,13 @@ const ProjectInfo: FC<GalleryProjectInfo> = ({
     <section className="grid grid-cols-12 gap-5">
       {displayTitle && (
         <div className="lg:col-span-4 col-span-12 row-span-5">
-          <HeaderTag
+          <CustomTag
             color="foam"
-            label={title.toUpperCase()}
             className="text-xl"
             // className="lg:col-span-4 col-span-12 row-span-5"
-          ></HeaderTag>
+          >
+            {title.toUpperCase()}
+          </CustomTag>
         </div>
         // <TypewriterText
         //   text={title.toUpperCase()}

@@ -1,0 +1,4 @@
+{
+  "extends": ["plugin:tailwind-grouping/recommended"],
+  "plugins": ["tailwind-grouping"]
+}
