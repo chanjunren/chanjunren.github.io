@@ -2,7 +2,7 @@ import { DividerVerticalIcon } from "@radix-ui/react-icons";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { FC, ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import HeaderTag from "../../common/HeaderTag";
+import CustomTag from "../../ui/CustomTag";
 
 type IFloatingMenuItem = {
   type: "link" | "externalLink" | "custom";
@@ -15,13 +15,21 @@ type IFloatingMenuItem = {
 const topics: IFloatingMenuItem[] = [
   {
     type: "link",
-    icon: <HeaderTag label="哈喽" color="rose" />,
+    icon: (
+      <CustomTag color="rose" className="hover:scale-125 transition-transform">
+        哈喽
+      </CustomTag>
+    ),
     link: "/",
     label: "home",
   },
   {
     type: "link",
-    icon: <HeaderTag color="pine" label="数园" />,
+    icon: (
+      <CustomTag color="pine" className="hover:scale-125 transition-transform">
+        数园
+      </CustomTag>
+    ),
     link: "/docs/zettelkasten",
     label: "notes",
   },
@@ -31,19 +39,31 @@ const topics: IFloatingMenuItem[] = [
   },
   {
     type: "externalLink",
-    icon: <HeaderTag label="请我" color="foam" />,
+    icon: (
+      <CustomTag color="foam" className="hover:scale-125 transition-transform">
+        请我
+      </CustomTag>
+    ),
     link: "/documents/resume.pdf",
     label: "resume",
   },
   {
     type: "externalLink",
-    icon: <HeaderTag label="吉特" color="iris" />,
+    icon: (
+      <CustomTag color="iris" className="hover:scale-125 transition-transform">
+        吉特
+      </CustomTag>
+    ),
     link: "https://www.github.com/chanjunren",
     label: "github",
   },
   {
     type: "externalLink",
-    icon: <HeaderTag label="力银" color="muted" />,
+    icon: (
+      <CustomTag color="muted" className="hover:scale-125 transition-transform">
+        力银
+      </CustomTag>
+    ),
     link: "https://www.linkedin.com/in/jun-ren-chan-90240a175/",
     label: "linkedin",
   },
@@ -72,7 +92,6 @@ const FloatingMenu: FC = () => {
               `}
                     href={key}
                     target={type === "externalLink" ? "_blank" : "_self"}
-                    key={"menuItem" + index}
                   >
                     {icon}
                   </a>
@@ -89,7 +108,7 @@ const FloatingMenu: FC = () => {
               </Tooltip.Root>
             </Tooltip.Provider>
           ) : (
-            <CustomItem />
+            <CustomItem key={"menuItem" + index} />
           )
       )}
     </nav>,

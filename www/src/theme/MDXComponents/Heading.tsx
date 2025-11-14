@@ -1,4 +1,4 @@
-import HeaderTag from "@site/src/components/common/HeaderTag";
+import CustomTag from "@site/src/components/ui/CustomTag";
 import Heading from "@theme/Heading";
 import type { Props } from "@theme/MDXComponents/Heading";
 import { type ReactNode } from "react";
@@ -13,7 +13,9 @@ export default function MDXHeading(props: Props): ReactNode {
       .join(" ");
 
     return (
-      <HeaderTag className="mb-5 text-lg" color="rose" label={formattedTitle} />
+      <CustomTag className="mb-5 text-lg" color="rose">
+        {formattedTitle}
+      </CustomTag>
     );
   }
 

@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 type TagColor = "rose" | "pine" | "foam" | "iris" | "muted";
 
-type HeaderTagProps = {
-  label: string;
+type ICustomTags = {
+  children: ReactNode;
   color: TagColor;
   className?: string;
 };
@@ -33,16 +33,16 @@ const COLOR_STYLES: Record<TagColor, { bg: string; text: string }> = {
   },
 };
 
-const HeaderTag: FC<HeaderTagProps> = ({ label, color, className = "" }) => {
+const CustomTag: FC<ICustomTags> = ({ children, color, className = "" }) => {
   const colorStyle = COLOR_STYLES[color];
 
   return (
     <span
-      className={`${colorStyle.bg} ${colorStyle.text} inline-block rounded text-md px-1.5 pt-0.5 pb-1 tracking-tight button-shadow ${className}`}
+      className={`${colorStyle.bg} ${colorStyle.text} inline-block rounded text-md px-1.5 pt-0.5 pb-1 tracking-tight text-balance button-shadow h-fit w-fit ${className}`}
     >
-      {label}
+      {children}
     </span>
   );
 };
 
-export default HeaderTag;
+export default CustomTag;
