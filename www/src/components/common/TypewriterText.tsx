@@ -13,7 +13,7 @@ const TypewriterText: FC<TypewriterTextProps> = ({
   active,
   size = "md",
   className,
-  color = "[var(--ifm-font-color-base)]",
+  color = "var(--ifm-font-color-base)",
 }) => {
   return (
     <span
@@ -21,10 +21,14 @@ const TypewriterText: FC<TypewriterTextProps> = ({
         {
           "--text-length": text.length,
           color: color,
+          ...(active && {
+            borderRightColor: color,
+            animation: `typewriter 1s steps(${text.length}) forwards, borderBlink 3s infinite`,
+          }),
         } as React.CSSProperties
       }
-      className={`font-mono w-0 overflow-hidden max-w-fit text-nowrap size-fit border-solid border-0 ${
-        active ? `animate-typewriter pr-1 border-r-8 border-r-[${color}]` : ""
+      className={`font-mono overflow-hidden max-w-fit text-nowrap size-fit border-solid border-0 ${
+        active ? `pr-1 border-r-8` : ""
       } ${size === "lg" ? "text-xl" : ""} ${className}`}
     >
       {text}

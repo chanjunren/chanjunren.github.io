@@ -1,15 +1,15 @@
-@import "tailwindcss";
 @import "tw-animate-css";
-
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  /* --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0); */
+  --background: #f8f7f6;
+  --foreground: #575279;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  --popover: var(--background);
+  --popover-foreground: var(--foreground);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
@@ -111,6 +111,21 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom Screens/Breakpoints */
+  --breakpoint-lg: 996px;
+
+  /* Custom Heights */
+  --height-screen-minus-navbar: calc(100vh - 3.5rem);
+  --min-height-screen-minus-navbar: calc(100vh - 3.5rem);
+
+  /* Custom Background Images */
+  --background-image-graphPaper: url('/static/svg/patterns/graphPaper.svg');
+  --background-image-circuitBoard: url('/static/svg/patterns/circuitBoard.svg');
+
+  /* Custom Animations */
+  --animate-typewriter: typewriter 1s steps(var(--text-length)) forwards, borderBlink 3s infinite;
+  --animate-handwave: handwave 1s ease-in-out;
 }
 
 @layer base {
@@ -119,5 +134,31 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes borderBlink {
+    50% {
+      border-right-color: rgba(0, 0, 0, 0);
+    }
+  }
+
+  @keyframes handwave {
+    0%, 50%, 100% {
+      transform: rotate(0deg);
+      transform-origin: bottom right;
+    }
+    25%, 75% {
+      transform: rotate(-17deg);
+      transform-origin: bottom right;
+    }
   }
 }
