@@ -25,9 +25,9 @@ export default function Quote() {
 
   return (
     <div className="flex-grow self-center">
-      {/* <CustomTag color="rose" className="mb-5">
+      <CustomTag color="rose" className="mb-5">
         QOTD
-      </CustomTag> */}
+      </CustomTag>
       <HoverCard>
         <HoverCardTrigger asChild className="cursor-help">
           <div className="flex flex-col">

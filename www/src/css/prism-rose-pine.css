@@ -4,6 +4,22 @@
  * https://github.com/rose-pine
  * Ported for PrismJS by fvrests [@fvrests]
  */
+ .markdown h1:first-child {
+    --ifm-h1-font-size: 1.7rem;
+}
+
+.markdown>h2 {
+    --ifm-h2-font-size: 1.5rem;
+}
+
+.markdown>h3 {
+    --ifm-h3-font-size: 1.3rem;
+}
+
+.markdown ul {
+  list-style-type: disc !important;
+  list-style: disc !important;
+}
 
 [data-theme="light"] .theme-code-block {
   code[class*="language-"],
