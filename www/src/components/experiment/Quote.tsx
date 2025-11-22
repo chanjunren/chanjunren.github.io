@@ -1,8 +1,10 @@
-import { Card, CardContent, CardTitle } from "@site/src/components/ui/Card";
-import IdealImage from "@theme/IdealImage";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@site/src/components/ui/HoverCard";
 import TypewriterText from "../common/TypewriterText";
 import { useMateria } from "../home/hooks/useMateria";
-import CustomTag from "../ui/CustomTag";
 const CHINESE_COMMA = "，";
 
 export default function Quote() {
@@ -16,17 +18,30 @@ export default function Quote() {
     return null;
   }
 
+  const quoteParts = featuredQuote.quote.split(CHINESE_COMMA);
+
   return (
-    <Card className="col-span-2 gap-4">
-      <CustomTag className="font-normal ml-5" color="rose">
-        QOTD
-      </CustomTag>
-      <CardContent className="flex flex-col cursor-help">
-        <span className="mb-2">{featuredQuote.quote}</span>
-        <span className="border-l-2 border-l-accent pl-2">
-          {featuredQuote.source}
-        </span>
-      </CardContent>
-    </Card>
+    <HoverCard>
+      <HoverCardTrigger asChild>
+        <div className="mb-2 flex gap-20 cursor-help">
+          <span
+            className="text-muted-foreground"
+            style={{ writingMode: "vertical-rl" }}
+          >
+            {featuredQuote.source}
+          </span>
+          {quoteParts.map((part, index) => (
+            <span
+              className="text-2xl"
+              key={index}
+              style={{ writingMode: "vertical-rl" }}
+            >
+              {part.trim()}
+            </span>
+          ))}
+        </div>
+      </HoverCardTrigger>
+      <HoverCardContent className="w-80"></HoverCardContent>
+    </HoverCard>
   );
 }

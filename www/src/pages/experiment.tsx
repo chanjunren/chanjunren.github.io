@@ -1,24 +1,25 @@
-import { FC } from "react";
 import Page from "@site/src/components/common/Page";
 import Quote from "@site/src/components/experiment/Quote";
-import Welcome from "@site/src/components/experiment/Welcome";
-import HomeImage from "@site/src/components/experiment/HomeImage";
-import HomeMenu from "@site/src/components/experiment/HomeMenu";
-import LitFooter from "@site/src/components/common/LitFooter";
+import FloatingMenu from "@site/src/components/home/floatingmenuv2";
+import { FC } from "react";
 
 const Experiment: FC = () => {
   return (
     <Page
       title={"home"}
       description="Hello! Welcome to my digital garden"
-      className="grid grid-cols-2 gap-3 content-center w-xl"
+      className="flex flex-col items-center justify-center gap-1.5 w-fit!"
       footer={null}
+      menu={<FloatingMenu />}
     >
-      <div className="flex gap-3 col-span-2">
-        <HomeImage />
-        <HomeMenu />
-      </div>
+      {/* <header className="self-start mb-3">
+        <CustomTag color="rose">陈俊任</CustomTag>
+      </header> */}
+      {/* <div className="flex gap-8"> */}
+      {/* <HomeImage /> */}
       <Quote />
+      {/* <HomeMenu /> */}
+      {/* </div> */}
     </Page>
   );
 };

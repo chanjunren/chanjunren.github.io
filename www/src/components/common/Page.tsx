@@ -7,6 +7,7 @@ type IPage = {
   title: string;
   description?: string;
   footer?: ReactElement;
+  menu?: ReactElement;
   className?: string;
 };
 
@@ -15,6 +16,7 @@ const Page: FC<PropsWithChildren<IPage>> = ({
   description = "Hi there! I'm Jun Ren",
   children,
   footer = <LitFooter />,
+  menu = <FloatingMenu />,
   className,
 }) => {
   return (
@@ -23,11 +25,11 @@ const Page: FC<PropsWithChildren<IPage>> = ({
       title={title}
       description={description}
     >
-      <main className={`lg:max-w-6xl w-full flex-grow ${className}`}>
+      <main className={`lg:max-w-6xl w-full grow ${className}`}>
         {children}
       </main>
       {footer}
-      <FloatingMenu />
+      {menu}
     </Layout>
   );
 };
