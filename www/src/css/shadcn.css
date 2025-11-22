@@ -1,4 +1,6 @@
+@import "tailwindcss";
 @import "tw-animate-css";
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -37,6 +39,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --tw-inset-ring-shadow: 1 1 #fff !important;
+
 }
 
 
@@ -112,6 +116,14 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --menu-background: #2a273f;
+  --menu-foreground: var(--background);
+  --menu-accent: rgb(144, 140, 170, 0.2);
+  --menu-accent-foreground: var(--background);
+  --menu-subtle: #908caa;
+  --menu-muted-background: rgb(110, 106, 134, 0.5);
+
 
   /* Custom Screens/Breakpoints */
   --breakpoint-lg: 996px;

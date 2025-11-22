@@ -1,38 +1,30 @@
-import { Card, CardContent } from "@site/src/components/ui/Card";
-import IdealImage from "@theme/IdealImage";
-import TypewriterText from "../common/TypewriterText";
-import { useMateria } from "../home/hooks/useMateria";
+import {
+  BackpackIcon,
+  GitHubLogoIcon,
+  LinkedInLogoIcon,
+} from "@radix-ui/react-icons";
 import { Button } from "../ui/Button";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/Avatar";
+
 const CHINESE_COMMA = "，";
 
 export default function HomeMenu() {
   return (
-    <Card className="grow">
-      <CardContent className="flex flex-col items-start gap-2">
-        <Button>about</Button>
-        <Button className="mb-10">zettelkasten</Button>
-        <div className="*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale">
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-          <Avatar>
-            <AvatarImage
-              src="https://github.com/maxleiter.png"
-              alt="@maxleiter"
-            />
-            <AvatarFallback>LR</AvatarFallback>
-          </Avatar>
-          <Avatar>
-            <AvatarImage
-              src="https://github.com/evilrabbit.png"
-              alt="@evilrabbit"
-            />
-            <AvatarFallback>ER</AvatarFallback>
-          </Avatar>
-        </div>
-      </CardContent>
-    </Card>
+    <div className="flex flex-col items-start gap-2">
+      <Button className="cursor-pointer">🗃️ zettelkasten</Button>
+      <Button className="cursor-pointer">🌳 whoami</Button>
+      {/* // https://i.pinimg.com/1200x/b7/0c/5f/b70c5f97d31e72afaed922985391d650.jpg */}
+      <Button className="cursor-pointer mb-3">📟 projects</Button>
+      <div className="flex -space-x-2">
+        <Button variant="outline" size="icon" className="rounded-full">
+          <GitHubLogoIcon />
+        </Button>
+        <Button variant="outline" size="icon" className="rounded-full">
+          <LinkedInLogoIcon />
+        </Button>
+        <Button variant="outline" size="icon" className="rounded-full">
+          <BackpackIcon />
+        </Button>
+      </div>
+    </div>
   );
 }

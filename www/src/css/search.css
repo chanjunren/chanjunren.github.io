@@ -1,6 +1,6 @@
 .DocSearch-Modal {
   --docsearch-highlight-color: var(--ifm-font-color-base);
-  /* var(--docsearch-hit-highlight-color) */
+  --docsearch-hit-highlight-color: rgb(152, 147, 165, 0.1);
 }
 
 .DocSearch-Logo {
@@ -10,4 +10,16 @@
 
 .DocSearch-Search-Icon {
   display: none;
+}
+
+.DocSearch-Clear {
+  display: none;
+}
+
+.DocSearch-Divider {
+  display: none;
+}
+
+.DocSearch-Footer {
+  display: none !important;
 }
