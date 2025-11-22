@@ -44,7 +44,7 @@ const FloatingMenu: FC = () => {
                   <Link
                     className="flex-row! justify-between items-center"
                     variant="menu"
-                    href="#"
+                    href="/docs/zettelkasten"
                   >
                     <span>zettelkasten</span>
                     <KbdGroup className="ml-2">
@@ -70,7 +70,7 @@ const FloatingMenu: FC = () => {
                   <Link
                     className={"flex-row! gap-2 items-center"}
                     variant="menu"
-                    href="#"
+                    href="https://www.github.com/chanjunren"
                   >
                     <GitHubLogoIcon className="text-background" />
                     github
@@ -80,7 +80,7 @@ const FloatingMenu: FC = () => {
                   <Link
                     className={"flex-row! gap-2 items-center"}
                     variant="menu"
-                    href="#"
+                    href="https://www.linkedin.com/in/jun-ren-chan-90240a175/"
                   >
                     <LinkedInLogoIcon className="text-background" />
                     linkedin
@@ -90,7 +90,7 @@ const FloatingMenu: FC = () => {
                   <Link
                     className={"flex-row! gap-2 items-center"}
                     variant="menu"
-                    href="#"
+                    href="/documents/resume.pdf"
                   >
                     <BackpackIcon className="text-background" />
                     resume

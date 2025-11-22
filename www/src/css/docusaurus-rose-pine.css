@@ -130,3 +130,18 @@ nav.navbar.navbar--fixed-top {
 .menu__link--active {
     color: var(--ifm-menu-color) !important;
 }
+
+/* TODO */
+/* 
+.navbar__inner {
+  display: none !important;
+}
+
+.navbar {
+  box-shadow: none !important;
+  height: 0 !important;
+  padding: 0 !important;
+} */
+
+/*   const mobileSidebar = useNavbarMobileSidebar(); */
+/* onClick={mobileSidebar.toggle} */
