@@ -4,11 +4,11 @@ import * as React from "react";
 
 import { cn } from "@site/src/lib/utils";
 
-const linkVariants = cva("no-underline", {
+const linkVariants = cva("no-underline!", {
   variants: {
     variant: {
       default: "transition-all",
-      menu: "text-(--menu-foreground)! hover:no-underline! hover:bg-(--menu-accent)!",
+      menu: "text-(--menu-foreground)! hover:no-underline!  hover:bg-(--menu-accent)!",
     },
   },
   defaultVariants: {

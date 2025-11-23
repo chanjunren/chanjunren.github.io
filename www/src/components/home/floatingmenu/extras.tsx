@@ -12,7 +12,7 @@ const NavbarExtras: FC = () => {
   const windowSize = useWindowSize();
   const path = window.location.pathname;
   const isMobile = windowSize === "mobile";
-  const isZett = path.endsWith(ZETTELKASTEN);
+  const isZett = path.includes(ZETTELKASTEN);
   const mobileSidebar = useNavbarMobileSidebar();
 
   return (
