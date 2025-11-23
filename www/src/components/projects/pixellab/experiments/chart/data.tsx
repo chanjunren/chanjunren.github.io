@@ -1,4 +1,4 @@
-import { usePrevious } from "@site/src/components/hooks/usePrevious";
+import { usePrevious } from "@site/src/hooks/usePrevious";
 import { useEffect, useId, useRef } from "react";
 import { toPoints } from "./utils";
 

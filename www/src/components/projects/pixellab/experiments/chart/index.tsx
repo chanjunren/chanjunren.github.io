@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PixelLabContainer from "../../helpers/PixelLabContainer";
+import PixelLabContainer from "../../helpers/container";
 import { Background } from "./background";
 import { Data } from "./data";
 

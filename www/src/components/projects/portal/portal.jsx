@@ -1,9 +1,9 @@
 import { Canvas } from "@react-three/fiber";
-import PortalScene from "./PortalScene";
+import PortalScene from "./portal-scene";
 
 export default function Portal() {
   return (
-    <div className="h-[32rem]">
+    <div className="h-128">
       <Canvas
         flat
         camera={{

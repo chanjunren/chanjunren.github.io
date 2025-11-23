@@ -1,6 +1,6 @@
 import { GalleryCard } from "@site/src/types";
-import SecondaryHeader from "../common/SecondaryHeader";
-import ProjectCardImage from "./ProjectCardImage";
+import SecondaryHeader from "@site/src/components/ui/secondary-header";
+import ProjectCardImage from "./project-card-image";
 
 const ProjectCard: React.FC<GalleryCard> = (props) => {
   const { info, onClick } = props;

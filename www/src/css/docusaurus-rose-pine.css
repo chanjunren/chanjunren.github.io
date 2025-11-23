@@ -131,8 +131,6 @@ nav.navbar.navbar--fixed-top {
     color: var(--ifm-menu-color) !important;
 }
 
-/* TODO */
-/* 
 .navbar__inner {
   display: none !important;
 }
@@ -141,7 +139,4 @@ nav.navbar.navbar--fixed-top {
   box-shadow: none !important;
   height: 0 !important;
   padding: 0 !important;
-} */
-
-/*   const mobileSidebar = useNavbarMobileSidebar(); */
-/* onClick={mobileSidebar.toggle} */
+}

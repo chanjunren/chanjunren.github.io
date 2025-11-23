@@ -1,5 +1,5 @@
-import MiniSection from "../common/MiniSection";
-import CustomTag from "../ui/CustomTag";
+import MiniSection from "@site/src/components/ui/mini-section";
+import CustomTag from "@site/src/components/ui/custom-tag";
 
 export default function Work() {
   return (
@@ -8,7 +8,7 @@ export default function Work() {
         color="foam"
         className="text-lg tracking-tighter! justify-self-center! mb-5"
       >
-        WORK | EDUCATION
+        EXPERIENCE
       </CustomTag>
       <MiniSection
         title="Software Engineer II @ OKX"

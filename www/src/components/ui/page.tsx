@@ -1,7 +1,7 @@
 import Layout from "@theme/Layout";
 import { FC, PropsWithChildren, ReactElement } from "react";
 import FloatingMenu from "../home/floatingmenu";
-import LitFooter from "./LitFooter";
+import LitFooter from "./lit-footer";
 
 type IPage = {
   title: string;

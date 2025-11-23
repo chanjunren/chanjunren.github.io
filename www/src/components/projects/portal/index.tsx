@@ -1,7 +1,7 @@
-import SecondaryHeader from "@site/src/components/common/SecondaryHeader";
-import BadgeList from "@site/src/components/spotlight/BadgeList";
+import SecondaryHeader from "@site/src/components/ui/secondary-header";
+import BadgeList from "@site/src/components/spotlight/badge-list";
 import { GalleryProjectInfo } from "@site/src/types";
-import Portal from "./Portal";
+import Portal from "./portal";
 
 const PortalProject: GalleryProjectInfo = {
   id: "portal",

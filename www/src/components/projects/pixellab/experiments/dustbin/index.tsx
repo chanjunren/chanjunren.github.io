@@ -1,5 +1,5 @@
 import { FC, SVGProps } from "react";
-import PixelLabContainer from "../../helpers/PixelLabContainer";
+import PixelLabContainer from "../../helpers/container";
 import styles from "./index.module.css";
 
 const DustbinIcon: FC<SVGProps<SVGSVGElement>> = (props) => {

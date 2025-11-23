@@ -1,5 +1,5 @@
 import { useHistory } from "@docusaurus/router";
-import { GALLERY_PROJECTS } from "@site/src/components/projects/ProjectGallery";
+import { GALLERY_PROJECTS } from "@site/src/components/projects/project-gallery";
 import { GalleryProjectInfo } from "@site/src/types";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";

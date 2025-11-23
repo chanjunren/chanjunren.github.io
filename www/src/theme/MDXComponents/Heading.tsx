@@ -1,4 +1,4 @@
-import CustomTag from "@site/src/components/ui/CustomTag";
+import CustomTag from "@site/src/components/ui/custom-tag";
 import Heading from "@theme/Heading";
 import type { Props } from "@theme/MDXComponents/Heading";
 import { type ReactNode } from "react";

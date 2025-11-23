@@ -1,7 +1,7 @@
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import IdealImage from "@theme/IdealImage";
 import { FC, useState } from "react";
-import { DocusaurusIcon } from "./Icons";
+import { DocusaurusIcon } from "./icons";
 
 const LitFooter: FC = () => {
   const [hovering, setHovering] = useState<boolean>(false);

@@ -20,15 +20,11 @@ export default function VaultusaurusDemo({ onClick }): ReactElement {
               links: [
                 {
                   source: "home",
-                  target: "about",
+                  target: "whoami",
                 },
                 {
                   source: "home",
                   target: "zettelkasten",
-                },
-                {
-                  source: "home",
-                  target: "gallery",
                 },
               ],
               nodes: [
@@ -39,21 +35,15 @@ export default function VaultusaurusDemo({ onClick }): ReactElement {
                   type: "DOCUMENT",
                 },
                 {
-                  id: "about",
-                  label: "about",
-                  path: "/about",
+                  id: "whoami",
+                  label: "whoami",
+                  path: "/whoami",
                   type: "DOCUMENT",
                 },
                 {
                   id: "zettelkasten",
                   label: "zettelkasten",
                   path: "/docs/zettelkasten",
-                  type: "DOCUMENT",
-                },
-                {
-                  id: "gallery",
-                  label: "gallery",
-                  path: "/gallery",
                   type: "DOCUMENT",
                 },
               ],

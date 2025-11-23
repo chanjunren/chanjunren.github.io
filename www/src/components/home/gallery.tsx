@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
-import ProjectGallery from "@site/src/components/projects/ProjectGallery";
-import CustomTag from "@site/src/components/ui/CustomTag";
+import ProjectGallery from "@site/src/components/projects/project-gallery";
+import CustomTag from "@site/src/components/ui/custom-tag";
 
 export default function Gallery(): ReactElement {
   return (

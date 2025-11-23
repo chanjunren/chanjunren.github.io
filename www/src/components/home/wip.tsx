@@ -1,14 +1,14 @@
 import { FC } from "react";
-import TypewriterText from "../common/TypewriterText";
+import TypewriterText from "@site/src/components/ui/typewriter-text";
 
-const BuildingInProgress: FC = () => {
+const WIP: FC = () => {
   return (
     // <span className="flex-grow mt-[10%] font-mono after:content-['|'] after:animate-blink after:bg-[var(--ifm-font-color-base)]">
-    <div className="flex-grow flex items-center">
+    <div className="grow flex items-center">
       <TypewriterText size="lg" text="🔨 Building in progress..." active />
     </div>
     // </span>
   );
 };
 
-export default BuildingInProgress;
+export default WIP;

@@ -1,23 +1,20 @@
-import { ReactElement } from "react";
-import Page from "../components/common/Page";
-import About from "../components/home/About";
-import Gallery from "../components/home/Gallery";
-import Hobbies from "../components/home/Hobbies";
-import Work from "../components/home/Work";
+import Page from "@site/src/components/ui/page";
+import Quote from "@site/src/components/home/quote";
+import FloatingMenu from "@site/src/components/home/floatingmenu";
+import { FC } from "react";
 
-export default function Home(): ReactElement {
+const Experiment: FC = () => {
   return (
     <Page
       title={"home"}
       description="Hello! Welcome to my digital garden"
-      className="grow grid grid-cols-12 md:gap-10 gap-y-20 pt-7"
+      className="flex flex-col items-center justify-center gap-1.5 w-fit!"
+      footer={null}
+      menu={<FloatingMenu />}
     >
-      <About />
-      <div className="md:col-span-4 col-span-12 flex flex-col">
-        <Work />
-      </div>
-      <Hobbies />
-      <Gallery />
+      <Quote />
     </Page>
   );
-}
+};
+
+export default Experiment;

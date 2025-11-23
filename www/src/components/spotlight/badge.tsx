@@ -1,4 +1,3 @@
-import * as Tooltip from "@radix-ui/react-tooltip";
 import { BadgeType } from "@site/src/types";
 import { FC } from "react";
 import {
@@ -7,7 +6,13 @@ import {
   MyLoveIcon,
   ReactIcon,
   ThreeJSIcon,
-} from "../common/Icons";
+} from "@site/src/components/ui/icons";
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@site/src/components/ui/tooltip";
 
 type BadgeProps = {
   type: BadgeType;
@@ -58,25 +63,16 @@ const Badge: FC<BadgeProps> = ({ type }) => {
   const BadgeComponent = BadgeMap[type];
 
   return (
-    <Tooltip.Provider delayDuration={0}>
-      <Tooltip.Root>
-        <Tooltip.Trigger asChild>
-          <button className="w-fit bg-transparent border-none p-0">
-            <BadgeComponent />
-          </button>
-        </Tooltip.Trigger>
-        <Tooltip.Portal>
-          <Tooltip.Content
-            className="TooltipContent"
-            sideOffset={5}
-            side="bottom"
-          >
-            {BadgeLabel[type]}
-            <Tooltip.Arrow className="TooltipArrow" />
-          </Tooltip.Content>
-        </Tooltip.Portal>
-      </Tooltip.Root>
-    </Tooltip.Provider>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <button className="w-fit bg-transparent border-none p-0">
+          <BadgeComponent />
+        </button>
+      </TooltipTrigger>
+      <TooltipContent className="TooltipContent" sideOffset={5} side="bottom">
+        {BadgeLabel[type]}
+      </TooltipContent>
+    </Tooltip>
   );
 };
 

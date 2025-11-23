@@ -1,9 +1,9 @@
-import Page from "@site/src/components/common/Page";
-import FloatingMenu from "@site/src/components/home/floatingmenuv2";
-import Gallery from "@site/src/components/home/Gallery";
+import Page from "@site/src/components/ui/page";
+import FloatingMenu from "@site/src/components/home/floatingmenu";
 import { FC } from "react";
-import Work from "@site/src/components/home/Work";
-import Hobbies from "@site/src/components/home/Hobbies";
+import Work from "@site/src/components/home/experience";
+import Hobbies from "@site/src/components/home/hobbies";
+import Gallery from "@site/src/components/home/gallery";
 
 const WhoAmI: FC = () => {
   return (
