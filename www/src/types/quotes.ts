@@ -3,6 +3,7 @@ export interface QuoteContent {
   meaning: string;
   background: string;
   source: string;
+  sourceInfo: string;
   pinyin: string;
 }
 
