@@ -25,14 +25,14 @@ export default function Quote() {
       <HoverCardTrigger asChild>
         <div className="mb-2 flex gap-20 cursor-help">
           <span
-            className="text-muted-foreground"
+            className="text-muted-foreground letter"
             style={{ writingMode: "vertical-rl" }}
           >
             {featuredQuote.source}
           </span>
           {quoteParts.map((part, index) => (
             <span
-              className="text-2xl"
+              className="text-3xl tracking-widest"
               key={index}
               style={{ writingMode: "vertical-rl" }}
             >

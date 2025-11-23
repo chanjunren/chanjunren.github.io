@@ -14,7 +14,7 @@ const Playground: FC = () => {
       description="Hello! Welcome to my digital garden"
       className="lg:max-w-5xl flex flex-col justify-start gap-10"
     >
-      <div className="flex flex-col gap-10 items-center justify-center flex-grow">
+      <div className="flex flex-col gap-10 items-center justify-center grow">
         <label>
           <span className="mr-5">Viewbox</span>
           <input
