@@ -6,6 +6,7 @@
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+
 /* Reset Infima/Docusaurus kbd styling - but preserve component styles */
 kbd:not([data-slot]) {
   all: unset;
@@ -16,4 +17,3 @@ kbd[data-slot="kbd"],
 kbd[data-slot="kbd-group"] {
   all: revert-layer;
 }
-

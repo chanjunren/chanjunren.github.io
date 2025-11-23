@@ -5,9 +5,7 @@ const SecondaryHeader: FC<PropsWithChildren<{ className?: string }>> = ({
   className,
 }) => {
   return (
-    <span
-      className={`uppercase text-[var(--reduced-emphasis-color)] ${className}`}
-    >
+    <span className={`uppercase text-(--reduced-emphasis-color) ${className}`}>
       {children}
     </span>
   );

@@ -27,22 +27,34 @@ const FloatingMenu: FC = () => {
       className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-(--menu-background) p-2 rounded-xl"
     >
       <NavigationMenuList className="m-0 pl-3!">
-        <NavigationMenuItem>
-          <span className="text-lg pr-2 text-nowrap">陈俊任</span>
+        <NavigationMenuItem className="flex gap-2 items-center cursor-alias pr-3">
+          <Link
+            variant="menu"
+            href="/experiment"
+            className={"text-lg tracking-tight hover:bg-transparent!"}
+          >
+            嗨喽
+          </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>pages</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="text-md tracking-tight">
+            pages
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[200px] gap-4 m-0! p-0!">
               <li>
                 <NavigationMenuLink asChild>
-                  <Link variant="menu" href="#">
+                  <Link
+                    variant="menu"
+                    href="/whoami"
+                    className={"text-md tracking-tight"}
+                  >
                     whoami
                   </Link>
                 </NavigationMenuLink>
                 <NavigationMenuLink asChild>
                   <Link
-                    className="flex-row! justify-between items-center"
+                    className="flex-row! justify-between items-center text-md tracking-tight"
                     variant="menu"
                     href="/docs/zettelkasten"
                   >
@@ -62,13 +74,17 @@ const FloatingMenu: FC = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>contact</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="text-md tracking-tight">
+            contact
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[200px] gap-4 m-0! p-0!">
               <li>
                 <NavigationMenuLink asChild>
                   <Link
-                    className={"flex-row! gap-2 items-center"}
+                    className={
+                      "flex-row! gap-2 items-center text-md tracking-tight"
+                    }
                     variant="menu"
                     href="https://www.github.com/chanjunren"
                   >
@@ -78,7 +94,9 @@ const FloatingMenu: FC = () => {
                 </NavigationMenuLink>
                 <NavigationMenuLink asChild>
                   <Link
-                    className={"flex-row! gap-2 items-center"}
+                    className={
+                      "flex-row! gap-2 items-center text-md tracking-tight"
+                    }
                     variant="menu"
                     href="https://www.linkedin.com/in/jun-ren-chan-90240a175/"
                   >
@@ -88,7 +106,9 @@ const FloatingMenu: FC = () => {
                 </NavigationMenuLink>
                 <NavigationMenuLink asChild>
                   <Link
-                    className={"flex-row! gap-2 items-center"}
+                    className={
+                      "flex-row! gap-2 items-center text-md tracking-tight"
+                    }
                     variant="menu"
                     href="/documents/resume.pdf"
                   >

@@ -9,6 +9,7 @@ import snowboardingPreview from "@site/static/images/snowboarding.webp";
 import { FC, useEffect, useRef, useState } from "react";
 import PrimaryHeader from "../common/PrimaryHeader";
 import TypewriterText from "../common/TypewriterText";
+import CustomTag from "../ui/CustomTag";
 
 type HobbyCardProps = {
   label: string;
@@ -48,7 +49,7 @@ const HobbyCard: FC<HobbyCardProps> = ({
       onMouseLeave={() => setHovering(false)}
     >
       <div
-        className={`absolute inset-0 z-10 flex items-center justify-center rounded-md cursor-pointer transition-all duration-300 ${
+        className={`absolute inset-0 z-10 flex items-center justify-center rounded-lg cursor-pointer transition-all duration-300 ${
           hovering && !playing
             ? "opacity-100 backdrop-blur-sm"
             : "opacity-0 backdrop-blur-none pointer-events-none"
@@ -62,7 +63,7 @@ const HobbyCard: FC<HobbyCardProps> = ({
         />
       </div>
       <video
-        className={`rounded-md saturate-50 h-full`}
+        className={`rounded-lg saturate-50 h-full`}
         ref={videoRef}
         playsInline
         autoPlay={false}
@@ -76,8 +77,13 @@ const HobbyCard: FC<HobbyCardProps> = ({
 
 const Hobbies: FC = () => {
   return (
-    <section className="md:col-span-4 col-span-12">
-      <PrimaryHeader>🍉 hobbies</PrimaryHeader>
+    <section className="col-span-6 justify-self-end">
+      <CustomTag
+        color="iris"
+        className="text-lg tracking-tighter! justify-self-center! mb-5"
+      >
+        HOBBIES
+      </CustomTag>
       <div className="flex gap-5">
         <HobbyCard
           size="lg"

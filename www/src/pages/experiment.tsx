@@ -12,14 +12,7 @@ const Experiment: FC = () => {
       footer={null}
       menu={<FloatingMenu />}
     >
-      {/* <header className="self-start mb-3">
-        <CustomTag color="rose">陈俊任</CustomTag>
-      </header> */}
-      {/* <div className="flex gap-8"> */}
-      {/* <HomeImage /> */}
       <Quote />
-      {/* <HomeMenu /> */}
-      {/* </div> */}
     </Page>
   );
 };

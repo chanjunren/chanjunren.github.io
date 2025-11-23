@@ -1,13 +1,16 @@
 import { ReactElement } from "react";
-import PrimaryHeader from "../common/PrimaryHeader";
-import ProjectGallery from "../projects/ProjectGallery";
+import ProjectGallery from "@site/src/components/projects/ProjectGallery";
+import CustomTag from "@site/src/components/ui/CustomTag";
 
 export default function Gallery(): ReactElement {
   return (
     <section className="col-span-12">
-      <PrimaryHeader className="justify-self-center! mb-10">
-        🪴 gallery
-      </PrimaryHeader>
+      <CustomTag
+        className="text-lg tracking-tighter! justify-self-center! mb-5"
+        color="rose"
+      >
+        GALLERY
+      </CustomTag>
       <section className="col-span-12 grid md:grid-cols-12 gap-x-4 md:gap-y-3 gap-y-5 auto-rows-[240px] md:auto-rows-[190px]">
         <ProjectGallery />
       </section>
