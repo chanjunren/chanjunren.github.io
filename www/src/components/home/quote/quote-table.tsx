@@ -32,7 +32,7 @@ const QuoteTable: FC<IQuoteTable> = ({ quotes }) => {
             {/* <DialogDescription></DialogDescription> */}
           </DialogHeader>
           <ScrollArea>
-            <div className="p-4">
+            <div className="p-4 h-64">
               {quotes.map((quote, idx) => (
                 <Fragment key={`quote-table-item-${idx}`}>
                   <QuoteItem quoteInfo={quote.content} />
