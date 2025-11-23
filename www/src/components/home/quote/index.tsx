@@ -24,25 +24,27 @@ export default function Quote() {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <div className="mb-2 flex gap-20 cursor-help">
-          {/* <span
-            className="text-muted-foreground letter"
+        <div className="mb-2 flex cursor-help gap-8">
+          <span
+            className="text-muted-foreground letter tracking-widest self-end"
             style={{ writingMode: "vertical-rl" }}
           >
             {featuredQuote.source}
-          </span> */}
-          {quoteParts.map((part, index) => (
-            <span
-              className="text-3xl tracking-widest"
-              key={index}
-              style={{ writingMode: "vertical-rl" }}
-            >
-              {part.trim()}
-            </span>
-          ))}
+          </span>
+          <div className="gap-20 flex flex-row-reverse">
+            {quoteParts.map((part, index) => (
+              <span
+                className="text-3xl tracking-widest"
+                key={index}
+                style={{ writingMode: "vertical-rl" }}
+              >
+                {part.trim()}
+              </span>
+            ))}
+          </div>
         </div>
       </HoverCardTrigger>
-      <HoverCardContent className="w-auto max-w-6xl">
+      <HoverCardContent className="w-auto max-w-6xl" sideOffset={30}>
         <QuoteInfo quote={featuredQuote} />
       </HoverCardContent>
     </HoverCard>
