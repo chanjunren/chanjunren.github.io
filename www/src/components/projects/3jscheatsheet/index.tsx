@@ -1,6 +1,6 @@
 import { GalleryProjectInfo } from "@site/src/types";
-import SimpleCard from "../../common/SimpleCard";
-import Playground from "./Playground";
+import SimpleCard from "../../common/simple-card";
+import Playground from "./playground";
 
 const ThreeJsCheatsheetInfo: GalleryProjectInfo = {
   id: "threeJsLab",

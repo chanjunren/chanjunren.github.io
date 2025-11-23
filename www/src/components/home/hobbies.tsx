@@ -7,9 +7,8 @@ import skatingPreview from "@site/static/images/skating.webp";
 import snowboardingPreview from "@site/static/images/snowboarding.webp";
 
 import { FC, useEffect, useRef, useState } from "react";
-import PrimaryHeader from "../common/PrimaryHeader";
-import TypewriterText from "../common/TypewriterText";
-import CustomTag from "../ui/CustomTag";
+import TypewriterText from "@site/src/components/ui/typewriter-text";
+import CustomTag from "@site/src/components/ui/custom-tag";
 
 type HobbyCardProps = {
   label: string;
@@ -41,7 +40,7 @@ const HobbyCard: FC<HobbyCardProps> = ({
 
   return (
     <div
-      className={`cursor-pointer relative ${size === "lg" && "h-44"} ${
+      className={`cursor-pointer relative ${size === "lg" && "md:h-44 h-36"} ${
         size === "md" && "h-36"
       }`}
       onClick={() => setPlaying(true)}
@@ -84,9 +83,9 @@ const Hobbies: FC = () => {
       >
         HOBBIES
       </CustomTag>
-      <div className="flex gap-5">
+      <div className="flex gap-5 flex-col md:flex-row">
         <HobbyCard
-          size="lg"
+          size={"lg"}
           label="skating"
           mediaUrl={skatingVideo}
           preview={skatingPreview}

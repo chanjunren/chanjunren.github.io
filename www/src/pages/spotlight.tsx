@@ -1,8 +1,8 @@
 import { FC } from "react";
-import Page from "../components/common/Page";
-import BuildingInProgress from "../components/home/BuildingInProgress";
-import useGallery from "../components/home/hooks/useGallery";
-import ProjectInfo from "../components/spotlight/ProjectInfo";
+import Page from "@site/src/components/ui/page";
+import WIP from "@site/src/components/home/wip";
+import useGallery from "@site/src/hooks/useGallery";
+import ProjectInfo from "@site/src/components/spotlight/project-info";
 
 const Spotlight: FC = () => {
   const { selectedProject } = useGallery();
@@ -24,7 +24,7 @@ const Spotlight: FC = () => {
           <ProjectInfo {...selectedProject} />
         </>
       ) : (
-        <BuildingInProgress />
+        <WIP />
       )}
     </Page>
   );

@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import RotatingGeometry from "./RotatingGeometry";
+import RotatingGeometry from "./rotating-geometry";
 
 const Geometries = () => {
   return (

@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren, ReactNode } from "react";
-import SecondaryHeader from "../common/SecondaryHeader";
+import SecondaryHeader from "./secondary-header";
 
 type MiniSectionProps = {
   title: ReactNode;

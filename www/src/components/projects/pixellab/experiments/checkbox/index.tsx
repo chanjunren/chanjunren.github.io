@@ -1,6 +1,6 @@
-import { usePrevious } from "@site/src/components/hooks/usePrevious";
+import { usePrevious } from "@site/src/hooks/usePrevious";
 import { FC, useEffect, useRef, useState } from "react";
-import PixelLabContainer from "../../helpers/PixelLabContainer";
+import PixelLabContainer from "../../helpers/container";
 
 const CheckboxIcon: FC = () => {
   const [offset, setOffset] = useState<number>(15);

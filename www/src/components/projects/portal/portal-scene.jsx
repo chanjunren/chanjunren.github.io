@@ -6,7 +6,7 @@ import {
   useTexture,
 } from "@react-three/drei";
 import { WORKSPACE_ASSETS } from "@site/src/utils/constants";
-import PortalLight from "./PortalLight";
+import PortalLight from "./portal-light";
 
 const PortalMesh = ({ portal, texture }) => {
   return (

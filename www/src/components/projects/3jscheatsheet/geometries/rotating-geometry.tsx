@@ -1,6 +1,6 @@
 import { Text } from "@react-three/drei";
 import { MeshProps } from "@react-three/fiber";
-import useRotatingGeometry from "./useRotatingGeometry";
+import useRotatingGeometry from "../hooks/useRotatingGeometry";
 
 const BOX_SIDE = 0.4;
 const geometryMap = {

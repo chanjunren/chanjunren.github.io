@@ -1,5 +1,5 @@
 import { FC, SVGProps } from "react";
-import PixelLabContainer from "../../helpers/PixelLabContainer";
+import PixelLabContainer from "../../helpers/container";
 
 const GraphIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (

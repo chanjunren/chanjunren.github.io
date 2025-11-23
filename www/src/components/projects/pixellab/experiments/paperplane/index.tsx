@@ -1,6 +1,6 @@
 import classnames from "classnames";
 import { FC, SVGProps, useState } from "react";
-import PixelLabContainer from "../../helpers/PixelLabContainer";
+import PixelLabContainer from "../../helpers/container";
 import styles from "./index.module.css";
 
 const PaperPlaneIcon: FC<SVGProps<SVGSVGElement>> = (props) => {

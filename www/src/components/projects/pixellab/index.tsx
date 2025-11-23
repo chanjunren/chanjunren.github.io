@@ -1,7 +1,7 @@
 import { GalleryProjectInfo } from "@site/src/types";
-import SecondaryHeader from "../../common/SecondaryHeader";
-import SimpleCard from "../../common/SimpleCard";
-import Experiments from "./Experiments";
+import SecondaryHeader from "@site/src/components/ui/secondary-header";
+import SimpleCard from "@site/src/components/ui/simple-card";
+import Experiments from "./experiments";
 
 const PixelLabInfo: GalleryProjectInfo = {
   id: "pixelLab",

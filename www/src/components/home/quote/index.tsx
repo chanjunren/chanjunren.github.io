@@ -2,9 +2,10 @@ import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@site/src/components/ui/HoverCard";
-import TypewriterText from "../common/TypewriterText";
-import { useMateria } from "../home/hooks/useMateria";
+} from "@site/src/components/ui/hover-card";
+import TypewriterText from "@site/src/components/ui/typewriter-text";
+import { useMateria } from "@site/src/hooks/useMateria";
+import QuoteInfo from "./quote-info";
 const CHINESE_COMMA = "，";
 
 export default function Quote() {
@@ -24,12 +25,12 @@ export default function Quote() {
     <HoverCard>
       <HoverCardTrigger asChild>
         <div className="mb-2 flex gap-20 cursor-help">
-          <span
+          {/* <span
             className="text-muted-foreground letter"
             style={{ writingMode: "vertical-rl" }}
           >
             {featuredQuote.source}
-          </span>
+          </span> */}
           {quoteParts.map((part, index) => (
             <span
               className="text-3xl tracking-widest"
@@ -41,7 +42,9 @@ export default function Quote() {
           ))}
         </div>
       </HoverCardTrigger>
-      <HoverCardContent className="w-80"></HoverCardContent>
+      <HoverCardContent className="w-auto max-w-6xl">
+        <QuoteInfo quote={featuredQuote} />
+      </HoverCardContent>
     </HoverCard>
   );
 }

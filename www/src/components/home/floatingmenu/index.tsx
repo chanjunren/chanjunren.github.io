@@ -1,118 +1,124 @@
-import { DividerVerticalIcon } from "@radix-ui/react-icons";
-import * as Tooltip from "@radix-ui/react-tooltip";
-import { FC, ReactNode, useEffect, useState } from "react";
-import { createPortal } from "react-dom";
-import CustomTag from "../../ui/CustomTag";
+import { useWindowSize } from "@docusaurus/theme-common";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
-type IFloatingMenuItem = {
-  type: "link" | "externalLink" | "custom";
-  icon?: ReactNode;
-  link?: string;
-  label?: string;
-  custom?: FC;
-};
-
-const topics: IFloatingMenuItem[] = [
-  {
-    type: "link",
-    icon: (
-      <CustomTag color="rose" className="hover:scale-125 transition-transform">
-        哈喽
-      </CustomTag>
-    ),
-    link: "/",
-    label: "home",
-  },
-  {
-    type: "link",
-    icon: (
-      <CustomTag color="pine" className="hover:scale-125 transition-transform">
-        数园
-      </CustomTag>
-    ),
-    link: "/docs/zettelkasten",
-    label: "notes",
-  },
-  {
-    type: "custom",
-    custom: () => <DividerVerticalIcon className="self-center opacity-20" />,
-  },
-  {
-    type: "externalLink",
-    icon: (
-      <CustomTag color="foam" className="hover:scale-125 transition-transform">
-        请我
-      </CustomTag>
-    ),
-    link: "/documents/resume.pdf",
-    label: "resume",
-  },
-  {
-    type: "externalLink",
-    icon: (
-      <CustomTag color="iris" className="hover:scale-125 transition-transform">
-        吉特
-      </CustomTag>
-    ),
-    link: "https://www.github.com/chanjunren",
-    label: "github",
-  },
-  {
-    type: "externalLink",
-    icon: (
-      <CustomTag color="muted" className="hover:scale-125 transition-transform">
-        力银
-      </CustomTag>
-    ),
-    link: "https://www.linkedin.com/in/jun-ren-chan-90240a175/",
-    label: "linkedin",
-  },
-];
+import {
+  BackpackIcon,
+  GitHubLogoIcon,
+  LinkedInLogoIcon,
+} from "@radix-ui/react-icons";
+import { Kbd, KbdGroup } from "@site/src/components/ui/kbd";
+import { Link } from "@site/src/components/ui/link";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@site/src/components/ui/navigation-menu";
+import { FC } from "react";
+import NavbarExtras from "./extras";
 
 const FloatingMenu: FC = () => {
-  const [mounted, setMounted] = useState<boolean>(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null; // SSR-safe
-  return createPortal(
-    <nav
-      className={
-        "flex gap-4 fixed bottom-5 shadow-md " +
-        "rounded-md z-10 bg-white w-fit max-w-full inset-x-0 mx-auto px-6 py-5"
-      }
-    >
-      {topics.map(
-        ({ type, icon, link: key, custom: CustomItem, label }, index) =>
-          type === "link" || type === "externalLink" ? (
-            <Tooltip.Provider delayDuration={0} key={"menuItem" + index}>
-              <Tooltip.Root>
-                <Tooltip.Trigger asChild>
-                  <a
-                    className={`!no-underline !text-[var(--ifm-font-color-base)] bg-transparent
-                      flex items-center
-              `}
-                    href={key}
-                    target={type === "externalLink" ? "_blank" : "_self"}
-                  >
-                    {icon}
-                  </a>
-                </Tooltip.Trigger>
-                <Tooltip.Portal>
-                  <Tooltip.Content
-                    className="TooltipContent"
-                    sideOffset={17}
-                    side="bottom"
-                  >
-                    <span>{label}</span>
-                  </Tooltip.Content>
-                </Tooltip.Portal>
-              </Tooltip.Root>
-            </Tooltip.Provider>
-          ) : (
-            <CustomItem key={"menuItem" + index} />
-          )
+  const windowSize = useWindowSize();
+  const isMobile = windowSize === "mobile";
+  return (
+    <BrowserOnly>
+      {() => (
+        <NavigationMenu
+          viewport={isMobile}
+          className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-(--menu-background) p-2 rounded-xl"
+        >
+          <NavigationMenuList className="m-0 pl-3!">
+            <NavbarExtras />
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="text-md tracking-tight">
+                pages
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[200px] gap-4 m-0! p-0!">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        variant="menu"
+                        href="/whoami"
+                        className={"text-md tracking-tight"}
+                      >
+                        whoami
+                      </Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        className="flex-row! justify-between items-center text-md tracking-tight"
+                        variant="menu"
+                        href="/docs/zettelkasten"
+                      >
+                        <span>zettelkasten</span>
+                        <KbdGroup className="ml-2">
+                          <Kbd className="text-(--menu-subtle) bg-(--menu-muted-background)">
+                            ⌘
+                          </Kbd>
+                          <Kbd className="text-(--menu-subtle) bg-(--menu-muted-background)">
+                            K
+                          </Kbd>
+                        </KbdGroup>
+                      </Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="text-md tracking-tight">
+                contact
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[200px] gap-4 m-0! p-0!">
+                  <li>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        className={
+                          "flex-row! gap-2 items-center text-md tracking-tight"
+                        }
+                        variant="menu"
+                        href="https://www.github.com/chanjunren"
+                      >
+                        <GitHubLogoIcon className="text-background" />
+                        github
+                      </Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        className={
+                          "flex-row! gap-2 items-center text-md tracking-tight"
+                        }
+                        variant="menu"
+                        href="https://www.linkedin.com/in/jun-ren-chan-90240a175/"
+                      >
+                        <LinkedInLogoIcon className="text-background" />
+                        linkedin
+                      </Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        className={
+                          "flex-row! gap-2 items-center text-md tracking-tight"
+                        }
+                        variant="menu"
+                        href="/documents/resume.pdf"
+                      >
+                        <BackpackIcon className="text-background" />
+                        resume
+                      </Link>
+                    </NavigationMenuLink>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
       )}
-    </nav>,
-    document.body
+    </BrowserOnly>
   );
 };
 

@@ -1,7 +1,7 @@
 import { GalleryProjectInfo } from "@site/src/types";
 import { FC } from "react";
-import DocusaurusLink from "../common/DocusaurusLink";
-import CustomTag from "../ui/CustomTag";
+import DocusaurusLink from "@site/src/components/ui/docusaurus-link";
+import CustomTag from "@site/src/components/ui/custom-tag";
 
 const ProjectInfo: FC<GalleryProjectInfo> = ({
   title,

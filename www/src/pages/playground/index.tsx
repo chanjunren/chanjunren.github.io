@@ -1,4 +1,4 @@
-import Page from "@site/src/components/common/Page";
+import Page from "@site/src/components/ui/page";
 import debounce from "debounce";
 import { FC, useCallback, useState } from "react";
 import Shapes from "../../components/playground/shapes";

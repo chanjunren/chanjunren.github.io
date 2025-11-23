@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import PixelLabContainer from "../../helpers/PixelLabContainer";
+import PixelLabContainer from "../../helpers/container";
 
 const HandWave: FC = () => {
   const [wave, setWave] = useState<boolean>(false);

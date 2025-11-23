@@ -1,10 +1,10 @@
-import DocusaurusLink from "@site/src/components/common/DocusaurusLink";
-import BadgeList from "@site/src/components/spotlight/BadgeList";
+import DocusaurusLink from "@site/src/components/ui/docusaurus-link";
+import BadgeList from "@site/src/components/spotlight/badge-list";
 import { GalleryProjectInfo } from "@site/src/types";
 import IdealImage from "@theme/IdealImage";
-import { DocusaurusIcon } from "../../common/Icons";
-import SecondaryHeader from "../../common/SecondaryHeader";
-import VaultusaurusDemo from "./VaultusaurusDemo";
+import { DocusaurusIcon } from "@site/src/components/ui/icons";
+import SecondaryHeader from "@site/src/components/ui/secondary-header";
+import VaultusaurusDemo from "./vaultusaurus-demo";
 
 const VaultusaurusProject: GalleryProjectInfo = {
   id: "vaultusaurus",

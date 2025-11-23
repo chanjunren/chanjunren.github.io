@@ -1,6 +1,6 @@
 import { BadgeType } from "@site/src/types";
 import { FC } from "react";
-import Badge from "./Badge";
+import Badge from "@site/src/components/spotlight/badge";
 
 type BadgeListProps = {
   badges: BadgeType[];
