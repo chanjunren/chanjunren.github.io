@@ -22,6 +22,10 @@
 ### Window commands (Group of splits)
 - `${NUMBER}` - Jumps to specified window
 - `p / n` - Previous / next window
+- `c` - **Create New Window** 
+- `,` - **Rename Current Window** 
+- **List Windows:** `Ctrl+b` then `w`.
+- `&`: **Kill Current Window** 
 
 ### Session commands (Group of windows)
 - `s` - List of sessions
@@ -32,6 +36,8 @@
 - `tmux ls` - view list of sessions
 - `tmux attach -t ${session}` - attach to a specific session
 - `tmux detach` - detaches session from terminal
+
+
 
 ## Setup
 - https://github.com/tmux-plugins/tpm
