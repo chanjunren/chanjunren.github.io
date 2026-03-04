@@ -1,7 +1,8 @@
 {
   "accentColor": "#616161",
-  "cssTheme": "Minimal",
+  "cssTheme": "",
   "translucency": false,
-  "theme": "obsidian",
-  "monospaceFontFamily": "JetBrainsMono Nerd Font Mono"
+  "theme": "moonstone",
+  "monospaceFontFamily": "JetBrainsMono Nerd Font Mono",
+  "baseFontSize": 12
 }
