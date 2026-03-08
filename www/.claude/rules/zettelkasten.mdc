@@ -7,57 +7,53 @@ alwaysApply: false
 
 ## Structure
 - Template: 🗓️ datetime (DDMMYYYY HHmm), h1 title, content, References
-- Filename = h1 title (snake_case)
+- Filename = h1 title (snake_case), flat directory
 - One atomic concept per note
 
 ## Content
 
-**Opening (required):**
-- **What it is**: Clear definition (1-2 sentences)
-- **Problem it solves**: Why this concept exists
-
-**Body (use if relevant):**
+**Must have:**
+- **Core Concept**: What it is (1-2 sentences)
+- **Why it exists**: Problem it solves
 - When to use / when not to use
+- Trade-offs
+
+**Optional:**
 - Key distinctions (A vs B)
-- Trade-offs or gotchas
-- How it works (high-level only)
-
-**Style:**
-- Point form by default (bullet points, short statements)
-- Use h3 headings for subsections instead of bolded items
-- Bold key terms on first mention
-- Cut ruthlessly - details only if they aid understanding
-- No historical background unless it explains WHY
-- No obvious explanations
-
-## Formatting
-
-**Headings:**
-- h2 for main sections, h3 for subsections
-- Never use h4+
-- Use natural headings (not generic "Why", "When")
-- Prefer h3 subsections over bolded list items for structure
-
-**Tables:**
-- Definitions of related terms
+- Common pitfalls
 - Comparisons
-- Structured data
 
-**Links:**
+**Forbidden:**
+- Historical background unless it explains WHY
+- Obvious explanations
+- Code (unless cheatsheet requested)
+
+## Style
+- Flow: Core Concept → Why → When to Use → Trade-offs
+- Point form, short sentences, cut ruthlessly
+- Bold key terms on first mention
+
+## Headings
+- h2/h3 only, never h4+
+- Natural headings (not generic "Why", "When")
+- Prefer h3 subsections over bolded list items
+
+## Linking
 - Inline naturally: "See [[other_note]] for X"
-- NO "related to X because..." explanations
+- NO "because..." explanations on links
 - NO "Related Concepts" sections
 - Link only when: prerequisite, contrast, or logical next step
+- Only link to notes that exist
 
-**Admonitions:**
+## Admonitions
 - Max 2 per note
 - Types: `ad-warning`, `ad-danger`, `ad-example`
-- Use for: common pitfalls, critical gotchas, important examples
 - Keep concise (1-2 sentences)
 
-**References:**
-- Only verified sources at bottom
+## Accuracy
+- Verify before writing; cite sources for complex information
+- Only link to notes that exist
 
-## Code/Implementation
+## Code/Cheatsheet
 - Default: concepts only, no code
 - If user asks for cheatsheet: add Quick Reference section with syntax/examples
