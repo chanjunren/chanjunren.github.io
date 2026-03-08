@@ -16,7 +16,9 @@
                 "file": "zettelkasten/infrastructure/tools/tmux.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "tmux"
             }
           }
         ]
@@ -38,8 +40,11 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
-              }
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -54,7 +59,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,7 +69,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -85,7 +94,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/infrastructure/tools/tmux.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -93,7 +101,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
             }
           },
           {
@@ -102,10 +112,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/infrastructure/tools/tmux.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
             }
           },
           {
@@ -115,8 +126,12 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
-              }
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -125,8 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/infrastructure/tools/tmux.md"
-              }
+                "file": "zettelkasten/caffeine-refresh-vs-expire.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of caffeine-refresh-vs-expire"
             }
           }
         ]
@@ -138,6 +158,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -146,9 +167,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e7dd040f4c4e53f7",
+  "active": "6e6abe9f390ff817",
   "lastOpenFiles": [
+    "zettelkasten/backend/libraries/caffeine/caffeine-refresh-vs-expire.md",
+    "zettelkasten/backend/libraries/caffeine",
+    "zettelkasten/backend/libraries",
     "zettelkasten/caffeine-refresh-vs-expire.md",
+    "zettelkasten/backend/frameworks/java/caffeine-refresh-vs-expire.md",
+    "zettelkasten/infrastructure/tools/tmux.md",
     "zettelkasten/reno_dump.md",
     "zettelkasten/finance/investing/options_basics.md",
     "zettelkasten/finance/investing/options_learning_plan.md",
@@ -171,19 +197,14 @@
     "zettelkasten/finance/investing/options/diagonal_spreads.md",
     "zettelkasten/finance/investing/options/covered_call.md",
     "zettelkasten/finance/investing/options/cash_secured_put.md",
-    "zettelkasten/finance/investing/options/calendar_spreads.md",
     "zettelkasten/finance/investing/general",
     "zettelkasten/finance/investing/options",
-    "zettelkasten/finance/investing/diagonal_spreads.md",
-    "zettelkasten/finance/investing/calendar_spreads.md",
     "zettelkasten/languages/go",
     "zettelkasten/languages",
     "zettelkasten/backend/languages/go/tooling",
     "zettelkasten/backend/languages/go/architecture",
     "zettelkasten/backend/languages/go/fundamentals",
     "zettelkasten/backend/languages/go/testing",
-    "zettelkasten/backend/languages/go/concurrency",
-    "zettelkasten/backend/languages/go",
     "assets/Pasted image 20250828105751.png",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
