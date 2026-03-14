@@ -16,9 +16,7 @@
                 "file": "zettelkasten/infrastructure/tools/tmux.md",
                 "mode": "source",
                 "source": false
-              },
-              "icon": "lucide-file",
-              "title": "tmux"
+              }
             }
           }
         ]
@@ -40,11 +38,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
+                "sortOrder": "alphabetical"
+              }
             }
           },
           {
@@ -59,9 +54,7 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-search",
-              "title": "Search"
+              }
             }
           },
           {
@@ -69,9 +62,7 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "state": {}
             }
           }
         ]
@@ -94,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "zettelkasten/infrastructure/tools/tmux.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,9 +93,7 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks"
+              }
             }
           },
           {
@@ -112,11 +102,10 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "zettelkasten/infrastructure/tools/tmux.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links"
+              }
             }
           },
           {
@@ -126,12 +115,8 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
+                "useHierarchy": true
+              }
             }
           },
           {
@@ -140,13 +125,8 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/caffeine-refresh-vs-expire.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of caffeine-refresh-vs-expire"
+                "file": "zettelkasten/infrastructure/tools/tmux.md"
+              }
             }
           }
         ]
@@ -158,7 +138,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -167,44 +146,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6e6abe9f390ff817",
+  "active": "e7dd040f4c4e53f7",
   "lastOpenFiles": [
+    "zettelkasten/backend/languages/mvel_overview.md",
+    "zettelkasten/backend/languages/groovy_closures.md",
+    "zettelkasten/backend/libraries/log4j_custom_plugin.md",
+    "zettelkasten/backend/frameworks/netty/netty.md",
+    "zettelkasten/backend/frameworks/netty",
+    "zettelkasten/backend/frameworks/spring/spring_boot_application_lifecycle.md",
+    "zettelkasten/backend/frameworks/spring/spel_overview.md",
+    "zettelkasten/backend/frameworks/spring",
+    "zettelkasten/backend/languages/java/service_provider_interface.md",
+    "zettelkasten/backend/languages/java/jvm_options.md",
+    "zettelkasten/backend/languages/java/java_models.md",
+    "zettelkasten/backend/languages/java/jar_types.md",
+    "zettelkasten/backend/languages/java/closures.md",
+    "zettelkasten/backend/languages/java/class_loading.md",
+    "zettelkasten/backend/languages/java/java_synchronization_pitfalls.md",
+    "zettelkasten/backend/languages/java/java_double_checked_locking.md",
+    "zettelkasten/backend/languages/java/java_concurrency_data_structures.md",
+    "zettelkasten/backend/languages/java/java_concurrency_guidelines.md",
+    "zettelkasten/backend/languages/java/java_synchronized.md",
+    "zettelkasten/backend/languages/java",
+    "zettelkasten/backend/frameworks/java/java_synchronization_pitfalls.md",
+    "zettelkasten/backend/frameworks/java/java_double_checked_locking.md",
+    "zettelkasten/backend/concepts/fundamentals/compare_and_swap.md",
+    "zettelkasten/backend/concepts/fundamentals/cpu_cache_and_memory_visibility.md",
+    "zettelkasten/backend/concepts/fundamentals",
+    "zettelkasten/backend/concepts",
+    "zettelkasten/backend/frameworks/java/java_synchronized.md",
     "zettelkasten/home/practical_interior_design.md",
     "zettelkasten/home",
     "zettelkasten/backend/libraries/caffeine/caffeine-refresh-vs-expire.md",
     "zettelkasten/backend/libraries/caffeine",
     "zettelkasten/backend/libraries",
     "zettelkasten/caffeine-refresh-vs-expire.md",
-    "zettelkasten/backend/frameworks/java/caffeine-refresh-vs-expire.md",
-    "zettelkasten/infrastructure/tools/tmux.md",
     "zettelkasten/reno_dump.md",
-    "zettelkasten/finance/investing/options_basics.md",
-    "zettelkasten/finance/investing/options_learning_plan.md",
-    "zettelkasten/finance/investing/general/value_investing.md",
-    "zettelkasten/finance/investing/general/technical_analysis.md",
-    "zettelkasten/finance/investing/general/stock_quick_start.md",
-    "zettelkasten/finance/investing/general/passive_investing.md",
-    "zettelkasten/finance/investing/general/exchange_traded_funds.md",
-    "zettelkasten/finance/investing/options/vertical_spreads.md",
-    "zettelkasten/finance/investing/options/options_risk_management.md",
-    "zettelkasten/finance/investing/options/options_learning_plan.md",
-    "zettelkasten/finance/investing/options/options_greeks.md",
-    "zettelkasten/finance/investing/options/options_expiration.md",
-    "zettelkasten/finance/investing/options/options_basics.md",
-    "zettelkasten/finance/investing/options/long_put.md",
-    "zettelkasten/finance/investing/options/long_call.md",
-    "zettelkasten/finance/investing/options/iron_condor.md",
-    "zettelkasten/finance/investing/options/intrinsic_extrinsic_value.md",
-    "zettelkasten/finance/investing/options/implied_volatility.md",
-    "zettelkasten/finance/investing/options/diagonal_spreads.md",
-    "zettelkasten/finance/investing/options/covered_call.md",
     "zettelkasten/finance/investing/general",
     "zettelkasten/finance/investing/options",
-    "zettelkasten/languages/go",
-    "zettelkasten/languages",
-    "zettelkasten/backend/languages/go/tooling",
-    "zettelkasten/backend/languages/go/architecture",
-    "zettelkasten/backend/languages/go/fundamentals",
     "assets/Pasted image 20250828105751.png",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
