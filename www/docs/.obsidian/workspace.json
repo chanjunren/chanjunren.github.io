@@ -148,6 +148,7 @@
   },
   "active": "e7dd040f4c4e53f7",
   "lastOpenFiles": [
+    "zettelkasten/infrastructure/tools/postman_scripts_cheatsheet.md",
     "zettelkasten/backend/languages/mvel_overview.md",
     "zettelkasten/backend/languages/groovy_closures.md",
     "zettelkasten/backend/libraries/log4j_custom_plugin.md",
@@ -181,7 +182,6 @@
     "zettelkasten/backend/libraries/caffeine",
     "zettelkasten/backend/libraries",
     "zettelkasten/caffeine-refresh-vs-expire.md",
-    "zettelkasten/reno_dump.md",
     "zettelkasten/finance/investing/general",
     "zettelkasten/finance/investing/options",
     "assets/Pasted image 20250828105751.png",
