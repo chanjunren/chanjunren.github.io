@@ -69,7 +69,7 @@ timer.record(() -> {
 timer.record(Duration.ofMillis(123));
 ```
 
-**Prometheus Export**: Becomes [[prometheus_histograms]] (default) or Summary
+**Prometheus Export**: Becomes [[prometheus_data_types#Histograms|Histogram]] (default) or Summary
 - Exported as: `http_request_duration_seconds_*`
 - `_count` - total number of events
 - `_sum` - total duration in seconds
@@ -167,7 +167,7 @@ summary.record(1024);      // Record 1KB
 summary.record(2048);      // Record 2KB
 ```
 
-**Prometheus Export**: Becomes [[prometheus_histograms]] or Summary (same as Timer, but for sizes not durations)
+**Prometheus Export**: Becomes [[prometheus_data_types#Histograms|Histogram]] or Summary (same as Timer, but for sizes not durations)
 - Exported as: `request_size_bytes_*`
 - Same bucket/percentile behavior as Timer
 
