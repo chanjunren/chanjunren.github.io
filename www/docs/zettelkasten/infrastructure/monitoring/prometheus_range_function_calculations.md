@@ -12,6 +12,64 @@ Knowing the actual calculations helps you understand what visualizations represe
 
 This builds on [[prometheus_time_series_basics]] - you need to understand that range selectors like `[5m]` return arrays of samples.
 
+## Quick Reference
+
+### Rate & Counter Functions
+
+| Function     | What It Does                 | When To Use                               |
+|--------------|------------------------------|-------------------------------------------|
+| `rate()`     | Per-second average rate      | **DEFAULT** - counters (requests, errors) |
+| `irate()`    | Instant rate (last 2 points) | Spike detection (use sparingly)           |
+| `increase()` | Total increase in range      | "How many X in last Y?"                   |
+
+### Aggregation Functions
+
+| Function                              | What It Does     | When To Use             |
+|---------------------------------------|------------------|-------------------------|
+| `avg_over_time()`                     | Average          | Smooth noisy gauges     |
+| `min_over_time()` / `max_over_time()` | Min/Max          | Find peaks/troughs      |
+| `sum_over_time()`                     | Sum              | Total accumulated value |
+| `count_over_time()`                   | Data point count | Detect gaps             |
+
+### Statistical Functions
+
+| Function                   | What It Does                | When To Use        |
+|----------------------------|-----------------------------|--------------------|
+| `quantile_over_time(φ, v)` | Percentiles (p50, p95, p99) | Latency analysis   |
+| `stddev_over_time()`       | Standard deviation          | Detect instability |
+
+### Change Detection
+
+| Function    | What It Does        | When To Use                     |
+|-------------|---------------------|---------------------------------|
+| `delta()`   | First - last value  | Gauge changes (can be negative) |
+| `changes()` | Times value changed | Flapping detection              |
+| `resets()`  | Counter resets      | Service restart detection       |
+
+### Prediction Functions
+
+| Function               | What It Does                | When To Use             |
+|------------------------|-----------------------------|-------------------------|
+| `deriv()`              | Per-second derivative       | Trend analysis (gauges) |
+| `predict_linear(v, t)` | Future value in `t` seconds | Capacity planning       |
+
+### Time Ranges
+
+| Range   | When                       |
+|---------|----------------------------|
+| `[5m]`  | **Default** - good balance |
+| `[1m]`  | Real-time alerts           |
+| `[1h]`  | Dashboards                 |
+| `[24h]` | Daily patterns             |
+
+```ad-warning
+Range must be ≥ 2x scrape interval (if scrape = 30s, use ≥ 1m)
+```
+
+```ad-tip
+Use `rate()` for most cases. Only use `irate()` for catching spikes < 1 minute.
+```
+
 ## How Range Functions Work
 
 **Input**: Array of samples from range selector
@@ -273,34 +331,6 @@ Scrape every 15s, query rate(metric[5m]):
 ```
 Scrape interval = 30s
 Minimum range = [1m] (ensures at least 2 samples)
-```
-
-## Quick Reference
-
-```promql
-# Counter functions (handle resets)
-rate(metric[5m])              # per-second average rate
-irate(metric[1m])             # instant rate (last 2 points)
-increase(metric[5m])          # total increase
-
-# Gauge aggregations
-avg_over_time(metric[5m])     # average
-min_over_time(metric[5m])     # minimum
-max_over_time(metric[5m])     # maximum
-sum_over_time(metric[5m])     # sum
-
-# Statistics
-quantile_over_time(0.95, metric[5m])  # 95th percentile
-stddev_over_time(metric[5m])          # standard deviation
-
-# Change detection
-delta(metric[5m])             # first - last (gauges)
-changes(metric[5m])           # times value changed
-resets(metric[5m])            # counter resets
-
-# Prediction
-deriv(metric[1h])             # per-second derivative
-predict_linear(metric[1h], 3600)  # predict 1h ahead
 ```
 
 ---
