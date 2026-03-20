@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "86d32c8db5d81679",
+        "id": "f379a2c73e5e9e5b",
         "type": "tabs",
         "children": [
           {
-            "id": "e7dd040f4c4e53f7",
+            "id": "4d4c5c29d81de5aa",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "zettelkasten/infrastructure/tools/tmux.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/infrastructure/tools/tmux.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/infrastructure/tools/tmux.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "zettelkasten/infrastructure/tools/tmux.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -146,8 +138,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e7dd040f4c4e53f7",
+  "active": "4d4c5c29d81de5aa",
   "lastOpenFiles": [
+    "zettelkasten/concepts/ai-agents/ai_systems_learning_roadmap.md",
+    "zettelkasten/concepts/ai-agents/agent_memory_and_state.md",
+    "zettelkasten/concepts/ai-agents/llm_tool_use.md",
+    "zettelkasten/concepts/ai-agents/custom_mcp_servers.md",
+    "zettelkasten/concepts/ai-agents/model_context_protocol.md",
+    "zettelkasten/concepts/ai-agents/agent_as_tool_pattern.md",
+    "zettelkasten/concepts/ai-agents/coordinator_router_pattern.md",
+    "zettelkasten/concepts/ai-agents/loop_review_critique_pattern.md",
+    "zettelkasten/concepts/ai-agents/agentic_design_patterns.md",
+    "zettelkasten/concepts/ai-agents",
+    "zettelkasten/infrastructure/monitoring/micrometer_promql_cheatsheet.md",
+    "zettelkasten/infrastructure/tools/tmux.md",
     "zettelkasten/infrastructure/tools/postman_scripts_cheatsheet.md",
     "zettelkasten/backend/languages/mvel_overview.md",
     "zettelkasten/backend/languages/groovy_closures.md",
@@ -165,25 +169,13 @@
     "zettelkasten/backend/languages/java/class_loading.md",
     "zettelkasten/backend/languages/java/java_synchronization_pitfalls.md",
     "zettelkasten/backend/languages/java/java_double_checked_locking.md",
-    "zettelkasten/backend/languages/java/java_concurrency_data_structures.md",
-    "zettelkasten/backend/languages/java/java_concurrency_guidelines.md",
-    "zettelkasten/backend/languages/java/java_synchronized.md",
     "zettelkasten/backend/languages/java",
-    "zettelkasten/backend/frameworks/java/java_synchronization_pitfalls.md",
-    "zettelkasten/backend/frameworks/java/java_double_checked_locking.md",
-    "zettelkasten/backend/concepts/fundamentals/compare_and_swap.md",
-    "zettelkasten/backend/concepts/fundamentals/cpu_cache_and_memory_visibility.md",
     "zettelkasten/backend/concepts/fundamentals",
     "zettelkasten/backend/concepts",
-    "zettelkasten/backend/frameworks/java/java_synchronized.md",
-    "zettelkasten/home/practical_interior_design.md",
     "zettelkasten/home",
-    "zettelkasten/backend/libraries/caffeine/caffeine-refresh-vs-expire.md",
     "zettelkasten/backend/libraries/caffeine",
     "zettelkasten/backend/libraries",
-    "zettelkasten/caffeine-refresh-vs-expire.md",
     "zettelkasten/finance/investing/general",
-    "zettelkasten/finance/investing/options",
     "assets/Pasted image 20250828105751.png",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
