@@ -1,11 +1,6 @@
-import QuoteInfo from "@site/src/components/home/quote/quote-info";
 import QuoteItem from "@site/src/components/home/quote/quote-item";
+import QuoteStatistics from "@site/src/components/home/quote/quote-statistics";
 import QuoteTable from "@site/src/components/home/quote/quote-table";
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@site/src/components/ui/hover-card";
 import TypewriterText from "@site/src/components/ui/typewriter-text";
 import { useMateria } from "@site/src/hooks/useMateria";
 const CHINESE_COMMA = "，";
@@ -17,7 +12,7 @@ export default function Quote() {
     return <TypewriterText active text={message} />;
   }
 
-  if (!featuredQuote) {
+  if (!featuredQuote || !quotes) {
     return null;
   }
 
@@ -26,7 +21,10 @@ export default function Quote() {
   return (
     <div className="flex gap-5">
       <div className="flex flex-col justify-between">
-        <QuoteTable quotes={quotes} />
+        <div className={"flex flex-col gap-2"}>
+          <QuoteTable quotes={quotes} />
+          <QuoteStatistics />
+        </div>
         <span
           className="text-muted-foreground letter tracking-widest"
           style={{ writingMode: "vertical-rl" }}
