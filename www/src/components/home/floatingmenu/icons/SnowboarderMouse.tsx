@@ -1,7 +1,7 @@
 import {FC} from "react";
-import styles from "./skater.module.css";
+import styles from "./snowboard.module.css";
 
-export const SkaterMouse: FC<{ className?: string }> = ({className}) => (
+export const SnowboarderMouse: FC<{ className?: string }> = ({className}) => (
   <svg
     className={className ?? styles.menuSkater}
     viewBox="40 65 390 380"

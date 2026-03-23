@@ -8,7 +8,7 @@ import {Tooltip, TooltipContent, TooltipTrigger,} from "@site/src/components/ui/
 import {FC, ReactNode, useState} from "react";
 import NavbarExtras from "./extras";
 import {AboutIcon, GithubIcon, LinkedinIcon, NotesIcon, ResumeIcon} from "./icons";
-import {SkaterMouse} from "./icons/SkaterMouse";
+import {SnowboarderMouse} from "./icons/SnowboarderMouse";
 
 const Divider: FC = () => (
   <div className="h-5 w-px bg-(--menu-subtle)/40 mx-1"/>
@@ -91,7 +91,7 @@ const FloatingMenu: FC = () => {
           viewport={isMobile}
           className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-(--menu-background) p-2 rounded-xl border border-border shadow-sm"
         >
-          {homeHovering && <SkaterMouse/>}
+          {homeHovering && <SnowboarderMouse/>}
           <NavigationMenuList className="m-0 pl-3!">
             <NavbarExtras/>
 

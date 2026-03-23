@@ -10,7 +10,7 @@
   top: 50%;
   left: 50%;
   pointer-events: none;
-  font-size: 0.88rem;
+  font-size: 1rem;
   opacity: 0;
   color: var(--menu-foreground);
 }
@@ -80,7 +80,7 @@
   }
   100% {
     opacity: 0;
-    transform: translate(-300%, -50%) scale(1);
+    transform: translate(-250%, 150%) scale(1);
   }
 }
 
@@ -105,7 +105,7 @@
   font-size: 0.8rem;
   /*font-weight: 500;*/
   color: var(--menu-foreground);
-  animation: jumpGreeting 4s ease-out forwards;
+  animation: jumpGreeting 0.5s ease-out forwards;
 }
 
 @keyframes jumpGreeting {
