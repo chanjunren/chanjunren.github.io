@@ -70,9 +70,23 @@ const FloatingMenu: FC = () => {
             <MenuIconLink href="https://www.linkedin.com/in/jun-ren-chan-90240a175/" label="linkedin">
               <LinkedInLogoIcon/>
             </MenuIconLink>
-            <MenuIconLink href="/documents/resume.pdf" label="resume">
-              <BackpackIcon/>
-            </MenuIconLink>
+            <NavigationMenuItem>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a
+                    href="/documents/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-(--menu-foreground)! no-underline! text-md tracking-tight p-2 rounded-md hover:bg-(--menu-accent)! hover:text-(--menu-foreground)!"
+                  >
+                    <BackpackIcon/>
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent side="top" sideOffset={8}>
+                  resume
+                </TooltipContent>
+              </Tooltip>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
       )}
