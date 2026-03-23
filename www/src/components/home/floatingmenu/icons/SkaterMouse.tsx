@@ -1,10 +1,10 @@
 import {FC} from "react";
-import styles from "./icons.module.css";
+import styles from "./skater.module.css";
 
 export const SkaterMouse: FC<{ className?: string }> = ({className}) => (
   <svg
     className={className ?? styles.menuSkater}
-    viewBox="40 65 330 380"
+    viewBox="40 65 390 380"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -43,10 +43,18 @@ export const SkaterMouse: FC<{ className?: string }> = ({className}) => (
         d="M275 231C289.548 241.884 298.548 250.551 302 257"
         strokeWidth="16"
       />
-      {/* left arm */}
-      <path d="M221 225C206.393 243.15 197.727 258.483 195 271" strokeWidth="16"/>
-      {/* right foot */}
-      <path d="M284 307L286.997 312.055L299 319" strokeWidth="16"/>
+      {/* left arm (waving) */}
+      <path
+        className={styles.wavingArmLeft}
+        d="M221 225C206.393 243.15 197.727 258.483 195 271"
+        strokeWidth="16"
+      />
+      {/* right foot (crouch) */}
+      <path
+        className={styles.crouchFoot}
+        d="M284 307L286.997 312.055L299 319"
+        strokeWidth="16"
+      />
       {/* left foot */}
       <path d="M209 311C209 316.44 206.333 319.44 201 320" strokeWidth="16"/>
       {/* eyes */}
@@ -54,18 +62,9 @@ export const SkaterMouse: FC<{ className?: string }> = ({className}) => (
       <path d="M240 175L237 171" strokeWidth="12"/>
     </g>
 
-    {/* Skateboard (fill-based, scaled and positioned under mouse feet) */}
-    <g transform="translate(106, 235) scale(0.65)" fill="currentColor" stroke="currentColor" strokeWidth="8">
-      {/* deck */}
-      <path
-        d="M462.535,176.532c-1.3-4-5.6-6-9.5-4.7l-44.6,15.3c-4.5,1.3-8.8,2.5-12.7,2.5h-328.5c-5.1,0-9.2-1.2-13.9-2.5l-43.3-15.3c-3.9-1.4-8.2,0.7-9.6,4.6c-1.4,3.9,0.7,8.2,4.6,9.6l43.6,15.4c0.2,0.1,0.3,0.2,0.5,0.2c5.1,1.5,10.9,3.1,18.2,3.1h328.5v0c6,0,11.5-1.6,16.8-3.2c0.1,0,0.3-0.1,0.4-0.1l44.8-15.4C461.835,184.732,463.835,180.432,462.535,176.532z"
-      />
-      {/* front wheel */}
-      <path
-        d="M126.935,220.532c-19.6,0-35.5,15.9-35.5,35.5s15.9,35.5,35.5,35.5c19.6,0,35.5-15.9,35.5-35.5S146.535,220.532,126.935,220.532z M126.935,276.532c-11.3,0-20.5-9.2-20.5-20.5s9.2-20.5,20.5-20.5s20.5,9.2,20.5,20.5S138.235,276.532,126.935,276.532z"/>
-      {/* rear wheel */}
-      <path
-        d="M336.135,220.532c-19.6,0-35.5,15.9-35.5,35.5s15.9,35.5,35.5,35.5c19.6,0,35.5-15.9,35.5-35.5S355.735,220.532,336.135,220.532z M336.135,276.532c-11.3,0-20.5-9.2-20.5-20.5s9.2-20.5,20.5-20.5c11.3,0,20.5,9.2,20.5,20.5S347.435,276.532,336.135,276.532z"/>
+    {/* Snowboard (symmetric deck with upturned ends) */}
+    <g transform="translate(55, 235) scale(0.75)" fill="currentColor" stroke="currentColor" strokeWidth="17">
+      <path d="M 50,185 Q 5,185 15,168 L 50,175 H 412 L 447,168 Q 457,185 412,185 Z"/>
     </g>
   </svg>
 );

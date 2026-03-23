@@ -1,5 +1,6 @@
-import {PersonIcon, ReaderIcon} from "@radix-ui/react-icons";
+import {BackpackIcon, GitHubLogoIcon, LinkedInLogoIcon, PersonIcon, ReaderIcon} from "@radix-ui/react-icons";
 import {FC} from "react";
+import contactStyles from "./contact.module.css";
 import styles from "./icons.module.css";
 
 const NOTES_CHARACTERS = ["读", "累"];
@@ -20,5 +21,23 @@ export const AboutIcon: FC<{ hovering: boolean }> = ({hovering}) => (
   <div className={styles.wrapper}>
     <PersonIcon/>
     {hovering && <span className={styles.greeting}>嗨！</span>}
+  </div>
+);
+
+export const GithubIcon: FC<{ hovering: boolean }> = ({hovering}) => (
+  <div className={hovering ? contactStyles.shake : undefined}>
+    <GitHubLogoIcon/>
+  </div>
+);
+
+export const LinkedinIcon: FC<{ hovering: boolean }> = ({hovering}) => (
+  <div className={hovering ? contactStyles.jump : undefined}>
+    <LinkedInLogoIcon/>
+  </div>
+);
+
+export const ResumeIcon: FC<{ hovering: boolean }> = ({hovering}) => (
+  <div className={hovering ? contactStyles.spin : undefined}>
+    <BackpackIcon/>
   </div>
 );

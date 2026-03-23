@@ -95,51 +95,6 @@
   }
 }
 
-/* Home icon — skating mouse across menu top */
-
-.menuSkater {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 2rem;
-  width: auto;
-  pointer-events: none;
-  color: var(--menu-foreground);
-  /* push off → accelerate → coast → gentle stop */
-  animation: skateAcross 3.5s ease-in-out forwards;
-}
-
-@keyframes skateAcross {
-  0% {
-    opacity: 0;
-    transform: translate(-100%, -85%);
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(var(--menu-width, 320px), -65%);
-  }
-}
-
-.wavingArm {
-  transform-origin: 275px 231px; /* shoulder pivot */
-  animation: wave 0.5s ease-in-out alternate infinite;
-}
-
-@keyframes wave {
-  0% {
-    transform: rotate(-20deg);
-  }
-  100% {
-    transform: rotate(-75deg);
-  }
-}
-
 /* About icon — 嗨！ pop */
 
 .greeting {
@@ -150,7 +105,7 @@
   font-size: 0.8rem;
   /*font-weight: 500;*/
   color: var(--menu-foreground);
-  animation: jumpGreeting 0.4s ease-out forwards;
+  animation: jumpGreeting 4s ease-out forwards;
 }
 
 @keyframes jumpGreeting {
