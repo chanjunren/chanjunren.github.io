@@ -1,7 +1,7 @@
-import { useState } from "react";
+import {useState} from "react";
 import PixelLabContainer from "../../helpers/container";
-import { Background } from "./background";
-import { Data } from "./data";
+import {Background} from "@site/src/components/projects/pixelLab/experiments/chart/background";
+import {Data} from "@site/src/components/projects/pixelLab/experiments/chart/data";
 
 export default function Chart() {
   const [data, setData] = useState({
@@ -28,8 +28,8 @@ export default function Chart() {
         width="100"
         className="cursor-pointer"
       >
-        <Background data={data} />
-        <Data data={data} />
+        <Background data={data}/>
+        <Data data={data}/>
       </svg>
     </PixelLabContainer>
   );
