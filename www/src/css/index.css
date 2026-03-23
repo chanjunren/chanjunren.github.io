@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono&display=swap');
 
 @import url("./prism-rose-pine.css");
 @import url("./docusaurus-rose-pine.css");
 @import url("./search.css");
 @import url("./shadcn.css");
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -13,7 +15,7 @@
 /* You can override the default Infima variables here. */
 :root {
   --borderWidth-thin: max(1px, 0.0625rem);
-  --ifm-heading-font-family: "JetBrains Mono", serif;
+  --ifm-heading-font-family: "Geist Mono", serif;
 }
 
 * {
@@ -143,6 +145,7 @@ nav.navbar.navbar--fixed-top {
   :root {
     --ifm-navbar-height: 0;
   }
+
   .col[class*="docItemCol_"] {
     max-width: 60% !important;
   }
