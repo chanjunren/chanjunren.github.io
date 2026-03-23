@@ -7,6 +7,7 @@ import {NavigationMenu, NavigationMenuItem, NavigationMenuList,} from "@site/src
 import {Tooltip, TooltipContent, TooltipTrigger,} from "@site/src/components/ui/tooltip";
 import {FC, ReactNode} from "react";
 import NavbarExtras from "./extras";
+import NotesHoverWrapper from "./notes-hover";
 
 const Divider: FC = () => (
   <div className="h-5 w-px bg-(--menu-subtle)/40 mx-1"/>
@@ -54,9 +55,11 @@ const FloatingMenu: FC = () => {
             <MenuIconLink href="/" label="home">
               <HomeIcon/>
             </MenuIconLink>
-            <MenuIconLink href="/docs/zettelkasten" label="notes">
-              <ReaderIcon/>
-            </MenuIconLink>
+            <NotesHoverWrapper>
+              <MenuIconLink href="/docs/zettelkasten" label="notes">
+                <ReaderIcon/>
+              </MenuIconLink>
+            </NotesHoverWrapper>
             <MenuIconLink href="/whoami" label="about">
               <PersonIcon/>
             </MenuIconLink>
