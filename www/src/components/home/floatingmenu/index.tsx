@@ -5,9 +5,10 @@ import {BackpackIcon, GitHubLogoIcon, HomeIcon, LinkedInLogoIcon,} from "@radix-
 import {Link} from "@site/src/components/ui/link";
 import {NavigationMenu, NavigationMenuItem, NavigationMenuList,} from "@site/src/components/ui/navigation-menu";
 import {Tooltip, TooltipContent, TooltipTrigger,} from "@site/src/components/ui/tooltip";
-import {FC, ReactNode, useState} from "react";
+import {FC, ReactNode, useCallback, useRef, useState} from "react";
 import NavbarExtras from "./extras";
 import {AboutIcon, NotesIcon} from "./icons";
+import {SkaterMouse} from "./icons/SkaterMouse";
 
 const Divider: FC = () => (
   <div className="h-5 w-px bg-(--menu-subtle)/40 mx-1"/>
@@ -17,15 +18,22 @@ interface MenuIconLinkProps {
   href: string;
   label: string;
   children: ReactNode | ((hovering: boolean) => ReactNode);
+  onHoverChange?: (hovering: boolean) => void;
 }
 
-const MenuIconLink: FC<MenuIconLinkProps> = ({href, label, children}) => {
+const MenuIconLink: FC<MenuIconLinkProps> = ({href, label, children, onHoverChange}) => {
   const [hovering, setHovering] = useState(false);
 
   return (
     <NavigationMenuItem
-      onMouseEnter={() => setHovering(true)}
-      onMouseLeave={() => setHovering(false)}
+      onMouseEnter={() => {
+        setHovering(true);
+        onHoverChange?.(true);
+      }}
+      onMouseLeave={() => {
+        setHovering(false);
+        onHoverChange?.(false);
+      }}
     >
       <Tooltip>
         <TooltipTrigger asChild>
@@ -48,18 +56,30 @@ const MenuIconLink: FC<MenuIconLinkProps> = ({href, label, children}) => {
 const FloatingMenu: FC = () => {
   const windowSize = useWindowSize();
   const isMobile = windowSize === "mobile";
+  const [homeHovering, setHomeHovering] = useState(false);
+  const menuRef = useRef<HTMLElement>(null);
+
+  const handleHomeHover = useCallback((hovering: boolean) => {
+    if (hovering && menuRef.current) {
+      menuRef.current.style.setProperty("--menu-width", `${menuRef.current.offsetWidth}px`);
+    }
+    setHomeHovering(hovering);
+  }, []);
+
   return (
     <BrowserOnly>
       {() => (
         <NavigationMenu
+          ref={menuRef}
           viewport={isMobile}
           className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-(--menu-background) p-2 rounded-xl border border-border shadow-sm"
         >
+          {homeHovering && <SkaterMouse/>}
           <NavigationMenuList className="m-0 pl-3!">
             <NavbarExtras/>
 
             {/* Pages */}
-            <MenuIconLink href="/" label="home">
+            <MenuIconLink href="/" label="home" onHoverChange={handleHomeHover}>
               <HomeIcon/>
             </MenuIconLink>
             <MenuIconLink href="/docs/zettelkasten" label="notes">
