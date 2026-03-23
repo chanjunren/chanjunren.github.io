@@ -1,5 +1,5 @@
 :root {
-  --ifm-font-size-base: 78%;
+  --ifm-font-size-base: 82%;
   /* --ifm-heading-font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; */
   --ifm-heading-font-family: "JetBrains Mono", serif;
 
@@ -16,7 +16,6 @@
   --ifm-color-primary-lightest: #ebc1bf;
   --ifm-background-color: #f8f7f6 !important;
   --ifm-font-color-base: #575279 !important;
-
   --reduced-emphasis-color: var(--ifm-color-emphasis-600);
   --rose-hover: #21202e;
 }
@@ -128,7 +127,7 @@ nav.navbar.navbar--fixed-top {
 }
 
 .menu__link--active {
-    color: var(--ifm-menu-color) !important;
+  color: var(--ifm-menu-color) !important;
 }
 
 .navbar__inner {
