@@ -1,13 +1,13 @@
-import { FC } from "react";
-import Align from "./experiments/align";
-import Chart from "./experiments/chart";
-import Checkbox from "./experiments/checkbox";
-import BouncingDownload from "./experiments/download";
-import Dustbin from "./experiments/dustbin";
-import Graph from "./experiments/graph";
-import HandWave from "./experiments/handwave";
-import NanCircle1 from "./experiments/nancircle1";
-import PaperPlane from "./experiments/paperplane";
+import {FC} from "react";
+import HandWave from "@site/src/components/projects/pixelLab/experiments/handwave";
+import PaperPlane from "@site/src/components/projects/pixelLab/experiments/paperplane";
+import Align from "@site/src/components/projects/pixelLab/experiments/align";
+import Dustbin from "@site/src/components/projects/pixelLab/experiments/dustbin";
+import Graph from "@site/src/components/projects/pixelLab/experiments/graph";
+import BouncingDownload from "@site/src/components/projects/pixelLab/experiments/download";
+import Chart from "@site/src/components/projects/pixelLab/experiments/chart";
+import NanCircle1 from "@site/src/components/projects/pixelLab/experiments/nancircle1";
+import Checkbox from "@site/src/components/projects/pixelLab/experiments/checkbox";
 
 const Experiments: FC = () => {
   return (
@@ -33,15 +33,15 @@ const Experiments: FC = () => {
         } as React.CSSProperties
       }
     >
-      <HandWave />
-      <PaperPlane />
-      <Align />
-      <Dustbin />
-      <Graph />
-      <BouncingDownload />
-      <Chart />
-      <NanCircle1 />
-      <Checkbox />
+      <HandWave/>
+      <PaperPlane/>
+      <Align/>
+      <Dustbin/>
+      <Graph/>
+      <BouncingDownload/>
+      <Chart/>
+      <NanCircle1/>
+      <Checkbox/>
     </div>
   );
 };
