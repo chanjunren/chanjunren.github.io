@@ -30,7 +30,7 @@ const Background: FC = () => {
       <text
         key={`y-${i}`}
         x={-2}
-        y={100 - i * 10 + 1}
+        y={i * 10 + 1}
         textAnchor="end"
         fontSize="3"
         className="fill-[var(--ifm-font-color-base)]"
