@@ -3,14 +3,14 @@ import {FC} from "react";
 import contactStyles from "./contact.module.css";
 import styles from "./icons.module.css";
 
-const NOTES_CHARACTERS = ["读", "累"];
+const NOTES_CHARACTERS = ["写", "写", "忘", "忘"];
 
 export const NotesIcon: FC<{ hovering: boolean }> = ({hovering}) => (
   <div className={styles.wrapper}>
     <ReaderIcon/>
     {hovering &&
       NOTES_CHARACTERS.map((char, i) => (
-        <span key={char} className={`${styles.character} ${styles[`char${i}`]}`}>
+        <span key={i} className={`${styles.character} ${styles[`char${i}`]}`}>
           {char}
         </span>
       ))}
