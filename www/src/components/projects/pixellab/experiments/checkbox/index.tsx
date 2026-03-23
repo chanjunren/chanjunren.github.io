@@ -1,5 +1,5 @@
-import { usePrevious } from "@site/src/hooks/usePrevious";
-import { FC, useEffect, useRef, useState } from "react";
+import {usePrevious} from "@site/src/hooks/usePrevious";
+import {FC, useEffect, useRef, useState} from "react";
 import PixelLabContainer from "../../helpers/container";
 
 const CheckboxIcon: FC = () => {
@@ -56,7 +56,7 @@ const CheckboxIcon: FC = () => {
 export default function Checkbox() {
   return (
     <PixelLabContainer label="009">
-      <CheckboxIcon />
+      <CheckboxIcon/>
     </PixelLabContainer>
   );
 }

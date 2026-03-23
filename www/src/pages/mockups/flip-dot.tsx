@@ -1,6 +1,6 @@
-import FlipDotDisplay from "@site/src/components/ui/flip-dot-display";
-import type { FontStyle } from "@site/src/components/ui/flip-dot-display/font";
-import type { StaggerPattern } from "@site/src/components/ui/flip-dot-display";
+import FlipDotDisplay from "@site/src/components/projects/pixelLab/experiments/flipdot/display";
+import type { FontStyle } from "@site/src/components/projects/pixelLab/experiments/flipdot/font";
+import type { StaggerPattern } from "@site/src/components/projects/pixelLab/experiments/flipdot/display";
 
 const TEXTS = ["HOME", "ZETT", "ABOUT"];
 

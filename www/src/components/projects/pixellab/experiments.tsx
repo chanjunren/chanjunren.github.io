@@ -8,6 +8,7 @@ import BouncingDownload from "@site/src/components/projects/pixelLab/experiments
 import Chart from "@site/src/components/projects/pixelLab/experiments/chart";
 import NanCircle1 from "@site/src/components/projects/pixelLab/experiments/nancircle1";
 import Checkbox from "@site/src/components/projects/pixelLab/experiments/checkbox";
+import FlipDot from "@site/src/components/projects/pixelLab/experiments/flipdot";
 
 const Experiments: FC = () => {
   return (
@@ -18,18 +19,18 @@ const Experiments: FC = () => {
           "--grid-line": "rgba(152, 147, 165, 0.2)",
           "--grid-size": "16px",
           backgroundImage: `
-      repeating-linear-gradient(
-        0deg,
-        var(--grid-line) 0 1px,
-        transparent 1px var(--grid-size)
-      ),
-      repeating-linear-gradient(
-        90deg,
-        var(--grid-line) 0 1px,
-        transparent 1px var(--grid-size)
+        repeating-linear-gradient(
+          0deg,
+          var(--grid-line) 0 1px,
+          transparent 1px var(--grid-size)
+        ),
+        repeating-linear-gradient(
+          90deg,
+          var(--grid-line) 0 1px,
+          transparent 1px var(--grid-size)
 
-      )
-    `,
+        )
+      `,
         } as React.CSSProperties
       }
     >
@@ -42,6 +43,7 @@ const Experiments: FC = () => {
       <Chart/>
       <NanCircle1/>
       <Checkbox/>
+      <FlipDot/>
     </div>
   );
 };
