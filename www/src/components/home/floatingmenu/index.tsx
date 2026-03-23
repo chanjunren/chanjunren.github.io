@@ -1,13 +1,13 @@
 import {useWindowSize} from "@docusaurus/theme-common";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 
-import {BackpackIcon, GitHubLogoIcon, HomeIcon, LinkedInLogoIcon,} from "@radix-ui/react-icons";
+import {HomeIcon,} from "@radix-ui/react-icons";
 import {Link} from "@site/src/components/ui/link";
 import {NavigationMenu, NavigationMenuItem, NavigationMenuList,} from "@site/src/components/ui/navigation-menu";
 import {Tooltip, TooltipContent, TooltipTrigger,} from "@site/src/components/ui/tooltip";
-import {FC, ReactNode, useCallback, useRef, useState} from "react";
+import {FC, ReactNode, useState} from "react";
 import NavbarExtras from "./extras";
-import {AboutIcon, NotesIcon} from "./icons";
+import {AboutIcon, GithubIcon, LinkedinIcon, NotesIcon, ResumeIcon} from "./icons";
 import {SkaterMouse} from "./icons/SkaterMouse";
 
 const Divider: FC = () => (
@@ -53,24 +53,41 @@ const MenuIconLink: FC<MenuIconLinkProps> = ({href, label, children, onHoverChan
   );
 };
 
+const ResumeMenuIcon: FC = () => {
+  const [hovering, setHovering] = useState(false);
+  return (
+    <NavigationMenuItem
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+    >
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <a
+            href="/documents/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center text-(--menu-foreground)! no-underline! text-md tracking-tight p-2 rounded-md hover:bg-(--menu-accent)! hover:text-(--menu-foreground)!"
+          >
+            <ResumeIcon hovering={hovering}/>
+          </a>
+        </TooltipTrigger>
+        <TooltipContent side="top" sideOffset={8}>
+          resume
+        </TooltipContent>
+      </Tooltip>
+    </NavigationMenuItem>
+  );
+};
+
 const FloatingMenu: FC = () => {
   const windowSize = useWindowSize();
   const isMobile = windowSize === "mobile";
   const [homeHovering, setHomeHovering] = useState(false);
-  const menuRef = useRef<HTMLElement>(null);
-
-  const handleHomeHover = useCallback((hovering: boolean) => {
-    if (hovering && menuRef.current) {
-      menuRef.current.style.setProperty("--menu-width", `${menuRef.current.offsetWidth}px`);
-    }
-    setHomeHovering(hovering);
-  }, []);
 
   return (
     <BrowserOnly>
       {() => (
         <NavigationMenu
-          ref={menuRef}
           viewport={isMobile}
           className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-(--menu-background) p-2 rounded-xl border border-border shadow-sm"
         >
@@ -79,7 +96,7 @@ const FloatingMenu: FC = () => {
             <NavbarExtras/>
 
             {/* Pages */}
-            <MenuIconLink href="/" label="home" onHoverChange={handleHomeHover}>
+            <MenuIconLink href="/" label="home" onHoverChange={setHomeHovering}>
               <HomeIcon/>
             </MenuIconLink>
             <MenuIconLink href="/docs/zettelkasten" label="notes">
@@ -93,28 +110,12 @@ const FloatingMenu: FC = () => {
 
             {/* Contact */}
             <MenuIconLink href="https://www.github.com/chanjunren" label="github">
-              <GitHubLogoIcon/>
+              {(hovering) => <GithubIcon hovering={hovering}/>}
             </MenuIconLink>
             <MenuIconLink href="https://www.linkedin.com/in/jun-ren-chan-90240a175/" label="linkedin">
-              <LinkedInLogoIcon/>
+              {(hovering) => <LinkedinIcon hovering={hovering}/>}
             </MenuIconLink>
-            <NavigationMenuItem>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <a
-                    href="/documents/resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-(--menu-foreground)! no-underline! text-md tracking-tight p-2 rounded-md hover:bg-(--menu-accent)! hover:text-(--menu-foreground)!"
-                  >
-                    <BackpackIcon/>
-                  </a>
-                </TooltipTrigger>
-                <TooltipContent side="top" sideOffset={8}>
-                  resume
-                </TooltipContent>
-              </Tooltip>
-            </NavigationMenuItem>
+            <ResumeMenuIcon/>
           </NavigationMenuList>
         </NavigationMenu>
       )}

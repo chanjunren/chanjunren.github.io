@@ -1,0 +1,89 @@
+/* Home icon — skating mouse ollie trick */
+
+.menuSkater {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  height: 2rem;
+  width: auto;
+  pointer-events: none;
+  color: var(--menu-foreground);
+  animation: ollieTrick 3s ease-in-out forwards;
+}
+
+@keyframes ollieTrick {
+  /* appear */
+  0% {
+    opacity: 0;
+    transform: translateY(-120%);
+  }
+  10% {
+    transform: translateY(-110%);
+    opacity: 1;
+  }
+  /* wave phase — hold position */
+  50% {
+    transform: translateY(-110%) rotate(0deg);
+  }
+  /* crouch — sit into right leg, rotate left */
+  60% {
+    transform: translateY(-85%) rotate(-8deg);
+  }
+  /* pop! ollie up */
+  70% {
+    transform: translateY(-200%) rotate(12deg);
+  }
+
+  /* accelerate off screen */
+  100% {
+    transform: translateY(100vh) rotate(18deg);
+  }
+}
+
+/* Right arm wave — 3 cycles then stops */
+.wavingArm {
+  transform-origin: 275px 231px;
+  animation: waveRight 0.4s ease-in-out alternate 3;
+  animation-delay: 0.3s;
+}
+
+@keyframes waveRight {
+  0% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(-75deg);
+  }
+}
+
+/* Left arm wave — mirrored, slightly offset */
+.wavingArmLeft {
+  transform-origin: 221px 225px;
+  animation: waveLeft 0.4s ease-in-out alternate 3;
+  animation-delay: 0.3s;
+}
+
+@keyframes waveLeft {
+  0% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(60deg);
+  }
+}
+
+/* Right foot bend — ollie prep */
+.crouchFoot {
+  transform-origin: 284px 307px;
+  animation: footBend 0.4s ease-in-out forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes footBend {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-25deg);
+  }
+}
