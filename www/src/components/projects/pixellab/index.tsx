@@ -1,14 +1,14 @@
-import { GalleryProjectInfo } from "@site/src/types";
+import {GalleryProjectInfo} from "@site/src/types";
 import SecondaryHeader from "@site/src/components/ui/secondary-header";
 import SimpleCard from "@site/src/components/ui/simple-card";
-import Experiments from "./experiments";
+import Experiments from "@site/src/components/projects/pixelLab/experiments";
 
 const PixelLabInfo: GalleryProjectInfo = {
   id: "pixelLab",
   title: "Pixel Lab",
   subtitle: "CSS / SVG Exploration",
   containerCss: "md:col-span-3",
-  card: ({ onClick }) => (
+  card: ({onClick}) => (
     <SimpleCard
       onClick={onClick}
       className="cursor-pointer rounded-lg relative"
@@ -18,7 +18,7 @@ const PixelLabInfo: GalleryProjectInfo = {
       </p>
     </SimpleCard>
   ),
-  banner: () => <Experiments />,
+  banner: () => <Experiments/>,
   description: () => (
     <div className="flex flex-col w-full gap-5">
       <span>Mini projects for exploring CSS / SVG related features!</span>
@@ -46,7 +46,7 @@ const PixelLabInfo: GalleryProjectInfo = {
       </div>
     </>
   ),
-  extraButtons: ({ className }) => (
+  extraButtons: ({className}) => (
     <>
       {/* <DocusaurusLink
         className={className}
