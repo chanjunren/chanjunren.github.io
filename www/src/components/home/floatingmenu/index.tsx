@@ -1,13 +1,13 @@
 import {useWindowSize} from "@docusaurus/theme-common";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 
-import {BackpackIcon, GitHubLogoIcon, HomeIcon, LinkedInLogoIcon, PersonIcon, ReaderIcon,} from "@radix-ui/react-icons";
+import {BackpackIcon, GitHubLogoIcon, HomeIcon, LinkedInLogoIcon,} from "@radix-ui/react-icons";
 import {Link} from "@site/src/components/ui/link";
 import {NavigationMenu, NavigationMenuItem, NavigationMenuList,} from "@site/src/components/ui/navigation-menu";
 import {Tooltip, TooltipContent, TooltipTrigger,} from "@site/src/components/ui/tooltip";
-import {FC, ReactNode} from "react";
+import {FC, ReactNode, useState} from "react";
 import NavbarExtras from "./extras";
-import NotesHoverWrapper from "./notes-hover";
+import {AboutIcon, NotesIcon} from "./icons";
 
 const Divider: FC = () => (
   <div className="h-5 w-px bg-(--menu-subtle)/40 mx-1"/>
@@ -16,27 +16,34 @@ const Divider: FC = () => (
 interface MenuIconLinkProps {
   href: string;
   label: string;
-  children: ReactNode;
+  children: ReactNode | ((hovering: boolean) => ReactNode);
 }
 
-const MenuIconLink: FC<MenuIconLinkProps> = ({href, label, children}) => (
-  <NavigationMenuItem>
-    <Tooltip>
-      <TooltipTrigger asChild>
-        <Link
-          variant="menu"
-          href={href}
-          className="flex items-center text-md tracking-tight p-2 rounded-md hover:bg-(--menu-accent)!"
-        >
-          {children}
-        </Link>
-      </TooltipTrigger>
-      <TooltipContent side="top" sideOffset={8}>
-        {label}
-      </TooltipContent>
-    </Tooltip>
-  </NavigationMenuItem>
-);
+const MenuIconLink: FC<MenuIconLinkProps> = ({href, label, children}) => {
+  const [hovering, setHovering] = useState(false);
+
+  return (
+    <NavigationMenuItem
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+    >
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Link
+            variant="menu"
+            href={href}
+            className="flex items-center text-md tracking-tight p-2 rounded-md hover:bg-(--menu-accent)!"
+          >
+            {typeof children === "function" ? children(hovering) : children}
+          </Link>
+        </TooltipTrigger>
+        <TooltipContent side="top" sideOffset={8}>
+          {label}
+        </TooltipContent>
+      </Tooltip>
+    </NavigationMenuItem>
+  );
+};
 
 const FloatingMenu: FC = () => {
   const windowSize = useWindowSize();
@@ -55,13 +62,11 @@ const FloatingMenu: FC = () => {
             <MenuIconLink href="/" label="home">
               <HomeIcon/>
             </MenuIconLink>
-            <NotesHoverWrapper>
-              <MenuIconLink href="/docs/zettelkasten" label="notes">
-                <ReaderIcon/>
-              </MenuIconLink>
-            </NotesHoverWrapper>
+            <MenuIconLink href="/docs/zettelkasten" label="notes">
+              {(hovering) => <NotesIcon hovering={hovering}/>}
+            </MenuIconLink>
             <MenuIconLink href="/whoami" label="about">
-              <PersonIcon/>
+              {(hovering) => <AboutIcon hovering={hovering}/>}
             </MenuIconLink>
 
             <Divider/>
