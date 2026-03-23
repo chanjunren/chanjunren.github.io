@@ -7,6 +7,13 @@ import { NavigationMenuItem } from "@site/src/components/ui/navigation-menu";
 import { FC } from "react";
 
 const ZETTELKASTEN = "zettelkasten";
+const WHOAMI = "whoami";
+
+function getPageLabel(path: string): string {
+  if (path.includes(ZETTELKASTEN)) return "notes";
+  if (path.includes(WHOAMI)) return "about";
+  return "home";
+}
 
 const NavbarExtras: FC = () => {
   const windowSize = useWindowSize();
@@ -14,6 +21,7 @@ const NavbarExtras: FC = () => {
   const isMobile = windowSize === "mobile";
   const isZett = path.includes(ZETTELKASTEN);
   const mobileSidebar = useNavbarMobileSidebar();
+  const pageLabel = getPageLabel(path);
 
   return (
     <>
@@ -26,9 +34,9 @@ const NavbarExtras: FC = () => {
         <Link
           variant="menu"
           href="/"
-          className={"text-lg tracking-tight hover:bg-transparent! text-nowrap"}
+          className="text-md tracking-tight hover:bg-transparent! text-nowrap"
         >
-          陈俊任
+          [{pageLabel}]
         </Link>
       </NavigationMenuItem>
     </>

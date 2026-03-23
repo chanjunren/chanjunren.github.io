@@ -117,12 +117,12 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --menu-background: #2a273f;
-  --menu-foreground: var(--background);
-  --menu-accent: rgb(144, 140, 170, 0.2);
-  --menu-accent-foreground: var(--background);
+  --menu-background: #f8f7f6;
+  --menu-foreground: #575279;
+  --menu-accent: rgba(86, 82, 110, 0.08);
+  --menu-accent-foreground: #575279;
   --menu-subtle: #908caa;
-  --menu-muted-background: rgb(110, 106, 134, 0.5);
+  --menu-muted-background: rgba(86, 82, 110, 0.1);
 
 
   /* Custom Screens/Breakpoints */
@@ -146,6 +146,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
