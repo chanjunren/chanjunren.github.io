@@ -1,48 +1,21 @@
-import {FC, useState} from "react";
-import styles from "./canvas.module.css";
-
-interface BarProps {
-  x: number;
-  restY: number;
-  restH: number;
-  hoverY: number;
-  hoverH: number;
-}
-
-const bars: BarProps[] = [
-  {x: 10, restY: 38, restH: 62, hoverY: 12, hoverH: 88},
-  {x: 24, restY: 50, restH: 50, hoverY: 45, hoverH: 55},
-  {x: 38, restY: 30, restH: 70, hoverY: 55, hoverH: 45},
-  {x: 52, restY: 39, restH: 61, hoverY: 5, hoverH: 95},
-  {x: 66, restY: 22, restH: 78, hoverY: 35, hoverH: 65},
-  {x: 80, restY: 8, restH: 92, hoverY: 25, hoverH: 75},
-  {x: 94, restY: 22, restH: 78, hoverY: 10, hoverH: 90},
-];
+import {FC} from "react";
 
 const Canvas: FC = () => {
-  const [hovered, setHovered] = useState(false);
-
-  return (
-    <g
-      className={styles.group}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      {/* Invisible hit area covering gaps between bars */}
-      <rect width={100} height={100} fill="black" fillOpacity={0}/>
-      {bars.map((bar) => (
-        <rect
-          key={bar.x}
-          className={styles.bar}
-          x={bar.x}
-          y={hovered ? bar.hoverY : bar.restY}
-          height={hovered ? bar.hoverH : bar.restH}
-          width={7}
-          rx={3.2}
-        />
-      ))}
+  return <svg fill="currentColor" viewBox="0 0 471.652 471.652">
+    <g>
+      <path d="M449.532,31.12l-9-9c-14.265-14.263-32.831-22.119-52.28-22.119c-21.602,0-42.208,9.858-56.536,27.046l-92.873,111.411
+  c-25.165,30.188-70.197,75.22-100.384,100.384L27.048,331.716c-16.459,13.72-26.038,32.648-26.973,53.298
+  c-0.936,20.65,6.895,40.366,22.045,55.518l9,9c14.263,14.262,32.829,22.118,52.279,22.119c0.003,0,0.003,0,0.006,0
+  c21.598,0,42.203-9.858,56.53-27.046l92.874-111.411c25.165-30.188,70.197-75.22,100.384-100.384l111.411-92.873
+  c16.459-13.72,26.038-32.648,26.973-53.298C472.513,65.988,464.683,46.272,449.532,31.12z M455.594,85.914
+  c-0.729,16.104-8.271,30.925-21.233,41.732L322.949,220.52c-30.803,25.677-76.752,71.627-102.429,102.429L127.646,434.36
+  c-11.279,13.531-27.404,21.291-44.241,21.291c-0.001,0-0.003,0-0.005,0c-15.177-0.001-29.726-6.192-40.966-17.433l-9-9
+  c-11.935-11.934-18.105-27.376-17.376-43.48c0.729-16.104,8.271-30.925,21.233-41.732l111.411-92.874
+  c30.803-25.677,76.752-71.627,102.429-102.429l92.873-111.411c11.28-13.531,27.407-21.291,44.247-21.291
+  c15.176,0,29.725,6.191,40.966,17.433l9,9C450.152,54.368,456.323,69.81,455.594,85.914z"/>
     </g>
-  );
+  </svg>;
 }
 
 export default Canvas;
+
