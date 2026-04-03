@@ -19,6 +19,8 @@ A `docker-compose.yml` defines:
 ### Services
 - Containers to run
 - Each service specifies image/build context, ports, environment variables, dependencies, health checks
+- For selectively running subsets, see [[docker_compose_profiles]]
+- For reusing service definitions across clients, see [[docker_compose_extends]]
 
 ### Networks
 - How containers communicate
@@ -45,6 +47,7 @@ Skip for:
 - Only waits for containers to start, NOT for services to be ready
 - Combine with `condition: service_healthy` to wait for [[docker_healthcheck]] to pass
 - Without health checks, app might try connecting to database that's still initializing
+- For advanced dependency strategies including init containers, see [[docker_compose_dependencies]]
 
 ## Environment Variables and Config
 
@@ -54,7 +57,7 @@ Configuration options:
 - Substitute from host environment
 - Mount config files via volumes
 
-Pattern: Use environment variables for secrets and runtime config, mount files for complex configuration.
+Pattern: Use environment variables for secrets and runtime config, mount files for complex configuration. For detailed patterns, see [[docker_env_management]].
 
 ## Compose vs Orchestration
 
@@ -75,6 +78,8 @@ For production needing auto-scaling, rolling updates, self-healing: use orchestr
 ```ad-danger
 **Using Compose for production scale**: Compose has no auto-scaling, no rolling updates, no multi-host support. Great for single-host deployments but not designed for production scale. Use [[docker_orchestration]] platforms instead.
 ```
+
+For resource constraints per service, see [[docker_resource_limits]]. For log management, see [[docker_logging]].
 
 ---
 

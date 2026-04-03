@@ -69,6 +69,7 @@ Unlike VMs:
 Without limits:
 - Container can consume all host resources
 - Production containers should specify CPU and memory limits
+- For Compose-level resource configuration, see [[docker_resource_limits]]
 
 Behavior:
 - Exceeds memory limits → gets killed

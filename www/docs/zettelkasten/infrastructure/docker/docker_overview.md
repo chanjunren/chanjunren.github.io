@@ -48,10 +48,12 @@ For understanding underlying technology, see [[virtualization]].
 ### Dockerfile
 - Text file with build instructions
 - Defines base image, copies files, installs dependencies, sets up environment
+- For production-grade Dockerfiles, see [[dockerfile_best_practices]]
 
 ### Docker Registry
 - Where images live (Docker Hub, private registries, cloud registries)
 - Push to share, pull to download
+- For registry comparison and selection, see [[container_registries]]
 
 For multi-container applications, see [[docker_compose]].
 
