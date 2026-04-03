@@ -39,7 +39,7 @@ Two key benefits:
 - Ten Node.js apps share same Node runtime layers
 - Saves disk space and transfer time
 
-Pattern: Order Dockerfile instructions from least to most frequently changing. Put dependency installation before copying source code so changing code doesn't invalidate dependency cache.
+Pattern: Order Dockerfile instructions from least to most frequently changing. Put dependency installation before copying source code so changing code doesn't invalidate dependency cache. For comprehensive optimization, see [[dockerfile_best_practices]].
 
 ## Tags and Versions
 
@@ -56,6 +56,7 @@ Where images live:
 - Pull to download
 - Separates build environment from runtime environment
 - Build once, run anywhere
+- For choosing and managing registries, see [[container_registries]]
 
 ## Base Images
 
