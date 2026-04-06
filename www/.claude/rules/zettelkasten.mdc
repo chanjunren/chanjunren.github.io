@@ -12,24 +12,24 @@ alwaysApply: false
 
 ## Content
 
-**Must have:**
-- **Core Concept**: What it is (1-2 sentences)
-- **Why it exists**: Problem it solves
-- When to use / when not to use
-- Trade-offs
+Two note types — pick one per note:
 
-**Optional:**
-- Key distinctions (A vs B)
-- Common pitfalls
-- Comparisons
+### Study material (default)
+- Teach one concept clearly — optimize for understanding
+- Lead with what it is and why it matters (big picture first)
+- Include whatever helps learning: trade-offs, comparisons, when to use/avoid, pitfalls
+- Skip what doesn't: no filler sections just to match a template
+- Details, examples, and code go toward the bottom — don't front-load implementation specifics
+- Keep examples focused — illustrate the concept, not boilerplate
 
-**Forbidden:**
-- Historical background unless it explains WHY
-- Obvious explanations
-- Code (unless cheatsheet requested)
+### Cheatsheet
+- Quick reference — optimize for lookup speed
+- Syntax, examples, flags, common patterns
+- Minimal prose, maximum signal
+- Tables and code blocks encouraged
 
 ## Style
-- Flow: Core Concept → Why → When to Use → Trade-offs
+- Big picture first, details and examples toward the bottom
 - Point form, short sentences, cut ruthlessly
 - Bold key terms on first mention
 
@@ -54,6 +54,3 @@ alwaysApply: false
 - Verify before writing; cite sources for complex information
 - Only link to notes that exist
 
-## Code/Cheatsheet
-- Default: concepts only, no code
-- If user asks for cheatsheet: add Quick Reference section with syntax/examples
