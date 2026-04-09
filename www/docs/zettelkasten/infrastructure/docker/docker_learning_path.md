@@ -7,8 +7,9 @@ Suggested reading order for the Docker and deployment notes. Each section builds
 ## 1. Foundations — What Docker Is
 
 1. [[docker_overview]] — containers vs VMs, core components, when to use
-2. [[docker_image]] — layers, tags, base images, immutability
-3. [[docker_container]] — lifecycle, isolation, ephemeral by design
+2. [[docker_image]] — images, tags, base images, immutability
+3. [[docker_layers]] — how layers work, caching, union filesystem, why layer order matters
+4. [[docker_container]] — lifecycle, isolation, ephemeral by design
 4. [[docker_volumes]] — persisting data beyond container lifecycle
 5. [[docker_networking]] — drivers, service discovery, network isolation
 6. [[docker_healthcheck]] — readiness detection for containers
@@ -31,11 +32,12 @@ Suggested reading order for the Docker and deployment notes. Each section builds
 17. [[docker_resource_limits]] — CPU/memory limits, noisy neighbor prevention
 18. [[docker_logging]] — logging drivers, rotation, per-client log separation
 
-## 4. Security — TLS and Certificates
+## 4. Security
 
-19. [[tls_certificates]] — certificate types, Let's Encrypt, chain of trust
-20. [[ocsp]] — certificate revocation checking, OCSP stapling
-21. [[docker_tls_termination]] — reverse proxy TLS pattern for Docker deployments
+19. [[container_escape]] — what it is, attack vectors, defenses for multi-client setups
+20. [[tls_certificates]] — certificate types, Let's Encrypt, chain of trust
+21. [[ocsp]] — certificate revocation checking, OCSP stapling
+22. [[docker_tls_termination]] — reverse proxy TLS pattern for Docker deployments
 
 ## 5. Orchestration and Deployment
 
