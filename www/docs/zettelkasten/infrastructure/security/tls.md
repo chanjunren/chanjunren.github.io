@@ -33,8 +33,8 @@ The handshake establishes a secure connection before any application data is sen
 
 ### TLS 1.2 handshake (simplified)
 1. **ClientHello**: client sends supported TLS versions, cipher suites, and a random number
-2. **ServerHello**: server picks a cipher suite, sends its [[tls_certificates|certificate]] and a random number
-3. **Certificate verification**: client checks the certificate against trusted [[certificate_authorities|CAs]]
+2. **ServerHello**: server picks a cipher suite, sends its [[tls_certificates]] and a random number
+3. **Certificate verification**: client checks the certificate against trusted [[certificate_authorities]]
 4. **Key exchange**: client and server derive a shared secret (using ECDHE or RSA key exchange)
 5. **Finished**: both sides confirm — all subsequent data encrypted with the shared symmetric key
 

@@ -6,7 +6,7 @@
 - A real copy of a block is only made when one side **writes** (modifies) that block
 
 **Why it matters:**
-- Makes [[file_links|reflinks]] instant and free — `cp --reflink` shares data blocks until files diverge
+- Makes [[file_links]] instant and free — `cp --reflink` shares data blocks until files diverge
 - Underpins how Docker's OverlayFS and Btrfs handle container filesystems
 - Explains why `fork()` in Unix is fast — child process shares parent's memory pages until one writes
 
@@ -25,7 +25,7 @@ cp big_file.dat copy.dat
 ```
 cp --reflink=always big_file.dat copy.dat
 ```
-1. **Create**: new [[inodes|inode]] for `copy.dat`, but data block pointers reference the same blocks as `big_file.dat`
+1. **Create**: new [[inodes]] for `copy.dat`, but data block pointers reference the same blocks as `big_file.dat`
 2. **Read**: both files read from the same physical blocks — no difference in behavior
 3. **Write**: when either file modifies block N, the filesystem copies **only block N** to a new location, then updates the pointer
 4. Result: files share unmodified data, only divergent blocks use extra space
@@ -40,7 +40,7 @@ cp --reflink=always big_file.dat copy.dat
 - **ext4**: does **not** support CoW — no reflinks
 
 ### Container storage
-- Docker's **OverlayFS** uses a CoW-like approach: image [[docker_layers|layers]] are read-only, writes go to the writable layer on top
+- Docker's **OverlayFS** uses a CoW-like approach: image [[docker_layers]] are read-only, writes go to the writable layer on top
 - This is why modifying a file in a running container doesn't alter the image — the modified file is "copied up" to the writable layer
 - Not true block-level CoW like Btrfs, but the same principle: defer copying until writes happen
 

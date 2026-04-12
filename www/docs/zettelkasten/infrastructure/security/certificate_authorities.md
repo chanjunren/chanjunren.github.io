@@ -15,7 +15,7 @@
 ### Chain of trust
 - **Root CAs**: self-signed certificates pre-installed in browsers and operating systems (~150 globally)
 - **Intermediate CAs**: signed by root CAs, used to sign server certificates
-- **Server certificates**: signed by intermediate CAs, presented during [[tls|TLS handshake]]
+- **Server certificates**: signed by intermediate CAs, presented during the [[tls]] handshake
 
 Why intermediates? Root CA private keys are kept offline in secure facilities. Intermediates handle day-to-day signing — if an intermediate is compromised, the root can revoke it without replacing every trusted root in every browser.
 

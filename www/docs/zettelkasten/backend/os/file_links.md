@@ -11,7 +11,7 @@
 
 ## Hardlinks
 
-A hardlink is a **second directory entry pointing to the same [[inodes|inode]]**.
+A hardlink is a **second directory entry pointing to the same [[inodes]]**.
 
 ```
 # Create a hardlink
