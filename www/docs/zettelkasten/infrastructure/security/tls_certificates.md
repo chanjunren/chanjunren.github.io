@@ -3,7 +3,7 @@
 **What it is:**
 - Digital documents that prove a server's identity and enable encrypted connections
 - Issued by [[certificate_authorities]] — trusted third parties that verify ownership
-- Presented during the [[tls|TLS handshake]] so the client can verify it's talking to the real server
+- Presented during the [[tls]] handshake so the client can verify it's talking to the real server
 
 **Problem it solves:**
 - Without certificates: no way to verify you're talking to the real server (man-in-the-middle attacks)
