@@ -27,7 +27,8 @@
 ### Services (not containers)
 - You define **services**, Swarm creates **tasks** (containers) to fulfill them
 - A service specifies image, replica count, resource limits, update policy
-- Swarm places tasks across nodes based on resource availability
+- Swarm places tasks across nodes based on resource availability — see [[swarm_scheduling]] for how placement works
+- Services are grouped into [[swarm_stacks|stacks]] — deployed together from a single compose file
 
 ## Rolling Deployments
 
@@ -79,8 +80,9 @@ The reason you're here — Swarm handles this natively:
 
 The same `docker-compose.yml` gains Swarm features under the `deploy` key:
 - `replicas`, `update_config`, `rollback_config`, `resources`, `placement`
-- `docker stack deploy -c docker-compose.yml mystack` deploys to Swarm
+- `docker stack deploy -c docker-compose.yml mystack` deploys to Swarm — see [[swarm_stacks]] for stack lifecycle
 - Services, networks, and volumes defined in compose just work
+- Sensitive data distributed via [[swarm_secrets_and_configs]] instead of `.env` files
 
 This is the smoothest migration path from single-host [[docker_compose]] to multi-host orchestration.
 
@@ -88,12 +90,13 @@ This is the smoothest migration path from single-host [[docker_compose]] to mult
 
 ### Overlay networks
 - Span all nodes in the cluster — containers on different hosts communicate transparently
-- See [[docker_networking]] for driver types
+- Uses VXLAN tunneling under the hood — see [[swarm_overlay_networking]] for how it works
 
 ### Ingress routing mesh
 - Any node in the swarm can accept traffic for any service, even if that service isn't running on that node
 - Built-in load balancing across tasks
 - Simplifies external load balancer config — point it at any/all swarm nodes
+- See [[swarm_overlay_networking]] for routing mesh internals and required ports
 
 ## When to Skip Swarm
 

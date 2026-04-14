@@ -43,7 +43,11 @@ Suggested reading order for the Docker and deployment notes. Each section builds
 
 22. [[docker_orchestration]] — why orchestration, core capabilities, platform comparison
 23. [[docker_swarm]] — Docker-native clustering, rolling updates, Swarm vs K8s
-24. [[deployment_strategies]] — overview and comparison of all strategies
+24. [[swarm_stacks]] — stacks as deployment units, lifecycle commands
+25. [[swarm_overlay_networking]] — VXLAN tunneling, service discovery, routing mesh, required ports
+26. [[swarm_secrets_and_configs]] — encrypted secrets and config distribution
+27. [[swarm_scheduling]] — desired state reconciliation, placement constraints, service modes
+28. [[deployment_strategies]] — overview and comparison of all strategies
 25. [[rolling_deployment]] — incremental instance replacement
 26. [[blue_green_deployment]] — two environments, instant rollback
 27. [[canary_deployment]] — gradual traffic shifting with monitoring
