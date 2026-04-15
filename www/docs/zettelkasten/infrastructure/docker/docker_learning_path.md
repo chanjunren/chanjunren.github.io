@@ -35,9 +35,11 @@ Suggested reading order for the Docker and deployment notes. Each section builds
 ## 4. Security
 
 19. [[container_escape]] — what it is, attack vectors, defenses for multi-client setups
-20. [[tls_certificates]] — certificate types, Let's Encrypt, chain of trust
-21. [[ocsp]] — certificate revocation checking, OCSP stapling
-22. [[docker_tls_termination]] — reverse proxy TLS pattern for Docker deployments
+20. [[tls_certificates]] — certificate types, chain of trust
+21. [[certificate_authorities]] — trust model, CAs, Let's Encrypt overview
+22. [[acme_certificate_flow]] — ACME protocol, challenge types, Certbot, renewal
+23. [[ocsp]] — certificate revocation checking, OCSP stapling
+24. [[docker_tls_termination]] — reverse proxy TLS pattern for Docker deployments
 
 ## 5. Orchestration and Deployment
 

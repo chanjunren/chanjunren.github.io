@@ -23,7 +23,7 @@
 ### When they're created
 - Swarm auto-creates a default overlay called **ingress** for the routing mesh
 - You create additional overlays in your compose file for service-to-service communication
-- Each [[swarm_stacks|stack]] gets its own overlay network by default (scoped by stack name)
+- Each [[swarm_stacks]] gets its own overlay network by default (scoped by stack name)
 
 ## Service Discovery
 
