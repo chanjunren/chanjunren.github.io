@@ -31,7 +31,7 @@
 ### Stacks (declarative)
 - Deploy from compose file — version-controlled, reproducible
 - All services deployed/removed together as a unit
-- Networks scoped to the stack automatically (each stack gets its own [[swarm_overlay_networking|overlay network]])
+- Networks scoped to the stack automatically (each stack gets its own [[swarm_overlay_networking]])
 - Update by re-running `docker stack deploy` with modified compose file
 
 ### Standalone services (imperative)

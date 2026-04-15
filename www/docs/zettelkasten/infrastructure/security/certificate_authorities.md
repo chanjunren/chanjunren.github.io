@@ -31,7 +31,7 @@ If any step fails — connection rejected.
 ## Let's Encrypt and ACME
 
 - **Let's Encrypt**: free, automated CA — issues Domain Validation (DV) certificates
-- **ACME protocol** (Automated Certificate Management Environment): how clients request and renew certs programmatically
+- **ACME protocol** (Automated Certificate Management Environment): how clients request and renew certs programmatically — see [[acme_certificate_flow]] for the full issuance flow
 - Auto-renewal every 60-90 days eliminates manual cert management
 - Tools: Certbot, Traefik (built-in), Caddy (built-in), acme.sh
 

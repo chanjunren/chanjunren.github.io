@@ -28,7 +28,7 @@
 - You define **services**, Swarm creates **tasks** (containers) to fulfill them
 - A service specifies image, replica count, resource limits, update policy
 - Swarm places tasks across nodes based on resource availability — see [[swarm_scheduling]] for how placement works
-- Services are grouped into [[swarm_stacks|stacks]] — deployed together from a single compose file
+- Services are grouped into [[swarm_stacks]] — deployed together from a single compose file
 
 ## Rolling Deployments
 
