@@ -89,11 +89,13 @@ const config: Config = {
     [
       docusaurusPluginVaultusaurus,
       {
-        ignoredGraphTags: ["wip", "backend"],
+        tagsToIgnore: new Set(["wip", "backend"]),
+        notesToIgnore: new Set(["docker_learning_path"]),
         graphStyle: {
           graphBg: "#232136",
           defaultColor: "#e0def4",
         },
+        maxDepth: 2,
       } satisfies VaultusaurusPluginOptions,
     ],
   ],
@@ -103,7 +105,7 @@ const config: Config = {
       removeLegacyPostBuildHeadAttribute: true,
       useCssCascadeLayers: true,
     },
-    experimental_faster: {
+    faster: {
       swcJsLoader: true,
       swcJsMinimizer: true,
       swcHtmlMinimizer: true,

@@ -26,3 +26,31 @@ export interface QuotesResponse {
   totalCount: number;
   hasMore: boolean;
 }
+
+export interface ModelAggregation {
+  model: string;
+  count: number;
+  promptTokens: number;
+  completionTokens: number;
+}
+
+export interface DailyAggregation {
+  date: string;
+  count: number;
+  promptTokens: number;
+  completionTokens: number;
+}
+
+export interface TokenTotals {
+  promptTokens: number;
+  completionTokens: number;
+  totalTokens: number;
+}
+
+export interface QuoteSummary {
+  totalQuotes: number;
+  tokenTotals: TokenTotals;
+  byModel: ModelAggregation[];
+  byDate: DailyAggregation[];
+  generatedAt: string;
+}
