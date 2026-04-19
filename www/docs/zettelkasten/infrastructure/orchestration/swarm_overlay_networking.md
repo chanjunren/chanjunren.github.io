@@ -4,7 +4,7 @@
 
 **What it is:**
 - The networking layer that makes [[docker_swarm]] containers on different physical hosts communicate transparently
-- Built on **VXLAN tunneling** — encapsulates container traffic inside UDP packets between hosts
+- Built on **[[vxlan]]** tunneling — encapsulates container traffic inside UDP packets between hosts
 - Combines with a **routing mesh** so any node can accept traffic for any service
 
 **Why it exists:**

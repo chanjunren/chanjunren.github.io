@@ -1,3 +1,4 @@
+import { BACKIES_API_BASE } from "@site/src/constants/api";
 import {
   MateriaPromptOutput,
   QuoteContent,
@@ -15,7 +16,7 @@ export function useMateria() {
       try {
         setMessage("等等。。。");
         const response = await fetch(
-          "https://backies-222389637273.asia-southeast1.run.app/api/materia/quotes"
+          `${BACKIES_API_BASE}/api/materia/quotes`
         );
         console.log("response", response);
 
