@@ -4,7 +4,7 @@
 
 **Pressure** is the intentional push force that generates speed. Without it you can only coast on existing momentum or slope.
 
-It's the third layer in the foundation: posture → [[practise_slowly|compression]] → pressure.
+It's the third layer in the foundation: posture → [compression](practise_slowly.md) → pressure.
 
 ## Pressure Needs Compression
 

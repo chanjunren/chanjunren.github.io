@@ -30,7 +30,7 @@ When the switch is mistimed, you compensate by pushing with the *back* leg inste
 
 Skaters unknowingly keep driving off the hind leg rather than letting the switch happen. This causes:
 - Faster fatigue
-- Choppy transitions (breaks [[crazy|linkage]])
+- Choppy transitions (breaks [linkage](crazy.md))
 - Deeply ingrained habit that's hard to correct later
 
 Most visible in Crazy and bolt movements.
