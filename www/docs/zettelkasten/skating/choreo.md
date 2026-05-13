@@ -1,6 +1,6 @@
 🗓️ 21062025 1406
 
-# skating_choreo
+# choreo
 
 
 ```ad-abstract

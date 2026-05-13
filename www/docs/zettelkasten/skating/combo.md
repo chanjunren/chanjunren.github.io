@@ -1,6 +1,6 @@
 🗓️ 21062025 1344
 
-# skating_combo
+# combo
 
 ## style
 - break down combos

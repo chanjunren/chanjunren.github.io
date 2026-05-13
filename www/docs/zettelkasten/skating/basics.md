@@ -1,6 +1,6 @@
 🗓️ 29062025 1155
 
-# skating_basics
+# basics
 
 ```ad-note
 For every move, focus on

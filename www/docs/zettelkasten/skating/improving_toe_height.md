@@ -1,6 +1,6 @@
 🗓️ 21062025 1328
 
-# skating_improving_toe_height
+# improving_toe_height
 
 ## stretch tight calves (daily)
 ```ad-important

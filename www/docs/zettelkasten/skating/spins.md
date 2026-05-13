@@ -1,6 +1,6 @@
 🗓️ 21062025 1316
 
-# skating_spins
+# spins
 
 ### Toe Seven
 

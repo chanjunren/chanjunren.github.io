@@ -1,6 +1,6 @@
 🗓️ 06072025 0824
 
-# skating_goals
+# goals
 
 > [[bob_bowman_golden_rules]]
 
@@ -31,10 +31,10 @@
 
 ## immediate
 
-- [[skating_pt]]
-- [[skating_basics]]
-- [[skating_wheeling]]
-- [[skating_spins]]
+- [[pt]]
+- [[basics]]
+- [[wheeling]]
+- [[spins]]
 - come up with skating plan, integrate with google calendar?
 
 ---

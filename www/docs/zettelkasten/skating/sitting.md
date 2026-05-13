@@ -1,6 +1,6 @@
 🗓️ 21062025 1337
 
-# skating_sitting
+# sitting
 
 ## deckchair
 - body + shoulder should be upright / squared to the front

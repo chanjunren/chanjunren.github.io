@@ -1,6 +1,6 @@
 🗓️ 21062025 1341
 
-# skating_speed_slalom
+# speed_slalom
 
 ## tips
 - look 3-4 cones ahead

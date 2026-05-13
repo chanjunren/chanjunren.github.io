@@ -1,6 +1,6 @@
 🗓️ 21062025 1350
 
-# skating_pt
+# pt
 
 ## dynamic stretching 
 - scoop both hands with alternating heel toe
