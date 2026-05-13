@@ -44,11 +44,11 @@ Zettelkasten: [[model_context_protocol]], [[custom_mcp_servers]]
 
 **Goal**: hands-on implementation to solidify understanding
 
-| Project | Description | Starting Point |
-|---|---|---|
-| **Custom MCP Server** | Expose an internal API or database via MCP. Start with stdio transport, then add HTTP | [MCP Server Quickstart](https://modelcontextprotocol.io/quickstart/server) |
-| **Agent with Tool Use** | Build an agent that uses tools to accomplish a multi-step task | [Anthropic SDK](https://docs.anthropic.com/en/docs/build-with-claude/tool-use/overview), [LangChain Agents](https://python.langchain.com/docs/concepts/agents/), [LlamaIndex Agents](https://docs.llamaindex.ai/en/stable/understanding/agent/) |
-| **Multi-Agent System** | Combine multiple agents using your custom MCP tools — try coordinator or agent-as-tool pattern | [[coordinator_router_pattern]], [[agent_as_tool_pattern]] |
+| Project                 | Description                                                                                    | Starting Point                                                                                                                                                                                                                                  |
+| ----------------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Custom MCP Server**   | Expose an internal API or database via MCP. Start with stdio transport, then add HTTP          | [MCP Server Quickstart](https://modelcontextprotocol.io/quickstart/server)                                                                                                                                                                      |
+| **Agent with Tool Use** | Build an agent that uses tools to accomplish a multi-step task                                 | [Anthropic SDK](https://docs.anthropic.com/en/docs/build-with-claude/tool-use/overview), [LangChain Agents](https://python.langchain.com/docs/concepts/agents/), [LlamaIndex Agents](https://docs.llamaindex.ai/en/stable/understanding/agent/) |
+| **Multi-Agent System**  | Combine multiple agents using your custom MCP tools — try coordinator or agent-as-tool pattern | [[coordinator_router_pattern]], [[agent_as_tool_pattern]]                                                                                                                                                                                       |
 
 ## Phase 5: Advanced Topics
 

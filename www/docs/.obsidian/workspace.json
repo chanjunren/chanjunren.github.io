@@ -11,8 +11,12 @@
             "id": "4d4c5c29d81de5aa",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "zettelkasten/skating/fish_secrets.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "zettelkasten/skating/fish_secrets.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "zettelkasten/skating/fish_secrets.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "zettelkasten/skating/fish_secrets.md"
+              }
             }
           }
         ]
@@ -140,7 +148,13 @@
   },
   "active": "4d4c5c29d81de5aa",
   "lastOpenFiles": [
+    "zettelkasten/skating/driving_leg.md",
+    "zettelkasten/skating/fish_secrets.md",
+    "zettelkasten/skating/crazy.md",
+    "zettelkasten/skating/practise_slowly.md",
+    "zettelkasten/skating/pressure.md",
     "zettelkasten/concepts/ai-agents/ai_systems_learning_roadmap.md",
+    "zettelkasten/packing_list.md",
     "zettelkasten/concepts/ai-agents/agent_memory_and_state.md",
     "zettelkasten/concepts/ai-agents/llm_tool_use.md",
     "zettelkasten/concepts/ai-agents/custom_mcp_servers.md",
@@ -163,12 +177,6 @@
     "zettelkasten/backend/frameworks/spring",
     "zettelkasten/backend/languages/java/service_provider_interface.md",
     "zettelkasten/backend/languages/java/jvm_options.md",
-    "zettelkasten/backend/languages/java/java_models.md",
-    "zettelkasten/backend/languages/java/jar_types.md",
-    "zettelkasten/backend/languages/java/closures.md",
-    "zettelkasten/backend/languages/java/class_loading.md",
-    "zettelkasten/backend/languages/java/java_synchronization_pitfalls.md",
-    "zettelkasten/backend/languages/java/java_double_checked_locking.md",
     "zettelkasten/backend/languages/java",
     "zettelkasten/backend/concepts/fundamentals",
     "zettelkasten/backend/concepts",
