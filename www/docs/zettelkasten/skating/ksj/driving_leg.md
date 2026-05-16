@@ -10,11 +10,11 @@ This matters because skaters often push with the wrong leg at the wrong time wit
 
 | Role | What it does |
 |------|-------------|
-| **Driving leg** | >50% body weight; generates forward propulsion |
+| **Driving leg** | >50% body weight; moves you forward |
 | **Supporting leg** | Provides balance via compression; doesn't glide |
 | **Axis / pivot leg** | The leg rotation happens *around* |
 
-Mixing these up leads to misdiagnosing technique problems.
+Mixing these up means you're fixing the wrong thing.
 
 ## How the Driving Leg Switches
 
@@ -39,7 +39,7 @@ Most visible in Crazy and bolt movements.
 
 In a zigzag, the driving leg is always the *opposite* leg from the one doing the heel/toe hold.
 
-Use this as a quick diagnostic when watching someone else skate.
+Use this as a quick check when watching someone else skate.
 
 ## References
 

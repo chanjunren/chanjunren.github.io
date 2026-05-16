@@ -4,7 +4,7 @@
 
 "Practice slowly" doesn't mean move slowly forever — it means **build compression before adding speed**.
 
-Beginners trying to match the pace of advanced skaters skip the part that makes those skaters effective: properly grounded weight placement.
+Beginners trying to match the pace of advanced skaters skip the part that makes those skaters effective: getting their weight properly grounded first.
 
 ## The Core Chain
 
@@ -22,7 +22,7 @@ Compression is like grip. A sprinter pushes *through* the ground, not just *at* 
 
 At speed, beginners default to pushing harder — but without compression the force doesn't transfer. Slowing down gives you time to feel and hold compression before moving.
 
-Once compression is automatic, speed builds naturally through proper pressure. Skipping this creates a ceiling on your mechanics.
+Once compression is automatic, speed builds naturally through proper pressure. Skipping this puts a hard ceiling on how far your technique can go.
 
 See [[driving_leg]] for the next concept in this series.
 
