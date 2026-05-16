@@ -14,14 +14,15 @@ Slalom Laboratory's take: tricks consist of the same repeating sub-phases as wal
 
 ## Walking Cycle → Slalom Movement
 
-| Stage | Action | Phase |
-|-------|--------|-------|
-| 1 | Full weight on one foot | End of weight shift |
-| 2 | Bend knee, lift trailing leg | Start of centroid shift |
-| 3 | Reach lifted foot forward | End of centroid shift |
-| 4 | Land via forward lean | Start of weight shift |
-| 5 | Shift weight onto landed foot | End of weight shift |
-| 6–9 | Repeat, other side | — |
+| Stage | Action                        | Phase                   |
+| ----- | ----------------------------- | ----------------------- |
+| 1     | Full weight on one foot       | End of weight shift     |
+| 2     | Bend knee, lift trailing leg  | Start of centroid shift |
+| 3     | Reach lifted foot forward     | End of centroid shift   |
+| 4     | Land via forward lean         | Start of weight shift   |
+| 5     | Shift weight onto landed foot | End of weight shift     |
+| 6–9   | Repeat, other side            | —                       |
+|       |                               |                         |
 
 Even though walking feels natural, there are efficient and inefficient ways to do it — same as skating. Bad weight shift can go unnoticed because the overall visual trace still looks normal.
 
