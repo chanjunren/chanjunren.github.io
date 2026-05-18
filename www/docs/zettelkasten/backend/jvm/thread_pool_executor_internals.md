@@ -151,7 +151,7 @@ The state-and-count packing is a clever atomic-state trick — it lets state tra
 - [[concurrenthashmap_internals]] — built on similar atomic-state tricks.
 - [[cas_compare_and_swap]] — the state field is a packed CAS-managed int.
 - [[reentrantlock_vs_synchronized]] — `Worker` extends AQS; locks are tied in.
-- [[jvm_memory_areas]] — every thread = one stack = memory cost.
+- [[memory_areas]] — every thread = one stack = memory cost.
 - `thread_pool_sizing_little_law` *(planned)* — sizing maths in depth.
 - `completablefuture_async_chains` *(planned)* — ForkJoinPool common pool, parallelism control.
 

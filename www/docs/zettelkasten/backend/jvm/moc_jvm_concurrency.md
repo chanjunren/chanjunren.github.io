@@ -8,9 +8,9 @@
 ## Concept Order
 
 ### Memory and Garbage Collection
-1. [[jvm_memory_areas]] — heap / stack / metaspace / code cache / direct memory.
-2. [[jvm_garbage_collection_basics]] — generational hypothesis, young/old, minor/major GC.
-3. [[gc_algorithms_g1_zgc_shenandoah]] — concrete collectors and when to pick which.
+1. [[memory_areas]] — heap / stack / metaspace / code cache / direct memory.
+2. [[basics]] — generational hypothesis, young/old, minor/major GC.
+3. [[algorithms_g1_zgc_shenandoah]] — concrete collectors and when to pick which.
 
 ### The Memory Model
 4. [[java_memory_model_happens_before]] — visibility and ordering rules between threads.
