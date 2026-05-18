@@ -65,6 +65,17 @@ Holds class metadata: `Class` objects, method bytecode, runtime constant pool, i
 
 Failure mode: dynamic class generation (frameworks creating proxies, classloader leaks) without bound = native memory growth → `OutOfMemoryError: Metaspace`.
 
+### Compressed Class Space
+
+A dedicated sub-region of metaspace for **compressed class pointers** (`-XX:+UseCompressedClassPointers`, on by default when heap < 32 GB). Each object header stores a 32-bit pointer into this space instead of a full 64-bit pointer — saves ~4 bytes per object.
+
+- Tuned via `-XX:CompressedClassSpaceSize` (default 1 GB)
+- Dashboard metric: `jvm_memory_used_bytes{area="nonheap", id="Compressed Class Space"}`
+- Grows with the number of loaded classes — same root causes as metaspace (dynamic proxies, reflection-heavy frameworks, classloader leaks)
+- Failure mode: `OutOfMemoryError: Compressed class space` — increase `-XX:CompressedClassSpaceSize` or investigate class loading
+
+Compressed class space is **included within** the `-XX:MaxMetaspaceSize` limit. Setting `MaxMetaspaceSize=512m` caps both metaspace and compressed class space combined.
+
 ## Code Cache
 
 JIT-compiled methods (HotSpot's C1 and C2 compilers produce native code; that native code lives here).
@@ -88,6 +99,16 @@ Allocated outside the JVM heap, via:
 **Pitfall**: not bounded by `-Xmx`. Bounded separately by `-XX:MaxDirectMemorySize` (defaults to roughly `-Xmx`). When unset and abused, the JVM happily eats all of host memory until the kernel kills the process.
 
 `OutOfMemoryError: Direct buffer memory` indicates exhaustion.
+
+### Mapped Buffers
+
+`MappedByteBuffer` via `FileChannel.map()` — the OS memory-maps a file region directly into the process's virtual address space. Reads/writes go through the OS page cache with no explicit I/O syscalls.
+
+- Dashboard metric: `jvm_buffer_pool_used_bytes{id="mapped"}` and `jvm_buffer_pool_used_memory{id="mapped"}`
+- **Not bounded by `-XX:MaxDirectMemorySize`** — mapped memory is managed entirely by the OS
+- Common sources: Kafka (log segments), RocksDB (SST files), Lucene/Elasticsearch indexes
+- High virtual memory from mapped buffers is usually benign — the OS pages in/out as needed. Only physical memory (RSS) matters for pressure.
+- Pitfall: `MappedByteBuffer` can't be explicitly unmapped in Java (no `close()` or `release()`). The mapping persists until the buffer object is GC'd. On Windows this also holds a file lock.
 
 ## Native Memory (the catch-all)
 
