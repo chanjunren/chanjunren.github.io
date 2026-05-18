@@ -1,12 +1,12 @@
 🗓️ 07112025 0000
 
-# prometheus_visualization_queries
+# visualization_queries
 
 **Core Concept**: Ready-to-use PromQL query patterns for visualizing Micrometer metrics in Grafana dashboards.
 
 ## Why It Matters
 
-Copy-paste queries save time and ensure correct visualization of [[micrometer_metric_types]]. Understanding [[prometheus_range_function_calculations]] helps you modify these patterns for your needs.
+Copy-paste queries save time and ensure correct visualization of [[metric_types]]. Understanding [[range_function_calculations]] helps you modify these patterns for your needs.
 
 ## Counter Queries
 
@@ -279,6 +279,9 @@ queue_size > 1000
 ---
 ## References
 
+- [[cadvisor_container_metrics]]
+- [[node_exporter_host_metrics]]
+- [[prometheus_spring_boot_pipeline]]
 - [PromQL Query Examples](https://prometheus.io/docs/prometheus/latest/querying/examples/)
 - [Grafana PromQL Basics](https://grafana.com/docs/grafana/latest/datasources/prometheus/)
 

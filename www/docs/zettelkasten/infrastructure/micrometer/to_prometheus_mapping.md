@@ -1,6 +1,6 @@
 🗓️ 06112025 0031
 
-# micrometer_to_prometheus_mapping
+# to_prometheus_mapping
 
 **Core Concept**: Micrometer metrics transform into Prometheus time series with specific naming conventions, label mappings, and multiple related metrics per instrument.
 

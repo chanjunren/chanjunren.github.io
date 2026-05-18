@@ -1,6 +1,6 @@
 🗓️ 06112025 0001
 
-# prometheus_range_function_calculations
+# range_function_calculations
 
 **Core Concept**: Range functions transform arrays of (timestamp, value) samples into single output values using specific mathematical formulas.
 
@@ -10,7 +10,7 @@ Knowing the actual calculations helps you understand what visualizations represe
 
 ## Prerequisites
 
-This builds on [[prometheus_time_series_basics]] - you need to understand that range selectors like `[5m]` return arrays of samples.
+This builds on [[time_series_basics]] - you need to understand that range selectors like `[5m]` return arrays of samples.
 
 ## Quick Reference
 

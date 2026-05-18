@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/skating/fish_secrets.md",
+                "file": "zettelkasten/infrastructure/prometheus/overview.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/skating/fish_secrets.md",
+                "file": "zettelkasten/infrastructure/prometheus/overview.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/skating/fish_secrets.md",
+                "file": "zettelkasten/infrastructure/prometheus/overview.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/skating/fish_secrets.md"
+                "file": "zettelkasten/infrastructure/prometheus/overview.md"
               }
             }
           }
@@ -148,42 +148,43 @@
   },
   "active": "4d4c5c29d81de5aa",
   "lastOpenFiles": [
-    "zettelkasten/skating/driving_leg.md",
-    "zettelkasten/skating/fish_secrets.md",
-    "zettelkasten/skating/crazy.md",
-    "zettelkasten/skating/practise_slowly.md",
-    "zettelkasten/skating/pressure.md",
-    "zettelkasten/concepts/ai-agents/ai_systems_learning_roadmap.md",
-    "zettelkasten/packing_list.md",
-    "zettelkasten/concepts/ai-agents/agent_memory_and_state.md",
-    "zettelkasten/concepts/ai-agents/llm_tool_use.md",
-    "zettelkasten/concepts/ai-agents/custom_mcp_servers.md",
-    "zettelkasten/concepts/ai-agents/model_context_protocol.md",
-    "zettelkasten/concepts/ai-agents/agent_as_tool_pattern.md",
-    "zettelkasten/concepts/ai-agents/coordinator_router_pattern.md",
-    "zettelkasten/concepts/ai-agents/loop_review_critique_pattern.md",
-    "zettelkasten/concepts/ai-agents/agentic_design_patterns.md",
+    "zettelkasten/infrastructure/micrometer/prometheus_spring_boot_pipeline.md",
+    "zettelkasten/infrastructure/micrometer/promql_cheatsheet.md",
+    "zettelkasten/infrastructure/micrometer/to_prometheus_mapping.md",
+    "zettelkasten/infrastructure/micrometer/metric_types.md",
+    "zettelkasten/infrastructure/micrometer",
+    "zettelkasten/infrastructure/prometheus/visualization_queries.md",
+    "zettelkasten/infrastructure/prometheus/range_function_calculations.md",
+    "zettelkasten/infrastructure/prometheus/time_series_basics.md",
+    "zettelkasten/infrastructure/prometheus/data_types.md",
+    "zettelkasten/infrastructure/prometheus/overview.md",
+    "zettelkasten/infrastructure/prometheus/prometheus_overview.md",
+    "zettelkasten/infrastructure/prometheus/prometheus_time_series_basics.md",
+    "zettelkasten/infrastructure/prometheus/prometheus_visualization_queries.md",
+    "zettelkasten/infrastructure/prometheus/prometheus_data_types.md",
+    "zettelkasten/infrastructure/prometheus/prometheus_range_function_calculations.md",
+    "zettelkasten/infrastructure/prometheus/prometheus.md",
+    "zettelkasten/infrastructure/prometheus/node_exporter_host_metrics.md",
+    "zettelkasten/infrastructure/prometheus/micrometer_to_prometheus_mapping.md",
+    "zettelkasten/infrastructure/prometheus/micrometer_promql_cheatsheet.md",
+    "zettelkasten/infrastructure/prometheus/micrometer_prometheus_spring_boot_pipeline.md",
+    "zettelkasten/infrastructure/prometheus/micrometer_metric_types.md",
+    "zettelkasten/infrastructure/prometheus/grafana_alloy.md",
+    "zettelkasten/infrastructure/prometheus/grafana_agent.md",
+    "zettelkasten/infrastructure/prometheus/cadvisor_container_metrics.md",
+    "zettelkasten/infrastructure/prometheus",
+    "zettelkasten/infrastructure/observability/skywalking.md",
+    "zettelkasten/infrastructure/observability",
+    "zettelkasten/infrastructure/monitoring/micrometer_promql_cheatsheet.md.tmp.56813.a3d485856800",
+    "zettelkasten/infrastructure/monitoring/micrometer_prometheus_spring_boot_pipeline.md",
+    "zettelkasten/infrastructure/monitoring/node_exporter_host_metrics.md",
+    "zettelkasten/skating/ksj",
+    "assets/technical_tricks_matrix.png",
     "zettelkasten/concepts/ai-agents",
-    "zettelkasten/infrastructure/monitoring/micrometer_promql_cheatsheet.md",
-    "zettelkasten/infrastructure/tools/tmux.md",
-    "zettelkasten/infrastructure/tools/postman_scripts_cheatsheet.md",
-    "zettelkasten/backend/languages/mvel_overview.md",
-    "zettelkasten/backend/languages/groovy_closures.md",
-    "zettelkasten/backend/libraries/log4j_custom_plugin.md",
-    "zettelkasten/backend/frameworks/netty/netty.md",
     "zettelkasten/backend/frameworks/netty",
-    "zettelkasten/backend/frameworks/spring/spring_boot_application_lifecycle.md",
-    "zettelkasten/backend/frameworks/spring/spel_overview.md",
     "zettelkasten/backend/frameworks/spring",
-    "zettelkasten/backend/languages/java/service_provider_interface.md",
-    "zettelkasten/backend/languages/java/jvm_options.md",
     "zettelkasten/backend/languages/java",
     "zettelkasten/backend/concepts/fundamentals",
-    "zettelkasten/backend/concepts",
-    "zettelkasten/home",
-    "zettelkasten/backend/libraries/caffeine",
-    "zettelkasten/backend/libraries",
-    "zettelkasten/finance/investing/general",
     "assets/Pasted image 20250828105751.png",
     "assets/skating_technical_tricks_matrix.png",
     "assets/3js_textures_albedo_example.png",
@@ -192,7 +193,6 @@
     "assets/chapter2_cluster.png",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/sampling.png",
     "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/native.png",
-    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/instrumented.png",
-    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/blocking.png"
+    "zettelkasten/to_be_tidied/Backend/Java/JVM/resources/jvm3/instrumented.png"
   ]
 }

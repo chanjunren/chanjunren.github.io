@@ -1,12 +1,12 @@
 🗓️ 31102024 1524
 
-# prometheus_data_types
+# data_types
 
 **Core Concept**: Prometheus has four metric types (Counter, Gauge, Histogram, Summary) - each suited for different measurement patterns and queried with specific functions.
 
 ## Why It Matters
 
-Choosing the wrong metric type leads to incorrect queries and misleading visualizations. Understanding [[prometheus_time_series_basics]] helps you see how these types are stored as time series.
+Choosing the wrong metric type leads to incorrect queries and misleading visualizations. Understanding [[time_series_basics]] helps you see how these types are stored as time series.
 
 ## Counters
 
@@ -25,7 +25,7 @@ http_requests_total{status="200"} 1543
 http_requests_total{status="500"} 12
 ```
 
-**Query with**: `rate()`, `increase()`, `irate()` - see [[prometheus_range_function_calculations]] for formulas
+**Query with**: `rate()`, `increase()`, `irate()` - see [[range_function_calculations]] for formulas
 
 ```ad-warning
 Never use raw counter values in alerts/dashboards - always use `rate()` or `increase()` because counters reset on restart.
@@ -52,7 +52,7 @@ queue_length 42
 memory_usage_bytes 1073741824
 ```
 
-**Query with**: `avg_over_time()`, `max_over_time()`, `delta()`, `deriv()` - see [[prometheus_range_function_calculations]]
+**Query with**: `avg_over_time()`, `max_over_time()`, `delta()`, `deriv()` - see [[range_function_calculations]]
 
 **Common Pattern**:
 ```promql

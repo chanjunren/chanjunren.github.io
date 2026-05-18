@@ -1,6 +1,6 @@
 🗓️ 06112025 0000
 
-# prometheus_time_series_basics
+# time_series_basics
 
 **Core Concept**: Time series are sequences of (timestamp, value) pairs identified by metric name + labels, collected at regular scrape intervals.
 

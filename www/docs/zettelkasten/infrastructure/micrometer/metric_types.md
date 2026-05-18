@@ -1,6 +1,6 @@
 🗓️ 06112025 0030
 
-# micrometer_metric_types
+# metric_types
 
 **Core Concept**: Micrometer provides metric types (Counter, Timer, Gauge, DistributionSummary, LongTaskTimer) that map to Prometheus data types and determine how metrics are collected and queried.
 
@@ -27,7 +27,7 @@ counter.increment();        // +1
 counter.increment(5.0);     // +5
 ```
 
-**Prometheus Export**: Becomes [[prometheus_data_types]] Counter → query with `rate()`, `increase()`
+**Prometheus Export**: Becomes [[data_types]] Counter → query with `rate()`, `increase()`
 - Exported as: `http_requests_total`
 
 **Trade-offs**:
@@ -69,7 +69,7 @@ timer.record(() -> {
 timer.record(Duration.ofMillis(123));
 ```
 
-**Prometheus Export**: Becomes [[prometheus_data_types]] Histogram (default) or Summary
+**Prometheus Export**: Becomes [[data_types]] Histogram (default) or Summary
 - Exported as: `http_request_duration_seconds_*`
 - `_count` - total number of events
 - `_sum` - total duration in seconds
@@ -133,7 +133,7 @@ Gauge.builder("jvm.memory.used", memoryBean, MemoryMXBean::getHeapMemoryUsage)
     .register(meterRegistry);
 ```
 
-**Prometheus Export**: Becomes [[prometheus_data_types]] Gauge → query with `avg_over_time()`, `delta()`
+**Prometheus Export**: Becomes [[data_types]] Gauge → query with `avg_over_time()`, `delta()`
 - Exported as: `queue_size`, `jvm_memory_used_bytes`, etc.
 
 **Trade-offs**:
@@ -167,7 +167,7 @@ summary.record(1024);      // Record 1KB
 summary.record(2048);      // Record 2KB
 ```
 
-**Prometheus Export**: Becomes [[prometheus_data_types]] Histogram or Summary (same as Timer, but for sizes not durations)
+**Prometheus Export**: Becomes [[data_types]] Histogram or Summary (same as Timer, but for sizes not durations)
 - Exported as: `request_size_bytes_*`
 - Same bucket/percentile behavior as Timer
 

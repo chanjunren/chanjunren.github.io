@@ -1,14 +1,12 @@
 🗓️ 31102024 1149
 
-# prometheus
+# overview
 
 ```ad-summary
 Metrics based system that helps you collect / record metrics from your services
 ```
 
 ## System Architecture
-
-<img src="https://prometheus.io/assets/architecture.png"/>
 
 Pull based monitoring system
 1. Pulls data from a list of services 

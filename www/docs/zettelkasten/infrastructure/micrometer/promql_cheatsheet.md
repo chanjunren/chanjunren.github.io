@@ -1,8 +1,8 @@
 🗓️ 16032026 2200
 
-# micrometer_promql_cheatsheet
+# promql_cheatsheet
 
-Practical cheatsheet mapping Micrometer Counter/Timer usage (via `OpStats` or direct API) to the PromQL queries you write in Grafana. For theory, see [[micrometer_metric_types]] and [[micrometer_to_prometheus_mapping]].
+Practical cheatsheet mapping Micrometer Counter/Timer usage (via `OpStats` or direct API) to the PromQL queries you write in Grafana. For theory, see [[metric_types]] and [[to_prometheus_mapping]].
 
 ## Naming Translation
 
@@ -172,7 +172,8 @@ Shorter windows = noisier graphs but faster reaction. Longer windows = smoother 
 
 ## References
 
-- [[micrometer_metric_types]]
-- [[micrometer_to_prometheus_mapping]]
-- [[prometheus_visualization_queries]]
+- [[metric_types]]
+- [[to_prometheus_mapping]]
+- [[prometheus_spring_boot_pipeline]]
+- [[visualization_queries]]
 - [PromQL Cheat Sheet](https://promlabs.com/promql-cheat-sheet/)
