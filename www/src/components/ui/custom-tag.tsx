@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 
-type TagColor = "rose" | "pine" | "foam" | "iris" | "muted";
+export type TagColor = "rose" | "pine" | "foam" | "iris" | "muted";
 
 type ICustomTags = {
   children: ReactNode;

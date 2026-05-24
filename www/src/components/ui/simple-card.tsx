@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler, PropsWithChildren } from "react";
+import {FC, MouseEventHandler, PropsWithChildren} from "react";
 
 type HoverCardProps = {
   className?: string;
@@ -12,7 +12,7 @@ const SimpleCard: FC<PropsWithChildren<HoverCardProps>> = ({
   return (
     <div
       onClick={onClick}
-      className={`${className} rounded-md bg-[var(--gray-transparent-bg)] flex-grow shadow-md`}
+      className={`${className} rounded-md bg-(--gray-transparent-bg) flex-grow shadow-md`}
     >
       {children}
     </div>
