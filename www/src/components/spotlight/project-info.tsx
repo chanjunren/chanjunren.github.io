@@ -1,5 +1,5 @@
-import { GalleryProjectInfo } from "@site/src/types";
-import { FC } from "react";
+import {GalleryProjectInfo} from "@site/src/types";
+import {FC} from "react";
 import DocusaurusLink from "@site/src/components/ui/docusaurus-link";
 import CustomTag from "@site/src/components/ui/custom-tag";
 
@@ -38,7 +38,7 @@ const ProjectInfo: FC<GalleryProjectInfo> = ({
         <DocusaurusLink
           className="lg:col-span-4 col-span-12"
           to={repository}
-          subLabel="</>"
+          subLabel="📂"
           label="Repository"
         />
       )}
