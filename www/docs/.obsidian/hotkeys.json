@@ -29,14 +29,6 @@
       "key": "R"
     }
   ],
-  "app:delete-file": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "Backspace"
-    }
-  ],
   "workspace:close": [
     {
       "modifiers": [

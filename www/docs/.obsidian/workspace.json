@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "f379a2c73e5e9e5b",
+        "id": "9c71cea95416dcac",
         "type": "tabs",
         "children": [
           {
-            "id": "4d4c5c29d81de5aa",
+            "id": "8d3b0cd78692d098",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/infrastructure/prometheus/overview.md",
+                "file": "zettelkasten/dump/study.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/infrastructure/prometheus/overview.md",
+                "file": "zettelkasten/dump/study.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/infrastructure/prometheus/overview.md",
+                "file": "zettelkasten/dump/study.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/infrastructure/prometheus/overview.md"
+                "file": "zettelkasten/dump/study.md"
               }
             }
           }
@@ -146,44 +146,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4d4c5c29d81de5aa",
+  "active": "8d3b0cd78692d098",
   "lastOpenFiles": [
+    "zettelkasten/dump/study.md",
+    "zettelkasten/dump/todo.md",
+    "zettelkasten/dump/ryo.md",
+    "zettelkasten/ai/sdks/building_with_claude.md",
+    "zettelkasten/ai/sdks/claude_agent_sdk.md",
+    "zettelkasten/ai/mcp/mcp_transports.md",
+    "zettelkasten/ai/mcp/model_context_protocol.md",
+    "zettelkasten/ai/mcp/mcp_sampling.md",
+    "zettelkasten/ai/mcp/llm_tool_use.md",
+    "zettelkasten/ai/mcp/mcp_architecture.md",
+    "zettelkasten/ai/mcp/custom_mcp_servers.md",
+    "zettelkasten/infrastructure/prometheus/overview.md",
+    "zettelkasten/ai/mcp/mcp_authorization.md",
+    "zettelkasten/ai/mcp/mcp_prompts.md",
+    "zettelkasten/ai/mcp/mcp_resources.md",
+    "zettelkasten/concepts/agents/agent_as_tool_pattern.md",
+    "zettelkasten/ai/agent-patterns/agent_memory_and_state.md",
+    "zettelkasten/ai/agent-patterns/loop_review_critique_pattern.md",
+    "zettelkasten/ai/agent-patterns/agent_as_tool_pattern.md",
+    "zettelkasten/ai/agent-patterns/coordinator_router_pattern.md",
+    "zettelkasten/ai/agent-patterns/agentic_design_patterns.md",
+    "zettelkasten/ai/sdks",
+    "zettelkasten/ai/mcp",
+    "zettelkasten/ai/agent-patterns",
+    "zettelkasten/ai",
+    "zettelkasten/concepts/ai-agents/claude_agent_sdk.md",
+    "zettelkasten/concepts/agents/model_context_protocol.md",
+    "zettelkasten/concepts/agents/loop_review_critique_pattern.md",
+    "zettelkasten/concepts/agents/llm_tool_use.md",
+    "zettelkasten/concepts/agents/custom_mcp_servers.md",
+    "zettelkasten/concepts/agents",
     "zettelkasten/backend/frameworks/netty/netty_memory_model.md.tmp.56813.0278423b03c9",
     "zettelkasten/backend/jvm/gc/algorithms_g1_zgc_shenandoah.md.tmp.56813.8585cb61df76",
     "zettelkasten/backend/jvm/memory_diagnostics.md.tmp.56813.eeb2d34b79e0",
     "zettelkasten/backend/jvm/gc/algorithms_g1_zgc_shenandoah.md.tmp.56813.58ae4af7bd58",
     "zettelkasten/backend/jvm/memory_diagnostics.md.tmp.56813.6f48efad2143",
-    "zettelkasten/backend/jvm/memory_diagnostics.md",
-    "zettelkasten/backend/jvm/memory_areas.md",
-    "zettelkasten/backend/jvm/gc/basics.md",
-    "zettelkasten/backend/jvm/gc/algorithms_g1_zgc_shenandoah.md",
-    "zettelkasten/backend/jvm/gc",
-    "zettelkasten/backend/jvm/jvm_memory_diagnostics.md",
-    "zettelkasten/backend/frameworks/netty/netty_memory_model.md",
-    "zettelkasten/infrastructure/prometheus/visualization_queries.md",
-    "zettelkasten/infrastructure/prometheus/time_series_basics.md",
-    "zettelkasten/skating/ksj/pelvic_rotation.md",
-    "zettelkasten/skating/ksj/compression.md",
-    "zettelkasten/skating/fitness/pelvic_tilt.md",
-    "zettelkasten/infrastructure/monitoring/skywalking.md",
-    "zettelkasten/infrastructure/monitoring/prometheus_visualization_queries.md",
-    "zettelkasten/infrastructure/monitoring/prometheus_time_series_basics.md",
-    "zettelkasten/infrastructure/monitoring/prometheus_range_function_calculations.md",
-    "zettelkasten/infrastructure/monitoring/prometheus_data_types.md",
-    "zettelkasten/infrastructure/monitoring/prometheus.md",
-    "zettelkasten/infrastructure/monitoring/micrometer_to_prometheus_mapping.md",
-    "zettelkasten/infrastructure/monitoring/micrometer_promql_cheatsheet.md",
-    "zettelkasten/infrastructure/monitoring/micrometer_metric_types.md",
-    "zettelkasten/infrastructure/monitoring/grafana_alloy.md",
-    "zettelkasten/infrastructure/monitoring/grafana_agent.md",
-    "zettelkasten/infrastructure/monitoring",
-    "zettelkasten/infrastructure/micrometer/prometheus_spring_boot_pipeline.md",
-    "zettelkasten/infrastructure/micrometer/promql_cheatsheet.md",
-    "zettelkasten/infrastructure/micrometer/to_prometheus_mapping.md",
-    "zettelkasten/infrastructure/micrometer",
-    "zettelkasten/infrastructure/prometheus",
-    "zettelkasten/infrastructure/observability",
-    "zettelkasten/infrastructure/monitoring/micrometer_promql_cheatsheet.md.tmp.56813.a3d485856800",
     "assets/technical_tricks_matrix.png",
     "assets/Pasted image 20250828105751.png",
     "assets/skating_technical_tricks_matrix.png",
