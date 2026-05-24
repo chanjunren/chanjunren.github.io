@@ -2,7 +2,8 @@ import QuoteItem from "@site/src/components/home/quote/quote-item";
 import QuoteStatistics from "@site/src/components/home/quote/quote-statistics";
 import QuoteTable from "@site/src/components/home/quote/quote-table";
 import TypewriterText from "@site/src/components/ui/typewriter-text";
-import { useMateria } from "@site/src/hooks/useMateria";
+import {useMateria} from "@site/src/hooks/useMateria";
+
 const CHINESE_COMMA = "，";
 
 export default function Quote() {
@@ -20,7 +21,7 @@ export default function Quote() {
 
   return (
     <div className="flex gap-5">
-      <div className="flex flex-col justify-between">
+      <div className="flex flex-col justify-between gap-10">
         <div className={"flex flex-col gap-2"}>
           <QuoteTable quotes={quotes} />
           <QuoteStatistics />
