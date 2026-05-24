@@ -1,18 +1,18 @@
-import { useWindowSize } from "@docusaurus/theme-common";
-import { useNavbarMobileSidebar } from "@docusaurus/theme-common/internal";
-import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import {useWindowSize} from "@docusaurus/theme-common";
+import {useNavbarMobileSidebar} from "@docusaurus/theme-common/internal";
+import {HamburgerMenuIcon} from "@radix-ui/react-icons";
 
-import { Link } from "@site/src/components/ui/link";
-import { NavigationMenuItem } from "@site/src/components/ui/navigation-menu";
-import { FC } from "react";
+import {Link} from "@site/src/components/ui/link";
+import {NavigationMenuItem} from "@site/src/components/ui/navigation-menu";
+import {FC} from "react";
 
 const ZETTELKASTEN = "zettelkasten";
 const WHOAMI = "whoami";
 
 function getPageLabel(path: string): string {
-  if (path.includes(ZETTELKASTEN)) return "notes";
-  if (path.includes(WHOAMI)) return "about";
-  return "home";
+  if (path.includes(ZETTELKASTEN)) return "学";
+  if (path.includes(WHOAMI)) return "我";
+  return "恩";
 }
 
 const NavbarExtras: FC = () => {
