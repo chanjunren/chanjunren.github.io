@@ -4,6 +4,7 @@ import { FC } from "react";
 import Work from "@site/src/components/home/experience";
 import Hobbies from "@site/src/components/home/hobbies";
 import Gallery from "@site/src/components/home/gallery";
+import About from "@site/src/components/home/about";
 
 const WhoAmI: FC = () => {
   return (
@@ -14,6 +15,7 @@ const WhoAmI: FC = () => {
       footer={null}
       menu={<FloatingMenu />}
     >
+      <About />
       <Work />
       <Hobbies />
       <Gallery />
