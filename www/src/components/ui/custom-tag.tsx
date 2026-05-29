@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 
-export type TagColor = "rose" | "pine" | "foam" | "iris" | "muted";
+export type TagColor = "rose" | "pine" | "foam" | "iris" | "muted" | "locked";
 
 type ICustomTags = {
   children: ReactNode;
@@ -30,6 +30,10 @@ const COLOR_STYLES: Record<TagColor, { bg: string; text: string }> = {
   muted: {
     bg: "bg-[##9893a5]/40",
     text: "text-[#575279]", // Text color - much darker purple/gray
+  },
+  locked: {
+    bg: "bg-[#b4637a]",
+    text: "text-white",
   },
 };
 

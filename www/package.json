@@ -39,6 +39,7 @@
     "debounce": "^2.2.0",
     "leva": "^0.9.35",
     "lucide-react": "^0.553.0",
+    "nucleo-isometric": "^1.0.0",
     "prism-react-renderer": "^2.3.0",
     "r3f-perf": "^7.2.3",
     "react": "^19.2.0",
