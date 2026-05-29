@@ -2,6 +2,7 @@ import SimpleCard from "@site/src/components/ui/simple-card";
 import SecondaryHeader from "@site/src/components/ui/secondary-header";
 import BadgeList from "@site/src/components/spotlight/badge-list";
 import CustomTag from "@site/src/components/ui/custom-tag";
+import MvmView from "@site/src/components/mvm/mvm-view";
 import { GalleryProjectInfo } from "@site/src/types";
 import FaceTile from "./mvm-faces";
 
@@ -30,6 +31,7 @@ const MvmProject: GalleryProjectInfo = {
         to Haiku, Sonnet, and Opus, then compare outputs, token counts, and
         costs in real time.
       </span>
+      <MvmView />
     </div>
   ),
   repository:

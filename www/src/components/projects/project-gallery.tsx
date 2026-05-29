@@ -11,8 +11,8 @@ import VaultusaurusProject from "./vaultusaurus";
 export const GALLERY_PROJECTS: GalleryProjectInfo[] = [
   VaultusaurusProject,
   // ThreeJsCheatsheetInfo,
-  PortalProject,
   MvmProject,
+  PortalProject,
   MyOldPortfolioBaby,
   PixelLabInfo,
 ];

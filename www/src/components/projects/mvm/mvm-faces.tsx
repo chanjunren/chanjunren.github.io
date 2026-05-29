@@ -40,17 +40,28 @@ const FaceTile: FC<FaceTileProps> = ({
       style={{
         position: "absolute",
         inset: 0,
-        display: "grid",
-        gridTemplateColumns: `repeat(auto-fill, minmax(${cellSize}px, 1fr))`,
-        placeItems: "center",
-        color: "var(--ifm-font-color-base)",
-        opacity: 0.35,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 12,
       }}
     >
-      {cells.map((cell, i) => {
-        const FaceIcon = FACES[cell.face];
-        return <FaceIcon key={i} size={`${size}px`} />;
-      })}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: `repeat(auto-fill, minmax(${cellSize}px, 1fr))`,
+          rowGap: 16,
+          placeItems: "center",
+          color: "var(--ifm-font-color-base)",
+          opacity: 0.35,
+          width: "100%",
+        }}
+      >
+        {cells.map((cell, i) => {
+          const FaceIcon = FACES[cell.face];
+          return <FaceIcon key={i} size={`${size}px`} />;
+        })}
+      </div>
     </div>
   );
 };
