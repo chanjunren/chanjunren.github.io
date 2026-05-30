@@ -60,11 +60,12 @@ $(fmt_duration $(( $(date -u +%s) - start_epoch )))")
 build_card() {
   mode=$1; start_epoch=$2
   case "$mode" in
-    started) emoji="🌱"; title="Deploy started";   color="blue"  ;;
-    success) emoji="🌳"; title="Deploy succeeded"; color="green" ;;
-    failed)  emoji="🍖"; title="Deploy failed";    color="red"   ;;
+    started) emoji="🌱"; status_verb="started";   color="blue"  ;;
+    success) emoji="🌳"; status_verb="succeeded"; color="green" ;;
+    failed)  emoji="🍖"; status_verb="failed";    color="red"   ;;
     *) echo "unknown mode: $mode" >&2; exit 1 ;;
   esac
+  title="${JOB_NAME} ${status_verb}"
   job_col=$(md_column "**💼  Job**
 ${JOB_NAME}")
   commit_col=$(md_column "**🔖  Commit**
