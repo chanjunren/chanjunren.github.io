@@ -66,7 +66,7 @@ build_card() {
     *) echo "unknown mode: $mode" >&2; exit 1 ;;
   esac
   repo="${GITHUB_REPOSITORY#*/}"
-  title="${repo} · ${JOB_NAME} ${status_verb}"
+  title="${JOB_NAME} ${status_verb} [${repo}]"
   job_col=$(md_column "**💼  Job**
 ${JOB_NAME}")
   commit_col=$(md_column "**🔖  Commit**

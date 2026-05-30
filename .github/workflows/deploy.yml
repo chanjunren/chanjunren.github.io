@@ -14,20 +14,21 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Notify Lark (started)
-        continue-on-error: true
-        env:
-          LARK_DEPLOY_WEBHOOK_URL: ${{ secrets.LARK_DEPLOY_WEBHOOK_URL }}
-          LARK_DEPLOY_WEBHOOK_SECRET: ${{ secrets.LARK_DEPLOY_WEBHOOK_SECRET }}
-          JOB_NAME: Build Docusaurus
-          COMMIT_SHORT_SHA: ${{ github.sha }}
-          COMMIT_AUTHOR: ${{ github.actor }}
-          JOB_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          STARTED=$(date -u +%Y-%m-%dT%H:%M:%SZ)
-          echo "JOB_STARTED_AT=$STARTED" >> "$GITHUB_ENV"
-          COMMIT_SHORT_SHA="${COMMIT_SHORT_SHA:0:8}" JOB_STARTED_AT="$STARTED" \
-            sh .github/scripts/notify-lark.sh started
+      - name: Record job start time
+        run: echo "JOB_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_ENV"
+
+      # - name: Notify Lark (started)
+      #   continue-on-error: true
+      #   env:
+      #     LARK_DEPLOY_WEBHOOK_URL: ${{ secrets.LARK_DEPLOY_WEBHOOK_URL }}
+      #     LARK_DEPLOY_WEBHOOK_SECRET: ${{ secrets.LARK_DEPLOY_WEBHOOK_SECRET }}
+      #     JOB_NAME: Build Docusaurus
+      #     COMMIT_SHORT_SHA: ${{ github.sha }}
+      #     COMMIT_AUTHOR: ${{ github.actor }}
+      #     JOB_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      #   run: |
+      #     COMMIT_SHORT_SHA="${COMMIT_SHORT_SHA:0:8}" \
+      #       sh .github/scripts/notify-lark.sh started
 
       - uses: actions/setup-node@v4
         with:
@@ -89,20 +90,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Notify Lark (started)
-        continue-on-error: true
-        env:
-          LARK_DEPLOY_WEBHOOK_URL: ${{ secrets.LARK_DEPLOY_WEBHOOK_URL }}
-          LARK_DEPLOY_WEBHOOK_SECRET: ${{ secrets.LARK_DEPLOY_WEBHOOK_SECRET }}
-          JOB_NAME: Deploy to GitHub Pages
-          COMMIT_SHORT_SHA: ${{ github.sha }}
-          COMMIT_AUTHOR: ${{ github.actor }}
-          JOB_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          STARTED=$(date -u +%Y-%m-%dT%H:%M:%SZ)
-          echo "JOB_STARTED_AT=$STARTED" >> "$GITHUB_ENV"
-          COMMIT_SHORT_SHA="${COMMIT_SHORT_SHA:0:8}" JOB_STARTED_AT="$STARTED" \
-            sh .github/scripts/notify-lark.sh started
+      - name: Record job start time
+        run: echo "JOB_STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_ENV"
+
+      # - name: Notify Lark (started)
+      #   continue-on-error: true
+      #   env:
+      #     LARK_DEPLOY_WEBHOOK_URL: ${{ secrets.LARK_DEPLOY_WEBHOOK_URL }}
+      #     LARK_DEPLOY_WEBHOOK_SECRET: ${{ secrets.LARK_DEPLOY_WEBHOOK_SECRET }}
+      #     JOB_NAME: Deploy to GitHub Pages
+      #     COMMIT_SHORT_SHA: ${{ github.sha }}
+      #     COMMIT_AUTHOR: ${{ github.actor }}
+      #     JOB_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      #   run: |
+      #     COMMIT_SHORT_SHA="${COMMIT_SHORT_SHA:0:8}" \
+      #       sh .github/scripts/notify-lark.sh started
 
       - name: Deploy to GitHub Pages
         id: deployment
