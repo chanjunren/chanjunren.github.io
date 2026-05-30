@@ -12,7 +12,7 @@
 - do not put all your weight on the ankle, weight should move along the line of cones
 
 ```ad-warning
-❗️ coach say my problem is that my knee keeps bending and i keep putting weight on my ankle, need to tip my toe higher [[improving_toe_height]]
+❗️ coach say my problem is that my knee keeps bending and i keep putting weight on my ankle, need to tip my toe higher [[fitness/dorsiflexion]]
 ```
 
 ## Forward Wheeling
