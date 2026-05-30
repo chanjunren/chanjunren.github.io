@@ -1,19 +1,14 @@
 import CustomTag from "@site/src/components/ui/custom-tag";
 import SecondaryHeader from "@site/src/components/ui/secondary-header";
-import {Toggle} from "@site/src/components/ui/toggle";
 import {ModelInfo} from "@site/src/types/mvm";
-import {IconManufacture, IconMonitor, IconSwitchOff,} from "nucleo-isometric";
+import {IconManufacture, IconSwitchOff,} from "nucleo-isometric";
 import {FC} from "react";
 import ModelSelector from "./model-selector";
-import {MockScene, SCENES} from "./use-mvm";
-
 type Props = {
   connected: boolean;
   models: ModelInfo[];
   selectedModels: string[];
   onToggleModel: (alias: string) => void;
-  scene: MockScene;
-  onSceneChange: (scene: MockScene) => void;
 };
 
 const MUTED_ICON_STYLE = { color: "var(--reduced-emphasis-color)", flexShrink: 0 } as const;
@@ -23,8 +18,6 @@ const MvmSidebar: FC<Props> = ({
   models,
   selectedModels,
   onToggleModel,
-  scene,
-  onSceneChange,
 }) => (
   <div className="flex flex-col gap-6">
     {/* Server status */}
@@ -48,24 +41,6 @@ const MvmSidebar: FC<Props> = ({
         selectedModels={selectedModels}
         onToggleModel={onToggleModel}
       />
-      <div className="flex flex-col gap-2">
-        <SecondaryHeader className="flex items-center gap-1.5">
-          <IconMonitor size="18px" />
-          Preview
-        </SecondaryHeader>
-        <div className="flex flex-wrap gap-1">
-          {SCENES.map((s) => (
-            <Toggle
-              key={s.key}
-              size="sm"
-              pressed={scene === s.key}
-              onPressedChange={() => onSceneChange(s.key)}
-            >
-              {s.label}
-            </Toggle>
-          ))}
-        </div>
-      </div>
     </div>
 
     {/* Components */}

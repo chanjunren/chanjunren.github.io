@@ -26,9 +26,9 @@ export default function useMvm() {
   const [scene, setScene] = useState<MockScene>("done");
   const [prompt, setPrompt] = useState(MOCK_PROMPT);
   const [selectedModels, setSelectedModels] = useState<string[]>([
-    "haiku",
-    "sonnet",
-    "opus",
+    "haiku-4.5",
+    "sonnet-4.6",
+    "opus-4.6",
   ]);
 
   const connected = true;

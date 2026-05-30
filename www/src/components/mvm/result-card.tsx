@@ -1,5 +1,6 @@
-import {CheckCircledIcon, CounterClockwiseClockIcon, CrossCircledIcon, TimerIcon, TokensIcon,} from "@radix-ui/react-icons";
+import {CheckCircledIcon, CounterClockwiseClockIcon, CrossCircledIcon, TimerIcon,} from "@radix-ui/react-icons";
 import {ModelResult} from "@site/src/types/mvm";
+import {IconArcadeCharacter, IconCoins} from "nucleo-isometric";
 import {FC} from "react";
 import {Streamdown} from "streamdown";
 
@@ -16,6 +17,7 @@ const ResultCard: FC<Props> = ({ modelName, result }) => {
     <div className="flex flex-col gap-2">
       <div className="flex flex-col gap-0.5 min-h-[4.5rem]">
         <div className="flex items-center gap-1.5">
+          <IconArcadeCharacter size="14px" style={{ color: "var(--reduced-emphasis-color)" }} />
           <span className="uppercase text-sm tracking-tightest text-(--reduced-emphasis-color)">
             {modelName}
           </span>
@@ -35,7 +37,7 @@ const ResultCard: FC<Props> = ({ modelName, result }) => {
         {result.status === "done" && result.usage && (
           <div className="flex flex-col gap-0.5 text-(--reduced-emphasis-color)">
             <span className="flex items-center gap-1.5">
-              <TokensIcon className="size-3" />
+              <IconCoins size="14px" style={{ color: "var(--reduced-emphasis-color)" }} />
               {result.usage.input_tokens} in / {result.usage.output_tokens} out
             </span>
             {result.total_cost_usd != null && (

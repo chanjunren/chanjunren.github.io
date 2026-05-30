@@ -15,7 +15,7 @@ const MvmView: FC = () => {
         loading={mvm.loading}
         disabled={!mvm.connected}
       />
-      <ResultsGrid models={mvm.models} results={mvm.results} />
+      <ResultsGrid models={mvm.models} selectedModels={mvm.selectedModels} results={mvm.results} />
     </div>
   );
 };

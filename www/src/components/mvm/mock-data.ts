@@ -1,21 +1,13 @@
 import { ModelInfo, ModelResult } from "@site/src/types/mvm";
 
 export const MOCK_MODELS: ModelInfo[] = [
-  {
-    alias: "haiku",
-    name: "Claude Haiku",
-    description: "Fastest, cheapest. Good for simple tasks.",
-  },
-  {
-    alias: "sonnet",
-    name: "Claude Sonnet",
-    description: "Balanced speed and quality.",
-  },
-  {
-    alias: "opus",
-    name: "Claude Opus",
-    description: "Most capable. Slower, higher cost.",
-  },
+  { alias: "haiku-3.5", name: "Haiku 3.5", description: "Legacy fast model" },
+  { alias: "haiku-4.5", name: "Haiku 4.5", description: "Latest fast model" },
+  { alias: "sonnet-3.5", name: "Sonnet 3.5", description: "Legacy balanced model" },
+  { alias: "sonnet-4.5", name: "Sonnet 4.5", description: "Balanced speed and quality" },
+  { alias: "sonnet-4.6", name: "Sonnet 4.6", description: "Latest balanced model" },
+  { alias: "opus-3.5", name: "Opus 3.5", description: "Legacy most capable model" },
+  { alias: "opus-4.6", name: "Opus 4.6", description: "Latest most capable model" },
 ];
 
 export const MOCK_PROMPT = "Explain monads in 3 sentences";
@@ -76,74 +68,50 @@ main = do
 
 Each \`bind\` step decides **how** (or **whether**) to pass a value forward, which is why Haskell's \`do\`-notation can express loops, early returns, and exception handling without any of those being language primitives.`;
 
+const HAIKU_SHORT = `A monad wraps a value in context and gives you \`return\` to wrap and \`bind\` to chain — that's it.
+
+Think \`Maybe\` for nulls, \`Either\` for errors, \`IO\` for side effects.`;
+
+const SONNET_SHORT = `Monads are chainable containers. You put a value in with \`return\`, transform it with \`bind\`, and the container handles the plumbing (nulls, errors, async, etc.).
+
+The three monad laws keep composition predictable.`;
+
+function mockResult(text: string, tokens: number, ms: number, cost: number): ModelResult {
+  return {
+    text,
+    status: "done",
+    usage: { input_tokens: 12, output_tokens: tokens, cache_creation_input_tokens: 0, cache_read_input_tokens: 0 },
+    duration_ms: ms,
+    total_cost_usd: cost,
+  };
+}
+
 export const MOCK_RESULTS: Record<string, ModelResult> = {
-  haiku: {
-    text: HAIKU_TEXT,
-    status: "done",
-    usage: {
-      input_tokens: 12,
-      output_tokens: 127,
-      cache_creation_input_tokens: 0,
-      cache_read_input_tokens: 0,
-    },
-    duration_ms: 2340,
-    total_cost_usd: 0.0018,
-  },
-  sonnet: {
-    text: SONNET_TEXT,
-    status: "done",
-    usage: {
-      input_tokens: 12,
-      output_tokens: 198,
-      cache_creation_input_tokens: 0,
-      cache_read_input_tokens: 0,
-    },
-    duration_ms: 5870,
-    total_cost_usd: 0.012,
-  },
-  opus: {
-    text: OPUS_TEXT,
-    status: "done",
-    usage: {
-      input_tokens: 12,
-      output_tokens: 231,
-      cache_creation_input_tokens: 0,
-      cache_read_input_tokens: 0,
-    },
-    duration_ms: 14520,
-    total_cost_usd: 0.058,
-  },
+  "haiku-3.5": mockResult(HAIKU_SHORT, 68, 1200, 0.0008),
+  "haiku-4.5": mockResult(HAIKU_TEXT, 127, 2340, 0.0018),
+  "sonnet-3.5": mockResult(SONNET_SHORT, 72, 3100, 0.005),
+  "sonnet-4.5": mockResult(SONNET_TEXT, 198, 5870, 0.012),
+  "sonnet-4.6": mockResult(SONNET_TEXT, 195, 5420, 0.011),
+  "opus-3.5": mockResult(OPUS_TEXT, 220, 18200, 0.072),
+  "opus-4.6": mockResult(OPUS_TEXT, 231, 14520, 0.058),
 };
 
 export const MOCK_RESULTS_STREAMING: Record<string, ModelResult> = {
-  haiku: {
-    text: HAIKU_TEXT,
-    status: "done",
-    usage: {
-      input_tokens: 12,
-      output_tokens: 127,
-      cache_creation_input_tokens: 0,
-      cache_read_input_tokens: 0,
-    },
-    duration_ms: 2340,
-    total_cost_usd: 0.0018,
-  },
-  sonnet: {
-    text: "A monad is an abstraction that lets you **sequence computations** while automatically handling some underlying concern — like missing values, errors, or asynchronous operations.\n\nTechnically, it's any type that implements two operations:\n\n1. `return` (also called `unit` or `pure`) — wraps a plain value into",
-    status: "streaming",
-  },
-  opus: {
-    text: "",
-    status: "streaming",
-  },
+  "haiku-3.5": mockResult(HAIKU_SHORT, 68, 1200, 0.0008),
+  "haiku-4.5": mockResult(HAIKU_TEXT, 127, 2340, 0.0018),
+  "sonnet-3.5": { text: "Monads are chainable containers. You put a value in with `return`", status: "streaming" },
+  "sonnet-4.5": { text: "A monad is an abstraction that lets you **sequence computations**", status: "streaming" },
+  "sonnet-4.6": { text: "A monad is an abstraction that lets you **sequence computations** while automatically handling some underlying concern", status: "streaming" },
+  "opus-3.5": { text: "", status: "streaming" },
+  "opus-4.6": { text: "", status: "streaming" },
 };
 
 export const MOCK_RESULTS_ERROR: Record<string, ModelResult> = {
-  haiku: { ...MOCK_RESULTS.haiku },
-  sonnet: { ...MOCK_RESULTS.sonnet },
-  opus: {
-    text: "",
-    status: "error",
-    error: "request timed out",
-  },
+  "haiku-3.5": mockResult(HAIKU_SHORT, 68, 1200, 0.0008),
+  "haiku-4.5": mockResult(HAIKU_TEXT, 127, 2340, 0.0018),
+  "sonnet-3.5": mockResult(SONNET_SHORT, 72, 3100, 0.005),
+  "sonnet-4.5": mockResult(SONNET_TEXT, 198, 5870, 0.012),
+  "sonnet-4.6": mockResult(SONNET_TEXT, 195, 5420, 0.011),
+  "opus-3.5": { text: "", status: "error", error: "request timed out" },
+  "opus-4.6": { text: "", status: "error", error: "request timed out" },
 };
