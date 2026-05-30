@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - master
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
   build:
@@ -15,6 +13,22 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Notify Lark (started)
+        continue-on-error: true
+        env:
+          LARK_DEPLOY_WEBHOOK_URL: ${{ secrets.LARK_DEPLOY_WEBHOOK_URL }}
+          LARK_DEPLOY_WEBHOOK_SECRET: ${{ secrets.LARK_DEPLOY_WEBHOOK_SECRET }}
+          JOB_NAME: Build Docusaurus
+          COMMIT_SHORT_SHA: ${{ github.sha }}
+          COMMIT_AUTHOR: ${{ github.actor }}
+          JOB_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          STARTED=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          echo "JOB_STARTED_AT=$STARTED" >> "$GITHUB_ENV"
+          COMMIT_SHORT_SHA="${COMMIT_SHORT_SHA:0:8}" JOB_STARTED_AT="$STARTED" \
+            sh .github/scripts/notify-lark.sh started
+
       - uses: actions/setup-node@v4
         with:
           node-version: 21.7.3
@@ -30,6 +44,32 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: www/build
+
+      - name: Notify Lark (success)
+        if: success()
+        continue-on-error: true
+        env:
+          LARK_DEPLOY_WEBHOOK_URL: ${{ secrets.LARK_DEPLOY_WEBHOOK_URL }}
+          LARK_DEPLOY_WEBHOOK_SECRET: ${{ secrets.LARK_DEPLOY_WEBHOOK_SECRET }}
+          JOB_NAME: Build Docusaurus
+          COMMIT_SHORT_SHA: ${{ github.sha }}
+          COMMIT_AUTHOR: ${{ github.actor }}
+          JOB_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: COMMIT_SHORT_SHA="${COMMIT_SHORT_SHA:0:8}" sh .github/scripts/notify-lark.sh success
+
+      - name: Notify Lark (failure)
+        if: failure()
+        continue-on-error: true
+        env:
+          LARK_DEPLOY_WEBHOOK_URL: ${{ secrets.LARK_DEPLOY_WEBHOOK_URL }}
+          LARK_DEPLOY_WEBHOOK_SECRET: ${{ secrets.LARK_DEPLOY_WEBHOOK_SECRET }}
+          JOB_NAME: Build Docusaurus
+          COMMIT_SHORT_SHA: ${{ github.sha }}
+          COMMIT_AUTHOR: ${{ github.actor }}
+          JOB_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          JOB_STARTED_AT="${JOB_STARTED_AT:-$(date -u +%Y-%m-%dT%H:%M:%SZ)}"
+          COMMIT_SHORT_SHA="${COMMIT_SHORT_SHA:0:8}" sh .github/scripts/notify-lark.sh failed
 
   deploy:
     name: Deploy to GitHub Pages
@@ -47,6 +87,49 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
+      - name: Notify Lark (started)
+        continue-on-error: true
+        env:
+          LARK_DEPLOY_WEBHOOK_URL: ${{ secrets.LARK_DEPLOY_WEBHOOK_URL }}
+          LARK_DEPLOY_WEBHOOK_SECRET: ${{ secrets.LARK_DEPLOY_WEBHOOK_SECRET }}
+          JOB_NAME: Deploy to GitHub Pages
+          COMMIT_SHORT_SHA: ${{ github.sha }}
+          COMMIT_AUTHOR: ${{ github.actor }}
+          JOB_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          STARTED=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          echo "JOB_STARTED_AT=$STARTED" >> "$GITHUB_ENV"
+          COMMIT_SHORT_SHA="${COMMIT_SHORT_SHA:0:8}" JOB_STARTED_AT="$STARTED" \
+            sh .github/scripts/notify-lark.sh started
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Notify Lark (success)
+        if: success()
+        continue-on-error: true
+        env:
+          LARK_DEPLOY_WEBHOOK_URL: ${{ secrets.LARK_DEPLOY_WEBHOOK_URL }}
+          LARK_DEPLOY_WEBHOOK_SECRET: ${{ secrets.LARK_DEPLOY_WEBHOOK_SECRET }}
+          JOB_NAME: Deploy to GitHub Pages
+          COMMIT_SHORT_SHA: ${{ github.sha }}
+          COMMIT_AUTHOR: ${{ github.actor }}
+          JOB_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: COMMIT_SHORT_SHA="${COMMIT_SHORT_SHA:0:8}" sh .github/scripts/notify-lark.sh success
+
+      - name: Notify Lark (failure)
+        if: failure()
+        continue-on-error: true
+        env:
+          LARK_DEPLOY_WEBHOOK_URL: ${{ secrets.LARK_DEPLOY_WEBHOOK_URL }}
+          LARK_DEPLOY_WEBHOOK_SECRET: ${{ secrets.LARK_DEPLOY_WEBHOOK_SECRET }}
+          JOB_NAME: Deploy to GitHub Pages
+          COMMIT_SHORT_SHA: ${{ github.sha }}
+          COMMIT_AUTHOR: ${{ github.actor }}
+          JOB_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          JOB_STARTED_AT="${JOB_STARTED_AT:-$(date -u +%Y-%m-%dT%H:%M:%SZ)}"
+          COMMIT_SHORT_SHA="${COMMIT_SHORT_SHA:0:8}" sh .github/scripts/notify-lark.sh failed
