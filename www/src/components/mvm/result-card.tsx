@@ -1,4 +1,4 @@
-import {CheckCircledIcon, CounterClockwiseClockIcon, CrossCircledIcon, ExclamationTriangleIcon, TimerIcon, TokensIcon,} from "@radix-ui/react-icons";
+import {CheckCircledIcon, CounterClockwiseClockIcon, CrossCircledIcon, TimerIcon, TokensIcon,} from "@radix-ui/react-icons";
 import {ModelResult} from "@site/src/types/mvm";
 import {FC} from "react";
 import {Streamdown} from "streamdown";
@@ -15,21 +15,21 @@ const ResultCard: FC<Props> = ({ modelName, result }) => {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-col gap-0.5 min-h-[4.5rem]">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center gap-1.5">
           <span className="uppercase text-sm tracking-tightest text-(--reduced-emphasis-color)">
             {modelName}
           </span>
           {result.status === "streaming" && (
-            <CounterClockwiseClockIcon className="size-4 text-(--reduced-emphasis-color) animate-spin" />
+            <CounterClockwiseClockIcon className="size-3.5 text-(--reduced-emphasis-color) animate-spin" />
           )}
           {result.status === "error" && (
-            <CrossCircledIcon className="size-4 text-(--ifm-color-primary)" />
+            <CrossCircledIcon className="size-3.5 text-(--ifm-color-primary)" />
           )}
           {result.status === "idle" && (
-            <TimerIcon className="size-4 text-(--reduced-emphasis-color)" />
+            <TimerIcon className="size-3.5 text-(--reduced-emphasis-color)" />
           )}
           {result.status === "done" && (
-            <CheckCircledIcon className="size-4 text-(--reduced-emphasis-color)" />
+            <CheckCircledIcon className="size-3.5 text-green-600" />
           )}
         </div>
         {result.status === "done" && result.usage && (
