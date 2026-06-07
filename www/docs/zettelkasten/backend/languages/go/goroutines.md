@@ -33,7 +33,7 @@ Enable concurrent programming with minimal overhead. Thousands of goroutines can
 
 ```ad-danger
 Always ensure goroutines can exit. Use [[context]] for cancellation to prevent goroutine leaks.
-\`\`\`
+```
 
 ## Trade-offs
 

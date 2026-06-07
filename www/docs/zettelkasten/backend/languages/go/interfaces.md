@@ -66,16 +66,13 @@ func NewService(repo UserRepository) *Service {  // ✅
 
 ## Examples
 
-```ad-example
 **Dependency injection without @Autowired:**
 ```go
-// Define interface
 type UserRepository interface {
     FindByID(id int) (*User, error)
     Save(user *User) error
 }
 
-// Service accepts interface
 type UserService struct {
     repo UserRepository
 }
@@ -84,31 +81,12 @@ func NewUserService(repo UserRepository) *UserService {
     return &UserService{repo: repo}
 }
 
-// Implementation 1: Database
-type DBUserRepository struct {
-    db *sql.DB
-}
-
-func (r *DBUserRepository) FindByID(id int) (*User, error) {
-    // SQL query
-}
-
-// Implementation 2: Mock for testing
-type MockUserRepository struct {
-    users map[int]*User
-}
-
-func (r *MockUserRepository) FindByID(id int) (*User, error) {
-    return r.users[id], nil
-}
-
-// Both automatically satisfy UserRepository interface
-// No "implements" keyword needed
+// Both DBUserRepository and MockUserRepository satisfy
+// UserRepository automatically — no "implements" keyword
 ```
 
-**Small interfaces principle:**
+**Small interfaces principle — compose when needed:**
 ```go
-// Good: Small, focused interfaces
 type Reader interface {
     Read(p []byte) (n int, err error)
 }
@@ -117,13 +95,11 @@ type Writer interface {
     Write(p []byte) (n int, err error)
 }
 
-// Compose when needed
 type ReadWriter interface {
     Reader
     Writer
 }
 ```
-\`\`\`
 
 ## References
 
