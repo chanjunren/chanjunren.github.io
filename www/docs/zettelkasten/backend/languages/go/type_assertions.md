@@ -1,7 +1,7 @@
 🗓️ 02112024 2300
 📎
 
-# go_type_assertions
+# type_assertions
 
 **Core Concept**: Type assertions check and convert interface{} values to specific types at runtime.
 
@@ -43,7 +43,7 @@ Unsafe assertion panics. Always use comma-ok: `s, ok := i.(string)`
 **Pros**: Flexible, optional behavior  
 **Cons**: Runtime overhead, less type safety
 
-Type assertions build on [[go_interfaces]] to enable runtime polymorphism.
+Type assertions build on [[interfaces]] to enable runtime polymorphism.
 
 ## Quick Reference
 

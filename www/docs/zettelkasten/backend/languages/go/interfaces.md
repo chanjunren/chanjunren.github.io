@@ -1,7 +1,7 @@
 🗓️ 02112024 2258
 📎
 
-# go_interfaces
+# interfaces
 
 **Core Concept**: Interfaces define behavior contracts; types implement them implicitly (duck typing).
 
@@ -24,7 +24,7 @@ Enables polymorphism without inheritance. Foundation for dependency injection an
 
 **Accept interfaces, return structs** - Functions take interfaces as parameters but return concrete types.
 
-This contrasts with [[go_type_assertions]] where you convert interfaces back to concrete types.
+This contrasts with [[type_assertions]] where you convert interfaces back to concrete types.
 
 ## Trade-offs
 

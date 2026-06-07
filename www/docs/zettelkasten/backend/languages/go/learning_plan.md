@@ -1,7 +1,7 @@
 🗓️ 02112024 2250
 📎
 
-# go_learning_plan
+# learning_plan
 
 **Core Concept**: Structured path for Java Spring Boot developers learning Go, focusing on mental model shifts.
 
@@ -14,43 +14,46 @@ Go requires different thinking than Java. Learning in order prevents confusion a
 ### Phase 1: Mental Model Shifts (Week 1)
 **Goal**: Understand how Go differs from Java fundamentally
 
-1. [[go_error_handling]] - No exceptions, errors are values
-2. [[go_pointers]] - Explicit memory addresses, not Java references  
-3. [[go_interfaces]] - Implicit implementation (duck typing)
-4. [[go_defer]] - Resource cleanup without try-finally
+1. [[error_handling]] - No exceptions, errors are values
+2. [[pointers]] - Explicit memory addresses, not Java references  
+3. [[interfaces]] - Implicit implementation (duck typing)
+4. [[defer]] - Resource cleanup without try-finally
 
 **Practice**: Rewrite simple Java methods in Go
 
 ### Phase 2: Core Patterns (Week 2)
 **Goal**: Learn Go idioms and common patterns
 
-5. [[go_type_assertions]] - Working with interface{}
-6. [[go_context]] - Request lifecycle management
-7. [[go_dependency_injection]] - Constructor injection, no @Autowired
-
-**Next to learn**: Struct methods, goroutines, channels
+5. [[type_assertions]] - Working with interface{}
+6. [[context]] - Request lifecycle management
+7. [[dependency_injection]] - Constructor injection, no @Autowired
+8. [[struct_methods]] - Receivers; value vs pointer
+9. [[struct_embedding]] - Composition over inheritance
 
 **Practice**: Build a simple HTTP API with clean architecture
 
 ### Phase 3: Concurrency (Week 3+)
 **Goal**: Master Go's concurrency primitives
 
-- Goroutines - Lightweight threads
-- Channels - Communication between goroutines
-- Select - Multiplexing channels
-- Sync primitives - Mutexes and WaitGroups
+- [[goroutines]] - Lightweight threads
+- [[channels]] - Communication between goroutines
+- [[select]] - Multiplexing channels
+- [[sync_primitives]] - Mutexes, RWMutex, WaitGroup
+- [[panic_recover]] - Containing panics at goroutine boundaries
 
 **Practice**: Build concurrent data processor
 
 ### Phase 4: Production Readiness (Week 4+)
 **Goal**: Write production-grade Go code
 
-- Testing - Table-driven tests
-- Error wrapping - Error chains with %w
-- Graceful shutdown - Clean service termination
-- Project structure - Organizing real applications
+- [[testing]] - Table-driven tests
+- [[custom_error_types]] - Typed errors, %w chains, errors.As
+- [[graceful_shutdown]] - Clean service termination
+- [[project_structure]] - Organizing real applications
 
 **Practice**: Production-ready microservice
+
+Applied review of a real codebase: [[review_backies]]
 
 ## Key Mental Shifts
 
@@ -74,7 +77,7 @@ Go requires different thinking than Java. Learning in order prevents confusion a
 **Java strengths**: Rich frameworks, strong tooling, massive ecosystem  
 **Go strengths**: Simplicity, fast compilation, built-in concurrency, single binary deployment
 
-This learning plan focuses on concepts that build on [[go_interfaces]] and [[go_error_handling]] as foundational patterns.
+This learning plan focuses on concepts that build on [[interfaces]] and [[error_handling]] as foundational patterns.
 
 ## References
 

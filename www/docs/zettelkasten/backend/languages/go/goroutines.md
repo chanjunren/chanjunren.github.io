@@ -1,7 +1,7 @@
 🗓️ 02112024 2312
 📎
 
-# go_goroutines
+# goroutines
 
 **Core Concept**: Goroutines are lightweight, independently executing functions managed by the Go runtime.
 
@@ -32,7 +32,7 @@ Enable concurrent programming with minimal overhead. Thousands of goroutines can
 | Thread pools needed | Create freely |
 
 ```ad-danger
-Always ensure goroutines can exit. Use [[go_context]] for cancellation to prevent goroutine leaks.
+Always ensure goroutines can exit. Use [[context]] for cancellation to prevent goroutine leaks.
 \`\`\`
 
 ## Trade-offs
@@ -40,7 +40,7 @@ Always ensure goroutines can exit. Use [[go_context]] for cancellation to preven
 **Pros**: Lightweight, easy creation, efficient scheduling  
 **Cons**: Requires synchronization, race conditions possible, debugging harder
 
-Goroutines work with [[go_context]] for cancellation and channels for communication.
+Goroutines work with [[context]] for cancellation and channels for communication.
 
 ## Quick Reference
 

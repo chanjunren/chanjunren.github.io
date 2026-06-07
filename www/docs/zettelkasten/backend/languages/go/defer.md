@@ -1,7 +1,7 @@
 🗓️ 02112024 2256
 📎
 
-# go_defer
+# defer
 
 **Core Concept**: Defer executes a function when the surrounding function returns, regardless of how it returns.
 
@@ -34,7 +34,7 @@ Defer in loop accumulates until function ends. Wrap in func() for per-iteration 
 **Pros**: Guaranteed cleanup, clear intent  
 **Cons**: Delayed execution, loop gotcha
 
-Defer is commonly used with [[go_error_handling]] for cleanup before returns.
+Defer is commonly used with [[error_handling]] for cleanup before returns.
 
 ## Quick Reference
 

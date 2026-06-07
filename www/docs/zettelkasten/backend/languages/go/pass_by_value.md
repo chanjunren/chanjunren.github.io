@@ -1,13 +1,13 @@
 🗓️ 02112024 2310
 📎
 
-# go_pass_by_value
+# pass_by_value
 
 **Core Concept**: Go always passes arguments by value - copies are made of all parameters, including pointers.
 
 ## Why It Matters
 
-Explains why modifying parameters doesn't affect original values unless using pointers. Critical for understanding [[go_pointers]].
+Explains why modifying parameters doesn't affect original values unless using pointers. Critical for understanding [[pointers]].
 
 ## When to Use
 
@@ -50,7 +50,7 @@ fmt.Println(b)  // Now 6
 **Pros**: Predictable, no hidden side effects, explicit mutation  
 **Cons**: Large structs can be expensive to copy
 
-This is why [[go_pointers]] are necessary - to pass the address (by value) instead of copying large data.
+This is why [[pointers]] are necessary - to pass the address (by value) instead of copying large data.
 
 ## Quick Reference
 

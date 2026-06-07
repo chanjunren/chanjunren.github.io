@@ -1,7 +1,7 @@
 🗓️ 02112024 2252
 📎
 
-# go_pointers
+# pointers
 
 **Core Concept**: Pointers hold memory addresses, enabling modification of values without copying.
 
@@ -33,7 +33,7 @@ Nil pointer dereference causes panic. Always check: `if p != nil { *p = 5 }`
 **Pros**: Direct mutation, memory efficiency  
 **Cons**: Complexity, nil panics, shared mutable state
 
-To understand why pointers are passed by value, see [[go_pass_by_value]].
+To understand why pointers are passed by value, see [[pass_by_value]].
 
 ## Quick Reference
 

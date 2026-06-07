@@ -1,7 +1,7 @@
 🗓️ 02112024 2254
 📎
 
-# go_error_handling
+# error_handling
 
 **Core Concept**: Errors are values returned explicitly, not exceptions thrown implicitly.
 
@@ -35,7 +35,7 @@ Wrapping without `%w` loses error chain. Use `fmt.Errorf("context: %w", err)` no
 **Pros**: Explicit, clear flow, composable  
 **Cons**: Verbose, repetitive checks
 
-Error wrapping builds on [[go_interfaces]] (error interface).
+Error wrapping builds on [[interfaces]] (error interface).
 
 ## Quick Reference
 

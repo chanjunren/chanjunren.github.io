@@ -1,7 +1,7 @@
 🗓️ 02112024 2302
 📎
 
-# go_context
+# context
 
 **Core Concept**: Context carries request-scoped values, cancellation signals, and deadlines across API boundaries.
 
@@ -37,7 +37,7 @@ Always call `cancel()` to prevent leaks, even if operation succeeds.
 **Pros**: Cancellation, deadlines, tracing  
 **Cons**: Verbose (first param everywhere), easy to ignore
 
-Context propagation is essential for [[go_goroutines]] to enable clean cancellation.
+Context propagation is essential for [[goroutines]] to enable clean cancellation.
 
 ## Quick Reference
 
