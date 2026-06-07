@@ -45,5 +45,7 @@ Use the 切分 (segmentation) method:
 ## References
 
 - 控刃滑手-Yellow, 即兴找不到状态怎么办 (2023-09)
+  - https://www.douyin.com/video/7282046058425814312
 - 控刃滑手-Yellow, 即兴花桩技巧分享 (2024-12)
+  - https://www.douyin.com/video/7447559397200416010
 - See also [[improvisation_subtraction]], [[choreography_beyond_footwork]]

@@ -44,3 +44,4 @@
 ## References
 
 - 控刃滑手-Yellow, 摆臂控制邪修大法 (2026-01)
+  - https://www.douyin.com/video/7591121817009971114

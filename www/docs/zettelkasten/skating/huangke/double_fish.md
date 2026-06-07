@@ -41,4 +41,5 @@
 ## References
 
 - 控刃滑手-Yellow, 双鱼超详细教学 (2025-02)
+  - https://www.douyin.com/video/7472069666354072859
 - See also [[basics]] for move listing

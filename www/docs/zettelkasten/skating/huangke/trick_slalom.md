@@ -44,3 +44,4 @@ With 1.5-2m spacing:
 ## References
 
 - 控刃滑手-Yellow, Trick Slalom介绍 (2025-08)
+  - https://www.douyin.com/video/7541318360773872950

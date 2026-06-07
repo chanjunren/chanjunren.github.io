@@ -42,3 +42,4 @@ Any move with a **crossing or spreading** component:
 ## References
 
 - 控刃滑手-Yellow, 对向发力技巧分享 (2025-07)
+  - https://www.douyin.com/video/7525486143496932649

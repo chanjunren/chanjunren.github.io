@@ -49,3 +49,4 @@ See also [[asymmetric_rocker]] for a more nuanced approach.
 ## References
 
 - 控刃滑手-Yellow, 4mm香蕉弧度技巧分享 (2024-04)
+  - https://www.douyin.com/video/7363318740563266831

@@ -50,4 +50,7 @@ This is why learning **base/standard (基准)** versions of moves matters — th
 ## References
 
 - 控刃滑手-Yellow, referenced across multiple technique videos (2024-2025)
+  - https://www.douyin.com/video/7413721370686655794 (brush extensions)
+  - https://www.douyin.com/video/7472069666354072859 (double fish extensions)
+  - https://www.douyin.com/video/7411186284158389555 (total cross extensions)
 - Applied in: [[brush]], [[double_fish]], [[total_cross]], [[volt_pivot]]

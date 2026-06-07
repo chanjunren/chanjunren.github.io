@@ -44,4 +44,5 @@ In dance, the first lesson is always **解放天性** (freeing your nature). Sla
 ## References
 
 - 控刃滑手-Yellow, 即兴花桩的看法 (2024-05)
+  - https://www.douyin.com/video/7374396385145244968
 - See also [[improvisation_subtraction]], [[improvisation_flow_state]]

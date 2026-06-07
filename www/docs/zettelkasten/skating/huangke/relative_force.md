@@ -42,3 +42,6 @@ Any move where both legs have **relative displacement** during sliding:
 ## References
 
 - 控刃滑手-Yellow, 花式绕桩教学: 相对发力 (2023-01)
+  - https://www.douyin.com/video/7186207663640825126
+  - https://www.douyin.com/video/7186207791495924996
+  - https://www.douyin.com/video/7186207859271617824

@@ -51,5 +51,7 @@ Practice all four in sequence for complete pivot mastery.
 ## References
 
 - 控刃滑手-Yellow, Volt超详细教学 (2025-06)
+  - https://www.douyin.com/video/7511735801555225875
 - 控刃滑手-Yellow, 四向点规教学 (2025-06)
+  - https://www.douyin.com/video/7513617436445936959
 - See also [[basics]] for Volt notes

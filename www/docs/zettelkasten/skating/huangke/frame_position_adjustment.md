@@ -41,4 +41,5 @@ The **turning pivot** (转向点) shifts rearward, closer to the ankle joint. Si
 ## References
 
 - 控刃滑手-Yellow, 被动丝滑小技巧 (2023-06)
+  - https://www.douyin.com/video/7248642390087486732
 - See also [[banana_rocker_setup]], [[asymmetric_rocker]]

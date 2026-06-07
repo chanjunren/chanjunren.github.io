@@ -50,3 +50,4 @@ For a 231mm frame:
 ## References
 
 - 控刃滑手-Yellow, 非对称香蕉弧度配置 (2026-06)
+  - https://www.douyin.com/video/7647834694873337572

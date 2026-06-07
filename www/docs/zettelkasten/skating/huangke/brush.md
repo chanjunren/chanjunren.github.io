@@ -41,4 +41,5 @@ Brush is highly extensible via [[movement_extension_method]]:
 ## References
 
 - 控刃滑手-Yellow, 花桩基础动作Brush教学 (2024-09)
+  - https://www.douyin.com/video/7413721370686655794
 - See also [[basics]] for move listing

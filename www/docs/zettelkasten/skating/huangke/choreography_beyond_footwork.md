@@ -49,4 +49,5 @@ These tools work as **助攻条件** (support conditions) for improv:
 ## References
 
 - 控刃滑手-Yellow, 花桩编排技巧分享 (2024-07)
+  - https://www.douyin.com/video/7394505691551075622
 - See also [[choreo]] for music theory fundamentals

@@ -46,3 +46,4 @@ Slalom jumps ≠ athletic jumps. The goal is **minimal vertical displacement** w
 ## References
 
 - 控刃滑手-Yellow, 跳跃类技巧分享 (2023-10)
+  - https://www.douyin.com/video/7293516039713836339
