@@ -21,13 +21,15 @@
 
 - 10 minutes 撑单轮 by EOY
 - [[rhythm]] training
+- [[toe_wheeling_training_plan]] — 12-week periodized block
 
-| target                  | timeframe         | objecties              |
-| ----------------------- | ----------------- | ---------------------- |
-| 撑单轮 5 minutes        | Now - 20 December | toe height / stability |
-| brush                   | Now - 20 December | stability              |
-| zhanghao weekly combo 1 | Now - 20 December |                        |
-| choreography            |                   |                        |
+| target                  | timeframe              | objectives                              |
+| ----------------------- | ---------------------- | --------------------------------------- |
+| periodized toe wheeling | Jun 2026 - Aug 2026    | break hold plateau via [[periodization]] |
+| 撑单轮 5 minutes        | Now - 20 December      | toe height / stability                  |
+| brush                   | Now - 20 December      | stability                               |
+| zhanghao weekly combo 1 | Now - 20 December      |                                         |
+| choreography            |                        |                                         |
 
 ## immediate
 

@@ -29,9 +29,9 @@
 ### Planned
 - `http_caching_headers` — Cache-Control / ETag / Last-Modified / Vary.
 - `http2_http3_quic` — multiplexing, head-of-line blocking, QUIC.
-- `websockets_sse_long_polling` — when to use which real-time mechanism.
 - `bulkhead_pattern` — resource isolation companion to circuit breaker.
 - `grpc_protobuf_basics` — RPC alternative.
+- Real-time transport patterns → see `backend/transport/` cluster.
 
 ## How to Use This MOC
 

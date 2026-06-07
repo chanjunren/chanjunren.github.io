@@ -7,6 +7,7 @@ alwaysApply: false
 
 ## Structure
 - Template: 🗓️ datetime (DDMMYYYY HHmm), h1 title, content, References
+- No tags — categorization comes from directory placement and links
 - Filename = h1 title (snake_case), flat directory
 - One atomic concept per note
 

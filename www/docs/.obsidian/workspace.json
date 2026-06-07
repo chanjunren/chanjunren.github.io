@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/dump/study.md",
+                "file": "zettelkasten/readings/philosophy_of_software_design/deep_vs_shallow_modules.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#javascript_build",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/dump/study.md",
+                "file": "zettelkasten/readings/philosophy_of_software_design/deep_vs_shallow_modules.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/dump/study.md",
+                "file": "zettelkasten/readings/philosophy_of_software_design/deep_vs_shallow_modules.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/dump/study.md"
+                "file": "zettelkasten/readings/philosophy_of_software_design/deep_vs_shallow_modules.md"
               }
             }
           }
@@ -148,42 +148,42 @@
   },
   "active": "8d3b0cd78692d098",
   "lastOpenFiles": [
-    "zettelkasten/dump/study.md",
-    "zettelkasten/dump/todo.md",
-    "zettelkasten/dump/ryo.md",
-    "zettelkasten/ai/sdks/building_with_claude.md",
-    "zettelkasten/ai/sdks/claude_agent_sdk.md",
-    "zettelkasten/ai/mcp/mcp_transports.md",
-    "zettelkasten/ai/mcp/model_context_protocol.md",
-    "zettelkasten/ai/mcp/mcp_sampling.md",
-    "zettelkasten/ai/mcp/llm_tool_use.md",
-    "zettelkasten/ai/mcp/mcp_architecture.md",
-    "zettelkasten/ai/mcp/custom_mcp_servers.md",
-    "zettelkasten/infrastructure/prometheus/overview.md",
-    "zettelkasten/ai/mcp/mcp_authorization.md",
-    "zettelkasten/ai/mcp/mcp_prompts.md",
-    "zettelkasten/ai/mcp/mcp_resources.md",
-    "zettelkasten/concepts/agents/agent_as_tool_pattern.md",
-    "zettelkasten/ai/agent-patterns/agent_memory_and_state.md",
-    "zettelkasten/ai/agent-patterns/loop_review_critique_pattern.md",
-    "zettelkasten/ai/agent-patterns/agent_as_tool_pattern.md",
-    "zettelkasten/ai/agent-patterns/coordinator_router_pattern.md",
     "zettelkasten/ai/agent-patterns/agentic_design_patterns.md",
+    "zettelkasten/readings/philosophy_of_software_design/strategic_vs_tactical_programming.md",
+    "zettelkasten/readings/philosophy_of_software_design/define_errors_out_of_existence.md",
+    "zettelkasten/readings/philosophy_of_software_design/deep_vs_shallow_modules.md",
+    "zettelkasten/readings/philosophy_of_software_design",
+    "zettelkasten/readings/strategic_vs_tactical_programming.md",
+    "zettelkasten/readings/define_errors_out_of_existence.md",
+    "zettelkasten/readings/deep_vs_shallow_modules.md",
+    "zettelkasten/readings",
+    "zettelkasten/backend/software-design",
+    "zettelkasten/concepts/fundamentals/design.md",
+    "zettelkasten/backend/transport/long_polling.md",
+    "zettelkasten/backend/transport/websocket_protocol.md",
+    "zettelkasten/backend/transport/server_sent_events.md",
+    "zettelkasten/backend/transport/realtime_patterns_comparison.md",
+    "zettelkasten/backend/transport",
+    "zettelkasten/backend/api/realtime_patterns_comparison.md",
+    "zettelkasten/backend/api/websocket_protocol.md",
+    "zettelkasten/backend/api/server_sent_events.md",
+    "zettelkasten/backend/api/long_polling.md",
+    "zettelkasten/skating/toe_wheeling_training_plan.md",
+    "zettelkasten/skating/periodization.md",
+    "zettelkasten/infrastructure/linux/yay.md",
+    "zettelkasten/infrastructure/linux/window_manager.md",
+    "zettelkasten/infrastructure/linux/screen_locker.md",
+    "zettelkasten/infrastructure/linux/rofi_theming.md",
+    "zettelkasten/infrastructure/linux/picom.md",
+    "zettelkasten/infrastructure/linux/pacman.md",
+    "zettelkasten/infrastructure/linux/package_formats.md",
+    "zettelkasten/infrastructure/linux/linux_display_stack.md",
+    "zettelkasten/infrastructure/linux",
+    "zettelkasten/concepts/hardware",
     "zettelkasten/ai/sdks",
     "zettelkasten/ai/mcp",
     "zettelkasten/ai/agent-patterns",
     "zettelkasten/ai",
-    "zettelkasten/concepts/ai-agents/claude_agent_sdk.md",
-    "zettelkasten/concepts/agents/model_context_protocol.md",
-    "zettelkasten/concepts/agents/loop_review_critique_pattern.md",
-    "zettelkasten/concepts/agents/llm_tool_use.md",
-    "zettelkasten/concepts/agents/custom_mcp_servers.md",
-    "zettelkasten/concepts/agents",
-    "zettelkasten/backend/frameworks/netty/netty_memory_model.md.tmp.56813.0278423b03c9",
-    "zettelkasten/backend/jvm/gc/algorithms_g1_zgc_shenandoah.md.tmp.56813.8585cb61df76",
-    "zettelkasten/backend/jvm/memory_diagnostics.md.tmp.56813.eeb2d34b79e0",
-    "zettelkasten/backend/jvm/gc/algorithms_g1_zgc_shenandoah.md.tmp.56813.58ae4af7bd58",
-    "zettelkasten/backend/jvm/memory_diagnostics.md.tmp.56813.6f48efad2143",
     "assets/technical_tricks_matrix.png",
     "assets/Pasted image 20250828105751.png",
     "assets/skating_technical_tricks_matrix.png",
