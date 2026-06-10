@@ -27,7 +27,7 @@
 ### Cache is the central piece
 - Every query result is cached by its queryKey
 - Multiple components using the same key share the cache — one fetch, many consumers
-- Cache has configurable freshness: `staleTime` (how long data is "fresh") and `gcTime` (how long unused data stays in memory)
+- Cache has configurable freshness: `staleTime` (how long data is "fresh") and `gcTime` (how long unused data stays in memory) — see [[staletime_and_gctime]] for the full lifecycle
 
 ## Stale-While-Revalidate Strategy
 
@@ -58,6 +58,8 @@ Keys are the cache identity — get them right and everything works:
 - Hierarchical: invalidating `['todos']` invalidates `['todos', { status: 'done' }]` too
 - Deterministic: same key = same cache, regardless of which component requests it
 
+See [[query_key_design]] for key hierarchy patterns and the `queryOptions` factory.
+
 ## Invalidation = the cache refresh mechanism
 
 After a mutation changes server state:
@@ -79,7 +81,7 @@ After a mutation changes server state:
 ### vs [[zustand]] / Redux for server state
 - State managers hold state; they don't know when server data becomes stale
 - TanStack Query treats staleness as a first-class concept
-- Pattern: TanStack Query for server state, Zustand for client-only state (UI, form drafts, local preferences)
+- Pattern: TanStack Query for server state, Zustand for client-only state (UI, form drafts, local preferences) — see [[tanstack_query_with_zustand]] for the integration pattern
 
 ## When to Use
 

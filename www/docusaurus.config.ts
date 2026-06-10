@@ -90,7 +90,7 @@ const config: Config = {
       docusaurusPluginVaultusaurus,
       {
         tagsToIgnore: new Set(["wip", "backend"]),
-        notesToIgnore: new Set(["docker_learning_path"]),
+        notesToIgnore: new Set(["docker_learning_path", "learning_plan"]),
         graphStyle: {
           graphBg: "#232136",
           defaultColor: "#e0def4",

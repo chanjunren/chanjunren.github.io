@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/readings/philosophy_of_software_design/deep_vs_shallow_modules.md",
+                "file": "zettelkasten/skating/claude_advice.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/readings/philosophy_of_software_design/deep_vs_shallow_modules.md",
+                "file": "zettelkasten/skating/claude_advice.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/readings/philosophy_of_software_design/deep_vs_shallow_modules.md",
+                "file": "zettelkasten/skating/claude_advice.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/readings/philosophy_of_software_design/deep_vs_shallow_modules.md"
+                "file": "zettelkasten/skating/claude_advice.md"
               }
             }
           }
@@ -146,34 +146,37 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6e6abe9f390ff817",
+  "active": "8d3b0cd78692d098",
   "lastOpenFiles": [
-    "zettelkasten/backend/languages/go/type_assertions.md",
-    "zettelkasten/backend/languages/go/testing.md",
-    "zettelkasten/backend/languages/go/sync_primitives.md",
-    "zettelkasten/backend/languages/go/struct_methods.md",
-    "zettelkasten/backend/languages/go/struct_embedding.md",
-    "zettelkasten/backend/languages/go/select.md",
-    "zettelkasten/backend/languages/go/review_backies.md",
-    "zettelkasten/backend/languages/go/project_structure.md",
-    "zettelkasten/backend/languages/go/pointers.md",
-    "zettelkasten/backend/languages/go/pass_by_value.md",
-    "zettelkasten/backend/languages/go/panic_recover.md",
-    "zettelkasten/backend/languages/go/learning_plan.md",
-    "zettelkasten/backend/languages/go/interfaces.md",
-    "zettelkasten/backend/languages/go/graceful_shutdown.md",
-    "zettelkasten/backend/languages/go/goroutines.md",
-    "zettelkasten/backend/languages/go/error_handling.md",
-    "zettelkasten/backend/languages/go/dependency_injection.md",
-    "zettelkasten/backend/languages/go/defer.md",
-    "zettelkasten/backend/languages/go/custom_error_types.md",
-    "zettelkasten/backend/languages/go/context.md",
-    "zettelkasten/backend/languages/go/channels.md",
-    "zettelkasten/backend/languages/go/go_review_backies.md",
-    "zettelkasten/backend/languages/go/go_testing.md",
-    "zettelkasten/backend/languages/go/go_project_structure.md",
-    "zettelkasten/backend/languages/go/go_custom_error_types.md",
-    "zettelkasten/backend/languages/go/go_graceful_shutdown.md",
+    "zettelkasten/readings/philosophy_of_software_design/deep_vs_shallow_modules.md",
+    "zettelkasten/skating/claude_advice.md",
+    "zettelkasten/frontend/tanstack/learning_plan.md",
+    "zettelkasten/frontend/tanstack/tanstack_query.md.tmp.43392.6c7b4185675c",
+    "zettelkasten/frontend/tanstack/tanstack_query_testing.md",
+    "zettelkasten/frontend/tanstack/tanstack_query_ssr_hydration.md",
+    "zettelkasten/frontend/tanstack/tanstack_query_suspense.md",
+    "zettelkasten/frontend/tanstack/tanstack_query_with_zustand.md",
+    "zettelkasten/frontend/tanstack/tanstack_query_error_handling.md",
+    "zettelkasten/frontend/tanstack/query_key_design.md",
+    "zettelkasten/frontend/tanstack/staletime_and_gctime.md",
+    "zettelkasten/frontend/tanstack/tanstack_query_cheatsheet.md",
+    "zettelkasten/frontend/tanstack/tanstack_query.md",
+    "zettelkasten/frontend/tanstack",
+    "zettelkasten/skating/huangke/trick_slalom.md",
+    "zettelkasten/skating/huangke/movement_extension_method.md",
+    "zettelkasten/skating/huangke/stick_back_training.md",
+    "zettelkasten/skating/huangke/head_up_skating.md",
+    "zettelkasten/skating/huangke/frame_position_adjustment.md",
+    "zettelkasten/skating/huangke/asymmetric_rocker.md",
+    "zettelkasten/skating/huangke/banana_rocker_setup.md",
+    "zettelkasten/skating/huangke/choreography_beyond_footwork.md",
+    "zettelkasten/skating/huangke/improvisation_essence.md",
+    "zettelkasten/skating/huangke/improvisation_flow_state.md",
+    "zettelkasten/skating/huangke/improvisation_subtraction.md",
+    "zettelkasten/skating/huangke/jumping_in_slalom.md",
+    "zettelkasten/skating/huangke/double_fish.md",
+    "zettelkasten/skating/huangke/volt_pivot.md",
+    "zettelkasten/skating/huangke",
     "zettelkasten/readings/philosophy_of_software_design",
     "zettelkasten/readings",
     "zettelkasten/backend/software-design",
@@ -181,9 +184,6 @@
     "zettelkasten/infrastructure/linux",
     "zettelkasten/concepts/hardware",
     "zettelkasten/ai/sdks",
-    "zettelkasten/ai/mcp",
-    "zettelkasten/ai/agent-patterns",
-    "zettelkasten/ai",
     "assets/technical_tricks_matrix.png",
     "assets/Pasted image 20250828105751.png",
     "assets/skating_technical_tricks_matrix.png",
