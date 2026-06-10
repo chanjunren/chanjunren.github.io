@@ -4,8 +4,11 @@ import {ModelInfo} from "@site/src/types/mvm";
 import {IconManufacture, IconSwitchOff,} from "nucleo-isometric";
 import {FC} from "react";
 import ModelSelector from "./model-selector";
+import {HealthResponse} from "./mvm-client";
+
 type Props = {
   connected: boolean;
+  health: HealthResponse | null;
   models: ModelInfo[];
   selectedModels: string[];
   onToggleModel: (alias: string) => void;
@@ -13,50 +16,60 @@ type Props = {
 
 const MUTED_ICON_STYLE = { color: "var(--reduced-emphasis-color)", flexShrink: 0 } as const;
 
+const statusTag = (connected: boolean, health: HealthResponse | null) => {
+  if (!connected) return { color: "muted" as const, label: "DISCONNECTED" };
+  if (health?.status === "degraded") return { color: "rose" as const, label: "DEGRADED" };
+  return { color: "foam" as const, label: "CONNECTED" };
+};
+
 const MvmSidebar: FC<Props> = ({
   connected,
+  health,
   models,
   selectedModels,
   onToggleModel,
-}) => (
-  <div className="flex flex-col gap-6">
-    {/* Server status */}
-    {/* TODO: wire up actual healthcheck once server port/path is finalized */}
-    <div className="flex flex-col gap-2">
-      <SecondaryHeader className="flex items-center gap-1.5">
-        <IconSwitchOff size="18px" style={MUTED_ICON_STYLE} />
-        Status
-      </SecondaryHeader>
-      <div className="flex items-center gap-2">
-        <CustomTag color={connected ? "foam" : "muted"} className="text-sm!">
-          {connected ? "CONNECTED" : "DISCONNECTED"}
-        </CustomTag>
+}) => {
+  const tag = statusTag(connected, health);
+
+  return (
+    <div className="flex flex-col gap-6">
+      {/* Server status */}
+      <div className="flex flex-col gap-2">
+        <SecondaryHeader className="flex items-center gap-1.5">
+          <IconSwitchOff size="18px" style={MUTED_ICON_STYLE} />
+          Status
+        </SecondaryHeader>
+        <div className="flex items-center gap-2">
+          <CustomTag color={tag.color} className="text-sm!">
+            {tag.label}
+          </CustomTag>
+        </div>
+      </div>
+
+      {/* Controls */}
+      <div className="flex flex-col gap-4">
+        <ModelSelector
+          models={models}
+          selectedModels={selectedModels}
+          onToggleModel={onToggleModel}
+        />
+      </div>
+
+      {/* Components */}
+      <div className="flex flex-col gap-3">
+        <SecondaryHeader className="flex items-center gap-1.5">
+          <IconManufacture size="18px" />
+          Components
+        </SecondaryHeader>
+        <div className="flex items-center gap-2">
+          <span className="text-sm">Custom server</span>
+          <CustomTag color="locked" className="text-xs!">LOCKED</CustomTag>
+        </div>
+        <span className="text-sm">Streamdown</span>
+        <span className="text-sm">Claude Code</span>
       </div>
     </div>
-
-    {/* Controls */}
-    <div className="flex flex-col gap-4">
-      <ModelSelector
-        models={models}
-        selectedModels={selectedModels}
-        onToggleModel={onToggleModel}
-      />
-    </div>
-
-    {/* Components */}
-    <div className="flex flex-col gap-3">
-      <SecondaryHeader className="flex items-center gap-1.5">
-        <IconManufacture size="18px" />
-        Components
-      </SecondaryHeader>
-      <div className="flex items-center gap-2">
-        <span className="text-sm">Custom server</span>
-        <CustomTag color="locked" className="text-xs!">LOCKED</CustomTag>
-      </div>
-      <span className="text-sm">Streamdown</span>
-      <span className="text-sm">Claude Code</span>
-    </div>
-  </div>
-);
+  );
+};
 
 export default MvmSidebar;

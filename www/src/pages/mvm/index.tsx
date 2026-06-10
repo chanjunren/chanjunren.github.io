@@ -2,6 +2,7 @@ import {Button} from "@site/src/components/ui/button";
 import CustomTag from "@site/src/components/ui/custom-tag";
 import Page from "@site/src/components/ui/page";
 import {Sheet, SheetContent, SheetTitle, SheetTrigger,} from "@site/src/components/ui/sheet";
+import ConnectionBanner from "@site/src/components/mvm/connection-banner";
 import MvmSidebar from "@site/src/components/mvm/mvm-sidebar";
 import PromptForm from "@site/src/components/mvm/prompt-form";
 import ResultsGrid from "@site/src/components/mvm/results-grid";
@@ -14,6 +15,7 @@ const MvmPage: FC = () => {
 
   const sidebarProps = {
     connected: mvm.connected,
+    health: mvm.health,
     models: mvm.models,
     selectedModels: mvm.selectedModels,
     onToggleModel: mvm.toggleModel,
@@ -58,13 +60,19 @@ const MvmPage: FC = () => {
           </div>
 
           {/* Main content */}
+          <ConnectionBanner connected={mvm.connected} health={mvm.health} />
           <PromptForm
             prompt={mvm.prompt}
             onPromptChange={mvm.setPrompt}
-            onSubmit={() => {}}
+            onSubmit={mvm.submit}
             loading={mvm.loading}
-            disabled={!mvm.connected}
+            disabled={!mvm.connected || mvm.health?.status === "degraded"}
           />
+          {mvm.submitError && (
+            <span className="text-sm text-(--ifm-color-primary)">
+              {mvm.submitError}
+            </span>
+          )}
           <ResultsGrid models={mvm.models} selectedModels={mvm.selectedModels} results={mvm.results} />
         </div>
 
