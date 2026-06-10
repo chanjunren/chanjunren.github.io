@@ -15,37 +15,22 @@ const formatCost = (usd: number) =>
 const ResultCard: FC<Props> = ({ modelName, result }) => {
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex flex-col gap-0.5 min-h-[4.5rem]">
-        <div className="flex items-center gap-1.5">
-          <IconArcadeCharacter size="14px" style={{ color: "var(--reduced-emphasis-color)" }} />
-          <span className="uppercase text-sm tracking-tightest text-(--reduced-emphasis-color)">
-            {modelName}
-          </span>
-          {result.status === "streaming" && (
-            <CounterClockwiseClockIcon className="size-3.5 text-(--reduced-emphasis-color) animate-spin" />
-          )}
-          {result.status === "error" && (
-            <CrossCircledIcon className="size-3.5 text-(--ifm-color-primary)" />
-          )}
-          {result.status === "idle" && (
-            <TimerIcon className="size-3.5 text-(--reduced-emphasis-color)" />
-          )}
-          {result.status === "done" && (
-            <CheckCircledIcon className="size-3.5 text-green-600" />
-          )}
-        </div>
-        {result.status === "done" && result.usage && (
-          <div className="flex flex-col gap-0.5 text-(--reduced-emphasis-color)">
-            <span className="flex items-center gap-1.5">
-              <IconCoins size="14px" style={{ color: "var(--reduced-emphasis-color)" }} />
-              {result.usage.input_tokens} in / {result.usage.output_tokens} out
-            </span>
-            {result.total_cost_usd != null && (
-              <span className="flex items-center gap-1.5">
-                {formatCost(result.total_cost_usd)}
-              </span>
-            )}
-          </div>
+      <div className="flex items-center gap-1.5">
+        <IconArcadeCharacter size="14px" style={{ color: "var(--reduced-emphasis-color)" }} />
+        <span className="uppercase text-sm tracking-tightest text-(--reduced-emphasis-color)">
+          {modelName}
+        </span>
+        {result.status === "streaming" && (
+          <CounterClockwiseClockIcon className="size-3.5 text-(--reduced-emphasis-color) animate-spin" />
+        )}
+        {result.status === "error" && (
+          <CrossCircledIcon className="size-3.5 text-(--ifm-color-primary)" />
+        )}
+        {result.status === "idle" && (
+          <TimerIcon className="size-3.5 text-(--reduced-emphasis-color)" />
+        )}
+        {result.status === "done" && (
+          <CheckCircledIcon className="size-3.5 text-green-600" />
         )}
       </div>
 
@@ -73,6 +58,18 @@ const ResultCard: FC<Props> = ({ modelName, result }) => {
           )}
         </div>
       </div>
+
+      {result.status === "done" && result.usage && (
+        <div className="flex items-center gap-3 text-sm text-(--reduced-emphasis-color)">
+          <span className="flex items-center gap-1.5">
+            <IconCoins size="14px" style={{ color: "var(--reduced-emphasis-color)" }} />
+            {result.usage.input_tokens} in / {result.usage.output_tokens} out
+          </span>
+          {result.total_cost_usd != null && (
+            <span>{formatCost(result.total_cost_usd)}</span>
+          )}
+        </div>
+      )}
     </div>
   );
 };
