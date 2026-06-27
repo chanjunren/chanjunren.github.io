@@ -6,15 +6,16 @@
 
 ## why plateaus happen
 
-The body adapts to repeated identical stimulus — this is called **accommodation**. Once adapted, the same workout produces diminishing returns no matter how hard you push. The fix: change the stimulus before accommodation sets in.
+The body adapts to repeated identical stimulus — this is called **accommodation**. Once adapted, the same workout
+produces diminishing returns no matter how hard you push. The fix: change the stimulus before accommodation sets in.
 
 ## core concepts
 
-| Term | Scope | Duration | Purpose |
-| --- | --- | --- | --- |
-| Macrocycle | Full training plan | 8-16 weeks | Overall goal (e.g. break toe wheeling plateau) |
-| Mesocycle | Training block | 3-4 weeks | One primary focus (strength, power, or endurance) |
-| Microcycle | Weekly structure | 1 week | Day-to-day session planning |
+| Term       | Scope              | Duration   | Purpose                                           |
+|------------|--------------------|------------|---------------------------------------------------|
+| Macrocycle | Full training plan | 8-16 weeks | Overall goal (e.g. break toe wheeling plateau)    |
+| Mesocycle  | Training block     | 3-4 weeks  | One primary focus (strength, power, or endurance) |
+| Microcycle | Weekly structure   | 1 week     | Day-to-day session planning                       |
 
 ## block periodization
 
@@ -31,6 +32,7 @@ Each block builds on the previous — strength enables power, power enables qual
 ## intensity vs volume
 
 For isometric holds (like toe wheeling):
+
 - **High intensity, short duration** (e.g. 45s unsupported) → builds max strength
 - **Moderate intensity, long duration** (e.g. 3min supported) → builds endurance
 - **Max intensity, very short** (e.g. 30s all-out + immediate cone work) → builds power / transfer
@@ -39,7 +41,8 @@ Chasing duration alone hits a ceiling. Alternating between these stimuli breaks 
 
 ## deload
 
-Every 3-4 weeks, reduce volume by ~40% while keeping intensity similar. This allows **supercompensation** — the body recovers and adapts beyond its previous baseline.
+Every 3-4 weeks, reduce volume by ~40% while keeping intensity similar. This allows **supercompensation** — the body
+recovers and adapts beyond its previous baseline.
 
 ```ad-quote
 "You don't get stronger during training. You get stronger during recovery from training."
@@ -50,12 +53,16 @@ Deload week feels easy. That's the point — it's where the gains actually lock 
 ## progressive overload within a mesocycle
 
 Within each 3-4 week block:
+
 - Week 1: Establish baseline at target intensity
 - Week 2: Small increase (add 1 set, or 10s per hold)
 - Week 3: Push to peak volume/intensity
 - Week 4: Deload — reduce volume, maintain intensity
 
 ---
+
 ## References
+
+- [[coaching_principles]]
 - [[bob_bowman_golden_rules]]
 - [[toe_wheeling_training_plan]]
