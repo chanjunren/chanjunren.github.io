@@ -1,0 +1,8 @@
+{
+  "label": "Prometheus & Grafana",
+  "position": 1,
+  "link": {
+    "type": "doc",
+    "id": "zettelkasten/infrastructure/prometheus/prometheus_learning_path"
+  }
+}

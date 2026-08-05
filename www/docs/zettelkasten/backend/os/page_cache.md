@@ -2,7 +2,7 @@
 
 # page_cache
 
-The kernel uses free physical RAM to cache recently-read and recently-written file data. This is the **page cache**. It makes repeat file reads instant (RAM instead of disk) and writes faster (write to RAM, flush to disk later). This is why Linux nodes show 90%+ memory "used" — most of it is page cache, not application memory.
+The kernel uses physical RAM to cache recently read and written file data. This is the **page cache**. It can avoid later storage I/O, but cache hits are not literally instant and cached memory still has a real reclaim cost.
 
 Page cache is central to understanding both [[interpreting_host_memory]] (why MemFree is misleadingly low) and [[interpreting_container_memory]] (why `container_memory_usage_bytes` overstates real pressure).
 
@@ -10,19 +10,19 @@ Page cache is central to understanding both [[interpreting_host_memory]] (why Me
 
 1. Application calls `read()` (a [[system_calls]])
 2. Kernel checks if the file's pages are already in the page cache
-3. **Cache hit**: copy data from RAM to the application — no disk I/O
+3. **Cache hit**: use the page already in RAM — no storage I/O for that page
 4. **Cache miss**: read from disk into the page cache, then copy to the application
 
-Subsequent reads of the same file hit the cache. This is why a second `cat` of a large file is instant — the first read populated the cache.
+Subsequent reads of the same file may hit the cache while those pages remain resident. This is why a second read is often much faster than the first.
 
 ## How Writes Work
 
 1. Application calls `write()`
 2. Kernel writes to page cache pages and marks them **dirty**
-3. The `write()` syscall returns immediately — the application continues
+3. A buffered `write()` can return before the data reaches durable storage
 4. Kernel flushes dirty pages to disk asynchronously via writeback threads
 
-This is why writes feel fast. The data is in RAM (durable enough for most crashes), and the kernel handles persistence in the background.
+This is why buffered writes can appear fast. Data only in dirty page-cache pages is not durable across power loss or a kernel crash. Applications use mechanisms such as `fsync()` when they require stronger persistence guarantees.
 
 ## Active vs Inactive Pages
 
@@ -37,14 +37,14 @@ This distinction is the key to understanding `container_memory_working_set_bytes
 
 ## Reclamation Under Pressure
 
-When free memory drops low, the kernel reclaims in this order:
+Under pressure, Linux balances several reclaim mechanisms. A useful simplified progression is:
 
 1. **Inactive file-backed pages** — drop them; re-read from disk if needed later
 2. **Active file-backed pages** — more costly but still reclaimable
 3. **Anonymous pages to swap** — write heap/stack pages to disk (expensive, causes stalls)
 4. **OOM kill** — last resort when nothing reclaimable remains (see [[linux_oom_killer]])
 
-This is why `MemAvailable` includes reclaimable cache — the kernel treats it as available memory. See [[interpreting_host_memory]].
+This is why `MemAvailable` estimates a reclaimable portion of cache rather than treating all cache as either fully free or fully unavailable. See [[proc_meminfo]].
 
 ## Container-Level Page Cache Accounting
 

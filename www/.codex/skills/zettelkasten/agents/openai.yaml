@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zettelkasten"
+  short_description: "Create and improve connected learning notes"
+  default_prompt: "Use $zettelkasten to improve these notes for clear learning and quick reference."

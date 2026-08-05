@@ -1,71 +1,104 @@
-🗓️ 29052026 1500
+🗓️ 06082026 0000
 
 # interpreting_host_memory
 
-A Linux node showing 90% memory "used" is usually healthy. Linux turns free RAM into **page cache** (disk read/write cache), and this cached memory is reclaimable under pressure. The right metric for actual memory pressure is **MemAvailable**, not **MemFree**.
+Host-memory interpretation begins with one question: **how much more work can Linux accept without swapping heavily or killing a process?** `MemAvailable` is the best first estimate. “Percent used” and `MemFree` do not answer that question reliably.
 
-For the raw metrics and PromQL queries, see [[node_exporter_host_metrics]].
+Read [[how_linux_uses_memory]], [[linux_memory_pages]], and [[proc_meminfo]] first if page cache, reclaimable memory, slab, or `/proc` are unfamiliar.
 
-## Linux Memory Is Supposed to Be "Used"
+## Begin with availability, not usage
 
-- Free RAM is wasted RAM — Linux fills it with page cache to speed up disk I/O
-- File reads are cached so repeat reads hit RAM instead of disk
-- File writes go to cache first, then flush to disk asynchronously
-- This cache is **not committed** — the kernel drops it instantly when an application needs the memory
-- `MemFree` (completely unallocated memory) is misleadingly low on any server doing I/O
+Linux uses spare RAM for the [[page_cache]] and reclaimable kernel objects. That memory appears used but can be reclaimed for applications.
 
-## MemAvailable vs MemFree
+Use:
 
-| Metric | Measures | Typical on a healthy server |
-|--------|---------|---------------------------|
-| **MemFree** | RAM with zero use — no app, no cache | Alarmingly low (< 5%) |
-| **MemAvailable** | MemFree + reclaimable page cache + reclaimable slab | Accurate usable memory |
-
-### A 16GB Node in Practice
-
-| Metric | Value | Naive "% used" |
-|--------|-------|----------------|
-| MemTotal | 16 GB | — |
-| MemFree | 500 MB | 97% used |
-| Cached + Buffers | 8 GB | (page cache) |
-| MemAvailable | 8 GB | **50% used** |
-
-- MemFree says 97% used — looks critical
-- MemAvailable says 50% — the node is fine
-- The 8 GB of cache is reclaimed the moment applications need it
-
-```ad-warning
-Use `(1 - MemAvailable / MemTotal) * 100` for memory utilization. The MemFree-based formula overstates pressure by 20–40% on a typical server and triggers false alerts.
+```promql
+node_memory_MemAvailable_bytes
+/ node_memory_MemTotal_bytes
+* 100
 ```
 
-## When Memory Pressure Is Real
+This produces the percentage still available. For “memory utilization,” invert it:
 
-MemAvailable accounts for reclaimable memory. When it drops low, the kernel is genuinely running out of options.
+```promql
+(1 - node_memory_MemAvailable_bytes
+/ node_memory_MemTotal_bytes)
+* 100
+```
 
-- **MemAvailable < 10% of MemTotal** — kernel is low on reclaimable reserves; new allocations may stall
-- **Swap usage increasing** — kernel is evicting anonymous pages (actual app memory, not cache) to disk
-- **Active swap + high iowait** — memory pressure is causing disk thrashing; applications stall on every page fault
-- **MemAvailable trending toward zero** — use `predict_linear(node_memory_MemAvailable_bytes[6h], 24*3600)` to forecast
+Both queries describe the same state from opposite directions. A panel must say which direction it displays.
 
-### Swap as a Signal
+## Interpret low availability as a symptom
 
-- Swap *existing* on the system is not a problem
-- Swap *being actively used* (SwapFree decreasing over time) means the kernel ran out of page cache to reclaim and is evicting real memory
-- `rate(node_vmstat_pswpin[5m])` and `rate(node_vmstat_pswpout[5m])` (if available) show active swap I/O — a better signal than swap size alone
+Low `MemAvailable` means Linux has little immediately free or practically reclaimable memory. It establishes **host pressure**, but it does not identify the cause.
 
-## Impact on Containers
+Possible causes include:
 
-Host memory pressure affects containers even when their individual limits are not reached:
+- Application heaps or other anonymous memory grew
+- Several ordinary processes are collectively too large for the host
+- tmpfs or shared-memory usage grew
+- Kernel memory grew
+- A workload created a burst of dirty file data that cannot yet be discarded
+- The host is simply undersized for the workloads it must run
 
-- **Page cache reclamation** — the kernel reclaims cache from all cgroups; containers doing heavy file I/O see slower reads as their cached data is evicted
-- **Host OOM killer** — if the node's total memory is exhausted, the kernel's OOM killer picks a process to kill; it can choose a container process even if that container's `working_set_bytes` is below its own limit
-- **Eviction** — Kubernetes evicts pods when node memory pressure exceeds thresholds (kubelet `evictionHard`), starting with pods exceeding their requests
+A memory-leak diagnosis needs evidence that a particular consumer grows continually and does not return to a stable baseline.
 
-A container's memory limit protects the node from that container, but does not fully protect the container from the node.
+## Follow a diagnostic ladder
 
----
+### 1. Confirm duration and direction
+
+Check whether availability dipped briefly, remains low, or declines steadily. A one-minute dip and a week-long downward slope describe different risks.
+
+### 2. Check active swapping
+
+Configured or previously used swap is not automatically a current problem. Look for pages moving now:
+
+```promql
+rate(node_vmstat_pswpin[5m])
+rate(node_vmstat_pswpout[5m])
+```
+
+Swap-out activity means Linux is moving anonymous pages from RAM to storage. Swap-in activity means workloads need those pages again. Sustained activity can add severe latency.
+
+### 3. Check pressure and I/O symptoms
+
+If available, Linux Pressure Stall Information reports time when tasks were delayed waiting for memory. Also inspect disk latency and CPU `iowait`: active swapping turns a memory shortage into storage work.
+
+### 4. Find the consumers
+
+Compare process or container working sets and RSS. Then ask whether the largest consumer is expected, merely large, or growing abnormally.
+
+### 5. Check OOM evidence
+
+Inspect `container_oom_events_total`, container restart reasons, kernel logs, and [[linux_oom_killer]]. An OOM event proves that an allocation boundary was exhausted; it does not by itself prove a leak.
+
+## Host and container pressure are different
+
+A container can reach its cgroup limit while the host has plenty of available RAM. Conversely, the host can run out because many containers and host processes collectively consume memory even though each container is below its own limit.
+
+| Situation | Host `MemAvailable` | Container working set / limit |
+|---|---:|---:|
+| Container limit pressure | May be healthy | Near 100% |
+| Host capacity pressure | Low | Each may look acceptable |
+| Both boundaries pressured | Low | One or more near limit |
+| Cache-heavy but reclaimable | Often healthy | Raw usage may look high |
+
+Read [[interpreting_container_memory]] to understand the container boundary.
+
+## Thresholds need context
+
+A threshold such as 15% available memory can be a useful warning, but it is not a universal physical law. Choose the threshold and duration using:
+
+- Normal workload variation
+- Host size; 10% of 4 GB and 10% of 256 GB are very different reserves
+- Swap configuration and observed swap activity
+- Recovery time and the cost of an OOM event
+- Whether PSI or other pressure signals are available
+
+Use a threshold to request investigation. Do not make the threshold itself the diagnosis.
 
 ## References
 
-- [Linux MemAvailable](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34e431b0ae398fc54ea69ff85ec700722c9da773)
-- [Kubernetes Node Pressure Eviction](https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/)
+- [Linux `/proc/meminfo` documentation](https://docs.kernel.org/filesystems/proc.html#meminfo)
+- [Linux PSI documentation](https://docs.kernel.org/accounting/psi.html)
+- [Prometheus node exporter](https://github.com/prometheus/node_exporter)
