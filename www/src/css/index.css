@@ -168,7 +168,7 @@ nav.navbar.navbar--fixed-top {
 
 
 /* Reset Infima/Docusaurus kbd styling - but preserve component styles */
-kbd:not([data-slot]) {
+kbd:not([data-slot]):not(.DocSearch-Commands-Key) {
   all: unset;
 }
 
