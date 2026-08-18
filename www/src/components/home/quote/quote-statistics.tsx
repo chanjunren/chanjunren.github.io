@@ -1,11 +1,11 @@
 import ModelDonutChart from "@site/src/components/home/quote/charts/model-donut-chart";
 import TokenAreaChart from "@site/src/components/home/quote/charts/token-area-chart";
 import TotalQuotes from "@site/src/components/home/quote/charts/total-quotes";
-import CustomTag from "@site/src/components/ui/custom-tag";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
+  DialogDescription,
+  DialogTitle,
   DialogTrigger,
 } from "@site/src/components/ui/dialog";
 import AnimatedBarChartIcon from "@site/src/components/ui/icons/bar-chart-icon";
@@ -19,28 +19,28 @@ const QuoteStatistics: FC = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <AnimatedBarChartIcon className="border-b hover:border-b-foreground transition-all" />
+        <AnimatedBarChartIcon />
       </DialogTrigger>
-      <DialogContent className="flex flex-col min-h-5/6 min-w-5/6 gap-4 overflow-auto">
-        <DialogHeader>
-          <CustomTag color="rose">STATISTICS</CustomTag>
-        </DialogHeader>
+      <DialogContent className="max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-4xl overflow-y-auto border-0 bg-background p-5 shadow-xl sm:max-w-4xl sm:p-8">
+        <DialogTitle className="sr-only">Quote statistics</DialogTitle>
+        <DialogDescription className="sr-only">
+          Quote totals, token activity over the last 30 days, and usage by
+          model.
+        </DialogDescription>
         {summary ? (
-          <div className="flex flex-col gap-6">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div className="h-72">
-                <TotalQuotes summary={summary} />
-              </div>
-              <div className="h-72">
+          <div className="flex flex-col gap-8">
+            <TotalQuotes summary={summary} />
+            <div className="grid gap-8 md:grid-cols-[minmax(0,2fr)_minmax(16rem,1fr)]">
+              <section className="h-72 min-w-0">
+                <TokenAreaChart data={summary.byDate} />
+              </section>
+              <section className="h-72 min-w-0">
                 <ModelDonutChart data={summary.byModel} />
-              </div>
-            </div>
-            <div className="h-72">
-              <TokenAreaChart data={summary.byDate} />
+              </section>
             </div>
           </div>
         ) : (
-          <div className="flex flex-1 items-center justify-center">
+          <div className="text-muted-foreground flex min-h-72 items-center justify-center p-8 text-sm">
             <TypewriterText active text={message ?? "等等。。。"} />
           </div>
         )}

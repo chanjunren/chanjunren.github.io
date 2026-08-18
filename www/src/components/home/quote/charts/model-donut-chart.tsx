@@ -1,18 +1,34 @@
 import {
   ChartContainer,
   ChartLegend,
-  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
 } from "@site/src/components/ui/chart";
 import { ModelAggregation } from "@site/src/types/quotes";
 import { FC, useMemo } from "react";
-import { Cell, Label, Pie, PieChart } from "recharts";
+import { Cell, Pie, PieChart } from "recharts";
 
 interface ModelDonutChartProps {
   data: ModelAggregation[];
 }
+
+const ModelLegend: FC<ModelDonutChartProps> = ({ data }) => (
+  <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 pt-2">
+    {data.map((item, index) => (
+      <span
+        key={item.model}
+        className="text-muted-foreground flex min-w-0 items-center gap-1.5 text-[10px]"
+      >
+        <span
+          className="size-1.5 shrink-0 rounded-full"
+          style={{ backgroundColor: `var(--color-model${index})` }}
+        />
+        <span className="truncate">{item.model}</span>
+      </span>
+    ))}
+  </div>
+);
 
 const PALETTE: Array<{ light: string; dark: string }> = [
   { light: "#b4637a", dark: "#eb6f92" }, // love
@@ -22,15 +38,10 @@ const PALETTE: Array<{ light: string; dark: string }> = [
 ];
 
 const ModelDonutChart: FC<ModelDonutChartProps> = ({ data }) => {
-  const total = useMemo(
-    () => data.reduce((sum, d) => sum + d.count, 0),
-    [data]
-  );
-
   const config = useMemo<ChartConfig>(() => {
     const out: ChartConfig = { count: { label: "Quotes" } };
     data.forEach((d, i) => {
-      out[d.model] = {
+      out[`model${i}`] = {
         label: d.model,
         theme: PALETTE[i % PALETTE.length],
       };
@@ -40,60 +51,32 @@ const ModelDonutChart: FC<ModelDonutChartProps> = ({ data }) => {
 
   return (
     <div className="flex h-full flex-col gap-2">
-      <h3 className="text-muted-foreground/60 m-0 text-[8px] font-medium tracking-[0.2em] uppercase">
-        [Model mix]
-      </h3>
+      <p className="text-muted-foreground m-0 text-[10px] tracking-[0.16em] uppercase">
+        By model
+      </p>
       <ChartContainer config={config} className="aspect-auto flex-1">
         <PieChart>
           <ChartTooltip
             cursor={false}
             content={<ChartTooltipContent nameKey="model" hideLabel />}
           />
-          <ChartLegend
-            content={<ChartLegendContent nameKey="model" />}
-            verticalAlign="bottom"
-          />
+          <ChartLegend content={<ModelLegend data={data} />} verticalAlign="bottom" />
           <Pie
             data={data}
             dataKey="count"
             nameKey="model"
-            innerRadius="50%"
-            outerRadius="80%"
-            paddingAngle={2}
-            strokeWidth={2}
+            innerRadius="58%"
+            outerRadius="78%"
+            paddingAngle={3}
+            rootTabIndex={-1}
+            strokeWidth={0}
           >
-            {data.map((d) => (
-              <Cell key={d.model} fill={`var(--color-${d.model})`} />
+            {data.map((d, index) => (
+              <Cell
+                key={d.model}
+                fill={`var(--color-model${index})`}
+              />
             ))}
-            <Label
-              content={({ viewBox }) => {
-                if (!viewBox || !("cx" in viewBox) || !("cy" in viewBox))
-                  return null;
-                return (
-                  <text
-                    x={viewBox.cx}
-                    y={viewBox.cy}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                  >
-                    <tspan
-                      x={viewBox.cx}
-                      y={viewBox.cy}
-                      className="fill-foreground text-2xl font-semibold"
-                    >
-                      {total}
-                    </tspan>
-                    <tspan
-                      x={viewBox.cx}
-                      y={(viewBox.cy ?? 0) + 20}
-                      className="fill-muted-foreground text-xs"
-                    >
-                      quotes
-                    </tspan>
-                  </text>
-                );
-              }}
-            />
           </Pie>
         </PieChart>
       </ChartContainer>

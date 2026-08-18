@@ -7,17 +7,24 @@ interface TotalQuotesProps {
 
 const TotalQuotes: FC<TotalQuotesProps> = ({ summary }) => {
   const modelCount = summary.byModel.length;
+  const metrics = [
+    { label: "Quotes", value: summary.totalQuotes },
+    { label: "Tokens", value: summary.tokenTotals.totalTokens },
+    { label: "Models", value: modelCount },
+  ];
+
   return (
-    <div className="flex h-full flex-col gap-2">
-      <div className="flex flex-1 flex-col items-center justify-center gap-1">
-        <span className="text-foreground text-7xl font-semibold tabular-nums">
-          {summary.totalQuotes.toLocaleString()}
-        </span>
-        <span className="text-muted-foreground text-xs">
-          {summary.tokenTotals.totalTokens.toLocaleString()} tokens ·{" "}
-          {modelCount} model{modelCount === 1 ? "" : "s"}
-        </span>
-      </div>
+    <div className="grid grid-cols-3 gap-6">
+      {metrics.map((metric) => (
+        <div key={metric.label}>
+          <p className="text-muted-foreground m-0 text-[10px] tracking-[0.16em] uppercase">
+            {metric.label}
+          </p>
+          <p className="text-foreground m-0 mt-1 text-2xl font-medium tracking-tight tabular-nums sm:text-3xl">
+            {metric.value.toLocaleString()}
+          </p>
+        </div>
+      ))}
     </div>
   );
 };
