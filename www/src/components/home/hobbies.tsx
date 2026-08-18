@@ -40,8 +40,8 @@ const HobbyCard: FC<HobbyCardProps> = ({
 
   return (
     <div
-      className={`cursor-pointer relative ${size === "lg" && "md:h-44 h-36"} ${
-        size === "md" && "h-36"
+      className={`relative h-36 cursor-pointer overflow-hidden rounded-lg ${
+        size === "lg" ? "md:h-44" : ""
       }`}
       onClick={() => setPlaying(true)}
       onMouseEnter={() => setHovering(true)}
@@ -62,7 +62,7 @@ const HobbyCard: FC<HobbyCardProps> = ({
         />
       </div>
       <video
-        className={`rounded-lg saturate-50 h-full`}
+        className="block h-full w-full object-cover saturate-50"
         ref={videoRef}
         playsInline
         autoPlay={false}
