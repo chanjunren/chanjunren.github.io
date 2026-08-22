@@ -224,12 +224,13 @@
 }
 
 .DocSearch-Container .DocSearch-Commands-Key {
-    background: rgba(0, 0, 0, 0.06);
+    background: rgba(180, 99, 122, 0.16) !important;
     border: 0;
-    border-radius: 6px;
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.14),
-    0 1px 2px rgba(0, 0, 0, 0.08) !important;
-    color: var(--docsearch-key-color);
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    color: #b4637a !important;
+    display: inline-flex;
+    font-family: inherit;
     font-size: 12px;
     font-weight: 500;
     height: 20px;
@@ -237,7 +238,8 @@
     margin-inline-end: 0;
     min-width: 20px;
     padding: 0 4px;
-    width: auto;
+    user-select: none;
+    width: fit-content;
 }
 
 .DocSearch-Container .DocSearch-Commands-Key:last-of-type {
@@ -249,21 +251,17 @@
 }
 
 .DocSearch-Container .DocSearch-Commands-Key svg {
+    color: #b4637a !important;
     height: 12px;
     width: 12px;
 }
 
 .DocSearch-Container .DocSearch-Escape-Key {
-    font-size: 12px !important;
+    font-size: 11px !important;
     font-weight: 500 !important;
+    letter-spacing: -0.025em !important;
     line-height: 20px !important;
     text-transform: lowercase !important;
-}
-
-html[data-theme="dark"] .DocSearch-Container .DocSearch-Commands-Key {
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35),
-    0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
 @media (max-width: 768px) {

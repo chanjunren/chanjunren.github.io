@@ -1,7 +1,8 @@
 import {useWindowSize} from "@docusaurus/theme-common";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 
-import {HomeIcon,} from "@radix-ui/react-icons";
+import {HomeIcon, MagnifyingGlassIcon} from "@radix-ui/react-icons";
+import {Kbd} from "@site/src/components/ui/kbd";
 import {Link} from "@site/src/components/ui/link";
 import {NavigationMenu, NavigationMenuItem, NavigationMenuList,} from "@site/src/components/ui/navigation-menu";
 import {Tooltip, TooltipContent, TooltipTrigger,} from "@site/src/components/ui/tooltip";
@@ -79,6 +80,33 @@ const ResumeMenuIcon: FC = () => {
   );
 };
 
+const SearchMenuItem: FC = () => {
+  const openSearch = () => {
+    document.querySelector<HTMLButtonElement>(".DocSearch-Button")?.click();
+  };
+
+  return (
+    <NavigationMenuItem>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <button
+            type="button"
+            aria-label="search"
+            onClick={openSearch}
+            className="flex h-8 items-center gap-2 rounded-md border-0 bg-transparent px-2 text-(--menu-foreground) hover:bg-(--menu-accent) cursor-pointer"
+          >
+            <MagnifyingGlassIcon/>
+            <Kbd>⌘K</Kbd>
+          </button>
+        </TooltipTrigger>
+        <TooltipContent side="top" sideOffset={8}>
+          search
+        </TooltipContent>
+      </Tooltip>
+    </NavigationMenuItem>
+  );
+};
+
 const FloatingMenu: FC = () => {
   const windowSize = useWindowSize();
   const isMobile = windowSize === "mobile";
@@ -102,6 +130,7 @@ const FloatingMenu: FC = () => {
             <MenuIconLink href="/docs/zettelkasten" label="notes">
               {(hovering) => <NotesIcon hovering={hovering}/>}
             </MenuIconLink>
+            <SearchMenuItem/>
             <MenuIconLink href="/whoami" label="about">
               {(hovering) => <AboutIcon hovering={hovering}/>}
             </MenuIconLink>

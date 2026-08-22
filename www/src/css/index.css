@@ -271,8 +271,28 @@ kbd:not([data-slot]):not(.DocSearch-Commands-Key) {
   all: unset;
 }
 
-/* Ensure our kbd component styles work */
-kbd[data-slot="kbd"],
-kbd[data-slot="kbd-group"] {
-  all: revert-layer;
+kbd[data-slot="kbd"] {
+  align-items: center;
+  background: rgba(180, 99, 122, 0.16) !important;
+  border: 0 !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: none !important;
+  color: #b4637a !important;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  gap: 4px;
+  height: 20px;
+  justify-content: center;
+  line-height: 20px;
+  min-width: 20px;
+  padding: 0 4px !important;
+  user-select: none;
+  width: fit-content;
+}
+
+kbd[data-slot="kbd"] svg:not([class*="size-"]) {
+  height: 12px;
+  width: 12px;
 }
