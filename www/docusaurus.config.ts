@@ -1,3 +1,4 @@
+import "dotenv/config";
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import {
@@ -22,6 +23,16 @@ const config: Config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
+
+  customFields: {
+    kakeibo: {
+      supabaseUrl: process.env.SUPABASE_URL ?? "",
+      supabaseAnonKey: process.env.SUPABASE_ANON_KEY ?? "",
+      backiesApiBase:
+        process.env.BACKIES_API_BASE ??
+        "https://backies-222389637273.asia-southeast1.run.app",
+    },
+  },
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.

@@ -1,14 +1,18 @@
-import { ArrowRight, LogIn } from "lucide-react";
+import { ArrowRight, LoaderCircle, LogIn } from "lucide-react";
 
 import { Button } from "@site/src/components/ui/button";
 import { Field, FieldGroup, FieldLabel } from "@site/src/components/ui/field";
 import { Input } from "@site/src/components/ui/input";
 import { useState } from "react";
-import { Wordmark } from "./shared";
+import { useAuth } from "./hooks";
+import { Wordmark } from "@site/src/components/kakeibo/shared";
 
-export function Login({ onContinue }: { onContinue: () => void }) {
+export function Login() {
   const [step, setStep] = useState<"email" | "password">("email");
-  const [email, setEmail] = useState("joyce@example.com");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const { signIn, authError } = useAuth();
 
   return (
     <main className="flex min-h-[calc(100vh-57px)] items-center justify-center bg-background px-6 py-12">
@@ -52,7 +56,10 @@ export function Login({ onContinue }: { onContinue: () => void }) {
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              onContinue();
+              setSubmitting(true);
+              void signIn(email, password)
+                .catch(() => undefined)
+                .finally(() => setSubmitting(false));
             }}
           >
             <FieldGroup>
@@ -72,7 +79,8 @@ export function Login({ onContinue }: { onContinue: () => void }) {
                     id="portal-password"
                     type="password"
                     autoComplete="current-password"
-                    defaultValue="password123"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
                     required
                     autoFocus
                   />
@@ -82,9 +90,21 @@ export function Login({ onContinue }: { onContinue: () => void }) {
                     size="icon"
                     aria-label="Sign in"
                   >
-                    <LogIn aria-hidden="true" />
+                    {submitting ? (
+                      <LoaderCircle
+                        className="animate-spin"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <LogIn aria-hidden="true" />
+                    )}
                   </Button>
                 </div>
+                {authError && (
+                  <p className="m-0 mt-2 text-sm text-destructive">
+                    {authError}
+                  </p>
+                )}
               </Field>
             </FieldGroup>
           </form>

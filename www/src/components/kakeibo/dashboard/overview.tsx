@@ -1,4 +1,15 @@
 import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Line,
+  LineChart,
+  ReferenceLine,
+  XAxis,
+  YAxis,
+} from "recharts";
+import { useState } from "react";
+import {
   Card,
   CardContent,
   CardHeader,
@@ -18,25 +29,17 @@ import {
   TableHeader,
   TableRow,
 } from "@site/src/components/ui/table";
-import { useState } from "react";
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Line,
-  LineChart,
-  ReferenceLine,
-  XAxis,
-  YAxis,
-} from "recharts";
-import {
-  mockDashboardResponse,
-  monthlySpend,
-  monthlySpendChartConfig,
-  spendByCategory,
-  spendByCategoryChartConfig,
-} from "../data";
+import { type Account, type MonthRange, type ProcessedFile } from "../api";
+import { useDashboard, useSpecs } from "../hooks";
 
+const monthlySpendChartConfig = {
+  totalOut: { label: "Expenses", color: "var(--chart-1)" },
+  totalIn: { label: "Revenue", color: "var(--chart-2)" },
+  net: { label: "Net", color: "var(--foreground)" },
+};
+const spendByCategoryChartConfig = {
+  total: { label: "Spend", color: "var(--foreground)" },
+};
 const monthFormatter = new Intl.DateTimeFormat("en", {
   month: "short",
   year: "2-digit",
@@ -51,26 +54,51 @@ function formatAmount(value: number) {
   });
   return value < 0 ? `-$${absolute}` : `$${absolute}`;
 }
-function formatJobDate(value: string) {
-  return new Intl.DateTimeFormat("en", {
-    dateStyle: "medium",
-    timeStyle: "short",
-  }).format(new Date(value));
+
+function formatAxisAmount(value: number) {
+  const absolute = Math.round(Math.abs(value)).toLocaleString("en-US");
+  return value < 0 ? `-$${absolute}` : `$${absolute}`;
+}
+function formatFileDate(value: string | null) {
+  return value
+    ? new Intl.DateTimeFormat("en", { dateStyle: "medium" }).format(
+        new Date(value),
+      )
+    : "—";
 }
 
-function CashFlowSummary() {
+function LoadingCard() {
+  return (
+    <Card className="mt-4">
+      <CardContent className="py-8 text-base text-muted-foreground">
+        Loading dashboard…
+      </CardContent>
+    </Card>
+  );
+}
+function ErrorCard({ message }: { message: string }) {
+  return (
+    <Card className="mt-4">
+      <CardContent className="py-8 text-base text-destructive">
+        {message}
+      </CardContent>
+    </Card>
+  );
+}
+
+function CashFlowSummary({
+  totalIn,
+  totalOut,
+  net,
+}: {
+  totalIn: string;
+  totalOut: string;
+  net: string;
+}) {
   const values = [
-    {
-      label: "Revenue",
-      value: mockDashboardResponse.totalIn,
-      color: "text-chart-2",
-    },
-    {
-      label: "Expenses",
-      value: mockDashboardResponse.totalOut,
-      color: "text-chart-1",
-    },
-    { label: "Net", value: mockDashboardResponse.net, color: "text-foreground" },
+    { label: "Revenue", value: totalIn, color: "text-chart-2" },
+    { label: "Expenses", value: totalOut, color: "text-chart-1" },
+    { label: "Net", value: net, color: "text-foreground" },
   ];
   return (
     <Card>
@@ -86,7 +114,9 @@ function CashFlowSummary() {
             <span
               className={`font-mono text-3xl font-semibold tracking-tight ${item.color}`}
             >
-              {Number(item.value) < 0 ? "−" : "+"}$
+              {item.label === "Net" &&
+                (Number(item.value) < 0 ? "−" : "+")}
+              $
               {Math.abs(Number(item.value)).toLocaleString("en-US", {
                 minimumFractionDigits: 2,
               })}
@@ -98,55 +128,16 @@ function CashFlowSummary() {
   );
 }
 
-function LatestJobRun() {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>
-          <MonoLabel>Ingest runs</MonoLabel>
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Status</TableHead>
-              <TableHead>Completed</TableHead>
-              <TableHead className="text-right">Files</TableHead>
-              <TableHead className="text-right">Transactions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {mockDashboardResponse.jobRuns.map((job) => (
-              <TableRow key={job.id}>
-                <TableCell>
-                  <span className="font-medium capitalize">{job.status}</span>
-                </TableCell>
-                <TableCell>
-                  <span className="font-mono text-sm">
-                    {formatJobDate(job.completedAt)}
-                  </span>
-                </TableCell>
-                <TableCell className="text-right">
-                  <span className="font-mono">
-                    {job.result.files_processed}
-                  </span>
-                </TableCell>
-                <TableCell className="text-right">
-                  <span className="font-mono">
-                    {job.result.transactions_inserted}
-                  </span>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </CardContent>
-    </Card>
-  );
-}
-
-function MonthlySpendChart() {
+function MonthlySpendChart({
+  monthlySpend,
+}: {
+  monthlySpend: Array<{
+    month: string;
+    totalOut: string;
+    totalIn: string;
+    net: string;
+  }>;
+}) {
   const [visibleSeries, setVisibleSeries] = useState<Record<string, boolean>>({
     totalIn: true,
     totalOut: true,
@@ -154,6 +145,12 @@ function MonthlySpendChart() {
   });
   const toggleSeries = (key: string) =>
     setVisibleSeries((current) => ({ ...current, [key]: !current[key] }));
+  const chartData = monthlySpend.map((item) => ({
+    ...item,
+    totalOut: Number(item.totalOut),
+    totalIn: Number(item.totalIn),
+    net: Number(item.net),
+  }));
   return (
     <Card>
       <CardHeader>
@@ -168,7 +165,7 @@ function MonthlySpendChart() {
         >
           <LineChart
             accessibilityLayer
-            data={monthlySpend}
+            data={chartData}
             margin={{ left: 12, right: 12, top: 12, bottom: 8 }}
           >
             <CartesianGrid vertical={false} />
@@ -186,7 +183,7 @@ function MonthlySpendChart() {
               axisLine={false}
               width={76}
               tick={{ fontSize: 14 }}
-              tickFormatter={(value) => formatAmount(Number(value))}
+              tickFormatter={(value) => formatAxisAmount(Number(value))}
             />
             <ChartTooltip
               cursor={false}
@@ -196,8 +193,9 @@ function MonthlySpendChart() {
                   formatter={(value, name) => (
                     <div className="flex min-w-36 items-center justify-between gap-4">
                       <span>
-                        {monthlySpendChartConfig[String(name)]?.label ??
-                          String(name)}
+                        {monthlySpendChartConfig[
+                          String(name) as keyof typeof monthlySpendChartConfig
+                        ]?.label ?? String(name)}
                       </span>
                       <span className="font-mono font-medium">
                         {formatAmount(Number(value))}
@@ -246,14 +244,14 @@ function MonthlySpendChart() {
               type="button"
               aria-pressed={visibleSeries[key]}
               onClick={() => toggleSeries(key)}
-              className={`flex cursor-pointer items-center gap-2 rounded-md border px-3 py-1.5 text-base transition-colors ${visibleSeries[key] ? "border-border bg-muted text-foreground" : "border-transparent text-muted-foreground"}`}
+              className={`flex cursor-pointer items-center gap-2 rounded-md border border-transparent bg-transparent px-2 py-1.5 transition-colors ${visibleSeries[key] ? "text-foreground" : "text-muted-foreground"}`}
             >
               <span
                 aria-hidden="true"
                 className="size-3 rounded-full"
                 style={{ backgroundColor: config.color }}
               />
-              {config.label}
+              <MonoLabel className="text-inherit">{config.label}</MonoLabel>
             </button>
           ))}
         </div>
@@ -262,8 +260,21 @@ function MonthlySpendChart() {
   );
 }
 
-function SpendByCategoryChart() {
-  const chartHeight = Math.max(260, spendByCategory.length * 48);
+function SpendByCategoryChart({
+  spendByCategory,
+  categories,
+}: {
+  spendByCategory: Array<{ categoryId: number; total: string; count: number }>;
+  categories: Record<string, { id: number; name: string }>;
+}) {
+  const data = spendByCategory
+    .map((item) => ({
+      ...item,
+      category: categories[String(item.categoryId)]?.name ?? "Unknown",
+      total: Number(item.total),
+    }))
+    .sort((left, right) => right.total - left.total);
+  const chartHeight = Math.max(260, data.length * 48);
   return (
     <Card>
       <CardHeader>
@@ -279,7 +290,7 @@ function SpendByCategoryChart() {
         >
           <BarChart
             accessibilityLayer
-            data={spendByCategory}
+            data={data}
             layout="vertical"
             margin={{ left: 8, right: 24, top: 8, bottom: 8 }}
           >
@@ -330,13 +341,100 @@ function SpendByCategoryChart() {
   );
 }
 
-export function Overview() {
+function ProcessedFilesTable({
+  processedFiles,
+  accounts,
+}: {
+  processedFiles: Array<ProcessedFile>;
+  accounts: Array<Account>;
+}) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>
+          <MonoLabel>Processed files</MonoLabel>
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>File</TableHead>
+              <TableHead>Account</TableHead>
+              <TableHead>Statement period</TableHead>
+              <TableHead>Processed</TableHead>
+              <TableHead>Status</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {processedFiles.length === 0 ? (
+              <TableRow>
+                <TableCell colSpan={5} className="py-8 text-center text-muted-foreground">
+                  No files processed in this range.
+                </TableCell>
+              </TableRow>
+            ) : (
+              processedFiles.map((file) => (
+                <TableRow key={file.sourceFileId}>
+                  <TableCell>
+                    <span className="font-medium">{file.fileName}</span>
+                  </TableCell>
+                  <TableCell>
+                    {file.accountId
+                      ? (accounts.find(
+                          (account) => account.id === file.accountId,
+                        )?.displayName ?? `Account ${file.accountId}`)
+                      : "Unknown account"}
+                  </TableCell>
+                  <TableCell className="font-mono text-sm">
+                    {formatFileDate(file.periodStart)} – {formatFileDate(file.periodEnd)}
+                  </TableCell>
+                  <TableCell className="font-mono text-sm">
+                    {formatFileDate(file.processedAt)}
+                  </TableCell>
+                  <TableCell>
+                    <span className="font-medium capitalize">{file.status}</span>
+                  </TableCell>
+                </TableRow>
+              ))
+            )}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  );
+}
+
+export function Overview({
+  range,
+  accountId,
+}: {
+  range: MonthRange;
+  accountId?: number;
+}) {
+  const dashboard = useDashboard(range, accountId);
+  const specs = useSpecs();
+  if (dashboard.isPending || specs.isPending) return <LoadingCard />;
+  if (dashboard.isError) return <ErrorCard message={dashboard.error.message} />;
+  if (specs.isError) return <ErrorCard message={specs.error.message} />;
+  if (!dashboard.data || !specs.data)
+    return <ErrorCard message="Dashboard data is unavailable." />;
   return (
     <div className="flex flex-col gap-4 pt-4">
-      <CashFlowSummary />
-      <MonthlySpendChart />
-      <SpendByCategoryChart />
-      <LatestJobRun />
+      <CashFlowSummary
+        totalIn={dashboard.data.totalIn}
+        totalOut={dashboard.data.totalOut}
+        net={dashboard.data.net}
+      />
+      <MonthlySpendChart monthlySpend={dashboard.data.monthlySpend} />
+      <SpendByCategoryChart
+        spendByCategory={dashboard.data.spendByCategory}
+        categories={specs.data.categories}
+      />
+      <ProcessedFilesTable
+        processedFiles={dashboard.data.processedFiles ?? []}
+        accounts={specs.data.accounts}
+      />
     </div>
   );
 }
