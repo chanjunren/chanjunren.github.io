@@ -41,6 +41,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --tag-neutral-background: #f2e9e1;
+  --tag-neutral-foreground: #464261;
   --tw-inset-ring-shadow: 1 1 #fff !important;
 
 }
@@ -142,6 +144,11 @@
   --animate-typewriter: typewriter 1s steps(var(--text-length)) forwards, borderBlink 3s infinite;
   --animate-handwave: handwave 1s ease-in-out;
 
+}
+
+:is(.dark, [data-theme="dark"]) {
+  --tag-neutral-background: #26233a;
+  --tag-neutral-foreground: #e0def4;
 }
 
 @layer base {

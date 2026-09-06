@@ -1,7 +1,6 @@
 :root {
   --ifm-font-size-base: 82%;
   /* --ifm-heading-font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; */
-  --ifm-heading-font-family: "JetBrains Mono", serif;
 
   --gray-transparent-bg: rgba(86, 82, 110, 0.05);
 }
@@ -63,7 +62,6 @@ main {
 .navbar__inner {
   align-content: center;
 }
-
 
 .navbar__logo > img {
   width: 30px !important;
