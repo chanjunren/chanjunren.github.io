@@ -5,7 +5,7 @@ import { Field, FieldGroup, FieldLabel } from "@site/src/components/ui/field";
 import { Input } from "@site/src/components/ui/input";
 import { useState } from "react";
 import { useAuth } from "./hooks";
-import { Wordmark } from "@site/src/components/kakeibo/shared";
+import { Wordmark } from "./shared";
 
 export function Login() {
   const [step, setStep] = useState<"email" | "password">("email");

@@ -25,6 +25,9 @@ const config: Config = {
   baseUrl: "/",
 
   customFields: {
+    ushi: {
+      apiBase: process.env.USHI_API_BASE ?? "http://localhost:8080",
+    },
     kakeibo: {
       supabaseUrl: process.env.SUPABASE_URL ?? "",
       supabaseAnonKey: process.env.SUPABASE_ANON_KEY ?? "",

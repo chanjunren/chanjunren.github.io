@@ -10,7 +10,7 @@ import {
 // Matches the backend health cache TTL.
 const HEALTH_POLL_MS = 30_000;
 
-export default function useMvm() {
+export default function useMvm(apiBase: string) {
   const [models, setModels] = useState<ModelInfo[]>([]);
   const [selectedModels, setSelectedModels] = useState<string[]>([]);
   const [prompt, setPrompt] = useState("");
@@ -26,14 +26,14 @@ export default function useMvm() {
     let cancelled = false;
     const check = async () => {
       try {
-        const h = await fetchHealth();
+        const h = await fetchHealth(apiBase);
         if (cancelled) return;
         setConnected(true);
         setHealth(h);
         // Retry models each poll until loaded — covers opening the page
         // before the server is up.
         if (!modelsLoadedRef.current) {
-          const list = await fetchModels();
+          const list = await fetchModels(apiBase);
           if (cancelled) return;
           modelsLoadedRef.current = true;
           setModels(list);
@@ -52,7 +52,7 @@ export default function useMvm() {
       cancelled = true;
       clearInterval(id);
     };
-  }, []);
+  }, [apiBase]);
 
   useEffect(() => () => abortRef.current?.abort(), []);
 
@@ -103,6 +103,7 @@ export default function useMvm() {
 
     try {
       await streamCompare(
+        apiBase,
         { prompt: trimmed, models: selectedModels },
         (ev) => {
           switch (ev.type) {
@@ -133,7 +134,7 @@ export default function useMvm() {
               break;
           }
         },
-        controller.signal
+        controller.signal,
       );
       // Stream closed without a terminal event for a model only if the
       // server died mid-stream — don't leave cards spinning.
@@ -145,7 +146,7 @@ export default function useMvm() {
     } finally {
       if (abortRef.current === controller) setLoading(false);
     }
-  }, [prompt, selectedModels]);
+  }, [apiBase, prompt, selectedModels]);
 
   return {
     prompt,

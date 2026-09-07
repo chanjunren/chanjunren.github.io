@@ -1,4 +1,3 @@
-import { MVM_API_BASE } from "@site/src/constants/api";
 import { CompareRequest, ModelInfo, ModelUsage } from "@site/src/types/mvm";
 
 export type HealthResponse = {
@@ -23,24 +22,31 @@ export type CompareEvent =
   | { type: "model_error"; model: string; error: string }
   | { type: "done" };
 
-export async function fetchModels(signal?: AbortSignal): Promise<ModelInfo[]> {
-  const res = await fetch(`${MVM_API_BASE}/api/mvm/models`, { signal });
+export async function fetchModels(
+  apiBase: string,
+  signal?: AbortSignal,
+): Promise<ModelInfo[]> {
+  const res = await fetch(`${apiBase}/api/mvm/models`, { signal });
   if (!res.ok) throw new Error(`models request failed: HTTP ${res.status}`);
   return (await res.json()).models;
 }
 
-export async function fetchHealth(signal?: AbortSignal): Promise<HealthResponse> {
-  const res = await fetch(`${MVM_API_BASE}/api/mvm/health`, { signal });
+export async function fetchHealth(
+  apiBase: string,
+  signal?: AbortSignal,
+): Promise<HealthResponse> {
+  const res = await fetch(`${apiBase}/api/mvm/health`, { signal });
   if (!res.ok) throw new Error(`health request failed: HTTP ${res.status}`);
   return res.json();
 }
 
 export async function streamCompare(
+  apiBase: string,
   req: CompareRequest,
   onEvent: (ev: CompareEvent) => void,
-  signal: AbortSignal
+  signal: AbortSignal,
 ): Promise<void> {
-  const res = await fetch(`${MVM_API_BASE}/api/mvm/compare`, {
+  const res = await fetch(`${apiBase}/api/mvm/compare`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(req),

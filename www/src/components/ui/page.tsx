@@ -6,9 +6,10 @@ import LitFooter from "./lit-footer";
 type IPage = {
   title: string;
   description?: string;
-  footer?: ReactElement;
-  menu?: ReactElement;
+  footer?: ReactElement | null;
+  menu?: ReactElement | null;
   className?: string;
+  wrapperClassName?: string;
 };
 
 const Page: FC<PropsWithChildren<IPage>> = ({
@@ -18,10 +19,11 @@ const Page: FC<PropsWithChildren<IPage>> = ({
   footer = <LitFooter />,
   menu = <FloatingMenu />,
   className,
+  wrapperClassName,
 }) => {
   return (
     <Layout
-      wrapperClassName="flex flex-col min-h-screen-minus-navbar items-center gap-10 pb-28 px-7"
+      wrapperClassName={`flex flex-col min-h-screen-minus-navbar items-center gap-10 pb-28 px-7 ${wrapperClassName ?? ""}`}
       title={title}
       description={description}
     >
