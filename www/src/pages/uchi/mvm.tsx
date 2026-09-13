@@ -12,24 +12,24 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@site/src/components/ui/sheet";
-import { type UshiConfig } from "@site/src/components/ushi/api";
-import { useAuth } from "@site/src/components/ushi/hooks";
-import { UshiProvider } from "@site/src/components/ushi/provider";
-import { UshiLayout } from "@site/src/components/ushi/layout";
+import { type UchiConfig } from "@site/src/components/uchi/api";
+import { useAuth } from "@site/src/components/uchi/hooks";
+import { UchiProvider } from "@site/src/components/uchi/provider";
+import { UchiLayout } from "@site/src/components/uchi/layout";
 import { IconGear } from "nucleo-isometric";
 import { type FC } from "react";
 
 const MvmPage: FC = () => {
   const { siteConfig } = useDocusaurusContext();
   const customFields = siteConfig.customFields as {
-    ushi: UshiConfig;
+    uchi: UchiConfig;
     kakeibo: KakeiboConfig;
   };
 
   return (
-    <UshiProvider config={customFields.kakeibo}>
-      <MvmApp apiBase={customFields.ushi.apiBase} />
-    </UshiProvider>
+    <UchiProvider config={customFields.kakeibo}>
+      <MvmApp apiBase={customFields.uchi.apiBase} />
+    </UchiProvider>
   );
 };
 
@@ -46,7 +46,7 @@ function MvmApp({ apiBase }: { apiBase: string }) {
 
   return (
     <>
-      <UshiLayout
+      <UchiLayout
         title="MVM"
         description="Compare Claude model outputs side-by-side"
         onSignOut={signOut}
@@ -65,7 +65,7 @@ function MvmApp({ apiBase }: { apiBase: string }) {
                   A utility for comparing Claude model outputs
                   <br />
                   <span className="mt-5 text-(--reduced-emphasis-color)">
-                    This tool runs against your local Ushi server.
+                    This tool runs against your local Uchi server.
                   </span>
                 </span>
               </div>
@@ -107,7 +107,7 @@ function MvmApp({ apiBase }: { apiBase: string }) {
             </div>
           </div>
         </div>
-      </UshiLayout>
+      </UchiLayout>
     </>
   );
 }

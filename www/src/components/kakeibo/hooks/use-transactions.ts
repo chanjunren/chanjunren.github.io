@@ -4,7 +4,7 @@ import type {
   TransactionOrder,
   TransactionSort,
 } from "../api";
-import { useAuth } from "@site/src/components/ushi/hooks";
+import { useAuth } from "@site/src/components/uchi/hooks";
 import { useApi } from "./use-api";
 import { queryKeys } from "./query-keys";
 

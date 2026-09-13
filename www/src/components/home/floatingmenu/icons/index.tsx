@@ -1,9 +1,18 @@
-import {BackpackIcon, GitHubLogoIcon, LinkedInLogoIcon, MixIcon, PersonIcon, ReaderIcon} from "@radix-ui/react-icons";
+import {
+  BackpackIcon,
+  GitHubLogoIcon,
+  HomeIcon,
+  LinkedInLogoIcon,
+  PersonIcon,
+  QuoteIcon,
+  ReaderIcon,
+} from "@radix-ui/react-icons";
 import {FC} from "react";
 import contactStyles from "./contact.module.css";
 import styles from "./icons.module.css";
 
 const NOTES_CHARACTERS = ["写", "写", "忘", "忘"];
+const QUOTE_CHARACTERS = ["字", "句", "言", "文", "章"];
 
 export const NotesIcon: FC<{ hovering: boolean }> = ({hovering}) => (
   <div className={styles.wrapper}>
@@ -24,9 +33,21 @@ export const AboutIcon: FC<{ hovering: boolean }> = ({hovering}) => (
   </div>
 );
 
-export const UchiIcon: FC<{ hovering: boolean }> = ({hovering}) => (
-  <div className={styles.uchiIcon} data-hovering={hovering}>
-    <MixIcon/>
+export const QuotesIcon: FC<{ hovering: boolean }> = ({hovering}) => (
+  <div className={styles.quoteIcon}>
+    <QuoteIcon className={hovering ? styles.quoteMarkCycling : undefined}/>
+    {hovering &&
+      QUOTE_CHARACTERS.map((char, i) => (
+        <span key={char} className={`${styles.quoteCharacter} ${styles[`quoteChar${i}`]}`}>
+          {char}
+        </span>
+      ))}
+  </div>
+);
+
+export const UchiIcon: FC = () => (
+  <div className={styles.uchiIcon}>
+    <HomeIcon/>
   </div>
 );
 

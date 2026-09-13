@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { fetchUshiStatus, type UshiStatus } from "../api";
+import { fetchUchiStatus, type UchiStatus } from "../api";
 
-export function useUshiStatus(apiBase: string) {
-  const [status, setStatus] = useState<UshiStatus | null>(null);
+export function useUchiStatus(apiBase: string) {
+  const [status, setStatus] = useState<UchiStatus | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -11,7 +11,7 @@ export function useUshiStatus(apiBase: string) {
     setLoading(true);
     setError(null);
 
-    fetchUshiStatus(apiBase, controller.signal)
+    fetchUchiStatus(apiBase, controller.signal)
       .then(setStatus)
       .catch((value: unknown) => {
         if (!controller.signal.aborted) {

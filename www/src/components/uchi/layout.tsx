@@ -1,12 +1,12 @@
 import Page from "@site/src/components/ui/page";
 import {
-  UshiMobileNav,
-  UshiSidebar,
+  UchiMobileNav,
+  UchiSidebar,
   Wordmark,
-} from "@site/src/components/ushi/sidebar";
+} from "@site/src/components/uchi/sidebar";
 import { type CSSProperties, type ReactNode } from "react";
 
-export function UshiLayout({
+export function UchiLayout({
   title,
   description,
   onSignOut,
@@ -46,12 +46,12 @@ export function UshiLayout({
           } as CSSProperties
         }
       >
-        {showSidebar && <UshiSidebar onSignOut={onSignOut} />}
+        {showSidebar && <UchiSidebar onSignOut={onSignOut} />}
         <section className="min-w-0 flex-1">
           {showSidebar && (
             <div className="flex items-center justify-between px-5 pt-5 lg:hidden">
               <Wordmark />
-              <UshiMobileNav onSignOut={onSignOut} />
+              <UchiMobileNav onSignOut={onSignOut} />
             </div>
           )}
           {children}

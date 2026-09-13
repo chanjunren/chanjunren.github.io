@@ -9,7 +9,7 @@ import { createKakeiboApi, type KakeiboConfig } from "../kakeibo/api";
 import { ApiContext } from "../kakeibo/context";
 import { AuthContext, type AuthContextValue } from "./hooks/context";
 
-export function UshiProvider({
+export function UchiProvider({
   config,
   children,
 }: {

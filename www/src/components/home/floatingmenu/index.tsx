@@ -1,7 +1,7 @@
 import {useWindowSize} from "@docusaurus/theme-common";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 
-import {DotsHorizontalIcon, HomeIcon, MagnifyingGlassIcon} from "@radix-ui/react-icons";
+import {DotsHorizontalIcon, MagnifyingGlassIcon} from "@radix-ui/react-icons";
 import {Kbd} from "@site/src/components/ui/kbd";
 import {Link} from "@site/src/components/ui/link";
 import {NavigationMenu, NavigationMenuItem, NavigationMenuList,} from "@site/src/components/ui/navigation-menu";
@@ -9,7 +9,7 @@ import {Popover, PopoverContent, PopoverTrigger} from "@site/src/components/ui/p
 import {Tooltip, TooltipContent, TooltipTrigger,} from "@site/src/components/ui/tooltip";
 import {FC, ReactNode, useState} from "react";
 import NavbarExtras from "./extras";
-import {AboutIcon, GithubIcon, LinkedinIcon, NotesIcon, ResumeIcon, UchiIcon} from "./icons";
+import {AboutIcon, GithubIcon, LinkedinIcon, NotesIcon, QuotesIcon, ResumeIcon, UchiIcon} from "./icons";
 import {SnowboarderMouse} from "./icons/SnowboarderMouse";
 import styles from "./floatingmenu.module.css";
 
@@ -148,7 +148,7 @@ const SearchMenuItem: FC = () => {
 const FloatingMenu: FC = () => {
   const windowSize = useWindowSize();
   const isMobile = windowSize === "mobile";
-  const [homeHovering, setHomeHovering] = useState(false);
+  const [uchiHovering, setUchiHovering] = useState(false);
 
   return (
     <BrowserOnly>
@@ -157,13 +157,13 @@ const FloatingMenu: FC = () => {
           viewport={isMobile}
           className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-(--menu-background) p-2 rounded-xl border border-border shadow-sm"
         >
-          {homeHovering && <SnowboarderMouse/>}
+          {uchiHovering && <SnowboarderMouse/>}
           <NavigationMenuList className="m-0 pl-3!">
             <NavbarExtras/>
 
             {/* Pages */}
-            <MenuIconLink href="/" label="home" onHoverChange={setHomeHovering}>
-              <HomeIcon/>
+            <MenuIconLink href="/" label="quotes">
+              {(hovering) => <QuotesIcon hovering={hovering}/>}
             </MenuIconLink>
             <MenuIconLink href="/docs/zettelkasten" label="notes">
               {(hovering) => <NotesIcon hovering={hovering}/>}
@@ -172,8 +172,8 @@ const FloatingMenu: FC = () => {
             <MenuIconLink href="/whoami" label="about">
               {(hovering) => <AboutIcon hovering={hovering}/>}
             </MenuIconLink>
-            <MenuIconLink href="/ushi" label="uchi">
-              {(hovering) => <UchiIcon hovering={hovering}/>}
+            <MenuIconLink href="/uchi" label="uchi" onHoverChange={setUchiHovering}>
+              <UchiIcon/>
             </MenuIconLink>
             <SocialsMenuItem/>
           </NavigationMenuList>

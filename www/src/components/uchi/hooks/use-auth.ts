@@ -3,6 +3,6 @@ import { AuthContext } from "./context";
 
 export function useAuth() {
   const value = useContext(AuthContext);
-  if (!value) throw new Error("useAuth must be used within UshiProvider");
+  if (!value) throw new Error("useAuth must be used within UchiProvider");
   return value;
 }

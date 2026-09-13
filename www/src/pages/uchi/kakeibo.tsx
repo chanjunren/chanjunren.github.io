@@ -3,13 +3,13 @@ import { type KakeiboConfig } from "@site/src/components/kakeibo/api";
 import { Dashboard } from "@site/src/components/kakeibo/dashboard";
 import { useApi } from "@site/src/components/kakeibo/hooks";
 import {
-  isUshiAvailable,
-  type UshiConfig,
-} from "@site/src/components/ushi/api";
-import { UshiFallback } from "@site/src/components/ushi/fallback";
-import { useAuth, useUshiStatus } from "@site/src/components/ushi/hooks";
-import { UshiProvider } from "@site/src/components/ushi/provider";
-import { UshiLayout } from "@site/src/components/ushi/layout";
+  isUchiAvailable,
+  type UchiConfig,
+} from "@site/src/components/uchi/api";
+import { UchiFallback } from "@site/src/components/uchi/fallback";
+import { useAuth, useUchiStatus } from "@site/src/components/uchi/hooks";
+import { UchiProvider } from "@site/src/components/uchi/provider";
+import { UchiLayout } from "@site/src/components/uchi/layout";
 import { useHistory } from "@docusaurus/router";
 import { useEffect } from "react";
 
@@ -19,7 +19,7 @@ function KakeiboApp() {
   const history = useHistory();
 
   useEffect(() => {
-    if (!authLoading && !session) history.replace("/ushi");
+    if (!authLoading && !session) history.replace("/uchi");
   }, [authLoading, history, session]);
 
   if (!api)
@@ -37,7 +37,7 @@ function KakeiboApp() {
     );
   if (!session) return null;
   return (
-    <UshiLayout
+    <UchiLayout
       title="家計簿"
       description="A personal finance dashboard."
       onSignOut={signOut}
@@ -45,20 +45,20 @@ function KakeiboApp() {
       <div className="text-base text-foreground [&_[data-slot=button]]:text-base">
         <Dashboard />
       </div>
-    </UshiLayout>
+    </UchiLayout>
   );
 }
 
 export default function KakeiboPage() {
   const { siteConfig } = useDocusaurusContext();
   const customFields = siteConfig.customFields as {
-    ushi: UshiConfig;
+    uchi: UchiConfig;
     kakeibo: KakeiboConfig;
   };
 
   return (
     <KakeiboGate
-      apiBase={customFields.ushi.apiBase}
+      apiBase={customFields.uchi.apiBase}
       config={customFields.kakeibo}
     />
   );
@@ -71,31 +71,31 @@ function KakeiboGate({
   apiBase: string;
   config: KakeiboConfig;
 }) {
-  const { status, loading, error } = useUshiStatus(apiBase);
+  const { status, loading, error } = useUchiStatus(apiBase);
 
   if (loading) {
     return (
-      <UshiLayout title="家計簿" description="A personal finance dashboard.">
+      <UchiLayout title="家計簿" description="A personal finance dashboard.">
         <main className="flex min-h-[calc(100vh-57px)] items-center justify-center bg-background text-sm text-muted-foreground">
-        Checking Ushi…
+        Checking Uchi…
         </main>
-      </UshiLayout>
+      </UchiLayout>
     );
   }
 
-  if (!isUshiAvailable(status, error)) {
+  if (!isUchiAvailable(status, error)) {
     return (
-      <UshiLayout title="家計簿" description="A personal finance dashboard.">
-        <UshiFallback />
-      </UshiLayout>
+      <UchiLayout title="家計簿" description="A personal finance dashboard.">
+        <UchiFallback />
+      </UchiLayout>
     );
   }
 
   return (
     <div className="min-h-full bg-background text-foreground">
-      <UshiProvider config={config}>
+      <UchiProvider config={config}>
         <KakeiboApp />
-      </UshiProvider>
+      </UchiProvider>
     </div>
   );
 }

@@ -5,12 +5,82 @@
 
 .uchiIcon {
   display: inline-flex;
-  transition: transform 350ms ease-in-out;
-  transform-origin: center;
 }
 
-.uchiIcon[data-hovering="true"] {
-  transform: rotate(180deg);
+.quoteIcon {
+  position: relative;
+  display: inline-flex;
+  width: 15px;
+  height: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.quoteIcon svg {
+  position: absolute;
+  inset: 0;
+}
+
+.quoteMarkCycling {
+  animation: quoteMarkCycle 1s steps(1, end) forwards;
+}
+
+.quoteCharacter {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--menu-foreground);
+  font-size: 0.9rem;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  animation: quoteCharacterCycle 200ms steps(1, end) forwards;
+}
+
+.quoteChar0 {
+  animation-delay: 0ms;
+}
+
+.quoteChar1 {
+  animation-delay: 200ms;
+}
+
+.quoteChar2 {
+  animation-delay: 400ms;
+}
+
+.quoteChar3 {
+  animation-delay: 600ms;
+}
+
+.quoteChar4 {
+  animation-delay: 800ms;
+}
+
+@keyframes quoteMarkCycle {
+  0%,
+  99% {
+    opacity: 0;
+    transform: translateY(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes quoteCharacterCycle {
+  0%,
+  99% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-1px);
+  }
 }
 
 /* Notes icon — popping characters */
@@ -134,7 +204,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .uchiIcon {
-    transition: none;
+  .quoteMarkCycling,
+  .quoteCharacter {
+    animation: none;
+  }
+
+  .quoteCharacter {
+    display: none;
   }
 }

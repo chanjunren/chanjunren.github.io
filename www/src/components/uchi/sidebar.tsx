@@ -14,8 +14,8 @@ import { Wordmark } from "./shared";
 export { Wordmark } from "./shared";
 
 const applications = [
-  { label: "Kakeibo", href: "/ushi/kakeibo" },
-  { label: "MVM", href: "/ushi/mvm" },
+  { label: "Kakeibo", href: "/uchi/kakeibo" },
+  { label: "MVM", href: "/uchi/mvm" },
 ];
 
 function ApplicationLinks({ onSelect }: { onSelect?: () => void }) {
@@ -46,7 +46,7 @@ function ApplicationLinks({ onSelect }: { onSelect?: () => void }) {
   );
 }
 
-export function UshiSidebar({
+export function UchiSidebar({
   onSignOut,
 }: {
   onSignOut?: () => Promise<void>;
@@ -65,7 +65,7 @@ export function UshiSidebar({
   );
 }
 
-export function UshiMobileNav({
+export function UchiMobileNav({
   onSignOut,
 }: {
   onSignOut?: () => Promise<void>;
@@ -79,7 +79,7 @@ export function UshiMobileNav({
           type="button"
           variant="menu"
           size="icon"
-          aria-label="Open Ushi menu"
+          aria-label="Open Uchi menu"
         >
           <Menu aria-hidden="true" />
         </Button>
