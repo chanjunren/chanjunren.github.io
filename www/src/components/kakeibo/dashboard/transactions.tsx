@@ -1,4 +1,5 @@
 import { ErrorFallback } from "@site/src/components/ui/error-fallback";
+import { LoadingFallback } from "@site/src/components/ui/loading-fallback";
 import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import {
   Card,
@@ -39,13 +40,7 @@ import {
 } from "../hooks";
 
 function LoadingCard() {
-  return (
-    <Card className="mt-4">
-      <CardContent className="py-8 text-base text-muted-foreground">
-        Loading transactions…
-      </CardContent>
-    </Card>
-  );
+  return <LoadingFallback />;
 }
 function formatDate(value: string | null | undefined) {
   const date = new Date(

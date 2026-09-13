@@ -28,15 +28,10 @@ import {
   useRules,
 } from "../hooks";
 import { CategoryTag } from "../shared";
+import { LoadingFallback } from "@site/src/components/ui/loading-fallback";
 
 function LoadingCard() {
-  return (
-    <Card className="mt-4">
-      <CardContent className="py-8 text-base text-muted-foreground">
-        Loading categories…
-      </CardContent>
-    </Card>
-  );
+  return <LoadingFallback />;
 }
 
 function ErrorCard({ message }: { message: string }) {

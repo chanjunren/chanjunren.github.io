@@ -22,6 +22,7 @@ import {
 } from "@site/src/components/ui/chart";
 import { MonoLabel } from "@site/src/components/ui/mono-label";
 import { ErrorFallback } from "@site/src/components/ui/error-fallback";
+import { LoadingFallback } from "@site/src/components/ui/loading-fallback";
 import {
   Table,
   TableBody,
@@ -69,13 +70,7 @@ function formatFileDate(value: string | null) {
 }
 
 function LoadingCard() {
-  return (
-    <Card className="mt-4">
-      <CardContent className="py-8 text-base text-muted-foreground">
-        Loading dashboard…
-      </CardContent>
-    </Card>
-  );
+  return <LoadingFallback />;
 }
 function CashFlowSummary({
   totalIn,

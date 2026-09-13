@@ -8,6 +8,7 @@ import {
 import { UchiFallback } from "@site/src/components/uchi/fallback";
 import { useAuth, useUchiStatus } from "@site/src/components/uchi/hooks";
 import { UchiLayout } from "@site/src/components/uchi/layout";
+import { LoadingFallback } from "@site/src/components/ui/loading-fallback";
 import { useHistory } from "@docusaurus/router";
 import { useEffect } from "react";
 
@@ -70,9 +71,7 @@ function KakeiboGate({
         showSidebar={Boolean(session)}
         onSignOut={signOut}
       >
-        <main className="flex min-h-[calc(100vh-57px)] items-center justify-center bg-background text-sm text-muted-foreground">
-          Loading Kakeibo…
-        </main>
+        <LoadingFallback />
       </UchiLayout>
     );
   }

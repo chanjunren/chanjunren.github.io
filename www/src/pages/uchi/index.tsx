@@ -9,6 +9,7 @@ import {
 import { UchiFallback } from "@site/src/components/uchi/fallback";
 import { Login } from "@site/src/components/uchi/login";
 import { UchiLayout } from "@site/src/components/uchi/layout";
+import { LoadingFallback } from "@site/src/components/ui/loading-fallback";
 import { useEffect } from "react";
 
 function UchiLogin() {
@@ -27,9 +28,7 @@ function UchiLogin() {
         showSidebar={Boolean(session)}
         onSignOut={signOut}
       >
-        <main className="flex min-h-[calc(100vh-57px)] items-center justify-center bg-background text-sm text-muted-foreground">
-          Loading Uchi…
-        </main>
+        <LoadingFallback />
       </UchiLayout>
     );
   }
