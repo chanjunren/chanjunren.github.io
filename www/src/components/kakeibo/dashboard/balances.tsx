@@ -1,7 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@site/src/components/ui/card";
+import { Card, CardContent } from "@site/src/components/ui/card";
 import { ErrorFallback } from "@site/src/components/ui/error-fallback";
 import { LoadingFallback } from "@site/src/components/ui/loading-fallback";
-import { MonoLabel } from "@site/src/components/ui/mono-label";
 import { Badge } from "@site/src/components/ui/badge";
 import { cn } from "@site/src/lib/utils";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@site/src/components/ui/table";
@@ -40,9 +39,6 @@ export function Balances({ filters }: { filters: KakeiboFilters }) {
     );
   return (
     <Card className="mt-4">
-      <CardHeader>
-        <CardTitle><MonoLabel>Balances</MonoLabel></CardTitle>
-      </CardHeader>
       <CardContent>
         <Table>
           <TableHeader><TableRow><TableHead>Period</TableHead><TableHead>Account</TableHead><TableHead>Opening</TableHead><TableHead>Closing</TableHead><TableHead>Net change</TableHead><TableHead>Status</TableHead></TableRow></TableHeader>

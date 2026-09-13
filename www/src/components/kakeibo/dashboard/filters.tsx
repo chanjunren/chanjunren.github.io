@@ -1,6 +1,5 @@
 import { useHistory, useLocation } from "@docusaurus/router";
 
-import { Badge } from "@site/src/components/ui/badge";
 import { Button } from "@site/src/components/ui/button";
 import { Input } from "@site/src/components/ui/input";
 import {
@@ -12,13 +11,15 @@ import {
 } from "@site/src/components/ui/dialog";
 import { MonoLabel } from "@site/src/components/ui/mono-label";
 import { Popover, PopoverContent, PopoverTrigger } from "@site/src/components/ui/popover";
+import CustomTag from "@site/src/components/ui/custom-tag";
+import { MultiSelect } from "@site/src/components/ui/multi-select";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
 } from "@site/src/components/ui/select";
-import { SlidersHorizontal, X } from "lucide-react";
+import { SlidersHorizontal } from "lucide-react";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import type { Account, MonthRange, TransactionType } from "../api";
 import { DateRangePicker } from "./date-range-picker";
@@ -137,17 +138,6 @@ export function FilterButton({
   const update = (changes: Partial<KakeiboFilters>) =>
     onChange({ ...filters, ...changes });
   const categoryOptions = useMemo(() => categories, [categories]);
-  const addCategory = (
-    key: "categoryIds" | "excludeCategoryIds",
-    value: string,
-  ) => {
-    const id = Number(value);
-    if (id && !filters[key].includes(id))
-      update({ [key]: [...filters[key], id] });
-  };
-  const categoryName = (id: number) =>
-    categoryOptions.find((category) => category.id === id)?.name ??
-    `Category ${id}`;
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -155,16 +145,16 @@ export function FilterButton({
           <SlidersHorizontal aria-hidden="true" />
           <MonoLabel className="text-inherit">Filters</MonoLabel>
           {activeCount > 0 && (
-            <span className="font-mono text-xs text-muted-foreground">
+            <CustomTag color="locked" className="font-mono text-xs">
               {activeCount}
-            </span>
+            </CustomTag>
           )}
         </Button>
       </DialogTrigger>
       <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-xl">
         <DialogHeader>
           <DialogTitle>
-            <MonoLabel className="text-foreground">🧰 Filters</MonoLabel>
+            <MonoLabel className="text-foreground">🍉 Filters</MonoLabel>
           </DialogTitle>
         </DialogHeader>
         <div className="flex flex-col gap-6">
@@ -204,48 +194,18 @@ export function FilterButton({
           </section>
           <section className="grid gap-5">
             <FilterGroup label="Included">
-              <Select
-                onValueChange={(value) => addCategory("categoryIds", value)}
-              >
-                <SelectTrigger className="w-full">
-                  <MonoLabel>Select category</MonoLabel>
-                </SelectTrigger>
-                <SelectContent className="max-h-60 overflow-y-auto">
-                  {categoryOptions
-                    .filter(
-                      (category) => !filters.categoryIds.includes(category.id),
-                    )
-                    .map((category) => (
-                      <SelectItem key={category.id} value={String(category.id)}>
-                        {category.name}
-                      </SelectItem>
-                    ))}
-                </SelectContent>
-              </Select>
-              <div className="flex flex-wrap gap-2">
-                {filters.categoryIds.map((id) => (
-                  <Badge
-                    key={`in-${id}`}
-                    className="px-3 py-1 text-base bg-(--menu-foreground)! text-(--menu-background)! hover:bg-(--menu-foreground)!"
-                  >
-                    {categoryName(id)}{" "}
-                    <button
-                      type="button"
-                      className="cursor-pointer"
-                      aria-label={`Remove included category ${categoryName(id)}`}
-                      onClick={() =>
-                        update({
-                          categoryIds: filters.categoryIds.filter(
-                            (current) => current !== id,
-                          ),
-                        })
-                      }
-                    >
-                      <X className="size-3.5" />
-                    </button>
-                  </Badge>
-                ))}
-              </div>
+              <MultiSelect
+                options={categoryOptions.map((category) => ({
+                  value: String(category.id),
+                  label: category.name,
+                }))}
+                value={filters.categoryIds.map(String)}
+                onChange={(values) =>
+                  update({ categoryIds: values.map(Number) })
+                }
+                placeholder="Select category"
+                aria-label="Select included categories"
+              />
               <Button
                 type="button"
                 variant="outline"
@@ -266,51 +226,18 @@ export function FilterButton({
               </Button>
             </FilterGroup>
             <FilterGroup label="Excluded">
-              <Select
-                onValueChange={(value) =>
-                  addCategory("excludeCategoryIds", value)
+              <MultiSelect
+                options={categoryOptions.map((category) => ({
+                  value: String(category.id),
+                  label: category.name,
+                }))}
+                value={filters.excludeCategoryIds.map(String)}
+                onChange={(values) =>
+                  update({ excludeCategoryIds: values.map(Number) })
                 }
-              >
-                <SelectTrigger className="w-full">
-                  <MonoLabel>Select category</MonoLabel>
-                </SelectTrigger>
-                <SelectContent className="max-h-60 overflow-y-auto">
-                  {categoryOptions
-                    .filter(
-                      (category) =>
-                        !filters.excludeCategoryIds.includes(category.id),
-                    )
-                    .map((category) => (
-                      <SelectItem key={category.id} value={String(category.id)}>
-                        {category.name}
-                      </SelectItem>
-                    ))}
-                </SelectContent>
-              </Select>
-              <div className="flex flex-wrap gap-2">
-                {filters.excludeCategoryIds.map((id) => (
-                  <Badge
-                    key={`out-${id}`}
-                    className="px-3 py-1 text-base bg-(--menu-foreground)! text-(--menu-background)! hover:bg-(--menu-foreground)!"
-                  >
-                    {categoryName(id)}{" "}
-                    <button
-                      type="button"
-                      className="cursor-pointer"
-                      aria-label={`Remove excluded category ${categoryName(id)}`}
-                      onClick={() =>
-                        update({
-                          excludeCategoryIds: filters.excludeCategoryIds.filter(
-                            (current) => current !== id,
-                          ),
-                        })
-                      }
-                    >
-                      <X className="size-3.5" />
-                    </button>
-                  </Badge>
-                ))}
-              </div>
+                placeholder="Select category"
+                aria-label="Select excluded categories"
+              />
               <Button
                 type="button"
                 variant="outline"

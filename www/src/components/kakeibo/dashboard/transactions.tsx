@@ -4,8 +4,6 @@ import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import {
   Card,
   CardContent,
-  CardHeader,
-  CardTitle,
 } from "@site/src/components/ui/card";
 import {
   Table,
@@ -126,11 +124,6 @@ export function Transactions({
 
   return (
     <Card className="mt-4">
-      <CardHeader>
-        <CardTitle>
-          <span className="font-mono text-lg font-normal">Transactions</span>
-        </CardTitle>
-      </CardHeader>
       <CardContent>
         <Table
           className="w-full"

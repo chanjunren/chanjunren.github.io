@@ -4,11 +4,7 @@ import * as React from "react";
 import { Button } from "@site/src/components/ui/button";
 import {
   Card,
-  CardAction,
   CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
 } from "@site/src/components/ui/card";
 import {
   Dialog,
@@ -20,6 +16,7 @@ import {
   DialogTitle,
 } from "@site/src/components/ui/dialog";
 import { Input } from "@site/src/components/ui/input";
+import { MonoLabel } from "@site/src/components/ui/mono-label";
 import { Separator } from "@site/src/components/ui/separator";
 import {
   useCategories,
@@ -96,26 +93,18 @@ export function Categories() {
 
   return (
     <Card className="mt-4">
-      <CardHeader>
-        <CardTitle>
-          <span className="font-mono text-lg font-normal">Categories</span>
-        </CardTitle>
-        <CardDescription className="text-base">
-          Rules automatically categorize matching transactions.
-        </CardDescription>
-        <CardAction>
+      <CardContent>
+        <div className="mb-4 flex justify-end">
           <Button
             variant="outline"
             size="sm"
-            className="text-base"
+            className="w-full text-base"
             onClick={() => setCategoryDialogOpen(true)}
           >
             <Plus data-icon="inline-start" aria-hidden="true" />
-            Add category
+            <MonoLabel className="text-inherit">Add category</MonoLabel>
           </Button>
-        </CardAction>
-      </CardHeader>
-      <CardContent>
+        </div>
         <div className="flex flex-col">
           {categoryList.map((category, index) => {
             const categoryRules = ruleList.filter(
@@ -165,10 +154,7 @@ export function Categories() {
       >
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Add category</DialogTitle>
-            <DialogDescription>
-              Create a category for organizing your transactions.
-            </DialogDescription>
+            <DialogTitle><MonoLabel>Add category</MonoLabel></DialogTitle>
           </DialogHeader>
           <form onSubmit={submitCategory}>
             <label className="flex flex-col gap-2 text-sm">
@@ -182,12 +168,17 @@ export function Categories() {
             </label>
             <DialogFooter className="mt-6">
               <DialogClose asChild>
-                <Button type="button" variant="outline">
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="border-(--menu-foreground)/20! bg-(--menu-background)! text-(--menu-foreground)! hover:bg-(--menu-accent)! hover:text-(--menu-foreground)!"
+                >
                   Cancel
                 </Button>
               </DialogClose>
               <Button
                 type="submit"
+                variant="menu-primary"
                 disabled={createCategory.isPending || !categoryName.trim()}
               >
                 Save category
@@ -222,12 +213,17 @@ export function Categories() {
             </label>
             <DialogFooter className="mt-6">
               <DialogClose asChild>
-                <Button type="button" variant="outline">
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="border-(--menu-foreground)/20! bg-(--menu-background)! text-(--menu-foreground)! hover:bg-(--menu-accent)! hover:text-(--menu-foreground)!"
+                >
                   Cancel
                 </Button>
               </DialogClose>
               <Button
                 type="submit"
+                variant="menu-primary"
                 disabled={createRule.isPending || !keyword.trim()}
               >
                 Save rule
