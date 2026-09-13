@@ -77,7 +77,7 @@ export function DateRangePicker({
       <PopoverTrigger asChild>
         <Button
           variant="outline"
-          className="font-mono text-(--menu-foreground) hover:bg-(--menu-accent)! hover:text-(--menu-foreground)!"
+          className="font-mono text-(--menu-foreground) hover:bg-(--menu-background)! hover:text-(--menu-foreground)! hover:border-border!"
         >
           <CalendarDays aria-hidden="true" />
           {formatRange(range)}

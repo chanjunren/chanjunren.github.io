@@ -45,7 +45,7 @@ export function MultiSelect({
     >
       <SelectTrigger
         aria-label={ariaLabel}
-        className="h-auto min-h-9 w-full justify-between gap-2 py-1.5 hover:bg-background! hover:text-foreground!"
+        className="h-auto min-h-9 w-full justify-between gap-2 py-1.5"
       >
         <span className="flex min-w-0 flex-1 flex-wrap gap-1">
           {value.length > 0 ? (
