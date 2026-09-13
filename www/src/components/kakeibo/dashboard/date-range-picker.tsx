@@ -1,5 +1,3 @@
-import { CalendarDays } from "lucide-react";
-import { useEffect, useState } from "react";
 import { Button } from "@site/src/components/ui/button";
 import { Calendar, type MonthRange } from "@site/src/components/ui/calendar";
 import {
@@ -7,6 +5,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@site/src/components/ui/popover";
+import { CalendarDays } from "lucide-react";
+import { useEffect, useState } from "react";
 import { type MonthRange as ApiMonthRange } from "../api";
 
 const monthFormatter = new Intl.DateTimeFormat("en-US", {
@@ -75,7 +75,10 @@ export function DateRangePicker({
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button variant="outline" className="font-mono text-sm">
+        <Button
+          variant="outline"
+          className="font-mono text-(--menu-foreground) hover:bg-(--menu-accent)! hover:text-(--menu-foreground)!"
+        >
           <CalendarDays aria-hidden="true" />
           {formatRange(range)}
         </Button>

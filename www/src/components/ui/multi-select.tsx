@@ -1,4 +1,4 @@
-import { useRef, useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import {
   Select,
   SelectContent,
@@ -27,7 +27,6 @@ export function MultiSelect({
   "aria-label"?: string;
 }) {
   const [open, setOpen] = useState(false);
-  const keepOpen = useRef(false);
 
   const toggleValue = (selectedValue: string) => {
     onChange(
@@ -35,20 +34,13 @@ export function MultiSelect({
         ? value.filter((current) => current !== selectedValue)
         : [...value, selectedValue],
     );
-    keepOpen.current = true;
+    queueMicrotask(() => setOpen(true));
   };
 
   return (
     <Select
       open={open}
-      onOpenChange={(nextOpen) => {
-        if (!nextOpen && keepOpen.current) {
-          keepOpen.current = false;
-          setOpen(true);
-          return;
-        }
-        setOpen(nextOpen);
-      }}
+      onOpenChange={setOpen}
       onValueChange={toggleValue}
     >
       <SelectTrigger
