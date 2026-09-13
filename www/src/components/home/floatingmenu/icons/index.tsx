@@ -1,4 +1,4 @@
-import {BackpackIcon, GitHubLogoIcon, LinkedInLogoIcon, PersonIcon, ReaderIcon} from "@radix-ui/react-icons";
+import {BackpackIcon, GitHubLogoIcon, LinkedInLogoIcon, MixIcon, PersonIcon, ReaderIcon} from "@radix-ui/react-icons";
 import {FC} from "react";
 import contactStyles from "./contact.module.css";
 import styles from "./icons.module.css";
@@ -21,6 +21,12 @@ export const AboutIcon: FC<{ hovering: boolean }> = ({hovering}) => (
   <div className={styles.wrapper}>
     <PersonIcon/>
     {hovering && <span className={styles.greeting}>嗨！</span>}
+  </div>
+);
+
+export const UchiIcon: FC<{ hovering: boolean }> = ({hovering}) => (
+  <div className={styles.uchiIcon} data-hovering={hovering}>
+    <MixIcon/>
   </div>
 );
 

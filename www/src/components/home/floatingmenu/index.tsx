@@ -1,28 +1,35 @@
 import {useWindowSize} from "@docusaurus/theme-common";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 
-import {HomeIcon, MagnifyingGlassIcon} from "@radix-ui/react-icons";
+import {DotsHorizontalIcon, HomeIcon, MagnifyingGlassIcon} from "@radix-ui/react-icons";
 import {Kbd} from "@site/src/components/ui/kbd";
 import {Link} from "@site/src/components/ui/link";
 import {NavigationMenu, NavigationMenuItem, NavigationMenuList,} from "@site/src/components/ui/navigation-menu";
+import {Popover, PopoverContent, PopoverTrigger} from "@site/src/components/ui/popover";
 import {Tooltip, TooltipContent, TooltipTrigger,} from "@site/src/components/ui/tooltip";
 import {FC, ReactNode, useState} from "react";
 import NavbarExtras from "./extras";
-import {AboutIcon, GithubIcon, LinkedinIcon, NotesIcon, ResumeIcon} from "./icons";
+import {AboutIcon, GithubIcon, LinkedinIcon, NotesIcon, ResumeIcon, UchiIcon} from "./icons";
 import {SnowboarderMouse} from "./icons/SnowboarderMouse";
+import styles from "./floatingmenu.module.css";
 
-const Divider: FC = () => (
-  <div className="h-5 w-px bg-(--menu-subtle)/40 mx-1"/>
-);
+type TooltipSide = "top" | "right" | "bottom" | "left";
 
 interface MenuIconLinkProps {
   href: string;
   label: string;
   children: ReactNode | ((hovering: boolean) => ReactNode);
   onHoverChange?: (hovering: boolean) => void;
+  tooltipSide?: TooltipSide;
 }
 
-const MenuIconLink: FC<MenuIconLinkProps> = ({href, label, children, onHoverChange}) => {
+const MenuIconLink: FC<MenuIconLinkProps> = ({
+  href,
+  label,
+  children,
+  onHoverChange,
+  tooltipSide = "top",
+}) => {
   const [hovering, setHovering] = useState(false);
 
   return (
@@ -46,7 +53,7 @@ const MenuIconLink: FC<MenuIconLinkProps> = ({href, label, children, onHoverChan
             {typeof children === "function" ? children(hovering) : children}
           </Link>
         </TooltipTrigger>
-        <TooltipContent side="top" sideOffset={8}>
+        <TooltipContent side={tooltipSide} sideOffset={8}>
           {label}
         </TooltipContent>
       </Tooltip>
@@ -54,7 +61,7 @@ const MenuIconLink: FC<MenuIconLinkProps> = ({href, label, children, onHoverChan
   );
 };
 
-const ResumeMenuIcon: FC = () => {
+const ResumeMenuIcon: FC<{ tooltipSide?: TooltipSide }> = ({tooltipSide = "top"}) => {
   const [hovering, setHovering] = useState(false);
   return (
     <NavigationMenuItem
@@ -72,10 +79,41 @@ const ResumeMenuIcon: FC = () => {
             <ResumeIcon hovering={hovering}/>
           </a>
         </TooltipTrigger>
-        <TooltipContent side="top" sideOffset={8}>
+        <TooltipContent side={tooltipSide} sideOffset={8}>
           resume
         </TooltipContent>
       </Tooltip>
+    </NavigationMenuItem>
+  );
+};
+
+const SocialsMenuItem: FC = () => {
+  return (
+    <NavigationMenuItem>
+      <Popover>
+        <PopoverTrigger asChild>
+          <button
+            type="button"
+            aria-label="socials"
+            className="flex items-center text-md tracking-tight p-2 rounded-md border-0 bg-transparent text-(--menu-foreground) hover:bg-(--menu-accent)! cursor-pointer"
+          >
+            <DotsHorizontalIcon/>
+          </button>
+        </PopoverTrigger>
+        <PopoverContent side="top" align="center" sideOffset={16} className={styles.socialsContent}>
+          <MenuIconLink href="https://www.github.com/chanjunren" label="github" tooltipSide="right">
+            {(isHovering) => <GithubIcon hovering={isHovering}/>}
+          </MenuIconLink>
+          <MenuIconLink
+            href="https://www.linkedin.com/in/jun-ren-chan-90240a175/"
+            label="linkedin"
+            tooltipSide="right"
+          >
+            {(isHovering) => <LinkedinIcon hovering={isHovering}/>}
+          </MenuIconLink>
+          <ResumeMenuIcon tooltipSide="right"/>
+        </PopoverContent>
+      </Popover>
     </NavigationMenuItem>
   );
 };
@@ -134,17 +172,10 @@ const FloatingMenu: FC = () => {
             <MenuIconLink href="/whoami" label="about">
               {(hovering) => <AboutIcon hovering={hovering}/>}
             </MenuIconLink>
-
-            <Divider/>
-
-            {/* Contact */}
-            <MenuIconLink href="https://www.github.com/chanjunren" label="github">
-              {(hovering) => <GithubIcon hovering={hovering}/>}
+            <MenuIconLink href="/ushi" label="uchi">
+              {(hovering) => <UchiIcon hovering={hovering}/>}
             </MenuIconLink>
-            <MenuIconLink href="https://www.linkedin.com/in/jun-ren-chan-90240a175/" label="linkedin">
-              {(hovering) => <LinkedinIcon hovering={hovering}/>}
-            </MenuIconLink>
-            <ResumeMenuIcon/>
+            <SocialsMenuItem/>
           </NavigationMenuList>
         </NavigationMenu>
       )}

@@ -3,6 +3,16 @@
   display: inline-flex;
 }
 
+.uchiIcon {
+  display: inline-flex;
+  transition: transform 350ms ease-in-out;
+  transform-origin: center;
+}
+
+.uchiIcon[data-hovering="true"] {
+  transform: rotate(180deg);
+}
+
 /* Notes icon — popping characters */
 
 .character {
@@ -120,5 +130,11 @@
   100% {
     opacity: 1;
     transform: translate(30%, -110%) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uchiIcon {
+    transition: none;
   }
 }
