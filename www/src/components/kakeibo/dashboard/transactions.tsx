@@ -1,4 +1,4 @@
-import { ErrorPage } from "@site/src/components/ui/error-page";
+import { ErrorFallback } from "@site/src/components/ui/error-fallback";
 import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import {
   Card,
@@ -209,17 +209,13 @@ export function Transactions({
   if (specs.isPending || transactions.isPending) return <LoadingCard />;
   if (specs.isError)
     return (
-      <ErrorPage
-        title="Unable to load transaction filters"
-        description={specs.error.message}
+      <ErrorFallback
         onRetry={() => void specs.refetch()}
       />
     );
   if (transactions.isError)
     return (
-      <ErrorPage
-        title="Unable to load transactions"
-        description={transactions.error.message}
+      <ErrorFallback
         onRetry={() => void transactions.refetch()}
       />
     );

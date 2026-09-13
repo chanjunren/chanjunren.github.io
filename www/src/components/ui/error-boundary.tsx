@@ -1,5 +1,5 @@
 import { Component, type ReactNode } from "react";
-import { ErrorPage } from "./error-page";
+import { ErrorFallback } from "./error-fallback";
 
 type ErrorBoundaryProps = { children: ReactNode };
 type ErrorBoundaryState = { error: Error | null };
@@ -17,9 +17,7 @@ export class ErrorBoundary extends Component<
   render() {
     if (this.state.error) {
       return (
-        <ErrorPage
-          title="Unable to load transactions"
-          description={this.state.error.message}
+        <ErrorFallback
           onRetry={() => this.setState({ error: null })}
         />
       );

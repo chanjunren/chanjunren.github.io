@@ -21,6 +21,7 @@ import {
   ChartTooltipContent,
 } from "@site/src/components/ui/chart";
 import { MonoLabel } from "@site/src/components/ui/mono-label";
+import { ErrorFallback } from "@site/src/components/ui/error-fallback";
 import {
   Table,
   TableBody,
@@ -76,16 +77,6 @@ function LoadingCard() {
     </Card>
   );
 }
-function ErrorCard({ message }: { message: string }) {
-  return (
-    <Card className="mt-4">
-      <CardContent className="py-8 text-base text-destructive">
-        {message}
-      </CardContent>
-    </Card>
-  );
-}
-
 function CashFlowSummary({
   totalIn,
   totalOut,
@@ -415,10 +406,12 @@ export function Overview({
   const dashboard = useDashboard(range, accountId);
   const specs = useSpecs();
   if (dashboard.isPending || specs.isPending) return <LoadingCard />;
-  if (dashboard.isError) return <ErrorCard message={dashboard.error.message} />;
-  if (specs.isError) return <ErrorCard message={specs.error.message} />;
+  if (dashboard.isError)
+    return <ErrorFallback onRetry={() => void dashboard.refetch()} />;
+  if (specs.isError)
+    return <ErrorFallback onRetry={() => void specs.refetch()} />;
   if (!dashboard.data || !specs.data)
-    return <ErrorCard message="Dashboard data is unavailable." />;
+    return <ErrorFallback />;
   return (
     <div className="flex flex-col gap-4 pt-4">
       <CashFlowSummary

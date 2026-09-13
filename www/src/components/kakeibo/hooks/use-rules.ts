@@ -1,15 +1,24 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@site/src/components/uchi/hooks";
 import { useApi } from "./use-api";
+import {
+  getKakeiboMockError,
+  getKakeiboMockErrorName,
+} from "./mock-error";
 import { queryKeys } from "./query-keys";
 
 export function useRules() {
   const api = useApi();
   const { session } = useAuth();
+  const mockErrorName = getKakeiboMockErrorName("rules");
 
   return useQuery({
-    queryKey: queryKeys.rules,
-    queryFn: ({ signal }) => api!.getCategoryRules(signal),
+    queryKey: [...queryKeys.rules, mockErrorName],
+    queryFn: ({ signal }) => {
+      const mockError = getKakeiboMockError("rules");
+      if (mockError) throw mockError;
+      return api!.getCategoryRules(signal);
+    },
     enabled: Boolean(session && api),
   });
 }

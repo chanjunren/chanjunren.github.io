@@ -11,6 +11,7 @@ import { DateRangePicker } from "./date-range-picker";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@site/src/components/ui/select";
 import { useSpecs } from "../hooks";
 import { ErrorBoundary } from "@site/src/components/ui/error-boundary";
+import { ErrorFallback } from "@site/src/components/ui/error-fallback";
 import { Categories } from "./categories";
 import { Overview } from "./overview";
 import { Transactions } from "./transactions";
@@ -22,6 +23,9 @@ export function Dashboard() {
   });
   const [accountId, setAccountId] = useState<number>();
   const specs = useSpecs();
+  if (specs.isError) {
+    return <ErrorFallback />;
+  }
   const accounts = specs.data?.accounts ?? [];
   return (
     <div className="text-base text-foreground [&_[data-slot=button]]:text-base">

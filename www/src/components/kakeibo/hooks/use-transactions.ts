@@ -6,6 +6,10 @@ import type {
 } from "../api";
 import { useAuth } from "@site/src/components/uchi/hooks";
 import { useApi } from "./use-api";
+import {
+  getKakeiboMockError,
+  getKakeiboMockErrorName,
+} from "./mock-error";
 import { queryKeys } from "./query-keys";
 
 export function useTransactions(
@@ -17,6 +21,11 @@ export function useTransactions(
 ) {
   const api = useApi();
   const { session } = useAuth();
+  const mockErrorName = getKakeiboMockErrorName(
+    "transactions",
+    categoryId === undefined ? undefined : "transactions-category",
+    accountId === undefined ? undefined : "transactions-account",
+  );
 
   return useQuery({
     queryKey: queryKeys.transactions(
@@ -25,9 +34,23 @@ export function useTransactions(
       accountId,
       sort,
       order,
-    ),
-    queryFn: ({ signal }) =>
-      api!.getTransactions(range, categoryId, accountId, sort, order, signal),
+    ).concat(mockErrorName),
+    queryFn: ({ signal }) => {
+      const mockError = getKakeiboMockError(
+        "transactions",
+        categoryId === undefined ? undefined : "transactions-category",
+        accountId === undefined ? undefined : "transactions-account",
+      );
+      if (mockError) throw mockError;
+      return api!.getTransactions(
+        range,
+        categoryId,
+        accountId,
+        sort,
+        order,
+        signal,
+      );
+    },
     enabled: Boolean(session && api && range.from && range.to),
   });
 }
