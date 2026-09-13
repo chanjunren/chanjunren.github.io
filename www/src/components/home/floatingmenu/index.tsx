@@ -8,9 +8,9 @@ import {NavigationMenu, NavigationMenuItem, NavigationMenuList,} from "@site/src
 import {Popover, PopoverContent, PopoverTrigger} from "@site/src/components/ui/popover";
 import {Tooltip, TooltipContent, TooltipTrigger,} from "@site/src/components/ui/tooltip";
 import {FC, ReactNode, useState} from "react";
-import NavbarExtras from "./extras";
 import {AboutIcon, GithubIcon, LinkedinIcon, NotesIcon, QuotesIcon, ResumeIcon, UchiIcon} from "./icons";
 import {SnowboarderMouse} from "./icons/SnowboarderMouse";
+import MobileControls from "./mobileControls";
 import styles from "./floatingmenu.module.css";
 
 type TooltipSide = "top" | "right" | "bottom" | "left";
@@ -87,20 +87,24 @@ const ResumeMenuIcon: FC<{ tooltipSide?: TooltipSide }> = ({tooltipSide = "top"}
   );
 };
 
-const SocialsMenuItem: FC = () => {
+const ExtrasMenuItem: FC = () => {
   return (
     <NavigationMenuItem>
       <Popover>
         <PopoverTrigger asChild>
           <button
             type="button"
-            aria-label="socials"
+            aria-label="extras"
             className="flex items-center text-md tracking-tight p-2 rounded-md border-0 bg-transparent text-(--menu-foreground) hover:bg-(--menu-accent)! cursor-pointer"
           >
-            <DotsHorizontalIcon/>
+            <span className={styles.extrasDots} aria-hidden="true">
+              <DotsHorizontalIcon className={`${styles.extrasDot} ${styles.extrasDotLeft}`}/>
+              <DotsHorizontalIcon className={`${styles.extrasDot} ${styles.extrasDotMiddle}`}/>
+              <DotsHorizontalIcon className={`${styles.extrasDot} ${styles.extrasDotRight}`}/>
+            </span>
           </button>
         </PopoverTrigger>
-        <PopoverContent side="top" align="center" sideOffset={16} className={styles.socialsContent}>
+        <PopoverContent side="top" align="center" sideOffset={16} className={styles.extrasContent}>
           <MenuIconLink href="https://www.github.com/chanjunren" label="github" tooltipSide="right">
             {(isHovering) => <GithubIcon hovering={isHovering}/>}
           </MenuIconLink>
@@ -159,7 +163,7 @@ const FloatingMenu: FC = () => {
         >
           {uchiHovering && <SnowboarderMouse/>}
           <NavigationMenuList className="m-0 pl-3!">
-            <NavbarExtras/>
+            <MobileControls/>
 
             {/* Pages */}
             <MenuIconLink href="/" label="quotes">
@@ -175,7 +179,7 @@ const FloatingMenu: FC = () => {
             <MenuIconLink href="/uchi" label="uchi" onHoverChange={setUchiHovering}>
               <UchiIcon/>
             </MenuIconLink>
-            <SocialsMenuItem/>
+            <ExtrasMenuItem/>
           </NavigationMenuList>
         </NavigationMenu>
       )}

@@ -15,7 +15,7 @@ function getPageLabel(path: string): string {
   return "恩";
 }
 
-const NavbarExtras: FC = () => {
+const MobileControls: FC = () => {
   const windowSize = useWindowSize();
   const path = window.location.pathname;
   const isMobile = windowSize === "mobile";
@@ -43,4 +43,4 @@ const NavbarExtras: FC = () => {
   );
 };
 
-export default NavbarExtras;
+export default MobileControls;
