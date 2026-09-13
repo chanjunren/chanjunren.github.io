@@ -10,8 +10,16 @@ import ALGOLIA_CONFIG from "./configs/algolia";
 import PRISM_CONFIG from "./configs/prism";
 import pluginIdealImage from "./plugins/ideal-image.cjs";
 import tailwindPlugin from "./plugins/tailwind.cjs";
+import {
+  DEFAULT_LOCAL_BACKIES_API_BASE,
+  DEFAULT_PUBLIC_BACKIES_API_BASE,
+} from "./src/constants/api";
 import customWebpack from "./plugins/webpack.cjs";
 import dateTagReplacer from "./src/utils/dateTagReplacer";
+
+const uchiApiBase = process.env.UCHI_API_BASE ?? DEFAULT_LOCAL_BACKIES_API_BASE;
+const quotesApiBase =
+  process.env.BACKIES_API_BASE ?? DEFAULT_PUBLIC_BACKIES_API_BASE;
 
 const config: Config = {
   title: "jun ren's digital garden",
@@ -26,14 +34,15 @@ const config: Config = {
 
   customFields: {
     uchi: {
-      apiBase: process.env.UCHI_API_BASE ?? "http://localhost:8080",
+      apiBase: uchiApiBase,
+    },
+    materia: {
+      backiesApiBase: quotesApiBase,
     },
     kakeibo: {
       supabaseUrl: process.env.SUPABASE_URL ?? "",
       supabaseAnonKey: process.env.SUPABASE_ANON_KEY ?? "",
-      backiesApiBase:
-        process.env.BACKIES_API_BASE ??
-        "https://backies-222389637273.asia-southeast1.run.app",
+      backiesApiBase: uchiApiBase,
     },
   },
 

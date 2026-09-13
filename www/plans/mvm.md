@@ -1,6 +1,6 @@
 # MVM — Frontend Plan
 
-UI for comparing Claude model outputs side-by-side with real-time streaming. Talks to MVM backend at `localhost:8080`.
+UI for comparing Claude model outputs side-by-side with real-time streaming. Talks to MVM backend through the configured Backies API base.
 
 Backend design doc: `backies/docs/mvm/`
 
@@ -22,7 +22,7 @@ src/types/mvm.ts                         # TypeScript types mirroring API/SSE ev
 
 ## Modified files
 
-`src/constants/api.ts` — add `MVM_API_BASE = "http://localhost:8080"`.
+`src/constants/api.ts` — stores shared Backies API defaults.
 
 ---
 
@@ -92,7 +92,7 @@ State shape per model:
 ## Constraints
 
 - **Always visible** on prod site. Shows connection banner if local API unreachable.
-- **Mixed content**: prod (`https://chanjunren.github.io`) calling `http://localhost:8080`. Chrome/Firefox allow localhost as secure context exception. Safari may block — recommend running Docusaurus dev server locally.
+- **Mixed content**: prod (`https://chanjunren.github.io`) calling a local `http://localhost:*` backend. Chrome/Firefox allow localhost as secure context exception. Safari may block — recommend running Docusaurus dev server locally.
 - No new dependencies beyond what's already in the project.
 
 ---

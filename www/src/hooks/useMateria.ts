@@ -1,12 +1,13 @@
-import { BACKIES_API_BASE } from "@site/src/constants/api";
 import {
   MateriaPromptOutput,
   QuoteContent,
   QuotesResponse,
 } from "@site/src/types/quotes";
 import { useEffect, useState } from "react";
+import { useMateriaApiBase } from "./useMateriaApiBase";
 
 export function useMateria() {
+  const backiesApiBase = useMateriaApiBase();
   const [quotes, setQuotes] = useState<MateriaPromptOutput[]>();
   const [featuredQuote, setFeaturedQuote] = useState<QuoteContent>(null);
   const [message, setMessage] = useState<string | null>(null);
@@ -16,7 +17,7 @@ export function useMateria() {
       try {
         setMessage("等等。。。");
         const response = await fetch(
-          `${BACKIES_API_BASE}/api/materia/quotes`
+          `${backiesApiBase}/api/materia/quotes`
         );
         console.log("response", response);
 
@@ -35,7 +36,7 @@ export function useMateria() {
     };
 
     fetchQuotes();
-  }, []);
+  }, [backiesApiBase]);
 
   return { quotes, featuredQuote, message };
 }
