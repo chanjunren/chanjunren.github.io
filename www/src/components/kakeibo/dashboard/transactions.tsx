@@ -3,17 +3,10 @@ import { LoadingFallback } from "@site/src/components/ui/loading-fallback";
 import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import {
   Card,
-  CardAction,
   CardContent,
   CardHeader,
   CardTitle,
 } from "@site/src/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-} from "@site/src/components/ui/select";
 import {
   Table,
   TableBody,
@@ -24,13 +17,10 @@ import {
 } from "@site/src/components/ui/table";
 import { cn } from "@site/src/lib/utils";
 import {
-  type PointerEvent as ReactPointerEvent,
-  useEffect,
-  useRef,
   useState,
 } from "react";
 import {
-  type MonthRange,
+  type TransactionFilter,
   type TransactionOrder,
   type TransactionSort,
 } from "../api";
@@ -94,100 +84,18 @@ function DescriptionCell({ description }: { description: string }) {
   );
 }
 
-type ColumnKey =
-  | "date"
-  | "account"
-  | "description"
-  | "type"
-  | "category"
-  | "amount";
-
-const defaultColumnWidths: Record<ColumnKey, number> = {
-  date: 88,
-  account: 112,
-  description: 240,
-  type: 88,
-  category: 150,
-  amount: 110,
-};
-
-function ResizeHandle({
-  column,
-  onResizeStart,
-}: {
-  column: ColumnKey;
-  onResizeStart: (column: ColumnKey, event: ReactPointerEvent) => void;
-}) {
-  return (
-    <span
-      role="separator"
-      aria-label={`Resize ${column} column`}
-      className="absolute inset-y-0 right-0 z-10 w-2 cursor-col-resize touch-none transition-colors hover:bg-border"
-      onPointerDown={(event) => onResizeStart(column, event)}
-    />
-  );
-}
-
 export function Transactions({
-  range,
-  accountId,
-}: {
-  range: MonthRange;
-  accountId?: number;
-}) {
-  const [categoryId, setCategoryId] = useState<number>();
+  filters,
+}: { filters: TransactionFilter }) {
   const [amountOrder, setAmountOrder] = useState<TransactionOrder>();
-  const [columnWidths, setColumnWidths] =
-    useState<Record<ColumnKey, number>>(defaultColumnWidths);
-  const resizeRef = useRef<{
-    column: ColumnKey;
-    startX: number;
-    startWidth: number;
-  } | null>(null);
   const specs = useSpecs();
   const transactions = useTransactions(
-    range,
-    categoryId,
-    accountId,
-    amountOrder ? ("amount" as TransactionSort) : undefined,
-    amountOrder,
+    {
+      ...filters,
+      sort: amountOrder ? ("amount" as TransactionSort) : undefined,
+      order: amountOrder,
+    },
   );
-
-  useEffect(() => {
-    function handlePointerMove(event: PointerEvent) {
-      const resize = resizeRef.current;
-      if (!resize) return;
-      const width = Math.max(
-        72,
-        resize.startWidth + event.clientX - resize.startX,
-      );
-      setColumnWidths((current) => ({ ...current, [resize.column]: width }));
-    }
-
-    function handlePointerUp() {
-      resizeRef.current = null;
-      document.body.style.cursor = "";
-      document.body.style.userSelect = "";
-    }
-
-    window.addEventListener("pointermove", handlePointerMove);
-    window.addEventListener("pointerup", handlePointerUp);
-    return () => {
-      window.removeEventListener("pointermove", handlePointerMove);
-      window.removeEventListener("pointerup", handlePointerUp);
-    };
-  }, []);
-
-  function handleResizeStart(column: ColumnKey, event: ReactPointerEvent) {
-    event.preventDefault();
-    resizeRef.current = {
-      column,
-      startX: event.clientX,
-      startWidth: columnWidths[column],
-    };
-    document.body.style.cursor = "col-resize";
-    document.body.style.userSelect = "none";
-  }
 
   function toggleAmountOrder() {
     setAmountOrder((current) => {
@@ -197,10 +105,6 @@ export function Transactions({
     });
   }
   const categories = specs.data ? Object.values(specs.data.categories) : [];
-  const tableWidth = Object.values(columnWidths).reduce(
-    (total, width) => total + width,
-    0,
-  );
   if (specs.isPending || transactions.isPending) return <LoadingCard />;
   if (specs.isError)
     return (
@@ -226,78 +130,19 @@ export function Transactions({
         <CardTitle>
           <span className="font-mono text-lg font-normal">Transactions</span>
         </CardTitle>
-        <CardAction>
-          <Select
-            value={categoryId ? String(categoryId) : "all"}
-            onValueChange={(value) =>
-              setCategoryId(value === "all" ? undefined : Number(value))
-            }
-          >
-            <SelectTrigger aria-label="Filter transactions by category">
-              {categoryId
-                ? (categories.find((category) => category.id === categoryId)
-                    ?.name ?? "Category")
-                : "All categories"}
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All categories</SelectItem>
-              {categories.map((category) => (
-                <SelectItem key={category.id} value={String(category.id)}>
-                  {category.name}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </CardAction>
       </CardHeader>
       <CardContent>
         <Table
-          className="w-full table-fixed"
-          style={{ minWidth: tableWidth }}
+          className="w-full"
         >
-          <colgroup>
-            {(Object.keys(defaultColumnWidths) as ColumnKey[]).map((column) => (
-              <col key={column} style={{ width: columnWidths[column] }} />
-            ))}
-          </colgroup>
           <TableHeader>
             <TableRow>
-              <TableHead className="relative">
-                Date
-                <ResizeHandle
-                  column="date"
-                  onResizeStart={handleResizeStart}
-                />
-              </TableHead>
-              <TableHead className="relative">
-                Account
-                <ResizeHandle
-                  column="account"
-                  onResizeStart={handleResizeStart}
-                />
-              </TableHead>
-              <TableHead className="relative">
-                Description
-                <ResizeHandle
-                  column="description"
-                  onResizeStart={handleResizeStart}
-                />
-              </TableHead>
-              <TableHead className="relative">
-                Type
-                <ResizeHandle
-                  column="type"
-                  onResizeStart={handleResizeStart}
-                />
-              </TableHead>
-              <TableHead className="relative">
-                Category
-                <ResizeHandle
-                  column="category"
-                  onResizeStart={handleResizeStart}
-                />
-              </TableHead>
-              <TableHead className="relative text-right">
+              <TableHead>Date</TableHead>
+              <TableHead>Account</TableHead>
+              <TableHead>Description</TableHead>
+              <TableHead>Category</TableHead>
+              <TableHead>Type</TableHead>
+              <TableHead className="text-right">
                 <button
                   type="button"
                   className="inline-flex cursor-pointer items-center gap-1"
@@ -324,10 +169,6 @@ export function Transactions({
                     <ArrowUpDown className="size-3.5" aria-hidden="true" />
                   )}
                 </button>
-                <ResizeHandle
-                  column="amount"
-                  onResizeStart={handleResizeStart}
-                />
               </TableHead>
             </TableRow>
           </TableHeader>
@@ -354,8 +195,11 @@ export function Transactions({
                     </span>
                   </span>
                 </TableCell>
-                <TableCell className="max-w-0 overflow-hidden">
+                <TableCell className="max-w-[280px] overflow-hidden">
                   <DescriptionCell description={transaction.description} />
+                </TableCell>
+                <TableCell>
+                  <span>{categoryName(transaction.categoryId)}</span>
                 </TableCell>
                 <TableCell>
                   <span
@@ -368,9 +212,6 @@ export function Transactions({
                   >
                     {transaction.type}
                   </span>
-                </TableCell>
-                <TableCell>
-                  <span>{categoryName(transaction.categoryId)}</span>
                 </TableCell>
                 <TableCell className="text-right">
                   <span

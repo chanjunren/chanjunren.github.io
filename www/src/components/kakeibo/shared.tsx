@@ -11,7 +11,7 @@ export function CategoryTag({
   return (
     <CustomTag
       color="neutral"
-      className="inline-flex! items-center gap-1.5 text-sm! font-normal"
+      className="inline-flex! items-center gap-1.5 text-base! font-normal"
     >
       {markerColor && (
         <span

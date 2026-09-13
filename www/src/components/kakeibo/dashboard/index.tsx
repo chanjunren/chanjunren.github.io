@@ -5,23 +5,17 @@ import {
   TabsList,
   TabsTrigger,
 } from "@site/src/components/ui/tabs";
-import { useState } from "react";
-import { type MonthRange } from "../api";
-import { DateRangePicker } from "./date-range-picker";
-import { Select, SelectContent, SelectItem, SelectTrigger } from "@site/src/components/ui/select";
 import { useSpecs } from "../hooks";
 import { ErrorBoundary } from "@site/src/components/ui/error-boundary";
 import { ErrorFallback } from "@site/src/components/ui/error-fallback";
 import { Categories } from "./categories";
 import { Overview } from "./overview";
 import { Transactions } from "./transactions";
+import { Balances } from "./balances";
+import { FilterButton, useKakeiboFilters } from "./filters";
 
 export function Dashboard() {
-  const [range, setRange] = useState<MonthRange>({
-    from: "2026-05",
-    to: "2026-08",
-  });
-  const [accountId, setAccountId] = useState<number>();
+  const [filters, setFilters] = useKakeiboFilters();
   const specs = useSpecs();
   if (specs.isError) {
     return <ErrorFallback />;
@@ -39,44 +33,27 @@ export function Dashboard() {
                 <TabsTrigger value="transactions">
                   <MonoLabel className="text-inherit">Transactions</MonoLabel>
                 </TabsTrigger>
+                <TabsTrigger value="balances">
+                  <MonoLabel className="text-inherit">Balances</MonoLabel>
+                </TabsTrigger>
                 <TabsTrigger value="categories">
                   <MonoLabel className="text-inherit">Categories</MonoLabel>
                 </TabsTrigger>
               </TabsList>
-              <div className="flex items-center gap-2">
-                <Select
-                  value={accountId ? String(accountId) : "all"}
-                  onValueChange={(value) =>
-                    setAccountId(value === "all" ? undefined : Number(value))
-                  }
-                >
-                  <SelectTrigger aria-label="Filter by account">
-                    {accountId
-                      ? (accounts.find((account) => account.id === accountId)
-                          ?.displayName ?? "Account")
-                      : "All accounts"}
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All accounts</SelectItem>
-                    {accounts.map((account) => (
-                      <SelectItem key={account.id} value={String(account.id)}>
-                        {account.name} · {account.displayName}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <DateRangePicker value={range} onChange={setRange} />
-              </div>
+              <FilterButton filters={filters} accounts={accounts} categories={Object.values(specs.data?.categories ?? {})} onChange={setFilters} />
             </div>
             <TabsContent value="overview">
-              <Overview range={range} accountId={accountId} />
+              <Overview filters={filters} />
             </TabsContent>
             <TabsContent value="transactions">
               <ErrorBoundary
-                key={`${range.from}-${range.to}-${accountId ?? "all"}`}
+                key={JSON.stringify(filters)}
               >
-                <Transactions range={range} accountId={accountId} />
+                <Transactions filters={filters} />
               </ErrorBoundary>
+            </TabsContent>
+            <TabsContent value="balances">
+              <Balances filters={filters} />
             </TabsContent>
             <TabsContent value="categories">
               <Categories />

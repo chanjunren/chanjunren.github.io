@@ -25,7 +25,6 @@ export const mockSpecsResponse = {
     },
   ],
   transactionTypes: ["debit", "credit"],
-  categorizationStatuses: ["categorized", "uncategorized"],
 };
 
 export const mockDashboardResponse = {

@@ -31,7 +31,8 @@ import {
   TableHeader,
   TableRow,
 } from "@site/src/components/ui/table";
-import { type Account, type MonthRange, type ProcessedFile } from "../api";
+import { type Account, type ProcessedFile } from "../api";
+import type { KakeiboFilters } from "./filters";
 import { useDashboard, useSpecs } from "../hooks";
 
 const monthlySpendChartConfig = {
@@ -342,7 +343,7 @@ function ProcessedFilesTable({
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <Table>
+        <Table className="w-full">
           <TableHeader>
             <TableRow>
               <TableHead>File</TableHead>
@@ -372,10 +373,10 @@ function ProcessedFilesTable({
                         )?.displayName ?? `Account ${file.accountId}`)
                       : "Unknown account"}
                   </TableCell>
-                  <TableCell className="font-mono text-sm">
+                  <TableCell className="font-mono">
                     {formatFileDate(file.periodStart)} – {formatFileDate(file.periodEnd)}
                   </TableCell>
-                  <TableCell className="font-mono text-sm">
+                  <TableCell className="font-mono">
                     {formatFileDate(file.processedAt)}
                   </TableCell>
                   <TableCell>
@@ -392,13 +393,9 @@ function ProcessedFilesTable({
 }
 
 export function Overview({
-  range,
-  accountId,
-}: {
-  range: MonthRange;
-  accountId?: number;
-}) {
-  const dashboard = useDashboard(range, accountId);
+  filters,
+}: { filters: KakeiboFilters }) {
+  const dashboard = useDashboard(filters, filters.accountId);
   const specs = useSpecs();
   if (dashboard.isPending || specs.isPending) return <LoadingCard />;
   if (dashboard.isError)

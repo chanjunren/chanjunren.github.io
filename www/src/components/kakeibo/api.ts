@@ -28,7 +28,6 @@ export type SpecsResponse = {
     currency: string;
   }>;
   transactionTypes: Array<"debit" | "credit">;
-  categorizationStatuses: Array<"categorized" | "uncategorized">;
 };
 
 export type Account = SpecsResponse["accounts"][number];
@@ -76,6 +75,34 @@ export type Transaction = {
 
 export type TransactionSort = "amount";
 export type TransactionOrder = "asc" | "desc";
+export type TransactionType = "debit" | "credit";
+
+export type BalanceFilter = {
+  from?: string;
+  to?: string;
+  accountIds?: number[];
+};
+
+export type TransactionFilter = MonthRange & {
+  accountId?: number;
+  categoryIds?: number[];
+  excludeCategoryIds?: number[];
+  includeUncategorized?: boolean;
+  excludeUncategorized?: boolean;
+  types?: TransactionType[];
+  sort?: TransactionSort;
+  order?: TransactionOrder;
+};
+
+export type BalanceSnapshot = {
+  accountId: number;
+  openingBalance: string;
+  closingBalance: string;
+  periodStart: string;
+  periodEnd: string;
+  sourceFileId: string;
+  reconciliationStatus: string;
+};
 
 export type CategoryRule = {
   id: number;
@@ -132,22 +159,24 @@ export function createKakeiboApi(
       if (accountId) params.set("accountId", String(accountId));
       return request<DashboardResponse>(`/dashboard?${params}`, { signal });
     },
-    getTransactions: (
-      range: MonthRange,
-      categoryId?: number,
-      accountId?: number,
-      sort?: TransactionSort,
-      order?: TransactionOrder,
-      signal?: AbortSignal,
-    ) => {
-      const params = new URLSearchParams({ from: range.from, to: range.to });
-      if (categoryId) params.set("categoryId", String(categoryId));
-      if (accountId) params.set("accountId", String(accountId));
-      if (sort && order) {
-        params.set("sort", sort);
-        params.set("order", order);
+    getTransactions: (filter: TransactionFilter, signal?: AbortSignal) => {
+      const params = new URLSearchParams({ from: filter.from, to: filter.to });
+      if (filter.accountId) params.set("accountId", String(filter.accountId));
+      for (const categoryId of filter.categoryIds ?? [])
+        params.append("categoryId", String(categoryId));
+      for (const categoryId of filter.excludeCategoryIds ?? [])
+        params.append("excludeCategoryId", String(categoryId));
+      if (filter.includeUncategorized) params.append("categoryId", "uncategorized");
+      if (filter.excludeUncategorized)
+        params.append("excludeCategoryId", "uncategorized");
+      for (const type of filter.types ?? []) params.append("type", type);
+      if (filter.sort && filter.order) {
+        params.set("sort", filter.sort);
+        params.set("order", filter.order);
       }
-      return request<unknown>(`/transactions?${params}`, { signal }).then(
+      return request<unknown>(`/transactions?${params}`, {
+        signal,
+      }).then(
         (data) => {
           if (!Array.isArray(data)) {
             throw new Error("The transactions response was not a list.");
@@ -155,6 +184,17 @@ export function createKakeiboApi(
           return data as Transaction[];
         },
       );
+    },
+    getBalances: (filter: BalanceFilter = {}, signal?: AbortSignal) => {
+      const params = new URLSearchParams();
+      if (filter.from) params.set("from", filter.from);
+      if (filter.to) params.set("to", filter.to);
+      for (const accountId of filter.accountIds ?? [])
+        params.append("accountId", String(accountId));
+      const query = params.toString();
+      return request<BalanceSnapshot[]>(`/balances${query ? `?${query}` : ""}`, {
+        signal,
+      });
     },
     getCategories: (signal?: AbortSignal) =>
       request<Category[]>("/categories", { signal }),

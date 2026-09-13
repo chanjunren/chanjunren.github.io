@@ -1,8 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import type {
-  MonthRange,
-  TransactionOrder,
-  TransactionSort,
+  TransactionFilter,
 } from "../api";
 import { useAuth } from "@site/src/components/uchi/hooks";
 import { useApi } from "./use-api";
@@ -12,45 +10,36 @@ import {
 } from "./mock-error";
 import { queryKeys } from "./query-keys";
 
-export function useTransactions(
-  range: MonthRange,
-  categoryId?: number,
-  accountId?: number,
-  sort?: TransactionSort,
-  order?: TransactionOrder,
-) {
+export function useTransactions(filter: TransactionFilter) {
   const api = useApi();
   const { session } = useAuth();
   const mockErrorName = getKakeiboMockErrorName(
     "transactions",
-    categoryId === undefined ? undefined : "transactions-category",
-    accountId === undefined ? undefined : "transactions-account",
+    filter.categoryIds?.length ? "transactions-category" : undefined,
+    filter.excludeCategoryIds?.length ? "transactions-exclude-category" : undefined,
+    filter.includeUncategorized || filter.excludeUncategorized
+      ? "transactions-uncategorized"
+      : undefined,
+    filter.types?.length ? "transactions-type" : undefined,
+    filter.accountId === undefined ? undefined : "transactions-account",
   );
 
   return useQuery({
-    queryKey: queryKeys.transactions(
-      range,
-      categoryId,
-      accountId,
-      sort,
-      order,
-    ).concat(mockErrorName),
+    queryKey: [...queryKeys.transactions(filter), mockErrorName],
     queryFn: ({ signal }) => {
       const mockError = getKakeiboMockError(
         "transactions",
-        categoryId === undefined ? undefined : "transactions-category",
-        accountId === undefined ? undefined : "transactions-account",
+        filter.categoryIds?.length ? "transactions-category" : undefined,
+        filter.excludeCategoryIds?.length ? "transactions-exclude-category" : undefined,
+        filter.includeUncategorized || filter.excludeUncategorized
+          ? "transactions-uncategorized"
+          : undefined,
+        filter.types?.length ? "transactions-type" : undefined,
+        filter.accountId === undefined ? undefined : "transactions-account",
       );
       if (mockError) throw mockError;
-      return api!.getTransactions(
-        range,
-        categoryId,
-        accountId,
-        sort,
-        order,
-        signal,
-      );
+      return api!.getTransactions(filter, signal);
     },
-    enabled: Boolean(session && api && range.from && range.to),
+    enabled: Boolean(session && api && filter.from && filter.to),
   });
 }

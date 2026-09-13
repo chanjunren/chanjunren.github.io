@@ -131,7 +131,7 @@ export function Categories() {
                         {categoryRules.map((rule) => (
                           <span
                             key={rule.id}
-                            className="inline-flex items-center rounded border px-2 py-1 font-mono text-sm"
+                            className="inline-flex items-center rounded border px-2 py-1 font-mono text-base"
                           >
                             {rule.keyword}
                           </span>
