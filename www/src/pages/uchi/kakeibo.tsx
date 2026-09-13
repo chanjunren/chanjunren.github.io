@@ -1,5 +1,4 @@
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { type KakeiboConfig } from "@site/src/components/kakeibo/api";
 import { Dashboard } from "@site/src/components/kakeibo/dashboard";
 import { useApi } from "@site/src/components/kakeibo/hooks";
 import {
@@ -8,7 +7,6 @@ import {
 } from "@site/src/components/uchi/api";
 import { UchiFallback } from "@site/src/components/uchi/fallback";
 import { useAuth, useUchiStatus } from "@site/src/components/uchi/hooks";
-import { UchiProvider } from "@site/src/components/uchi/provider";
 import { UchiLayout } from "@site/src/components/uchi/layout";
 import { useHistory } from "@docusaurus/router";
 import { useEffect } from "react";
@@ -29,12 +27,6 @@ function KakeiboApp() {
         this build.
       </main>
     );
-  if (authLoading)
-    return (
-      <main className="flex min-h-[calc(100vh-57px)] items-center justify-center bg-background text-sm text-muted-foreground">
-        Loading Kakeibo…
-      </main>
-    );
   if (!session) return null;
   return (
     <UchiLayout
@@ -53,31 +45,33 @@ export default function KakeiboPage() {
   const { siteConfig } = useDocusaurusContext();
   const customFields = siteConfig.customFields as {
     uchi: UchiConfig;
-    kakeibo: KakeiboConfig;
   };
 
   return (
     <KakeiboGate
       apiBase={customFields.uchi.apiBase}
-      config={customFields.kakeibo}
     />
   );
 }
 
 function KakeiboGate({
   apiBase,
-  config,
 }: {
   apiBase: string;
-  config: KakeiboConfig;
 }) {
+  const { session, authLoading, signOut } = useAuth();
   const { status, loading, error } = useUchiStatus(apiBase);
 
-  if (loading) {
+  if (loading || authLoading) {
     return (
-      <UchiLayout title="家計簿" description="A personal finance dashboard.">
+      <UchiLayout
+        title="家計簿"
+        description="A personal finance dashboard."
+        showSidebar={Boolean(session)}
+        onSignOut={signOut}
+      >
         <main className="flex min-h-[calc(100vh-57px)] items-center justify-center bg-background text-sm text-muted-foreground">
-        Checking Uchi…
+          Loading Kakeibo…
         </main>
       </UchiLayout>
     );
@@ -91,11 +85,5 @@ function KakeiboGate({
     );
   }
 
-  return (
-    <div className="min-h-full bg-background text-foreground">
-      <UchiProvider config={config}>
-        <KakeiboApp />
-      </UchiProvider>
-    </div>
-  );
+  return <KakeiboApp />;
 }

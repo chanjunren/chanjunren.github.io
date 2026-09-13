@@ -1,5 +1,5 @@
+import { useLocation } from "@docusaurus/router";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { type KakeiboConfig } from "@site/src/components/kakeibo/api";
 import MvmSidebar from "@site/src/components/mvm/mvm-sidebar";
 import PromptForm from "@site/src/components/mvm/prompt-form";
 import ResultsGrid from "@site/src/components/mvm/results-grid";
@@ -14,23 +14,23 @@ import {
 } from "@site/src/components/ui/sheet";
 import { type UchiConfig } from "@site/src/components/uchi/api";
 import { useAuth } from "@site/src/components/uchi/hooks";
-import { UchiProvider } from "@site/src/components/uchi/provider";
 import { UchiLayout } from "@site/src/components/uchi/layout";
 import { IconGear } from "nucleo-isometric";
 import { type FC } from "react";
 
 const MvmPage: FC = () => {
+  const { search } = useLocation();
+
+  if (new URLSearchParams(search).has("forceError")) {
+    throw new Error("Temporary preview error: the MVM page failed to render.");
+  }
+
   const { siteConfig } = useDocusaurusContext();
   const customFields = siteConfig.customFields as {
     uchi: UchiConfig;
-    kakeibo: KakeiboConfig;
   };
 
-  return (
-    <UchiProvider config={customFields.kakeibo}>
-      <MvmApp apiBase={customFields.uchi.apiBase} />
-    </UchiProvider>
-  );
+  return <MvmApp apiBase={customFields.uchi.apiBase} />;
 };
 
 function MvmApp({ apiBase }: { apiBase: string }) {

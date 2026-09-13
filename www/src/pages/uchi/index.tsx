@@ -1,6 +1,5 @@
 import { useHistory } from "@docusaurus/router";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { type KakeiboConfig } from "@site/src/components/kakeibo/api";
 import { useAuth } from "@site/src/components/uchi/hooks";
 import { useUchiStatus } from "@site/src/components/uchi/hooks/use-status";
 import {
@@ -9,7 +8,6 @@ import {
 } from "@site/src/components/uchi/api";
 import { UchiFallback } from "@site/src/components/uchi/fallback";
 import { Login } from "@site/src/components/uchi/login";
-import { UchiProvider } from "@site/src/components/uchi/provider";
 import { UchiLayout } from "@site/src/components/uchi/layout";
 import { useEffect } from "react";
 
@@ -48,24 +46,20 @@ function UchiLogin() {
   );
 }
 
-function UchiLanding({
-  uchi,
-  kakeibo,
-}: {
-  uchi: UchiConfig;
-  kakeibo: KakeiboConfig;
-}) {
+function UchiLanding({ uchi }: { uchi: UchiConfig }) {
+  const { session, authLoading, signOut } = useAuth();
   const { status, loading, error } = useUchiStatus(uchi.apiBase);
 
-  if (loading) {
+  if (loading || authLoading) {
     return (
       <UchiLayout
         title="うち"
         description="Uchi is a private workspace for local tools."
-        showSidebar={false}
+        showSidebar={Boolean(session)}
+        onSignOut={signOut}
       >
         <main className="flex min-h-[calc(100vh-57px)] items-center justify-center bg-background text-sm text-muted-foreground">
-          Checking Uchi…
+          Loading Uchi…
         </main>
       </UchiLayout>
     );
@@ -84,9 +78,7 @@ function UchiLanding({
   }
 
   return (
-    <UchiProvider config={kakeibo}>
-      <UchiLogin />
-    </UchiProvider>
+    <UchiLogin />
   );
 }
 
@@ -94,10 +86,9 @@ export default function UchiPage() {
   const { siteConfig } = useDocusaurusContext();
   const customFields = siteConfig.customFields as {
     uchi: UchiConfig;
-    kakeibo: KakeiboConfig;
   };
 
   return (
-    <UchiLanding uchi={customFields.uchi} kakeibo={customFields.kakeibo} />
+    <UchiLanding uchi={customFields.uchi} />
   );
 }
