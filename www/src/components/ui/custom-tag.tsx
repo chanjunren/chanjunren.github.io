@@ -1,6 +1,7 @@
 import { FC, ReactNode } from "react";
 
 export type TagColor =
+  | "red"
   | "rose"
   | "pine"
   | "foam"
@@ -18,6 +19,10 @@ type ICustomTags = {
 // Color mappings from Rosé Pine Dawn palette
 // Using lighter backgrounds with darker text for better contrast
 const COLOR_STYLES: Record<TagColor, { bg: string; text: string }> = {
+  red: {
+    bg: "bg-[#d7827e]/40",
+    text: "text-[#b63e38]",
+  },
   rose: {
     bg: "bg-[#b4637a]/40",
     text: "text-rose-950", // Love color - darker rose

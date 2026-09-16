@@ -583,9 +583,12 @@ function ProcessedFilesTable({
                         {file.status}
                       </Badge>
                     ) : (
-                      <span className="font-medium capitalize">
+                      <Badge
+                        variant="outline"
+                        className="border-[#d7827e]/30 bg-[#d7827e]/10 text-[#b63e38]"
+                      >
                         {file.status}
-                      </span>
+                      </Badge>
                     )}
                   </TableCell>
                 </TableRow>
