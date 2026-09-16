@@ -7,7 +7,7 @@ import {
 } from "@site/src/components/uchi/api";
 import { UchiFallback } from "@site/src/components/uchi/fallback";
 import { useAuth, useUchiStatus } from "@site/src/components/uchi/hooks";
-import { UchiLayout } from "@site/src/components/uchi/layout";
+import { UchiFocusedPage, UchiLayout } from "@site/src/components/uchi/layout";
 import { LoadingFallback } from "@site/src/components/ui/loading-fallback";
 import { useHistory } from "@docusaurus/router";
 import { useEffect } from "react";
@@ -35,9 +35,9 @@ function KakeiboApp() {
       description="A personal finance dashboard."
       onSignOut={signOut}
     >
-      <div className="text-base text-foreground [&_[data-slot=button]]:text-base">
+      <UchiFocusedPage>
         <Dashboard />
-      </div>
+      </UchiFocusedPage>
     </UchiLayout>
   );
 }

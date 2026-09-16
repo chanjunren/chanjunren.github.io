@@ -97,7 +97,15 @@ export function useKakeiboFilters() {
   const [filters, setFilters] = useState(() => parseFilters(location.search));
   useEffect(() => setFilters(parseFilters(location.search)), [location.search]);
   const setFilter = (next: KakeiboFilters) => {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(location.search);
+    [
+      "from",
+      "to",
+      "accountId",
+      "categoryId",
+      "excludeCategoryId",
+      "type",
+    ].forEach((name) => params.delete(name));
     if (next.from !== defaults.from) params.set("from", next.from);
     if (next.to !== defaults.to) params.set("to", next.to);
     if (next.accountId) params.set("accountId", String(next.accountId));

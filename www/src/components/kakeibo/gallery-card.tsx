@@ -33,7 +33,7 @@ export default function KakeiboGalleryCard({
       </span>
       <div className="relative z-10 w-[97%] translate-y-[10%] transition-transform duration-300 ease-out group-hover:translate-y-[3%]">
         <span className="pointer-events-none absolute -top-6 right-0 z-20 whitespace-nowrap text-right font-mono text-[10px] text-muted-foreground opacity-0 group-hover:opacity-100">
-          (fake numbers btw)
+          (mock numbers btw)
         </span>
         <IdealImage
           card={useBaseUrl(image)}

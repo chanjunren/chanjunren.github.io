@@ -1,13 +1,27 @@
+import KakeiboGalleryCard from "@site/src/components/kakeibo/gallery-card";
+import { KakeiboMockup } from "@site/src/components/kakeibo/mockup";
+import CustomTag from "@site/src/components/ui/custom-tag";
 import { GalleryProjectInfo } from "@site/src/types";
-import {FC} from "react";
+import { FC } from "react";
 import useGallery from "../../hooks/useGallery";
+import MvmProject from "./mvm";
 import MyOldPortfolioBaby from "./oldportfolio";
 import PixelLabInfo from "./pixelLab";
 import PortalProject from "./portal";
 import ProjectCard from "./project-card";
-import MvmProject from "./mvm";
 import VaultusaurusProject from "./vaultusaurus";
-import KakeiboGalleryCard from "@site/src/components/kakeibo/gallery-card";
+
+function KakeiboSpotlightBanner() {
+  return (
+    <KakeiboMockup>
+      <div className="pb-5 pt-5 lg:pb-10 lg:pt-10">
+        <CustomTag color="locked" className="font-mono">
+          MOCK DATA
+        </CustomTag>
+      </div>
+    </KakeiboMockup>
+  );
+}
 
 export const GALLERY_PROJECTS: GalleryProjectInfo[] = [
   VaultusaurusProject,
@@ -17,12 +31,23 @@ export const GALLERY_PROJECTS: GalleryProjectInfo[] = [
     subtitle: "Finance tracker",
     containerCss: "md:col-span-6 md:row-span-2",
     card: KakeiboGalleryCard,
-    banner: () => <></>,
+    banner: KakeiboSpotlightBanner,
     description: () => (
-      <p>
-        A personal finance dashboard for turning bank statements into a clear
-        view of cash flow, spending categories, and recent transactions.
-      </p>
+      <div className="flex flex-col gap-4">
+        <p>
+          A simple dashboard to keep track of how my money is currently
+          disappearing 😭
+        </p>
+        <p>
+          It works by extracting transactions from my bank-statement PDFs, then
+          running the categorisation logic locally. Each category has a list of
+          keywords, and every transaction resolves to one of them.
+        </p>
+        <p>
+          Because this contains personal financial data, most flows stay local.
+          It&apos;s not available to the public for now 🤓
+        </p>
+      </div>
     ),
   } satisfies GalleryProjectInfo,
   // ThreeJsCheatsheetInfo,

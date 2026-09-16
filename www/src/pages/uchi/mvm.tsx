@@ -14,7 +14,7 @@ import {
 } from "@site/src/components/ui/sheet";
 import { type UchiConfig } from "@site/src/components/uchi/api";
 import { useAuth } from "@site/src/components/uchi/hooks";
-import { UchiLayout } from "@site/src/components/uchi/layout";
+import { UchiFocusedPage, UchiLayout } from "@site/src/components/uchi/layout";
 import { IconGear } from "nucleo-isometric";
 import { type FC } from "react";
 
@@ -51,7 +51,7 @@ function MvmApp({ apiBase }: { apiBase: string }) {
         description="Compare Claude model outputs side-by-side"
         onSignOut={signOut}
       >
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-6 p-5 lg:p-10">
+        <UchiFocusedPage>
           <div className="flex items-start gap-16">
             <div className="flex min-w-0 grow flex-col gap-6">
               <div className="flex flex-col gap-2">
@@ -106,7 +106,7 @@ function MvmApp({ apiBase }: { apiBase: string }) {
               <MvmSidebar {...sidebarProps} />
             </div>
           </div>
-        </div>
+        </UchiFocusedPage>
       </UchiLayout>
     </>
   );

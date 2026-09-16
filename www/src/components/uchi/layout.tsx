@@ -4,7 +4,18 @@ import {
   UchiSidebar,
   Wordmark,
 } from "@site/src/components/uchi/sidebar";
+import { cn } from "@site/src/lib/utils";
 import { type CSSProperties, type ReactNode } from "react";
+
+export function UchiFocusedPage({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return <div className={cn("w-full p-5 lg:p-10", className)}>{children}</div>;
+}
 
 export function UchiLayout({
   title,

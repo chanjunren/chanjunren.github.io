@@ -22,44 +22,41 @@ export function Dashboard() {
   }
   const accounts = specs.data?.accounts ?? [];
   return (
-    <div className="text-base text-foreground [&_[data-slot=button]]:text-base">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-6 p-5 lg:p-10">
-          <Tabs defaultValue="overview">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <TabsList variant="line" aria-label="Kakeibo sections">
-                <TabsTrigger value="overview">
-                  <MonoLabel className="text-inherit">Overview</MonoLabel>
-                </TabsTrigger>
-                <TabsTrigger value="transactions">
-                  <MonoLabel className="text-inherit">Transactions</MonoLabel>
-                </TabsTrigger>
-                <TabsTrigger value="balances">
-                  <MonoLabel className="text-inherit">Balances</MonoLabel>
-                </TabsTrigger>
-                <TabsTrigger value="categories">
-                  <MonoLabel className="text-inherit">Categories</MonoLabel>
-                </TabsTrigger>
-              </TabsList>
-              <FilterButton filters={filters} accounts={accounts} categories={Object.values(specs.data?.categories ?? {})} onChange={setFilters} />
-            </div>
-            <TabsContent value="overview">
-              <Overview filters={filters} />
-            </TabsContent>
-            <TabsContent value="transactions">
-              <ErrorBoundary
-                key={JSON.stringify(filters)}
-              >
-                <Transactions filters={filters} />
-              </ErrorBoundary>
-            </TabsContent>
-            <TabsContent value="balances">
-              <Balances filters={filters} />
-            </TabsContent>
-            <TabsContent value="categories">
-              <Categories />
-            </TabsContent>
-          </Tabs>
-        </div>
-    </div>
+    <Tabs
+      defaultValue="overview"
+      className="text-base text-foreground [&_[data-slot=button]]:text-base"
+    >
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <TabsList variant="line" aria-label="Kakeibo sections">
+          <TabsTrigger value="overview">
+            <MonoLabel className="text-inherit">Overview</MonoLabel>
+          </TabsTrigger>
+          <TabsTrigger value="transactions">
+            <MonoLabel className="text-inherit">Transactions</MonoLabel>
+          </TabsTrigger>
+          <TabsTrigger value="balances">
+            <MonoLabel className="text-inherit">Balances</MonoLabel>
+          </TabsTrigger>
+          <TabsTrigger value="categories">
+            <MonoLabel className="text-inherit">Categories</MonoLabel>
+          </TabsTrigger>
+        </TabsList>
+        <FilterButton filters={filters} accounts={accounts} categories={Object.values(specs.data?.categories ?? {})} onChange={setFilters} />
+      </div>
+      <TabsContent value="overview">
+        <Overview filters={filters} />
+      </TabsContent>
+      <TabsContent value="transactions">
+        <ErrorBoundary key={JSON.stringify(filters)}>
+          <Transactions filters={filters} />
+        </ErrorBoundary>
+      </TabsContent>
+      <TabsContent value="balances">
+        <Balances filters={filters} />
+      </TabsContent>
+      <TabsContent value="categories">
+        <Categories />
+      </TabsContent>
+    </Tabs>
   );
 }
