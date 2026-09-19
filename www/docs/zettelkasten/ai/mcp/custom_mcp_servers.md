@@ -1,84 +1,27 @@
-🗓️ 21032026 2100
+🗓️ 19092026 2037
 
 # custom_mcp_servers
 
-> Build your own MCP server when no public one covers your internal tools, databases, or APIs
+Build an MCP server when an AI application needs a safe, reusable connection to a system that existing servers do not cover.
 
-## When to build one
+## Good reasons to build one
 
-- An **internal system** (database, API, dashboard) that no public MCP server exposes
-- You need **custom access control** — row-level security, read-only enforcement, per-user scoping
-- You want the same tools available in Claude Code, claude.ai, and your own agents
+- An internal API, database, or document system needs controlled access.
+- Existing integrations expose too much access or the wrong workflow.
+- Several AI applications need the same capability.
 
-## End-to-end example: zettelkasten search
+## Start with the smallest capability
 
-A server that lets Claude search 484 markdown notes:
+Design a server around a few clear tasks. For example, a documentation server might offer a search tool and a read tool. Each tool description should say what it does, what inputs it expects, and important limits.
 
-```typescript
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { z } from "zod";
+Keep permissions in the server and underlying system, not in the model prompt. A read-only query tool is safer and easier to reason about than a generic database shell.
 
-const server = new McpServer({ name: "zettelkasten", version: "1.0.0" });
+## Before building
 
-server.tool(
-  "search_notes",
-  "Search zettelkasten notes by keyword. Returns matching titles and snippets.",
-  { query: z.string(), category: z.string().optional() },
-  async ({ query, category }) => {
-    const results = searchIndex(query, category);  // your search logic
-    return { content: [{ type: "text", text: JSON.stringify(results) }] };
-  }
-);
+First check whether an existing server meets the need. Then decide whether the system should be exposed as a tool (perform work), resource (provide context), or prompt (offer a user-selected template). See the [MCP overview](index.md).
 
-server.tool(
-  "get_note",
-  "Read the full content of a specific note by path.",
-  { path: z.string() },
-  async ({ path }) => {
-    const content = await readFile(`docs/zettelkasten/${path}`);
-    return { content: [{ type: "text", text: content }] };
-  }
-);
-```
-
-Register in Claude Code `settings.json`, restart. Claude Code now searches your notes when relevant.
-
-## SDK setup
-
-| Language | Package | Install |
-|---|---|---|
-| **TypeScript** | `@modelcontextprotocol/sdk` | `npm install @modelcontextprotocol/sdk` |
-| **Python** | `mcp` | `pip install mcp` |
-
-## Tool definition
-
-Each tool needs three things:
-
-| Field | What it does | Good example | Bad example |
-|---|---|---|---|
-| `name` | Unique ID | `query_database` | `tool1` |
-| `description` | Tells the LLM **when** to call it | "Run read-only SQL against analytics DB" | "Database tool" |
-| `inputSchema` | JSON Schema for parameters | `{ sql: z.string() }` | no schema |
-
-The description matters most. The LLM uses it to decide when your tool is relevant. Vague descriptions = missed or wrong calls.
-
-Servers can also expose resources (read-only data) and prompts (message templates). See [[mcp_resources]] and [[mcp_prompts]]. For transport options (stdio vs HTTP), see [[mcp_transports]].
-
-## Common use cases
-
-| System | Tools you'd expose | Why custom? |
-|---|---|---|
-| **Postgres/Supabase** | `query`, `describe_table`, `list_tables` | Read-only enforcement, client isolation |
-| **Internal REST APIs** | `get_user`, `create_ticket`, `fetch_metrics` | Auth handling, rate limiting |
-| **CI/CD (GitLab, Jenkins)** | `trigger_build`, `get_build_status` | Internal network, custom auth |
-| **Markdown docs** | `search_docs`, `get_document` | Private search index, access control |
-| **ETL pipelines (Prefect)** | `list_flow_runs`, `get_run_logs` | Prefect API wrapping, status formatting |
-
----
 ## References
-- [[model_context_protocol]]
+
+- [MCP overview](index.md)
 - [[llm_tool_use]]
-- [[claude_agent_sdk]] — how agents consume MCP tools
-- [MCP Quickstart — Building a Server](https://modelcontextprotocol.io/quickstart/server)
-- [MCP TypeScript SDK (GitHub)](https://github.com/modelcontextprotocol/typescript-sdk)
-- [MCP Python SDK (GitHub)](https://github.com/modelcontextprotocol/python-sdk)
+- [MCP server quickstart](https://modelcontextprotocol.io/docs/develop/build-server)

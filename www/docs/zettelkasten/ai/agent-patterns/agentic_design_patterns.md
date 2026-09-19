@@ -1,34 +1,34 @@
-🗓️ 21032026 2100
+🗓️ 19092026 2037
 
 # agentic_design_patterns
 
-> Start with the simplest pattern that works. Add complexity only when simpler patterns fail.
+An **agent pattern** is a way to organize multiple model calls and tool calls. Choose the smallest pattern that can complete the task reliably.
 
-## Pattern comparison
+## Core mental model
 
-| Pattern | When to use | Concrete example | Cost |
-|---|---|---|---|
-| **Single agent** | One model, one loop, straightforward task | Claude Code editing a file and running tests | Low |
-| **Sequential / Parallel** | Fixed multi-step workflow | ETL: extract → transform → load (sequential). Search 3 APIs at once (parallel) | Moderate |
-| **[[loop_review_critique_pattern]]** | Output must meet strict constraints | Generate SQL → validate syntax → check results → retry if wrong | High (loops) |
-| **[[coordinator_router_pattern]]** | Complex request decomposes into specialist subtasks | "Plan my trip" → flight agent + hotel agent + restaurant agent | High |
-| **[[agent_as_tool_pattern]]** | Need centralized control over sub-agent outputs | Code agent calls "run tests" sub-agent, inspects results, decides next step | High |
+Most work is one loop: give the model a goal and relevant tools, let it call a tool if needed, return the result, then let it continue. Adding agents does not make the model smarter by itself. It adds specialization, checks, or control at the cost of latency and complexity.
 
-## Decision flow
+## Choose a pattern
 
-1. Can a single agent + tools handle it? → **Single agent.** Most tasks fit here.
-2. Are the steps fixed and predictable? → **Sequential / Parallel.**
-3. Does output need validation against hard constraints? → **[[loop_review_critique_pattern]].**
-4. Does the task split into independent specialist subtasks? → **[[coordinator_router_pattern]].**
-5. Do you need to inspect and transform sub-agent output between steps? → **[[agent_as_tool_pattern]].**
+| Need | Pattern | Use it when |
+|---|---|---|
+| One task with tools | Single agent | Default for most work |
+| Known steps | Sequential or parallel workflow | Order is fixed, or independent work can run together |
+| Checkable output | [[loop_review_critique_pattern]] | A result must pass clear tests |
+| Independent specialties | [[coordinator_router_pattern]] | A request divides into separate expert tasks |
+| Step-by-step central judgment | [[agent_as_tool_pattern]] | Later work depends on examining earlier results |
 
-Each step up adds latency and cost. A coordinator pattern on a task a single agent could handle wastes tokens and time.
+## Safe default
 
-## Foundations
+- Begin with one agent and ordinary code for fixed steps.
+- Add a review loop when you can state a pass condition.
+- Add multiple agents only when separation makes a real decision easier or enables useful parallel work.
 
-All patterns rely on [[llm_tool_use]] (how the LLM calls external functions) and [[agent_memory_and_state]] (how agents retain context across steps).
+Agents need [[llm_tool_use]] to interact with the world. They need [[agent_memory_and_state]] only when context must persist across steps or sessions.
 
----
 ## References
-- [Advanced Agentic Patterns for Multi-Agent Systems](https://youtu.be/89KKm_a4M7A?si=PyQjItG2hIG0Bsn4)
-- [Anthropic — Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
+
+- [[ai_overview]]
+- [[llm_tool_use]]
+- [[agent_memory_and_state]]
+- [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)

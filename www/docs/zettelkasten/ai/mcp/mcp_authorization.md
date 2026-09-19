@@ -1,89 +1,31 @@
-🗓️ 23052026 2200
+🗓️ 19092026 2037
 
 # mcp_authorization
 
-> OAuth 2.1-based auth for remote MCP servers — optional, HTTP-only, with dynamic client registration
+Remote MCP servers may need to act on a user's behalf. MCP defines an OAuth-based authorization flow for HTTP transports so a client can obtain a limited access token for a specific server.
 
-## When auth applies
+## Mental model
 
-- **HTTP transport** — follows this spec (OAuth 2.1)
-- **stdio transport** — retrieves credentials from the environment instead (env vars, config files)
-- Auth is **optional**. Many MCP servers (especially local ones) don't need it.
-
-## Roles
-
-| Role | Maps to | Example |
-|---|---|---|
-| **MCP server** | OAuth resource server | Remote Postgres MCP, Sentry MCP |
-| **MCP client** | OAuth client | Claude Code, VS Code |
-| **Authorization server** | Issues access tokens | May be co-located with MCP server or separate |
-
-## Discovery flow
-
-How the client finds the authorization server:
-
-1. Client sends request **without token**
-2. Server returns `401 Unauthorized` with `WWW-Authenticate` header pointing to resource metadata
-3. Client fetches `/.well-known/oauth-protected-resource` from MCP server → gets authorization server URL
-4. Client fetches `/.well-known/oauth-authorization-server` → gets OAuth endpoints and capabilities
-5. Client proceeds with OAuth flow
-
-```
-Client ──request──> MCP Server
-Client <──401 + WWW-Authenticate──
-Client ──GET protected-resource-metadata──> MCP Server
-Client <──authorization server URL──
-Client ──GET oauth-authorization-server──> Auth Server
-Client <──OAuth endpoints──
+```text
+client discovers server's authorization service -> user grants access -> client receives scoped token -> client calls MCP server
 ```
 
-## Dynamic client registration
+The MCP server is the protected resource. The authorization server issues the token. The MCP client represents the user when it calls the MCP server.
 
-MCP clients and auth servers **should** support [RFC 7591](https://datatracker.ietf.org/doc/html/rfc7591) — automatic registration without user interaction. This matters because:
+## What it protects
 
-- Clients can't know all possible MCP servers in advance
-- Manual registration creates friction
-- Auth servers control their own registration policies
+Authorization controls access to the MCP server. It does not replace the server's own checks on each tool call. A server should still apply least privilege, validate inputs, and avoid passing its received token to unrelated upstream services.
 
-Fallback: hardcoded client ID, or user-provided credentials via a configuration UI.
+This flow is optional and applies to HTTP-based transports. Local standard-input/output servers normally obtain credentials through their local environment instead.
 
-## Authorization flow
+## What to remember
 
-Standard OAuth 2.1 with PKCE:
+- Remote access needs identity and narrowly scoped permission.
+- The protocol standardizes how clients discover and complete that process.
+- A standard authorization flow does not make a broad token safe.
 
-1. Client generates PKCE code verifier + challenge
-2. Opens browser with authorization URL (includes `code_challenge` and `resource` parameter)
-3. User authorizes in browser
-4. Auth server redirects back with authorization code
-5. Client exchanges code + `code_verifier` for access token (+ optional refresh token)
-6. Client includes `Authorization: Bearer <token>` on every HTTP request to MCP server
-
-### Resource parameter
-
-Clients **must** include the `resource` parameter ([RFC 8707](https://www.rfc-editor.org/rfc/rfc8707.html)) in authorization and token requests — binds the token to the specific MCP server. Prevents token reuse across services.
-
-## Token handling
-
-- Bearer token in `Authorization` header on **every** HTTP request (even within same session)
-- Never in query strings
-- Server validates token was issued specifically for it (audience check)
-- Server **must not** pass through tokens to upstream APIs — use separate tokens for upstream calls
-
-## Security requirements
-
-| Requirement | Why |
-|---|---|
-| **PKCE** mandatory | Prevents authorization code interception |
-| **HTTPS** for all auth endpoints | Communication security |
-| **Short-lived access tokens** | Limits impact of token theft |
-| **Refresh token rotation** (public clients) | Prevents refresh token reuse |
-| **Audience validation** | Stops tokens from being used at wrong server |
-| **Redirect URI validation** | Prevents open redirection attacks |
-| **No token passthrough** | Prevents confused deputy — server must use its own tokens for upstream calls |
-
----
 ## References
+
 - [[mcp_transports]]
-- [[mcp_architecture]]
-- [MCP Authorization — Specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization)
-- [OAuth 2.1 Draft](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-13)
+- [MCP overview](index.md)
+- [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization)

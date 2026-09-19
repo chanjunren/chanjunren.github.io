@@ -1,5 +1,5 @@
 {
-  "label": "Prometheus & Grafana",
+  "label": "prometheus_and_grafana",
   "position": 1,
   "link": {
     "type": "doc",

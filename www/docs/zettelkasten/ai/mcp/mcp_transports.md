@@ -1,70 +1,28 @@
-🗓️ 19092026 1003
+🗓️ 19092026 2037
 
 # mcp_transports
 
-> An MCP transport moves JSON-RPC messages between an MCP client and server. It determines how messages travel, not what MCP operations mean.
+An MCP **transport** moves protocol messages between a client and server. It changes how they connect, not what a tool or resource means.
 
-## What problem does it solve?
+## Two standard choices
 
-An MCP host needs a reliable boundary between the AI application and a server that provides tools, resources, or prompts. The transport answers practical questions such as:
+| Transport | Best for | Mental model |
+|---|---|---|
+| Standard input/output | Local, single-user tools | Host starts the server as a subprocess |
+| Streamable HTTP | Remote or shared services | Server runs independently behind an HTTP endpoint |
 
-- Is the server a local subprocess or a network service?
-- How are messages framed?
-- How are authentication, cancellation, and connection failures handled?
+With standard input/output, protocol messages use the server's input and output streams. Logs belong on the error stream so they do not corrupt protocol messages.
 
-MCP keeps the protocol messages mostly independent of those choices. The two standard transports make different deployment models convenient.
+With Streamable HTTP, clients send requests to one HTTP endpoint. The response can be ordinary JSON or an event stream when the server needs to send more than one message.
 
-## stdio
+## Choose by deployment boundary
 
-With **stdio**, the host launches the MCP server as a subprocess and exchanges newline-delimited JSON-RPC messages over standard input and output. The server writes logs to stderr so stdout remains reserved for protocol messages.
+Choose standard input/output when the server belongs on the same machine as the host. Choose Streamable HTTP when several hosts need a reachable service. Remote servers add operational work: authentication, origin checks, network failures, and timeouts.
 
-```text
-MCP client -> stdin -> server process
-MCP client <- stdout <- server process
-```
+The model does not speak the transport directly. The host and its MCP client do.
 
-stdio solves the local-integration problem. It is simple to start, easy to isolate to one host, and does not require network authentication.
-
-Its tradeoff is that the server is tied to the host process. Sharing it across applications or deploying it as an independent service requires another boundary.
-
-## Streamable HTTP
-
-**Streamable HTTP** solves the remote-service problem. The MCP server runs independently and exposes one HTTP endpoint.
-
-At a high level:
-
-- The client sends each JSON-RPC request as an HTTP `POST`.
-- The server returns either one JSON response or an SSE stream for that request.
-- The stream can deliver progress or other request-related notifications before the final response.
-- A client can explicitly request a long-lived stream for change notifications.
-
-This is why the name can be confusing. Streamable HTTP is the transport; SSE is one possible response format inside it. See [[server_sent_events]] for the general streaming mechanism.
-
-The current specification is request-oriented. Older revisions had different session and streaming rules, so implementations may still need compatibility handling. Those version details are separate from the core mental model.
-
-## Tradeoffs
-
-|                     | stdio                      | Streamable HTTP                                                             |
-| ------------------- | -------------------------- | --------------------------------------------------------------------------- |
-| Deployment          | Local subprocess           | Independent service                                                         |
-| Strength            | Simple lifecycle and setup | Reachability, sharing, and HTTP infrastructure                              |
-| Cost                | Tied to one host           | Authentication, origin checks, proxies, timeouts, and version compatibility |
-| Best starting point | Local or single-user tools | Remote or multi-client tools                                                |
-
-Choose the transport based on the operational boundary around the server. The model does not speak either transport directly:
-
-```text
-model -> host/runtime -> MCP client -> transport -> MCP server -> external system
-```
-
-When the question becomes “How does the model ask for the operation?”, continue to [[llm_tool_use]].
-
----
 ## References
+
 - [[mcp_architecture]]
-- [[model_context_protocol]]
-- [[llm_tool_use]]
 - [[mcp_authorization]]
-- [[server_sent_events]]
-- [MCP Transports — official overview](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports)
-- [MCP Streamable HTTP — official specification](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http)
+- [MCP transports specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports)
