@@ -1,94 +1,75 @@
-🗓️ 21032026 2100
+🗓️ 19092026 1003
 
 # llm_tool_use
 
-> LLMs don't execute functions — they output structured calls that your code executes, then incorporate the results
+> **Tool use** lets a model ask an application to perform an operation and then use the result in its answer.
+
+## What problem does it solve?
+
+An LLM can generate language, but it cannot know the current contents of your database or carry out a real-world side effect by itself. Tool use gives it a controlled interface to external systems.
+
+The model proposes a call. The application remains responsible for deciding whether the call is allowed and for executing it.
 
 ## How it works
 
-**Tool use** (a.k.a. function calling) lets an LLM request external function execution instead of generating text-only output. The LLM produces a structured `tool_use` block; your runtime executes it and sends back a `tool_result`.
-
-```
-  User              Runtime             LLM
-   │                  │                  │
-   │  "What's the     │                  │
-   │   weather in     │                  │
-   │   Tokyo?"        │                  │
-   │ ────────────────>│                  │
-   │                  │  messages +      │
-   │                  │  tool_definitions│
-   │                  │ ────────────────>│
-   │                  │                  │
-   │                  │  tool_use:       │
-   │                  │  get_weather     │
-   │                  │  {"city":"Tokyo"}│
-   │                  │ <────────────────│
-   │                  │                  │
-   │                  │  [executes fn]   │
-   │                  │                  │
-   │                  │  tool_result:    │
-   │                  │  "22°C, sunny"   │
-   │                  │ ────────────────>│
-   │                  │                  │
-   │                  │  "It's 22°C and  │
-   │                  │   sunny in Tokyo"│
-   │                  │ <────────────────│
-   │                  │                  │
-```
-
-1. Runtime sends the user message + available tool definitions to the LLM
-2. LLM decides a tool would help → returns a `tool_use` block with name + arguments
-3. Runtime executes the function, sends result back as `tool_result`
-4. LLM incorporates the result into its final response
-
-The LLM never touches your database, API, or filesystem. It just says "call this function with these arguments" and your code does the rest.
-
-## Tool definitions
-
-Tools are defined via **JSON Schema**:
+The model receives tool descriptions and input schemas alongside the conversation. It can then either answer directly or return a structured request such as:
 
 ```json
 {
   "name": "get_weather",
-  "description": "Get current weather for a city. Use when the user asks about weather conditions.",
-  "input_schema": {
-    "type": "object",
-    "properties": {
-      "city": { "type": "string", "description": "City name, e.g. 'Tokyo'" }
-    },
-    "required": ["city"]
-  }
+  "arguments": { "city": "Tokyo" }
 }
 ```
 
-The **description** drives tool selection. The LLM reads it to decide *when* to call the tool. "Get current weather for a city" → LLM calls it for weather questions. "Database tool" → LLM has no idea when to use it.
+The application validates and executes the request, then sends the result back to the model. The model uses that result to continue the conversation or produce a final answer.
 
-## Tool use is the building block
+```text
+user -> model -> tool call -> application executes -> tool result -> model -> answer
+```
 
-Every agentic pattern relies on tool use:
+The model does not see the tool implementation. It sees the tool's description and the result returned by the application.
 
-| Pattern | How tools are used | Example |
-|---|---|---|
-| **Single agent** | Calls tools sequentially | Claude Code reads a file, edits it, runs tests |
-| **[[coordinator_router_pattern]]** | Coordinator calls sub-agents as tools | Research agent delegates to search + summarize sub-agents |
-| **[[agent_as_tool_pattern]]** | Sub-agents are exposed as callable tools | Code review agent calls a "run linter" sub-agent |
-| **[[loop_review_critique_pattern]]** | Critic uses tools to validate output | SQL generator → validator tool checks syntax → loop |
+## The important boundary
 
-## Tool use vs MCP
+Tool use separates **intent** from **execution**:
+
+- The model chooses whether a tool seems useful and proposes arguments.
+- The application authenticates, validates, authorizes, and executes the operation.
+- The application decides how to handle errors, retries, cancellation, and side effects.
+
+Treat a model-generated tool call as an untrusted request. A schema helps the model produce the right shape, but it is not an authorization policy.
+
+## Tradeoffs
+
+Tool use is a good fit when a task needs:
+
+- fresh or private data;
+- a side effect, such as sending a message or changing a record;
+- an output with a predictable structure.
+
+It also adds another round trip, token usage, latency, and failure modes. Tool results can be unavailable or wrong. A tool should not be added when the model can answer safely and directly.
+
+Narrow tools are usually easier to authorize and recover from than one large tool that hides many unrelated operations. Independent calls can run in parallel, but the application still owns ordering and resource limits.
+
+## How it connects to MCP
+
+Tool use and MCP solve different problems:
 
 | | Tool use | MCP |
 |---|---|---|
-| **What** | LLM's ability to call functions | Protocol for delivering tools to the LLM |
-| **Scope** | One LLM ↔ runtime interaction | Ecosystem-wide tool discovery |
-| **Defined by** | Each provider (Anthropic, OpenAI, Google) | Open standard |
+| Problem | How does a model request an operation? | How does an AI application discover and communicate with tool servers? |
+| Boundary | Model -> application runtime | MCP client -> MCP server |
+| Main contents | Tool schemas, calls, and results | Messages, lifecycle, discovery, and transports |
 
-Tool use is the LLM's ability to "use its hands." [[model_context_protocol]] is the standard that puts tools within reach.
+MCP does not make the model execute code. It gives the host a standard way to discover and invoke capabilities. The host then adapts those capabilities to the model provider's tool-use interface.
+
+When the question becomes “How does the host reach the tool server?”, continue to [[mcp_transports]]. When it becomes “What can an MCP server expose?”, continue to [[model_context_protocol]].
 
 ---
 ## References
 - [[model_context_protocol]]
+- [[mcp_transports]]
 - [[agentic_design_patterns]]
 - [[claude_agent_sdk]]
-- [Tool Use — Anthropic Docs](https://docs.anthropic.com/en/docs/build-with-claude/tool-use/overview)
-- [Function Calling — OpenAI Docs](https://platform.openai.com/docs/guides/function-calling)
-- [Function Calling — Google Gemini Docs](https://ai.google.dev/gemini-api/docs/function-calling)
+- [How tool use works — Anthropic](https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works)
+- [Function calling — OpenAI](https://platform.openai.com/docs/guides/function-calling)

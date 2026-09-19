@@ -1,78 +1,70 @@
-🗓️ 23052026 2200
+🗓️ 19092026 1003
 
 # mcp_transports
 
-> Two ways to move JSON-RPC messages between client and server — local subprocess or remote HTTP
+> An MCP transport moves JSON-RPC messages between an MCP client and server. It determines how messages travel, not what MCP operations mean.
+
+## What problem does it solve?
+
+An MCP host needs a reliable boundary between the AI application and a server that provides tools, resources, or prompts. The transport answers practical questions such as:
+
+- Is the server a local subprocess or a network service?
+- How are messages framed?
+- How are authentication, cancellation, and connection failures handled?
+
+MCP keeps the protocol messages mostly independent of those choices. The two standard transports make different deployment models convenient.
 
 ## stdio
 
-Client launches the server as a **subprocess**. Messages flow over stdin/stdout.
+With **stdio**, the host launches the MCP server as a subprocess and exchanges newline-delimited JSON-RPC messages over standard input and output. The server writes logs to stderr so stdout remains reserved for protocol messages.
 
-- Newline-delimited JSON-RPC messages (no embedded newlines)
-- Server writes logs to stderr (optional — client may capture or ignore)
-- No network overhead, no auth needed
-- Single client per server instance
-
-```
-Client ──stdin──> Server Process
-Client <──stdout── Server Process
-Client <──stderr── (optional logs)
+```text
+MCP client -> stdin -> server process
+MCP client <- stdout <- server process
 ```
 
-Best for: local dev, CLI tools, single-user setups.
+stdio solves the local-integration problem. It is simple to start, easy to isolate to one host, and does not require network authentication.
+
+Its tradeoff is that the server is tied to the host process. Sharing it across applications or deploying it as an independent service requires another boundary.
 
 ## Streamable HTTP
 
-Server runs as an **independent HTTP service**. Supports multiple concurrent clients.
+**Streamable HTTP** solves the remote-service problem. The MCP server runs independently and exposes one HTTP endpoint.
 
-Single endpoint (e.g., `https://example.com/mcp`) handles both POST and GET:
+At a high level:
 
-### Client → Server (POST)
+- The client sends each JSON-RPC request as an HTTP `POST`.
+- The server returns either one JSON response or an SSE stream for that request.
+- The stream can deliver progress or other request-related notifications before the final response.
+- A client can explicitly request a long-lived stream for change notifications.
 
-Every JSON-RPC message from client is a separate HTTP POST. Server responds with either:
-- `application/json` — single JSON-RPC response, or
-- `text/event-stream` — SSE stream that may include notifications/requests before the final response
+This is why the name can be confusing. Streamable HTTP is the transport; SSE is one possible response format inside it. See [[server_sent_events]] for the general streaming mechanism.
 
-### Server → Client (GET)
+The current specification is request-oriented. Older revisions had different session and streaming rules, so implementations may still need compatibility handling. Those version details are separate from the core mental model.
 
-Client opens an SSE stream via GET to receive server-initiated messages (requests, notifications) outside of any POST exchange.
+## Tradeoffs
 
-### Session management
+|                     | stdio                      | Streamable HTTP                                                             |
+| ------------------- | -------------------------- | --------------------------------------------------------------------------- |
+| Deployment          | Local subprocess           | Independent service                                                         |
+| Strength            | Simple lifecycle and setup | Reachability, sharing, and HTTP infrastructure                              |
+| Cost                | Tied to one host           | Authentication, origin checks, proxies, timeouts, and version compatibility |
+| Best starting point | Local or single-user tools | Remote or multi-client tools                                                |
 
-- Server may assign `Mcp-Session-Id` in the initialization response
-- Client includes this header on all subsequent requests
-- Server returns 404 for expired sessions → client must re-initialize
-- Client sends DELETE to explicitly end a session
+Choose the transport based on the operational boundary around the server. The model does not speak either transport directly:
 
-### Resumability
+```text
+model -> host/runtime -> MCP client -> transport -> MCP server -> external system
+```
 
-Servers can attach `id` fields to SSE events. If a connection drops, the client reconnects with `Last-Event-ID` header and the server replays missed messages for that stream.
-
-### Security
-
-- Servers **must** validate `Origin` header (prevents DNS rebinding)
-- Local servers should bind to `127.0.0.1`, not `0.0.0.0`
-- Auth via bearer tokens on every request. See [[mcp_authorization]]
-
-## When to use which
-
-| Factor | stdio | Streamable HTTP |
-|---|---|---|
-| Deployment | Local, same machine | Remote, shared |
-| Clients | Single | Multiple concurrent |
-| Auth | From environment | OAuth / bearer tokens |
-| Complexity | Minimal | Session management, SSE |
-| Debugging | Easy (subprocess logs) | Needs request tracing |
-
-Start with stdio. Move to HTTP when you need remote access or multi-user support.
-
-## Backward compatibility
-
-Streamable HTTP replaces the older HTTP+SSE transport (protocol version 2024-11-05). Servers wanting to support old clients can host both the legacy SSE/POST endpoints alongside the new MCP endpoint.
+When the question becomes “How does the model ask for the operation?”, continue to [[llm_tool_use]].
 
 ---
 ## References
 - [[mcp_architecture]]
 - [[model_context_protocol]]
+- [[llm_tool_use]]
 - [[mcp_authorization]]
-- [MCP Transports — Official Docs](https://modelcontextprotocol.io/docs/concepts/transports)
+- [[server_sent_events]]
+- [MCP Transports — official overview](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports)
+- [MCP Streamable HTTP — official specification](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http)
