@@ -13,10 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/skating/claude_advice.md",
+                "file": "zettelkasten/skating/spins.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "spins"
             }
           }
         ]
@@ -38,8 +40,11 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
-              }
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -54,7 +59,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,7 +69,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -85,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "zettelkasten/skating/claude_advice.md",
+                "file": "zettelkasten/skating/spins.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -93,7 +102,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for spins"
             }
           },
           {
@@ -102,10 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "zettelkasten/skating/claude_advice.md",
+                "file": "zettelkasten/skating/spins.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from spins"
             }
           },
           {
@@ -115,8 +128,12 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
-              }
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -125,8 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "zettelkasten/skating/claude_advice.md"
-              }
+                "file": "zettelkasten/skating/spins.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of spins"
             }
           }
         ]
@@ -138,6 +160,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -148,8 +171,13 @@
   },
   "active": "8d3b0cd78692d098",
   "lastOpenFiles": [
-    "zettelkasten/readings/philosophy_of_software_design/deep_vs_shallow_modules.md",
+    "zettelkasten/skating/wheeling.md",
+    "zettelkasten/skating/zhanghao/volte.md",
+    "zettelkasten/skating/zhanghao/double_crazy.md",
+    "zettelkasten/skating/huangke/double_fish.md",
+    "zettelkasten/skating/zhanghao",
     "zettelkasten/skating/claude_advice.md",
+    "zettelkasten/readings/philosophy_of_software_design/deep_vs_shallow_modules.md",
     "zettelkasten/frontend/tanstack/learning_plan.md",
     "zettelkasten/frontend/tanstack/tanstack_query.md.tmp.43392.6c7b4185675c",
     "zettelkasten/frontend/tanstack/tanstack_query_testing.md",
@@ -172,10 +200,6 @@
     "zettelkasten/skating/huangke/choreography_beyond_footwork.md",
     "zettelkasten/skating/huangke/improvisation_essence.md",
     "zettelkasten/skating/huangke/improvisation_flow_state.md",
-    "zettelkasten/skating/huangke/improvisation_subtraction.md",
-    "zettelkasten/skating/huangke/jumping_in_slalom.md",
-    "zettelkasten/skating/huangke/double_fish.md",
-    "zettelkasten/skating/huangke/volt_pivot.md",
     "zettelkasten/skating/huangke",
     "zettelkasten/readings/philosophy_of_software_design",
     "zettelkasten/readings",
@@ -183,7 +207,6 @@
     "zettelkasten/backend/transport",
     "zettelkasten/infrastructure/linux",
     "zettelkasten/concepts/hardware",
-    "zettelkasten/ai/sdks",
     "assets/technical_tricks_matrix.png",
     "assets/Pasted image 20250828105751.png",
     "assets/skating_technical_tricks_matrix.png",
