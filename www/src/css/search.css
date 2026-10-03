@@ -58,6 +58,14 @@
     height: auto;
 }
 
+.DocSearch-Modal::before {
+    background: url('/images/search-banner.webp') center 72% / cover no-repeat;
+    border-block-end: 0.5px solid var(--docsearch-subtle-color);
+    content: '';
+    display: block;
+    flex: 0 0 140px;
+}
+
 .DocSearch-SearchBar {
     flex: 0 0 45px;
 }
