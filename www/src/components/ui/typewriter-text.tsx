@@ -6,6 +6,8 @@ type TypewriterTextProps = {
   size?: "lg" | "md";
   className?: string;
   color?: string;
+  // Seconds to type out the full text
+  duration?: number;
 };
 
 const TypewriterText: FC<TypewriterTextProps> = ({
@@ -14,6 +16,7 @@ const TypewriterText: FC<TypewriterTextProps> = ({
   size = "md",
   className,
   color = "var(--ifm-font-color-base)",
+  duration = 1,
 }) => {
   return (
     <span
@@ -23,7 +26,7 @@ const TypewriterText: FC<TypewriterTextProps> = ({
           color: color,
           ...(active && {
             borderRightColor: color,
-            animation: `typewriter 1s steps(${text.length}) forwards, borderBlink 3s infinite`,
+            animation: `typewriter ${duration}s steps(${text.length}) forwards, borderBlink 3s infinite`,
           }),
         } as React.CSSProperties
       }

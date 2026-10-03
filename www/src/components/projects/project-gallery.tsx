@@ -4,7 +4,6 @@ import CustomTag from "@site/src/components/ui/custom-tag";
 import { GalleryProjectInfo } from "@site/src/types";
 import { FC } from "react";
 import useGallery from "../../hooks/useGallery";
-import MvmProject from "./mvm";
 import MyOldPortfolioBaby from "./oldportfolio";
 import PixelLabInfo from "./pixelLab";
 import PortalProject from "./portal";
@@ -51,7 +50,6 @@ export const GALLERY_PROJECTS: GalleryProjectInfo[] = [
     ),
   } satisfies GalleryProjectInfo,
   // ThreeJsCheatsheetInfo,
-  MvmProject,
   PortalProject,
   MyOldPortfolioBaby,
   PixelLabInfo,

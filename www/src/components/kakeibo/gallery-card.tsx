@@ -1,46 +1,58 @@
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import IdealImage from "@theme/IdealImage";
+import { useEffect, useRef, useState } from "react";
 
 export default function KakeiboGalleryCard({
   onClick,
 }: {
   onClick: () => void;
 }) {
-  const image = "images/kakeibo-dashboard.png";
+  const still = useBaseUrl("images/kakeibo-card.png");
+  const gif = useBaseUrl("images/kakeibo-card.gif");
+  const gifBlob = useRef<Promise<Blob> | null>(null);
+  const hovering = useRef(false);
+  const [playing, setPlaying] = useState<string | null>(null);
+
+  // The GIF has no loop block, so it plays once and holds its last frame.
+  // Browsers won't restart a finished GIF at the same URL, so each hover gets
+  // a fresh object URL for the same downloaded blob.
+  const play = async () => {
+    hovering.current = true;
+    gifBlob.current ??= fetch(gif).then((res) => res.blob());
+    try {
+      const blob = await gifBlob.current;
+      if (hovering.current) {
+        setPlaying(URL.createObjectURL(blob));
+      }
+    } catch {
+      gifBlob.current = null;
+    }
+  };
+
+  const stop = () => {
+    hovering.current = false;
+    setPlaying(null);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (playing) {
+        URL.revokeObjectURL(playing);
+      }
+    };
+  }, [playing]);
 
   return (
     <div
-      className="group relative flex aspect-video flex-grow cursor-pointer items-end justify-center overflow-hidden rounded-lg bg-(--gray-transparent-bg) pt-5 pb-0"
+      className="relative flex-grow cursor-pointer overflow-hidden rounded-lg shadow-md"
       onClick={onClick}
+      onMouseEnter={play}
+      onMouseLeave={stop}
     >
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[22%] top-[8%] z-0 scale-0 text-4xl opacity-0 transition-all delay-0 duration-300 ease-out group-hover:-translate-y-2 group-hover:rotate-[-12deg] group-hover:scale-100 group-hover:opacity-100"
-      >
-        🍍
-      </span>
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-[5%] z-0 -translate-x-1/2 scale-0 text-4xl opacity-0 transition-all delay-100 duration-300 ease-out group-hover:-translate-y-2 group-hover:rotate-[8deg] group-hover:scale-100 group-hover:opacity-100"
-      >
-        💸
-      </span>
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[22%] top-[8%] z-0 scale-0 text-4xl opacity-0 transition-all delay-200 duration-300 ease-out group-hover:-translate-y-2 group-hover:rotate-[12deg] group-hover:scale-100 group-hover:opacity-100"
-      >
-        😭
-      </span>
-      <div className="relative z-10 w-[97%] translate-y-[10%] transition-transform duration-300 ease-out group-hover:translate-y-[3%]">
-        <span className="pointer-events-none absolute -top-6 right-0 z-20 whitespace-nowrap text-right font-mono text-[10px] text-muted-foreground opacity-0 group-hover:opacity-100">
-          (mock numbers btw)
-        </span>
-        <IdealImage
-          card={useBaseUrl(image)}
-          img={image}
-          className="w-full rounded-md object-contain shadow-sm"
-        />
-      </div>
+      <img
+        src={playing ?? still}
+        alt="Kiki counting coins and banknotes on her bed while Jiji sleeps"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
     </div>
   );
 }
