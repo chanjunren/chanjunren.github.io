@@ -1,0 +1,140 @@
+.cell {
+  --flap-bg: color-mix(in oklab, var(--menu-foreground) 9%, var(--menu-background));
+  position: relative;
+  display: inline-block;
+  width: 0.8em;
+  height: 1.3em;
+  perspective: 3em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.3em;
+  text-align: center;
+}
+
+.half {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: calc(50% - 0.5px);
+  overflow: hidden;
+  background: var(--flap-bg);
+  backface-visibility: hidden;
+}
+
+.half > span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1.3em;
+}
+
+.top {
+  top: 0;
+  border-radius: 0.12em 0.12em 0 0;
+  transform-origin: bottom;
+}
+
+.top > span {
+  top: 0;
+}
+
+.bottom {
+  bottom: 0;
+  border-radius: 0 0 0.12em 0.12em;
+  transform-origin: top;
+}
+
+.bottom > span {
+  bottom: 0;
+}
+
+.foldTop {
+  z-index: 1;
+  animation: fold-top var(--flip-half) ease-in forwards;
+}
+
+.foldBottom {
+  z-index: 1;
+  animation: fold-bottom var(--flip-half) ease-out var(--flip-half) both;
+}
+
+@keyframes fold-top {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(-90deg);
+    filter: brightness(0.9);
+  }
+}
+
+@keyframes fold-bottom {
+  from {
+    transform: rotateX(90deg);
+    filter: brightness(0.9);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+/* Slots: each card plus its trailing gap, so width animates the spacing too. */
+.slot {
+  display: inline-flex;
+  align-items: flex-start;
+  width: 0.88em;
+  height: 1.3em;
+}
+
+.enter,
+.exit {
+  animation-delay: var(--delay);
+  animation-fill-mode: both;
+}
+
+.enter {
+  animation-name: pop-in;
+  animation-duration: 360ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.exit {
+  animation-name: pop-out;
+  animation-duration: 260ms;
+  animation-timing-function: cubic-bezier(0.64, 0, 0.78, 0);
+}
+
+@keyframes pop-in {
+  from {
+    width: 0;
+    transform: scale(0);
+  }
+  70% {
+    width: 0.88em;
+    transform: scale(1.1);
+  }
+  to {
+    width: 0.88em;
+    transform: scale(1);
+  }
+}
+
+@keyframes pop-out {
+  from {
+    width: 0.88em;
+    transform: scale(1);
+  }
+  to {
+    width: 0;
+    transform: scale(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .foldTop,
+  .foldBottom,
+  .enter,
+  .exit {
+    animation-duration: 1ms;
+    animation-delay: 0ms;
+  }
+}

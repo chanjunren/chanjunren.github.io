@@ -4,10 +4,14 @@ import {
   type SupabaseClient,
 } from "@supabase/supabase-js";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { type ReactNode, useEffect, useMemo, useState } from "react";
+import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { createKakeiboApi, type KakeiboConfig } from "../kakeibo/api";
 import { ApiContext } from "../kakeibo/context";
-import { AuthContext, type AuthContextValue } from "./hooks/context";
+import {
+  AuthContext,
+  type AuthContextValue,
+  LastPageContext,
+} from "./hooks/context";
 
 export function UchiProvider({
   config,
@@ -30,6 +34,7 @@ export function UchiProvider({
   const [session, setSession] = useState<Session | null>(null);
   const [authLoading, setAuthLoading] = useState(true);
   const [authError, setAuthError] = useState<string | null>(null);
+  const lastPage = useRef<string | null>(null);
   const api = useMemo(
     () => (supabase ? createKakeiboApi(config, supabase) : null),
     [config, supabase],
@@ -92,7 +97,11 @@ export function UchiProvider({
   return (
     <QueryClientProvider client={queryClient}>
       <ApiContext.Provider value={api}>
-        <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>
+        <AuthContext.Provider value={auth}>
+          <LastPageContext.Provider value={lastPage}>
+            {children}
+          </LastPageContext.Provider>
+        </AuthContext.Provider>
       </ApiContext.Provider>
     </QueryClientProvider>
   );

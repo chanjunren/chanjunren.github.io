@@ -5,6 +5,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@site/src/components/ui/chart";
+import { SplitFlap } from "@site/src/components/ui/split-flap";
 import { ModelAggregation } from "@site/src/types/quotes";
 import { FC, useMemo } from "react";
 import { Cell, Pie, PieChart } from "recharts";
@@ -51,9 +52,7 @@ const ModelDonutChart: FC<ModelDonutChartProps> = ({ data }) => {
 
   return (
     <div className="flex h-full flex-col gap-2">
-      <p className="text-muted-foreground m-0 text-[10px] tracking-[0.16em] uppercase">
-        By model
-      </p>
+      <SplitFlap flipIn value="By model" className="text-[10px]" />
       <ChartContainer config={config} className="aspect-auto flex-1">
         <PieChart>
           <ChartTooltip

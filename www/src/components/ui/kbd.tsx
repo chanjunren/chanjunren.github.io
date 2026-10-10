@@ -1,10 +1,14 @@
 import { cn } from "@site/src/lib/utils";
 
+// `!` strips Infima's unlayered global kbd border and inset shadow.
+const resetInfima = "border-0! shadow-none!";
+
 function Kbd({ className, ...props }: React.ComponentProps<"kbd">) {
   return (
     <kbd
       data-slot="kbd"
       className={cn(
+        resetInfima,
         "bg-[rgba(180,99,122,0.16)] text-[#b4637a] pointer-events-none inline-flex h-5 w-fit min-w-5 items-center justify-center gap-1 rounded-sm px-1 text-xs font-medium select-none",
         "[&_svg:not([class*='size-'])]:size-3",
         "in-data-[slot=tooltip-content]:bg-background/20 in-data-[slot=tooltip-content]:text-background dark:in-data-[slot=tooltip-content]:bg-background/10",
@@ -19,7 +23,11 @@ function KbdGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <kbd
       data-slot="kbd-group"
-      className={cn("inline-flex items-center gap-1", className)}
+      className={cn(
+        resetInfima,
+        "inline-flex items-center gap-1 bg-transparent! p-0!",
+        className,
+      )}
       {...props}
     />
   );

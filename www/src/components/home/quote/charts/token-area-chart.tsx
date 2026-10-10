@@ -6,6 +6,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@site/src/components/ui/chart";
+import {SplitFlap} from "@site/src/components/ui/split-flap";
 import {DailyAggregation} from "@site/src/types/quotes";
 import {FC} from "react";
 import {Area, AreaChart, CartesianGrid, XAxis, YAxis} from "recharts";
@@ -43,9 +44,7 @@ function formatTokens(value: number): string {
 const TokenAreaChart: FC<TokenAreaChartProps> = ({ data }) => {
   return (
     <div className="flex h-full flex-col gap-2">
-      <p className="text-muted-foreground m-0 text-[10px] tracking-[0.16em] uppercase">
-        Tokens · 30 days
-      </p>
+      <SplitFlap flipIn value="Tokens · 30 days" className="text-[10px]" />
       <ChartContainer config={config} className="aspect-auto flex-1">
         <AreaChart data={data} margin={{ top: 12, right: 4, bottom: 0, left: 0 }}>
           <defs>

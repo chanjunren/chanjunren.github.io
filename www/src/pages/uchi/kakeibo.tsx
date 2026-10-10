@@ -68,7 +68,7 @@ function KakeiboGate({
       <UchiLayout
         title="家計簿"
         description="A personal finance dashboard."
-        showSidebar={Boolean(session)}
+        showLauncher={Boolean(session)}
         onSignOut={signOut}
       >
         <LoadingFallback />

@@ -1,3 +1,4 @@
+import { InkColumn } from "@site/src/components/home/quote/ink-column";
 import QuoteInfo from "@site/src/components/home/quote/quote-info";
 import QuoteTable from "@site/src/components/home/quote/quote-table";
 import {
@@ -25,13 +26,14 @@ const QuoteItem: FC<IQuoteItem> = ({ display = "simple", quoteInfo }) => {
         {display === "main" ? (
           <div className="gap-20 flex flex-row-reverse cursor-help">
             {quoteParts.map((part, index) => (
-              <span
-                className="text-3xl tracking-widest"
+              <InkColumn
                 key={index}
-                style={{ writingMode: "vertical-rl" }}
-              >
-                {part.trim()}
-              </span>
+                text={part.trim()}
+                startIndex={quoteParts
+                  .slice(0, index)
+                  .reduce((sum, previous) => sum + [...previous.trim()].length, 0)}
+                className="text-3xl"
+              />
             ))}
           </div>
         ) : (

@@ -25,7 +25,7 @@ function UchiLogin() {
       <UchiLayout
         title="うち"
         description="Uchi is a private workspace for local tools."
-        showSidebar={Boolean(session)}
+        showLauncher={Boolean(session)}
         onSignOut={signOut}
       >
         <LoadingFallback />
@@ -37,7 +37,7 @@ function UchiLogin() {
     <UchiLayout
       title="うち"
       description="Uchi is a private workspace for local tools."
-      showSidebar={Boolean(session)}
+      showLauncher={Boolean(session)}
       onSignOut={signOut}
     >
       <Login />
@@ -54,7 +54,7 @@ function UchiLanding({ uchi }: { uchi: UchiConfig }) {
       <UchiLayout
         title="うち"
         description="Uchi is a private workspace for local tools."
-        showSidebar={Boolean(session)}
+        showLauncher={Boolean(session)}
         onSignOut={signOut}
       >
         <main className="flex min-h-[calc(100vh-57px)] items-center justify-center bg-background text-sm text-muted-foreground">
@@ -69,7 +69,7 @@ function UchiLanding({ uchi }: { uchi: UchiConfig }) {
       <UchiLayout
         title="うち"
         description="Uchi is a private workspace for local tools."
-        showSidebar={false}
+        showLauncher={false}
       >
         <UchiFallback />
       </UchiLayout>

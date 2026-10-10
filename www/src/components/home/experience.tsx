@@ -1,15 +1,10 @@
 import MiniSection from "@site/src/components/ui/mini-section";
-import CustomTag from "@site/src/components/ui/custom-tag";
+import { SplitFlap } from "@site/src/components/ui/split-flap";
 
 export default function Work() {
   return (
     <section className="col-span-6">
-      <CustomTag
-        color="foam"
-        className="text-lg tracking-tighter! justify-self-center! mb-5"
-      >
-        EXPERIENCE
-      </CustomTag>
+      <SplitFlap flipIn value="EXPERIENCE" className="mb-5 text-lg" />
       <MiniSection
         title="Software Engineer II @ OKX"
         subtitle={"06.2022 - Present"}

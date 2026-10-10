@@ -1,3 +1,4 @@
+import {SplitFlap} from "@site/src/components/ui/split-flap";
 import {QuoteSummary} from "@site/src/types/quotes";
 import {FC} from "react";
 
@@ -17,9 +18,7 @@ const TotalQuotes: FC<TotalQuotesProps> = ({ summary }) => {
     <div className="grid grid-cols-3 gap-6">
       {metrics.map((metric) => (
         <div key={metric.label}>
-          <p className="text-muted-foreground m-0 text-[10px] tracking-[0.16em] uppercase">
-            {metric.label}
-          </p>
+          <SplitFlap flipIn value={metric.label} className="text-[10px]" />
           <p className="text-foreground m-0 mt-1 text-2xl font-medium tracking-tight tabular-nums sm:text-3xl">
             {metric.value.toLocaleString()}
           </p>

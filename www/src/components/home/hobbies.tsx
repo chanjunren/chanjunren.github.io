@@ -8,7 +8,7 @@ import snowboardingPreview from "@site/static/images/snowboarding.webp";
 
 import { FC, useEffect, useRef, useState } from "react";
 import TypewriterText from "@site/src/components/ui/typewriter-text";
-import CustomTag from "@site/src/components/ui/custom-tag";
+import { SplitFlap } from "@site/src/components/ui/split-flap";
 
 type HobbyCardProps = {
   label: string;
@@ -77,12 +77,7 @@ const HobbyCard: FC<HobbyCardProps> = ({
 const Hobbies: FC = () => {
   return (
     <section className="col-span-6 justify-self-end">
-      <CustomTag
-        color="iris"
-        className="text-lg tracking-tighter! justify-self-center! mb-5"
-      >
-        HOBBIES
-      </CustomTag>
+      <SplitFlap flipIn value="HOBBIES" className="mb-5 text-lg" />
       <div className="flex gap-5 flex-col md:flex-row">
         <HobbyCard
           size={"lg"}

@@ -1,9 +1,5 @@
 import Page from "@site/src/components/ui/page";
-import {
-  UchiMobileNav,
-  UchiSidebar,
-  Wordmark,
-} from "@site/src/components/uchi/sidebar";
+import { UchiLauncher } from "@site/src/components/uchi/launcher";
 import { cn } from "@site/src/lib/utils";
 import { type CSSProperties, type ReactNode } from "react";
 
@@ -21,13 +17,13 @@ export function UchiLayout({
   title,
   description,
   onSignOut,
-  showSidebar = true,
+  showLauncher = true,
   children,
 }: {
   title: string;
   description: string;
   onSignOut?: () => Promise<void>;
-  showSidebar?: boolean;
+  showLauncher?: boolean;
   children: ReactNode;
 }) {
   return (
@@ -57,13 +53,9 @@ export function UchiLayout({
           } as CSSProperties
         }
       >
-        {showSidebar && <UchiSidebar onSignOut={onSignOut} />}
         <section className="min-w-0 flex-1">
-          {showSidebar && (
-            <div className="flex items-center justify-between px-5 pt-5 lg:hidden">
-              <Wordmark />
-              <UchiMobileNav onSignOut={onSignOut} />
-            </div>
+          {showLauncher && (
+            <UchiLauncher onSignOut={onSignOut} className="px-5 pt-5 lg:px-10 lg:pt-10" />
           )}
           {children}
         </section>

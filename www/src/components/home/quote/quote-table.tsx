@@ -1,6 +1,6 @@
 import {ArrowTopLeftIcon} from "@radix-ui/react-icons";
 import QuoteItem from "@site/src/components/home/quote/quote-item";
-import CustomTag from "@site/src/components/ui/custom-tag";
+import {SplitFlap} from "@site/src/components/ui/split-flap";
 import {Dialog, DialogContent, DialogFooter, DialogHeader, DialogTrigger,} from "@site/src/components/ui/dialog";
 import {ScrollArea} from "@site/src/components/ui/scroll-area";
 import {Separator} from "@site/src/components/ui/separator";
@@ -23,7 +23,7 @@ const QuoteTable: FC<IQuoteTable> = ({quotes}) => {
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <CustomTag color="rose">PREVIOUS QOTDs</CustomTag>
+            <SplitFlap flipIn value="PREVIOUS QOTDS" />
             {/* <DialogDescription></DialogDescription> */}
           </DialogHeader>
           <ScrollArea>
