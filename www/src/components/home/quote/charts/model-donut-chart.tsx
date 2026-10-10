@@ -52,7 +52,7 @@ const ModelDonutChart: FC<ModelDonutChartProps> = ({ data }) => {
 
   return (
     <div className="flex h-full flex-col gap-2">
-      <SplitFlap flipIn value="By model" className="text-[10px]" />
+      <SplitFlap flipIn value="By model" />
       <ChartContainer config={config} className="aspect-auto flex-1">
         <PieChart>
           <ChartTooltip

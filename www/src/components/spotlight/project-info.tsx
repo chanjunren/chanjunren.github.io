@@ -1,7 +1,7 @@
 import {GalleryProjectInfo} from "@site/src/types";
 import {FC} from "react";
 import DocusaurusLink from "@site/src/components/ui/docusaurus-link";
-import CustomTag from "@site/src/components/ui/custom-tag";
+import {SplitFlap} from "@site/src/components/ui/split-flap";
 
 const ProjectInfo: FC<GalleryProjectInfo> = ({
   title,
@@ -15,13 +15,8 @@ const ProjectInfo: FC<GalleryProjectInfo> = ({
     <section className="grid grid-cols-12 gap-5">
       {displayTitle && (
         <div className="lg:col-span-4 col-span-12 row-span-5">
-          <CustomTag
-            color="foam"
-            className="text-xl"
-            // className="lg:col-span-4 col-span-12 row-span-5"
-          >
-            {title.toUpperCase()}
-          </CustomTag>
+          {/* Wraps so long titles stay inside the column on narrow screens. */}
+          <SplitFlap flipIn value={title} className="flex-wrap text-xl" />
         </div>
         // <TypewriterText
         //   text={title.toUpperCase()}

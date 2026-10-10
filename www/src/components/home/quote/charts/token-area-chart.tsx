@@ -44,7 +44,7 @@ function formatTokens(value: number): string {
 const TokenAreaChart: FC<TokenAreaChartProps> = ({ data }) => {
   return (
     <div className="flex h-full flex-col gap-2">
-      <SplitFlap flipIn value="Tokens · 30 days" className="text-[10px]" />
+      <SplitFlap flipIn value="Tokens · 30 days" />
       <ChartContainer config={config} className="aspect-auto flex-1">
         <AreaChart data={data} margin={{ top: 12, right: 4, bottom: 0, left: 0 }}>
           <defs>
