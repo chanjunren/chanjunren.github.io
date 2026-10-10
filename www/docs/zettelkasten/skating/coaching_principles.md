@@ -31,7 +31,7 @@ Quality is the cap, not the clock. End the set when form goes, not when the time
 
 This is why chasing duration alone (e.g. 4 × 2:30 with the last set sagging) stalls: the
 junk reps at the end teach your body to wheel with a bent knee and weight on the ankle —
-the exact faults in [[wheeling]].
+the exact faults in [[wheeling_general]].
 
 ## progress / hold / back off
 

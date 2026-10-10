@@ -116,6 +116,6 @@ RPE trending down at same duration = getting stronger. Time to progress. See
 ## References
 - [[periodization]]
 - [[bob_bowman_golden_rules]]
-- [[wheeling]]
+- [[wheeling_general]]
 - [[pt]]
 - [[goals]]

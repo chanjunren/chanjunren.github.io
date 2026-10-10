@@ -1,47 +1,35 @@
 🗓️ 29042026 2025
-📎 #caching #moc
 
 # moc_caching
 
-> Map of Content for the caching concept cluster. Patterns + failure modes + the data structures that underpin both.
+Start here to understand cache behavior, choose read and write paths, and protect the source when entries are missing.
 
-## Concept Order
+## Reading path
 
-### Core Patterns
-1. [[cache_aside]] — the production default; app-driven, robust, well-understood.
-2. [[read_through_write_through_write_back]] — alternatives where the cache participates in writes.
+1. [[cache_basics]]: entry lifecycle and hit-rate interpretation.
+2. [[cache_aside]]: application-managed loading and invalidation.
+3. [[cache_consistency]]: stale fills and freshness guarantees.
+4. [[cache_patterns]]: compare loading and persistence.
+5. [[cache_failures]]: identify the miss pattern.
 
-### Failure Modes
-3. [[cache_penetration_breakdown_avalanche]] — three distinct cache-failure classes and their fixes.
-4. [[cache_stampede_thundering_herd]] — single-flight, refresh-ahead, probabilistic early refresh.
+## Follow the problem
 
-### Supporting Data Structures
-5. [[bloom_filter]] — probabilistic membership; the gate for cache penetration.
+| Question | Next note |
+| --- | --- |
+| Who should handle misses? | [[read_through]] |
+| Should writes wait for source persistence? | [[write_through]], [[write_back]] |
+| Why do absent keys keep reaching the source? | [[cache_penetration]] |
+| How can we reject absent keys cheaply? | [[bloom_filter]] |
+| Why does one miss trigger many source loads? | [[cache_stampede]] |
+| What if many entries disappear together? | [[cache_avalanche]] |
 
-### Coordination
-6. [[redis_distributed_lock]] — single-Redis lock, Redlock debate, fencing tokens.
+## Apply it
 
-### Existing in Cluster
-- [[redis_cluster]] — sharding model, multi-key fragility.
-- [[lettuce]] — Java Redis client.
+For a product catalog, choose the tolerated stale age, read path, write policy, and fallback load limit. Explain what happens after an update, a hot-key expiry, and a cache outage.
 
-### Planned
-- `cache_eviction_policies` — LRU / LFU / ARC / W-TinyLFU.
-- `redis_persistence_rdb_aof` — durability options for Redis.
-- `redis_data_structures_advanced` — zset, streams, bitmaps, HyperLogLog.
-- `redis_pipelining_vs_transactions_vs_lua` — three ways to batch on Redis.
-- `multi_tier_cache` — L1 (in-process) + L2 (shared) layered design.
-- `cdn_pull_push_models` — caching at the network edge.
+Use [[redis_distributed_lock]] for shared load coordination. Read [[redis_cluster]] for storage topology and failover behavior.
 
-## How to Use This MOC
+## References
 
-- **First pass**: walk top-to-bottom; failure modes only make sense once the patterns are in your head.
-- **Second pass**: pair each failure mode with the pattern most prone to it (e.g. cache-aside ↔ stampede ↔ penetration).
-- **Application drill**: pick a real cache scenario (product catalog, user sessions, hot leaderboard) and choose the pattern + mitigations from this list.
-
-## Bridges to Other Domains
-
-- → DB internals: [[mvcc_innodb_read_view]], [[transaction_isolation_levels]] — read consistency under cache invalidation.
-- → Distributed systems: [[consistency_models]], [[cap_theorem]] — the consistency story behind every caching decision.
-- → Messaging: [[outbox_pattern]] — for cache invalidation via events instead of in-app delete.
-- → Reliability: `circuit_breaker_pattern` *(planned)*, `retry_backoff_jitter` *(planned)*.
+- [Microsoft: Caching guidance](https://learn.microsoft.com/en-us/azure/architecture/best-practices/caching)
+- [AWS: Caching strategies](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Strategies.html)

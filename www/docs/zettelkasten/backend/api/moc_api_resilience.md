@@ -52,6 +52,6 @@ Memorising this stack is more valuable than memorising any single pattern in iso
 ## Bridges to Other Domains
 
 - → DB internals: [[transaction_isolation_levels]], [[mvcc_innodb_read_view]] — what your retries see in the DB.
-- → Caching: [[cache_stampede_thundering_herd]], [[cache_aside]] — same jitter principle on cache misses.
+- → Caching: [[cache_stampede]], [[cache_aside]] — same jitter principle on cache misses.
 - → Messaging: [[idempotent_consumer_pattern]], [[outbox_pattern]], [[delivery_semantics_at_most_at_least_exactly]] — the message-bus mirror of these patterns.
 - → Distributed systems: [[cap_theorem]] — the consistency-availability trade-off behind every fail-open vs fail-closed decision.

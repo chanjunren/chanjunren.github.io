@@ -35,7 +35,7 @@
 
 - [[pt]]
 - [[basics]]
-- [[wheeling]]
+- [[wheeling_general]]
 - [[spins]]
 - come up with skating plan, integrate with google calendar?
 

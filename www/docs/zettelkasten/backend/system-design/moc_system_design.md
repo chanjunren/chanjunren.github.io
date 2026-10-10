@@ -38,8 +38,8 @@ These show up in nearly every design and benefit from the bridges below:
 | Cross-cut                | Where to read                                              |
 |--------------------------|------------------------------------------------------------|
 | Sharding scheme           | [[database_sharding_strategies]], [[consistent_hashing]]   |
-| Read-heavy caching        | [[cache_aside]], [[cache_stampede_thundering_herd]]        |
-| Hot-key mitigation        | [[redis_cluster]], [[cache_stampede_thundering_herd]]      |
+| Read-heavy caching        | [[cache_aside]], [[cache_stampede]]        |
+| Hot-key mitigation        | [[redis_cluster]], [[cache_stampede]]      |
 | Unique IDs                | [[design_unique_id_generator_snowflake]]                   |
 | Async pipelines           | [[kafka_architecture]], [[outbox_pattern]]                 |
 | At-least-once + idempotency | [[idempotent_consumer_pattern]], [[idempotency_keys_api_design]] |

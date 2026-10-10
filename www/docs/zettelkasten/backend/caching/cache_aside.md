@@ -1,98 +1,48 @@
 🗓️ 29042026 1900
-📎 #caching #patterns
 
 # cache_aside
 
-> The default caching pattern in production. The application reads from cache, falls back to the source on miss, and invalidates the cache on writes — the cache is "on the side", not in the write path.
+**Cache-aside** puts the application in charge of cache lookup, loading, and invalidation. The source remains authoritative; cached entries are disposable copies.
 
-## The Read Path
+Read [[cache_basics]] for entry lifecycle terms.
 
-```
+## Read and write paths
+
+Schematic pseudocode; `MISSING` differs from a cached empty result.
+
+```text
 read(key):
-  v = cache.get(key)
-  if v is not null:
-    return v                  # cache hit
-  v = db.get(key)             # cache miss
-  cache.set(key, v, ttl)
-  return v
-```
+  entry = cache.get(key)
+  if entry != MISSING:
+    return entry.value
+  value = source.get(key)
+  cache.set(key, value, ttl)
+  return value
 
-The cache is **never authoritative**. The DB is. Cache is a performance shortcut.
-
-## The Write Path
-
-Two reasonable choices on writes:
-
-```
-# Option A: invalidate
-write(key, v):
-  db.update(key, v)
+write(key, value):
+  source.commit(key, value)
   cache.delete(key)
-
-# Option B: update
-write(key, v):
-  db.update(key, v)
-  cache.set(key, v, ttl)
 ```
 
-**Almost always pick Option A (delete, not update).** The reason is the read/write race below.
+Commit before invalidation so the next miss can fetch the update. Represent absence explicitly if using [[cache_penetration]] protection.
 
-## The Read/Write Race
+## Why choose it
 
-Sequence with Option B (update on write):
+- Loads only requested data.
+- Works with a separate cache and source.
+- Keeps loading policy in application code.
 
-```
-T1 reads cache → miss → reads DB(v=1) → ...slow...
-T2 writes DB(v=2) → updates cache(v=2)
-T1 ...continues... → sets cache(v=1)   ← stale wins
-```
+Compare [[read_through]] when a loader should own the miss path.
 
-T1's stale read clobbers T2's fresh write. Result: cache stuck on v=1 until TTL.
+## Boundaries
 
-With Option A (delete on write):
+Every write path must invalidate affected entries. Concurrent readers can still cache older results; [[cache_consistency]] explains the race.
 
-```
-T1 reads cache → miss → reads DB(v=1) → ...slow...
-T2 writes DB(v=2) → deletes cache
-T1 ...continues... → sets cache(v=1)   ← still stale!
-```
+A cache outage increases source traffic. Fallback works only if the source has capacity; plan for [[cache_avalanche]].
 
-Same race exists with delete. The fix is **double-delete** (delete cache, write DB, delete cache again after a short delay) — but in practice the TTL plus low race probability make a single delete acceptable for most workloads. Strict consistency needs a different pattern (write-through, or change-data-capture-driven invalidation).
-
-## Why Cache-Aside Wins by Default
-
-- **App stays in control** — the cache is dumb, the app drives all logic. Easy to swap caches.
-- **Failures isolated** — cache down means slow reads, not broken writes. App still works.
-- **Simple mental model** — read-through-fallback is universally understood.
-- **No vendor lock-in** — pattern works over any KV store (Redis, Memcached, in-memory).
-
-## Common Pitfalls
-
-- **Update-on-write** is tempting but produces the race above. Default to delete.
-- **Cache penetration** — many requests for keys that don't exist in DB. Each miss queries the DB. Cache the negative result (with shorter TTL) or gate with a [[bloom_filter]]. See [[cache_penetration_breakdown_avalanche]].
-- **Cache stampede** — popular key expires; many concurrent reads all miss; all hit DB. See [[cache_stampede_thundering_herd]].
-- **TTL too long** — stale reads after writes when delete is missed (e.g. invalidation message lost). Tune TTL to the staleness budget you can tolerate.
-- **TTL too short** — defeats the purpose; mostly misses.
-- **Inconsistency window** — between DB write and cache delete, readers see stale. Acceptable for most use cases; if not, switch to write-through.
-- **Forgetting to delete** in some write paths — the most common cause of mysterious stale data. Centralise writes through a single repository layer to make invalidation harder to skip.
-
-## When Not to Use
-
-- **Strong consistency required** — use write-through (cache is in the write path) or no cache.
-- **Write-heavy workload** — invalidations dominate; reads can't amortise the cost.
-- **Compute-on-read** — if the cached value is expensive to recompute, prefer refresh-ahead (recompute before expiry) to avoid stampedes.
-
-## Related
-
-- [[read_through_write_through_write_back]] — alternative patterns where the cache participates in writes.
-- [[cache_penetration_breakdown_avalanche]] — three classic failure modes layered on cache-aside.
-- [[cache_stampede_thundering_herd]] — what happens when one hot key expires.
-- [[redis_cluster]] — the storage-layer fragility under multi-key access.
-- [[bloom_filter]] — gating cache misses for non-existent keys.
-
----
+Concurrent misses for one expensive result need [[cache_stampede]] protection.
 
 ## References
 
-- "Designing Data-Intensive Applications" ch. 1 (caching as derived data)
-- AWS docs: [Caching strategies](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Strategies.html)
+- [Microsoft: Cache-Aside pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside)
+- [AWS: Caching strategies](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Strategies.html)

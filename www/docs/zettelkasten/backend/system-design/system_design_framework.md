@@ -137,8 +137,8 @@ Pick the most interesting / hardest part. Don't try to deep-dive everything; you
 Common deep-dive choices for a URL shortener:
 
 - **ID generation** — base62, length math, snowflake vs hash vs counter, collision handling.
-- **Cache strategy** — read-through? cache-aside? what's the hit ratio with 80/20? See [[cache_aside]] and [[cache_penetration_breakdown_avalanche]].
-- **Hot URLs** — celebrity short URL gets 1M req/sec; how do you survive? See [[cache_stampede_thundering_herd]].
+- **Cache strategy** — read-through? cache-aside? what's the hit ratio with 80/20? See [[cache_aside]] and [[cache_failures]].
+- **Hot URLs** — celebrity short URL gets 1M req/sec; how do you survive? See [[cache_stampede]].
 - **Analytics** — async pipeline; CDC vs Kafka producer; aggregation strategy.
 - **Custom alias collisions** — uniqueness check, race-proof under concurrent posts.
 

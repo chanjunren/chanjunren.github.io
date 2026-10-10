@@ -163,7 +163,7 @@ read(short_id):
   return v
 ```
 
-Hot keys (>>1k req/s on a single short_id) need [[cache_stampede_thundering_herd]] protection — single-flight on the cache miss, or refresh-ahead.
+Hot keys (>>1k req/s on a single short_id) need [[cache_stampede]] protection — single-flight on the cache miss, or refresh-ahead.
 
 For brand-new URLs, the first redirect always misses. To mitigate the long-tail of "I just shortened, why slow?", populate the cache on POST as well.
 
@@ -231,7 +231,7 @@ Cache custom aliases the same way as short_ids.
 - [[system_design_framework]] — the six-step approach this walks through.
 - [[back_of_envelope_estimation]] — capacity numbers behind every choice here.
 - [[design_unique_id_generator_snowflake]] — alternative ID-generation approach.
-- [[cache_aside]], [[cache_stampede_thundering_herd]] — caching for the read path.
+- [[cache_aside]], [[cache_stampede]] — caching for the read path.
 - [[database_sharding_strategies]], [[consistent_hashing]] — sharding the DB.
 - [[outbox_pattern]], [[kafka_architecture]] — analytics pipeline.
 
