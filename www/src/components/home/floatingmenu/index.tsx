@@ -1,17 +1,37 @@
-import {useWindowSize} from "@docusaurus/theme-common";
 import BrowserOnly from "@docusaurus/BrowserOnly";
+import { useWindowSize } from "@docusaurus/theme-common";
 
-import {DotsHorizontalIcon, MagnifyingGlassIcon} from "@radix-ui/react-icons";
-import {Kbd} from "@site/src/components/ui/kbd";
-import {Link} from "@site/src/components/ui/link";
-import {NavigationMenu, NavigationMenuItem, NavigationMenuList,} from "@site/src/components/ui/navigation-menu";
-import {Popover, PopoverContent, PopoverTrigger} from "@site/src/components/ui/popover";
-import {Tooltip, TooltipContent, TooltipTrigger,} from "@site/src/components/ui/tooltip";
-import {FC, ReactNode, useState} from "react";
-import {AboutIcon, GithubIcon, LinkedinIcon, NotesIcon, QuotesIcon, ResumeIcon, UchiIcon} from "./icons";
-import {SnowboarderMouse} from "./icons/SnowboarderMouse";
-import MobileControls from "./mobileControls";
+import { DotsHorizontalIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { Kbd } from "@site/src/components/ui/kbd";
+import { Link } from "@site/src/components/ui/link";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuList,
+} from "@site/src/components/ui/navigation-menu";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@site/src/components/ui/popover";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@site/src/components/ui/tooltip";
+import { FC, ReactNode, useState } from "react";
 import styles from "./floatingmenu.module.css";
+import {
+  AboutIcon,
+  GithubIcon,
+  LinkedinIcon,
+  NotesIcon,
+  QuotesIcon,
+  ResumeIcon,
+  UchiIcon,
+} from "./icons";
+import { SnowboarderMouse } from "./icons/SnowboarderMouse";
+import MobileControls from "./mobileControls";
 
 type TooltipSide = "top" | "right" | "bottom" | "left";
 
@@ -61,7 +81,9 @@ const MenuIconLink: FC<MenuIconLinkProps> = ({
   );
 };
 
-const ResumeMenuIcon: FC<{ tooltipSide?: TooltipSide }> = ({tooltipSide = "top"}) => {
+const ResumeMenuIcon: FC<{ tooltipSide?: TooltipSide }> = ({
+  tooltipSide = "top",
+}) => {
   const [hovering, setHovering] = useState(false);
   return (
     <NavigationMenuItem
@@ -76,7 +98,7 @@ const ResumeMenuIcon: FC<{ tooltipSide?: TooltipSide }> = ({tooltipSide = "top"}
             rel="noopener noreferrer"
             className="flex items-center text-(--menu-foreground)! no-underline! text-md tracking-tight p-2 rounded-md hover:bg-(--menu-accent)! hover:text-(--menu-foreground)!"
           >
-            <ResumeIcon hovering={hovering}/>
+            <ResumeIcon hovering={hovering} />
           </a>
         </TooltipTrigger>
         <TooltipContent side={tooltipSide} sideOffset={8}>
@@ -98,24 +120,39 @@ const ExtrasMenuItem: FC = () => {
             className="flex items-center text-md tracking-tight p-2 rounded-md border-0 bg-transparent text-(--menu-foreground) hover:bg-(--menu-accent)! cursor-pointer"
           >
             <span className={styles.extrasDots} aria-hidden="true">
-              <DotsHorizontalIcon className={`${styles.extrasDot} ${styles.extrasDotLeft}`}/>
-              <DotsHorizontalIcon className={`${styles.extrasDot} ${styles.extrasDotMiddle}`}/>
-              <DotsHorizontalIcon className={`${styles.extrasDot} ${styles.extrasDotRight}`}/>
+              <DotsHorizontalIcon
+                className={`${styles.extrasDot} ${styles.extrasDotLeft}`}
+              />
+              <DotsHorizontalIcon
+                className={`${styles.extrasDot} ${styles.extrasDotMiddle}`}
+              />
+              <DotsHorizontalIcon
+                className={`${styles.extrasDot} ${styles.extrasDotRight}`}
+              />
             </span>
           </button>
         </PopoverTrigger>
-        <PopoverContent side="top" align="center" sideOffset={16} className={styles.extrasContent}>
-          <MenuIconLink href="https://www.github.com/chanjunren" label="github" tooltipSide="right">
-            {(isHovering) => <GithubIcon hovering={isHovering}/>}
+        <PopoverContent
+          side="top"
+          align="center"
+          sideOffset={16}
+          className={styles.extrasContent}
+        >
+          <MenuIconLink
+            href="https://www.github.com/chanjunren"
+            label="github"
+            tooltipSide="right"
+          >
+            {(isHovering) => <GithubIcon hovering={isHovering} />}
           </MenuIconLink>
           <MenuIconLink
             href="https://www.linkedin.com/in/jun-ren-chan-90240a175/"
             label="linkedin"
             tooltipSide="right"
           >
-            {(isHovering) => <LinkedinIcon hovering={isHovering}/>}
+            {(isHovering) => <LinkedinIcon hovering={isHovering} />}
           </MenuIconLink>
-          <ResumeMenuIcon tooltipSide="right"/>
+          <ResumeMenuIcon tooltipSide="right" />
         </PopoverContent>
       </Popover>
     </NavigationMenuItem>
@@ -137,7 +174,7 @@ const SearchMenuItem: FC = () => {
             onClick={openSearch}
             className="flex h-8 items-center gap-2 rounded-md border-0 bg-transparent px-2 text-(--menu-foreground) hover:bg-(--menu-accent) cursor-pointer"
           >
-            <MagnifyingGlassIcon/>
+            <MagnifyingGlassIcon />
             <Kbd>⌘K</Kbd>
           </button>
         </TooltipTrigger>
@@ -161,25 +198,29 @@ const FloatingMenu: FC = () => {
           viewport={isMobile}
           className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-(--menu-background) p-2 rounded-xl border border-border shadow-sm"
         >
-          {uchiHovering && <SnowboarderMouse/>}
+          {uchiHovering && <SnowboarderMouse />}
           <NavigationMenuList className="m-0 pl-3!">
-            <MobileControls/>
+            <MobileControls />
 
             {/* Pages */}
             <MenuIconLink href="/" label="quotes">
-              {(hovering) => <QuotesIcon hovering={hovering}/>}
+              {(hovering) => <QuotesIcon hovering={hovering} />}
+            </MenuIconLink>
+            <MenuIconLink href="/whoami" label="about">
+              {(hovering) => <AboutIcon hovering={hovering} />}
             </MenuIconLink>
             <MenuIconLink href="/docs/zettelkasten" label="notes">
-              {(hovering) => <NotesIcon hovering={hovering}/>}
+              {(hovering) => <NotesIcon hovering={hovering} />}
             </MenuIconLink>
-            <SearchMenuItem/>
-            <MenuIconLink href="/whoami" label="about">
-              {(hovering) => <AboutIcon hovering={hovering}/>}
+            <SearchMenuItem />
+            <MenuIconLink
+              href="/uchi"
+              label="uchi"
+              onHoverChange={setUchiHovering}
+            >
+              <UchiIcon />
             </MenuIconLink>
-            <MenuIconLink href="/uchi" label="uchi" onHoverChange={setUchiHovering}>
-              <UchiIcon/>
-            </MenuIconLink>
-            <ExtrasMenuItem/>
+            <ExtrasMenuItem />
           </NavigationMenuList>
         </NavigationMenu>
       )}

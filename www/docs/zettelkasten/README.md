@@ -5,7 +5,7 @@ sidebar_label: 🗃️ read_me
 
 # README
 
-> 🌱 Welcome to my hypertext garden
+> 🌱 Welcome to my digital garden
 
 This section serves as a collection of notes for topics I'm currently interested in or learning about
 <br/>
