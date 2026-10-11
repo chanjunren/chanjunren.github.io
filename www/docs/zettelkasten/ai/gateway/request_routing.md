@@ -12,12 +12,12 @@ sequenceDiagram
   participant G as LiteLLM gateway
   participant V as Ollama or vLLM
   A->>G: Chat completion with alias and gateway credential
-  G->>G: Authenticate; apply configured limits
+  G->>G: Authenticate and apply configured limits
   G->>G: Resolve route and translate request
   G->>V: Provider request with upstream credential
   V->>V: Generate response or propose tool call
   V-->>G: Model response
-  G->>G: Translate response; record configured usage
+  G->>G: Translate response and record configured usage
   G-->>A: Compatible response
   Note over A: Application decides whether a proposed tool call may run
 ```
