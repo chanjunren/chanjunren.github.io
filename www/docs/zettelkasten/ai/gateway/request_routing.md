@@ -1,8 +1,8 @@
 🗓️ 11102026 1520
 
-# llm_gateway_request_routing
+# request_routing
 
-A gateway request path separates the application’s stable model interface from the serving system that generates the response.
+A gateway keeps the application’s model interface separate from model serving.
 
 ## One request, two hops
 
@@ -22,19 +22,19 @@ sequenceDiagram
   Note over A: Application decides whether a proposed tool call may run
 ```
 
-The gateway may authenticate a key, enforce configured budgets or rate limits, select a route, and translate provider formats. Usage logging can run after the response. These are configuration-dependent gateway features; an OpenAI-compatible endpoint alone does not prove they are enabled.
+The gateway can authenticate keys, enforce limits, route requests, and translate formats. It may also log usage. These features require configuration; an OpenAI-compatible endpoint alone does not prove they are enabled.
 
-The two credentials protect different links: the application authenticates to the gateway, and the gateway authenticates to the model server. Keep both out of prompts and tool arguments.
+Each hop uses separate credentials: the application authenticates to the gateway, then the gateway authenticates upstream. Keep credentials out of prompts and tool arguments.
 
 ## Stable alias, replaceable model
 
-The application sends a logical model name such as `assistant-default`. The gateway configuration resolves that name to a provider and upstream model. This can let operators change model weights without changing the application, provided the new model and serving configuration remain compatible with the request format and tool-call conventions.
+The application sends an alias such as `assistant-default`. Gateway configuration maps it to a provider and model. Operators can change the target without changing the client, if request and tool-call behavior remain compatible.
 
-An OpenAI-compatible API describes the request and response shape. It does not guarantee that every model supports every option, structured output, or tool-call behavior in the same way. Test the actual model and serving version for the features the application relies on.
+An OpenAI-compatible API defines request and response shapes. It does not guarantee identical support for options, structured output, or tool calls. Test the model and serving version against the features your application needs.
 
 ## Tool calls return to the application
 
-A model’s tool-call response is structured data describing a requested function and its arguments. The application validates it against the tools it supplied, authorizes it, executes it, and sends the result in a later model request. The gateway transports these messages; it does not make the decision to execute an application tool.
+A tool call is a model proposal containing a function and arguments. The application validates and authorizes it, runs the tool, then sends back the result. The gateway transports these messages; it does not authorize tool execution.
 
 See [[llm_tool_use]] for the model/application boundary and [MCP tool invocation](../mcp/tool_invocation_flow.md) for the optional external-connector path.
 
