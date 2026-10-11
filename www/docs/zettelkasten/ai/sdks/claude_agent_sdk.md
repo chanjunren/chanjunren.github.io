@@ -8,7 +8,7 @@ The **Claude Agent SDK** is Anthropic's library for building applications where 
 
 You give the runtime a goal, allowed capabilities, and configuration. It coordinates model responses and tool use until the task finishes or a configured limit is reached.
 
-Use it when you want to build a Claude-powered workflow as an application. It is different from MCP: the SDK runs or hosts an agent workflow, while [MCP](../mcp/index.md) connects that workflow to compatible external capability servers.
+Use it when you want to build a Claude-powered workflow as an application. It is different from MCP: the SDK runs or hosts an agent workflow, while [MCP](../mcp/mcp.md) connects that workflow to compatible external capability servers.
 
 ## Decide before choosing it
 
@@ -19,5 +19,5 @@ The choices can compose: an Agent SDK application can consume MCP servers.
 ## References
 
 - [[building_with_claude]]
-- [MCP overview](../mcp/index.md)
+- [MCP overview](../mcp/mcp.md)
 - [Agent SDK overview](https://code.claude.com/docs/en/agent-sdk/overview)

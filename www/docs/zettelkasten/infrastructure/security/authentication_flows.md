@@ -142,7 +142,7 @@ sequenceDiagram
 
 ## References
 
-- [[mcp_authorization]] — a concrete OAuth authorization-code and PKCE example
+- [[authorization]] — a concrete OAuth authorization-code and PKCE example
 - [[tls]] — why HTTPS protects credentials and tokens in transit
 - [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html) — ID tokens and authentication claims
 - [RFC 7636: Proof Key for Code Exchange by OAuth Public Clients](https://www.rfc-editor.org/rfc/rfc7636) — PKCE

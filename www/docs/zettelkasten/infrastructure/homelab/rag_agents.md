@@ -21,7 +21,7 @@ Ingestion splits documents and creates embeddings. The index stores text, metada
 
 ## Agent control loop
 
-An agent sends a goal to a model. It checks proposed calls, runs allowed tools, and returns results. The application limits turns, time, access, and side effects. MCP standardizes tool connections; the host still owns authorization. See [[tool_invocation_flow]] and [[custom_mcp_servers]].
+An agent sends a goal to a model. It checks proposed calls, runs allowed tools, and returns results. The application limits turns, time, access, and side effects. MCP standardizes tool connections; the host still owns authorization. See [[tool_invocation_flow]] and [[custom_servers]].
 
 ## Tools and trade-offs
 
@@ -42,6 +42,6 @@ Index non-sensitive Markdown files. Ask passage-specific questions and show sour
 - [[vector_search]]
 - [[llm_tool_use]]
 - [[agentic_design_patterns]]
-- [MCP overview](../../ai/mcp/index.md)
+- [MCP overview](../../ai/mcp/mcp.md)
 - [Qdrant documentation](https://qdrant.tech/documentation/)
 - [pgvector](https://github.com/pgvector/pgvector)

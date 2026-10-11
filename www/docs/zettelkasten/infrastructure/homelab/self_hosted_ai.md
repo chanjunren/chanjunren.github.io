@@ -20,7 +20,7 @@ sequenceDiagram
   A-->>U: Answer or approved action result
 ```
 
-Ollama serves models through a CLI and HTTP API. LiteLLM can route model aliases through a common API. Gateways also receive prompts and credentials. Tool calls remain proposals; applications authorize and execute them. See the [LLM gateway](../../ai/gateway/index.md), [[llm_tool_use]], and the [MCP overview](../../ai/mcp/index.md).
+Ollama serves models through a CLI and HTTP API. LiteLLM can route model aliases through a common API. Gateways also receive prompts and credentials. Tool calls remain proposals; applications authorize and execute them. See the [LLM gateway](../../ai/gateway/gateway.md), [[llm_tool_use]], and the [MCP overview](../../ai/mcp/mcp.md).
 
 ## Where to run inference
 
@@ -35,7 +35,7 @@ Local inference reduces provider sharing but does not guarantee privacy. Logs, b
 - Direct Ollama access is simpler for one client.
 - MCP servers expose tools and resources.
 - Hosts select servers and enforce authorization.
-- See [[mcp_architecture]] and [[mcp_authorization]].
+- See [[architecture]] and [[authorization]].
 - Use another host when NAS compute is insufficient.
 - Hosted models trade local control for provider dependence.
 
@@ -48,6 +48,6 @@ Run a small model and measure memory and latency. Call it from a minimal app. Ad
 - [[ai_overview]]
 - [[gateway_operations]]
 - [[request_routing]]
-- [MCP overview](../../ai/mcp/index.md)
+- [MCP overview](../../ai/mcp/mcp.md)
 - [Ollama documentation](https://docs.ollama.com/)
 - [Ollama official Docker image](https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image)

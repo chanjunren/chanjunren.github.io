@@ -8,7 +8,7 @@ When building with Claude, first decide what you are making: a reusable connecti
 
 | You want to... | Start with | You control |
 |---|---|---|
-| Expose tools or data to AI applications | An [MCP](../mcp/index.md) server | Capabilities and server policy |
+| Expose tools or data to AI applications | An [MCP](../mcp/mcp.md) server | Capabilities and server policy |
 | Build a multi-step Claude feature | [[claude_agent_sdk]] | Goal, tools, and runtime configuration |
 | Own every step of the runtime | Direct API calls and your own loop | Tool dispatch, state, retries, and approvals |
 
@@ -29,5 +29,5 @@ These approaches can work together. For example, build an MCP server once for an
 
 - [[ai_overview]]
 - [[claude_agent_sdk]]
-- [MCP overview](../mcp/index.md)
+- [MCP overview](../mcp/mcp.md)
 - [[agentic_design_patterns]]

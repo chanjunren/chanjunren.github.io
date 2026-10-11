@@ -53,14 +53,14 @@ These concepts sit at different levels:
 - **SSE** is one HTTP mechanism for sending a sequence of server events.
 - **MCP Streamable HTTP** is a JSON-RPC transport that may use SSE for streamed responses or long-lived change notifications.
 
-So an AI chat API may use SSE without being MCP. An MCP server may use Streamable HTTP without keeping a permanent SSE connection open. [[mcp_transports]] explains that boundary.
+So an AI chat API may use SSE without being MCP. An MCP server may use Streamable HTTP without keeping a permanent SSE connection open. [[transports]] explains that boundary.
 
 ---
 ## References
 - [[long_polling]]
 - [[websocket_protocol]]
 - [[realtime_patterns_comparison]]
-- [[mcp_transports]]
+- [[transports]]
 - [Server-Sent Events — WHATWG HTML Standard](https://html.spec.whatwg.org/multipage/server-sent-events.html)
 - [Using server-sent events — MDN](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
 - [MCP Transports — official specification](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports)

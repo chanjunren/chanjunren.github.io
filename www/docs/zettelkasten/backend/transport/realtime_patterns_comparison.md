@@ -48,7 +48,7 @@ All persistent-connection approaches ([[long_polling]], [[server_sent_events]], 
 
 - [[load_balancer]] — sticky sessions for stateful connections, health checks for WebSocket backends.
 - [[api_gateway]] — must understand `Upgrade` headers to proxy WebSocket. Most modern gateways (NGINX, Kong, Envoy) do.
-- [[mcp_transports]] — MCP Streamable HTTP uses HTTP POST with optional SSE responses. Real-world example of combining request/response with streaming.
+- [[transports]] — MCP Streamable HTTP uses HTTP POST with optional SSE responses. Real-world example of combining request/response with streaming.
 - [[circuit_breaker_pattern]] — upstream circuit breakers for WebSocket reconnection storms.
 
 ## Related

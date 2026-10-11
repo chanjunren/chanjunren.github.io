@@ -21,7 +21,7 @@ The model can propose an action. The application must decide whether to allow an
 
 ### Connect a model
 
-- Start with [LLM gateways](gateway/index.md) to understand routing, aliases, and trust boundaries.
+- Start with [LLM gateways](gateway/gateway.md) to understand routing, aliases, and trust boundaries.
 - Follow [the request path](gateway/request_routing.md) from an application client to a model server.
 - Read [gateway operations](gateway/gateway_operations.md) for configuration, credentials, deployment, and open decisions.
 
@@ -34,10 +34,10 @@ The model can propose an action. The application must decide whether to allow an
 
 ### Connect external systems
 
-- Start with the [MCP overview](mcp/index.md).
-- Read [MCP architecture](mcp/mcp_architecture.md) and [transports](mcp/mcp_transports.md).
-- Read [[mcp_authorization]] only when a remote server needs user-authorized access.
-- Read [[custom_mcp_servers]] when an existing server cannot safely expose your system.
+- Start with the [MCP overview](mcp/mcp.md).
+- Read [MCP architecture](mcp/architecture.md) and [transports](mcp/transports.md).
+- Read [[authorization]] only when a remote server needs user-authorized access.
+- Read [[custom_servers]] when an existing server cannot safely expose your system.
 - Follow [connector registration](mcp/connector_registration_flow.md) and [tool invocation](mcp/tool_invocation_flow.md) to see how MCP fits into an application.
 
 ## How the ideas fit
@@ -63,5 +63,5 @@ The gateway routes model requests. The application still owns conversation state
 
 - [[llm_tool_use]]
 - [[agentic_design_patterns]]
-- [MCP overview](mcp/index.md)
+- [MCP overview](mcp/mcp.md)
 - [What is MCP?](https://modelcontextprotocol.io/docs/getting-started/intro)

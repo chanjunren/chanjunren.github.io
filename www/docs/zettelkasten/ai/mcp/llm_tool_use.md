@@ -2,31 +2,20 @@
 
 # llm_tool_use
 
-**Tool use** lets a model request an action from an application, then use the result in its next response. It gives a language model a controlled way to access current data and perform work.
+**Tool use** lets a model request an operation and use its result. The application executes the request.
 
 ```text
-user request -> model proposes tool call -> application validates and runs it -> result returns to model
+request → model proposes call → application checks and executes → model receives result
 ```
 
-## The boundary that matters
+## Who controls execution
 
-The model chooses whether a tool seems useful and proposes arguments. The application owns execution: it authenticates, authorizes, validates inputs, applies limits, handles errors, and records side effects.
+The model proposes a tool name and arguments. The application validates inputs, checks permissions, applies limits, and runs the tool. A schema describes valid input; it grants no permission.
 
-A tool schema helps produce well-formed input. It is not a permission check. Treat a model-generated call as untrusted input.
+Use tools for fresh data, external actions, or reliable computation. Prefer narrow operations, such as `search_docs`, over unrestricted shells.
 
-## When tool use helps
-
-Use it when the task needs current or private data, an action in another system, or a reliable computation. Do not add a tool when the model can answer safely from its existing context.
-
-Narrow tools are easier to understand and secure than a single tool with many unrelated powers.
-
-## Relation to MCP
-
-Tool use is the model-to-application interaction. [MCP](index.md) is one standard way for an application to discover and communicate with tool servers. They solve different parts of the system.
+[MCP](mcp.md) connects the application to external capability servers. Tool use describes the broader model–application loop.
 
 ## References
 
-- [[ai_overview]]
-- [MCP overview](index.md)
 - [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)
-- [Function calling](https://platform.openai.com/docs/guides/function-calling)
