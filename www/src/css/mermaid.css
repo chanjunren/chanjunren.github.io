@@ -1,0 +1,24 @@
+/* Rosé Pine Moon panel behind diagrams; colours live in configs/mermaid.ts */
+.docusaurus-mermaid-container {
+  background: #232136;
+  border-radius: var(--ifm-code-border-radius);
+  padding: 1rem;
+  margin-bottom: var(--ifm-leading);
+  /* Diagrams render at natural size, so wide ones scroll instead of shrinking. */
+  overflow-x: auto;
+}
+
+/* Undo the global `svg { max-width: 100% }` reset so diagrams keep their size. */
+.docusaurus-mermaid-container svg {
+  max-width: none !important;
+}
+
+/* Wardley maps hard-code black and get no mermaid stylesheet, so themeCSS can't
+   reach them. Colours match N.text and N.faint in configs/mermaid.ts. */
+.docusaurus-mermaid-container .wardley-node--anchor .wardley-node-label {
+  fill: #e0def4;
+}
+
+.docusaurus-mermaid-container .wardley-stages line {
+  stroke: #3d3b51;
+}

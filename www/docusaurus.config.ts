@@ -7,6 +7,7 @@ import {
   VaultusaurusPluginOptions,
 } from "vaultusaurus";
 import ALGOLIA_CONFIG from "./configs/algolia";
+import MERMAID_CONFIG from "./configs/mermaid";
 import PRISM_CONFIG from "./configs/prism";
 import pluginIdealImage from "./plugins/ideal-image.cjs";
 import tailwindPlugin from "./plugins/tailwind.cjs";
@@ -61,6 +62,11 @@ const config: Config = {
     locales: ["en"],
   },
 
+  markdown: {
+    mermaid: true,
+  },
+  themes: ["@docusaurus/theme-mermaid"],
+
   presets: [
     [
       "classic",
@@ -104,6 +110,7 @@ const config: Config = {
     },
     algolia: ALGOLIA_CONFIG,
     prism: PRISM_CONFIG,
+    mermaid: MERMAID_CONFIG,
   } satisfies Preset.ThemeConfig,
   plugins: [
     tailwindPlugin,

@@ -1,0 +1,142 @@
+/*
+ * Docs focus mode, toggled by src/components/docs/focus-mode.tsx.
+ * The layout switches in one step; a view transition animates between
+ * snapshots, so the page is not re-laid-out on every frame.
+ */
+/* Toggle button: lines up with the sidebar links and looks like one of them. */
+.doc-focus-button {
+  display: none;
+}
+
+@media (min-width: 997px) {
+  .doc-focus-button {
+    position: fixed;
+    z-index: 50;
+    top: 2.5rem;
+    left: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 1.875rem;
+    padding: 0.375rem 0.5rem;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--reduced-emphasis-color);
+    cursor: pointer;
+    transition: background-color 150ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .doc-focus-button:hover,
+  .doc-focus-button:focus-visible {
+    background-color: var(--gray-transparent-bg);
+  }
+
+  .doc-focus-button svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /*
+   * Reserve the button's row on the sidebar's sticky wrapper rather than the
+   * scrolling aside or list, so the list's scroll area always starts below
+   * the button, however far the page or the list is scrolled.
+   */
+  .theme-doc-sidebar-container > div {
+    padding-top: 5rem;
+  }
+
+  .theme-doc-sidebar-container {
+    padding-top: 0 !important;
+    view-transition-name: doc-sidebar;
+    /* Docusaurus' own width transition would fight the snapshot. */
+    transition: none;
+  }
+
+  .col[class*="docItemCol_"] {
+    view-transition-name: doc-content;
+  }
+
+  .col[class*="docItemCol_"] + .col--3 {
+    view-transition-name: doc-panel;
+  }
+
+  :root[data-doc-focus] {
+    --doc-sidebar-width: 0px;
+  }
+
+  /* Removed outright, so the transition sees them leave and slides them out. */
+  :root[data-doc-focus] .theme-doc-sidebar-container,
+  :root[data-doc-focus] .col[class*="docItemCol_"] + .col--3 {
+    display: none;
+  }
+
+  :root[data-doc-focus] .col[class*="docItemCol_"] {
+    max-width: 900px !important;
+    margin-inline: auto;
+  }
+}
+
+::view-transition-group(doc-sidebar),
+::view-transition-group(doc-content),
+::view-transition-group(doc-panel) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/*
+ * The note re-wraps at its new width. Show only the final layout, unstretched,
+ * sliding into place and revealed as the column grows or shrinks; cross-fading
+ * the two layouts would ghost the text.
+ */
+::view-transition-group(doc-content) {
+  overflow: clip;
+}
+::view-transition-old(doc-content) {
+  display: none;
+}
+::view-transition-new(doc-content) {
+  animation: none;
+  height: 100%;
+  object-fit: none;
+  object-position: left top;
+}
+
+/* Panels slide off their own edge and back. */
+::view-transition-old(doc-sidebar):only-child {
+  animation: 280ms ease-in both doc-focus-out-left;
+}
+::view-transition-new(doc-sidebar):only-child {
+  animation: 420ms cubic-bezier(0.22, 1, 0.36, 1) both doc-focus-in-left;
+}
+::view-transition-old(doc-panel):only-child {
+  animation: 280ms ease-in both doc-focus-out-right;
+}
+::view-transition-new(doc-panel):only-child {
+  animation: 420ms cubic-bezier(0.22, 1, 0.36, 1) both doc-focus-in-right;
+}
+
+@keyframes doc-focus-out-left {
+  to {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+}
+@keyframes doc-focus-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+}
+@keyframes doc-focus-out-right {
+  to {
+    opacity: 0;
+    transform: translateX(2rem);
+  }
+}
+@keyframes doc-focus-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(2rem);
+  }
+}
