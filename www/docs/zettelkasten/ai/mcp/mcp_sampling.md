@@ -1,8 +1,8 @@
-🗓️ 19092026 2037
+🗓️ 11102026 1520
 
 # mcp_sampling
 
-**Sampling** lets an MCP server ask its client to obtain a model response. The server can use that response while handling a request without storing its own model API key.
+**Sampling** was a client capability that let an MCP server ask its client for a model response. It is deprecated in the current MCP revision (`2026-07-28`); new integrations should not depend on it.
 
 ```text
 MCP server asks client for a completion -> client applies its policy -> model response returns to server
@@ -16,10 +16,11 @@ The client remains in control. It chooses whether to allow the request, which mo
 
 ## When it helps
 
-Sampling is useful when a server needs language-model work as part of its own task, such as classifying data or drafting a summary. It is an advanced feature. Most MCP servers only expose tools and do not need to invoke a model themselves.
+Older servers used sampling for model work such as classification or summarization. Current architecture guidance recommends that a server needing model work call a provider API directly. That choice gives the server owner responsibility for credentials, privacy, model selection, and policy. Most MCP servers only expose capabilities and do not need model access.
 
 ## References
 
 - [[mcp_architecture]]
 - [[llm_tool_use]]
-- [MCP sampling](https://modelcontextprotocol.io/docs/learn/client-concepts/sampling)
+- [Current MCP architecture](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)
+- [Current MCP specification](https://modelcontextprotocol.io/specification/2026-07-28)

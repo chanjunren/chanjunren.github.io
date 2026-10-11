@@ -1,0 +1,8 @@
+{
+  "label": "home_lab",
+  "position": 2,
+  "link": {
+    "type": "doc",
+    "id": "zettelkasten/infrastructure/homelab/index"
+  }
+}

@@ -1,4 +1,4 @@
-🗓️ 19092026 2037
+🗓️ 11102026 1520
 
 # mcp_transports
 
@@ -6,18 +6,18 @@ An MCP **transport** moves protocol messages between a client and server. It cha
 
 ## Two standard choices
 
-| Transport | Best for | Mental model |
+| Transport | Typical boundary | Message delivery |
 |---|---|---|
-| Standard input/output | Local, single-user tools | Host starts the server as a subprocess |
-| Streamable HTTP | Remote or shared services | Server runs independently behind an HTTP endpoint |
+| stdio | Local subprocess | Newline-delimited JSON-RPC over standard streams |
+| Streamable HTTP | Remote or shared server | HTTP POST; JSON or request-scoped SSE response |
 
-With standard input/output, protocol messages use the server's input and output streams. Logs belong on the error stream so they do not corrupt protocol messages.
+With stdio, the host launches the server process. Protocol messages use standard input and output; diagnostic logs go to standard error so they cannot corrupt the message stream.
 
-With Streamable HTTP, clients send requests to one HTTP endpoint. The response can be ordinary JSON or an event stream when the server needs to send more than one message.
+With Streamable HTTP, clients POST messages to one endpoint. A response can be JSON or a request-scoped server-sent event stream. Closing the response stream cancels the in-flight request. Authentication and HTTP security rules apply at this boundary.
 
 ## Choose by deployment boundary
 
-Choose standard input/output when the server belongs on the same machine as the host. Choose Streamable HTTP when several hosts need a reachable service. Remote servers add operational work: authentication, origin checks, network failures, and timeouts.
+Choose stdio for a host-managed local process. Choose Streamable HTTP for a separately deployed service. Remote access adds authentication, origin validation, network failure, timeout, and cancellation concerns. Transport changes message delivery, not protocol meaning.
 
 The model does not speak the transport directly. The host and its MCP client do.
 
@@ -25,4 +25,5 @@ The model does not speak the transport directly. The host and its MCP client do.
 
 - [[mcp_architecture]]
 - [[mcp_authorization]]
-- [MCP transports specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports)
+- [MCP transports specification, 2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports)
+- [MCP security best practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices)

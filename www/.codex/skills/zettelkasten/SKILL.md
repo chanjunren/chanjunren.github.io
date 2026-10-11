@@ -34,6 +34,26 @@ Create notes that answer a real learning or reference need. Do not preserve exis
 - Explain important boundaries and common misreadings. Avoid encyclopedic detail.
 - Put formulas, commands, code, and edge cases after the explanation they support.
 
+### Explain mechanisms and connections
+
+- Optimize for understanding how a thing works and how its parts interact.
+- Follow the causal path: trigger → mechanism → state or output → consequence.
+- Explain relevant layers, ownership boundaries, and handoffs between components.
+- Trace one representative path end to end when it makes interactions concrete.
+- Include details that explain behavior, decisions, limits, or failure modes; omit trivia and adjacent facts that do not advance the reader's model.
+- Separate verified implementation facts from assumptions and useful approximations.
+- Prefer a few purposeful headings and grouped ideas. Use prose for causal explanations and lists for items readers need to scan.
+- Keep explanations compact without removing the steps needed to understand the mechanism.
+
+### Use Mermaid diagrams
+
+- Use Mermaid when a flow, sequence, state transition, dependency, or system boundary is easier to understand visually.
+- Write diagrams in fenced `mermaid` blocks; this repository renders them through Docusaurus.
+- Keep each diagram focused on one question, with labels that name real components, actions, or states.
+- Pair diagrams with prose that explains the important path, handoffs, and implications; do not make the diagram carry the whole explanation.
+- Omit diagrams that repeat the prose or add visual complexity without clarifying relationships.
+- Check that diagram claims match the note's evidence and scope. A diagram is a model, not proof that every path or feature is enabled.
+
 For observability notes, prefer this reasoning chain when relevant:
 
 `system mechanism → exporter measurement → metric type and labels → PromQL transformation → panel meaning → diagnostic action`

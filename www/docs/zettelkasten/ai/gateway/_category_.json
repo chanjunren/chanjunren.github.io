@@ -1,0 +1,8 @@
+{
+  "label": "LLM gateway",
+  "position": 2,
+  "link": {
+    "type": "doc",
+    "id": "zettelkasten/ai/gateway/index"
+  }
+}
