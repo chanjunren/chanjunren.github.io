@@ -1,23 +1,14 @@
 import {GalleryProjectInfo} from "@site/src/types";
 import SecondaryHeader from "@site/src/components/ui/secondary-header";
-import SimpleCard from "@site/src/components/ui/simple-card";
 import Experiments from "@site/src/components/projects/pixelLab/experiments";
+import PixelLabCard from "@site/src/components/projects/pixelLab/card";
 
 const PixelLabInfo: GalleryProjectInfo = {
   id: "pixelLab",
   title: "Pixel Lab",
   subtitle: "CSS / SVG Exploration",
   containerCss: "md:col-span-3",
-  card: ({onClick}) => (
-    <SimpleCard
-      onClick={onClick}
-      className="cursor-pointer rounded-lg relative"
-    >
-      <p className="text-3xl absolute top-1/2 left-1/2 m-0 transform -translate-x-1/2 -translate-y-1/2">
-        📟
-      </p>
-    </SimpleCard>
-  ),
+  card: PixelLabCard,
   banner: () => <Experiments/>,
   description: () => (
     <div className="flex flex-col w-full gap-5">
