@@ -20,7 +20,7 @@ The `/etc/hosts` file is a **local DNS override file** that maps hostnames to IP
 1. **Browser cache**
 2. **Operating system cache**
 3. **`/etc/hosts` file** ⬅️ **THIS FILE** - checked before DNS!
-4. **DNS resolver** ([[networking_interfaces]]'s `/etc/resolv.conf` - configured DNS servers like 8.8.8.8)
+4. **DNS resolver** ([[interface_tools]]'s `/etc/resolv.conf` - configured DNS servers like 8.8.8.8)
 
 This is why editing `/etc/hosts` bypasses all [[dns_tools]] queries!
 
@@ -220,7 +220,7 @@ PING example.com (93.184.216.34): 56 data bytes
 → **Works!** System used `/etc/hosts` instead of broken DNS
 
 ### Why This Worked
-1. Your DNS resolver (from [[networking_interfaces]]'s `/etc/resolv.conf`) was returning NXDOMAIN
+1. Your DNS resolver (from [[interface_tools]]'s `/etc/resolv.conf`) was returning NXDOMAIN
 2. `/etc/hosts` is checked **BEFORE** DNS queries
 3. System found `example.com` in `/etc/hosts` → used that IP
 4. Never queried broken DNS server!

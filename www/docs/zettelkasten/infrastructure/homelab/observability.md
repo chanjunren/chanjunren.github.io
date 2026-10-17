@@ -20,7 +20,7 @@ Metrics measure values over time; logs record events. Dashboards summarize signa
 
 ## A practical starting stack
 
-- Prometheus collects metrics; Grafana displays them. See [[prometheus_learning_path]].
+- Prometheus collects metrics; Grafana displays them. See [[metrics_learning_path]].
 - node_exporter exposes Linux host metrics.
 - cAdvisor reports container resource use.
 - Alertmanager routes actionable Prometheus alerts.
@@ -37,7 +37,7 @@ Monitor a Linux host and container. Dashboard CPU, memory, disk, and restarts. S
 
 ## References
 
-- [[prometheus_learning_path]]
+- [[metrics_learning_path]]
 - [[node_exporter_host_metrics]]
 - [[cadvisor_container_metrics]]
 - [[health_checks]]

@@ -79,7 +79,7 @@ Behavior:
 
 Default setup:
 - Each container gets own network namespace
-- Containers on same [[docker_networking]] network can communicate by name
+- Containers on same [[container_networking]] network can communicate by name
 - Port mapping (`-p 8080:80`) exposes container ports to host
 
 ## Common Pitfalls

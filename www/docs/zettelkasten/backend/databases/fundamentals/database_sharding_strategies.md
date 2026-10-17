@@ -121,7 +121,7 @@ Adding capacity is the biggest operational pain.
 ## Related
 
 - [[consistent_hashing]] — minimises rehashing on N changes.
-- [[redis_cluster]] — fixed-slot variant.
+- [[cluster_topology]] — fixed-slot variant.
 - [[two_phase_commit]] — cross-shard atomicity option (rarely good).
 - [[saga_pattern]] — saga-based cross-shard alternative.
 

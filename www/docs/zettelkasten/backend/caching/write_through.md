@@ -28,7 +28,7 @@ The cache is populated before success is returned. An implementation must also d
 
 Suppose the source commit succeeds but the cache update fails. Reporting failure does not undo the committed write. Define retry, invalidation, and recovery behavior.
 
-Concurrent writers or older cache fills can overwrite newer entries. Source writes bypassing the cache also leave it stale. The pattern alone does not guarantee strong [[cache_consistency]].
+Concurrent writers or older cache fills can overwrite newer entries. Source writes bypassing the cache also leave it stale. The pattern alone does not guarantee strong [[consistency]].
 
 Use [[write_back]] when source persistence is deferred.
 

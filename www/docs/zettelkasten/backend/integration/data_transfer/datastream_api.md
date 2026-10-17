@@ -2,7 +2,7 @@
 
 # datastream_api
 
-> [[flink]]'s data stream API
+> [[stream_processing_fundamentals]]'s data stream API
 
 ## What can you stream using datastream APIs?
 

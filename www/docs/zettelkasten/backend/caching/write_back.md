@@ -4,7 +4,7 @@
 
 **Write-back**, also called **write-behind**, accepts a write before persisting it to the backing source. Pending writes must survive until they are flushed.
 
-Unlike [[cache_aside]], the cache or its queue may hold the only current copy.
+Unlike [[aside_pattern]], the cache or its queue may hold the only current copy.
 
 ## Write path
 

@@ -47,6 +47,6 @@
 ## Bridges to Other Domains
 
 - → Distributed systems: [[moc_distributed_systems]] — CAP, quorum, consistency models, Raft.
-- → Caching: [[redis_cluster]], `redis_distributed_lock` *(planned)* — cache + DB consistency.
-- → Messaging: [[message_queue]], [[exactly_once_semantics]] — outbox feeds these.
+- → Caching: [[cluster_topology]], `redis_distributed_lock` *(planned)* — cache + DB consistency.
+- → Messaging: [[../../integration/messaging/queue]], [[exactly_once_semantics]] — outbox feeds these.
 - → Spring/Java: `spring_transaction_propagation` *(planned)*, `spring_aop_proxies_jdk_vs_cglib` *(planned)* — `@Transactional` semantics.

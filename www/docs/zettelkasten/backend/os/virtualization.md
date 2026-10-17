@@ -23,7 +23,7 @@
 - Multiple isolated user spaces share same kernel
 - Lightweight and fast
 - Can only run applications compatible with host kernel
-- See [[docker_overview]] for container details
+- See [[container_platform]] for container details
 
 Key distinction: VMs virtualize hardware (can run different OS types), containers virtualize OS (share kernel).
 
@@ -54,7 +54,7 @@ Pattern: Type 1 for production workloads and server consolidation. Type 2 for de
 - Shared kernel, MBs in size, seconds to start
 - Process-level isolation
 - Use when application-level isolation sufficient, need fast startup/scaling, want resource efficiency, or building microservices
-- Covered in [[docker_overview]]
+- Covered in [[container_platform]]
 
 Pattern: VMs for OS isolation, containers for application isolation. Or combine: run containers within VMs for both levels.
 

@@ -46,7 +46,7 @@
 - HTTP/HTTPS only by default (TCP/UDP needs workarounds)
 - Controller-specific annotations (vendor lock-in)
 - Learning curve for Kubernetes concepts
-- Limited compared to full [[api_gateway]]
+- Limited compared to full [[gateway_patterns]]
 
 ## Key Distinctions
 
@@ -58,7 +58,7 @@
 **Ingress Controller vs API Gateway:**
 - **Ingress**: Basic routing, SSL, Kubernetes-native
 - **API Gateway**: Advanced features (auth, rate limiting, transformation)
-- Ingress is simpler; Gateway ([[api_gateway]]) is more feature-rich
+- Ingress is simpler; Gateway ([[gateway_patterns]]) is more feature-rich
 - Many API Gateways can function as Ingress Controllers
 
 **Ingress vs Gateway API:**
@@ -66,7 +66,7 @@
 - **Gateway API**: Newer, protocol-agnostic, role-oriented, more expressive
 - Gateway API is successor to Ingress (more powerful)
 
-This is a Kubernetes-specific implementation of [[reverse_proxy]] and [[load_balancer]] concepts. Often extended with [[api_gateway]] features through annotations or custom controllers.
+This is a Kubernetes-specific implementation of [[reverse_proxy]] and [[load_balancer]] concepts. Often extended with [[gateway_patterns]] features through annotations or custom controllers.
 
 ## Common Patterns
 

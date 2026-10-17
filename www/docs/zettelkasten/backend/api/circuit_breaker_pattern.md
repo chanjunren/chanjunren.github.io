@@ -49,7 +49,7 @@ Resilience4j (the Java go-to) lets you configure all of these. Hystrix (legacy, 
 
 ## Sliding Windows
 
-Same trade-offs as [[rate_limiting_algorithms]]:
+Same trade-offs as [[../rate_limiting/algorithms]]:
 
 - **Count-based window** — last N calls. Quick to react; small N is twitchy.
 - **Time-based window** — last T seconds. Smoother; bigger memory cost.
@@ -78,7 +78,7 @@ A breaker rarely lives alone:
 | **Bulkhead**        | Isolates resources (threads, connections) per downstream. Limits blast radius if breaker is slow to trip. |
 | **Retry with [[retry_backoff_jitter]]** | Retry only on transient errors; never retry past an open breaker. |
 | **Fallback**        | Cached value, default response, or graceful degradation when breaker is open. |
-| **[[rate_limiting_algorithms]]** | Caps inbound traffic; complements outbound circuit. |
+| **[[../rate_limiting/algorithms]]** | Caps inbound traffic; complements outbound circuit. |
 
 The standard outer-to-inner stack: **rate limit → bulkhead → timeout → circuit breaker → retry → call**.
 
@@ -104,7 +104,7 @@ The standard outer-to-inner stack: **rate limit → bulkhead → timeout → cir
 ## Related
 
 - [[retry_backoff_jitter]] — pair with breakers to avoid retry storms after recovery.
-- [[rate_limiting_algorithms]] — inbound complement to the outbound breaker.
+- [[../rate_limiting/algorithms]] — inbound complement to the outbound breaker.
 - [[http_status_codes_semantics]] — what 5xx triggers the breaker on.
 - [[idempotency_keys_api_design]] — idempotency makes retries-after-recovery safe.
 - `bulkhead_pattern` *(planned)* — resource isolation companion.

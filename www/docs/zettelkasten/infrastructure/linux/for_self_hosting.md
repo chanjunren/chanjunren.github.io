@@ -41,7 +41,7 @@ On Linux, `systemctl` controls services; `journalctl` reads logs. `ps` and `top`
 - systemd manages services and logs on many distributions.
 - Other systems use different service managers.
 - Containers still rely on host kernel, storage, and networking.
-- See [[virtualization_containers]] and [[learning_path]].
+- See [[virtualization_containers]] and [[container_learning_path]].
 - Documented configuration is easier to reproduce and recover.
 
 ## Hands-on project

@@ -60,7 +60,7 @@
 - **Layer 7 (Application)**: Routes based on HTTP headers/URL, slower, more features
 - L4 for raw performance; L7 for intelligent routing
 
-This is a specific use case of [[reverse_proxy]] focused on traffic distribution. Often combined with [[api_gateway]] for comprehensive API management.
+This is a specific use case of [[reverse_proxy]] focused on traffic distribution. Often combined with [[gateway_patterns]] for comprehensive API management.
 
 ## Load Balancing Algorithms
 

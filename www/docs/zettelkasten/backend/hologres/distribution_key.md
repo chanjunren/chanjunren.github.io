@@ -4,7 +4,7 @@
 
 ## When to use
 - GROUP BY / JOIN operations frequently performed
-- Prevent [[data_skew]]
+- Prevent [[../data_systems/skew]]
 
 ```ad-tldr
 The distribution key helps evenly distribute data on compute nodes

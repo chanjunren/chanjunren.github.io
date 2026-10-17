@@ -34,6 +34,6 @@
 ## Bridges to Other Domains
 
 - → DB internals: [[ACID]], [[concurrency_control]], [[mvcc_innodb_read_view]], [[transaction_isolation_levels]].
-- → Caching: [[redis_cluster]], `redis_distributed_lock` *(planned)*.
+- → Caching: [[cluster_topology]], `redis_distributed_lock` *(planned)*.
 - → Messaging: [[exactly_once_semantics]], `kafka_architecture` *(planned)*.
 - → System design templates: `system_design_framework` *(planned)*, `back_of_envelope_estimation` *(planned)*.

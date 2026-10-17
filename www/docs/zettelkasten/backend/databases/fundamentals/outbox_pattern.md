@@ -126,7 +126,7 @@ CREATE TABLE outbox (
 - [[saga_pattern]] — outbox is how each saga step reliably publishes its event.
 - [[exactly_once_semantics]] — what consumers downstream still have to enforce.
 - [[two_phase_commit]] — the heavyweight alternative outbox replaces.
-- [[message_queue]] — outbox is producer-side; consumer side handles dedup.
+- [[../../integration/messaging/queue]] — outbox is producer-side; consumer side handles dedup.
 
 ---
 

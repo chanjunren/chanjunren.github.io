@@ -26,7 +26,7 @@
 
 ## When Not to Use
 
-- Single frontend type (use regular [[api_gateway]])
+- Single frontend type (use regular [[gateway_patterns]])
 - Frontends share identical data requirements
 - Small application where single API serves all clients well
 - Team too small to maintain multiple BFFs
@@ -55,7 +55,7 @@
 **BFF vs API Gateway:**
 - **BFF**: Multiple specialized backends (one per client type), owned by frontend teams
 - **API Gateway**: Single entry point for all clients, shared infrastructure
-- BFF is client-specific; Gateway ([[api_gateway]]) is client-agnostic
+- BFF is client-specific; Gateway ([[gateway_patterns]]) is client-agnostic
 - Often used together: Gateway in front of BFFs
 
 **BFF vs GraphQL:**
@@ -64,7 +64,7 @@
 - GraphQL can eliminate need for BFFs (clients compose queries)
 - BFF gives more server-side control; GraphQL gives more client flexibility
 
-This builds on [[api_gateway]] by adding client-specific specialization. Compare with [[reverse_proxy]] which is more generic.
+This builds on [[gateway_patterns]] by adding client-specific specialization. Compare with [[reverse_proxy]] which is more generic.
 
 ## Common Patterns
 

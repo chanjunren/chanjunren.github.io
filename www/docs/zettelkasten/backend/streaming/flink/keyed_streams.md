@@ -3,7 +3,7 @@
 # keyed_streams
 
 ```ad-abstract
-One very common use case for Apache [[flink]] is to implement ETL (extract, transform, load) pipelines that
+One very common use case for Apache [[stream_processing_fundamentals]] is to implement ETL (extract, transform, load) pipelines that
 
 1. Take data from one or more sources
 2. Perform some transformations and/or enrichments

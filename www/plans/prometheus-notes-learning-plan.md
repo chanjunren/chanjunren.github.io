@@ -88,7 +88,7 @@ These may ultimately be consolidated into fewer notes if each remains readable. 
 
 ### 1. Foundations: what Prometheus stores
 
-- `prometheus_learning_path` — entry point, outcomes, reading order, exercises
+- `metrics_learning_path` — entry point, outcomes, reading order, exercises
 - `prometheus_architecture` — target, exporter, scrape, sample, TSDB, remote write, Grafana
 - `time_series_basics` — sample, series, metric name, label set, scrape interval, staleness
 - `prometheus_metric_types` — counter, gauge, classic/native histogram, summary
@@ -176,7 +176,7 @@ Deliverable: clean inventory and agreed rename map.
 
 ### Phase 1 — build the learning spine
 
-- Create `prometheus_learning_path`.
+- Create `metrics_learning_path`.
 - Rewrite the architecture overview around the end-to-end data flow.
 - Refactor time series, metric types, vector basics, and rates/windows.
 - Add “what you should now be able to explain” checks to the learning path, not to every atomic note.

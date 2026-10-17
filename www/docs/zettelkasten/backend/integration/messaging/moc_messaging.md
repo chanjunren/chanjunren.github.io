@@ -20,9 +20,9 @@
 6. [[idempotent_consumer_pattern]] — consumer side; survive at-least-once redelivery.
 
 ### Existing in Cluster
-- [[message_queue]] — the broader messaging primitive (existing).
+- [[queue]] — the broader messaging primitive (existing).
 - [[kafka_cli_cheatsheet]] — operational commands (existing).
-- [[flink]] — stream processing on top of Kafka (existing).
+- [[stream_processing_fundamentals]] — stream processing on top of Kafka (existing).
 
 ### Planned
 - `kafka_consumer_rebalancing` — group coordinator and partition reassignment.

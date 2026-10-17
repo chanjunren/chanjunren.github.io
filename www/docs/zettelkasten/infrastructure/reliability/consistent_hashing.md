@@ -54,7 +54,7 @@ Bonus: when a node fails, its load distributes across *all* remaining nodes (bec
 | Memcached (clients) | Client-side consistent hashing (e.g. ketama) routes keys to servers without coordination. |
 | Riak            | 64-bit ring divided into fixed partitions assigned to nodes.                         |
 
-**Redis Cluster does NOT use consistent hashing** — it uses 16384 fixed slots assigned to nodes (see [[redis_cluster]]). Different scheme, similar goal: bounded data movement on resharding.
+**Redis Cluster does NOT use consistent hashing** — it uses 16384 fixed slots assigned to nodes (see [[cluster_topology]]). Different scheme, similar goal: bounded data movement on resharding.
 
 ## Common Pitfalls
 
@@ -66,7 +66,7 @@ Bonus: when a node fails, its load distributes across *all* remaining nodes (bec
 
 ## Related
 
-- [[redis_cluster]] — fixed-slot variant of the same problem.
+- [[cluster_topology]] — fixed-slot variant of the same problem.
 - [[quorum_reads_writes]] — replication on the ring with N/W/R.
 - [[cap_theorem]] — Dynamo-style systems built on consistent hashing are typically AP.
 

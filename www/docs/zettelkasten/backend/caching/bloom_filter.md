@@ -4,7 +4,7 @@
 
 A **Bloom filter** is a compact membership test. It answers **definitely absent** or **possibly present** for the set inserted into it.
 
-It can reject nonexistent keys before expensive lookups in [[cache_penetration]] protection.
+It can reject nonexistent keys before expensive lookups in [[penetration]] protection.
 
 ## Bit-array model
 

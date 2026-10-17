@@ -3,7 +3,7 @@
 # commands
 
 **What it is:**
-- CLI interface for managing [[image]]s, [[container]]s, [[volumes]], and [[docker_networking]]
+- CLI interface for managing [[image]]s, [[container]]s, [[volumes]], and [[container_networking]]
 - Commands follow pattern: `docker <object> <verb>` (e.g. `docker container ls`)
 
 **Problem it solves:**

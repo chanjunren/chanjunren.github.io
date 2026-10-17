@@ -3,6 +3,6 @@
   "position": 1,
   "link": {
     "type": "doc",
-    "id": "zettelkasten/infrastructure/prometheus/prometheus_learning_path"
+    "id": "zettelkasten/infrastructure/prometheus/metrics_learning_path"
   }
 }

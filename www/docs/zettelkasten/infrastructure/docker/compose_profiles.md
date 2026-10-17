@@ -30,7 +30,7 @@ One compose file, different profiles per client:
 - Each client's app/worker/cache tagged with their profile
 - Activate only the client stack you need
 
-Combine with per-client [[docker_networking]] networks for true network isolation between client stacks.
+Combine with per-client [[container_networking]] networks for true network isolation between client stacks.
 
 ## When to Use
 

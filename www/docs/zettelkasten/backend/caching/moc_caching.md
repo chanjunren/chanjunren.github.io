@@ -6,11 +6,11 @@ Start here to understand cache behavior, choose read and write paths, and protec
 
 ## Reading path
 
-1. [[cache_basics]]: entry lifecycle and hit-rate interpretation.
-2. [[cache_aside]]: application-managed loading and invalidation.
-3. [[cache_consistency]]: stale fills and freshness guarantees.
-4. [[cache_patterns]]: compare loading and persistence.
-5. [[cache_failures]]: identify the miss pattern.
+1. [[fundamentals]]: entry lifecycle and hit-rate interpretation.
+2. [[aside_pattern]]: application-managed loading and invalidation.
+3. [[consistency]]: stale fills and freshness guarantees.
+4. [[read_write_patterns]]: compare loading and persistence.
+5. [[failure_modes]]: identify the miss pattern.
 
 ## Follow the problem
 
@@ -18,16 +18,16 @@ Start here to understand cache behavior, choose read and write paths, and protec
 | --- | --- |
 | Who should handle misses? | [[read_through]] |
 | Should writes wait for source persistence? | [[write_through]], [[write_back]] |
-| Why do absent keys keep reaching the source? | [[cache_penetration]] |
+| Why do absent keys keep reaching the source? | [[penetration]] |
 | How can we reject absent keys cheaply? | [[bloom_filter]] |
-| Why does one miss trigger many source loads? | [[cache_stampede]] |
-| What if many entries disappear together? | [[cache_avalanche]] |
+| Why does one miss trigger many source loads? | [[stampede]] |
+| What if many entries disappear together? | [[avalanche]] |
 
 ## Apply it
 
 For a product catalog, choose the tolerated stale age, read path, write policy, and fallback load limit. Explain what happens after an update, a hot-key expiry, and a cache outage.
 
-Use [[distributed_lock]] for shared load coordination. Read [[redis_cluster]] for storage topology and failover behavior.
+Use [[distributed_lock]] for shared load coordination. Read [[cluster_topology]] for storage topology and failover behavior.
 
 ## References
 

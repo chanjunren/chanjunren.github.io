@@ -26,7 +26,7 @@ Commonly used in:
 ## Why Use N-grams?
 
 ### Substring Matching
-- Flexible substring matching >  [[es_ngram]]
+- Flexible substring matching >  [[ngram_search]]
 -  By splitting text into smaller n-grams (such as character n-grams), you can match parts of a word or sentence even if the exact term isn’t present in the document
 
 - Example: For the word "Elasticsearch", if you use trigrams, the following trigrams would be generated:

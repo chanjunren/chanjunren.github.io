@@ -27,7 +27,7 @@ These approaches can work together. For example, build an MCP server once for an
 
 ## References
 
-- [[ai_overview]]
+- [[model_applications]]
 - [[claude_agent_sdk]]
 - [MCP overview](../mcp/mcp.md)
 - [[agentic_design_patterns]]

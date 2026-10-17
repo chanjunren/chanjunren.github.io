@@ -45,7 +45,7 @@ Run a small model and measure memory and latency. Call it from a minimal app. Ad
 
 ## References
 
-- [[ai_overview]]
+- [[model_applications]]
 - [[operations]]
 - [[request_routing]]
 - [MCP overview](../../ai/mcp/mcp.md)

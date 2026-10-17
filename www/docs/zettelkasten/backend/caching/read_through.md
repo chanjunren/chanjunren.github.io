@@ -16,7 +16,7 @@ application → cache.get(key)
 
 For example, Caffeine's `LoadingCache` attaches a loader to `get(key)`.
 
-With [[cache_aside]], the application performs these steps explicitly.
+With [[aside_pattern]], the application performs these steps explicitly.
 
 ## Trade-offs
 
@@ -27,7 +27,7 @@ With [[cache_aside]], the application performs these steps explicitly.
 
 Pair it with [[write_through]], [[write_back]], or source writes with invalidation.
 
-Check whether the implementation coalesces concurrent loads. Read-through alone does not prevent [[cache_stampede]].
+Check whether the implementation coalesces concurrent loads. Read-through alone does not prevent [[stampede]].
 
 ## References
 

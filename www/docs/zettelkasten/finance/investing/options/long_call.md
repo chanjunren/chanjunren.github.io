@@ -37,7 +37,7 @@ Calls provide leveraged upside exposure for fraction of stock cost. Common first
 **Pros**: Capped risk, unlimited upside, leverage (10-20x stock move)  
 **Cons**: Time decay, total loss potential, need to be right on direction AND timing
 
-Long calls demonstrate [[options_basics]] mechanics and rely on [[greeks]] delta/theta dynamics.
+Long calls demonstrate [[option_contracts]] mechanics and rely on [[greeks]] delta/theta dynamics.
 
 ## Quick Reference
 

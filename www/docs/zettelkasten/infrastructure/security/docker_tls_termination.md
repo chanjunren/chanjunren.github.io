@@ -19,7 +19,7 @@ Client → HTTPS → [Reverse Proxy Container] → HTTP → [App Containers]
                    (holds certs, terminates TLS)      (internal network only)
 ```
 
-- Proxy and app containers share a [[docker_networking]] bridge network
+- Proxy and app containers share a [[container_networking]] bridge network
 - App containers are NOT exposed to the host — only the proxy binds ports 80/443
 - Internal traffic is unencrypted but isolated within Docker's virtual network
 
@@ -53,7 +53,7 @@ For one server hosting multiple client domains:
 ### Shared proxy, isolated backends
 - Proxy container has no profile (always runs)
 - Per-client app containers tagged with client profile
-- Per-client [[docker_networking]] networks — proxy joins all, clients only join their own
+- Per-client [[container_networking]] networks — proxy joins all, clients only join their own
 - Result: client-a's containers cannot reach client-b's containers
 
 ## Certificate Storage

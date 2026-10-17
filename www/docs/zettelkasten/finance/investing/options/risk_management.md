@@ -40,7 +40,7 @@ Rest in stocks/ETFs/cash
 **Strict rules**: Fewer losses, lower stress, sustainable long-term  
 **Loose rules**: Occasional big wins, frequent blow-ups, unsustainable
 
-This builds on [[options_basics]] for understanding risk and connects to options_position_sizing for implementation.
+This builds on [[option_contracts]] for understanding risk and connects to options_position_sizing for implementation.
 
 ## Quick Reference
 

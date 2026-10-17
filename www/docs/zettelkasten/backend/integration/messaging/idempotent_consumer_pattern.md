@@ -120,7 +120,7 @@ Make `@Transactional` work for this pattern:
 - [[delivery_semantics_at_most_at_least_exactly]] — at-least-once + this pattern ≈ exactly-once in practice.
 - [[exactly_once_semantics]] — Kafka transactional alternative for read-process-write loops.
 - [[saga_pattern]] — every saga step's consumer should be idempotent.
-- [[message_queue]] — the broader messaging primitive.
+- [[queue]] — the broader messaging primitive.
 
 ---
 

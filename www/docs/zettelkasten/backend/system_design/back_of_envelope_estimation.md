@@ -178,9 +178,9 @@ The point isn't precision; it's **deciding what the design has to optimise for**
 ## Related
 
 - [[framework]] — this is step 2 of the framework.
-- [[design_url_shortener]] — full estimation walkthrough.
-- [[design_rate_limiter]] — different shape: lots of small ops.
-- [[redis_cluster]], [[database_sharding_strategies]] — what the numbers force you toward.
+- [[url_shortener]] — full estimation walkthrough.
+- [[../rate_limiting/distributed_design]] — different shape: lots of small ops.
+- [[cluster_topology]], [[database_sharding_strategies]] — what the numbers force you toward.
 
 ---
 

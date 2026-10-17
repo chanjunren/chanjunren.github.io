@@ -2,7 +2,7 @@
 
 # overview
 
-If you are learning how to read existing dashboards, begin with [[prometheus_learning_path]]. This note describes the Prometheus system rather than the Linux meaning behind each metric.
+If you are learning how to read existing dashboards, begin with [[metrics_learning_path]]. This note describes the Prometheus system rather than the Linux meaning behind each metric.
 
 ```ad-summary
 Metrics based system that helps you collect / record metrics from your services

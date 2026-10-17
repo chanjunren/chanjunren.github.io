@@ -6,10 +6,10 @@
 
 | Term | Home note |
 |---|---|
-| Application programming interface (API) | [[ai_overview]] |
-| Inference | [[ai_overview]] |
-| Large language model (LLM) | [[ai_overview]] |
-| Software development kit (SDK) | [[ai_overview]] |
+| Application programming interface (API) | [[model_applications]] |
+| Inference | [[model_applications]] |
+| Large language model (LLM) | [[model_applications]] |
+| Software development kit (SDK) | [[model_applications]] |
 | Claude Agent SDK | [[claude_agent_sdk]] |
 | LLM gateway | [gateway](gateway/gateway.md) |
 
@@ -63,4 +63,4 @@
 
 ## References
 
-- [ai_overview](ai_overview.md)
+- [model_applications](model_applications.md)

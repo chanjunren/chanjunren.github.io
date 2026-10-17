@@ -140,10 +140,10 @@ The practical reality:
 
 ## Related
 
-- [[cluster]] — locking across cluster mode is more complex (slot-aware).
+- [[cluster_topology]] — locking across cluster mode is more complex (slot-aware).
 - [[lettuce]] — Java client; supports Lua eval for atomic release.
 - [[raft]] — what consensus-backed locks are built on.
-- [[cache_stampede]] — most common practical use of Redis locks.
+- [[../../caching/stampede]] — most common practical use of Redis locks.
 - [[two_phase_commit]] — for context on why distributed locks are hard.
 
 ---

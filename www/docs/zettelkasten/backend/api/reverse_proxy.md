@@ -57,7 +57,7 @@
 - Load balancer is a specific use case of reverse proxy
 - Many reverse proxies include load balancing features
 
-This relates to [[load_balancer]] for traffic distribution and [[api_gateway]] which adds API-specific features on top of reverse proxy capabilities.
+This relates to [[load_balancer]] for traffic distribution and [[gateway_patterns]] which adds API-specific features on top of reverse proxy capabilities.
 
 ## Common Pitfalls
 

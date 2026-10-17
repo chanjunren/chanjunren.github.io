@@ -2,7 +2,7 @@
 
 # specific_tables
 
-> Type of tables specific to [[hologres]]
+> Type of tables specific to [[product_overview]]
 
 ## Parent Partitioned Table
 

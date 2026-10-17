@@ -43,8 +43,8 @@ Deploy a web app and PostgreSQL with Compose. Use a named volume and non-admin d
 
 ## References
 
-- [[docker_learning_path]]
+- [[container_learning_path]]
 - [[compose]]
 - [[volumes]]
-- [[docker_networking]]
+- [[container_networking]]
 - [Docker Compose](https://docs.docker.com/compose/)

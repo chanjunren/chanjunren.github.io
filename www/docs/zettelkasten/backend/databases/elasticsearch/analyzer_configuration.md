@@ -242,4 +242,4 @@ All custom analyzers must be defined in `settings.analysis` BEFORE referencing t
 - [Elasticsearch Analyzers](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyzers.html)
 - [Custom Analyzers](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-custom-analyzer.html)
 - [[analyzers]] - Understanding how analyzers work
-- [[es_ngram]] - N-gram configuration for autocomplete
+- [[ngram_search]] - N-gram configuration for autocomplete

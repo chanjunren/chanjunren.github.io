@@ -12,7 +12,7 @@
 2. [[http_status_codes_semantics]] — what 401/403/409/422/429/503 actually mean and how clients should react.
 
 ### Inbound Protection
-3. [[rate_limiting_algorithms]] — fixed window / sliding window / token bucket / leaky bucket.
+3. [[../rate_limiting/algorithms]] — fixed window / sliding window / token bucket / leaky bucket.
 
 ### Outbound Resilience
 4. [[circuit_breaker_pattern]] — three-state breaker; companion to retry and timeout.
@@ -23,7 +23,7 @@
 
 ### Existing in Cluster
 - [[reverse_proxy]] — the layer where many of these patterns sit (existing).
-- [[api_gateway]] — concentrates rate limiting, auth, observability (existing).
+- [[gateway_patterns]] — concentrates rate limiting, auth, observability (existing).
 - [[load_balancer]] — request distribution + health checking (existing).
 
 ### Planned
@@ -52,6 +52,6 @@ Memorising this stack is more valuable than memorising any single pattern in iso
 ## Bridges to Other Domains
 
 - → DB internals: [[transaction_isolation_levels]], [[mvcc_innodb_read_view]] — what your retries see in the DB.
-- → Caching: [[cache_stampede]], [[cache_aside]] — same jitter principle on cache misses.
+- → Caching: [[../caching/stampede]], [[../caching/aside_pattern]] — same jitter principle on cache misses.
 - → Messaging: [[idempotent_consumer_pattern]], [[outbox_pattern]], [[delivery_semantics_at_most_at_least_exactly]] — the message-bus mirror of these patterns.
 - → Distributed systems: [[cap_theorem]] — the consistency-availability trade-off behind every fail-open vs fail-closed decision.

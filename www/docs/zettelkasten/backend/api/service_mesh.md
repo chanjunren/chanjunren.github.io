@@ -31,7 +31,7 @@
 - Monolithic applications (no service-to-service traffic)
 - Performance-critical paths where sidecar latency unacceptable
 - Team lacks expertise to operate complex infrastructure
-- Simple architecture where [[api_gateway]] and [[reverse_proxy]] sufficient
+- Simple architecture where [[gateway_patterns]] and [[reverse_proxy]] sufficient
 
 ## Trade-offs
 
@@ -71,7 +71,7 @@
 - **Library**: Language-specific, application-level
 - Mesh doesn't require code changes; library does
 
-This builds on [[reverse_proxy]] concepts but distributes proxies as sidecars. Compare with [[api_gateway]] which handles external traffic instead of internal service communication.
+This builds on [[reverse_proxy]] concepts but distributes proxies as sidecars. Compare with [[gateway_patterns]] which handles external traffic instead of internal service communication.
 
 ## Architecture Components
 
@@ -89,7 +89,7 @@ This builds on [[reverse_proxy]] concepts but distributes proxies as sidecars. C
 ## Common Pitfalls
 
 ```ad-warning
-**Over-engineering**: Service mesh adds significant complexity. Start with simpler solutions ([[api_gateway]], [[reverse_proxy]]) unless you genuinely need mesh features at scale.
+**Over-engineering**: Service mesh adds significant complexity. Start with simpler solutions ([[gateway_patterns]], [[reverse_proxy]]) unless you genuinely need mesh features at scale.
 ```
 
 ```ad-danger

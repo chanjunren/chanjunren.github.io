@@ -12,9 +12,9 @@
 2. [[back_of_envelope_estimation]] — the latency numbers, capacity math, and the powers-of-ten that drive every sizing decision.
 
 ### Canonical Designs
-3. [[design_url_shortener]] — read-heavy lookup; ID generation, caching, hot keys, sharding.
-4. [[design_rate_limiter]] — distributed counter; algorithm choice, fail-open/closed, hot-key mitigation.
-5. [[design_unique_id_generator_snowflake]] — distributed unique IDs; clock skew, machine ID assignment, bit budget.
+3. [[url_shortener]] — read-heavy lookup; ID generation, caching, hot keys, sharding.
+4. [[../rate_limiting/distributed_design]] — distributed counter; algorithm choice, fail-open/closed, hot-key mitigation.
+5. [[unique_id_generator_snowflake]] — distributed unique IDs; clock skew, machine ID assignment, bit budget.
 
 ### Planned
 - `design_news_feed` — write fan-out vs read fan-out; hybrid for celebrities.
@@ -38,13 +38,13 @@ These show up in nearly every design and benefit from the bridges below:
 | Cross-cut                | Where to read                                              |
 |--------------------------|------------------------------------------------------------|
 | Sharding scheme           | [[database_sharding_strategies]], [[consistent_hashing]]   |
-| Read-heavy caching        | [[cache_aside]], [[cache_stampede]]        |
-| Hot-key mitigation        | [[redis_cluster]], [[cache_stampede]]      |
-| Unique IDs                | [[design_unique_id_generator_snowflake]]                   |
+| Read-heavy caching        | [[../caching/aside_pattern]], [[../caching/stampede]]        |
+| Hot-key mitigation        | [[cluster_topology]], [[../caching/stampede]]      |
+| Unique IDs                | [[unique_id_generator_snowflake]]                   |
 | Async pipelines           | [[kafka_architecture]], [[outbox_pattern]]                 |
 | At-least-once + idempotency | [[idempotent_consumer_pattern]], [[idempotency_keys_api_design]] |
 | Cross-service consistency | [[saga_pattern]], [[two_phase_commit]]                     |
-| Resilience pattern stack  | [[circuit_breaker_pattern]], [[retry_backoff_jitter]], [[rate_limiting_algorithms]] |
+| Resilience pattern stack  | [[circuit_breaker_pattern]], [[retry_backoff_jitter]], [[../rate_limiting/algorithms]] |
 
 ## Bridges to Other Domains
 

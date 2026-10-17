@@ -54,7 +54,7 @@ Use 307/308 in API contexts to avoid the historical method-rewriting baggage of 
 | 412 Precondition Failed | `If-Match` / `If-Unmodified-Since` failed.                            |
 | 415 Unsupported Media Type | Server can't process the request body's content-type.              |
 | 422 Unprocessable Entity | **Syntactically OK but semantically invalid** (validation failure). Distinct from 400. |
-| 429 Too Many Requests | Rate-limited. Include `Retry-After` header. See [[rate_limiting_algorithms]]. |
+| 429 Too Many Requests | Rate-limited. Include `Retry-After` header. See [[../rate_limiting/algorithms]]. |
 
 ### 401 vs 403 — the most-asked clarification
 
@@ -108,7 +108,7 @@ Many APIs use 400 for both. RFC 9110 added 422 to fit; using it cleanly improves
 
 - [[http_methods_idempotency_safety]] — what methods *should* return.
 - [[retry_backoff_jitter]] — what to do with 5xx and 429.
-- [[rate_limiting_algorithms]] — what 429 sits in front of.
+- [[../rate_limiting/algorithms]] — what 429 sits in front of.
 - [[circuit_breaker_pattern]] — why a chain of 5xx triggers a circuit open.
 
 ---

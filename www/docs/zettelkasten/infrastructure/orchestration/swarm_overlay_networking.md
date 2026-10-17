@@ -8,7 +8,7 @@
 - Combines with a **routing mesh** so any node can accept traffic for any service
 
 **Why it exists:**
-- [[docker_networking]] bridge networks only work on a single host
+- [[container_networking]] bridge networks only work on a single host
 - In a cluster, containers on node A need to reach containers on node B without manual port forwarding
 - Overlay networks abstract away the physical network topology — containers see a flat network
 
@@ -31,7 +31,7 @@
 - Containers resolve service names to the **virtual IP (VIP)** of that service
 - The VIP load-balances across all healthy tasks for that service
 - Works regardless of which nodes the tasks run on
-- Same mechanism as single-host DNS in [[docker_networking]], but cluster-wide
+- Same mechanism as single-host DNS in [[container_networking]], but cluster-wide
 
 ### How resolution works
 - Container calls `db` → DNS returns VIP for the `db` service → VIP routes to one of the healthy `db` tasks

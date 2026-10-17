@@ -49,6 +49,6 @@ Deploy a small app and database with Compose. Add persistent storage, local DNS,
 
 ## References
 
-- [[learning_path]]
-- [[learning_path]]
+- [[container_learning_path]]
+- [[metrics_learning_path]]
 - [Synology DSM help](https://kb.synology.com/en-us/DSM/help/DSM/Overview)

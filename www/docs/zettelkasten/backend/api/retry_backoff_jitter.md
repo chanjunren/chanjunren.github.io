@@ -162,8 +162,8 @@ The standard composition: **retry inside breaker**. While the breaker is closed,
 - [[http_methods_idempotency_safety]] — what's safe to retry.
 - [[idempotency_keys_api_design]] — how to make non-idempotent operations retry-safe.
 - [[http_status_codes_semantics]] — which codes are retryable.
-- [[rate_limiting_algorithms]] — server side; explains 429 + Retry-After.
-- [[cache_stampede]] — different domain, same jitter principle.
+- [[../rate_limiting/algorithms]] — server side; explains 429 + Retry-After.
+- [[../caching/stampede]] — different domain, same jitter principle.
 
 ---
 

@@ -102,7 +102,7 @@ URLMapping
 
 Decisions visible here:
 - SQL vs NoSQL (and *why* — relationships? Schema flexibility? Scale?).
-- Primary key choice (autoinc / UUID / snowflake — see [[design_unique_id_generator_snowflake]]).
+- Primary key choice (autoinc / UUID / snowflake — see [[unique_id_generator_snowflake]]).
 - Denormalisation for read patterns.
 - Indexes — what queries does each support?
 
@@ -137,8 +137,8 @@ Pick the most interesting / hardest part. Don't try to deep-dive everything; you
 Common deep-dive choices for a URL shortener:
 
 - **ID generation** — base62, length math, snowflake vs hash vs counter, collision handling.
-- **Cache strategy** — read-through? cache-aside? what's the hit ratio with 80/20? See [[cache_aside]] and [[cache_failures]].
-- **Hot URLs** — celebrity short URL gets 1M req/sec; how do you survive? See [[cache_stampede]].
+- **Cache strategy** — read-through? cache-aside? what's the hit ratio with 80/20? See [[../caching/aside_pattern]] and [[../caching/failure_modes]].
+- **Hot URLs** — celebrity short URL gets 1M req/sec; how do you survive? See [[../caching/stampede]].
 - **Analytics** — async pipeline; CDC vs Kafka producer; aggregation strategy.
 - **Custom alias collisions** — uniqueness check, race-proof under concurrent posts.
 
@@ -157,9 +157,9 @@ Each deep dive should reach a **trade-off** explicitly. "Snowflake gives sortabl
 ## Related
 
 - [[back_of_envelope_estimation]] — the math behind step 2.
-- [[design_url_shortener]] — applies all six steps.
-- [[design_rate_limiter]] — applies all six steps with a different shape.
-- [[design_unique_id_generator_snowflake]] — focused deep-dive on a recurring sub-problem.
+- [[url_shortener]] — applies all six steps.
+- [[../rate_limiting/distributed_design]] — applies all six steps with a different shape.
+- [[unique_id_generator_snowflake]] — focused deep-dive on a recurring sub-problem.
 - [[moc_distributed_systems]], [[moc_db_internals]], [[moc_caching]], [[moc_messaging]] — feed the deep-dive vocabulary.
 
 ---

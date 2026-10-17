@@ -2,7 +2,7 @@
 
 # claude_agent_sdk
 
-The **Claude Agent SDK** is Anthropic's library for building applications where Claude works through multiple steps and tools. It gives you a ready-made [[agent_runtime]], so you don't write the loop yourself. SDK and API are defined in [[ai_overview]].
+The **Claude Agent SDK** is Anthropic's library for building applications where Claude works through multiple steps and tools. It gives you a ready-made [[agent_runtime]], so you don't write the loop yourself. SDK and API are defined in [[model_applications]].
 
 ## Mental model
 

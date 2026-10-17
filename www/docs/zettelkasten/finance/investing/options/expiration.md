@@ -42,7 +42,7 @@ Expiration determines when you must act. Mismanaging expiration leads to unwante
 **Pros**: Forces discipline, creates opportunities (theta decay sellers win)  
 **Cons**: Time pressure, forced decisions, assignment risk
 
-Expiration connects to [[greeks]] through theta acceleration and [[options_basics]] for exercise mechanics.
+Expiration connects to [[greeks]] through theta acceleration and [[option_contracts]] for exercise mechanics.
 
 ## Quick Reference
 

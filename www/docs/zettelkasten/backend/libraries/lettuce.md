@@ -94,5 +94,5 @@ ClusterClientOptions clientOptions =
 ## References
 
 - [Lettuce reference — Cluster](https://lettuce.io/core/release/reference/index.html#redis-cluster)
-- [[redis_cluster]] — what Lettuce is talking to
+- [[cluster_topology]] — what Lettuce is talking to
 - [[connection_wedge]] — the failure mode adaptive refresh exists to handle
