@@ -11,10 +11,14 @@
             "id": "175a094aa819cfd1",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "zettelkasten/dump/mermaid.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "mermaid"
             }
           }
         ]
@@ -37,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -164,6 +170,11 @@
   },
   "active": "175a094aa819cfd1",
   "lastOpenFiles": [
+    "zettelkasten/ai/ai_glossary.md.tmp.85681.ebac1f731285",
+    "zettelkasten/ai/mcp/mcp.md.tmp.85681.da5b492e995b",
+    "zettelkasten/ai/agent_patterns/agentic_design_patterns.md.tmp.85681.88a8d39328fd",
+    "zettelkasten/ai/ai_glossary.md",
+    "zettelkasten/ai/agent_runtime.md",
     "zettelkasten/skating/zhanghao/forward_wheeling.md",
     "zettelkasten/skating/zhanghao/forward_to_backwards.md",
     "zettelkasten/skating/zhanghao/forward_8.md",
@@ -187,9 +198,6 @@
     "zettelkasten/backend/caching/write_back.md",
     "zettelkasten/backend/caching/write_through.md",
     "zettelkasten/backend/caching/read_through.md",
-    "zettelkasten/backend/caching/cache_consistency.md",
-    "zettelkasten/backend/caching/caching_basics.md",
-    "zettelkasten/skating/spins.md",
     "zettelkasten/skating/zhanghao",
     "zettelkasten/frontend/tanstack/tanstack_query.md.tmp.43392.6c7b4185675c",
     "zettelkasten/frontend/tanstack",
@@ -198,8 +206,6 @@
     "zettelkasten/readings",
     "zettelkasten/backend/software-design",
     "zettelkasten/backend/transport",
-    "zettelkasten/infrastructure/linux",
-    "zettelkasten/concepts/hardware",
     "assets/technical_tricks_matrix.png",
     "assets/Pasted image 20250828105751.png",
     "assets/skating_technical_tricks_matrix.png",

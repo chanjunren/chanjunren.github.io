@@ -1,67 +1,68 @@
-🗓️ 11102026 1520
+🗓️ 17102026 1526
 
 # ai_overview
 
-AI applications become useful when a language model can use context and act through controlled capabilities. This collection explains the layers around that idea, not how models are trained.
+An **AI application** pairs a model with context and controlled tools. This note follows one request through each part. Use [[ai_glossary]] to find any term's home note.
 
-The notes use current standards and vendor documentation for technical guidance. Protocol and product behavior can change; check the linked source pages when applying a detail to a system.
+## Terms
 
-## Start here
+| Term | Definition | Source |
+|---|---|---|
+| **Large language model (LLM)** | A language model with a very large number of parameters, trained on large amounts of text to understand and generate it. | [Google glossary](https://developers.google.com/machine-learning/glossary#large-language-model) |
+| **Inference** | Running a trained model on new input to produce an output, such as a response. | [Google glossary](https://developers.google.com/machine-learning/glossary#inference) |
+| **Application programming interface (API)** | A defined set of operations one program exposes so other programs can use its features or data. | [MDN](https://developer.mozilla.org/en-US/docs/Glossary/API) |
+| **Software development kit (SDK)** | A packaged set of libraries and tools for building software on a specific platform or service. | [AWS](https://aws.amazon.com/what-is/sdk/) |
 
-An AI application has four separate jobs:
+## How the parts connect
 
-- **Model** — turns a request and context into a response or a proposed tool call.
-- **Application** — supplies context, runs tools, and enforces permissions.
-- **Workflow** — decides whether one pass is enough or work needs multiple steps.
-- **Integration** — connects the application to external systems such as files, databases, and APIs.
+The gateway and MCP connection are optional.
 
-The model can propose an action. The application must decide whether to allow and execute it. [[llm_tool_use]] explains this boundary.
+```mermaid
+flowchart TB
+  U[User] <-->|goal and answer| R[Application runtime]
+  R <-->|state| S[(Session storage)]
+  R <-->|model API| G[Gateway]
+  G <--> M[Model endpoint]
+  R <-->|tool calls| C[MCP client]
+  C <-->|MCP| E[MCP server]
+  E <-->|service API| D[External system]
+```
 
-## Two learning paths
+- Model requests go through the gateway to the provider's model endpoint.
+- Tool calls go through the MCP client to external systems.
+- The application owns permissions and conversation state.
+- These parts can run on one machine.
 
-### Connect a model
-
-- Start with [LLM gateways](gateway/gateway.md) to understand routing, aliases, and trust boundaries.
-- Follow [the request path](gateway/request_routing.md) from an application client to a model server.
-- Read [gateway operations](gateway/gateway_operations.md) for configuration, credentials, deployment, and open decisions.
+## Reading paths
 
 ### Build an agent
 
-- Start with [[llm_tool_use]].
-- Read [[agentic_design_patterns]] to choose a workflow.
-- Read [[agent_memory_and_state]] only when work must survive more than one model call.
-- Use [[claude_agent_sdk]] when an SDK fits the workflow, or [[building_with_claude]] to compare implementation choices.
+1. [[llm_tool_use]]: how a model requests a tool.
+2. [[agent_runtime]]: the loop that repeats model calls.
+3. [[agent_memory_and_state]]: what carries between calls.
+4. [[agentic_design_patterns]]: when to add steps or agents.
+
+Compare build options in [[building_with_claude]], or use [[claude_agent_sdk]] for a ready-made runtime.
 
 ### Connect external systems
 
-- Start with the [MCP overview](mcp/mcp.md).
-- Read [MCP architecture](mcp/architecture.md) and [transports](mcp/transports.md).
-- Read [[authorization]] only when a remote server needs user-authorized access.
-- Read [[custom_servers]] when an existing server cannot safely expose your system.
-- Follow [connector registration](mcp/connector_registration_flow.md) and [tool invocation](mcp/tool_invocation_flow.md) to see how MCP fits into an application.
+1. [MCP overview](mcp/mcp.md): what MCP standardizes.
+2. [[architecture]]: hosts, clients, and servers.
+3. [[transports]]: how messages travel.
+4. [[connector_registration_flow]]: discovery to approved tools.
+5. [[tool_invocation_flow]]: one call through execution.
 
-## How the ideas fit
+Read [[authorization]] for protected remote servers, or [[custom_servers]] before building one.
 
-```mermaid
-flowchart LR
-  U[User] --> A[Application / agent]
-  A -->|OpenAI-compatible request| G[LLM gateway]
-  G --> M[Model server]
-  M -->|answer or proposed tool call| A
-  A -->|policy check and execution| T[Application tool]
-  A -. optional MCP client .-> C[MCP server]
-  C --> X[External service]
-  T --> A
-  X --> C --> A
-```
+### Route model requests
 
-**MCP is an integration standard, not an agent framework.** It tells an application how to discover and communicate with a capability provider. It does not decide what the model should do or grant permission for an action.
-
-The gateway routes model requests. The application still owns conversation state, authorization, tool execution, and user approval. A model response containing a tool call is only a proposal; the application decides whether that call can run.
+1. [LLM gateways](gateway/gateway.md): aliases and routing.
+2. [[request_routing]]: both network hops of a request.
+3. [[gateway_operations]]: configuration and verification.
 
 ## References
 
-- [[llm_tool_use]]
-- [[agentic_design_patterns]]
-- [MCP overview](mcp/mcp.md)
-- [What is MCP?](https://modelcontextprotocol.io/docs/getting-started/intro)
+- [MCP architecture, 2026-07-28](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)
+- [How the agent loop works](https://code.claude.com/docs/en/agent-sdk/agent-loop)
+- [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+- [LiteLLM request lifecycle](https://docs.litellm.ai/docs/proxy/architecture)

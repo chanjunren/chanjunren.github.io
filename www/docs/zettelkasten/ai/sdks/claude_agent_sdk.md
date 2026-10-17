@@ -1,23 +1,25 @@
-🗓️ 19092026 2037
+🗓️ 17102026 1518
 
 # claude_agent_sdk
 
-The **Claude Agent SDK** is Anthropic's library for building applications where Claude works through multiple steps and tools. It provides an agent runtime so you do not need to implement every model-and-tool interaction yourself.
+The **Claude Agent SDK** is Anthropic's library for building applications where Claude works through multiple steps and tools. It gives you a ready-made [[agent_runtime]], so you don't write the loop yourself. SDK and API are defined in [[ai_overview]].
 
 ## Mental model
 
-You give the runtime a goal, allowed capabilities, and configuration. It coordinates model responses and tool use until the task finishes or a configured limit is reached.
+You give it a goal, allowed tools, and settings. It runs model calls and tools until the task finishes or hits a configured limit.
 
-Use it when you want to build a Claude-powered workflow as an application. It is different from MCP: the SDK runs or hosts an agent workflow, while [MCP](../mcp/mcp.md) connects that workflow to compatible external capability servers.
+The SDK runs the agent; [MCP](../mcp/mcp.md) connects it to external tool servers. They compose: an SDK application can use MCP servers.
 
-## Decide before choosing it
+## Choosing between SDK, MCP, and your own loop
 
-Choose an agent SDK when a multi-step model workflow is the product feature. Use an MCP server when the goal is to expose a reusable external system. Build your own loop when you need unusual control over branching, approvals, or execution policy.
+| Goal | Choose |
+|---|---|
+| A multi-step agent is the product feature | Agent SDK |
+| Expose a reusable external system | MCP server |
+| Unusual control over branching, approvals, or execution policy | Your own loop |
 
-The choices can compose: an Agent SDK application can consume MCP servers.
+Compare other build options in [[building_with_claude]].
 
 ## References
 
-- [[building_with_claude]]
-- [MCP overview](../mcp/mcp.md)
 - [Agent SDK overview](https://code.claude.com/docs/en/agent-sdk/overview)

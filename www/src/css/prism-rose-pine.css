@@ -20,6 +20,10 @@
     list-style: disc !important;
 }
 
+.markdown ol {
+    list-style: decimal !important;
+}
+
 [data-theme="light"] .theme-code-block {
     code[class*="language-"],
     pre[class*="language-"] {

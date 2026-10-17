@@ -1,12 +1,20 @@
-🗓️ 19092026 2037
+🗓️ 17102026 1518
 
 # agentic_design_patterns
 
-An **agent pattern** is a way to organize multiple model calls and tool calls. Choose the smallest pattern that can complete the task reliably.
+An **agent pattern** is a way to organize multiple model calls and tool calls. Choose the smallest pattern that completes the task reliably.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Workflow** | A system where LLMs and tools follow code paths fixed in advance, rather than the model choosing its own steps. | [Anthropic](https://www.anthropic.com/engineering/building-effective-agents) |
 
 ## Core mental model
 
-Most work is one loop: give the model a goal and relevant tools, let it call a tool if needed, return the result, then let it continue. Adding agents does not make the model smarter by itself. It adds specialization, checks, or control at the cost of latency and complexity.
+A workflow fixes the steps in code. An [[agent_runtime]] lets the model choose them.
+
+More agents don't make the model smarter. They add specialization, checks, or control, at the cost of latency and complexity.
 
 ## Choose a pattern
 
@@ -20,15 +28,12 @@ Most work is one loop: give the model a goal and relevant tools, let it call a t
 
 ## Safe default
 
-- Begin with one agent and ordinary code for fixed steps.
-- Add a review loop when you can state a pass condition.
-- Add multiple agents only when separation makes a real decision easier or enables useful parallel work.
+- Start with one agent, plus ordinary code for fixed steps.
+- Add a review loop once you can state a pass condition.
+- Add agents only for real separation or useful parallelism.
 
-Agents need [[llm_tool_use]] to interact with the world. They need [[agent_memory_and_state]] only when context must persist across steps or sessions.
+Every agent needs [[llm_tool_use]] to act. Add [[agent_memory_and_state]] only when context must persist across steps or sessions.
 
 ## References
 
-- [[ai_overview]]
-- [[llm_tool_use]]
-- [[agent_memory_and_state]]
 - [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)

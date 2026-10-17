@@ -1,24 +1,55 @@
-🗓️ 11102026 1520
+🗓️ 17102026 1518
 
 # mcp
 
 **Model Context Protocol (MCP)** standardizes how AI applications discover and use external tools and context. The application still controls access and execution.
 
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Data layer** | The part of MCP that defines what messages mean: the operations, lifecycle rules, and primitives such as tools, resources, and prompts. | [Architecture](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture) |
+
+## Meaning versus delivery
+
+The data layer stays the same whichever transport carries the messages.
+
+```mermaid
+flowchart TD
+  subgraph H[Host application]
+    R[Agent runtime] <-->|allowed calls and results| C[MCP client]
+  end
+  C <-->|MCP messages| T[Transport: stdio or Streamable HTTP]
+  T <-->|MCP messages| S[MCP server]
+  S <-->|service API| D[Documentation system]
+```
+
+Example: `tools/list` asks a documentation server for its tools, and `tools/call` runs its search tool. Both mean the same over stdio or Streamable HTTP.
+
+## Who controls what
+
+- The host picks which tool schemas the model sees.
+- The model proposes a call; the host checks it first.
+- The server enforces its own access and runs the operation.
+- The host decides which results enter the next model request.
+
+MCP leaves workflow and context management to the application; see [[agent_runtime]].
+
 ## Server capabilities
 
-| Capability | Purpose | Usual control |
-|---|---|---|
-| Tools | Perform an operation | Model, within host controls |
-| [[server_resources]] | Provide context | Host application |
-| [[prompts]] | Supply a reusable template | User |
+A documentation server might expose:
 
-For example, a documentation server could expose a search tool, a document resource, and a summarization prompt.
+- A search tool.
+- Document content as [[server_resources]].
+- A review template as one of its [[prompts]].
 
 ## Reading path
 
-1. [[llm_tool_use]]: model proposals and application execution.
-2. [[architecture]] → [[transports]]: participants and message delivery.
-3. [[connector_registration_flow]] → [[tool_invocation_flow]]: discovery through execution.
+1. [[llm_tool_use]]: how models propose calls.
+2. [[architecture]]: hosts, clients, and servers.
+3. [[transports]]: how messages travel.
+4. [[connector_registration_flow]]: discovery to approved tools.
+5. [[tool_invocation_flow]]: one call through execution.
 
 Read [[authorization]] for remote access, or [[custom_servers]] before building a server.
 
@@ -26,4 +57,5 @@ These notes use revision `2026-07-28`. Older peers differ; check compatibility b
 
 ## References
 
+- [MCP architecture and layers, 2026-07-28](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture)
 - [MCP specification, 2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28)

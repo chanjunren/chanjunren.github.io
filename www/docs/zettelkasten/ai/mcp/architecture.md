@@ -1,28 +1,46 @@
-🗓️ 11102026 1520
+🗓️ 17102026 1526
 
 # architecture
 
-MCP separates the AI application from capability providers. Each server has a dedicated client inside the application.
+MCP splits an integration into three roles. The host application runs one client per server, and each client talks to exactly one server.
 
-```text
-host
- ├─ client A <-> server A
- `─ client B <-> server B
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **MCP host** | The AI application that creates and manages MCP clients, one for each server it connects to. | [Architecture](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture#participants) |
+| **MCP client** | A component inside the host that keeps a connection to one MCP server and fetches context from it for the host. | [Architecture](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture#participants) |
+| **MCP server** | A program, local or remote, that provides tools, resources, or prompts to MCP clients. | [Architecture](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture#participants) |
+
+## Host and server boundaries
+
+```mermaid
+flowchart TD
+  subgraph H[MCP host application]
+    C1[MCP client A]
+    C2[MCP client B]
+  end
+  C1 <-->|protocol messages| S1[MCP server A]
+  C2 <-->|protocol messages| S2[MCP server B]
 ```
 
-| Participant | Responsibility |
-|---|---|
-| **Host** | Model integration, user experience, and permissions |
-| **Client** | JSON-RPC messages between host and server |
-| **Server** | Tools, resources, prompts, and upstream operations |
+- The host owns model integration and permissions.
+- Each server controls access to its own upstream system.
+- The host can contain an [[agent_runtime]].
+
+See the [MCP overview](mcp.md) for what servers expose.
 
 ## Discovery and requests
 
-In revision `2026-07-28`, each request carries its protocol version and client capabilities in `_meta`; client identity should also be included. Optional `server/discover` retrieves server identity, capabilities, and supported versions.
+In revision `2026-07-28`:
 
-The client then lists capabilities and sends requests such as `tools/call`. Clients initiate requests; servers return responses and notifications. [[transports]] handles delivery.
+1. Optionally, `server/discover` returns server identity, capabilities, and supported versions.
+2. The client lists capabilities, such as with `tools/list`.
+3. The client sends requests, such as `tools/call`.
 
-Older revisions use an `initialize` handshake. Match the peer's revision rather than mixing lifecycle rules. [[sampling]] explains a deprecated client capability.
+Each request carries its protocol version and client capabilities in `_meta`, and should carry client identity. Clients send requests; servers return responses and notifications. [[transports]] covers delivery.
+
+Older revisions start with an `initialize` handshake instead. Match the peer's revision; don't mix lifecycle rules. [[sampling]] covers a deprecated client capability.
 
 ## References
 
