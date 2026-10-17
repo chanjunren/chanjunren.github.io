@@ -39,14 +39,14 @@ flowchart TB
 
 1. [[llm_tool_use]]: how a model requests a tool.
 2. [[agent_runtime]]: the loop that repeats model calls.
-3. [[agent_memory_and_state]]: what carries between calls.
-4. [[agentic_design_patterns]]: when to add steps or agents.
+3. [[memory_and_state]]: what carries between calls.
+4. [[agent_patterns/index]]: when to add steps or agents.
 
 Compare build options in [[building_with_claude]], or use [[claude_agent_sdk]] for a ready-made runtime.
 
 ### Connect external systems
 
-1. [MCP overview](mcp/mcp.md): what MCP standardizes.
+1. [MCP overview](mcp/index.md): what MCP standardizes.
 2. [[architecture]]: hosts, clients, and servers.
 3. [[transports]]: how messages travel.
 4. [[connector_registration_flow]]: discovery to approved tools.
@@ -56,7 +56,7 @@ Read [[authorization]] for protected remote servers, or [[custom_servers]] befor
 
 ### Route model requests
 
-1. [LLM gateways](gateway/gateway.md): aliases and routing.
+1. [LLM gateways](gateway/index.md): aliases and routing.
 2. [[request_routing]]: both network hops of a request.
 3. [[operations]]: configuration and verification.
 

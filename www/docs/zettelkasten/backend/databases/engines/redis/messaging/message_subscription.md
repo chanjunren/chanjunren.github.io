@@ -13,7 +13,7 @@ Publisher -> PUBLISH orders:updated -> Redis -> active subscribers
                                       (no durable backlog)
 ```
 
-For broader messaging models, see [[moc_messaging]].
+For broader messaging models, see [[messaging/index]].
 
 ```mermaid
 sequenceDiagram

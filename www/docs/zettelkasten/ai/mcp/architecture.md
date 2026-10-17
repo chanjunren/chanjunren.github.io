@@ -28,7 +28,7 @@ flowchart TD
 - Each server controls access to its own upstream system.
 - The host can contain an [[agent_runtime]].
 
-See the [MCP overview](mcp.md) for what servers expose.
+See the [MCP overview](index.md) for what servers expose.
 
 ## Discovery and requests
 

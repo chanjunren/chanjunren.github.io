@@ -10,7 +10,7 @@ These are behaviors permitted by `READ COMMITTED`, not corruption or violations 
 
 InnoDB's `REPEATABLE READ` consistent reads use a transaction snapshot, while locking reads and writes use locks against current records and ranges. Mixing snapshot reads with locking operations can therefore expose different views; design the transaction around one intended access pattern.
 
-For mySQL isolation semantics, see [[innodb_transaction_isolation_levels]]. For snapshot visibility, see [[mvcc_innodb_read_view]]. For lock-cycle failures, see [[innodb_deadlocks]].
+For mySQL isolation semantics, see [[innodb_isolation_levels]]. For snapshot visibility, see [[mvcc_innodb_read_view]]. For lock-cycle failures, see [[innodb_deadlocks]].
 
 ```mermaid
 sequenceDiagram

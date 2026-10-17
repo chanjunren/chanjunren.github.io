@@ -33,7 +33,7 @@ A schema grants no permission. The application decides what actually runs, and w
 
 Prefer narrow tools, such as `search_docs`, over unrestricted shells.
 
-[MCP](mcp.md) connects the application to external tool servers. [[agent_runtime]] repeats this exchange until the task is done.
+[MCP](index.md) connects the application to external tool servers. [[agent_runtime]] repeats this exchange until the task is done.
 
 ## References
 

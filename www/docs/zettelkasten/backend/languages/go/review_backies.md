@@ -2,7 +2,7 @@
 
 # review_backies
 
-**Applied companion to the Go notes.** A review of the `backies` service (a single Go backend serving language-learning apps) through the idioms in [[go_learning_plan]]. It maps real code to concepts and identifies possible improvements. Paths are relative to the repository root.
+**Applied companion to the Go notes.** A review of the `backies` service (a single Go backend serving language-learning apps) through the idioms in [[go/learning_plan]]. It maps real code to concepts and identifies possible improvements. Paths are relative to the repository root.
 
 ## What it does well
 

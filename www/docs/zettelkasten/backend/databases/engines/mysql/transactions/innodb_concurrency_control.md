@@ -8,7 +8,7 @@ For a consistent nonlocking read, InnoDB uses a read view to decide which commit
 
 MVCC does not mean that transactions never block. Writes to conflicting records, locking reads, foreign-key checks, and other operations can contend. Diagnose a stall by inspecting active transactions and lock-wait information, then check the query plan and indexes involved.
 
-For visibility of row versions, see [[mvcc_innodb_read_view]]. For record and range locks, see [[innodb_locks]]. For detecting and resolving deadlocks, see [[innodb_deadlocks]]. For isolation behavior, see [[innodb_transaction_isolation_levels]].
+For visibility of row versions, see [[mvcc_innodb_read_view]]. For record and range locks, see [[innodb_locks]]. For detecting and resolving deadlocks, see [[innodb_deadlocks]]. For isolation behavior, see [[innodb_isolation_levels]].
 
 ```mermaid
 flowchart LR

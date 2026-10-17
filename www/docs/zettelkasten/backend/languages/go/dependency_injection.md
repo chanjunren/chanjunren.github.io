@@ -93,5 +93,5 @@ flowchart LR
 
 ## References
 
-- [[go_learning_plan]]
+- [[go/learning_plan]]
 - [Effective Go](https://go.dev/doc/effective_go)

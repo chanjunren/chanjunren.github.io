@@ -24,7 +24,7 @@ flowchart LR
 
 Each layout choice has limits. A query may still scan broadly when predicates do not match the chosen properties, values are poorly distributed, or the plan cannot use the pruning path. Check the query plan and workload metrics rather than assuming an index was used.
 
-For table-property selection by workload, see [[table_creation_best_practises]]. For the properties as a group, see [[indexes]].
+For table-property selection by workload, see [[creation_best_practises]]. For the properties as a group, see [[indexes]].
 
 ## References
 

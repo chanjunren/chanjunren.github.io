@@ -47,4 +47,4 @@ The example shows lifecycle mechanics only. Use a set-based statement when it ca
 ## References
 
 - [MySQL 8.4: Cursors](https://dev.mysql.com/doc/refman/8.4/en/cursors.html)
-- [[cursor]]
+- [[queries/cursor]]

@@ -2,7 +2,7 @@
 
 # transports
 
-Pick an MCP transport by how the server runs: as a local process or as a separate service. Read the [MCP overview](mcp.md) first.
+Pick an MCP transport by how the server runs: as a local process or as a separate service. Read the [MCP overview](index.md) first.
 
 ## Terms
 

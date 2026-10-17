@@ -35,7 +35,7 @@ Depending on provider, region, and storage class, managed object storage can pro
 
 For large uploads, use multipart APIs or provider SDKs that support resumable uploads. Configure lifecycle cleanup for abandoned parts. See [[chunked_uploading]].
 
-For caching and delivering public or authorized content, see [[cdn]]. For serving files through an application boundary, see [[reverse_proxy]]. For safe retry semantics for upload requests, see [[idempotency_keys_api_design]].
+For caching and delivering public or authorized content, see [[cdn]]. For serving files through an application boundary, see [[reverse_proxy]]. For safe retry semantics for upload requests, see [[idempotency_keys]].
 
 ## References
 

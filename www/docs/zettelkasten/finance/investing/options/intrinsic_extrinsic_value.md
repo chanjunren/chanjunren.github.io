@@ -35,7 +35,7 @@ Understanding value composition explains why options decay and how to evaluate f
 **Intrinsic value**: Real profit, stable, doesn't decay  
 **Extrinsic value**: Pays for time and uncertainty, decays to $0 at expiration
 
-This concept is foundational to [[option_contracts]] and explains the theta decay in [[greeks]].
+This concept is foundational to [[contracts]] and explains the theta decay in [[greeks]].
 
 ## Quick Reference
 

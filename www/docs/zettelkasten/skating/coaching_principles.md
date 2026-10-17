@@ -55,7 +55,7 @@ lens:
 | Lens | Examples | Progress when… | Driven by |
 | --- | --- | --- | --- |
 | **Capacity** | toe wheeling holds, [[pt]], [[fitness/strengthening]] | RPE drops at constant load | [[periodization]] + autoregulation |
-| **Skill acquisition** | technical tricks, [[./basics]], [[spins]] | success rate rises, then holds under fatigue | [[ksj/practise_slowly]], [[technical_tricks_matrix]] (basics set the ceiling) |
+| **Skill acquisition** | technical tricks, [[basics]], [[spins]] | success rate rises, then holds under fatigue | [[ksj/practise_slowly]], [[technical_tricks_matrix]] (basics set the ceiling) |
 | **Performance** | [[choreo]], improvisation | execution stays clean while expression opens up | [[huangke/improvisation_flow_state]] |
 
 Capacity work is measurable and periodized. Skill work is about *clean repetition* and

@@ -53,7 +53,7 @@ Greeks predict P&L and risk. Without understanding them, you're trading blind.
 **Pros**: Quantifies risk, enables comparison, predicts scenarios  
 **Cons**: Changes constantly (requires monitoring), approximations not guarantees
 
-Greeks connect to [[option_contracts]] for understanding how premium is built and [[implied_volatility]] for vega impact.
+Greeks connect to [[contracts]] for understanding how premium is built and [[implied_volatility]] for vega impact.
 
 ## Quick Reference
 

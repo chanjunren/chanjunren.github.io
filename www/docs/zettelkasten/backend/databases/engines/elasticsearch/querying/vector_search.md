@@ -27,7 +27,7 @@ flowchart LR
 4. Embed the query and retrieve nearest neighbors.
 5. Apply access filters and evaluate result relevance.
 
-For index and cluster mental model, see [[elasticsearch_overview]]. For composing text, filters, and vector queries, see [[query_dsl]]. For ranking search results, see [[scoring_relevance]].
+For index and cluster mental model, see [[architecture/overview]]. For composing text, filters, and vector queries, see [[query_dsl]]. For ranking search results, see [[scoring_relevance]].
 
 ## References
 

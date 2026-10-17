@@ -26,7 +26,7 @@ flowchart LR
 | Stream Processing | Processing a **unbounded** data stream (input might never end) |
 
 Flink applications composed of:
-1. Streaming data sources ([[../../integration/messaging/queue]])
+1. Streaming data sources ([[queue]])
 2. **Operators** - for transforming data
 3. Send result streams to **sinks** (applications that need this data)
 

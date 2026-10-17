@@ -43,7 +43,7 @@ Resilience4j (the Java go-to) lets you configure all of these. Hystrix (legacy, 
 
 ## Sliding Windows
 
-Same trade-offs as [[../rate_limiting/algorithms]]:
+Same trade-offs as [[algorithms]]:
 
 - **Count-based window** — last N calls. Quick to react; small N is twitchy.
 - **Time-based window** — last T seconds. Smoother; bigger memory cost.
@@ -95,7 +95,7 @@ The standard outer-to-inner stack: **rate limit → bulkhead → timeout → cir
 - **Treating breaker as substitute for capacity** — breaker protects against *upstream* damage. The downstream still needs to handle its load. Breakers don't fix overload.
 - **Cascading flap** — a borderline-healthy downstream causes the breaker to open, callers fall back, downstream recovers, breaker half-opens, traffic returns, downstream tips over again. Add jitter and slow ramp-up.
 
-For what 5xx triggers the breaker on, see [[http_status_codes_semantics]]. For idempotency makes retries-after-recovery safe, see [[idempotency_keys_api_design]].
+For what 5xx triggers the breaker on, see [[http_status_codes_semantics]]. For idempotency makes retries-after-recovery safe, see [[idempotency_keys]].
 
 ## Planned
 

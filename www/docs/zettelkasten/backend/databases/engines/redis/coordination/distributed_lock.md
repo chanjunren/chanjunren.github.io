@@ -66,7 +66,7 @@ A single Redis is a single point of failure. If it goes down, no one can lock or
 - Process B asks the new primary, sees no lock, acquires it.
 - Both A and B think they hold the lock. **Mutual exclusion violated.**
 
-This is the same async-replication failure mode as [[database_replication_async_sync_semi]].
+This is the same async-replication failure mode as [[replication_async_sync_semi]].
 
 ## Redlock — Multi-Node Algorithm
 

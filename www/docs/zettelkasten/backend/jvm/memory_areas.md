@@ -26,7 +26,7 @@ flowchart TD
 
 ## Heap
 
-Every `new MyObject()` allocates here. Collectors may divide the heap by object age; see [[generational_gc_basics]] for the generational model.
+Every `new MyObject()` allocates here. Collectors may divide the heap by object age; see [[generational_basics]] for the generational model.
 
 ```
 ┌──────────────────────────────────────────────────┐

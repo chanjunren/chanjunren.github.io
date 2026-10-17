@@ -102,7 +102,7 @@ If `doBusinessWork` fails, the txn rolls back including the dedup record → mes
 | Telemetry, sampled logs           | At-most-once                                              |
 | Anything with business value      | At-least-once + idempotent consumer                        |
 | Read-process-write entirely in Kafka | Exactly-once with transactional API                    |
-| Cross-system pipeline             | At-least-once + idempotency keys + [[outbox_pattern]]      |
+| Cross-system pipeline             | At-least-once + idempotency keys + [[outbox]]      |
 
 ## Common Pitfalls
 

@@ -48,7 +48,7 @@ Deleting before committing creates another window: readers can reload the old so
 | Invalidation through events | Separates delivery from the request path. | Delivery lag and stale fills remain. |
 | Conditional versioned updates | Rejects older fills against a retained newer version. | All writers must use the protocol. |
 
-A delayed second deletion is not a consistency guarantee. An [[outbox_pattern]] can make invalidation events durable; it does not make delivery instantaneous.
+A delayed second deletion is not a consistency guarantee. An [[outbox]] can make invalidation events durable; it does not make delivery instantaneous.
 
 ## Define the read contract
 

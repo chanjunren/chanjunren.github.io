@@ -185,7 +185,7 @@ The point isn't precision; it's **deciding what the design has to optimise for**
 - **Forgetting amplification** — one user write may trigger 200 follower-cache writes. The pipeline factor matters.
 - **Single-server math at fleet scale** — "Redis can do 100k ops/s" → assuming Redis can do 10M ops/s with 100 machines linearly. Network shuffling, hot keys, and partition limits make it sublinear.
 
-Scale estimation is step 2 in the [[framework]]. The [[url_shortener]] provides a worked example. [[../rate_limiting/distributed_design]] applies estimation to many small operations. Use [[cluster_topology]] and [[database_sharding_strategies]] to follow estimates into scaling choices.
+Scale estimation is step 2 in the [[framework]]. The [[url_shortener]] provides a worked example. [[distributed_design]] applies estimation to many small operations. Use [[cluster_topology]] and [[sharding_strategies]] to follow estimates into scaling choices.
 
 ---
 

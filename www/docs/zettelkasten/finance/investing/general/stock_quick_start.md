@@ -3,9 +3,9 @@
 # stock_quick_start
 
 ## strategies
-- [[passive_investing]]
+- [[passive]]
 - [[technical_analysis]]
-- [[value_investing]]
+- [[value]]
 
 
 ---

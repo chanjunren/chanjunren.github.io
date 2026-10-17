@@ -10,7 +10,7 @@ Adding a field can be compatible when old and new readers follow protobuf's rule
 
 Protobuf is often smaller than text formats for suitable data, but speed and size depend on the schema, payload, and workload. Benchmark before choosing it solely for performance.
 
-For runtime implementation discovery, see [[service_provider_interface]]. For messaging and serialization context, see [[moc_messaging]].
+For runtime implementation discovery, see [[service_provider_interface]]. For messaging and serialization context, see [[messaging/index]].
 
 ```mermaid
 flowchart LR

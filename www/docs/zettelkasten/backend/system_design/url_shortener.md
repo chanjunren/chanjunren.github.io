@@ -49,7 +49,7 @@ GET /api/stats/:short_id
   Response: { "click_count": ..., "last_click": ... }
 ```
 
-POST should be idempotent for the same `(user_id, long_url)` to make retries safe. Use [[idempotency_keys_api_design]] explicitly, or natural dedup on `(owner, long_url)`.
+POST should be idempotent for the same `(user_id, long_url)` to make retries safe. Use [[idempotency_keys]] explicitly, or natural dedup on `(owner, long_url)`.
 
 ## 4. Data Model
 
@@ -124,10 +124,10 @@ sequenceDiagram
 ```
 
 - App is stateless, behind a load balancer; horizontally scaled.
-- Redis sits in front of the DB for the hot 1 TB; cache-aside (see [[../caching/aside_pattern]]).
+- Redis sits in front of the DB for the hot 1 TB; cache-aside (see [[aside_pattern]]).
 - DB sharded by `short_id` (or by hash of it).
 - ID generator is a separate service producing short codes.
-- Click events fire-and-forget into Kafka → consumed asynchronously into the analytics warehouse — see [[kafka_architecture]] and [[outbox_pattern]].
+- Click events fire-and-forget into Kafka → consumed asynchronously into the analytics warehouse — see [[kafka_architecture]] and [[outbox]].
 - CDN edge caches `GET /:short_id` 302 responses for the most popular links — these can be served entirely without hitting the origin.
 
 ## 6. Deep Dive
@@ -180,7 +180,7 @@ read(short_id):
   return v
 ```
 
-Hot keys (>>1k req/s on a single short_id) need [[../caching/stampede]] protection — single-flight on the cache miss, or refresh-ahead.
+Hot keys (>>1k req/s on a single short_id) need [[stampede]] protection — single-flight on the cache miss, or refresh-ahead.
 
 For brand-new URLs, the first redirect always misses. To mitigate the long-tail of "I just shortened, why slow?", populate the cache on POST as well.
 
@@ -203,7 +203,7 @@ The [[cluster_topology]] zettel covers slot-based sharding limits; very hot sing
 - **Range sharding by counter prefix**: shorter codes (early) → shard A, longer codes → shard B. Risk of unbalanced load (newer codes hotter).
 - **consistent hashing**: minimum movement when adding shards.
 
-Hash sharding is the default. See [[database_sharding_strategies]] for the trade-offs.
+Hash sharding is the default. See [[sharding_strategies]] for the trade-offs.
 
 ### 6.5 Analytics Path
 

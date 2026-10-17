@@ -34,7 +34,7 @@ flowchart TD
 - Approval can pause the loop.
 - Errors and limits can end it before a final answer.
 
-[[agent_memory_and_state]] traces the context passed between two calls.
+[[memory_and_state]] traces the context passed between two calls.
 
 ## Runtime location and model location
 
@@ -51,11 +51,11 @@ Where the loop runs and where inference runs are separate choices.
 
 ## Integration points
 
-- An [LLM gateway](gateway/gateway.md) routes the runtime's model requests.
-- [MCP](mcp/mcp.md) connects the runtime to external tool servers.
+- An [LLM gateway](gateway/index.md) routes the runtime's model requests.
+- [MCP](mcp/index.md) connects the runtime to external tool servers.
 - A simple runtime needs neither: it calls the model and local functions directly.
 
-Once the single loop is clear, see [[agentic_design_patterns]] for multi-step and multi-agent designs.
+Once the single loop is clear, see [[agent_patterns/index]] for multi-step and multi-agent designs.
 
 ## References
 

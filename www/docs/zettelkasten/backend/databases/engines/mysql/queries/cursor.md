@@ -13,7 +13,7 @@ MySQL supports cursors in stored programs and server-side prepared statements. S
 
 Stored-program declarations have an order: local variables first, then cursors, then handlers. A `NOT FOUND` handler detects the end of the result. See [[cursor_lifecycle]] for a complete example.
 
-MySQL's server-side prepared-statement cursors materialize results in an internal temporary table. Large results can therefore incur memory or disk I/O costs. See [[database_cursor]] for the broader concept.
+MySQL's server-side prepared-statement cursors materialize results in an internal temporary table. Large results can therefore incur memory or disk I/O costs. See [[access_patterns/cursor]] for the broader concept.
 
 ```mermaid
 sequenceDiagram

@@ -27,7 +27,7 @@ A foreign table maps an external relation into Hologres so queries can access su
 
 Use a foreign table when source data freshness or avoiding a copy matters. Materialize data locally when repeated queries, predictable performance, or local indexing justify the storage and refresh cost.
 
-For Hologres workload context, see [[product_overview]]. To persist query results, see [[materialized_view]]. For local table layout choices, see [[storage_modes]].
+For Hologres workload context, see [[product_overview]]. To persist query results, see [[materialized_view]]. For local table layout choices, see [[modes]].
 
 ## References
 

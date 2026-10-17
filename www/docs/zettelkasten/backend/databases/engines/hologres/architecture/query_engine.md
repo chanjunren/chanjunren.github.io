@@ -2,7 +2,7 @@
 
 # query_engine
 
-Hologres routes SQL through a frontend and selects an execution path based on the operation. Query engines run plan operators across workers, then use the [[storage_engine]] to access shard data.
+Hologres routes SQL through a frontend and selects an execution path based on the operation. Query engines run plan operators across workers, then use the [[engine]] to access shard data.
 
 | Term | Definition | Source |
 |---|---|---|
@@ -41,7 +41,7 @@ The engine names and routing capabilities are product-specific and can change by
 
 After execution, the engine reads or writes through storage engines on the relevant shards. The workers combine partial results and return the response to the client.
 
-For the wider component path, see [[compute_storage_architecture]]. For shard placement and data access, see [[distribution_key]].
+For the wider component path, see [[compute_storage]]. For shard placement and data access, see [[distribution_key]].
 
 ## References
 

@@ -23,7 +23,7 @@ flowchart TD
 | Non-repeatable read | Re-reading a row returns a changed value after another transaction commits. |
 | Phantom read | Re-running a predicate query returns a different set of rows. |
 
-Which anomalies are possible depends on the database and isolation level. See [[transaction_isolation_levels]] and [[phantom_reads]].
+Which anomalies are possible depends on the database and isolation level. See [[isolation_levels]] and [[phantom_reads]].
 
 ## Conflict strategies
 

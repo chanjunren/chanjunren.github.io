@@ -27,7 +27,7 @@ For end-to-end delivery, the source must be replayable or participate in a consi
 
 Before relying on an “exactly once” label, check its scope: source offsets, processor state, sink writes, and what downstream readers observe may have separate guarantees.
 
-For comparing delivery guarantees, see [[delivery_semantics_at_most_at_least_exactly]]. For flink state snapshots, see [[checkpointing]]. For reliable database-to-message publication, see [[outbox_pattern]].
+For comparing delivery guarantees, see [[delivery_semantics_at_most_at_least_exactly]]. For flink state snapshots, see [[checkpointing]]. For reliable database-to-message publication, see [[outbox]].
 
 ## References
 

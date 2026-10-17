@@ -4,7 +4,7 @@
 
 > **Micrometer Prometheus registry**: A Micrometer registry that exposes application meters in Prometheus format. ([Micrometer](https://docs.micrometer.io/micrometer/reference/implementations/prometheus.html))
 
-**micrometer-registry-prometheus** creates an end-to-end pipeline in Spring Boot: your code instruments with [[metric_types]] → metrics convert to Prometheus exposition format per [[to_prometheus_mapping]] → exposed at `/actuator/prometheus` → scraped by [[overview]] → queried with PromQL in Grafana.
+**micrometer-registry-prometheus** creates an end-to-end pipeline in Spring Boot: your code instruments with [[metric_types]] → metrics convert to Prometheus exposition format per [[to_prometheus_mapping]] → exposed at `/actuator/prometheus` → scraped by [[prometheus/overview]] → queried with PromQL in Grafana.
 
 This note connects the existing pieces into the full data flow and covers what Spring Boot auto-instruments.
 

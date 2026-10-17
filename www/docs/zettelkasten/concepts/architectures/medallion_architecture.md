@@ -2,7 +2,7 @@
 
 # medallion_architecture
 
-> A data design pattern used to logically organize data in a [[../../backend/data_systems/lakehouse]]
+> A data design pattern used to logically organize data in a [[lakehouse]]
 
 Medallion architectures are sometimes also referred to as "multi-hop" architectures
 ## Goal

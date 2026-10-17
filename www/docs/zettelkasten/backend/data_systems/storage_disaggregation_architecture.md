@@ -36,7 +36,7 @@ This pattern suits variable workloads and systems that can recover from shared s
 
 ## Streaming example
 
-A stateful stream processor may keep working state near its tasks and persist checkpoints to durable storage. Recovery restores a checkpoint and replays input from the matching source position. See [[../streaming/flink/checkpointing]] and [[../streaming/flink/state]].
+A stateful stream processor may keep working state near its tasks and persist checkpoints to durable storage. Recovery restores a checkpoint and replays input from the matching source position. See [[checkpointing]] and [[state]].
 
 ## References
 

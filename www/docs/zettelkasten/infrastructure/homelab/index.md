@@ -1,6 +1,9 @@
+---
+title: homelab
+---
 🗓️ 11102026 1535
 
-# index
+# homelab
 
 This path starts with NAS fundamentals, then adds services and workloads. Synology DSM is the running example. Model-dependent features are called out.
 

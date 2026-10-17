@@ -14,7 +14,7 @@ Options are leveraged instruments that can amplify gains or wipe out capital. Le
 ### Phase 1: Foundations
 **Goal**: Understand what options are and basic mechanics
 
-1. [[option_contracts]] - Calls, puts, premiums
+1. [[contracts]] - Calls, puts, premiums
 2. [[greeks]] - Delta, gamma, theta, vega, rho
 3. [[intrinsic_extrinsic_value]] - How options are priced
 4. [[expiration]] - Settlement and exercise

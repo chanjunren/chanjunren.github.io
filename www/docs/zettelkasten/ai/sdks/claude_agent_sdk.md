@@ -8,7 +8,7 @@ The **Claude Agent SDK** is Anthropic's library for building applications where 
 
 You give it a goal, allowed tools, and settings. It runs model calls and tools until the task finishes or hits a configured limit.
 
-The SDK runs the agent; [MCP](../mcp/mcp.md) connects it to external tool servers. They compose: an SDK application can use MCP servers.
+The SDK runs the agent; [MCP](../mcp/index.md) connects it to external tool servers. They compose: an SDK application can use MCP servers.
 
 ## Choosing between SDK, MCP, and your own loop
 

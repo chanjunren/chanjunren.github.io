@@ -43,7 +43,7 @@ After this path, you should be able to explain:
 
 Read:
 
-1. [[overview]] — the collection and query pipeline
+1. [[prometheus/overview]] — the collection and query pipeline
 2. [[time_series_basics]] — samples, series, labels, and scrape intervals
 3. [[data_types]] — counters, gauges, histograms, and summaries
 4. [[range_function_calculations]] — rates and calculations over a time window

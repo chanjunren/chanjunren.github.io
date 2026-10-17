@@ -22,7 +22,7 @@ sequenceDiagram
   A-->>U: Answer or approved action result
 ```
 
-Ollama serves models through a CLI and HTTP API. LiteLLM can route model aliases through a common API. Gateways also receive prompts and credentials. Tool calls remain proposals; applications authorize and execute them. See the [LLM gateway](../../ai/gateway/gateway.md), [[llm_tool_use]], and the [MCP overview](../../ai/mcp/mcp.md).
+Ollama serves models through a CLI and HTTP API. LiteLLM can route model aliases through a common API. Gateways also receive prompts and credentials. Tool calls remain proposals; applications authorize and execute them. See the [LLM gateway](../../ai/gateway/index.md), [[llm_tool_use]], and the [MCP overview](../../ai/mcp/index.md).
 
 ## Where to run inference
 
@@ -50,6 +50,6 @@ Run a small model and measure memory and latency. Call it from a minimal app. Ad
 - [[model_applications]]
 - [[operations]]
 - [[request_routing]]
-- [MCP overview](../../ai/mcp/mcp.md)
+- [MCP overview](../../ai/mcp/index.md)
 - [Ollama documentation](https://docs.ollama.com/)
 - [Ollama official Docker image](https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image)

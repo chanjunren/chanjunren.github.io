@@ -2,7 +2,7 @@
 
 # idempotent_consumer_pattern
 
-> The standard fix for at-least-once delivery: track which messages have been processed, skip duplicates. Pairs with [[outbox_pattern]] on the producer side and is the practical answer to "how do you achieve exactly-once?" without distributed transactions.
+> The standard fix for at-least-once delivery: track which messages have been processed, skip duplicates. Pairs with [[outbox]] on the producer side and is the practical answer to "how do you achieve exactly-once?" without distributed transactions.
 
 ## Why You Need It
 
@@ -130,7 +130,7 @@ Make `@Transactional` work for this pattern:
 - **Not making the dedup write atomic with the business write** — common mistake. Two separate transactions = race window where business succeeded but dedup didn't.
 - **Cross-service idempotency** — when one event causes downstream calls to other services, each downstream call also needs an idempotency key. Propagate it.
 
-For at-least-once + this pattern ≈ exactly-once in practice, see [[delivery_semantics_at_most_at_least_exactly]]. For kafka transactional alternative for read-process-write loops, see [[exactly_once_semantics]]. For every saga step's consumer should be idempotent, see [[saga_pattern]]. For the broader messaging primitive, see [[queue]].
+For at-least-once + this pattern ≈ exactly-once in practice, see [[delivery_semantics_at_most_at_least_exactly]]. For kafka transactional alternative for read-process-write loops, see [[exactly_once_semantics]]. For every saga step's consumer should be idempotent, see [[saga]]. For the broader messaging primitive, see [[queue]].
 
 ---
 

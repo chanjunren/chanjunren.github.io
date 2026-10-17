@@ -8,7 +8,7 @@ A columnar engine may pass typed vectors from one operator to the next. Batching
 
 For example, a filter can compare a vector of prices with a threshold and produce a selection vector of matching row positions. A later projection can use those positions to build result columns. This lets the engine process many rows while preserving row-level query semantics.
 
-For storing values by column, see [[column_oriented_storage]]. For analytical query workloads, see [[olap]]. For broader execution choices, see [[processing_architectures]].
+For storing values by column, see [[column_oriented]]. For analytical query workloads, see [[olap]]. For broader execution choices, see [[processing_architectures]].
 
 ```mermaid
 flowchart LR

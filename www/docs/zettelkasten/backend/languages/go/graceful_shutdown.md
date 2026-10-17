@@ -104,4 +104,4 @@ sequenceDiagram
 ## References
 
 - [http.Server.Shutdown](https://pkg.go.dev/net/http#Server.Shutdown)
-- [[go_learning_plan]]
+- [[go/learning_plan]]

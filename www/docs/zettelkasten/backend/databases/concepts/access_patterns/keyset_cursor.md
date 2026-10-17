@@ -34,7 +34,7 @@ Tuple comparison syntax and NULL ordering vary by database. The ordering must be
 - Updates to sort keys can move rows across the cursor boundary; snapshot guarantees depend on transaction design.
 - The token should be validated and may need signing or encryption.
 
-Elasticsearch's `search_after` uses the same continuation idea for sorted search hits; see [[search_after]]. A keyset cursor differs from a [[database_cursor]], which may keep server-side state.
+Elasticsearch's `search_after` uses the same continuation idea for sorted search hits; see [[search_after]]. A keyset cursor differs from a [[access_patterns/cursor]], which may keep server-side state.
 
 ## References
 

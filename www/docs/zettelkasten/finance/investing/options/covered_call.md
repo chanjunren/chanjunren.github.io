@@ -37,7 +37,7 @@ Covered calls are the safest options strategy (fully collateralized). Popular fo
 **Pros**: Income generation, reduces cost basis, defined risk (own stock anyway)  
 **Cons**: Caps upside, stock can be called away, taxable events
 
-Covered calls combine [[option_contracts]] selling with [[greeks]] theta collection.
+Covered calls combine [[contracts]] selling with [[greeks]] theta collection.
 
 ## Quick Reference
 

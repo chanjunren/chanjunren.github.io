@@ -142,7 +142,7 @@ This caps the **retry amplification factor** under sustained failure.
 Retries on non-idempotent operations cause duplicate side effects. POST without idempotency keys + retries = double charges, double orders. The retry layer must verify the operation is safe to retry:
 
 - GET / PUT / DELETE → safe by [[http_methods_idempotency_safety]].
-- POST / PATCH → require [[idempotency_keys_api_design]] for safe retry.
+- POST / PATCH → require [[idempotency_keys]] for safe retry.
 
 SDKs that retry blindly without checking method (or idempotency key presence) cause real bugs.
 
@@ -168,7 +168,7 @@ The standard composition: **retry inside breaker**. While the breaker is closed,
 - **Sleeping on the calling thread** in a request-handling system — your worker thread is now blocked. Use async retry (scheduled task, queue) or accept the latency cost honestly.
 - **Returning success after retries that mask repeated 5xx** — observability blind spot. Log retry attempts and surface as a metric.
 
-For server side; explains 429 + Retry-After, see [[../rate_limiting/algorithms]]. For different domain, same jitter principle, see [[../caching/stampede]].
+For server side; explains 429 + Retry-After, see [[algorithms]]. For different domain, same jitter principle, see [[stampede]].
 
 ---
 

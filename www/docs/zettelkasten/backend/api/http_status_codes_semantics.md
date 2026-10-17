@@ -63,7 +63,7 @@ Use 307/308 in API contexts to avoid the historical method-rewriting baggage of 
 | 412 Precondition Failed | `If-Match` / `If-Unmodified-Since` failed.                            |
 | 415 Unsupported Media Type | Server can't process the request body's content-type.              |
 | 422 Unprocessable Entity | **Syntactically OK but semantically invalid** (validation failure). Distinct from 400. |
-| 429 Too Many Requests | Rate-limited. Include `Retry-After` header. See [[../rate_limiting/algorithms]]. |
+| 429 Too Many Requests | Rate-limited. Include `Retry-After` header. See [[algorithms]]. |
 
 ### 401 vs 403 — the most-asked clarification
 

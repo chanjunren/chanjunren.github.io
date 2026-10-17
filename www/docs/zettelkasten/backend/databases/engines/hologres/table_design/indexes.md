@@ -24,7 +24,7 @@ flowchart LR
 
 Do not configure every property by default. Start from the queries that matter, choose table orientation and distribution first, then evaluate clustering and secondary indexes with representative data. Some layout properties are fixed at table creation, so confirm which can be changed before committing to a schema.
 
-For scenario-based table configuration, see [[table_creation_best_practises]]. For query plans and bottlenecks, see [[sql_optimization]]. For row, column, and hybrid storage, see [[storage_modes]].
+For scenario-based table configuration, see [[creation_best_practises]]. For query plans and bottlenecks, see [[sql_optimization]]. For row, column, and hybrid storage, see [[modes]].
 
 ## References
 

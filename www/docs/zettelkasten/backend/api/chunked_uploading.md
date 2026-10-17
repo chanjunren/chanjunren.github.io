@@ -33,4 +33,4 @@ Use chunking when file size, unreliable networks, retry cost, or provider requir
 ## References
 
 - [Amazon S3: Multipart upload limits](https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html)
-- [[idempotency_keys_api_design]]
+- [[idempotency_keys]]

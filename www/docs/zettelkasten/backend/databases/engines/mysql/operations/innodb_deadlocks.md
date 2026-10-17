@@ -43,7 +43,7 @@ An earlier production report showed two concurrent `UPDATE` statements waiting i
 
 Changing isolation level is not a general deadlock fix. MySQL notes that deadlocks arise from write-lock conflicts and are not prevented simply by lowering isolation; measure the effect on correctness and contention before changing it.
 
-For lock records, gaps, and next-key ranges, see [[innodb_locks]]. For snapshot and locking-read behavior, see [[innodb_transaction_isolation_levels]]. For conflict detection without holding locks throughout work, see [[optimistic_locking]].
+For lock records, gaps, and next-key ranges, see [[innodb_locks]]. For snapshot and locking-read behavior, see [[innodb_isolation_levels]]. For conflict detection without holding locks throughout work, see [[optimistic_locking]].
 
 ## References
 

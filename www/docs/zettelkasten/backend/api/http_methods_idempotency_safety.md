@@ -54,7 +54,7 @@ POST /charges HTTP/1.1
 Idempotency-Key: 7f8e9c10-...
 ```
 
-The server stores the result keyed by the idempotency key; replays return the cached result. See [[idempotency_keys_api_design]].
+The server stores the result keyed by the idempotency key; replays return the cached result. See [[idempotency_keys]].
 
 ## Why PATCH Isn't Idempotent (in general)
 

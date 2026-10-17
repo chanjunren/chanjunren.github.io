@@ -89,7 +89,7 @@ Decisions visible here:
 - Which methods (REST, gRPC, GraphQL — pick one and justify briefly).
 - Auth (API key? OAuth? Public for redirects?).
 - Pagination shape if applicable.
-- Idempotency for non-idempotent operations — see [[idempotency_keys_api_design]].
+- Idempotency for non-idempotent operations — see [[idempotency_keys]].
 
 A clean API forces you to commit to a contract before getting lost in implementation.
 
@@ -115,7 +115,7 @@ Decisions visible here:
 - Denormalisation for read patterns.
 - Indexes — what queries does each support?
 
-This is the step where DB internals matter: [[b_plus_tree_indexes]], [[composite_index_leftmost_prefix]], [[transaction_isolation_levels]].
+This is the step where DB internals matter: [[b_plus_tree_indexes]], [[composite_index_leftmost_prefix]], [[isolation_levels]].
 
 ## Step 5 — High-Level Architecture
 
@@ -146,8 +146,8 @@ Pick the most interesting / hardest part. Don't try to deep-dive everything; you
 Common deep-dive choices for a URL shortener:
 
 - **ID generation** — base62, length math, snowflake vs hash vs counter, collision handling.
-- **Cache strategy** — read-through? cache-aside? what's the hit ratio with 80/20? See [[../caching/aside_pattern]] and [[../caching/failure_modes]].
-- **Hot URLs** — celebrity short URL gets 1M req/sec; how do you survive? See [[../caching/stampede]].
+- **Cache strategy** — read-through? cache-aside? what's the hit ratio with 80/20? See [[aside_pattern]] and [[failure_modes]].
+- **Hot URLs** — celebrity short URL gets 1M req/sec; how do you survive? See [[stampede]].
 - **Analytics** — async pipeline; CDC vs Kafka producer; aggregation strategy.
 - **Custom alias collisions** — uniqueness check, race-proof under concurrent posts.
 
@@ -163,7 +163,7 @@ Each deep dive should reach a **trade-off** explicitly. "Snowflake gives sortabl
 - **Ignoring failure modes** — "what happens when X fails?" should have an answer for every X you drew on the diagram.
 - **Going too deep too early** — getting stuck in implementation details before the high-level shape is right. Time-box.
 
-The [[url_shortener]] walks through all six steps. [[../rate_limiting/distributed_design]] applies them to a different problem. For deeper vocabulary, see [[moc_db_internals]], [[moc_caching]] and [[moc_messaging]].
+The [[url_shortener]] walks through all six steps. [[distributed_design]] applies them to a different problem. For deeper vocabulary, see [[concepts/index]], [[caching/index]] and [[messaging/index]].
 
 ---
 

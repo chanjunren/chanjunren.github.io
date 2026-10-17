@@ -48,7 +48,7 @@ Index non-sensitive Markdown files. Ask passage-specific questions and show sour
 
 - [[vector_search]]
 - [[llm_tool_use]]
-- [[agentic_design_patterns]]
-- [MCP overview](../../ai/mcp/mcp.md)
+- [[agent_patterns/index]]
+- [MCP overview](../../ai/mcp/index.md)
 - [Qdrant documentation](https://qdrant.tech/documentation/)
 - [pgvector](https://github.com/pgvector/pgvector)

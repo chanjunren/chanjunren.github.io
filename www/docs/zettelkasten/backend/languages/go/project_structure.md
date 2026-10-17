@@ -95,4 +95,4 @@ flowchart TD
 ## References
 
 - [Organizing a Go module](https://go.dev/doc/modules/layout)
-- [[go_learning_plan]]
+- [[go/learning_plan]]

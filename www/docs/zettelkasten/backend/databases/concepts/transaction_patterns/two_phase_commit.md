@@ -2,7 +2,7 @@
 
 # two_phase_commit
 
-> The textbook protocol for atomic commit across multiple participants. Worth understanding mainly so you know *why teams avoid it* in production — and what they reach for instead ([[saga_pattern]], [[outbox_pattern]]).
+> The textbook protocol for atomic commit across multiple participants. Worth understanding mainly so you know *why teams avoid it* in production — and what they reach for instead ([[saga]], [[outbox]]).
 
 ```mermaid
 sequenceDiagram

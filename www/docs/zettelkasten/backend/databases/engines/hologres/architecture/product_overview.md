@@ -11,8 +11,8 @@ It combines a PostgreSQL-compatible SQL interface with a distributed execution l
 When learning Hologres, separate three decisions:
 
 - **Where data comes from:** ingestion, foreign tables, or lake integrations.
-- **How tables are laid out:** see [[storage_modes]], [[distribution_key]], and [[clustering_key]].
-- **How SQL executes:** see [[compute_storage_architecture]] and [[query_engine]].
+- **How tables are laid out:** see [[modes]], [[distribution_key]], and [[clustering_key]].
+- **How SQL executes:** see [[compute_storage]] and [[query_engine]].
 
 Avoid applying a single storage layout to every workload. Point lookups, broad scans, aggregations, and mixed access patterns can benefit from different table orientations and keys.
 
@@ -25,7 +25,7 @@ flowchart LR
   H --> Analytics[Interactive analytics]
 ```
 
-For table property choices, see [[table_creation_best_practises]]. For query tuning concepts, see [[sql_optimization]]. For local and external table forms, see [[specific_tables]].
+For table property choices, see [[creation_best_practises]]. For query tuning concepts, see [[sql_optimization]]. For local and external table forms, see [[specific_tables]].
 
 ## References
 

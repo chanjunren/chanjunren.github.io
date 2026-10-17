@@ -25,7 +25,7 @@ RateLimiter.acquire()   ← this zettel — blocks the calling thread
 Downstream call (DB, third-party API, expensive computation)
 ```
 
-Contrast with the Redis-backed [[../rate_limiting/algorithms]] token bucket — that one coordinates across processes over the network; Guava's lives entirely in one JVM's heap and costs no I/O.
+Contrast with the Redis-backed [[algorithms]] token bucket — that one coordinates across processes over the network; Guava's lives entirely in one JVM's heap and costs no I/O.
 
 ## Two Flavors
 

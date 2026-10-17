@@ -11,7 +11,7 @@
 | Large language model (LLM) | [[model_applications]] |
 | Software development kit (SDK) | [[model_applications]] |
 | Claude Agent SDK | [[claude_agent_sdk]] |
-| LLM gateway | [gateway](gateway/gateway.md) |
+| LLM gateway | [gateway](gateway/index.md) |
 
 ## Agent execution
 
@@ -24,25 +24,25 @@
 | Turn | [[agent_runtime]] |
 | Tool use | [[llm_tool_use]] |
 | Tool schema | [[llm_tool_use]] |
-| Workflow | [[agentic_design_patterns]] |
+| Workflow | [[agent_patterns/index]] |
 
 ## Context and storage
 
 | Term | Home note |
 |---|---|
-| Agentic memory | [[agent_memory_and_state]] |
-| Context | [[agent_memory_and_state]] |
-| Context window | [[agent_memory_and_state]] |
-| Memory | [[agent_memory_and_state]] |
-| State | [[agent_memory_and_state]] |
-| Token | [[agent_memory_and_state]] |
+| Agentic memory | [[memory_and_state]] |
+| Context | [[memory_and_state]] |
+| Context window | [[memory_and_state]] |
+| Memory | [[memory_and_state]] |
+| State | [[memory_and_state]] |
+| Token | [[memory_and_state]] |
 
 ## MCP
 
 | Term | Home note |
 |---|---|
-| Model Context Protocol (MCP) | [mcp](mcp/mcp.md) |
-| Data layer | [mcp](mcp/mcp.md) |
+| Model Context Protocol (MCP) | [mcp](mcp/index.md) |
+| Data layer | [mcp](mcp/index.md) |
 | MCP host | [[architecture]] |
 | MCP client | [[architecture]] |
 | MCP server | [[architecture]] |

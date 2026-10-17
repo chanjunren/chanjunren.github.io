@@ -8,7 +8,7 @@ Example: transaction A runs `SELECT * FROM orders WHERE total > 100`. Transactio
 
 Phantoms differ from a non-repeatable read, where the same row returns a changed value. Database behavior depends on isolation and execution model: a locking implementation may protect a key range, while snapshot isolation can keep the transaction's read view unchanged.
 
-See [[transaction_isolation_levels]] and [[innodb_locks]] for engine-specific behavior.
+See [[isolation_levels]] and [[innodb_locks]] for engine-specific behavior.
 
 ```mermaid
 sequenceDiagram

@@ -40,7 +40,7 @@ This seeks after the last returned sort key. Use a stable total ordering, a uniq
 
 - Use offset when users need direct page numbers and result sets are modest or stable.
 - Use keyset when clients move sequentially through large or changing result sets.
-- Use a database cursor for one server-side workflow that needs an open result position; see [[cursor]] and [[database_cursor]].
+- Use a database cursor for one server-side workflow that needs an open result position; see [[queries/cursor]] and [[access_patterns/cursor]].
 
 Neither pagination strategy automatically provides a consistent snapshot across requests. Define the desired behavior for concurrent inserts and updates.
 
