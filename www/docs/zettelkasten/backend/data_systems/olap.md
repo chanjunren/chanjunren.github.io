@@ -1,81 +1,42 @@
 🗓️ 01112024 2245
-📎 #data_processing  #database
 
 # olap
 
-## Access Pattern
-- Much lower volume of requests compared to [[oltp]]
-- Each query usually much more demanding (many million of records scanned in a short time)
-- Primarily used by BAs, not users
+**Online analytical processing (OLAP)** runs queries that scan, join, and aggregate large datasets to answer analytical questions. It often serves analysts and reporting systems, while [[oltp]] serves application transactions.
 
+## Access pattern
 
-## Dump
-- Disk bandwidth is often the bottleneck
+- A query may read many rows but return a small result.
+- Disk or object-store throughput, data layout, and query planning can dominate runtime.
+- Workloads range from scheduled reports to interactive exploration.
 
-## **How does OLAP work?** 
-1. **Collection** -  OLAP server collects data from multiple data sources (RDBs / Data warehouses)
-2. **ETL** (Extract, transform, and load) -  Organising / aggregating
-	- Use tools clean, aggregate, pre-calculate, and store data in an OLAP cube according to the number of dimensions specified
-3. **Analyse** - Use OLAP tools to 
-	- query
-	- generate reports from the multidimensional data in the OLAP cube
+## How an OLAP query runs
 
-| Terms                              | Description                                                                                                         |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| OLAP Cube                          | **Data structure** to organise / analyse large volumes of data (Optimised for quick and complex analytical queries) |
-| Multidimensional Expressions (MDX) | **Queries** for manipulating DBs                                                                                    |
+1. Data arrives from operational systems, files, or event streams.
+2. An ingestion process validates and prepares it for analysis.
+3. A query engine scans relevant data, applies filters, joins, and aggregates.
+4. Results feed reports, dashboards, or further analysis.
 
-## Types
+Columnar storage and [[star_schema]] or [[snowflake_schema]] models can help common analytical access patterns. They are design choices, not requirements for all OLAP systems.
 
-### Multidimensional online analytical processing (MOLAP)
+## Common implementation styles
 
-1. **Creating a data cube** - represents multidimensional data from a data warehouse
-2.  MOLAP system stores **precalculated data** in the hypercube
-3. **Data engineers** use MOLAP because this type of OLAP technology provides **fast analysis** 
+MOLAP, ROLAP, and HOLAP describe classic multidimensional analysis approaches. Modern systems may combine them; use these terms as broad patterns.
 
-### Relational online analytical processing (ROLAP)
-1. (ROLAP) allows data engineers to perform multidimensional data analysis on a **relational database**
-2. Data engineers use SQL queries to 
-	- retrieve specific information based on the required dimensions
-1. Suitable for analyzing **extensive and detailed** data
-2. **Slow query performance** compared to MOLAP. 
+### MOLAP
 
-### Hybrid online analytical processing (HOLAP)
+A multidimensional engine stores precomputed aggregates in a cube. Reads can be fast for covered dimensions, while refresh and cube size add cost.
 
-1. Combines MOLAP and ROLAP to provide the best of both architectures
-2. HOLAP allows data engineers to 
-	- quickly retrieve analytical results from a data cube 
-	- extract detailed information from relational databases
+### ROLAP
 
-## Data modeling in OLAP
+A relational engine answers analytical queries over relational tables. It can handle detailed data, with performance shaped by layout, indexes, query plans, and compute capacity.
 
-```ad-summary
-Data modeling is the **representation of data** in data warehouses or OLAP databases
-```
+### HOLAP
 
--  Data modeling is essential in relational online analytical processing (ROLAP) because it analyzes data straight from the relational database
-- **Multidimensional data** stored as a [[star_schema]] or [[snowflake_schema]]
-
-
-## How does OLAP compare with other data analytics methods?
-
-### **Data mining** 
-
-```ad-info
-Analytics technology that processes large volumes of historical data to find patterns and insights
-```
->  Business analysts use data-mining tools to **discover relationships** within the data and **make accurate predictions** of future trends
-
-```ad-example
-- For example, marketers could use data-mining tools to analyze user behaviors from records of every website visit
-
-
-- They might then use OLAP software to inspect those behaviors from various angles, such as duration, device, country, language, and browser type. 
- 
-```
-****
-
----
+A hybrid approach combines precomputed cube results with relational detail. It can balance common fast queries with access to detailed records, at the cost of maintaining both paths.
 
 ## References
-- https://aws.amazon.com/what-is/olap/
+
+- [AWS: What is OLAP?](https://aws.amazon.com/what-is/olap/)
+- [[oltp]]
+- [[oltp_vs_olap]]

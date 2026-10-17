@@ -1,32 +1,29 @@
-🗓️ 13032026 1200
+🗓️ 17102026 2135
 
 # cpu_cache_and_memory_visibility
 
-## CPU Caches and Main Memory
-- Each CPU core has its own **cache** (L1/L2) for speed — much faster than reading from main memory (RAM)
-- When a thread writes `value = 42`, that write may **sit in the core's cache** and not reach main memory immediately
-- Another thread on a different core reads from **its own cache** or main memory — it may see the **old** value
+Concurrent code needs a memory-ordering contract; source-code order alone does not guarantee what another thread observes.
 
-```
-Core 1 cache: value = 42  ← Thread A wrote here
-         ↕ (not flushed yet)
-    Main memory: value = 0
-         ↕
-Core 2 cache: value = 0   ← Thread B reads this (stale!)
-```
+Modern CPUs use caches and may reorder operations, while compilers may transform code as long as single-thread behavior is preserved. The Java Memory Model defines which cross-thread observations are allowed through *happens-before* relationships. It does not require application code to reason about flushing a particular CPU cache line.
 
-## Instruction Reordering
-- The compiler and CPU can **reorder instructions** for performance, as long as the result looks correct **to the current thread**
-- But other threads may see the reordered result
+For example, a write followed by a volatile write can be made visible to a thread that subsequently reads that same volatile variable. In Java, `synchronized`, `volatile`, and concurrency utilities establish specified ordering relationships; they are not interchangeable, and the right mechanism depends on the invariant being protected.
 
 ```java
-// Thread A writes:
-value = 42;     // (1)
-ready = true;   // (2)
+int value;
+volatile boolean ready;
 
-// CPU might reorder to: (2) then (1)
-// Thread B could see: ready = true, value = 0
+// Writer
+value = 42;
+ready = true;
+
+// Reader: after observing ready == true, value is guaranteed visible
+if (ready) {
+    use(value);
+}
 ```
 
-## Implications
-These two problems — **stale caches** and **instruction reordering** — are why concurrent code needs explicit memory ordering guarantees (e.g. `synchronized`, `volatile`, memory fences).
+This is a happens-before example, not a recommendation to publish mutable state through arbitrary fields. See [[java_memory_model_happens_before]] for the formal rule and [[compare_and_swap]] for atomic read-modify-write operations.
+
+## References
+
+- [Java Language Specification: Threads and Locks](https://docs.oracle.com/javase/specs/jls/se17/html/jls-17.html)

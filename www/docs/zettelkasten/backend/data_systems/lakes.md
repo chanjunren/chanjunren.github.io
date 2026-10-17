@@ -2,23 +2,22 @@
 
 # lakes
 
+A **data lake** stores data in its source form or in lightly processed form, often on distributed file or object storage. Compute engines read and transform the data when needed.
 
-## pros
-- flexibile data storage
-- streaming support
-- cost efficient in the cloud
-- support for AI / machine learniing
+## Strengths
 
-## cons
-- no transactional support
-- poor data reliability 
-- slow analysis performance
-- data governance concerns (privacy / security)
-- [[warehouses]] still needed
-- lack of integration with a data catalog
-- ineffective partitioning
-- too many small files
+- Stores structured, semi-structured, and unstructured data.
+- Separates storage from the engines that process it.
+- Supports batch and streaming workloads when the surrounding tools provide them.
 
----
+## Costs
+
+- Raw files alone do not provide table transactions or consistent schema enforcement.
+- Poor partitioning and many small files can slow queries.
+- Teams must add catalog, governance, quality, and retention practices.
+
+Table formats such as [[delta_lake]] add table-level behavior. A [[lakehouse]] combines these features with analytical workloads.
+
 ## References
-- https://www.youtube.com/watch?v=myLiFw9AUKY&t=331s
+
+- [Delta Lake documentation](https://docs.delta.io/)

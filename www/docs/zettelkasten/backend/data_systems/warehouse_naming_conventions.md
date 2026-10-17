@@ -1,6 +1,8 @@
 🗓️ 27052025 1356
 
 # warehouse_naming_conventions
+
+These abbreviations are one warehouse naming scheme, not a universal standard. Confirm each meaning with the owning team's data contract before relying on it.
 ## Common Layer Prefixes
 
 | Prefix | Meaning                    | Usage                                                                                                      |
@@ -26,4 +28,5 @@
 
 ---
 ## References
-- ChatGPT
+
+- TODO: Add the source or team standard that defines these abbreviations.

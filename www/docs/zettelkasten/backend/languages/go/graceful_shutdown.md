@@ -92,4 +92,4 @@ func (s *Server) Start() error {
 ## References
 
 - [http.Server.Shutdown](https://pkg.go.dev/net/http#Server.Shutdown)
-- [[learning_plan]]
+- [[go_learning_plan]]

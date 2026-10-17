@@ -1,18 +1,22 @@
-🗓️ 04032025 2318
+🗓️ 17102026 2135
 
 # checkpointing
 
-- **Ensures fault tolerance** by saving operator [[state]] periodically
-- If a failure occurs, Flink **restores state from the last successful checkpoint**.
-- Works with **stateful functions** that retain data across events.
+A Flink checkpoint is a consistent snapshot of operator state and source positions used to recover a job after failure.
 
+Flink injects checkpoint barriers into input streams. Operators snapshot their state when the barriers reach them, so the checkpoint aligns the state with the corresponding source positions. On recovery, Flink restores that state and resumes sources from the saved positions.
 
-## Prerequisites for Checkpointing
+Checkpoints require the job's state and checkpoint storage to be configured appropriately. For production recovery, use durable checkpoint storage and a source that can restore its position. End-to-end exactly-once effects also require a compatible sink; see [[exactly_once_semantics]].
 
-| prerequisite         | usage                       | examples                       |
-| -------------------- | --------------------------- | ------------------------------ |
-| Durable data sources | For replaying records       | Kafka, RabbitMQ, Kinesis, etc. |
-| State storage        | saving checkpoint snapshots | HDFS, S3, Ceph, etc.           |
+Checkpoint interval, timeout, concurrent checkpoint count, and retained checkpoints affect overhead and recovery options. Tune these against state size, source throughput, storage performance, and the tolerated recovery point.
 
----
+## Related notes
+
+- [[state]] — what Flink persists
+- [[keyed_state]] — per-key managed state
+- [[savepoints]] — user-triggered snapshots for planned changes
+
 ## References
+
+- [Apache Flink: Checkpointing](https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/fault-tolerance/checkpointing/)
+- [Apache Flink: Fault tolerance](https://nightlies.apache.org/flink/flink-docs-stable/docs/learn-flink/fault_tolerance/)

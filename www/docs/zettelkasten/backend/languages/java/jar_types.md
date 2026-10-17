@@ -47,3 +47,4 @@
 
 ---
 ## References
+- [Java 17: The jar Command](https://docs.oracle.com/en/java/javase/17/docs/specs/man/jar.html)

@@ -2,11 +2,21 @@
 
 # time_series_database
 
-- **Optimized for appending**: TSDBs assume write-once data; use delta encoding and compression for efficient storage
-- **Multi-dimensional model**: Data = metric name + timestamp + labels (e.g., `region="ap-sg"`, `instance="app1"`)
->  Labels allow slicing and dicing. 
-- **Cardinality**: Total number of unique time-series (label combinations). High cardinality increases memory, storage, and query latency
-- **Scaling limits**: Single Prometheus typically handles ~1–2 million series. Exceeding this requires strategies like sharding, federation, or adopting specialized TSDBs
+A **time-series database** stores observations associated with timestamps. Its schema and query model often make time-range filtering, retention, and aggregation efficient.
 
----
+## Common data model
+
+An observation usually contains a measurement, timestamp, value, and identifying dimensions such as `region` or `instance`. In systems such as Prometheus, each unique metric name and label set identifies a time series.
+
+## Design trade-offs
+
+- Time-based partitioning and retention can simplify expiry of old data.
+- Compression and downsampling can reduce storage, with detail or precision trade-offs.
+- High-cardinality labels create many distinct series and increase memory and storage costs.
+- Query speed depends on the engine, retention, label design, scrape interval, and workload.
+
+There is no universal series-count limit. Measure the chosen database with representative labels, retention, and queries. Avoid labels whose values grow without bound, such as request IDs.
+
 ## References
+
+- [Prometheus: Data model](https://prometheus.io/docs/concepts/data_model/)

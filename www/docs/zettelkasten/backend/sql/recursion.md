@@ -29,3 +29,4 @@ Memory pressure builds up due to these factors:
 
 ---
 ## References
+- [PostgreSQL: WITH queries](https://www.postgresql.org/docs/current/queries-with.html)

@@ -1,92 +1,31 @@
 🗓️ 31012025 1657
-📎 #wip 
 
 # storage_disaggregation_architecture
 
-A.K.A Compute-Storage Separation (Storage Disaggregation Architecture)
+**Storage disaggregation** separates compute resources from persistent storage so they can scale and fail independently. The design shifts data access onto a network path, so storage latency, bandwidth, and recovery behavior become central.
 
-```ad-summary
-The Compute-storage separation (or storage disaggregation) architecture decouples the 
-- compute layer (responsible for data processing) 
-- the storage layer (responsible for data persistence)
+## Request and recovery path
 
-Allowing them to scale independently
-```
-- Ideal for 
-	- **real-time data processing systems**
-	- **cloud-native platforms**
-	- **data-intensive applications** where dynamic resource allocation, cost-efficiency, and fault tolerance are critical.
+1. Compute workers read input or state from a shared storage service.
+2. Workers process data and write outputs or checkpoints to that service.
+3. A failed worker can be replaced and recover from durable data or a checkpoint.
 
-## Key Features
-### Decoupling of Compute and Storage Layers
-#### Compute Layer
-Handles real-time or batch data processing tasks 
-- aggregations
-- transformations
-- analytics
+The system must still coordinate ownership, consistency, and concurrent access. A shared store alone does not make processing fault-tolerant; the application or engine needs a recovery protocol.
 
-Compute nodes are typically ephemeral, processing data in memory for low-latency performance
+## Trade-offs
 
-#### Storage Layer
-Handles 
-- persistent storage of raw data
-- intermediate results
-- processed outputs using **distributed file systems** (e.g., Alibaba Cloud’s Pangu, OSS, or HDFS).
+- **Independent scaling:** increase compute without copying every stored dataset to new workers.
+- **Resource efficiency:** scale compute down when idle while retaining data.
+- **Network dependence:** remote reads add latency and can compete for bandwidth.
+- **Shared bottlenecks:** storage throughput and metadata services can limit all workers.
+- **Recovery cost:** restoring large working state can take time even when data is durable.
 
-### Independent Scaling
-    
-- Compute resources (CPU, memory) can be scaled independently based on workload demands.
-- Storage resources (disk capacity, I/O throughput) can grow as needed without affecting compute operations.
+This pattern suits variable workloads and systems that can recover from shared storage. A tightly coupled design can be simpler when local data access dominates and compute demand is steady. Compare [[storage_computing_architectures]] and [[compute_platform]].
 
-### Resource Optimization
-- Pay-as-you-go
-> Only pay for active compute processing and persistent storage separately.
+## Streaming example
 
-- Avoid overprovisioning 
-> Done by dynamically allocating resources based on real-time demands.
-
-### Fault Tolerance and Reliability
-    
-- Persistent storage ensures data integrity even if compute nodes fail or restart
-- State snapshots and checkpoints are stored in the storage layer for recovery during failures.
-
-### Elasticity and Cost Efficiency
-- **Compute workloads can be scaled up or down** during traffic spikes without overcommitting storage resources.
-- Persistent data storage remains unaffected by compute resource scaling
-> Reducing costs compared to tightly coupled architectures
-
-### Performance Optimization
-- High-performance compute nodes can process large-scale data without being constrained by local disk capacity
-- Modern storage solutions (e.g., OSS, Pangu) provide fast access, allowing efficient streaming and batch operations.
-
-## How the Architecture Works
-### 1 - Data Ingestion
-    
-- Raw data is ingested from storage systems such as OSS, Kafka, or HDFS.
-- State snapshots and intermediate results during processing are saved periodically to distributed storage.
-
-###  2 - Processing
-    
-- Compute nodes (e.g., Flink clusters) process the data in-memory for low-latency computations.
-- Ephemeral compute nodes execute real-time processing tasks like anomaly detection, aggregation, and transformation.
-### 3 - Persistent Storage
-    
-- Raw data, checkpoints, and processing results are stored in persistent layers (e.g., OSS, Pangu, or RDS).
-- This decoupling ensures that even during a node failure, the system can quickly restart processing by recovering state from the storage layer.
-## Advantages of Compute-Storage Separation
-### Elasticity
-Independent scaling of compute and storage enables efficient handling of dynamic workloads (e.g., traffic spikes).
-    
-### Cost Efficiency
-Storage and compute are billed separately, avoiding overprovisioning commonly seen in tightly coupled systems.
-    
-### High Performance
-High-performance compute nodes interact with distributed storage systems to deliver low-latency results.
-    
-### Fault Tolerance:
-Persistent storage ensures reliable recovery during failures, with state snapshots available for resuming processing.
-
----
+A stateful stream processor may keep working state near its tasks and persist checkpoints to durable storage. Recovery restores a checkpoint and replays input from the matching source position. See [[../streaming/flink/checkpointing]] and [[../streaming/flink/state]].
 
 ## References
-- ChatGPT
+
+- [Apache Flink: Stateful stream processing](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/concepts/stateful-stream-processing/)

@@ -3,7 +3,7 @@
 
 # review_backies
 
-**Applied companion to the Go notes.** A review of the `backies` service (a single Go backend serving language-learning apps) through the idioms in [[learning_plan]]. Unlike the other notes this is not one atomic concept — it maps real code to the concepts and flags where the code could improve. Paths are relative to the repo root.
+**Applied companion to the Go notes.** A review of the `backies` service (a single Go backend serving language-learning apps) through the idioms in [[go_learning_plan]]. It maps real code to concepts and identifies possible improvements. Paths are relative to the repository root.
 
 ## What it does well
 
@@ -35,5 +35,5 @@ The earlier `WriteTimeout`-vs-router-`Timeout` mismatch (which truncated long re
 
 ## References
 
-- [[learning_plan]]
+- [[go_learning_plan]]
 - Repo: `backies` (`cmd/api`, `internal/`)

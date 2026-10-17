@@ -4,7 +4,7 @@
 
 Four collectors a modern Java service encounters: **Parallel** (throughput), **G1** (default since JDK 9), **ZGC** (sub-millisecond pauses), **Shenandoah** (similar low-pause). Choosing depends on heap size, pause tolerance, and JDK version.
 
-For the generational model these collectors build on, see [[basics]].
+For the generational model these collectors build on, see [[generational_gc_basics]].
 
 ## Collector Lineage
 

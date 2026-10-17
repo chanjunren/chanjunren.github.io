@@ -1,30 +1,27 @@
 🗓️ 04032025 2259
 
-- State that is **partitioned by key** when working with a keyed stream (e.g., using `keyBy`)
-	- **Efficient local state updates** (avoiding transaction overhead).
-    - **Transparent redistribution** when scaling.
-- **Sharded across Flink nodes**, with each parallel instance managing state for its assigned keys
-- organized as an **embedded key-value store**.
+# keyed_state
+
+Keyed state stores values by the current record key. Flink partitions it with the keyed stream, so each operator instance accesses the state for its assigned keys locally.
+
+Keyed state is available after a keyed partitioning operation such as `keyBy`. Flink can redistribute it when the job is rescaled.
 
 ## Key Groups
-- State is further partitioned into **Key Groups**, which determine how state is distributed across parallel instances.
 
-### **Distributed State Management**
-- The state for a key is **local** to the parallel instance handling that key and is not shared across nodes.
+**Key groups** are the units Flink redistributes. Their count is fixed by the operator's maximum parallelism; each parallel instance handles one or more groups.
 
-### Clearing State
+## State lifecycle
+
+State is associated with keys and may remain after a key stops receiving events. Use explicit clearing or State TTL when the data's lifetime is bounded. TTL is a cleanup and visibility policy; it does not guarantee immediate physical deletion.
+
 ```ad-warning
-If keyed state is not cleared, it will keep growing for every distinct key encountered
-
-Therefore, keyed state should be cleared when it's no longer needed
-
+Long-lived jobs can accumulate state for inactive keys. Set a retention policy that matches the application's correctness needs.
 ```
 
-Can be done through
-- Manual clearing
-- Timers: Clear state after a period of inactivity (e.g., with ProcessFunction).
-- [State Time-to-Live (TTL)](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/dev/datastream/fault-tolerance/state/#state-time-to-live-ttl) 
+Use state APIs to clear a value when its lifecycle ends. Use timers or State TTL for time-based cleanup.
 
 
 ---
 ## References
+- [Apache Flink 1.20: Stateful stream processing](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/concepts/stateful-stream-processing/)
+- [Apache Flink 1.20: State TTL](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/dev/datastream/fault-tolerance/state/#state-time-to-live-ttl)

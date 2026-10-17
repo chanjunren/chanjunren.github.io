@@ -22,3 +22,4 @@
 
 ---
 ## References
+- [Hologres: Best practices for table properties](https://www.alibabacloud.com/help/en/hologres/user-guide/guide-on-scenario-specific-table-creation-and-tuning)

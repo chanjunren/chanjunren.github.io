@@ -28,3 +28,4 @@ User Request > CDN Edge > (if not cached) > OSS > CDN Edge > User
 
 ---
 ## References
+- [AWS: What is Amazon CloudFront?](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)

@@ -17,3 +17,4 @@
 ---
 
 ## References
+- [Apache Flink: Fault tolerance](https://nightlies.apache.org/flink/flink-docs-stable/docs/learn-flink/fault_tolerance/)

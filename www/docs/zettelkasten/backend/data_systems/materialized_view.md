@@ -1,19 +1,31 @@
 🗓️ 03022025 1601
 
 # materialized_view
- > A physical table that stores the result of a predefined query
 
-Unlike a regular [[view]], it **periodically refreshes** to keep the data up-to-date with the underlying tables
+A **materialized view** stores the result of a query so later reads can avoid recomputing it. The stored result can become stale until the database refreshes it.
 
-## Use Cases
-- Improving query performance for complex or expensive queries by precomputing and storing the results
-- Use for dashboards, reports, or frequently accessed aggregated data
+## When it helps
 
-```ad-example
-Creating a materialized view that stores daily sales totals
-> Can be queried quickly without recalculating the totals each time
+- Reuse an expensive aggregation for dashboards or reports.
+- Trade freshness and refresh cost for faster reads.
+- Precompute results used by many queries.
+
+## Design questions
+
+- How stale may the result be?
+- Does the database refresh it on demand, on a schedule, or incrementally?
+- Can refresh work block readers or writers?
+- Does the saved query fit available indexes and storage?
+
+```sql
+CREATE MATERIALIZED VIEW daily_sales AS
+SELECT sale_date, SUM(amount) AS total
+FROM sales
+GROUP BY sale_date;
 ```
 
----
+Refresh syntax and behavior vary by database. Compare with a regular [[view]], which evaluates its query when read.
+
 ## References
-- Deepseek
+
+- [PostgreSQL: CREATE MATERIALIZED VIEW](https://www.postgresql.org/docs/current/sql-creatematerializedview.html)

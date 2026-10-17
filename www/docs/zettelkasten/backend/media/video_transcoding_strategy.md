@@ -66,3 +66,5 @@
 
 ---
 ## References
+- [AWS Elemental MediaConvert: What is MediaConvert?](https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html)
+- [Apple: HTTP Live Streaming](https://developer.apple.com/documentation/http-live-streaming)

@@ -2,16 +2,17 @@
 
 # hot_cold_storage
 
-| Feature                | 🔥 **Hot Storage**                                | ❄️ **Cold Storage**                       |
-| ---------------------- | ------------------------------------------------- | ----------------------------------------- |
-| **Purpose**            | Frequent, fast access                             | Infrequent, archival access               |
-| **Access speed**       | Very fast (ms to sec)                             | Slower (minutes to hours)                 |
-| **Cost**               | Higher storage cost                               | Much cheaper per GB                       |
-| **Use cases**          | Active data, real-time apps, dashboards           | Backups, historical logs, compliance data |
-| **Examples (Cloud)**   | Amazon S3 Standard, Google Cloud Storage Standard | Amazon Glacier, Google Coldline/Archive   |
-| **Durability**         | Usually same (11 9s, etc.)                        | Same durability, but slower retrieval     |
-| **Availability (SLA)** | Higher                                            | Lower                                     |
+Hot and cold describe access patterns used to choose storage tiers. Hot data needs frequent, low-latency access; cold data is accessed less often and can tolerate retrieval delay.
 
----
+| Dimension | Hot tier | Cold tier |
+|---|---|---|
+| Access pattern | Frequent reads or writes | Rare reads, often retention or recovery |
+| Retrieval | Low latency | May require restore or longer retrieval |
+| Cost | Usually higher per unit stored or accessed | Usually lower storage cost, with retrieval and operation charges |
+| Examples | Current operational data, active indexes | Older logs, backups, archives |
+
+Tier names, latency, availability, durability, and fees differ by provider. Check the product's current service terms before designing around a specific number. Storage tiering is a lifecycle policy; it does not replace backup or replication.
+
 ## References
-- ChatGPT
+
+- [Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html)

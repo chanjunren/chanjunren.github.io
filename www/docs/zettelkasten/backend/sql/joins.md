@@ -15,3 +15,4 @@
 
 ---
 ## References
+- [PostgreSQL: Table Expressions and Joins](https://www.postgresql.org/docs/current/queries-table-expressions.html)

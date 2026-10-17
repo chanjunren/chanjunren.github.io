@@ -1,88 +1,34 @@
-🗓️ 09092025 1411
+🗓️ 17102026 2135
 
 # cloud_storage
 
-OSS and S3 provide managed object storage; applications handle their own workflows.
+Object storage exposes objects through a service API; applications still own the upload, access, and lifecycle workflows around them.
 
-## ☁️ What OSS/S3 Provides
-### Infrastructure Management
+An object typically has a key, data, and metadata inside a bucket. A key that looks like a folder path is generally a naming convention over object keys, not a filesystem directory with POSIX semantics. Use object storage for durable blobs and large files; use a database for transactional metadata and relationships that need queries or constraints.
 
-- Hardware: No servers to maintain or replace
-- Networking: Global infrastructure and backbone connections
-- Scaling: Automatic capacity management (petabytes if needed)
-- Uptime: 99.9%+ availability SLA with redundancy
+## What the service can provide
 
-### Data Protection
+Depending on provider, region, and storage class, managed object storage can provide redundant storage, access control, encryption, versioning, multipart uploads, lifecycle transitions, and request logging. These features have configuration choices and costs. A durability target is a statistical service objective, not a promise that an individual object can never be deleted, overwritten, or become unavailable.
 
-- Durability: 99.999999999% (11 9's) - your data won't be lost
-- Replication: Multiple copies across different locations
-- Backup: Automatic versioning and backup capabilities
-- Disaster Recovery: Geographic redundancy options
+## What the application still owns
 
-### Security
+- Authorization: decide who may upload, read, replace, and delete each object.
+- Metadata: store ownership, relationships, processing state, and the object key.
+- Upload workflow: handle retries, incomplete multipart uploads, validation, and cleanup.
+- Delivery: choose signed URLs, a proxy, or a CDN based on access and privacy needs.
+- Lifecycle and cost: define retention, version cleanup, storage classes, and egress budgets.
+- Media processing: transcode, validate, and generate manifests or thumbnails when needed.
 
-- Encryption: Data encrypted at rest and in transit
-- Access Control: Fine-grained permissions (IAM policies)
-- Audit Logging: Track who accessed what and when
-- Network Security: VPC integration, private endpoints
+For large uploads, use multipart APIs or provider SDKs that support resumable uploads. Configure lifecycle cleanup for abandoned parts. See [[chunked_uploading]].
 
-## Performance Features
-### CDN Integration: Built-in CDN or easy integration
+## Related notes
 
-- Transfer Acceleration: Optimized upload/download speeds
-- Multipart Upload: Built-in chunked upload support
-- Intelligent Tiering: Automatic cost optimization
+- [[cdn]] — caching and delivering public or authorized content
+- [[reverse_proxy]] — serving files through an application boundary
+- [[idempotency_keys_api_design]] — safe retry semantics for upload requests
 
-### Management Tools
-
-- Web Console: GUI for file management
-- APIs: RESTful APIs for programmatic access
-- CLI Tools: Command-line management
-- Monitoring: Built-in metrics and logging
-
-## 🔧 What You Still Need to Handle
-### Application Logic
-
-- File organization: How you structure your folders/naming
-- Metadata management: Track file relationships in your database
-- Business rules: Who can upload/access what content
-- Workflow orchestration: Upload > process > deliver pipeline
-
-### Video-Specific Processing
-
-- Transcoding: Convert between formats/qualities
-- Thumbnail generation: Create preview images
-- Content validation: Verify file types and content
-- Adaptive streaming: Create HLS/DASH manifests
-
-### User Experience
-
-- Upload UI: Progress bars, error handling, resume capability
-- Video player: Playback interface and controls
-- Quality selection: Let users choose video quality
-- Offline capabilities: Download for offline viewing
-
-### Cost Optimization
-
-- Lifecycle policies: When to delete or archive old content
-- Storage class selection: Hot, warm, cold storage tiers
-- Bandwidth optimization: Minimize egress costs
-- Usage monitoring: Track and optimize costs
-
-### 💰 Cost Structure (What You Pay For)
-
-- Storage: Amount of data stored (GB/month)
-- Requests: Number of API calls (GET, PUT, DELETE)
-- Bandwidth: Data transfer out (egress)
-- Operations: Advanced features like lifecycle management
-
-## 🎯 Bottom Line
-
-- OSS/S3 handles: Infrastructure, reliability, security, basic file operations
-- You handle: Business logic, video processing, user experience, cost optimization
-- Think of OSS/S3 as a reliable, scalable hard drive in the cloud - it stores your files safely and serves them quickly, but you still need to build the application logic around it.
-
----
 ## References
 
-- TODO: replace this placeholder with sources for the storage claims.
+- [Alibaba Cloud OSS: What is Object Storage Service?](https://www.alibabacloud.com/help/en/oss/user-guide/what-is-oss)
+- [Alibaba Cloud OSS: Multipart upload](https://www.alibabacloud.com/help/en/oss/user-guide/multipart-upload)
+- [Alibaba Cloud OSS: Lifecycle management](https://www.alibabacloud.com/help/en/oss/user-guide/overview-54/)

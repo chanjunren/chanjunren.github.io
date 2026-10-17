@@ -1,54 +1,22 @@
-🗓️ 06042024 1650
+🗓️ 17102026 2135
 
 # protobuf_overview
 
-```ad-tldr
-Protocol Buffers (often abbreviated as protobuf) are a language-neutral, platform-neutral, extensible mechanism for serializing structured data
-similar to XML, but smaller, faster, and simpler.
-```
+Protocol Buffers (protobuf) is a language-neutral format for defining structured messages and encoding them into a compact wire representation.
 
-## Efficiency
+Developers define message types in `.proto` files, then use `protoc` and language-specific plugins to generate code. Generated code serializes and parses messages for files, network protocols, or other byte streams. The schema's field numbers are part of the wire format, so they must remain stable.
 
-- More efficient in terms of serialisation and deserialisation speed compared to other formats like `JSON` or `XML`
-- The serialised data is much smaller, which makes it ideal for communication between services or storing data.
+Adding a field can be compatible when old and new readers follow protobuf's rules, but compatibility is not automatic for every schema edit. Never reuse a deleted field number; reserve it. Test compatibility across deployed producer and consumer versions, and follow guidance for the syntax or edition used by the project.
 
-## Features
+Protobuf is often smaller than text formats for suitable data, but speed and size depend on the schema, payload, and workload. Benchmark before choosing it solely for performance.
 
-### Language and Platform Neutral
+## Related notes
 
-- `Protobuf definitions` are written in a simple configuration file
-  - Can be used to generate code for various programming languages
-- Easy to share data across different systems or services, regardless of the languages or platforms they use.
-
-### Strongly Typed
-
-- Strongly typed data structures
-
-### Backward Compatibility
-
-- Can add new fields to your data structures without breaking deployed programs that do not know about them
-- Fields can be
-  - Marked as optional or required
-  - Deprecated
-
-## Use Cases
-
-- `RPC` when services need to communicate with each other especially in microservices architectures.
-- Storing data in a compact format
-  - Databases or file systems
-- High-performance computing and network communication
-
-## How It Works
-
-1. Define data structure in a .proto file
-2. Compile: You use the protobuf compiler protoc to generate code from your .proto file for the programming language you're using
-3. Use the generated code to write and read your structured data to and from various data streams
-   1. files
-   2. pipes
-   3. network connections.
-
----
+- [[service_provider_interface]] — runtime implementation discovery
+- [[moc_messaging]] — messaging and serialization context
 
 ## References
 
-- ChatGPT
+- [Protocol Buffers: Overview](https://protobuf.dev/overview/)
+- [Protocol Buffers: Updating a message type](https://protobuf.dev/programming-guides/proto3/#updating)
+- [Protocol Buffers: Editions overview](https://protobuf.dev/editions/overview/)

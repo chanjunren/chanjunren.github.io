@@ -51,3 +51,5 @@ Databases are optimized for small, structured queries. Video chunks are large, u
 
 ---
 ## References
+- [Apple: HTTP Live Streaming](https://developer.apple.com/documentation/http-live-streaming)
+- [AWS Elemental MediaConvert: Supported inputs and outputs](https://docs.aws.amazon.com/mediaconvert/latest/ug/supported-inputs-outputs.html)

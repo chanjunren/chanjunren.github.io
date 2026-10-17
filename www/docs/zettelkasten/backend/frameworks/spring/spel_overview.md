@@ -60,3 +60,4 @@ System.out.println(message); // Outputs "Hello World"
 ---
 
 ## References
+- [Spring Framework: Spring Expression Language (SpEL)](https://docs.spring.io/spring-framework/reference/core/expressions.html)

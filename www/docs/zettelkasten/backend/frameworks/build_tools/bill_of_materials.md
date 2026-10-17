@@ -1,26 +1,31 @@
-🗓️ 09042024 0956
+🗓️ 17102026 2135
 
 # bill_of_materials
 
+A Maven Bill of Materials (BOM) is a POM that centralizes managed dependency versions.
+
+Import it inside `<dependencyManagement>` with `type` set to `pom` and `scope` set to `import`. This lets a project declare managed artifacts without repeating their versions. Dependency management supplies version and related metadata; it does not add every listed artifact to the classpath by itself. The project still declares the dependencies it uses.
+
 ```xml
 <dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.camel.springboot</groupId>
-            <artifactId>camel-spring-boot-bom</artifactId>
-            <version>3.14.4</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-        <!-- Other managed dependencies -->
-    </dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>org.example</groupId>
+      <artifactId>example-bom</artifactId>
+      <version>1.2.3</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
 </dependencyManagement>
-
 ```
 
-- Control versions of project's dependencies
-- Reduces needs to specify versions of individual dependencies
+If imported BOMs manage the same artifact, ordering and local declarations can affect which version wins. Check Maven's effective POM when the resolved version is surprising.
 
----
+## Related notes
+
+- [[maven_scope]] — dependency scope behavior
 
 ## References
+
+- [Maven: Introduction to the Dependency Mechanism](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)

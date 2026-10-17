@@ -1,14 +1,25 @@
-🗓️ 13092024 1715
-📎 #java 
+🗓️ 17102026 2135
 
 # service_provider_interface
-API intended to be implemented / extended by 3rd party interface
 
-| Term               | Description                            |
-| ------------------ | -------------------------------------- |
-| `service`          | Set of interfaces and abstract classes |
-| `service provider` | Implementation of a `service`          |
----
+Java's service-provider pattern lets a library define an interface and discover implementations supplied separately.
+
+The service is the API consumers depend on. A provider implements that service. `ServiceLoader` discovers providers at runtime, so the application can use an implementation without hard-coding its concrete class. On the class path, providers are listed in `META-INF/services/<service-binary-name>`; named modules declare them with `provides ... with ...` and consumers declare `uses`.
+
+```java
+ServiceLoader<Codec> codecs = ServiceLoader.load(Codec.class);
+for (Codec codec : codecs) {
+    // choose or use a discovered implementation
+}
+```
+
+Discovery is not selection policy: if several providers exist, the application still needs a rule for choosing one. Provider construction can also fail, so handle configuration and loading errors at the boundary.
+
+## Related notes
+
+- [[class_loading]] — loading classes at runtime
+- [[jar_types]] — packaging Java libraries
 
 ## References
-- https://en.wikipedia.org/wiki/Service_provider_interface
+
+- [Java 17 API: ServiceLoader](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ServiceLoader.html)

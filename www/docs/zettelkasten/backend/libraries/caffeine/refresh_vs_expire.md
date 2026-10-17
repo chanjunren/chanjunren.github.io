@@ -104,3 +104,5 @@ Caffeine.newBuilder()
 
 ---
 ## References
+- [Caffeine: Refresh](https://github.com/ben-manes/caffeine/wiki/Refresh)
+- [Caffeine: Eviction and expiration](https://github.com/ben-manes/caffeine/wiki/Eviction)

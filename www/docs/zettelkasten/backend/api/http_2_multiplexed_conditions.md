@@ -2,31 +2,25 @@
 
 # http_2_multiplexed_conditions
 
-### **The Concept**
-```
-HTTP/1.1: Single lane highway (requests wait in line)
-Request 1: ████████████ (blocks everything)
-Request 2:              ████████ (waits)
-Request 3:                      ████ (waits)
+HTTP/2 multiplexes independent request and response streams over one connection. A slow response on one stream does not require HTTP/1.1-style request serialization at the application layer.
 
-HTTP/2: Multi-lane highway (parallel requests)
-Request 1: ████████████
-Request 2: ████████ (simultaneous!)
-Request 3: ████ (also simultaneous!)
+```text
+One TCP connection
+  Stream 1: request ───────── response
+  Stream 3: request ─── response
+  Stream 5: request ─────── response
 ```
 
-### **Benefits for Video**
-- **Single connection**: Reuse same TCP connection
-- **No blocking**: Fast requests don't wait for slow ones
-- **Lower latency**: No connection setup overhead
-- **Video streaming**: Request manifest + segments simultaneously
+## What multiplexing helps
 
-### **Performance Impact**
-- **Connection setup**: 1 connection vs 6+ connections
-- **Loading time**: 30-50% faster for multi-file scenarios
-- **Mobile benefits**: Especially important on high-latency networks
+- Reuses a connection for concurrent requests.
+- Removes HTTP/1.1 application-layer head-of-line blocking caused by a serialized request/response exchange.
+- Allows flow control and prioritization mechanisms to coordinate stream data.
 
+## Boundary
 
+HTTP/2 commonly runs over TCP. Packet loss can delay bytes for all streams on that connection, so TCP head-of-line blocking remains. Multiplexing does not guarantee a fixed latency improvement; effects depend on network conditions, server behavior, and request mix.
 
----
 ## References
+
+- [RFC 9113: HTTP/2](https://www.rfc-editor.org/rfc/rfc9113.html)

@@ -87,4 +87,4 @@ go.mod
 ## References
 
 - [Organizing a Go module](https://go.dev/doc/modules/layout)
-- [[learning_plan]]
+- [[go_learning_plan]]

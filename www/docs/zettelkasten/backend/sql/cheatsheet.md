@@ -1,7 +1,11 @@
 🗓️ 19042024 1430
 📎 #sql #backend
 
-## dump
+# cheatsheet
+
+Quick MySQL examples for JSON extraction and common date operations. Check the server version and session time zone when results depend on either.
+
+## JSON extraction
 
 ```sql
 SELECT * FROM users
@@ -21,7 +25,7 @@ ORDER BY minute;
 ```
 > Handling epochs
 
-## date_functions
+## Date functions
 
 
 ```sql
@@ -93,4 +97,4 @@ SELECT DATE_FORMAT(NOW(), '%W, %M %d, %Y');
 
 ## References
 
-- Chat Gee Pee Tee
+- [MySQL 8.4 Reference: Date and time functions](https://dev.mysql.com/doc/refman/8.4/en/date-and-time-functions.html)

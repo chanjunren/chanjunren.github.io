@@ -89,8 +89,12 @@ int inlineListElement = inlineList[1]; // 6
 int inlineMapValue = inlineMap["a"]; // 1
 ```
 
+## Version and security boundary
+
+These examples describe MVEL expression syntax; verify behavior against the MVEL version embedded by your application. Treat expressions as executable code: evaluate only trusted input or apply an explicitly designed sandbox, because expression evaluation can access application capabilities.
+
 ---
 
 ## References
 
-- ChatGPT
+- [MVEL project documentation and repository](https://github.com/mvel/mvel)

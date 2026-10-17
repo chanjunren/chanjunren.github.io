@@ -16,7 +16,7 @@ The JVM splits a running program's data across five regions. Where an object liv
 
 ## Heap
 
-Every `new MyObject()` allocates here. Subdivided by generational GC into young and old — see [[basics]] for how.
+Every `new MyObject()` allocates here. Collectors may divide the heap by object age; see [[generational_gc_basics]] for the generational model.
 
 ```
 ┌──────────────────────────────────────────────────┐

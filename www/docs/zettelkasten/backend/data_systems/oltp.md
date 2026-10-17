@@ -1,35 +1,29 @@
-****🗓️ 01112024 2102
+🗓️ 01112024 2102
 
 # oltp
 
-```ad-tldr
-Type of data processing for large number of **concurrent transactions**
+**Online transaction processing (OLTP)** serves application operations that read or change a small amount of data per request. It prioritizes correct concurrent updates and predictable response time.
 
-Typically user facing
-```
+## Terms
 
-## Access Pattern
+| Term | Definition | Source |
+|---|---|---|
+| **Transaction** | A unit of database work that commits or aborts as a whole, subject to the database's transaction guarantees. | [Oracle: What is OLTP?](https://www.oracle.com/sg/database/what-is-oltp/) |
 
-> Usually only touch a small number of records in one query
+## Access pattern
 
-- Application requests records using some kind of key, and the storage engine uses an index to find the data for the requested key
-- Disk seek time is often the bottleneck
+An order service may read one account row, check inventory, and write a few records in a transaction. Indexes help locate those records without scanning an entire table.
 
-## Requirements
-| Requirement                             | Description                                                           |
-| --------------------------------------- | --------------------------------------------------------------------- |
-| [[ACID]] compliant                      | Refer to internal link                                                |
-| Concurrent                              | Able to handle large amounts of **concurrent** operations             |
-| Scale                                   | Must be able to scale up / down to meet demand irrespective of volume |
-| Availability                            | Must always be available / always ready to accept transactions        |
-| High throughput and short response time | Nanoseconds / even shorter response times                             |
-| Reliability                             | Typically read / manipulate selective & small amounts of data         |
-| Security                                | Since OLTP can store sensitive customer information                   |
-| Recoverability                          | Must have the ability to                                              |
+## Design priorities
 
-> Relational DBs were built specifically for transaction applications
+- Keep transactions short and limit lock contention.
+- Preserve correctness under concurrent requests.
+- Choose indexes for the application's read and write patterns.
+- Plan for recovery, availability, security, and growth.
 
----
+Latency and throughput targets depend on the workload and system; there is no universal response-time figure. Compare with [[olap]] and [[oltp_vs_olap]].
 
 ## References
-- https://www.oracle.com/sg/database/what-is-oltp/
+
+- [Oracle: What is OLTP?](https://www.oracle.com/sg/database/what-is-oltp/)
+- [[ACID]]

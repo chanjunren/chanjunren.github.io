@@ -116,4 +116,5 @@ _A high-performance, event-driven networking framework based on Java NIO_
 
 ---
 ## References
-- ChatGPT
+- [Netty: Threat model and architectural overview](https://github.com/netty/netty/wiki/Threat-model)
+- [Netty: Reference-counted objects](https://github.com/netty/netty/wiki/Reference-counted-objects)

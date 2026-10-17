@@ -67,3 +67,4 @@ CREATE TABLE IF NOT EXISTS `data_types_cheatsheet`
 ---
 
 ## References
+- [MySQL 8.4: CREATE TABLE](https://dev.mysql.com/doc/refman/8.4/en/create-table.html)

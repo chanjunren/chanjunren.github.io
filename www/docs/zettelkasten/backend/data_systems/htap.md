@@ -1,49 +1,21 @@
-🗓️ 07082025 1042
- 
+🗓️ 17102026 2135
+
 # htap
-> **HTAP** = **Hybrid Transactional and Analytical Processing**
 
-It’s a **database architecture** that **supports both [[oltp]] and [[olap]] workloads** **on the same system**, often in real time — **without needing ETL**.
+Hybrid transactional and analytical processing (HTAP) systems support transactional and analytical workloads in one coordinated data platform.
 
-## 🚀 Why HTAP is a Big Deal
+“One platform” does not always mean one physical representation or one execution engine. Common designs combine row and column stores, replicate operational data into an analytical engine, or use separate compute paths over shared storage. The system must keep those views sufficiently fresh and coordinate resource use so analytical scans do not overwhelm latency-sensitive transactions.
 
-|🔍 Traditional|🔥 HTAP|
-|---|---|
-|OLTP + OLAP are separate|Unified system|
-|ETL delays|Real-time sync|
-|High infra complexity|Simpler architecture|
-|Costly duplication|Single source of truth|
+HTAP can reduce the delay and pipeline complexity between operational writes and analysis. It does not remove the need for data modeling, workload isolation, or consistency decisions, and it does not guarantee that every query runs on the freshest data.
 
-## 🧩 How Does HTAP Work?
+When evaluating a system, ask how changes reach the analytical path, what freshness and consistency it guarantees, how the optimizer selects an engine, and how OLTP and OLAP workloads share resources.
 
-HTAP systems often:
-1. Store **data once**, but in formats suited for both workloads
-2. Use **multi-engine architectures** (row store + column store)
-3. Separate compute for **isolation** (no interference)
-4. Leverage **MVCC**, **HTAP schedulers**, or **replication** to optimize for both use cases
+## Related notes
 
-## 🛠️ Real-World Examples
+- [[oltp]] — transactional workload properties
+- [[olap]] — analytical workload properties
+- [[storage_computing_architectures]] — sharing and separating resources
 
-| System                  | HTAP Capabilities                                                   |
-| ----------------------- | ------------------------------------------------------------------- |
-| **TiDB** (PingCAP)      | OLTP (MySQL-like) + OLAP (TiFlash)                                  |
-| **SingleStore**         | Unified row/column engine                                           |
-| **CockroachDB**         | OLTP + some analytical support                                      |
-| **MySQL + HeatWave**    | HTAP via in-memory analytics                                        |
-| **ClickHouse**          | OLAP-focused, but moving toward HTAP with insert speed improvements |
-| **DorisDB / StarRocks** | Emerging HTAP-style performance                                     |
-
-## ✅ Benefits
-- 💡 Real-time analytics on live data
-- 🚫 No need for ETL pipelines
-- 🔒 Strong consistency for both workloads
-- 💸 Lower infra & ops cost
-
-## ⚠️ Challenges
-- Still a maturing field — not all HTAP systems are equal
-- Balancing latency (OLTP) with throughput (OLAP)
-- Can be harder to tune for both workloads simultaneously
-
----
 ## References
-- ChatGPT
+
+- [TiDB: A Raft-based HTAP Database](https://vldb.org/pvldb/vol13/p3072-huang.pdf)

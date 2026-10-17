@@ -43,4 +43,4 @@ setup:
 ---
 
 ## References
-- Gemini
+- [Spock Framework: Fixtures](https://spockframework.org/spock/docs/2.5/spock_primer.html#_fixture_methods)

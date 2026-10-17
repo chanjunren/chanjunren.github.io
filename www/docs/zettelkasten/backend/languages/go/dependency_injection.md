@@ -84,5 +84,5 @@ sourceSvc := NewSourceService(sourceRepo, quoteSvc)  // pass it down
 
 ## References
 
-- [[learning_plan]]
+- [[go_learning_plan]]
 - [Effective Go](https://go.dev/doc/effective_go)

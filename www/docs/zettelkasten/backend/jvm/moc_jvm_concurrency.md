@@ -9,7 +9,7 @@
 
 ### Memory and Garbage Collection
 1. [[memory_areas]] — heap / stack / metaspace / code cache / direct memory.
-2. [[basics]] — generational hypothesis, young/old, minor/major GC.
+2. [[generational_gc_basics]] — generational hypothesis and collector-specific mechanics.
 3. [[algorithms_g1_zgc_shenandoah]] — concrete collectors and when to pick which.
 
 ### The Memory Model

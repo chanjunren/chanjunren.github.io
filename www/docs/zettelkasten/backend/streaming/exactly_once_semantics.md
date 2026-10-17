@@ -1,28 +1,22 @@
-🗓️ 15012025 0959
+🗓️ 17102026 2135
 
 # exactly_once_semantics
 
-```ad-abstract
-In the context of stream-processing, it Means that 
-```
+Exactly-once semantics means each event affects the system's managed state or externally visible result once, despite retries and recovery.
 
-## Definition 
-- Each piece of data (event) in a stream is processed **exactly one time** even in the presence of failures like node crashes or network interruptions
-- Ensures that the state of the application and the results are correct, consistent, and not duplicated or lost.
+It does not necessarily mean the code processes an event only once. A stream processor may replay an event after a failure; its checkpoint and recovery protocol ensures the replay does not apply the state update twice.
 
+For end-to-end delivery, the source must be replayable or participate in a consistent snapshot, and the sink must support a compatible transaction or idempotent write strategy. A processor's internal exactly-once state guarantee alone does not guarantee that an external side effect occurs once.
 
-## Why Exactly-Once Semantics Matters
+Before relying on an “exactly once” label, check its scope: source offsets, processor state, sink writes, and what downstream readers observe may have separate guarantees.
 
-1. **Correctness**:
-    
-    - In applications like financial transactions, order processing, or user analytics, processing data multiple times or losing data can lead to incorrect results.
-    - For example, counting a purchase twice or missing a user action could have significant consequences.
-2. **Fault Tolerance**:
-    
-    - Stream processing systems like Flink operate in distributed environments, where failures (e.g., machine crashes, network issues) are common. Exactly-once semantics ensures consistency even in such scenarios.
+## Related notes
 
----
+- [[delivery_semantics_at_most_at_least_exactly]] — comparing delivery guarantees
+- [[checkpointing]] — Flink state snapshots
+- [[outbox_pattern]] — reliable database-to-message publication
 
 ## References
-- https://developer.confluent.io/courses/architecture/transactions/?utm_medium=sem&utm_source=google&utm_campaign=ch.sem_br.nonbrand_tp.prs_tgt.dsa_mt.dsa_rgn.apac_lng.eng_dv.all_con.confluent-developer&utm_term=&creative=&device=c&placement=&gad_source=1&gclid=Cj0KCQiAs5i8BhDmARIsAGE4xHyBvVNNHeSoorHlncNwyGGDhfTq0qKRxE1nfDY8a3DOlGXft0fs7cIaAh9jEALw_wcB
-- ChatGPT
+
+- [Apache Flink: Fault tolerance](https://nightlies.apache.org/flink/flink-docs-stable/docs/learn-flink/fault_tolerance/)
+- [Apache Flink: Fault-tolerance guarantees for sources and sinks](https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/guarantees/)
