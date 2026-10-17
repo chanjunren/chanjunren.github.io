@@ -53,6 +53,19 @@
     transition: none;
   }
 
+  /* Keep scrolled sidebar links from showing through the fixed toggle row. */
+  .theme-doc-sidebar-container::before {
+    content: "";
+    position: fixed;
+    z-index: 1;
+    top: var(--ifm-navbar-height);
+    left: 0;
+    width: var(--doc-sidebar-width, 300px);
+    height: 5rem;
+    background: var(--ifm-background-color);
+    pointer-events: none;
+  }
+
   .col[class*="docItemCol_"] {
     view-transition-name: doc-content;
   }

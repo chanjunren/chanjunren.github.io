@@ -31,7 +31,7 @@ function KakeiboApp() {
   if (!session) return null;
   return (
     <UchiLayout
-      title="家計簿"
+      title="kakeibo"
       description="A personal finance dashboard."
       onSignOut={signOut}
     >
@@ -66,7 +66,7 @@ function KakeiboGate({
   if (loading || authLoading) {
     return (
       <UchiLayout
-        title="家計簿"
+        title="kakeibo"
         description="A personal finance dashboard."
         showLauncher={Boolean(session)}
         onSignOut={signOut}
@@ -78,7 +78,7 @@ function KakeiboGate({
 
   if (!isUchiAvailable(status, error)) {
     return (
-      <UchiLayout title="家計簿" description="A personal finance dashboard.">
+      <UchiLayout title="kakeibo" description="A personal finance dashboard.">
         <UchiFallback />
       </UchiLayout>
     );

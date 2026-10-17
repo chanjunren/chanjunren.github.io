@@ -26,7 +26,7 @@ export const GALLERY_PROJECTS: GalleryProjectInfo[] = [
   VaultusaurusProject,
   {
     id: "kakeibo",
-    title: "家計簿",
+    title: "kakeibo",
     subtitle: "Finance tracker",
     containerCss: "md:col-span-6 md:row-span-2",
     card: KakeiboGalleryCard,
