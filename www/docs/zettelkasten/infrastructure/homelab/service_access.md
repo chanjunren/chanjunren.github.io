@@ -45,6 +45,6 @@ Give a test app a local DNS name and HTTPS proxy. Connect remotely through a VPN
 - [[reverse_proxy]]
 - [[tls]]
 - [[acme_certificate_flow]]
-- [[networking_dns_tools]]
+- [[dns_tools]]
 - [WireGuard documentation](https://www.wireguard.com/)
 - [Caddy documentation](https://caddyserver.com/docs/)

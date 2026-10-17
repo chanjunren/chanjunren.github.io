@@ -40,7 +40,7 @@ On user-defined networks:
 - If you have `api` and `web` containers on same network, `web` reaches `api` at `http://api:8080`
 - No need to know IP addresses - Docker's built-in DNS handles it
 
-When using [[docker_compose]]:
+When using [[compose]]:
 - All services automatically join default network
 - Reference each other by service name
 
@@ -68,7 +68,7 @@ Default bridge network exists but lacks DNS - always create user-defined bridge 
 ## Common Pitfalls
 
 ```ad-danger
-**Using default bridge network**: Default bridge doesn't provide DNS service discovery. Always create user-defined networks with `docker network create` or let [[docker_compose]] create them automatically.
+**Using default bridge network**: Default bridge doesn't provide DNS service discovery. Always create user-defined networks with `docker network create` or let [[compose]] create them automatically.
 ```
 
 ```ad-warning

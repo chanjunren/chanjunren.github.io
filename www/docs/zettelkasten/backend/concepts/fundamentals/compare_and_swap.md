@@ -26,4 +26,4 @@ do {
 ---
 ## References
 - [[cpu_cache_and_memory_visibility]]
-- [[java_concurrency_data_structures]]
+- [[concurrency_data_structures]]

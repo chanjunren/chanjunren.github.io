@@ -27,7 +27,7 @@ Start here to understand cache behavior, choose read and write paths, and protec
 
 For a product catalog, choose the tolerated stale age, read path, write policy, and fallback load limit. Explain what happens after an update, a hot-key expiry, and a cache outage.
 
-Use [[redis_distributed_lock]] for shared load coordination. Read [[redis_cluster]] for storage topology and failover behavior.
+Use [[distributed_lock]] for shared load coordination. Read [[redis_cluster]] for storage topology and failover behavior.
 
 ## References
 

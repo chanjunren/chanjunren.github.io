@@ -1,6 +1,6 @@
 🗓️ 04102025 0030
 
-# Network Interface & Configuration Tools
+# networking_interfaces
 
 Tools for viewing and configuring network interfaces, IP addresses, and routing.
 
@@ -126,7 +126,7 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 ## `/etc/resolv.conf` - DNS Configuration
 
 ### What It Is
-Contains the DNS servers your system uses for name resolution (used by [[networking_dns_tools]]).
+Contains the DNS servers your system uses for name resolution (used by [[dns_tools]]).
 
 ### Viewing
 ```bash
@@ -179,7 +179,7 @@ $ dig example.com | grep SERVER
 
 ## `/etc/hosts` - Local DNS Override
 
-See [[networking_etc_hosts]] for detailed information.
+See [[etc_hosts]] for detailed information.
 
 **Quick summary**: This file is checked **before** DNS, so entries here override DNS resolution.
 
@@ -196,7 +196,7 @@ $ cat /etc/hosts
 ```
 1. Application needs to connect to "example.com"
    ↓
-2. Check /etc/hosts first ([[networking_etc_hosts]])
+2. Check /etc/hosts first ([[etc_hosts]])
    ↓ (not found)
 3. Query DNS servers from /etc/resolv.conf
    ↓ (returns 93.184.216.34)

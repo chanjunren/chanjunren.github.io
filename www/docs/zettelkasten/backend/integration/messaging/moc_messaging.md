@@ -22,7 +22,7 @@
 ### Existing in Cluster
 - [[message_queue]] — the broader messaging primitive (existing).
 - [[kafka_cli_cheatsheet]] — operational commands (existing).
-- [[flink_]] — stream processing on top of Kafka (existing).
+- [[flink]] — stream processing on top of Kafka (existing).
 
 ### Planned
 - `kafka_consumer_rebalancing` — group coordinator and partition reassignment.

@@ -2,7 +2,7 @@
 
 # staletime_and_gctime
 
-Two knobs control how [[tanstack_query]] manages cached data. Getting them right is the difference between "why does it keep refetching?" and "why is my data gone?"
+Two knobs control how [[query]] manages cached data. Getting them right is the difference between "why does it keep refetching?" and "why is my data gone?"
 
 ## What Each Controls
 
@@ -40,7 +40,7 @@ fetch completes
 | `staleTime` | `0` | Data is stale immediately — guarantees freshness at the cost of more network requests |
 | `gcTime` | `5 minutes` | Keeps recently viewed data around for quick back-navigation without being a memory leak |
 
-The `staleTime: 0` default surprises people. It means every component mount triggers a background refetch — the UI still shows cached data instantly, but there's always a network request behind it. This is the **stale-while-revalidate** strategy in [[tanstack_query]].
+The `staleTime: 0` default surprises people. It means every component mount triggers a background refetch — the UI still shows cached data instantly, but there's always a network request behind it. This is the **stale-while-revalidate** strategy in [[query]].
 
 ## Common Configurations
 
@@ -72,7 +72,7 @@ Good for: reference data (country lists, enum mappings, feature flags). Only ref
 - `staleTime: Infinity` still respects manual `invalidateQueries()` — the data becomes stale on demand
 
 ```ad-warning
-**SSR gotcha**: don't set `gcTime` below `2000` (2 seconds) in SSR apps. The server-rendered data needs to survive long enough for the client to hydrate and reference it. See [[tanstack_query_ssr_hydration]] for the full pattern.
+**SSR gotcha**: don't set `gcTime` below `2000` (2 seconds) in SSR apps. The server-rendered data needs to survive long enough for the client to hydrate and reference it. See [[query_ssr_hydration]] for the full pattern.
 ```
 
 ## Setting Defaults
@@ -90,7 +90,7 @@ const queryClient = new QueryClient({
 })
 ```
 
-Per-query override (see [[tanstack_query_cheatsheet]] for full API):
+Per-query override (see [[query_cheatsheet]] for full API):
 
 ```typescript
 useQuery({

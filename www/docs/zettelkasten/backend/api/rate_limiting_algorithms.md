@@ -183,7 +183,7 @@ X-RateLimit-Reset: 1714410600
 - [[http_status_codes_semantics]] — 429 specifically.
 - [[retry_backoff_jitter]] — what clients should do after 429.
 - [[circuit_breaker_pattern]] — server-side complement (your service can also be the rate-limited downstream).
-- [[redis_distributed_lock]] — Lua + atomic-op patterns reused.
+- [[distributed_lock]] — Lua + atomic-op patterns reused.
 - [[redis_cluster]] — counter sharding implications.
 - `design_rate_limiter` *(planned)* — the system-design walk-through.
 

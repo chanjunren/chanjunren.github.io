@@ -48,7 +48,7 @@ For one server hosting multiple client domains:
 - Reverse proxy listens on 443, routes by domain (SNI — Server Name Indication)
 - Each client domain gets its own certificate (auto-provisioned via ACME)
 - Proxy handles renewal — no downtime, no manual intervention
-- Combine with [[docker_compose_profiles]] to manage per-client app stacks behind the shared proxy
+- Combine with [[compose_profiles]] to manage per-client app stacks behind the shared proxy
 
 ### Shared proxy, isolated backends
 - Proxy container has no profile (always runs)
@@ -59,7 +59,7 @@ For one server hosting multiple client domains:
 ## Certificate Storage
 
 - Certificates and private keys need to persist across proxy container restarts
-- Mount a [[docker_volumes]] volume for the cert directory
+- Mount a [[volumes]] volume for the cert directory
 - Traefik: `acme.json` stores all certs; Caddy: `$HOME/.local/share/caddy`
 - Back up cert storage — losing it means re-issuing all certificates (rate limits apply)
 

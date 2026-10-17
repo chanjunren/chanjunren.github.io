@@ -37,7 +37,7 @@ Options provide leverage and flexibility but introduce time decay and complexity
 **Pros**: Leverage, defined risk, income generation, portfolio hedging  
 **Cons**: Time decay, complexity, total loss potential, requires active management
 
-Options pricing builds on [[intrinsic_extrinsic_value]] and [[options_greeks]].
+Options pricing builds on [[intrinsic_extrinsic_value]] and [[greeks]].
 
 ## Quick Reference
 

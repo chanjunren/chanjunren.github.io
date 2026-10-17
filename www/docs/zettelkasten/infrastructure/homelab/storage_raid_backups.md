@@ -46,4 +46,4 @@ Compare capacity and drive tolerance with Synology's RAID Calculator. Create a t
 - [Synology: choosing a RAID type](https://kb.synology.com/en-global/DSM/tutorial/What_RAID_type_is_best_for_my_storage)
 - [Synology RAID Calculator](https://www.synology.com/en-us/support/RAID_calculator)
 - [[nas_fundamentals]]
-- [[docker_volumes]]
+- [[volumes]]

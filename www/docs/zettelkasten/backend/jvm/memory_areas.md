@@ -86,7 +86,7 @@ Failure (rare): `CodeCache is full. Compiler has been disabled.`
 Allocated outside the JVM heap:
 - `ByteBuffer.allocateDirect(int)` — NIO direct buffers
 - `Unsafe.allocateMemory(long)` — manual native memory
-- Netty's pooled allocator — see [[netty_memory_model]]
+- Netty's pooled allocator — see [[memory_model]]
 - Memory-mapped files (`FileChannel.map`)
 
 **Why**: avoids copying between JVM heap and OS buffers for I/O. NIO socket reads write directly into a direct buffer.

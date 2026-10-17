@@ -37,7 +37,7 @@ Calendar spreads isolate time decay while minimizing directional risk. Profit wh
 **Pros**: Lower directional risk, profits from theta differential, benefits from IV skew  
 **Cons**: Complex to manage, vega-sensitive, limited profit potential, requires two adjustments
 
-Calendar spreads exploit [[options_greeks]] theta difference and [[options_expiration]] timing.
+Calendar spreads exploit [[greeks]] theta difference and [[expiration]] timing.
 
 ## Quick Reference
 

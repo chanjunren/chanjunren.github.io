@@ -8,7 +8,7 @@
 - You define a desired state ("run 3 replicas of my app") and Swarm maintains it
 
 **Why it exists:**
-- [[docker_compose]] works on a single host — no failover, no scaling across machines
+- [[compose]] works on a single host — no failover, no scaling across machines
 - Kubernetes solves this but is complex to set up and operate
 - Swarm gives you multi-host orchestration with almost no learning curve beyond Docker itself — same CLI, same compose file format
 
@@ -42,7 +42,7 @@ The reason you're here — Swarm handles this natively:
 ### How it works
 1. Swarm shuts down old tasks in batches
 2. Starts new version tasks
-3. Waits for [[docker_healthcheck]] to pass
+3. Waits for [[healthcheck]] to pass
 4. Proceeds to next batch
 5. If health check fails → pause or auto-rollback based on config
 
@@ -84,7 +84,7 @@ The same `docker-compose.yml` gains Swarm features under the `deploy` key:
 - Services, networks, and volumes defined in compose just work
 - Sensitive data distributed via [[swarm_secrets_and_configs]] instead of `.env` files
 
-This is the smoothest migration path from single-host [[docker_compose]] to multi-host orchestration.
+This is the smoothest migration path from single-host [[compose]] to multi-host orchestration.
 
 ## Networking in Swarm
 
@@ -100,7 +100,7 @@ This is the smoothest migration path from single-host [[docker_compose]] to mult
 
 ## When to Skip Swarm
 
-- Single server, no need for multi-host — [[docker_compose]] with [[docker_resource_limits]] is simpler
+- Single server, no need for multi-host — [[compose]] with [[resource_limits]] is simpler
 - Already invested in Kubernetes — adding Swarm creates split tooling
 - Need autoscaling — Swarm doesn't have it built-in
 

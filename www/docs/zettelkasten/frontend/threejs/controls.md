@@ -1,5 +1,5 @@
 ## Introduction
-# Camera
+# controls
 > abstract class that all other cameras inherit from 
 
 ## ArrayCamera

@@ -2,7 +2,7 @@
 
 # ai_overview
 
-An **AI application** pairs a model with context and controlled tools. This note follows one request through each part. Use [[ai_glossary]] to find any term's home note.
+An **AI application** pairs a model with context and controlled tools. This note follows one request through each part. Use [[glossary]] to find any term's home note.
 
 ## Terms
 
@@ -58,7 +58,7 @@ Read [[authorization]] for protected remote servers, or [[custom_servers]] befor
 
 1. [LLM gateways](gateway/gateway.md): aliases and routing.
 2. [[request_routing]]: both network hops of a request.
-3. [[gateway_operations]]: configuration and verification.
+3. [[operations]]: configuration and verification.
 
 ## References
 

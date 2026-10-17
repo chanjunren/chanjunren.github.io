@@ -223,7 +223,7 @@ Many apps reach for snowflake when they don't need it. Decision tree:
 - [[design_url_shortener]] — uses snowflake as one of the ID-generation options.
 - [[b_plus_tree_indexes]] — why time-ordered IDs matter for clustered-index inserts.
 - [[consistent_hashing]] — alternative for sharding where the ID itself is the shard key.
-- [[system_design_framework]] — the framework this design follows.
+- [[framework]] — the framework this design follows.
 
 ---
 

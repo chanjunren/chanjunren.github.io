@@ -4,7 +4,7 @@
 
 
 ```ad-quote
-- Texture transformations in threeJS can be used to adjust the display of  [[textures_3js]] without altering the UV map itself
+- Texture transformations in threeJS can be used to adjust the display of  [[3js]] without altering the UV map itself
 
 - Useful for things like tiled textures on floors or walls.
 

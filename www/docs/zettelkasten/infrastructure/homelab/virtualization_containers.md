@@ -23,7 +23,7 @@ Use containers for repeatable services when kernel sharing is acceptable. Choose
 
 Synology Container Manager and Virtual Machine Manager depend on model and DSM support. A storage-focused NAS may lack CPU or memory for several services or VMs. Move compute to another host when useful.
 
-For Linux-specific process, filesystem, user, and permission concepts, read [[linux_for_self_hosting]]. For the container lifecycle, networking, and persistent data, follow [[docker_learning_path]].
+For Linux-specific process, filesystem, user, and permission concepts, read [[for_self_hosting]]. For the container lifecycle, networking, and persistent data, follow [[docker_learning_path]].
 
 ## Hands-on project
 
@@ -32,6 +32,6 @@ Create a small Linux VM and deploy a web app. Run it again as a container. Compa
 ## References
 
 - [[docker_overview]]
-- [[docker_volumes]]
+- [[volumes]]
 - [Docker Compose](https://docs.docker.com/compose/)
 - [Synology Virtual Machine Manager](https://kb.synology.com/en-us/DSM/help/Virtualization/virtual_machine?version=7)

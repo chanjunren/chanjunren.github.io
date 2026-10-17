@@ -1,7 +1,7 @@
 🗓️ 01112024 2245
 📎 #data_processing  #database
 
-# online_analytical_processing
+# olap
 
 ## Access Pattern
 - Much lower volume of requests compared to [[oltp]]

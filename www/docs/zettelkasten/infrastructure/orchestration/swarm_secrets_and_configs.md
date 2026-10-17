@@ -8,7 +8,7 @@
 - Configs use the same distribution mechanism but for non-sensitive files
 
 **Why it exists:**
-- [[docker_env_management]] patterns (`.env` files, `env_file` directive) assume the file exists on the host running the container
+- [[env_management]] patterns (`.env` files, `env_file` directive) assume the file exists on the host running the container
 - In a [[docker_swarm]] cluster, tasks can land on any node — you'd need to copy `.env` files to every VM and keep them in sync
 - Secrets and configs are stored centrally by managers and distributed automatically to whichever node needs them
 
@@ -42,7 +42,7 @@
 |---|---|---|---|
 | **Secrets** | Yes (Raft log + tmpfs on workers) | Automatic to assigned nodes | Passwords, keys, certs |
 | **Configs** | No | Automatic to assigned nodes | Config files (nginx, prometheus) |
-| **Env files** | No | Must exist on every host | Single-host [[docker_compose]] |
+| **Env files** | No | Must exist on every host | Single-host [[compose]] |
 
 ## Lifecycle
 

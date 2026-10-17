@@ -13,7 +13,7 @@ A database cursor is a server-side object that holds an open, stateful pointer i
 - Lives for the duration of a single session or transaction — not shareable across requests
 - Built for **row-by-row procedural processing** inside a stored procedure or batch job, where the logic can't be expressed as a single set-based query
 
-See [[mysql_cursor]] for the concrete syntax and lifecycle in MySQL.
+See [[cursor]] for the concrete syntax and lifecycle in MySQL.
 
 ## When to Use
 
@@ -32,5 +32,5 @@ An open database cursor holds server-side state. If a web request opens one and 
 ---
 
 ## References
-- [[mysql_cursor]]
+- [[cursor]]
 - [[keyset_cursor]]

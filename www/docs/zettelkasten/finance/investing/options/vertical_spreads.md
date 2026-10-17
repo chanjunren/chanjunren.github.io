@@ -37,7 +37,7 @@ Spreads are more capital-efficient than single options, with capped risk and rew
 **Pros**: Lower cost, defined risk, better win rate than naked options  
 **Cons**: Capped profit, requires two trades (commissions), less liquid
 
-Vertical spreads combine [[long_call]] and [[long_put]] with short options to reduce cost and capture [[options_greeks]] theta.
+Vertical spreads combine [[long_call]] and [[long_put]] with short options to reduce cost and capture [[greeks]] theta.
 
 ## Quick Reference
 

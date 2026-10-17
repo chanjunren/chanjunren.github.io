@@ -46,7 +46,7 @@ Run a small model and measure memory and latency. Call it from a minimal app. Ad
 ## References
 
 - [[ai_overview]]
-- [[gateway_operations]]
+- [[operations]]
 - [[request_routing]]
 - [MCP overview](../../ai/mcp/mcp.md)
 - [Ollama documentation](https://docs.ollama.com/)

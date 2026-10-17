@@ -37,7 +37,7 @@ Cash-secured puts let you get paid to wait for better entry prices. Same risk as
 **Pros**: Get paid to wait, lower effective buy price, defined risk  
 **Cons**: Ties up capital, miss bigger opportunities, unlimited downside (to $0)
 
-Cash-secured puts are the flip side of [[covered_call]] and demonstrate selling premium via [[options_greeks]] theta.
+Cash-secured puts are the flip side of [[covered_call]] and demonstrate selling premium via [[greeks]] theta.
 
 ## Quick Reference
 

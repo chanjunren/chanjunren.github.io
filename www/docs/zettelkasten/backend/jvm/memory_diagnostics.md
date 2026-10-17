@@ -104,7 +104,7 @@ Enable Netty leak detection (restart required):
 ### Fix
 
 - **NIO leak**: `ByteBuffer.allocateDirect()` not GC'd because references held. Find retainers.
-- **Netty leak**: `ByteBuf` not released in handlers. See [[netty_memory_model]].
+- **Netty leak**: `ByteBuf` not released in handlers. See [[memory_model]].
 - **Bound it**: set `-XX:MaxDirectMemorySize` explicitly.
 
 ## Mapped Buffers
@@ -138,7 +138,7 @@ lsof -p <pid> | grep mem
 
 ### Fix
 
-- **Release rule**: last handler to use a `ByteBuf` must call `release()` or forward via `ctx.fireChannelRead()`. See [[netty_memory_model]].
+- **Release rule**: last handler to use a `ByteBuf` must call `release()` or forward via `ctx.fireChannelRead()`. See [[memory_model]].
 - **Exception paths**: if a handler throws before releasing, the buffer leaks. Use try-finally.
 
 ---

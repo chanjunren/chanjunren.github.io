@@ -2,7 +2,7 @@
 
 # query_key_design
 
-**Query keys** are the identity system behind [[tanstack_query]]'s cache. Every cached entry is addressed by its key. Good key design makes invalidation precise; bad key design leads to stale data bugs or over-invalidation that defeats caching.
+**Query keys** are the identity system behind [[query]]'s cache. Every cached entry is addressed by its key. Good key design makes invalidation precise; bad key design leads to stale data bugs or over-invalidation that defeats caching.
 
 ## Keys Are Arrays
 

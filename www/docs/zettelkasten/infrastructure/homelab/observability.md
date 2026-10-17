@@ -29,7 +29,7 @@ Metrics measure values over time; logs record events. Dashboards summarize signa
 
 DSM exposes some health information. Exporters depend on host support and deployment. Avoid broad host permissions; understand each exporter's access needs.
 
-For Linux process and log basics, see [[linux_for_self_hosting]].
+For Linux process and log basics, see [[for_self_hosting]].
 
 ## Hands-on project
 

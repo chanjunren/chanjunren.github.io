@@ -1,6 +1,6 @@
 🗓️ 06012024 1500
 
-# environment_and_staging_features
+# environment_and_staging
 
 ## Changing background color
 

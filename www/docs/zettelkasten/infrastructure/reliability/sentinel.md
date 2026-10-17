@@ -1,7 +1,7 @@
 🗓️ 12092024 1153
 📎 #sentinel #resilience 
 
-# sentinel_dump
+# sentinel
 
 ## Degrade Rules Cheatsheet
 ### RT-based Degradation

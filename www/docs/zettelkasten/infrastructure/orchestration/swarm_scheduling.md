@@ -23,7 +23,7 @@
   - You scale up → new tasks placed on least-loaded nodes
 
 ### What triggers reconciliation
-- **Task failure** — container exits or [[docker_healthcheck]] fails
+- **Task failure** — container exits or [[healthcheck]] fails
 - **Node failure** — node becomes unreachable
 - **Service update** — image change, scale change, constraint change
 - **Node drain** — admin marks a node for maintenance (`docker node update --availability drain`)
@@ -45,7 +45,7 @@
 
 - Custom key-value tags: `docker node update --label-add role=data node-3`
 - Enable logical grouping of nodes by purpose
-- Critical for **stateful services** using local [[docker_volumes]] — without a constraint, Swarm might reschedule a database to a node where the volume doesn't exist
+- Critical for **stateful services** using local [[volumes]] — without a constraint, Swarm might reschedule a database to a node where the volume doesn't exist
 
 ## Service Modes
 

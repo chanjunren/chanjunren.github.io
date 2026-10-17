@@ -44,6 +44,6 @@
 
 - → DB internals: [[transaction_isolation_levels]] is the database analogue of these visibility/atomicity rules; [[concurrency_control]] is their parent concept.
 - → Distributed systems: [[consistency_models]] generalises [[java_memory_model_happens_before]] to many machines.
-- → Caching: [[redis_distributed_lock]] is what you reach for when single-JVM locks aren't enough.
+- → Caching: [[distributed_lock]] is what you reach for when single-JVM locks aren't enough.
 - → API resilience: [[circuit_breaker_pattern]], [[retry_backoff_jitter]] live on top of `ThreadPoolExecutor` and need its sizing math.
 - → Spring (planned): `spring_aop_proxies_jdk_vs_cglib`, `spring_transaction_propagation` rely on these primitives.

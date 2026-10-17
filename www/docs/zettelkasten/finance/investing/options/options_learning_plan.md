@@ -15,9 +15,9 @@ Options are leveraged instruments that can amplify gains or wipe out capital. Le
 **Goal**: Understand what options are and basic mechanics
 
 1. [[options_basics]] - Calls, puts, premiums
-2. [[options_greeks]] - Delta, gamma, theta, vega, rho
+2. [[greeks]] - Delta, gamma, theta, vega, rho
 3. [[intrinsic_extrinsic_value]] - How options are priced
-4. [[options_expiration]] - Settlement and exercise
+4. [[expiration]] - Settlement and exercise
 
 **Practice**: Paper trading on Think or Swim / IBKR simulator
 
@@ -45,7 +45,7 @@ Options are leveraged instruments that can amplify gains or wipe out capital. Le
 **Goal**: Understand volatility and position sizing
 
 - [[implied_volatility]] - IV rank and percentile (already created)
-- [[options_risk_management]] - Stop losses, position limits (already created)
+- [[risk_management]] - Stop losses, position limits (already created)
 
 **Practice**: Volatility-aware entry and exit strategies
 

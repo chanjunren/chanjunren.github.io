@@ -37,7 +37,7 @@ Go's `singleflight.Group.Do` suppresses duplicate calls for a key within that gr
 
 ## Shared coordination
 
-A [[redis_distributed_lock]] can reduce duplicate loads across processes.
+A [[distributed_lock]] can reduce duplicate loads across processes.
 
 - Acquire with a unique token and expiration.
 - Recheck the cache after acquisition.

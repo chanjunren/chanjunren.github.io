@@ -3,7 +3,7 @@
 # uv_unwrapping
 
 ```ad-summary
-How [[textures_3js]] cover geometries
+How [[3js]] cover geometries
 ```
 
 ![](https://threejs-journey.com/assets/lessons/11/009.png)

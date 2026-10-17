@@ -45,7 +45,7 @@ Reserve a NAS address and resolve a test name. Check its route and port from two
 ## References
 
 - [[modem_vs_router]]
-- [[networking_connectivity]]
-- [[networking_dns_tools]]
+- [[connectivity]]
+- [[dns_tools]]
 - [RFC 2131: DHCP](https://www.rfc-editor.org/rfc/rfc2131)
 - [RFC 1034: DNS concepts](https://www.rfc-editor.org/rfc/rfc1034)

@@ -1,6 +1,6 @@
 ****🗓️ 01112024 2102
 
-# online_transactional_processing
+# oltp
 
 ```ad-tldr
 Type of data processing for large number of **concurrent transactions**

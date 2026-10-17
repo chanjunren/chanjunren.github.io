@@ -69,7 +69,7 @@ The batch size and wait time between batches are configurable — this controls 
 
 ### Health checks
 - The orchestrator needs to know when a new instance is ready
-- Without [[docker_healthcheck]], it may route traffic to instances that aren't ready yet
+- Without [[healthcheck]], it may route traffic to instances that aren't ready yet
 
 ### Statelessness
 - Instances should be interchangeable — no sticky sessions or local state

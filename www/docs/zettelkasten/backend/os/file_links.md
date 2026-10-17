@@ -98,7 +98,7 @@ pnpm's content-addressable store (`~/.pnpm-store`) avoids duplicating packages b
 2. **Reflinks** — zero-copy at creation, independent copies that share storage via CoW
 3. **Full copy** — fallback when neither is possible
 
-Inside a Docker build, the build filesystem is isolated from the host, so options 1 and 2 are both impossible. This is why [[docker_buildx]] cache mounts exist as a workaround — they can't achieve zero-copy, but they persist downloaded packages between builds.
+Inside a Docker build, the build filesystem is isolated from the host, so options 1 and 2 are both impossible. This is why [[buildx]] cache mounts exist as a workaround — they can't achieve zero-copy, but they persist downloaded packages between builds.
 
 ```ad-warning
 **Filesystem boundary = hard wall**: Both hardlinks and reflinks require source and target to be on the same filesystem. This is not a permissions issue or a configuration issue — it's a fundamental constraint of how filesystems track data blocks. No flag or setting can override it.

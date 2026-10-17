@@ -9,7 +9,7 @@
 
 **Why it exists:**
 - Deploying services one-by-one with `docker service create` is tedious and error-prone
-- Stacks let you define an entire application in a [[docker_compose]] file and deploy it as a single unit
+- Stacks let you define an entire application in a [[compose]] file and deploy it as a single unit
 - A naming convention keeps resources from different stacks isolated on the same cluster
 
 ## How Stacks Work

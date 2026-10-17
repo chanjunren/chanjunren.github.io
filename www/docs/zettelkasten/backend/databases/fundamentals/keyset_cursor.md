@@ -19,7 +19,7 @@ Also called **seek pagination** or the **seek method** in the wild — "keyset" 
 
 ## Why It Replaces Offset Pagination
 
-`LIMIT`/`OFFSET` pagination forces the database to skip over every discarded row before reaching the requested page — the deeper the page, the slower the query. A keyset cursor seeks directly to the next row via the index, so cost stays flat regardless of page depth. See [[mysql_cursor_vs_pagination]] for the full comparison.
+`LIMIT`/`OFFSET` pagination forces the database to skip over every discarded row before reaching the requested page — the deeper the page, the slower the query. A keyset cursor seeks directly to the next row via the index, so cost stays flat regardless of page depth. See [[cursor_vs_pagination]] for the full comparison.
 
 Elasticsearch's `search_after` is the same idea applied to search results — sort values from the last document become the seek point for the next page. See [[es_search_after]].
 
@@ -37,6 +37,6 @@ When people say an API is "cursor-paginated" (Stripe, GitHub, Relay's `after`/`b
 
 ## References
 - [[database_cursor]]
-- [[mysql_cursor_vs_pagination]]
+- [[cursor_vs_pagination]]
 - [[es_search_after]]
 - [[b_plus_tree_indexes]]

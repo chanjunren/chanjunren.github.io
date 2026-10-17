@@ -17,7 +17,7 @@ Authentication, budgets, retries, and usage records depend on configuration. The
 ## Reading path
 
 1. [[request_routing]]: follow one request through both hops.
-2. [[gateway_operations]]: configure, protect, and verify those hops.
+2. [[operations]]: configure, protect, and verify those hops.
 
 [[llm_tool_use]] explains how the application handles returned tool proposals.
 

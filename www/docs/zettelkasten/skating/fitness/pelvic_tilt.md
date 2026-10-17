@@ -1,6 +1,6 @@
 🗓️ 07012025 1542
 
-# pelvic_positions
+# pelvic_tilt
 
 ```ad-abstract
 Pelvic positioning refers to the tilt or orientation of the pelvis, which affects posture, spinal alignment, and overall movement

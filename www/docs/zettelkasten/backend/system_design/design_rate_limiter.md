@@ -250,9 +250,9 @@ When a limit *decreases*, in-flight users may have already exceeded the new limi
 
 - [[rate_limiting_algorithms]] — algorithm details.
 - [[http_status_codes_semantics]] — 429 conventions.
-- [[redis_cluster]], [[redis_distributed_lock]] — Lua + atomic patterns reused.
+- [[redis_cluster]], [[distributed_lock]] — Lua + atomic patterns reused.
 - [[circuit_breaker_pattern]] — companion outbound pattern.
-- [[system_design_framework]] — the steps this follows.
+- [[framework]] — the steps this follows.
 - [[back_of_envelope_estimation]] — sizing the storage and QPS budget.
 
 ---

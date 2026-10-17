@@ -1,6 +1,6 @@
 🗓️ 02102024 1122
 
-# es_n_gram
+# es_ngram
 ## How N-grams Work in Elasticsearch
 
 In Elasticsearch, [[n_gram]] are often used in custom analyzers to tokenize text at either the word or character level. These n-grams are then stored in the index, enabling more flexible and powerful search queries.

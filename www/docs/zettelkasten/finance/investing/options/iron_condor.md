@@ -37,7 +37,7 @@ Iron condors generate income from time decay and volatility contraction when sto
 **Pros**: High win rate (70-80%), non-directional, defined risk, double premium  
 **Cons**: Small profit vs risk (1:3 typical), two breakevens to defend, four legs (commissions)
 
-Iron condors combine two [[vertical_spreads]] to exploit [[options_greeks]] theta from both sides.
+Iron condors combine two [[vertical_spreads]] to exploit [[greeks]] theta from both sides.
 
 ## Quick Reference
 

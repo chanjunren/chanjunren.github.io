@@ -41,8 +41,8 @@ For understanding underlying technology, see [[virtualization]].
 - Includes daemon (background service) and CLI
 
 ### Images and Containers
-- [[docker_image]]: Read-only template
-- [[docker_container]]: Running instance of image
+- [[image]]: Read-only template
+- [[container]]: Running instance of image
 - Think classes and objects
 
 ### Dockerfile
@@ -55,7 +55,7 @@ For understanding underlying technology, see [[virtualization]].
 - Push to share, pull to download
 - For registry comparison and selection, see [[container_registries]]
 
-For multi-container applications, see [[docker_compose]].
+For multi-container applications, see [[compose]].
 
 ## When to Use Docker
 
@@ -84,7 +84,7 @@ Skip for:
 
 ### Stateless design vs Persistence
 - Containers are ephemeral by design
-- For persistent data, need [[docker_volumes]] to separate data from container lifecycle
+- For persistent data, need [[volumes]] to separate data from container lifecycle
 
 ## Common Pitfalls
 

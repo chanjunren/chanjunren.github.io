@@ -1,6 +1,6 @@
 🗓️ 04102025 0025
 
-# Networking Tools Overview
+# networking_dump
 
 Quick reference hub for networking command-line tools.
 
@@ -10,13 +10,13 @@ Quick reference hub for networking command-line tools.
 
 | Purpose | Tools | Detail Notes |
 |---------|-------|--------------|
-| **DNS lookup** | `dig`, `nslookup`, `host` | [[networking_dns_tools]] |
-| **Test connectivity** | `ping`, `traceroute` | [[networking_connectivity]] |
-| **HTTP/APIs** | `curl`, `wget` | [[networking_http_tools]] |
-| **Ports/connections** | `netstat`, `ss`, `lsof` | [[networking_ports_connections]] |
+| **DNS lookup** | `dig`, `nslookup`, `host` | [[dns_tools]] |
+| **Test connectivity** | `ping`, `traceroute` | [[connectivity]] |
+| **HTTP/APIs** | `curl`, `wget` | [[http_tools]] |
+| **Ports/connections** | `netstat`, `ss`, `lsof` | [[ports_connections]] |
 | **Network config** | `ip`, `ifconfig` | [[networking_interfaces]] |
-| **Advanced debugging** | `tcpdump`, `nmap` | [[networking_advanced_debugging]] |
-| **DNS overrides** | `/etc/hosts` | [[networking_etc_hosts]] |
+| **Advanced debugging** | `tcpdump`, `nmap` | [[advanced_debugging]] |
+| **DNS overrides** | `/etc/hosts` | [[etc_hosts]] |
 
 ---
 
@@ -64,10 +64,10 @@ Website not loading?
 
 ## References
 
-- [[networking_dns_tools]] - DNS tools (dig, nslookup, host, whois)
-- [[networking_connectivity]] - Connectivity tools (ping, traceroute)
-- [[networking_http_tools]] - HTTP tools (curl, wget)
-- [[networking_ports_connections]] - Port tools (netstat, ss, lsof)
+- [[dns_tools]] - DNS tools (dig, nslookup, host, whois)
+- [[connectivity]] - Connectivity tools (ping, traceroute)
+- [[http_tools]] - HTTP tools (curl, wget)
+- [[ports_connections]] - Port tools (netstat, ss, lsof)
 - [[networking_interfaces]] - Interface tools (ip, ifconfig)
-- [[networking_advanced_debugging]] - Advanced tools (tcpdump, nmap)
-- [[networking_etc_hosts]] - Local DNS overrides
+- [[advanced_debugging]] - Advanced tools (tcpdump, nmap)
+- [[etc_hosts]] - Local DNS overrides

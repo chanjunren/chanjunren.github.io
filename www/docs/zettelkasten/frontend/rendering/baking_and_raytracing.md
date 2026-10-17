@@ -1,6 +1,6 @@
 🗓️ 06042024 1950
 
-# raytracing
+# baking_and_raytracing
 
 - Rendering technique for simulating how light interacts with objects
   - Reflections

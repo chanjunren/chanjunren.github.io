@@ -13,7 +13,7 @@
 
 ## Layer Ordering for Cache Efficiency
 
-Each Dockerfile instruction creates a [[docker_image]] layer. Order matters:
+Each Dockerfile instruction creates a [[image]] layer. Order matters:
 - Least-changing instructions first (base image, system packages)
 - Then dependency installation (package.json, go.mod, requirements.txt)
 - Source code last (changes most frequently)
@@ -64,7 +64,7 @@ Pattern: `RUN addgroup --system app && adduser --system --ingroup app app` then 
 - Clean up in the same layer: `RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*`
 - Separate layers only where cache boundaries make sense
 
-For separating build and runtime environments, see [[docker_multistage_build]]. For advanced build features like build secrets and caching, see [[docker_buildx]].
+For separating build and runtime environments, see [[multistage_build]]. For advanced build features like build secrets and caching, see [[buildx]].
 
 ```ad-danger
 **Running as root in multi-tenant containers**: If a container escape occurs, the attacker has root on the host. Always use `USER nonroot` in production — this is non-negotiable in multi-client deployments where one breach can compromise all clients.

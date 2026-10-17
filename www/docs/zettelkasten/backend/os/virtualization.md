@@ -98,7 +98,7 @@ Cloud IaaS built on virtualization:
 - On-demand virtual machines without managing physical hardware
 - Cloud provider handles hypervisor layer
 
-For container workloads in cloud, see [[docker_orchestration]] for managing containerized applications at scale.
+For container workloads in cloud, see [[orchestration]] for managing containerized applications at scale.
 
 ## Common Pitfalls
 

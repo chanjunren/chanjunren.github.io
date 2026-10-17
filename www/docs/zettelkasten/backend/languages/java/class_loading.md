@@ -32,7 +32,7 @@ Java uses a **hierarchical class loading mechanism** with the following types of
 ### Custom Class Loaders
 
 - Developers can create their own class loaders by extending the `ClassLoader` class.
-- Used in frameworks like [[flink_]], Tomcat, or OSGi to implement custom class loading strategies (e.g., isolating user code from framework code)
+- Used in frameworks like [[flink]], Tomcat, or OSGi to implement custom class loading strategies (e.g., isolating user code from framework code)
 
 ## How Class Loading Works
 

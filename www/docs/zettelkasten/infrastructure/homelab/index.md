@@ -1,6 +1,6 @@
 🗓️ 11102026 1535
 
-# home_lab
+# index
 
 This path starts with NAS fundamentals, then adds services and workloads. Synology DSM is the running example. Model-dependent features are called out.
 
@@ -10,7 +10,7 @@ This path starts with NAS fundamentals, then adds services and workloads. Synolo
 
 1. [[nas_fundamentals]] — NAS hardware, DSM, and file access.
 2. [[networking]] — addresses, discovery, and network paths.
-3. [[linux_for_self_hosting]] — Linux processes, users, and services.
+3. [[for_self_hosting]] — Linux processes, users, and services.
 4. [[virtualization_containers]] — VM and container boundaries.
 5. [[storage_raid_backups]] — disks, RAID, snapshots, and backups.
 
@@ -49,6 +49,6 @@ Deploy a small app and database with Compose. Add persistent storage, local DNS,
 
 ## References
 
-- [[docker_learning_path]]
-- [[prometheus_learning_path]]
+- [[learning_path]]
+- [[learning_path]]
 - [Synology DSM help](https://kb.synology.com/en-us/DSM/help/DSM/Overview)

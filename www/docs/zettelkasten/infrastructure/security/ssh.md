@@ -33,7 +33,7 @@ Same concept as [[tls_certificates]] — the private key proves your identity wi
 - `ssh-add` loads a key into the agent; `ssh-add -l` lists loaded keys
 - **Agent forwarding** (`ssh -A`): lets you authenticate from a remote server using keys on your local machine — the remote server never sees your private key
 
-This is what [[docker_buildx]] uses with `--ssh` — forwards your agent into the build container so it can clone private repos without baking keys into image layers.
+This is what [[buildx]] uses with `--ssh` — forwards your agent into the build container so it can clone private repos without baking keys into image layers.
 
 ## Common Use Cases
 

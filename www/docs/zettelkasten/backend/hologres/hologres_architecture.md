@@ -2,7 +2,7 @@
 
 # hologres_architecture
 
-- [[hologres_]] adopts the [[storage_disaggregation_architecture]]
+- [[hologres]] adopts the [[storage_disaggregation_architecture]]
 - Uses [[pangu]] as the storage system
 
 ![Hologres architecture](https://help-static-aliyun-doc.aliyuncs.com/assets/img/en-US/3403915561/p431174.png)
@@ -20,7 +20,7 @@ Hologres is ecologically compatible with PostgreSQL 11. You can use the standard
 
 ### HoloWorker
 
-#### [[hologres_qe]]
+#### [[query_engine]]
 
 #### SE
 

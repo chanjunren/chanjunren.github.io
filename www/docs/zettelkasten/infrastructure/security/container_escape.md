@@ -90,7 +90,7 @@
 
 - Non-root containers + no privileged mode covers most attack surface
 - Per-client [[docker_networking]] networks prevent lateral movement between clients
-- [[docker_resource_limits]] prevent a compromised container from denial-of-service on the host
+- [[resource_limits]] prevent a compromised container from denial-of-service on the host
 - If clients handle sensitive data: consider user namespace remapping or gVisor
 - Regular host patching is non-negotiable
 

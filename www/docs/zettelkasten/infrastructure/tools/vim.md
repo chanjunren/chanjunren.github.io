@@ -1,6 +1,6 @@
 🗓️ 15022025 2138
 
-# VIM
+# vim
 
 ```ad-note
 JR's very own intro to vim over [here](/documents/intro_to_vim.pdf)! 🤓

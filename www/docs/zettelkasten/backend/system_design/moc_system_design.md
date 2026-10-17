@@ -8,7 +8,7 @@
 ## Concept Order
 
 ### Approach
-1. [[system_design_framework]] — the six-step approach (requirements / capacity / API / data model / architecture / deep dive).
+1. [[framework]] — the six-step approach (requirements / capacity / API / data model / architecture / deep dive).
 2. [[back_of_envelope_estimation]] — the latency numbers, capacity math, and the powers-of-ten that drive every sizing decision.
 
 ### Canonical Designs

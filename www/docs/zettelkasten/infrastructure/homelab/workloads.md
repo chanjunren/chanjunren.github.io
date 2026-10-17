@@ -18,7 +18,7 @@ flowchart LR
 
 Compose describes services, networks, mounts, and configuration in YAML. Services find each other by name on a private network. Databases need persistent storage and separate backups. Restarting a container does not back up data.
 
-Host file ownership and process identities affect whether a container can use a mounted directory. Review [[linux_for_self_hosting]] alongside [[docker_volumes]] when diagnosing permission errors.
+Host file ownership and process identities affect whether a container can use a mounted directory. Review [[for_self_hosting]] alongside [[volumes]] when diagnosing permission errors.
 
 ## Workload types
 
@@ -44,7 +44,7 @@ Deploy a web app and PostgreSQL with Compose. Use a named volume and non-admin d
 ## References
 
 - [[docker_learning_path]]
-- [[docker_compose]]
-- [[docker_volumes]]
+- [[compose]]
+- [[volumes]]
 - [[docker_networking]]
 - [Docker Compose](https://docs.docker.com/compose/)

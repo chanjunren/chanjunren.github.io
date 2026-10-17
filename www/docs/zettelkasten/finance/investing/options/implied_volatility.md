@@ -34,7 +34,7 @@ IV can be above or below HV. Gap indicates market pricing in events (earnings, F
 **High IV**: Expensive premiums (bad for buyers, good for sellers), mean reversion likely  
 **Low IV**: Cheap premiums (good for buyers, bad for sellers), can stay low long-term
 
-IV connects to [[options_greeks]] through vega and affects [[intrinsic_extrinsic_value]] extrinsic component.
+IV connects to [[greeks]] through vega and affects [[intrinsic_extrinsic_value]] extrinsic component.
 
 ## Quick Reference
 

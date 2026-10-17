@@ -228,7 +228,7 @@ Cache custom aliases the same way as short_ids.
 
 ## Related
 
-- [[system_design_framework]] — the six-step approach this walks through.
+- [[framework]] — the six-step approach this walks through.
 - [[back_of_envelope_estimation]] — capacity numbers behind every choice here.
 - [[design_unique_id_generator_snowflake]] — alternative ID-generation approach.
 - [[cache_aside]], [[cache_stampede]] — caching for the read path.

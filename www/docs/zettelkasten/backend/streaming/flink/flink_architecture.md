@@ -43,7 +43,7 @@ Represents a fixed subset of resources of the TaskManager
 - Decides when to schedule next task / set of tasks
 - Reacts to finished tasks / execution failures
 - Coordinates 
-	- [[flink_checkpointing]]
+	- [[checkpointing]]
 	- Coordinates recovery on failures
 
 ### ResourceManager

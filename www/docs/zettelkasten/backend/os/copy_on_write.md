@@ -1,11 +1,17 @@
+🗓️ TODO: recover the original capture date and time.
+
 # copy_on_write
 
-**What it is:**
-- An optimization strategy where a copy operation doesn't actually duplicate data immediately
-- Instead, the original and "copy" share the same underlying data blocks
-- A real copy of a block is only made when one side **writes** (modifies) that block
+Copy-on-write lets copies share data until a write needs a private version.
 
-**Why it matters:**
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Copy-on-write (CoW)** | A strategy where shared file data stays shared until a write must keep changes private. | [Linux manual](https://www.man7.org/linux/man-pages/man2/ioctl_ficlone.2.html) |
+
+## Why It Matters
+
 - Makes [[file_links]] instant and free — `cp --reflink` shares data blocks until files diverge
 - Underpins how Docker's OverlayFS and Btrfs handle container filesystems
 - Explains why `fork()` in Unix is fast — child process shares parent's memory pages until one writes
@@ -16,6 +22,7 @@
 ```
 cp big_file.dat copy.dat
 ```
+
 - Reads all data blocks of `big_file.dat`
 - Writes them to new blocks for `copy.dat`
 - Time: proportional to file size
@@ -25,6 +32,7 @@ cp big_file.dat copy.dat
 ```
 cp --reflink=always big_file.dat copy.dat
 ```
+
 1. **Create**: new [[inodes]] for `copy.dat`, but data block pointers reference the same blocks as `big_file.dat`
 2. **Read**: both files read from the same physical blocks — no difference in behavior
 3. **Write**: when either file modifies block N, the filesystem copies **only block N** to a new location, then updates the pointer
@@ -33,6 +41,7 @@ cp --reflink=always big_file.dat copy.dat
 ## Where CoW Appears
 
 ### Filesystems
+
 - **Btrfs**: CoW is the core design — all writes create new blocks, enabling snapshots and reflinks
 - **ZFS**: same CoW architecture, used heavily in storage servers
 - **XFS**: supports reflinks (CoW for data sharing) since Linux 4.9
@@ -40,11 +49,13 @@ cp --reflink=always big_file.dat copy.dat
 - **ext4**: does **not** support CoW — no reflinks
 
 ### Container storage
-- Docker's **OverlayFS** uses a CoW-like approach: image [[docker_layers]] are read-only, writes go to the writable layer on top
+
+- Docker's **OverlayFS** uses a CoW-like approach: image [[layers]] are read-only, writes go to the writable layer on top
 - This is why modifying a file in a running container doesn't alter the image — the modified file is "copied up" to the writable layer
 - Not true block-level CoW like Btrfs, but the same principle: defer copying until writes happen
 
 ### Process memory
+
 - `fork()` system call uses CoW for memory pages
 - Child process gets the same page table as parent
 - Pages are shared read-only until either process writes, triggering a copy of just that page
@@ -52,12 +63,14 @@ cp --reflink=always big_file.dat copy.dat
 
 ## CoW Trade-offs
 
-**Benefits:**
+### Benefits
+
 - Instant copies (constant time, regardless of data size)
 - Space-efficient (only divergent data uses extra space)
 - Enables cheap snapshots and clones
 
-**Costs:**
+### Costs
+
 - **Write amplification**: modifying a single byte may require copying an entire block (typically 4KB)
 - **Fragmentation**: over time, files become scattered across disk as CoW blocks land in new locations
 - **Metadata overhead**: filesystem must track shared block references

@@ -15,7 +15,7 @@ A NAS centralizes files, permissions, and backups. It can also run applications.
 - Network interfaces carry client requests. Link speed limits throughput.
 - DSM manages users, storage, shared folders, and packages.
 - Package support varies by model and DSM version.
-- See [[linux_for_self_hosting]] for underlying Linux concepts.
+- See [[for_self_hosting]] for underlying Linux concepts.
 - SMB and NFS share files; iSCSI exposes block devices.
 
 ```mermaid

@@ -3,7 +3,7 @@
 # container_registries
 
 **What it is:**
-- Services that store, distribute, and manage [[docker_image]] containers
+- Services that store, distribute, and manage [[image]] containers
 - The "Git repo" equivalent for container images — push to share, pull to deploy
 - Standardized by the [[oci_spec]] Distribution Specification
 
