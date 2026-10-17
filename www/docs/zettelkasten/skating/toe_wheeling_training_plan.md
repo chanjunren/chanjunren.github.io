@@ -103,7 +103,7 @@ Unsupported holds = your worst condition. That's where the growth is.
 
 ## tracking
 
-Log after each session in [[training_log]] (or via `/skating-coach log`):
+Log after each session in [[training_log]]:
 - Hold durations achieved
 - Supported vs unsupported
 - RPE (rate of perceived exertion, 1-10)

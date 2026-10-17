@@ -2,8 +2,8 @@
 
 # coaching_principles
 
-> How top athletes are actually coached — the training science the [[training_log]] and
-> the `skating-coach` skill reason from. The plan tells you *what* to do; these principles
+> How top athletes are actually coached — the training science the [[training_log]]
+> reasons from. The plan tells you *what* to do; these principles
 > tell you *when to push, hold, or back off*.
 
 ## autoregulation

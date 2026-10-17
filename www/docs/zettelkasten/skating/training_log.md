@@ -2,9 +2,7 @@
 
 # training_log
 
-> Session log the `skating-coach` skill reads. Newest entries at the top. Log via
-> `/skating-coach log <what you did>` — the skill structures freeform notes into the
-> template below.
+> Session log. Newest entries at the top, using the template below.
 
 ## entry template
 
