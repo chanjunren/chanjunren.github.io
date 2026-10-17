@@ -11,6 +11,7 @@
 /* Undo the global `svg { max-width: 100% }` reset so diagrams keep their size. */
 .docusaurus-mermaid-container svg {
   max-width: none !important;
+  margin-inline: auto;
 }
 
 /* Wardley maps hard-code black and get no mermaid stylesheet, so themeCSS can't
