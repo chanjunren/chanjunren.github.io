@@ -1,7 +1,10 @@
 🗓️ 10062024 1600
-📎 #devops #kubernetes #wip 
 
 # kubernetes
+
+> **Kubernetes**: An open-source system for automating deployment, scaling, and management of containerized applications. ([Kubernetes](https://kubernetes.io/docs/concepts/overview/))
+
+Kubernetes uses controllers to reconcile declared cluster state with observed resources. The API server accepts changes, etcd stores state, and schedulers and controllers act on it.
 
 ## What is k8s (Kubernetes)
 
@@ -9,7 +12,6 @@
 - Used for container deployment and management
 - Its design is greatly impacted by Google’s internal system Borg
 
-![[k8s_overview.png]]
 
 ## Architecture
 
@@ -92,6 +94,18 @@
 4. **Monitoring and Maintenance**: Kubernetes continuously monitors the cluster state and takes corrective actions to maintain the desired state (e.g., restarting failed containers, scaling applications).
 
 ## Conclusion
+
+```mermaid
+flowchart LR
+  A[User applies manifest] --> B[API server validates request]
+  B --> C[etcd stores desired state]
+  C --> D[Controller observes state]
+  D --> E[Scheduler assigns Pod to node]
+  E --> F[kubelet requests container runtime]
+  F --> G[Container starts]
+  G --> H[Status reported to API server]
+  H --> D
+```
 
 Kubernetes provides a robust framework for managing containerized applications by abstracting the underlying infrastructure and offering high-level constructs like pods to simplify deployment, scaling, and maintenance. By understanding the relationship between containers, pods, and machine instances, you can better leverage Kubernetes to build scalable, resilient, and efficient applications.
 

@@ -2,6 +2,8 @@
 
 # prometheus_spring_boot_pipeline
 
+> **Micrometer Prometheus registry**: A Micrometer registry that exposes application meters in Prometheus format. ([Micrometer](https://docs.micrometer.io/micrometer/reference/implementations/prometheus.html))
+
 **micrometer-registry-prometheus** creates an end-to-end pipeline in Spring Boot: your code instruments with [[metric_types]] → metrics convert to Prometheus exposition format per [[to_prometheus_mapping]] → exposed at `/actuator/prometheus` → scraped by [[overview]] → queried with PromQL in Grafana.
 
 This note connects the existing pieces into the full data flow and covers what Spring Boot auto-instruments.
@@ -174,8 +176,8 @@ Or use [[grafana_alloy]] to collect and forward metrics to a remote backend.
 | Problem | Check |
 |---------|-------|
 | No metrics at `/actuator/prometheus` | `micrometer-registry-prometheus` on classpath? Endpoint exposed in config? |
-| Metric name mismatch | Dots → underscores, counters get `_total`, timers get `_seconds` — see [[to_prometheus_mapping]] |
-| Missing labels | Check tag config in [[metric_types]] |
+| Metric name mismatch | Dots → underscores, counters get `_total`, timers get `_seconds` — see to prometheus mapping |
+| Missing labels | Check tag config in metric types |
 | High cardinality warning | Avoid dynamic path variables as tags; use route templates |
 | Metrics disappear after restart | Counters reset — use `rate()` not raw values |
 | `uri="UNKNOWN"` | Request hit no mapped handler — check `@RequestMapping` |
@@ -201,7 +203,21 @@ Or use [[grafana_alloy]] to collect and forward metrics to a remote backend.
 
 ---
 
+```mermaid
+flowchart LR
+  A[Spring Boot application] --> B[Micrometer instrumentation]
+  B --> C[Prometheus MeterRegistry]
+  C --> D[/actuator/prometheus]
+  E[Prometheus scrape config] --> F[Scrape request]
+  F --> D
+  D --> G[Prometheus time series]
+  G --> H[PromQL query]
+  H --> I[Grafana panel or alert]
+```
+
 ## References
+
+
 
 - [Spring Boot Actuator Metrics](https://docs.spring.io/spring-boot/reference/actuator/metrics.html)
 - [Micrometer Prometheus Registry](https://docs.micrometer.io/micrometer/reference/implementations/prometheus.html)

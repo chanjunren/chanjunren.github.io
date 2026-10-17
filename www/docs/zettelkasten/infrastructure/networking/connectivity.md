@@ -1,7 +1,7 @@
 🗓️ 04102025 0030
-📎 [[dns_tools]]
 
 # connectivity
+
 
 Tools for testing if hosts are reachable and tracing network paths.
 
@@ -37,7 +37,7 @@ PING google.com (142.250.185.78): 56 data bytes
 round-trip min/avg/max/stddev = 11.8/12.3/13.1/0.5 ms
 ```
 
-**Key parts**:
+### Key parts
 - **`64 bytes from...`**: Successful reply received
 - **`icmp_seq`**: Sequence number (should increment 0, 1, 2, 3...)
 - **`ttl`**: Time To Live - hops remaining (starts at ~64 or ~128, decrements each hop)
@@ -47,14 +47,14 @@ round-trip min/avg/max/stddev = 11.8/12.3/13.1/0.5 ms
   - `min/avg/max` - Latency range
   - `stddev` - Consistency (low = stable, high = jittery)
 
-**Common issues**:
+### Common issues
 - **Request timeout**: No response (host down, firewall blocking, or network issue)
 - **Unknown host**: DNS can't resolve name (use [[dns_tools]] to investigate)
 - **High latency** (>100ms): Slow connection
 - **Packet loss**: Unstable connection (use [[advanced_debugging]] for deep analysis)
 - **Destination Host Unreachable**: Router can't find route to host
 
-**Good latency values**:
+### Good latency values
 - `< 20ms` - Excellent (local network or nearby server)
 - `20-50ms` - Good (regional)
 - `50-100ms` - Acceptable (international)
@@ -89,25 +89,25 @@ traceroute to google.com (142.250.185.78), 30 hops max, 60 byte packets
  5  142.250.185.78 (142.250.185.78)  18.234 ms  17.890 ms  18.456 ms
 ```
 
-**Key parts**:
+### Key parts
 - **Hop number** (1, 2, 3...): Each router along the path
 - **IP address/hostname**: The router at this hop
 - **Three time values**: Round-trip time for 3 probes (shows consistency)
 - **`* * *`**: Timeout (router not responding to traceroute, but still forwarding packets)
 
-**Reading the path**:
+### Reading the path
 1. **Hop 1**: Your router/gateway (usually `192.168.x.x` or `10.x.x.x`)
 2. **Hop 2-3**: Your ISP's routers
 3. **Middle hops**: Internet backbone routers
 4. **Last hop**: Destination server
 
-**Troubleshooting with traceroute**:
+### Troubleshooting with traceroute
 - **Connection dies at specific hop**: That router is the problem
 - **Sudden latency spike**: Congestion or long-distance link starting at that hop
 - **`* * *` for all hops after X**: Firewall blocking ICMP after hop X (doesn't mean packets aren't getting through)
 - **Asymmetric routing**: Path there ≠ path back (normal, just FYI)
 
-**Example diagnosis**:
+### Example diagnosis
 ```bash
  1  router.local (192.168.1.1)     1 ms   1 ms   1 ms   ✅ Local network fine
  2  isp.gateway (10.0.0.1)         5 ms   5 ms   5 ms   ✅ ISP connection fine  
@@ -117,9 +117,23 @@ traceroute to google.com (142.250.185.78), 30 hops max, 60 byte packets
 
 ---
 
+```mermaid
+flowchart LR
+  A[Application hostname] --> B[DNS lookup]
+  B --> C[Destination IP]
+  C --> D[Route selection]
+  D --> E[Link and gateway]
+  E --> F[TCP connection]
+  F --> G[TLS negotiation]
+  G --> H[Application response]
+  I[Firewall rules] --> F
+```
+
 ## References
 
-- [[dns_tools]] - Use if ping shows "Unknown host"
+
+
+- dns tools - Use if ping shows "Unknown host"
 - [ping manual](https://linux.die.net/man/8/ping)
 - [traceroute manual](https://linux.die.net/man/8/traceroute)
 

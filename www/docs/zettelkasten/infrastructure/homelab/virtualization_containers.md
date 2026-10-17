@@ -2,7 +2,14 @@
 
 # virtualization_containers
 
-Virtual machines and containers isolate workloads differently. The choice affects resource use, operating systems, and host sharing.
+The isolation model determines whether a workload gets a guest operating system or shares the host kernel.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Virtual machine** | A virtual computer that runs its own operating system on virtualized hardware. | [NIST](https://csrc.nist.gov/pubs/sp/800/125/r1/final) |
+| **Container** | An isolated process that shares the host operating system kernel. | [Docker](https://docs.docker.com/engine/containers/) |
 
 ## Two execution models
 

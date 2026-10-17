@@ -2,6 +2,8 @@
 
 # rofi_theming
 
+> **Rofi**: A window switcher, application launcher, and dmenu replacement for X11 and Wayland environments. ([Rofi documentation](https://github.com/davatorium/rofi))
+
 **rofi** is an application launcher, window switcher, and dmenu replacement. Themes use `.rasi` files — a CSS-like format with a fixed widget tree.
 
 ## Widget Tree
@@ -79,7 +81,22 @@ rofi -show drun -theme-str 'window { width: 50%; }'   # override one property in
 rofi -dump-theme                                        # print active theme to stdout
 ```
 
+```mermaid
+flowchart LR
+  A[rofi command] --> B[Mode selection]
+  B --> C[Application list]
+  B --> D[Window list]
+  B --> E[dmenu input]
+  F[.rasi theme] --> G[Widget styles]
+  G --> H[Rendered Rofi window]
+  C --> H
+  D --> H
+  E --> H
+```
+
 ## References
+
+
 
 - [rofi theming guide](https://github.com/davatorium/rofi/blob/next/doc/rofi-theme.5.markdown)
 - [Arch Wiki: rofi](https://wiki.archlinux.org/title/Rofi)

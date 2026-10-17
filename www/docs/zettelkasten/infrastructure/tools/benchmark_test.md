@@ -1,6 +1,8 @@
 🗓️ 26052025 1213
 
 # benchmark_test
+
+> **JMH benchmark**: A benchmark run by the Java Microbenchmark Harness, which controls warmup, measurement, forks, and benchmark modes. ([OpenJDK JMH](https://github.com/openjdk/jmh))
 ```java
 package com.example.jmh;
 
@@ -138,5 +140,20 @@ public class CacheBenchmark {
 
 ```
 
+```mermaid
+flowchart LR
+  A[JMH annotations] --> B[Runner configuration]
+  B --> C[Fork JVM]
+  C --> D[Warmup iterations]
+  D --> E[Measurement iterations]
+  E --> F[Benchmark method]
+  F --> G[Throughput and average time]
+  H[Setup state] --> F
+  I[Multiple threads] --> F
+```
+
 ---
 ## References
+
+- [OpenJDK Java Microbenchmark Harness](https://github.com/openjdk/jmh)
+- [JMH JavaDoc](https://javadoc.io/doc/org.openjdk.jmh/jmh-core/latest/index.html)

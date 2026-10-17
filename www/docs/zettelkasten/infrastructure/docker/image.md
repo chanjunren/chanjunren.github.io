@@ -2,12 +2,16 @@
 
 # image
 
-**What it is:**
+> **Container image**: A read-only package of files and metadata used to create containers. ([Docker Docs](https://docs.docker.com/engine/storage/))
+
+Images package application code and dependencies so deployment hosts can run a consistent artifact.
+
+## Overview
 - Read-only template containing application code, runtime, libraries, dependencies
 - Built from instructions in Dockerfile
 - Composed of layered filesystem where each layer is immutable
 
-**Problem it solves:**
+## Problem addressed
 - Distributing applications requires packaging code plus all dependencies, runtime environment, configuration
 - Traditional deployment: "install X, then Y, configure Z" with endless variation
 - Images are portable, reproducible application packages that run identically everywhere
@@ -81,11 +85,23 @@ Never put secrets in images - they persist in layer history even if you delete t
 ## Common Pitfalls
 
 ```ad-danger
-**Secrets in image layers**: If you copy secret file then delete it in next layer, it's still in image history. Anyone with image can extract it. Use build-time secrets or [[multistage_build]] to avoid this.
+**Secrets in image layers**: If you copy secret file then delete it in next layer, it's still in image history. Anyone with image can extract it. Use build-time secrets or multistage build to avoid this.
 ```
 
 ```ad-warning
-**Large bloated images**: Installing unnecessary dependencies, keeping package manager caches, or using heavyweight base images makes images huge. Use minimal bases like `alpine`, clean up in same layer, and use [[multistage_build]] for compiled languages.
+**Large bloated images**: Installing unnecessary dependencies, keeping package manager caches, or using heavyweight base images makes images huge. Use minimal bases like `alpine`, clean up in same layer, and use multistage build for compiled languages.
+```
+
+```mermaid
+flowchart LR
+  A[Dockerfile] --> B[Build layers]
+  B --> C[Container image]
+  C --> D[Registry push]
+  D --> E[Registry pull]
+  E --> F[Container create]
+  F --> G[Writable container layer]
+  C --> H[Shared base layers]
+  H --> B
 ```
 
 ---

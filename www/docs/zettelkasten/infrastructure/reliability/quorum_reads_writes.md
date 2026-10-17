@@ -1,7 +1,17 @@
 🗓️ 29042026 1530
-📎 #distributed_systems #consistency
 
 # quorum_reads_writes
+
+
+Quorum reads and writes set how many replicas must respond before an operation succeeds.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Read quorum** | The minimum number of replicas that must respond to a read operation. | [Dynamo paper](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf) |
+| **Write quorum** | The minimum number of replicas that must acknowledge a write operation. | [Dynamo paper](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf) |
+| **Replica set size** | The number of replicas that store a copy of a data item. | [Dynamo paper](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf) |
 
 > The N/W/R tuning knob that lets a Dynamo-style system slide between strong consistency and high availability — per operation, not per system. The math (`W + R > N`) is the lever; the trade-offs are the reason it exists.
 
@@ -73,7 +83,20 @@ This is how [[cap_theorem]]-style decisions become per-operation knobs rather th
 
 ## Related
 
-- [[cap_theorem]] — quorum-tunable systems (Cassandra) are AP by default but can run as CP per-op.
+```mermaid
+flowchart LR
+  A[Write request] --> B[Send to replica set]
+  B --> C[Replica acknowledgements]
+  C --> D{Write quorum W reached?}
+  D -->|yes| E[Write succeeds]
+  D -->|no| F[Write waits or fails]
+  G[Read request] --> H[Query replica set]
+  H --> I{Read quorum R reached?}
+  I -->|yes| J[Reconcile returned versions]
+  I -->|no| K[Read waits or fails]
+```
+
+- cap theorem — quorum-tunable systems (Cassandra) are AP by default but can run as CP per-op.
 - [[consistency_models]] — quorum reads give "strong consistency" but only linearizability when paired with consensus.
 - [[consistent_hashing]] — how the N replicas are chosen on the ring.
 - `vector_clocks_lamport_clocks` *(planned)* — version tagging that lets the coordinator pick the winner.

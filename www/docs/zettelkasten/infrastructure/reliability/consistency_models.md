@@ -1,7 +1,18 @@
 🗓️ 29042026 1545
-📎 #distributed_systems #consistency
 
 # consistency_models
+
+
+Consistency models define what a client may observe when concurrent operations run or replicas diverge.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Linearizability** | A concurrent operation appears to take effect at one instant between invocation and response, while respecting real-time order. | [Herlihy and Wing](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) |
+| **Sequential consistency** | Operations appear in one total order that preserves each process's program order. | [Lamport](https://lamport.azurewebsites.net/pubs/multi.pdf) |
+| **Causal consistency** | Operations that are causally related appear in the same order to all processes. | [Ahamad et al.](https://dl.acm.org/doi/10.1145/124023.124024) |
+| **Eventual consistency** | Replicas converge if updates stop and communication continues. | [Vogels](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html) |
 
 > The hierarchy of "what the next read is allowed to see". Without precise definitions here, "strong consistency" and "eventual consistency" are just marketing words — and the wrong choice produces real correctness bugs.
 
@@ -106,7 +117,20 @@ Different concepts that are easy to conflate.
 
 ## Related
 
-- [[cap_theorem]] — under partition, you trade C (linearizability/sequential) for A.
+```mermaid
+flowchart LR
+  A[Concurrent operations] --> B[Consistency guarantee]
+  B --> C[Linearizability]
+  B --> D[Sequential consistency]
+  B --> E[Causal consistency]
+  B --> F[Eventual consistency]
+  C --> G[Real-time order]
+  D --> H[Program order]
+  E --> I[Causal order]
+  F --> J[Convergence after updates stop]
+```
+
+- cap theorem — under partition, you trade C (linearizability/sequential) for A.
 - [[quorum_reads_writes]] — strong consistency knob, but not linearizability alone.
 - [[raft]] — gives you linearizability via consensus.
 - `vector_clocks_lamport_clocks` *(planned)* — mechanism for causal tracking.

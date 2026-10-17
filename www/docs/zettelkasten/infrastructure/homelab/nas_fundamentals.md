@@ -2,9 +2,11 @@
 
 # nas_fundamentals
 
-A **network-attached storage (NAS)** serves files and storage over a network. Synology combines disks, network interfaces, and DSM management software. Multiple clients can then share data and services.
+> **Network-attached storage (NAS)**: A storage system that provides file access to clients over a network. ([SNIA glossary](https://www.snia.org/education/what-is-a-nas))
 
-## Why use one
+Synology combines disks, network interfaces, and DSM management software, letting clients share data and services.
+
+## Operational impact
 
 A NAS centralizes files, permissions, and backups. It can also run applications. Storage reliability, compute capacity, and service availability remain separate concerns.
 

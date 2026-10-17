@@ -2,6 +2,17 @@
 
 # package_formats
 
+
+Linux package formats differ in how they install, update, isolate, and integrate applications.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Package manager** | A tool that installs, updates, and removes software packages while tracking their files and dependencies. | [Arch Wiki](https://wiki.archlinux.org/title/Pacman) |
+| **AppImage** | A portable application format that bundles an application for execution without a traditional installation step. | [AppImage documentation](https://docs.appimage.org/introduction/index.html) |
+| **Flatpak** | A framework for building, distributing, and running desktop applications in sandboxes. | [Flatpak documentation](https://docs.flatpak.org/en/latest/introduction.html) |
+
 Linux software is distributed in multiple formats. On **EndeavourOS** (Arch-based), the native format is `.pkg.tar.zst` managed by [[pacman]]. Everything else is either a portable runtime or requires extra steps.
 
 ## Format Overview
@@ -18,7 +29,7 @@ Linux software is distributed in multiple formats. On **EndeavourOS** (Arch-base
 
 ## Which to Pick
 
-**Order of preference on EndeavourOS:**
+### Order of preference on EndeavourOS
 
 1. **Official repo** (`pacman -S`) — tracked, updated, cleanest
 2. **AUR** (`yay -S`) — community-built but integrates fully with pacman
@@ -41,7 +52,23 @@ sudo pacman -S flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
 
+```mermaid
+flowchart LR
+  A[Software source] --> B{Package format}
+  B --> C[Arch package]
+  B --> D[Flatpak]
+  B --> E[AppImage]
+  C --> F[Pacman repository]
+  D --> G[Flatpak runtime and sandbox]
+  E --> H[Portable executable file]
+  F --> I[Installed application]
+  G --> I
+  H --> I
+```
+
 ## References
+
+
 
 - [Arch Wiki: AUR](https://wiki.archlinux.org/title/Arch_User_Repository)
 - [Flathub](https://flathub.org)

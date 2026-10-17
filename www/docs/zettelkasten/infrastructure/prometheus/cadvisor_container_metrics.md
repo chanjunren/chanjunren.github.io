@@ -2,6 +2,8 @@
 
 # cadvisor_container_metrics
 
+> **cAdvisor**: A container resource usage and performance analyzer that exposes metrics for containers. ([cAdvisor](https://github.com/google/cadvisor))
+
 **cAdvisor** (Container Advisor) runs inside the **kubelet** and exposes per-container resource usage as Prometheus time series — CPU, memory, network, disk I/O — all prefixed with `container_`.
 
 These metrics are the foundation of container debugging in Kubernetes: what each container actually consumes vs. its resource requests/limits. For host-level metrics (what the machine has available), see [[node_exporter_host_metrics]].
@@ -28,20 +30,20 @@ These metrics are the foundation of container debugging in Kubernetes: what each
 
 ### PromQL
 
-**CPU usage rate per container:**
+### CPU usage rate per container
 ```promql
 sum by(container, pod, namespace) (
   rate(container_cpu_usage_seconds_total{container!=""}[5m])
 )
 ```
 
-**CPU throttle percentage:**
+### CPU throttle percentage
 ```promql
 rate(container_cpu_cfs_throttled_periods_total[5m])
 / rate(container_cpu_cfs_periods_total[5m]) * 100
 ```
 
-**CPU usage vs request:**
+### CPU usage vs request
 ```promql
 sum by(pod) (rate(container_cpu_usage_seconds_total{container!=""}[5m]))
 / sum by(pod) (kube_pod_container_resource_requests{resource="cpu"})
@@ -67,18 +69,18 @@ Use `container_memory_working_set_bytes`, not `container_memory_usage_bytes`, fo
 
 ### PromQL
 
-**Working set vs limit (OOMKill risk %):**
+### Working set vs limit (OOMKill risk %)
 ```promql
 container_memory_working_set_bytes{container!=""}
 / container_spec_memory_limit_bytes{container!=""} * 100
 ```
 
-**RSS memory by namespace:**
+### RSS memory by namespace
 ```promql
 sum by(namespace) (container_memory_rss{container!=""})
 ```
 
-**Containers closest to OOMKill:**
+### Containers closest to OOMKill
 ```promql
 topk(10,
   container_memory_working_set_bytes{container!=""}
@@ -103,18 +105,18 @@ topk(10,
 
 ### PromQL
 
-**Bandwidth per pod (bytes/sec):**
+### Bandwidth per pod (bytes/sec)
 ```promql
 sum by(pod) (rate(container_network_receive_bytes_total[5m]))
 ```
 
-**Network error rate:**
+### Network error rate
 ```promql
 rate(container_network_receive_errors_total[5m])
 + rate(container_network_transmit_errors_total[5m])
 ```
 
-**Dropped packets:**
+### Dropped packets
 ```promql
 rate(container_network_receive_packets_dropped_total[5m])
 + rate(container_network_transmit_packets_dropped_total[5m])
@@ -135,17 +137,17 @@ rate(container_network_receive_packets_dropped_total[5m])
 
 ### PromQL
 
-**Disk write throughput:**
+### Disk write throughput
 ```promql
 rate(container_fs_writes_bytes_total[5m])
 ```
 
-**Filesystem usage %:**
+### Filesystem usage %
 ```promql
 container_fs_usage_bytes / container_fs_limit_bytes * 100
 ```
 
-**IOPS:**
+### IOPS
 ```promql
 rate(container_fs_reads_total[5m]) + rate(container_fs_writes_total[5m])
 ```
@@ -167,6 +169,19 @@ Always include at least `{container!=""}` to avoid double-counting.
 ---
 
 ## Quick Reference
+
+```mermaid
+flowchart LR
+  A[Linux cgroups and filesystem stats] --> B[cAdvisor collectors]
+  B --> C[Container CPU metrics]
+  B --> D[Container memory metrics]
+  B --> E[Network and disk metrics]
+  C --> F[Prometheus endpoint]
+  D --> F
+  E --> F
+  G[Prometheus scrape] --> F
+  F --> H[PromQL and dashboards]
+```
 
 ```
 ┌──────────────────────────┬──────────────────────────────────────────────────────────────────┐

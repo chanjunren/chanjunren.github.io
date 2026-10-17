@@ -1,7 +1,8 @@
 🗓️ 04102025 0030
-📎 [[dns_tools]]
 
 # etc_hosts
+
+> **hosts file**: A local text file that maps hostnames to IP addresses before or alongside DNS resolution, depending on system resolver configuration. ([Linux man-pages](https://man7.org/linux/man-pages/man5/hosts.5.html))
 
 Local DNS override file that is checked before DNS servers.
 
@@ -42,7 +43,7 @@ This is why editing `/etc/hosts` bypasses all [[dns_tools]] queries!
 93.184.216.34   example.com www.example.com
 ```
 
-**Structure**:
+### Structure
 - Lines starting with `#` are comments
 - Format: `IP_ADDRESS` + whitespace + `HOSTNAME` + optional `ALIASES`
 - Multiple aliases allowed per line
@@ -88,7 +89,7 @@ This is why editing `/etc/hosts` bypasses all [[dns_tools]] queries!
 
 ---
 
-## When to Use
+## Use cases
 
 ✅ **Good for**:
 - Temporary DNS issue workarounds
@@ -163,7 +164,7 @@ PING myserver.local (192.168.1.100): 56 data bytes
 ```
 → Resolves to your `/etc/hosts` entry!
 
-**Test with dig** ([[dns_tools]]):
+**Test with dig** (dns tools):
 ```bash
 $ dig myserver.local
 # Will still query DNS (doesn't use /etc/hosts)
@@ -189,7 +190,7 @@ $ curl http://myserver.local
 
 **The Problem**: DNS can't resolve domain (NXDOMAIN error)
 
-**Your Fix**:
+### Your Fix
 
 ```bash
 # 1. Get IP from working DNS server
@@ -219,13 +220,13 @@ PING example.com (93.184.216.34): 56 data bytes
 ```
 → **Works!** System used `/etc/hosts` instead of broken DNS
 
-### Why This Worked
-1. Your DNS resolver (from [[interface_tools]]'s `/etc/resolv.conf`) was returning NXDOMAIN
+### Operational impact
+1. Your DNS resolver (from interface tools's `/etc/resolv.conf`) was returning NXDOMAIN
 2. `/etc/hosts` is checked **BEFORE** DNS queries
 3. System found `example.com` in `/etc/hosts` → used that IP
 4. Never queried broken DNS server!
 
-### When to Remove the Fix
+### Removal conditions
 Once DNS is working again:
 ```bash
 # Test if DNS works now
@@ -243,7 +244,7 @@ $ sudo nano /etc/hosts
 
 ### How to Tell if `/etc/hosts` is Being Used
 
-**Check the file**:
+### Check the file
 ```bash
 $ cat /etc/hosts | grep example.com
 93.184.216.34   example.com
@@ -266,12 +267,12 @@ $ dig +short example.com
 
 ### Common Issues
 
-**Changes not taking effect?**
+### Changes not taking effect?
 1. Flush DNS cache (see above)
 2. Check syntax (no typos, correct whitespace)
 3. Verify file permissions: `ls -l /etc/hosts` (should be readable by all)
 
-**Application ignores `/etc/hosts`?**
+### Application ignores `/etc/hosts`?
 - Some apps (like `dig`, `nslookup`) bypass `/etc/hosts` intentionally
 - Most apps (browsers, `ping`, `curl`) respect it
 
@@ -302,9 +303,23 @@ $ dig +short example.com
 
 ---
 
+```mermaid
+flowchart LR
+  A[Application requests hostname] --> B[System name service]
+  B --> C[Resolver configuration]
+  C --> D{Check hosts file?}
+  D -->|match| E[Return local IP mapping]
+  D -->|no match| F[Query configured DNS resolver]
+  F --> G[Return DNS answer]
+  E --> H[Application connects]
+  G --> H
+```
+
 ## References
 
-- [[dns_tools]] - DNS tools (note: dig bypasses /etc/hosts)
+
+
+- dns tools - DNS tools (note: dig bypasses /etc/hosts)
 - [/etc/hosts documentation](https://man7.org/linux/man-pages/man5/hosts.5.html)
 - [DNS resolution order](https://www.ietf.org/rfc/rfc6761.txt)
 - [nsswitch.conf](https://man7.org/linux/man-pages/man5/nsswitch.conf.5.html)

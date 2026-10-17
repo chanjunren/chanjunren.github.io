@@ -2,12 +2,22 @@
 
 # swarm_secrets_and_configs
 
-**What it is:**
+
+Swarm distributes sensitive secrets and non-sensitive configuration files to the services authorized to use them.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Docker secret** | Sensitive data distributed to Swarm services and mounted into authorized tasks. | [Docker Docs](https://docs.docker.com/engine/swarm/secrets/) |
+| **Docker config** | Non-sensitive configuration data distributed to Swarm services. | [Docker Docs](https://docs.docker.com/engine/swarm/configs/) |
+
+## Overview
 - Swarm-native mechanisms for distributing sensitive data (**secrets**) and non-sensitive configuration (**configs**) to services
 - Secrets are encrypted at rest in the Raft log and only delivered to nodes running the service
 - Configs use the same distribution mechanism but for non-sensitive files
 
-**Why it exists:**
+## Problem addressed
 - [[env_management]] patterns (`.env` files, `env_file` directive) assume the file exists on the host running the container
 - In a [[docker_swarm]] cluster, tasks can land on any node — you'd need to copy `.env` files to every VM and keep them in sync
 - Secrets and configs are stored centrally by managers and distributed automatically to whichever node needs them
@@ -70,7 +80,21 @@ A database service needs a password. `echo "s3cret" | docker secret create db_pa
 
 ---
 
+```mermaid
+flowchart LR
+  A[Operator creates secret or config] --> B[Swarm manager stores object]
+  B --> C[Service grants access]
+  C --> D[Task scheduled on node]
+  D --> E[Secret mounted in memory]
+  D --> F[Config mounted as file]
+  E --> G[Application reads credential]
+  F --> H[Application reads settings]
+  I[Service removed] --> J[Unused object can be removed]
+```
+
 ## References
+
+
 
 - https://docs.docker.com/engine/swarm/secrets/
 - https://docs.docker.com/engine/swarm/configs/

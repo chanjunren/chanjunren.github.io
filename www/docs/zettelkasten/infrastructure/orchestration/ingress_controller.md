@@ -2,20 +2,30 @@
 
 # ingress_controller
 
-**Core Concept**: 
+
+An Ingress resource declares HTTP routing from outside a cluster to Kubernetes Services; an Ingress controller implements those routes.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Ingress** | A Kubernetes API object that describes HTTP or HTTPS routing from outside a cluster to services. | [Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress/) |
+| **Ingress controller** | A controller that implements Ingress rules by configuring a load balancer or proxy. | [Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) |
+
+### Core Concept
 - Kubernetes-native [[load_balancer]] and [[reverse_proxy]]
 - Manages external access to services in cluster
 - Provides HTTP routing, SSL termination, name-based virtual hosting
 - Configured via Kubernetes YAML manifests
 
-## Why It Matters
+## Operational impact
 
 - **Single entry point** for all external traffic to Kubernetes cluster
 - **Native Kubernetes resource** - configured via YAML manifests
 - **Automatic service discovery** - integrates with Kubernetes service changes
 - **SSL/TLS management** - centralized certificate handling
 
-## When to Use
+## Use cases
 
 - Running **Kubernetes** and need external access to services
 - Want **path-based routing** to different services (e.g., /api → api-service, /web → web-service)
@@ -24,16 +34,16 @@
 - Want **automatic updates** when services scale up/down
 - Need **annotations-based configuration** (rate limiting, auth, CORS)
 
-## When Not to Use
+## Poor fit
 
-- Non-Kubernetes environments (use [[load_balancer]] or [[reverse_proxy]])
+- Non-Kubernetes environments (use load balancer or reverse proxy)
 - Need layer 4 load balancing only (use Kubernetes Service type=LoadBalancer)
 - Very simple single-service deployment
 - Need features beyond HTTP/HTTPS (TCP/UDP routing - consider Gateway API)
 
 ## Trade-offs
 
-**Benefits:**
+### Benefits
 - Kubernetes-native (declarative configuration)
 - Automatic service discovery
 - Single load balancer for entire cluster (cost-effective)
@@ -41,7 +51,7 @@
 - Annotations for controller-specific features
 - Path and host-based routing
 
-**Drawbacks:**
+### Drawbacks
 - Kubernetes-specific (not portable)
 - HTTP/HTTPS only by default (TCP/UDP needs workarounds)
 - Controller-specific annotations (vendor lock-in)
@@ -50,23 +60,23 @@
 
 ## Key Distinctions
 
-**Ingress Controller vs Kubernetes Service:**
+### Ingress Controller vs Kubernetes Service
 - **Ingress**: Layer 7 (HTTP), path/host routing, single entry point
 - **Service (LoadBalancer)**: Layer 4 (TCP/UDP), per-service load balancer
 - Ingress for HTTP routing; Service for direct TCP/UDP access
 
-**Ingress Controller vs API Gateway:**
+### Ingress Controller vs API Gateway
 - **Ingress**: Basic routing, SSL, Kubernetes-native
 - **API Gateway**: Advanced features (auth, rate limiting, transformation)
-- Ingress is simpler; Gateway ([[gateway_patterns]]) is more feature-rich
+- Ingress is simpler; Gateway (gateway patterns) is more feature-rich
 - Many API Gateways can function as Ingress Controllers
 
-**Ingress vs Gateway API:**
+### Ingress vs Gateway API
 - **Ingress**: Older, HTTP-focused, simple
 - **Gateway API**: Newer, protocol-agnostic, role-oriented, more expressive
 - Gateway API is successor to Ingress (more powerful)
 
-This is a Kubernetes-specific implementation of [[reverse_proxy]] and [[load_balancer]] concepts. Often extended with [[gateway_patterns]] features through annotations or custom controllers.
+This is a Kubernetes-specific implementation of reverse proxy and load balancer concepts. Often extended with gateway patterns features through annotations or custom controllers.
 
 ## Common Patterns
 
@@ -300,7 +310,21 @@ kubectl get services -n ingress-nginx
 
 ---
 
+```mermaid
+flowchart LR
+  A[External client] --> B[Load balancer]
+  B --> C[Ingress controller]
+  D[Ingress resource] --> C
+  C --> E[Host and path rules]
+  E --> F[Kubernetes Service]
+  F --> G[Ready Pod endpoint]
+  G --> H[Application container]
+  I[TLS Secret] --> C
+```
+
 ## References
+
+
 
 - https://kubernetes.io/docs/concepts/services-networking/ingress/
 - https://kubernetes.github.io/ingress-nginx/

@@ -1,7 +1,8 @@
 🗓️ 25042026 1434
-📎 #tcp #networking #failure_modes
 
 # tcp_half_open
+
+> **Half-open TCP connection**: A TCP connection where one endpoint no longer has a working connection state while its peer still believes the connection exists. ([RFC 9293](https://www.rfc-editor.org/rfc/rfc9293))
 
 > TCP connection where one side believes the link is alive, the other doesn't. Silent. No error fires. Devastating for long-lived connections.
 
@@ -26,7 +27,7 @@ No `RST`, no `FIN`, no error. The OS doesn't know. The app doesn't know.
 | Long GC pause / process freeze | Peer unresponsive long enough for path state to expire |
 | Cloud LB / service mesh quirks | Sidecar terminates connection on its end without propagating |
 
-## Why It's Silent
+## Operational impact
 
 - TCP only signals failure on **active probing**: when you try to write enough that the peer should ACK.
 - `write()` returns success once data is in the local kernel buffer, not when it's ACKed.
@@ -70,7 +71,23 @@ Cycle connections every N minutes regardless of health. Crude but effective when
 
 ---
 
+```mermaid
+sequenceDiagram
+  participant A as Client
+  participant N as Network path
+  participant B as Server
+  A->>B: TCP connection established
+  Note over N: Path or peer fails silently
+  A->>B: Request data
+  B--xA: No response reaches client
+  Note over A,B: TCP state can appear established locally
+  A->>B: Read timeout or keepalive probe
+  B-->>A: Response or connection failure
+```
+
 ## References
+
+
 
 - [TCP Keepalive HOWTO](https://tldp.org/HOWTO/TCP-Keepalive-HOWTO/)
 - [[connection_wedge]] — what happens at the app/library layer when a TCP connection half-opens

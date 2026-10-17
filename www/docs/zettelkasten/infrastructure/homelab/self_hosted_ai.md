@@ -2,6 +2,8 @@
 
 # self_hosted_ai
 
+> **Inference**: The process of using a trained model to produce outputs from inputs. ([Hugging Face](https://huggingface.co/docs/transformers/llm_tutorial))
+
 A self-hosted AI stack runs model services and data on infrastructure you control. The model generates responses; gateways route requests; applications manage context and permissions.
 
 ## Request path

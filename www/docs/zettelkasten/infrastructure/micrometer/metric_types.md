@@ -2,9 +2,20 @@
 
 # metric_types
 
+
+Micrometer meter types describe the measurement pattern recorded by instrumented applications.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Counter** | A monotonically increasing measurement of events or work completed. | [Micrometer](https://docs.micrometer.io/micrometer/reference/concepts/counters.html) |
+| **Gauge** | A measurement that samples the current value of an object or function. | [Micrometer](https://docs.micrometer.io/micrometer/reference/concepts/gauges.html) |
+| **Timer** | A meter that records event duration and the number of events. | [Micrometer](https://docs.micrometer.io/micrometer/reference/concepts/timers.html) |
+
 **Core Concept**: Micrometer provides metric types (Counter, Timer, Gauge, DistributionSummary, LongTaskTimer) that map to Prometheus data types and determine how metrics are collected and queried.
 
-## Why It Matters
+## Operational impact
 
 Choosing the correct Micrometer metric type determines how data is exported to Prometheus and which PromQL functions work correctly. Wrong type = misleading metrics.
 
@@ -16,7 +27,7 @@ Choosing the correct Micrometer metric type determines how data is exported to P
 
 **Unit**: Dimensionless count
 
-**Java Example**:
+### Java Example
 ```java
 Counter counter = Counter.builder("http.requests")
     .tag("endpoint", "/api/users")
@@ -30,7 +41,7 @@ counter.increment(5.0);     // +5
 **Prometheus Export**: Becomes [[data_types]] Counter → query with `rate()`, `increase()`
 - Exported as: `http_requests_total`
 
-**Trade-offs**:
+### Trade-offs
 - ✅ Accurate for counting events
 - ✅ Handles app restarts correctly
 - ❌ Cannot decrease or be reset manually
@@ -43,7 +54,7 @@ counter.increment(5.0);     // +5
 
 **Unit**: Seconds (automatically converted from any time unit)
 
-**Java Example**:
+### Java Example
 ```java
 Timer timer = Timer.builder("http.request.duration")
     .tag("endpoint", "/api/users")
@@ -69,14 +80,14 @@ timer.record(() -> {
 timer.record(Duration.ofMillis(123));
 ```
 
-**Prometheus Export**: Becomes [[data_types]] Histogram (default) or Summary
+**Prometheus Export**: Becomes data types Histogram (default) or Summary
 - Exported as: `http_request_duration_seconds_*`
 - `_count` - total number of events
 - `_sum` - total duration in seconds
 - `_bucket` - histogram buckets for percentile calculation
 - `_max` - maximum observed value
 
-**Configuration Options**:
+### Configuration Options
 
 1. **No SLOs specified** (default):
    - Uses default buckets: `[1ms, 10ms, 50ms, 100ms, 500ms, 1s, 5s, 10s, 30s, 1m]`
@@ -96,7 +107,7 @@ timer.record(Duration.ofMillis(123));
 
 **Query with**: `histogram_quantile()`, `rate()`
 
-**Trade-offs**:
+### Trade-offs
 - ✅ Flexible percentile calculation server-side
 - ✅ Can aggregate across instances
 - ❌ Approximate percentiles only (bucket-based)
@@ -110,7 +121,7 @@ timer.record(Duration.ofMillis(123));
 
 **Unit**: Depends on what you're measuring (bytes, count, ratio, etc.) - specify with `.baseUnit()`
 
-**Java Example**:
+### Java Example
 ```java
 // Method 1: Track a collection/number
 List<String> queue = new ArrayList<>();
@@ -133,10 +144,10 @@ Gauge.builder("jvm.memory.used", memoryBean, MemoryMXBean::getHeapMemoryUsage)
     .register(meterRegistry);
 ```
 
-**Prometheus Export**: Becomes [[data_types]] Gauge → query with `avg_over_time()`, `delta()`
+**Prometheus Export**: Becomes data types Gauge → query with `avg_over_time()`, `delta()`
 - Exported as: `queue_size`, `jvm_memory_used_bytes`, etc.
 
-**Trade-offs**:
+### Trade-offs
 - ✅ Shows current state instantly
 - ✅ Natural for fluctuating values
 - ❌ Needs strong reference to measured object
@@ -154,7 +165,7 @@ Gauges require a strong reference. If the measured object is garbage collected, 
 
 **Unit**: Specify with `.baseUnit()` - typically bytes, count, or currency
 
-**Java Example**:
+### Java Example
 ```java
 DistributionSummary summary = DistributionSummary.builder("request.size")
     .tag("endpoint", "/api/upload")
@@ -167,11 +178,11 @@ summary.record(1024);      // Record 1KB
 summary.record(2048);      // Record 2KB
 ```
 
-**Prometheus Export**: Becomes [[data_types]] Histogram or Summary (same as Timer, but for sizes not durations)
+**Prometheus Export**: Becomes data types Histogram or Summary (same as Timer, but for sizes not durations)
 - Exported as: `request_size_bytes_*`
 - Same bucket/percentile behavior as Timer
 
-**Trade-offs**:
+### Trade-offs
 - ✅ Aggregatable percentiles
 - ✅ Flexible bucket boundaries
 - ❌ More storage (buckets)
@@ -186,7 +197,7 @@ summary.record(2048);      // Record 2KB
 
 **Unit**: Seconds (for duration metrics)
 
-**Java Example**:
+### Java Example
 ```java
 LongTaskTimer timer = LongTaskTimer.builder("batch.job.duration")
     .tag("job", "data-export")
@@ -209,7 +220,7 @@ try {
 
 **Query with**: Direct values (no rate needed)
 
-**Trade-offs**:
+### Trade-offs
 - ✅ Track in-progress operations
 - ✅ Detect stuck jobs
 - ❌ Doesn't provide histogram/percentiles
@@ -223,7 +234,7 @@ try {
 
 **When to Use**: Wrap existing metrics from libraries/frameworks you don't control
 
-**Java Example**:
+### Java Example
 ```java
 ExecutorService executor = Executors.newFixedThreadPool(10);
 
@@ -240,7 +251,7 @@ FunctionTimer.builder("cache.gets", cache,
     .register(meterRegistry);
 ```
 
-**Trade-offs**:
+### Trade-offs
 - ✅ No code changes to tracked component
 - ✅ Poll existing metrics
 - ❌ Less accurate (scrape-interval dependent)
@@ -254,7 +265,7 @@ FunctionTimer.builder("cache.gets", cache,
 
 **Unit**: Seconds (converted from specified TimeUnit)
 
-**Java Example**:
+### Java Example
 ```java
 AtomicLong startTime = new AtomicLong(System.currentTimeMillis());
 
@@ -297,7 +308,7 @@ Measuring duration?
 
 ## Common Patterns
 
-**HTTP Request Metrics**:
+### HTTP Request Metrics
 ```java
 Timer.builder("http.request.duration")
     .tag("method", "GET")
@@ -312,7 +323,7 @@ Counter.builder("http.requests.total")
     .register(registry);
 ```
 
-**Cache Metrics**:
+### Cache Metrics
 ```java
 Gauge.builder("cache.size", cache, Cache::estimatedSize)
     .register(registry);
@@ -324,7 +335,7 @@ FunctionCounter.builder("cache.misses", cache, c -> c.stats().missCount())
     .register(registry);
 ```
 
-**Queue Metrics**:
+### Queue Metrics
 ```java
 Gauge.builder("queue.size", queue, Queue::size)
     .register(registry);
@@ -337,7 +348,24 @@ Timer.builder("queue.message.processing.duration")
 ```
 
 ---
+
+```mermaid
+flowchart LR
+  A[Application event] --> B{Measurement pattern}
+  B --> C[Counter: event total]
+  B --> D[Timer: duration and count]
+  B --> E[Gauge: current value]
+  B --> F[DistributionSummary: sampled amount]
+  B --> G[LongTaskTimer: active duration]
+  C --> H[MeterRegistry]
+  D --> H
+  E --> H
+  H --> I[Prometheus exposition]
+```
+
 ## References
+
+
 
 - [Micrometer Concepts](https://docs.micrometer.io/micrometer/reference/concepts.html)
 - [Micrometer Meter Types](https://docs.micrometer.io/micrometer/reference/concepts/meters.html)

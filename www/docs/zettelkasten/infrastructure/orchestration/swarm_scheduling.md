@@ -2,12 +2,16 @@
 
 # swarm_scheduling
 
-**What it is:**
+> **Swarm scheduler**: The Docker Swarm manager component that assigns service tasks to eligible nodes. ([Docker Docs](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/))
+
+Swarm managers reconcile desired service replicas with tasks running on eligible nodes.
+
+## Overview
 - How [[docker_swarm]] decides where to place containers and keeps them running
 - A continuous **reconciliation loop**: compare actual state to desired state, fix any difference
 - Includes placement constraints, node labels, and service modes for controlling task distribution
 
-**Why it exists:**
+## Problem addressed
 - In a cluster, you can't just "run a container" — the scheduler must decide which node runs it
 - When nodes fail or containers crash, something must automatically reschedule without human intervention
 - Placement constraints let you pin workloads to specific nodes (critical for stateful services)
@@ -60,6 +64,20 @@
 - Use for: monitoring agents, log collectors, node-level utilities
 
 ## Scheduling Strategy
+
+```mermaid
+flowchart LR
+  A[Desired service tasks] --> B[Swarm manager]
+  B --> C[Filter by constraints]
+  C --> D[Select eligible node]
+  D --> E[Create task]
+  E --> F[Worker runs container]
+  F --> G[Report task state]
+  G --> B
+  H[Node labels and availability] --> C
+  I[Node failure] --> J[Replacement task]
+  J --> B
+```
 
 - Swarm uses a **spread strategy** by default — distributes tasks evenly across nodes
 - Considers resource reservations (CPU, memory) when placing tasks

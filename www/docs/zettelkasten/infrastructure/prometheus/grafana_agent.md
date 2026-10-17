@@ -2,98 +2,36 @@
 
 # grafana_agent
 
-**Core Concept:**
-- Lightweight telemetry collector that scrapes metrics/logs/traces locally and forwards to remote backends (Grafana Cloud, Prometheus)
-- Resource-efficient alternative to running full Prometheus (~30MB vs ~200MB+).
+> **Grafana Agent**: A telemetry collector that gathers and forwards metrics, logs, and traces to configured backends. ([Grafana Agent](https://grafana.com/docs/agent/latest/about/))
 
-## Why It Matters
+Grafana Agent collected telemetry near its source and sent it to a remote system. This was useful when a central Prometheus server could not reach targets behind a firewall.
 
-- **Hybrid model** - Pulls from apps (standard Prometheus), pushes to cloud (remote write)
-- **Cloud-native** - Solves "can't scrape behind firewall" problem for managed platforms
-- **Lightweight** - No local storage, stateless operation, minimal footprint
-- **Multi-signal** - Single agent for metrics, logs, traces, profiles
+## Collection path
 
-## When to Use
+In metrics pipelines, the agent discovered or received targets, scraped their Prometheus endpoints, applied configured processing, and sent samples using Prometheus remote write. The target exposed metrics; the agent owned scraping and forwarding; the remote backend owned storage and queries.
 
-- Sending telemetry to **managed platforms** (Grafana Cloud, remote Prometheus)
-- **Resource-constrained** environments (edge, IoT, containers)
-- **Multi-tenant** deployments with isolated collection per tenant
-- Need **unified collector** instead of separate agents per signal type
-
-## When Not to Use
-
-- Running **self-hosted Prometheus** with local storage (use Prometheus directly)
-- Need **local PromQL queries** (Agent has no query engine)
-- **Simple single-host** monitoring (node_exporter suffices)
-- Extremely **high-cardinality** metrics needing local pre-aggregation
-
-## Architecture
-
-```
-App exposes /metrics → Agent scrapes (pull) → Agent pushes (remote write) → Cloud Backend
+```mermaid
+flowchart LR
+  A[Application /metrics endpoint] -->|scrape| B[Grafana Agent]
+  B -->|remote write| C[Metrics backend]
+  C --> D[Queries and dashboards]
+  E[Agent configuration] --> B
 ```
 
-**Key insight**: Combines pull model (Prometheus standard) with push model (cloud-friendly) to bridge local and remote environments.
+The agent could also collect logs and traces through separate pipelines. It did not provide Prometheus's local time-series database or query engine, so a backend was required for durable storage and querying.
 
-## Trade-offs
+## Lifecycle
 
-**Benefits:**
-- Minimal footprint (30-50MB RAM typical)
-- No storage management
-- Works behind firewalls (outbound-only)
-- Single binary for all telemetry
+Grafana Agent reached end of life on November 1, 2025. It no longer receives vendor support, security fixes, or bug fixes. Grafana recommends migrating Agent deployments to [[grafana_alloy]].
 
-**Drawbacks:**
-- No local querying
-- Network dependency
-- Requires remote backend
-- Additional component to manage
+## Limits
 
-## Key Distinctions
-
-**vs Prometheus:** Agent = Prometheus without storage/querying; use when sending to remote backend
-
-**vs OpenTelemetry Collector:** Agent is Prometheus-native; OTel is vendor-neutral with broader protocol support
-
-**vs Telegraf:** Agent for Grafana/Prometheus stack; Telegraf for InfluxDB ecosystem
-
-## Deprecation Notice
-
-```ad-warning
-**Grafana Agent deprecated** (EOL November 1, 2025). Migrate to **Grafana Alloy** - the successor with improved performance and component-based architecture.
-```
-
-## Common Patterns
-
-**Sidecar Pattern** ([[sidecar_pattern]]): Deploy Agent alongside each app instance
-- Agent scrapes localhost (no network config)
-- Scales 1:1 with app
-- Isolated failure domains
-
-**Centralized Pattern**: Single Agent scrapes multiple apps
-- Lower resource overhead
-- Centralized config
-- Single point of failure
-
-## Common Pitfalls
-
-```ad-danger
-**WAL disk full**: If remote backend unreachable, Write-Ahead Log fills disk. Configure `wal_truncate_frequency` and monitor disk usage.
-```
-
-```ad-warning
-**Cardinality explosion**: Agent forwards all metrics. High-cardinality labels (user IDs, request IDs) overwhelm backend. Use `metric_relabel_configs` to drop before remote write.
-```
-
-```ad-warning
-**Scrape interval mismatch**: Match or exceed remote backend's expected resolution. Grafana Cloud free tier expects 15s-60s intervals.
-```
-
----
+- Outbound forwarding still depends on network access to the backend.
+- Remote write failure can queue samples locally until configured limits apply.
+- Agent configuration and supported components depend on its mode and version.
 
 ## References
 
-- https://grafana.com/docs/agent/latest/
-- https://grafana.com/docs/agent/latest/about/
-- https://github.com/grafana/agent
-- https://grafana.com/blog/2024/04/09/grafana-alloy-opentelemetry-collector-with-prometheus-pipelines/
+- [Grafana Agent overview and lifecycle](https://grafana.com/docs/agent/latest/about/)
+- [Grafana Agent metrics configuration](https://grafana.com/docs/agent/latest/static/configuration/metrics-config/)
+- [Prometheus remote write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)

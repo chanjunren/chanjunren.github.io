@@ -2,9 +2,11 @@
 
 # picom
 
+> **picom**: A standalone compositor for X11 that applies effects while composing application windows. ([picom](https://github.com/yshui/picom))
+
 **picom** is a compositor for X11. It sits between Xorg and the [[window_manager]], handling GPU-accelerated rendering via the GLX backend. Without it you get screen tearing on most hardware; with it you can also add shadows, transparency, and blur.
 
-## Why It's Needed
+## Operational impact
 
 X11 has no built-in compositing. Without a compositor:
 - Screen tearing on scrolling and video
@@ -81,7 +83,20 @@ exec_always --no-startup-id pkill picom; picom --config ~/.config/picom/picom.co
 
 `exec_always` restarts picom on every i3 reload. `pkill picom` first ensures no duplicate instance runs.
 
+```mermaid
+flowchart LR
+  A[X11 application windows] --> B[Xorg window surfaces]
+  B --> C[picom compositor]
+  C --> D[GLX or XRender backend]
+  D --> E[Combined desktop frame]
+  E --> F[Display output]
+  G[i3 startup command] --> C
+  H[picom.conf] --> C
+```
+
 ## References
+
+
 
 - [picom GitHub](https://github.com/yshui/picom)
 - [Arch Wiki: picom](https://wiki.archlinux.org/title/Picom)

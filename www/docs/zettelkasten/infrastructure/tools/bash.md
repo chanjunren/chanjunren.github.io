@@ -2,6 +2,8 @@
 
 # bash
 
+> **Bash**: A command language interpreter and shell for the GNU operating system. ([GNU Bash manual](https://www.gnu.org/software/bash/manual/))
+
 ```bash
 #!/bin/bash
 
@@ -136,6 +138,20 @@ echo "=== End of Cheat Sheet ==="
 
 ```
 
+```mermaid
+flowchart LR
+  A[Shell command line] --> B[Bash parses tokens]
+  B --> C[Parameter and command expansion]
+  C --> D[Redirection setup]
+  D --> E[Command execution]
+  E --> F[Exit status]
+  F --> G{Conditional or loop}
+  G -->|true or next iteration| B
+  G -->|false or complete| H[Script continues]
+```
+
 ---
 
 ## References
+
+- [GNU Bash manual](https://www.gnu.org/software/bash/manual/)

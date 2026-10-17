@@ -1,11 +1,17 @@
+🗓️ 13042026 0036
+
 # certificate_authorities
 
-**What it is:**
+> **Certificate authority (CA)**: An entity that issues public-key certificates and binds identities to public keys. ([RFC 5280](https://www.rfc-editor.org/rfc/rfc5280))
+
+Certificate authorities bind public keys to verified identities within a trust hierarchy.
+
+## Overview
 - Trusted third parties that issue and validate [[tls_certificates]]
 - The foundation of the web's trust model — your browser trusts ~150 root CAs, and those CAs vouch for servers
 - Without CAs: no way to verify that a certificate actually belongs to who it claims
 
-**Problem it solves:**
+## Problem addressed
 - Anyone can generate a certificate — CAs verify that the requester actually controls the domain/organization
 - Browsers need a starting point for trust — CAs provide that anchor
 - Certificate lifecycle (issuance, renewal, revocation) needs a governing authority
@@ -44,7 +50,7 @@ If any step fails — connection rejected.
 
 When a certificate's private key is compromised, it must be invalidated before expiry:
 - **CRL (Certificate Revocation List)**: CA publishes full list of revoked certs periodically — clients download and check. Slow, stale.
-- **[[ocsp]]**: client queries CA for a single cert's status in real-time. Faster, but has privacy and availability concerns.
+- **ocsp**: client queries CA for a single cert's status in real-time. Faster, but has privacy and availability concerns.
 - **OCSP Stapling**: server pre-fetches its own OCSP response and includes it in TLS handshake — recommended approach.
 
 ## Commercial CAs vs Let's Encrypt
@@ -67,7 +73,21 @@ When a certificate's private key is compromised, it must be invalidated before e
 
 ---
 
+```mermaid
+flowchart LR
+  A[Certificate applicant] --> B[Prove control of identifier]
+  B --> C[Certificate authority validation]
+  C --> D[Issue signed certificate]
+  D --> E[Server presents certificate]
+  E --> F[Client validates chain]
+  F --> G[Trusted root certificate]
+  H[Revocation status] --> F
+  I[Certificate renewal] --> B
+```
+
 ## References
+
+
 
 - https://letsencrypt.org/how-it-works/
 - https://www.ssl.com/faqs/what-is-a-certificate-authority/

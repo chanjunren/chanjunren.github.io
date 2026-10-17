@@ -2,7 +2,14 @@
 
 # security_maintenance
 
-Security limits who can reach services, what accounts can do, and how failures spread. Maintenance keeps controls and recovery paths effective as systems change.
+Access control limits who can use a service and what they can do. Maintenance keeps those controls and recovery paths current.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Authentication** | Verification of a user’s or system’s claimed identity. | [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html) |
+| **Authorization** | Determining what an authenticated identity is permitted to do. | [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html) |
 
 ## Identity and network boundaries
 

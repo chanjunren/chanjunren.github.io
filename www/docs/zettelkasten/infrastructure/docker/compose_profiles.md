@@ -2,12 +2,16 @@
 
 # compose_profiles
 
-**What it is:**
+> **Compose profile**: A label that enables selected services only when the profile is activated. ([Docker Docs](https://docs.docker.com/compose/profiles/))
+
+Profiles let one Compose project start only the services needed for a task or client.
+
+## Overview
 - Named groups that selectively start subsets of services in [[compose]]
 - Services assigned to a profile only start when that profile is explicitly activated
 - Services without a profile always start
 
-**Problem it solves:**
+## Problem addressed
 - Running all services wastes resources when you only need a subset
 - Multi-client deployments on one server need to spin up only client-specific stacks
 - Without profiles: separate compose files per environment, duplicating shared config
@@ -32,7 +36,7 @@ One compose file, different profiles per client:
 
 Combine with per-client [[container_networking]] networks for true network isolation between client stacks.
 
-## When to Use
+## Use cases
 
 Use for:
 - Optional services (debug tools, monitoring, admin panels)
@@ -61,6 +65,18 @@ Skip for:
 
 ```ad-danger
 **Forgetting to tag a client-specific service**: An untagged service starts for ALL profiles. If a client's database accidentally has no profile, it runs whenever any client stack starts — wasting resources and creating confusion.
+```
+
+```mermaid
+flowchart LR
+  A[Compose project] --> B[Services without profiles]
+  A --> C[Profile-labeled services]
+  D[Compose command] --> E{Active profiles}
+  E -->|none| B
+  E -->|selected profile| F[Matching services]
+  C --> F
+  B --> G[Started services]
+  F --> G
 ```
 
 ---

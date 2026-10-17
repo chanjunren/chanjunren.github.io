@@ -2,7 +2,17 @@
 
 # for_self_hosting
 
+
 Linux systems use the Linux kernel with distribution-specific tools and packages. Many servers and NAS appliances use its process, filesystem, permission, and networking mechanisms. These explain what applications need from hosts.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Process** | A running instance of a program managed by the operating system. | [Linux man-pages](https://man7.org/linux/man-pages/man7/) |
+| **Filesystem** | A way to organize and access files and directories on storage. | [Linux man-pages](https://man7.org/linux/man-pages/man5/) |
+| **Service manager** | A system component that starts and monitors background services. | [systemd](https://systemd.io/) |
+
 
 ## What a running service uses
 
@@ -36,7 +46,7 @@ On Linux, `systemctl` controls services; `journalctl` reads logs. `ps` and `top`
 
 ## Tools and trade-offs
 
-- OpenSSH provides remote shell access; restrict accounts and reachability.
+- [[ssh]] provides remote shell access; restrict accounts and reachability.
 - SSH access grants administrative power.
 - systemd manages services and logs on many distributions.
 - Other systems use different service managers.
@@ -48,9 +58,19 @@ On Linux, `systemctl` controls services; `journalctl` reads logs. `ps` and `top`
 
 In a disposable Linux VM, create a service user and web service. Inspect its identity, file permissions, listening socket, and logs. Change one test setting and diagnose the failure.
 
+```mermaid
+flowchart LR
+  A[systemd service] --> B[Linux process]
+  B --> C[User and group permissions]
+  B --> D[Filesystem paths]
+  B --> E[Network sockets]
+  B --> F[Kernel resources]
+  G[Logs and metrics] --> H[Operator diagnosis]
+  H --> A
+```
+
 ## References
 
-- [[virtualization_containers]]
-- [[ssh]]
+- [Linux man-pages](https://man7.org/linux/man-pages/)
 - [systemd documentation](https://systemd.io/)
 - [OpenSSH manual pages](https://www.openssh.com/manual.html)

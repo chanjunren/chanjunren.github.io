@@ -2,6 +2,8 @@
 
 # screen_locker
 
+> **Screen locker**: A program that blocks access to the current graphical session until the user authenticates. ([Arch Wiki](https://wiki.archlinux.org/title/Screen_lock))
+
 A **screen locker** locks an active session — it's distinct from the [[display_manager]] (which handles login before a session starts). The locker runs while you're already logged in.
 
 **i3lock-color** is a popular choice for i3 setups — a fork of i3lock with full color and ring customisation.
@@ -63,6 +65,19 @@ bindsym $mod+l exec --no-startup-id ~/.config/i3/lock.sh
 # /etc/systemd/system/lock-on-suspend.service
 ```
 
+```mermaid
+flowchart LR
+  A[User session active] --> B[i3 lock binding]
+  B --> C[i3lock-color starts]
+  C --> D[Session input blocked]
+  D --> E[User enters credential]
+  E --> F[PAM authentication]
+  F -->|success| G[Session unlocked]
+  F -->|failure| D
+```
+
 ## References
+
+
 
 - [i3lock-color GitHub](https://github.com/Raymo111/i3lock-color)

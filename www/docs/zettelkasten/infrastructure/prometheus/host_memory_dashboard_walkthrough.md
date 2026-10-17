@@ -2,6 +2,16 @@
 
 # host_memory_dashboard_walkthrough
 
+
+This example traces the dashboard’s memory percentage back through PromQL and node exporter to Linux measurements.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **MemAvailable** | An estimate of memory available for starting new applications without swapping. | [Linux proc documentation](https://www.kernel.org/doc/html/latest/filesystems/proc.html) |
+| **PromQL** | Prometheus's query language for selecting and transforming time series. | [Prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/) |
+
 A Grafana host-memory panel is the end of a measurement pipeline. Read it backwards—from displayed percentage to query, metric, `/proc/meminfo`, and finally the Linux memory model.
 
 This walkthrough uses the go2c memory investigation from August 2026 as a worked example.
@@ -114,7 +124,21 @@ Use [[interpreting_host_memory]] as the diagnostic ladder and [[interpreting_con
 
 Apply this template to every unfamiliar panel before reading a long metric catalog.
 
+```mermaid
+flowchart LR
+  A[/proc/meminfo] --> B[node exporter]
+  B --> C[Prometheus scrape]
+  C --> D[PromQL calculation]
+  D --> E[Grafana panel]
+  D --> F[Alert expression]
+  E --> G[Available memory percentage]
+  H[Swap and pressure panels] --> I[Cause investigation]
+  E --> I
+```
+
 ## References
+
+
 
 - [Grafana Prometheus query editor](https://grafana.com/docs/grafana/latest/datasources/prometheus/query-editor/)
 - [Linux `/proc/meminfo` documentation](https://docs.kernel.org/filesystems/proc.html#meminfo)

@@ -2,6 +2,8 @@
 
 # postman_scripts_cheatsheet
 
+> **Postman script**: JavaScript executed before a request or after a response in a Postman collection run. ([Postman documentation](https://learning.postman.com/docs/tests-and-scripts/write-scripts/intro-to-scripts/))
+
 **Postman scripts** run JavaScript in a sandboxed environment at two points: before a request (**pre-request**) and after a response (**tests/post-response**). They share data via variables and enable automated testing, auth flows, and request chaining.
 
 ## Pre-request Scripts
@@ -191,7 +193,21 @@ if (pm.response.code === 429 && retryCount < maxRetries) {
 
 ---
 
+```mermaid
+flowchart LR
+  A[Pre-request script] --> B[Set variables or compute auth]
+  B --> C[Send HTTP request]
+  C --> D[Receive response]
+  D --> E[Post-response test script]
+  E --> F[Assertions and test result]
+  E --> G[Store data for next request]
+  G --> H[Collection Runner]
+  H --> A
+```
+
 ## References
+
+
 
 - https://learning.postman.com/docs/tests-and-scripts/write-scripts/intro-to-scripts/
 - https://learning.postman.com/docs/tests-and-scripts/write-scripts/test-scripts/

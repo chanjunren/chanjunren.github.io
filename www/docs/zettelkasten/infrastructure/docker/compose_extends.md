@@ -2,11 +2,18 @@
 
 # compose_extends
 
-**What it is:**
-- Mechanisms to reuse and override Compose configuration without copy-pasting
-- Three approaches: `extends` keyword, YAML anchors (`&`/`*`/`<<`), and `x-` extension fragments
+Compose configurations can reuse common service settings through `extends`, YAML anchors, and extension fields.
 
-**Problem it solves:**
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **`extends`** | A Compose service attribute that reuses another service definition and allows selected overrides. | [Docker Docs](https://docs.docker.com/compose/extends/) |
+| **YAML anchor and alias** | YAML features that name a node and reuse it elsewhere in a document. | [YAML 1.2.2](https://yaml.org/spec/1.2.2/) |
+| **Extension field** | A Compose field beginning with `x-` that Compose ignores for service configuration. | [Compose Specification](https://github.com/compose-spec/compose-spec/blob/main/11-extension.md) |
+
+## Problem addressed
+
 - Multi-client setups duplicate service definitions across files
 - Copy-pasting configs leads to drift — change one, forget the others
 - Need a way to define a base service once and override per client or environment
@@ -30,7 +37,7 @@ DRY within a single file using native YAML:
 - `*anchor` references it
 - `<<: *anchor` merges the block into current mapping
 
-### When to prefer anchors
+### Choosing a reuse method
 - Repetitive config within one file (same [[logging]] config, same resource limits for all services)
 - Simpler than extends for same-file reuse
 
@@ -42,7 +49,7 @@ Compose ignores top-level keys starting with `x-`:
 - Cleaner than anchors buried inside service definitions
 - Compose v2+ feature
 
-## When to Use What
+## Choosing a registry
 
 ### extends
 - Cross-file reuse (base.yml + per-client overrides)
@@ -72,6 +79,20 @@ Compose ignores top-level keys starting with `x-`:
 
 ```ad-danger
 **Silent anchor failures**: YAML anchors are resolved before Compose validates the file. A typo in an anchor name or wrong merge produces incorrect config with no Compose-level error — only runtime surprises.
+```
+
+```mermaid
+flowchart LR
+  A[Base service definition] --> B{Reuse mechanism}
+  B --> C[extends service]
+  B --> D[YAML anchor and alias]
+  B --> E[x- extension field]
+  C --> F[Override selected fields]
+  D --> G[Reuse YAML node]
+  E --> H[Compose tooling]
+  F --> I[Resolved Compose model]
+  G --> I
+  H --> I
 ```
 
 ---

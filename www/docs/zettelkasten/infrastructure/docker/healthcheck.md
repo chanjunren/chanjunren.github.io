@@ -2,11 +2,15 @@
 
 # healthcheck
 
-**What it is:**
+> **Docker health check**: A command run periodically in a container to report whether its service is healthy. ([Docker Docs](https://docs.docker.com/reference/dockerfile/#healthcheck))
+
+A running container can still be unable to serve requests, so health checks expose service state.
+
+## Overview
 - Periodic command that runs inside container to verify it's functioning correctly
 - Reports health status: starting, healthy, or unhealthy
 
-**Problem it solves:**
+## Problem addressed
 - Containers can be running but broken (crashed process, deadlock, failed dependency)
 - Without health checks, orchestrators route traffic to broken containers
 - Users see errors instead of automatic recovery
@@ -20,7 +24,7 @@ Containers transition through three states:
 
 When unhealthy, orchestrators like [[compose]] or Kubernetes automatically restart or remove from load balancer rotation.
 
-## When to Use
+## Use cases
 
 Use for:
 - Production services where automatic recovery matters
@@ -66,6 +70,15 @@ Skip for:
 - More retries = more tolerant of transient issues but slower failure detection
 
 ## Common Pitfalls
+
+```mermaid
+stateDiagram-v2
+  [*] --> starting
+  starting --> healthy: probe succeeds
+  starting --> unhealthy: retries exhausted
+  healthy --> unhealthy: probe failures reach retry limit
+  unhealthy --> healthy: later probe succeeds
+```
 
 ```ad-danger
 **No start period for slow apps**: Container gets marked unhealthy during normal startup. Always set start_period longer than your app's initialization time.

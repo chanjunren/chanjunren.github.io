@@ -2,6 +2,8 @@
 
 # node_exporter_host_metrics
 
+> **Node exporter**: A Prometheus exporter that exposes hardware and operating system metrics from a host. ([Prometheus node exporter](https://github.com/prometheus/node_exporter))
+
 The Prometheus **node exporter** exposes hardware and OS-level metrics per host — CPU, memory, disk, network, filesystem — all prefixed with `node_`. It answers "what does the machine have and how much is used?"
 
 [[cadvisor_container_metrics]] tells you what containers consume; node exporter tells you what the underlying host has available. Together: "is the container starved, or is the host overloaded?"
@@ -27,27 +29,27 @@ Modes: `user`, `system`, `idle`, `iowait`, `irq`, `softirq`, `steal`, `nice`, `g
 
 ### PromQL
 
-**Overall CPU utilization %:**
+### Overall CPU utilization %
 ```promql
 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
 ```
 
-**CPU breakdown by mode:**
+### CPU breakdown by mode
 ```promql
 avg by(mode) (rate(node_cpu_seconds_total[5m])) * 100
 ```
 
-**iowait (disk bottleneck signal):**
+### iowait (disk bottleneck signal)
 ```promql
 avg by(instance) (rate(node_cpu_seconds_total{mode="iowait"}[5m])) * 100
 ```
 
-**Number of CPU cores:**
+### Number of CPU cores
 ```promql
 count by(instance) (count by(instance, cpu) (node_cpu_seconds_total))
 ```
 
-**Steal time (noisy neighbor in shared infra):**
+### Steal time (noisy neighbor in shared infra)
 ```promql
 avg by(instance) (rate(node_cpu_seconds_total{mode="steal"}[5m])) * 100
 ```
@@ -72,17 +74,17 @@ Use `MemAvailable`, not `MemFree`. Linux counts cache and buffers as "used", but
 
 ### PromQL
 
-**Memory utilization %:**
+### Memory utilization %
 ```promql
 (1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100
 ```
 
-**Swap usage %:**
+### Swap usage %
 ```promql
 (1 - node_memory_SwapFree_bytes / node_memory_SwapTotal_bytes) * 100
 ```
 
-**Available memory in GB:**
+### Available memory in GB
 ```promql
 node_memory_MemAvailable_bytes / 1024 / 1024 / 1024
 ```
@@ -115,30 +117,30 @@ node_memory_MemAvailable_bytes / 1024 / 1024 / 1024
 
 ### PromQL
 
-**Filesystem usage % (exclude tmpfs/overlay):**
+### Filesystem usage % (exclude tmpfs/overlay)
 ```promql
 (1 - node_filesystem_avail_bytes{fstype!~"tmpfs|overlay"}
 / node_filesystem_size_bytes{fstype!~"tmpfs|overlay"}) * 100
 ```
 
-**Disk I/O throughput (read + write bytes/sec):**
+### Disk I/O throughput (read + write bytes/sec)
 ```promql
 rate(node_disk_read_bytes_total[5m])
 + rate(node_disk_written_bytes_total[5m])
 ```
 
-**Disk I/O utilization % (how busy the disk is):**
+### Disk I/O utilization % (how busy the disk is)
 ```promql
 rate(node_disk_io_time_seconds_total[5m]) * 100
 ```
 
-**IOPS:**
+### IOPS
 ```promql
 rate(node_disk_reads_completed_total[5m])
 + rate(node_disk_writes_completed_total[5m])
 ```
 
-**Average I/O latency per write:**
+### Average I/O latency per write
 ```promql
 rate(node_disk_write_time_seconds_total[5m])
 / rate(node_disk_writes_completed_total[5m])
@@ -164,18 +166,18 @@ predict_linear(node_filesystem_avail_bytes{fstype!~"tmpfs|overlay"}[6h], 24*3600
 
 ### PromQL
 
-**Network bandwidth by interface (exclude loopback):**
+### Network bandwidth by interface (exclude loopback)
 ```promql
 rate(node_network_receive_bytes_total{device!="lo"}[5m])
 ```
 
-**Total network errors:**
+### Total network errors
 ```promql
 rate(node_network_receive_errs_total[5m])
 + rate(node_network_transmit_errs_total[5m])
 ```
 
-**Dropped packets:**
+### Dropped packets
 ```promql
 rate(node_network_receive_drop_total[5m])
 + rate(node_network_transmit_drop_total[5m])
@@ -194,12 +196,12 @@ rate(node_network_receive_drop_total[5m])
 
 ### PromQL
 
-**Uptime:**
+### Uptime
 ```promql
 time() - node_boot_time_seconds
 ```
 
-**Load per CPU core (>1.0 = overloaded):**
+### Load per CPU core (>1.0 = overloaded)
 ```promql
 node_load1
 / count by(instance) (count by(instance, cpu) (node_cpu_seconds_total))
@@ -227,7 +229,23 @@ node_load1
 
 ---
 
+```mermaid
+flowchart LR
+  A[Linux proc and sys filesystems] --> B[node exporter collectors]
+  B --> C[CPU metrics]
+  B --> D[Memory metrics]
+  B --> E[Filesystem metrics]
+  B --> F[Network metrics]
+  C --> G[/metrics endpoint]
+  D --> G
+  E --> G
+  F --> G
+  H[Prometheus scrape] --> G
+```
+
 ## References
+
+
 
 - [Node Exporter GitHub](https://github.com/prometheus/node_exporter)
 - [Prometheus Node Exporter Guide](https://prometheus.io/docs/guides/node-exporter/)

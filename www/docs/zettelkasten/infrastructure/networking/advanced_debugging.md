@@ -1,7 +1,7 @@
 🗓️ 04102025 0030
-📎 [[connectivity]]
 
 # advanced_debugging
+
 
 Tools for deep packet-level analysis and network scanning.
 
@@ -45,7 +45,7 @@ listening on en0, link-type EN10MB (Ethernet), capture size 262144 bytes
 3 packets captured
 ```
 
-**Key parts**:
+### Key parts
 - **Timestamp**: `10:30:45.123456` - When packet was captured
 - **Protocol**: `IP` - Internet Protocol (can be TCP, UDP, ICMP, etc.)
 - **Source**: `192.168.1.100.54321` - Source IP and port
@@ -66,15 +66,15 @@ listening on en0, link-type EN10MB (Ethernet), capture size 262144 bytes
 3. Client sends ACK
 → Connection established
 
-**Common filters**:
+### Common filters
 
-**Capture HTTP traffic only**:
+### Capture HTTP traffic only
 ```bash
 sudo tcpdump -i en0 -A port 80
 # -A shows ASCII content (you can see HTTP headers)
 ```
 
-**Capture traffic to/from specific host**:
+### Capture traffic to/from specific host
 ```bash
 sudo tcpdump host example.com
 ```
@@ -84,18 +84,18 @@ sudo tcpdump host example.com
 sudo tcpdump -i en0 port 53
 ```
 
-**Capture and save for Wireshark analysis**:
+### Capture and save for Wireshark analysis
 ```bash
 sudo tcpdump -i en0 -w debug.pcap
 # Open debug.pcap in Wireshark later
 ```
 
-**Read saved capture**:
+### Read saved capture
 ```bash
 sudo tcpdump -r debug.pcap
 ```
 
-**TCP connection issues?**:
+### TCP connection issues?
 ```bash
 sudo tcpdump -i en0 'tcp[tcpflags] & (tcp-rst) != 0'
 # Shows connection resets (refused connections)
@@ -142,7 +142,7 @@ PORT    STATE SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 5.23 seconds
 ```
 
-**Key parts**:
+### Key parts
 - **Host is up**: Target is reachable (like [[connectivity]])
 - **Latency**: Response time
 - **PORT**: Port number and protocol
@@ -190,19 +190,19 @@ Nmap done: 256 IP addresses (3 hosts up) scanned in 2.45 seconds
 ```
 → Found 3 devices on the network
 
-**Use cases**:
+### Use cases
 
 **Check if specific port is open** (like [[ports_connections]] but from outside):
 ```bash
 nmap -p 8080 example.com
 ```
 
-**Quick scan (faster)**:
+### Quick scan (faster)
 ```bash
 nmap -F example.com  # Fast: scan 100 most common ports
 ```
 
-**Check firewall rules**:
+### Check firewall rules
 ```bash
 nmap -p 80,443 example.com
 # If shows "filtered", firewall is blocking
@@ -215,14 +215,14 @@ nmap -p 80,443 example.com
 ### What It Is
 Graphical packet analyzer - GUI version of tcpdump with powerful filtering and visualization.
 
-**What it does**: 
+### What it does
 - Visual packet inspection with color coding
 - Protocol dissection (understands hundreds of protocols)
 - Follow TCP/UDP streams
 - Export specific packets
 - Filter by anything (IP, port, protocol, content)
 
-**Installation**:
+### Installation
 ```bash
 brew install wireshark         # macOS
 sudo apt install wireshark     # Ubuntu/Debian
@@ -239,11 +239,11 @@ dns                            # Only DNS packets
 tcp.flags.syn == 1             # SYN packets (connection attempts)
 ```
 
-**Following TCP streams**:
+### Following TCP streams
 - Right-click packet → Follow → TCP Stream
 - See entire conversation (like viewing a complete HTTP request/response)
 
-**Use cases**:
+### Use cases
 - Debugging API calls (see exact HTTP headers and body)
 - Understanding protocol behavior
 - Finding why connections fail (see TCP resets, timeouts)
@@ -253,26 +253,26 @@ tcp.flags.syn == 1             # SYN packets (connection attempts)
 
 ---
 
-## When to Use Advanced Tools
+## Escalation to advanced tools
 
 ```
 Basic troubleshooting:
-  ping, dig, curl → [[connectivity]], [[dns_tools]], [[http_tools]]
+  ping, dig, curl → connectivity, dns tools, [[http_tools]]
      ↓ Still broken?
 Port/connection issues:
-  netstat, ss, lsof → [[ports_connections]]
+  netstat, ss, lsof → ports connections
      ↓ Still broken?
 Deep packet analysis:
   tcpdump, nmap, wireshark → THIS FILE
 ```
 
-**Use tcpdump/wireshark when**:
+### Use tcpdump/wireshark when
 - Need to see actual packet content
 - Debugging SSL/TLS handshake issues
 - Verifying what data is actually sent
 - Analyzing timing between packets
 
-**Use nmap when**:
+### Use nmap when
 - Checking if firewall rules work
 - Discovering what's on a network
 - Security auditing
@@ -280,9 +280,23 @@ Deep packet analysis:
 
 ---
 
+```mermaid
+flowchart LR
+  A[User symptom] --> B[Check local interface]
+  B --> C[Check route]
+  C --> D[Check DNS resolution]
+  D --> E[Check TCP connection]
+  E --> F[Check TLS handshake]
+  F --> G[Check HTTP response]
+  G --> H[Inspect proxy or load balancer]
+  H --> I[Correlate logs and packet capture]
+```
+
 ## References
 
-- [[connectivity]] - Start with basic tools first
+
+
+- connectivity - Start with basic tools first
 - [tcpdump manual](https://www.tcpdump.org/manpages/tcpdump.1.html)
 - [tcpdump examples](https://danielmiessler.com/study/tcpdump/)
 - [nmap manual](https://nmap.org/book/man.html)

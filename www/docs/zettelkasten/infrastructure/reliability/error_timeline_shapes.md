@@ -1,11 +1,11 @@
 🗓️ 25042026 1442
-📎 #reliability #debugging #observability
 
 # error_timeline_shapes
 
+
 > The shape of an error rate over time tells you what kind of failure you're dealing with. Cliff vs ramp vs spike → different causes, different fixes.
 
-## Why Shape Matters
+## Operational impact
 
 When the dashboard lights up, the first useful question isn't "what's the error?" — it's **"what does the error rate look like over time?"**. Shape narrows the hypothesis space before you read any logs.
 
@@ -76,10 +76,10 @@ Shape × scope narrows the cause further:
 
 | Shape | Scope | Likely cause |
 |---|---|---|
-| Cliff | One pod | [[connection_wedge]], pod-local state |
+| Cliff | One pod | connection wedge, pod-local state |
 | Cliff | All pods | Deploy, config push, downstream outage, DB failover |
 | Ramp | One pod | Local resource leak (memory, fd, threads) |
-| Ramp | All pods | Pool leak ([[connection_leak]]), slow downstream, queue backing up |
+| Ramp | All pods | Pool leak (connection leak), slow downstream, queue backing up |
 | Spike | All pods | Traffic surge, downstream blip |
 | Sawtooth | All pods | Cron / batch / scheduled event |
 
@@ -93,6 +93,23 @@ Shape × scope narrows the cause further:
 
 ## Key Takeaways
 
+```mermaid
+flowchart LR
+  A[Error measurements over time] --> B{Timeline shape}
+  B --> C[Spike]
+  B --> D[Step change]
+  B --> E[Oscillation]
+  B --> F[Gradual drift]
+  C --> G[Transient event]
+  D --> H[Deployment or configuration change]
+  E --> I[Feedback or saturation cycle]
+  F --> J[Capacity or resource trend]
+  G --> K[Check scope and correlated signals]
+  H --> K
+  I --> K
+  J --> K
+```
+
 - **Shape narrows hypothesis class.** Cliff, ramp, spike, sawtooth → very different causes.
 - **Cliff = state flip.** Something changed at a discrete moment.
 - **Ramp = accumulation.** Something is filling up.
@@ -103,5 +120,5 @@ Shape × scope narrows the cause further:
 ## References
 
 - [Google SRE: Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)
-- [[connection_leak]] — canonical ramp
-- [[connection_wedge]] — canonical cliff
+- connection leak — canonical ramp
+- connection wedge — canonical cliff

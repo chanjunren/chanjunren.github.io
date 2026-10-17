@@ -2,6 +2,8 @@
 
 # skywalking
 
+> **Apache SkyWalking**: An open-source application performance monitoring platform for distributed systems. ([Apache SkyWalking](https://skywalking.apache.org/docs/main/latest/en/))
+
 An open-source application performance monitoring (APM) system designed for
 - distributed systems (esp. microservices)
 - cloud-native architectures
@@ -26,7 +28,7 @@ Skywalking works by collecting data from various points in your application and 
 	- Response times, error rates, and resource usage
 - **Log Integration:** Correlates logs with traces and metrics
 
-## Why is Skywalking Used?
+## Operational impact
 - **Observability:** It provides the essential "three pillars" of observability: metrics, logs, and traces.
 - **Lightweight:** Skywalking is designed to be lightweight and have minimal impact on your application's performance.  
 - **Language Agnostic** 
@@ -36,5 +38,20 @@ Skywalking works by collecting data from various points in your application and 
 
 ---
 
+```mermaid
+flowchart LR
+  A[Application agent or probe] --> B[Collect traces, metrics, and logs]
+  B --> C[SkyWalking receiver]
+  C --> D[OAP analysis and aggregation]
+  D --> E[Configured storage backend]
+  E --> F[Query API]
+  F --> G[SkyWalking UI]
+  G --> H[Service map and dashboards]
+  I[Alarm rules] --> D
+```
+
 ## References
-- Gemini
+
+
+
+- [Apache SkyWalking documentation](https://skywalking.apache.org/docs/main/latest/en/)

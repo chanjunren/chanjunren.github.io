@@ -2,12 +2,16 @@
 
 # compose
 
-**What it is:**
+> **Docker Compose**: A tool for defining and running multi-container applications from a Compose file. ([Docker Docs](https://docs.docker.com/compose/))
+
+Compose replaces repeated container commands with a declarative service, network, and volume model.
+
+## Overview
 - Tool for defining and running multi-container applications
 - Uses YAML configuration file
 - Single command starts entire application stack with dependencies, networks, volumes
 
-**Problem it solves:**
+## Problem addressed
 - Running multi-container apps with `docker run` means typing long commands for each service
 - Must manually create networks, manage startup order, remember all flags
 - Compose replaces this with declarative config file and simple commands
@@ -28,7 +32,7 @@ A `docker-compose.yml` defines:
 ### Volumes
 - Persistent data
 
-## When to Use
+## Use cases
 
 Use for:
 - Multi-container applications (app + database + cache)
@@ -63,7 +67,7 @@ Pattern: Use environment variables for secrets and runtime config, mount files f
 
 Differences:
 - Compose: Single-host, development-focused
-- [[orchestration]]: Multi-host, production-grade
+- orchestration: Multi-host, production-grade
 - Compose orchestrates containers but doesn't manage clusters
 - Many start with Compose for dev, move to Kubernetes for prod
 
@@ -72,14 +76,26 @@ For production needing auto-scaling, rolling updates, self-healing: use orchestr
 ## Common Pitfalls
 
 ```ad-warning
-**Ignoring health checks**: Using `depends_on` without health checks means dependent services start before dependencies are ready. Always add [[healthcheck]] to services that need startup time.
+**Ignoring health checks**: Using `depends_on` without health checks means dependent services start before dependencies are ready. Always add healthcheck to services that need startup time.
 ```
 
 ```ad-danger
-**Using Compose for production scale**: Compose has no auto-scaling, no rolling updates, no multi-host support. Great for single-host deployments but not designed for production scale. Use [[orchestration]] platforms instead.
+**Using Compose for production scale**: Compose has no auto-scaling, no rolling updates, no multi-host support. Great for single-host deployments but not designed for production scale. Use orchestration platforms instead.
 ```
 
 For resource constraints per service, see [[resource_limits]]. For log management, see [[logging]].
+
+```mermaid
+flowchart LR
+  A[Compose YAML] --> B[Compose project model]
+  B --> C[Service definitions]
+  C --> D[Container instances]
+  C --> E[Networks]
+  C --> F[Volumes]
+  D --> G[Health checks]
+  G --> H[Service readiness]
+  H --> I[Application stack]
+```
 
 ---
 

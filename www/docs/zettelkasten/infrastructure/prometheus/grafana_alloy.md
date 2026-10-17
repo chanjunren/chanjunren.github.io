@@ -2,120 +2,43 @@
 
 # grafana_alloy
 
-**Core Concept:**
-- Successor to [[grafana_agent]] (Agent EOL November 2025)
-- OpenTelemetry Collector distribution with Prometheus pipelines built-in
-- Unified telemetry collector for metrics, logs, traces, and profiles
-- Component-based architecture with programmable pipelines
+> **Grafana Alloy**: An open source telemetry collector that gathers and forwards data through configurable components. ([Grafana Alloy](https://grafana.com/docs/alloy/latest/introduction/))
 
-## Why It Matters
+Alloy lets an operator define how telemetry travels from its source to one or more backends. It is Grafana Agent's recommended successor and supports Prometheus-style and OpenTelemetry collection paths.
 
-- **Vendor-neutral foundation** - Built on OpenTelemetry standard while maintaining Prometheus compatibility
-- **Single collector** - Replaces need for separate Prometheus, OTel Collector, and Agent deployments
-- **Better performance** - Improved resource efficiency and throughput vs Grafana Agent
-- **Enhanced flexibility** - Expression-based configuration for complex pipeline logic
-- **Native Kubernetes support** - Interacts with K8s resources without additional operators
+## Collection path
 
-## When to Use
+In Alloy's default engine, components discover targets, ingest telemetry, optionally transform it, and send it onward. Configuration connects the components; data follows those connections. A missing connection means the data stops at that point.
 
-- **Migrating from Grafana Agent** (required by November 2025)
-- **Multi-signal collection** - Need unified collector for metrics/logs/traces/profiles
-- **Complex pipelines** - Require data transformation, filtering, or enrichment before export
-- **Kubernetes environments** - Need native K8s resource discovery and monitoring
-- **Grafana ecosystem** - Sending to Grafana Cloud, Prometheus, Loki, Tempo, Pyroscope
-
-## When Not to Use
-
-- **Simple Prometheus scraping** - Use Prometheus directly if only collecting metrics locally
-- **Pure OpenTelemetry** - Use vanilla OTel Collector if avoiding Grafana-specific features
-- **Legacy systems** - Grafana Agent still supported until EOL if migration not urgent
-- **Resource-critical edge** - Agent might be lighter for extremely constrained environments (until deprecated)
-
-## Architecture
-
-```
-Apps expose telemetry → Alloy collects (pull/push) → Alloy processes → Alloy exports → Backends
+```mermaid
+flowchart LR
+  A[Source or target discovery] --> B[Ingestion component]
+  B --> C{Transformation configured?}
+  C -->|yes| D[Filter, transform, or route]
+  C -->|no| E[Output component]
+  D --> E
+  E --> F[Metrics, logs, or traces backend]
+  G[Alloy configuration] --> A
+  G --> B
+  G --> D
+  G --> E
 ```
 
-**Key differences from Agent:**
-- **Component-based** - Modular pipeline construction vs monolithic config
-- **River language** - Custom DSL for configuration (more expressive than YAML)
-- **Built-in UI** - Visual pipeline debugging and monitoring
-- **Clustering** - Native workload distribution and HA
+For example, a Prometheus scrape component can collect an application's `/metrics` endpoint, then forward samples to a remote-write component. An OpenTelemetry receiver can instead accept pushed OTLP data and pass it through connected processors and exporters.
 
-## Trade-offs
+## Engines and boundaries
 
-**Benefits:**
-- Future-proof (active development, Agent deprecated)
-- More powerful pipeline capabilities
-- Better Kubernetes integration
-- Built-in debugging UI
-- OpenTelemetry native
+The default engine uses Alloy configuration syntax and is the standard Alloy runtime. Alloy also embeds an OpenTelemetry Collector runtime, called the OTel Engine, which uses Collector YAML configuration. Grafana documents the OTel Engine as experimental; the two engines have different runtimes and configuration models.
 
-**Drawbacks:**
-- New configuration language (River DSL learning curve)
-- Slightly higher resource usage than Agent
-- Less mature (newer project)
-- Migration effort from Agent
-
-## Key Distinctions
-
-**vs Grafana Agent:** Alloy is Agent's successor with component architecture and better performance; migrate before Agent EOL
-
-**vs OpenTelemetry Collector:** Alloy = OTel Collector + Prometheus pipelines; use Alloy for Grafana ecosystem, OTel for vendor-neutral
-
-**vs Prometheus:** Alloy is collector without storage; Prometheus is full TSDB; use Alloy to forward to remote backends
-
-## Common Patterns
-
-**Sidecar Pattern** ([[sidecar_pattern]]): Deploy Alloy alongside each app
-- Collects from localhost
-- Scales with application
-- Isolated failure domains
-
-**DaemonSet Pattern** (Kubernetes): One Alloy per node
-- Collects from all pods on node
-- Lower resource overhead
-- Node-level metrics
-
-**Centralized Pattern**: Single Alloy instance
-- Scrapes multiple targets
-- Centralized configuration
-- Single point of failure
-
-## Common Pitfalls
-
-```ad-warning
-**River syntax confusion**: Alloy uses River DSL, not YAML. Agent configs need conversion. Use `alloy convert` tool to migrate.
-```
-
-```ad-danger
-**Component dependencies**: Components must be defined before use. Order matters in River configs. Circular dependencies will fail.
-```
+Alloy collects and processes telemetry. A backend still provides durable storage, querying, dashboards, or alerting. One Alloy deployment can forward different signals to different destinations when its configuration defines those paths.
 
 ## Migration from Grafana Agent
 
-**Timeline**: Agent reaches EOL November 1, 2025
-
-**Migration steps:**
-1. Use `alloy convert` tool to convert Agent YAML to River
-2. Test converted config in staging
-3. Deploy Alloy alongside Agent (dual-run)
-4. Validate metrics/logs match
-5. Switch traffic to Alloy
-6. Decommission Agent
-
-**Config conversion:**
-```bash
-alloy convert --source-format=static --output=config.alloy config.yaml
-```
-
----
+Grafana Agent reached end of life on November 1, 2025. Grafana recommends migrating its Static, Flow, and Operator modes to Alloy. Agent configuration may need conversion and review because component names and configuration models differ.
 
 ## References
 
-- https://grafana.com/docs/alloy/latest/
-- https://grafana.com/blog/2024/04/09/grafana-alloy-opentelemetry-collector-with-prometheus-pipelines/
-- https://github.com/grafana/alloy
-- https://grafana.com/docs/alloy/latest/get-started/
-
+- [Grafana Alloy overview](https://grafana.com/docs/alloy/latest/introduction/)
+- [How telemetry flows through Alloy](https://grafana.com/docs/alloy/latest/introduction/telemetry/)
+- [OpenTelemetry Engine](https://grafana.com/docs/alloy/latest/introduction/otel_alloy/)
+- [Grafana Agent lifecycle](https://grafana.com/docs/agent/latest/about/)

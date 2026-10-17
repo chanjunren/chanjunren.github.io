@@ -2,13 +2,17 @@
 
 # multistage_build
 
-**What it is:**
+> **Multi-stage build**: A Docker build that uses multiple `FROM` stages and selectively copies artifacts into the final image. ([Docker Docs](https://docs.docker.com/build/building/multi-stage/))
+
+Multi-stage builds keep compilers and build tools out of the runtime image.
+
+## Overview
 - Multiple `FROM` statements in a Dockerfile
 - Each `FROM` starts new build stage
 - Copy artifacts from earlier stages to later stages
 - Leave behind everything else
 
-**Problem it solves:**
+## Problem addressed
 - Single-stage build for compiled languages includes compilers, build tools, source code in final [[image]]
 - Go binary might be 10MB but image is 800MB because it includes entire Go toolchain
 - Multi-stage builds separate build and runtime environments
@@ -22,7 +26,7 @@ Process:
 
 The builder stage gets discarded. Only runtime stage becomes final image.
 
-## When to Use
+## Use cases
 
 Essential for:
 - Compiled languages (Go, Rust, Java, C++) where build tools aren't needed at runtime
@@ -59,6 +63,18 @@ You can have multiple build stages and copy from any using `COPY --from=stage-na
 Production pattern: distroless or alpine for runtime, only application binary and minimal runtime (like libc if needed).
 
 ## Common Pitfalls
+
+```mermaid
+flowchart LR
+  A[Source code] --> B[Build stage]
+  B --> C[Compiler and dependencies]
+  C --> D[Build artifact]
+  D --> E[COPY --from build stage]
+  E --> F[Runtime stage]
+  F --> G[Runtime libraries]
+  G --> H[Final image]
+  H --> I[Application container]
+```
 
 ```ad-warning
 **Forgetting to copy dependencies**: If your binary needs shared libraries or config files, you must explicitly copy them from build stage or install them in runtime stage. Static compilation avoids this.

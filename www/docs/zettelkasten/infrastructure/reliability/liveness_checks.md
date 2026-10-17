@@ -1,23 +1,35 @@
 🗓️ 14042025 1636
 
 # liveness_checks
-> Used to determine if an application is still running and should not be restarted
-> 
-> Answers the question: "Is the application alive or dead?"
 
-### Purpose
-Determine if the application is running correctly and not stuck in a deadlock or unrecoverable state
+> **Liveness probe**: A check Kubernetes uses to determine whether to restart a container. ([Kubernetes](https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#liveness-probe))
 
-```ad-note
-If a liveness check fails, the container orchestrator (like Kubernetes) will kill the container and attempt to restart it
+A liveness probe detects a container that is running but cannot recover on its own. For probe types, see [[health_checks]].
+
+## Failure path
+
+Kubelet runs the configured probe. After the failure threshold, it restarts the container according to the Pod's restart policy.
+
+```mermaid
+stateDiagram-v2
+  [*] --> Running
+  Running --> ProbeFails: probe fails
+  ProbeFails --> Running: later probe succeeds
+  ProbeFails --> Restarting: failure threshold reached
+  Restarting --> Running: container starts again
 ```
 
-### Use Case
-- Useful for detecting if
-	- An application has crashed 
-	- Stuck in a bad state (e.g., deadlock or infinite loop)
+## Probe design
 
+- Check process health that can recover through restart.
+- Avoid making liveness depend on remote services.
+- A slow dependency can otherwise restart healthy containers repeatedly.
+- Set initial delay, timeout, and failure threshold for startup behavior.
 
----
+## Boundary
+
+A liveness failure can restart the container. It does not determine whether the Pod should receive traffic; readiness does that.
+
 ## References
-- ChatGPT
+
+- [Kubernetes liveness probes](https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#liveness-probe)

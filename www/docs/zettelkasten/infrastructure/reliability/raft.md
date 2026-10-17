@@ -1,6 +1,10 @@
 🗓️ 27082025 2344
 
 # raft
+
+> **Raft**: A consensus algorithm that helps a cluster agree on a replicated log while tolerating node failures. ([Raft paper](https://raft.github.io/raft.pdf))
+
+Raft separates leader election, log replication, and safety to make consensus understandable.
 ## **Raft?** 
 
 ```ad-abstract
@@ -15,7 +19,7 @@
 - **Leader-based design**: One leader handles all writes; followers replicate the log.
 
 ## How Raft Works (Simplified)
-> **three core mechanisms**
+### Three core mechanisms
 ### Leader Election
 - When a cluster starts or the leader dies:
     1. Nodes vote for a leader.
@@ -30,5 +34,21 @@
 - Even if the leader crashes, the new leader has the latest committed log.
 
 ---
+
+```mermaid
+stateDiagram-v2
+  [*] --> Follower
+  Follower --> Candidate: election timeout
+  Candidate --> Leader: majority votes
+  Candidate --> Follower: higher term observed
+  Leader --> Follower: higher term observed
+  Leader --> Follower: loses quorum or steps down
+  Leader --> ReplicatedLog: accepts client command
+  ReplicatedLog --> Leader: majority replicated
+  Leader --> Follower: leader failure
+```
+
 ## References
-- ChatGPT
+
+
+- [Raft paper](https://raft.github.io/raft.pdf)

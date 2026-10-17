@@ -2,12 +2,16 @@
 
 # layers
 
-**What it is:**
+> **Image layer**: A read-only filesystem change recorded while building a container image. ([Docker Docs](https://docs.docker.com/engine/storage/drivers/))
+
+Layer caching can shorten builds, but instruction order affects what Docker must rebuild.
+
+## Overview
 - Every Dockerfile instruction (RUN, COPY, ADD) snapshots the filesystem changes into a **read-only layer**
 - A [[image]] is a stack of these layers, bottom to top
 - When you run a [[container]], Docker adds one **writable layer** on top
 
-**Why it matters:**
+## Operational impact
 - Layers are the reason Docker builds can be fast (caching) or slow (cache invalidation)
 - Layers are the reason images can be small (shared base layers) or bloated (unnecessary files baked in)
 - Understanding layers is the key to writing efficient Dockerfiles
@@ -79,6 +83,19 @@ This is also why [[multistage_build]] exists — build in one stage (large), cop
 - This is why [[volumes]] exist: to store data outside the container layer
 
 ## Inspecting Layers
+
+```mermaid
+flowchart LR
+  A[Dockerfile instruction] --> B[Filesystem diff]
+  B --> C[Immutable image layer]
+  C --> D[Layer cache]
+  C --> E[Shared base image]
+  C --> F[Next image layer]
+  F --> G[Container image]
+  G --> H[Writable container layer]
+  H --> I[Container changes]
+  I --> J[Volume for persistent data]
+```
 
 - `docker history <image>` shows each layer, its instruction, and size
 - Useful for finding unexpectedly large layers

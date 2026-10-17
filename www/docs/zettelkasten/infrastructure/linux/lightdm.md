@@ -2,6 +2,8 @@
 
 # lightdm
 
+> **LightDM**: A display manager that starts graphical sessions through a separately selected greeter. ([Arch Wiki](https://wiki.archlinux.org/title/LightDM))
+
 **LightDM** is a lightweight [[display_manager]] that works with any desktop environment or window manager. The login UI is provided by a separate **greeter** — LightDM handles auth, the greeter handles appearance.
 
 **slick-greeter** is the most common greeter for minimal setups (used by EndeavourOS i3 edition by default).
@@ -41,7 +43,20 @@ draw-user-backgrounds=false
 journalctl -u lightdm -b
 ```
 
+```mermaid
+flowchart LR
+  A[systemd starts LightDM] --> B[LightDM selects greeter]
+  B --> C[slick-greeter login UI]
+  C --> D[LightDM authenticates user]
+  D --> E[Session configuration]
+  E --> F[i3 or desktop session]
+  F --> G[User applications]
+  H[LightDM config] --> B
+```
+
 ## References
+
+
 
 - [Arch Wiki: LightDM](https://wiki.archlinux.org/title/LightDM)
 - [slick-greeter GitHub](https://github.com/linuxmint/slick-greeter)

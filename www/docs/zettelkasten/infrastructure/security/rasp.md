@@ -1,7 +1,8 @@
 🗓️ 06072026 1100
-📎 #security #jvm #appsec
 
 # rasp
+
+> **Runtime application self-protection (RASP)**: A security approach that observes application execution and can detect or block attacks from within the runtime. ([OWASP](https://owasp.org/www-community/controls/Runtime_Application_Self-Protection))
 
 > Runtime Application Self-Protection — security controls embedded inside the running application (not at the network edge) that detect and block attacks using the app's own execution context: what code path is running, what data is tainted, what the query actually looks like after all string-building is done.
 
@@ -42,6 +43,19 @@ RASP and IAST often share the same instrumentation layer — RASP is IAST's dete
 - **Cons**: adds latency per instrumented call site; false positives can break legitimate app behavior if taint tracking is too aggressive; an agent bug is now inside your app's fault domain, unlike an external WAF; needs re-verification on every JVM/framework upgrade since instrumentation targets specific method signatures.
 
 ## Related
+
+```mermaid
+flowchart LR
+  A[Application request] --> B[Application runtime]
+  B --> C[RASP instrumentation]
+  C --> D[Observe call and data context]
+  D --> E{Attack signal?}
+  E -->|no| F[Continue request]
+  E -->|detect mode| G[Record alert]
+  E -->|protect mode| H[Block or interrupt action]
+  G --> I[Security monitoring]
+  H --> I
+```
 
 - [[log4j_custom_plugin]] — same bytecode/agent-adjacent territory (custom Log4j plugin vs runtime instrumentation)
 - [[circuit_breaker_pattern]] — different failure domain, same "guard the call site" instinct

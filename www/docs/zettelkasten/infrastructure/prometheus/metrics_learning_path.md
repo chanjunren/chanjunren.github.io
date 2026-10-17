@@ -2,6 +2,8 @@
 
 # metrics_learning_path
 
+> **Prometheus metric**: A named time series of sampled values, optionally distinguished by labels. ([Prometheus](https://prometheus.io/docs/concepts/))
+
 Start here if a Grafana dashboard feels like a wall of unfamiliar numbers. Do not begin by memorizing metrics. Learn one path from the operating system to a panel, then reuse that method for CPU, storage, network, and applications.
 
 The path is:
@@ -69,11 +71,11 @@ Read [[cpu_privilege_modes]], [[interpreting_cpu_modes]], [[cfs_bandwidth_contro
 
 ### Storage
 
-Begin with [[inodes]] and the filesystem section of [[node_exporter_host_metrics]]. A future storage path should separate filesystem capacity from block-device performance.
+Begin with [[inodes]] and the filesystem section of node exporter host metrics. A future storage path should separate filesystem capacity from block-device performance.
 
 ### Containers
 
-Read [[linux_cgroups]], [[cadvisor_container_metrics]], [[interpreting_container_memory]], and [[linux_oom_killer]]. A container is a cgroup accounting boundary, not a separate kernel.
+Read [[linux_cgroups]], [[cadvisor_container_metrics]], interpreting container memory, and [[linux_oom_killer]]. A container is a cgroup accounting boundary, not a separate kernel.
 
 ### Applications
 
@@ -83,7 +85,20 @@ Read [[prometheus_spring_boot_pipeline]] and [[visualization_queries]] after the
 
 For each section, choose one go2c panel and write down answers to the seven questions. Prefer panels tied to an alert or a real incident. Ignore unused exported metrics until a dashboard, alert, or investigation gives you a reason to learn them.
 
+```mermaid
+flowchart LR
+  A[Linux memory counters] --> B[node exporter]
+  B --> C[Prometheus scrape]
+  C --> D[Time series and labels]
+  D --> E[PromQL expression]
+  E --> F[Grafana panel]
+  F --> G[Interpret the operational question]
+  G --> H[Repeat for CPU, storage, and applications]
+```
+
 ## References
+
+
 
 - [Prometheus overview](https://prometheus.io/docs/introduction/overview/)
 - [Grafana Prometheus query editor](https://grafana.com/docs/grafana/latest/datasources/prometheus/query-editor/)

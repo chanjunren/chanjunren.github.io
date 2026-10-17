@@ -2,7 +2,14 @@
 
 # service_access
 
-Service access connects a user or device to an application. DNS resolves names; a reverse proxy routes HTTPS; remote access controls entry to the home network.
+The request path combines name resolution, HTTPS routing, and a controlled remote-access method.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Domain Name System (DNS)** | A distributed naming system that maps names to resource records. | [RFC 1034](https://www.rfc-editor.org/rfc/rfc1034) |
+| **Reverse proxy** | A proxy server that receives client requests and forwards them to backend servers. | [NGINX](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/) |
 
 ## One local request
 
@@ -42,7 +49,7 @@ Give a test app a local DNS name and HTTPS proxy. Connect remotely through a VPN
 
 ## References
 
-- [[reverse_proxy]]
+- reverse proxy
 - [[tls]]
 - [[acme_certificate_flow]]
 - [[dns_tools]]

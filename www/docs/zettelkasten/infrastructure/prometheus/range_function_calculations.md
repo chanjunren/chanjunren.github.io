@@ -2,9 +2,11 @@
 
 # range_function_calculations
 
+> **Range vector**: A set of time series samples within a selected time interval. ([Prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/#range-vector-selectors))
+
 **Core Concept**: Range functions transform arrays of (timestamp, value) samples into single output values using specific mathematical formulas.
 
-## Why It Matters
+## Operational impact
 
 Knowing the actual calculations helps you understand what visualizations represent, why graphs look smooth or spiky, and which function to use for your metric type.
 
@@ -85,7 +87,7 @@ metric[5m]  →  [(t1, v1), (t2, v2), ..., (tn, vn)]  →  function()  →  sing
 
 **Formula**: `(last_value - first_value) / time_range_seconds`
 
-**Example**:
+### Example
 ```
 http_requests_total[1m] returns:
   (t=0s,   v=100)
@@ -111,7 +113,7 @@ Calculation: (115-100) + (25-0) = 40 increase over 45s = 0.89/s
 
 **Formula**: `(last_value - second_to_last_value) / time_between_them`
 
-**Example**:
+### Example
 ```
 http_requests_total[1m] returns:
   (t=0s,   v=100)
@@ -130,7 +132,7 @@ irate() only uses last 2 points:
 
 **Formula**: `rate() * time_range_seconds`
 
-**Example**:
+### Example
 ```
 http_requests_total[5m] returns samples from 100 to 400
 
@@ -145,7 +147,7 @@ Equivalent to: rate(metric[5m]) * 300
 
 **Formula**: `sum(all_values) / count(samples)`
 
-**Example**:
+### Example
 ```
 memory_usage_bytes[5m] returns:
   (t=0m,  v=1000)
@@ -162,7 +164,7 @@ avg_over_time() = (1000+1200+1100+1300+1400+1000) / 6 = 1166.67 bytes
 
 **Formula**: `min(all_values)` or `max(all_values)`
 
-**Example**:
+### Example
 ```
 cpu_usage[10m] returns: [20, 45, 60, 55, 40, 30, 25]
 
@@ -174,7 +176,7 @@ max_over_time() = 60
 
 **Formula**: `sum(all_values)`
 
-**Example**:
+### Example
 ```
 errors[1h] returns: [5, 3, 0, 8, 2, 1]
 
@@ -187,7 +189,7 @@ sum_over_time() = 5+3+0+8+2+1 = 19 total errors
 
 **Formula**: Sorts values, returns value at φ percentile position
 
-**Example**:
+### Example
 ```
 latency_seconds[5m] returns: [0.1, 0.15, 0.2, 0.25, 0.3, 0.5, 0.8, 1.0, 1.2, 2.0]
 Sorted: [0.1, 0.15, 0.2, 0.25, 0.3, 0.5, 0.8, 1.0, 1.2, 2.0]
@@ -205,7 +207,7 @@ This is **approximate** - only as accurate as your sample count. For accurate pe
 
 **Formula**: Standard deviation of all values
 
-**Example**:
+### Example
 ```
 response_time[5m] returns: [100, 102, 98, 105, 95, 200, 101, 99]
 
@@ -221,7 +223,7 @@ High stddev = unstable/inconsistent performance
 
 **Formula**: `last_value - first_value` (can be negative)
 
-**Example**:
+### Example
 ```
 temperature[10m] returns:
   (t=0m,  v=20°C)
@@ -237,7 +239,7 @@ delta() = 22 - 20 = +2°C (net change over 10 minutes)
 
 **Formula**: Count how many times value changed
 
-**Example**:
+### Example
 ```
 state[5m] returns: [1, 1, 2, 2, 1, 1, 3, 3, 3]
 
@@ -248,7 +250,7 @@ changes() = 3 (changed at positions: 1→2, 2→1, 1→3)
 
 **Formula**: Count how many times counter decreased
 
-**Example**:
+### Example
 ```
 requests_total[10m] returns: [100, 150, 200, 50, 100, 150]
                                           ↑ reset
@@ -262,7 +264,7 @@ resets() = 1
 
 **Formula**: Linear regression slope (per-second rate of change)
 
-**Example**:
+### Example
 ```
 disk_usage[1h] returns points showing steady growth:
   (t=0m,  v=1000GB)
@@ -276,7 +278,7 @@ deriv() = 1.67 GB/minute growth rate
 
 **Formula**: Extrapolate current trend into future
 
-**Example**:
+### Example
 ```
 disk_usage[1h] growing at 1.67 GB/min
 
@@ -287,7 +289,7 @@ predict_linear(disk_usage[1h], 3600):
 
 ## Visualization Impact
 
-**Why graphs look different**:
+### Operational impact
 
 ```
 rate(metric[1m])   → responsive, noisy (small window)
@@ -295,7 +297,7 @@ rate(metric[10m])  → smooth, slow to react (large window)
 irate(metric[1m])  → very spiky (only 2 points)
 ```
 
-**Scrape interval matters**:
+### Scrape interval matters
 ```
 Scrape every 15s, query rate(metric[30s]):
   Only 2-3 data points in window → less accurate
@@ -304,7 +306,7 @@ Scrape every 15s, query rate(metric[5m]):
   20 data points in window → more accurate
 ```
 
-## When to Use
+## Use cases
 
 | Function | Metric Type | Use Case |
 |----------|-------------|----------|
@@ -319,22 +321,42 @@ Scrape every 15s, query rate(metric[5m]):
 
 ## Trade-offs
 
-**Range window size**:
+### Range window size
 - Small `[1m]` = responsive, noisy, fewer samples
 - Large `[1h]` = smooth, slow to react, more samples
 
-**rate() vs irate()**:
+### rate() vs irate()
 - `rate()` averages over all samples → stable, recommended
 - `irate()` uses only last 2 samples → catches sub-minute spikes, but noisy
 
-**Must be ≥ 2x scrape interval**:
+### Must be ≥ 2x scrape interval
 ```
 Scrape interval = 30s
 Minimum range = [1m] (ensures at least 2 samples)
 ```
 
 ---
+
+```mermaid
+flowchart LR
+  A[Instant vector selector] --> B[Range selector window]
+  B --> C[Samples per series]
+  C --> D{Function family}
+  D --> E[rate or increase]
+  D --> F[avg or sum over time]
+  D --> G[quantile or standard deviation]
+  D --> H[changes or resets]
+  D --> I[predict_linear]
+  E --> J[One output sample per series]
+  F --> J
+  G --> J
+  H --> J
+  I --> J
+```
+
 ## References
+
+
 
 - [Prometheus Query Functions](https://prometheus.io/docs/prometheus/latest/querying/functions/)
 - [Robust Perception: rate() vs irate()](https://www.robustperception.io/rate-then-sum-never-sum-then-rate)

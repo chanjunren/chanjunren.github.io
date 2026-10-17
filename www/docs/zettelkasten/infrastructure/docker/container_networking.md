@@ -2,12 +2,16 @@
 
 # container_networking
 
-**What it is:**
+> **Docker network**: A virtual network that connects containers and controls their communication paths. ([Docker Docs](https://docs.docker.com/engine/network/))
+
+Docker networks let containers communicate while controlling which workloads and ports are exposed.
+
+## Overview
 - Virtual networks that connect Docker containers
 - Containers on same network communicate using container names
 - Multiple networks provide isolation boundaries
 
-**Problem it solves:**
+## Problem addressed
 - Containers need to talk to each other but shouldn't be exposed to everything
 - Without Docker networks: manual IP management, no service discovery, no isolation between services
 
@@ -67,8 +71,21 @@ Default bridge network exists but lacks DNS - always create user-defined bridge 
 
 ## Common Pitfalls
 
+```mermaid
+flowchart LR
+  A[Docker network] --> B{Network driver}
+  B --> C[Bridge network]
+  B --> D[Host network]
+  B --> E[Overlay network]
+  C --> F[Container network namespace]
+  F --> G[Service DNS name]
+  G --> H[Container to container traffic]
+  F --> I[Published host port]
+  I --> J[External client traffic]
+```
+
 ```ad-danger
-**Using default bridge network**: Default bridge doesn't provide DNS service discovery. Always create user-defined networks with `docker network create` or let [[compose]] create them automatically.
+**Using default bridge network**: Default bridge doesn't provide DNS service discovery. Always create user-defined networks with `docker network create` or let compose create them automatically.
 ```
 
 ```ad-warning

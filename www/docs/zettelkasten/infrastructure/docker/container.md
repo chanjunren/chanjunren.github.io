@@ -2,12 +2,16 @@
 
 # container
 
-**What it is:**
+> **Container**: An isolated process with its own filesystem and network view that shares the host kernel. ([Docker Docs](https://docs.docker.com/engine/containers/))
+
+Containers isolate application processes while sharing the host kernel, making deployments more portable.
+
+## Overview
 - Running instance of a [[image]]
 - Isolated process with own filesystem, networking, process space
 - Shares host OS kernel
 
-**Problem it solves:**
+## Problem addressed
 - Running applications directly on host leads to dependency conflicts, configuration drift, "works on my machine" issues
 - Containers provide consistent, isolated environments that behave same everywhere
 
@@ -85,11 +89,23 @@ Default setup:
 ## Common Pitfalls
 
 ```ad-danger
-**Storing data in containers**: Containers are ephemeral. Without [[volumes]], all data inside container is lost when you remove it. Always use volumes for databases, uploads, or anything that needs to persist.
+**Storing data in containers**: Containers are ephemeral. Without volumes, all data inside container is lost when you remove it. Always use volumes for databases, uploads, or anything that needs to persist.
 ```
 
 ```ad-warning
 **No resource limits**: Runaway container can crash host by consuming all memory or CPU. Always set limits in production with `--memory` and `--cpus` flags.
+```
+
+```mermaid
+flowchart LR
+  A[Docker image] --> B[Container create]
+  B --> C[Namespaces isolate process and network views]
+  C --> D[Container process runs]
+  D --> E{Resource limit reached?}
+  E -->|CPU| F[Process throttled]
+  E -->|Memory| G[Process may be killed]
+  D --> H[Writable container layer]
+  H --> I[Volume stores persistent data]
 ```
 
 ---

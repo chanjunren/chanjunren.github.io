@@ -2,12 +2,16 @@
 
 # volumes
 
-**What it is:**
+> **Docker volume**: A Docker-managed persistent data store that exists outside a container's writable layer. ([Docker Docs](https://docs.docker.com/engine/storage/volumes/))
+
+Volumes keep important application data outside a container’s disposable writable layer.
+
+## Overview
 - Persistent data storage for containers
 - Exists outside container filesystem
 - Survives container deletion and recreation
 
-**Problem it solves:**
+## Problem addressed
 - Containers are ephemeral - deleting container destroys all data inside
 - For databases, uploaded files, or any persistent data, this is unacceptable
 - Volumes separate data from container lifecycle
@@ -70,13 +74,25 @@ Choose volumes when you want Docker to manage storage and performance. Choose bi
 
 ## Persistence in Compose
 
-In [[compose]], declare volumes in two places:
+In compose, declare volumes in two places:
 1. Within services - mount the volume to a container path
 2. At top level - declare the volume exists
 
 This pattern ensures data persists between `docker compose down` and `docker compose up`. Without declaring volume at top level, Docker creates anonymous volume and data is lost on recreation.
 
 ## Common Pitfalls
+
+```mermaid
+flowchart LR
+  A[Docker volume create] --> B[Volume managed by Docker]
+  B --> C[Container mounts volume]
+  C --> D[Application writes data]
+  D --> E[Container removed]
+  E --> F[Volume data remains]
+  F --> G[New container mounts volume]
+  H[Bind mount] --> I[Host path mounted directly]
+  I --> C
+```
 
 ```ad-danger
 **Forgetting to declare volumes in Compose**: If you only mount path without declaring volume, Docker creates anonymous volume. When you recreate stack, you get new anonymous volume and data is gone.

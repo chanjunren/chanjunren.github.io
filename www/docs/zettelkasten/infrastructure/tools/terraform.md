@@ -2,12 +2,16 @@
 
 # terraform
 
-**What it is:**
+> **Terraform**: An infrastructure-as-code tool that provisions and manages resources from declarative configuration. ([Terraform documentation](https://developer.hashicorp.com/terraform/intro))
+
+Terraform makes infrastructure changes repeatable and lets operators review planned changes before applying them.
+
+## Overview
 - **Infrastructure as Code (IaC)** tool by HashiCorp
 - You declare the infrastructure you want (servers, networks, databases, DNS) in `.tf` files, and Terraform creates/modifies/destroys it to match
 - Cloud-agnostic — works with AWS, GCP, Azure, DigitalOcean, and hundreds of other providers via plugins
 
-**Why it exists:**
+## Problem addressed
 - Clicking through cloud consoles to create infrastructure is manual, error-prone, and not reproducible
 - Shell scripts for provisioning are fragile, non-idempotent, and don't track what already exists
 - Terraform maintains a **state file** that knows what it created, so it can diff desired vs actual and apply only the changes
@@ -60,14 +64,14 @@ The state file (`terraform.tfstate`) is Terraform's memory:
 - **Docker/Kubernetes**: runs applications on that infrastructure
 - Pattern: Terraform provisions the server → Docker runs your containers on it
 
-## When to Use
+## Use cases
 
 - Managing cloud resources that should be reproducible and version-controlled
 - Multi-environment setups (dev/staging/prod from the same config with different variables)
 - Per-client infrastructure isolation — spin up identical stacks with different parameters
 - Need to destroy and recreate environments reliably
 
-## When to Skip
+## Poor fit
 
 - Single server you manage manually — Terraform adds overhead for minimal benefit
 - Purely local Docker setup — no cloud resources to manage
@@ -82,6 +86,19 @@ For your multi-client single-server scenario:
 - The migration path: manual → Terraform when you need reproducible multi-server provisioning
 
 ## Key Concepts
+
+```mermaid
+flowchart LR
+  A[Terraform configuration] --> B[Provider and resources]
+  B --> C[terraform init]
+  C --> D[terraform plan]
+  D --> E{Review proposed changes}
+  E -->|approve| F[terraform apply]
+  F --> G[Remote infrastructure]
+  F --> H[State file]
+  H --> D
+  G --> I[Observed real resources]
+```
 
 ### Providers
 - Plugins that talk to cloud APIs (AWS, GCP, DigitalOcean, Cloudflare, etc.)

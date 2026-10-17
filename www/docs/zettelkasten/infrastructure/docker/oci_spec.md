@@ -2,12 +2,16 @@
 
 # oci_spec
 
-**What it is:**
+> **Open Container Initiative (OCI)**: An open-governance project that defines standards for container images, runtimes, and distribution. ([OCI](https://opencontainers.org/))
+
+OCI standards let container images and runtimes interoperate across implementations.
+
+## Overview
 - **Open Container Initiative** — industry standards for container image format, runtime, and distribution
 - Ensures containers built by one tool work with any compliant runtime
 - Governed by the Linux Foundation, backed by Docker, Google, Red Hat, and others
 
-**Problem it solves:**
+## Problem addressed
 - Without standards, images built with Docker only work with Docker's runtime — vendor lock-in
 - Cloud providers and tools each inventing their own format means no portability
 - OCI standardizes the "contract" so the ecosystem can interoperate
@@ -35,11 +39,11 @@
 - Docker images are OCI images — no conversion needed
 - Docker CLI is one of many OCI-compliant tools (others: Podman, Buildah, Skopeo)
 
-## When to Care
+## Cases where OCI compatibility matters
 
 Matters when:
 - Evaluating Docker alternatives (Podman for rootless containers, containerd for lighter footprint)
-- Choosing [[container_registries]] — OCI-compliant registries accept images from any OCI builder
+- Choosing container registries — OCI-compliant registries accept images from any OCI builder
 - Ensuring portability across cloud providers (AWS, GCP, Azure all support OCI)
 - Docker licensing changes affect your deployment — OCI compliance means you can switch runtimes
 
@@ -48,6 +52,18 @@ Ignore when:
 - Local development where tooling choice doesn't impact production
 
 ## Trade-offs
+
+```mermaid
+flowchart LR
+  A[OCI image specification] --> B[Image manifest]
+  B --> C[Configuration and layers]
+  D[OCI runtime specification] --> E[Runtime bundle]
+  E --> F[Container runtime]
+  G[OCI distribution specification] --> H[Registry API]
+  H --> I[Image push and pull]
+  C --> I
+  I --> F
+```
 
 ### OCI compliance = portability
 - Freedom to switch between Docker, Podman, containerd without rebuilding images

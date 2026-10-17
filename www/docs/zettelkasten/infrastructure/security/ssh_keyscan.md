@@ -1,11 +1,12 @@
 🗓️ 18042026 0000
-📎 [[ssh]]
 
 # ssh_keyscan
 
+> **ssh-keyscan**: An OpenSSH utility that collects public host keys from network hosts. ([OpenBSD manual](https://man.openbsd.org/ssh-keyscan))
+
 Utility that fetches a remote host's **public SSH host keys** without logging in. Used to pre-populate `known_hosts` so that first-time SSH/SCP/rsync connections don't prompt for interactive trust — critical in automation where no human is present to type "yes".
 
-## Why it matters
+## Operational impact
 
 SSH uses **Trust On First Use** (TOFU): on first connection, the client asks the user to verify the server's host key fingerprint, then caches it in `~/.ssh/known_hosts`. Subsequent connections check against that cached key to detect MITM swaps.
 
@@ -69,7 +70,20 @@ RUN mkdir -p /root/.ssh && \
 
 ---
 
+```mermaid
+flowchart LR
+  A[ssh-keyscan host] --> B[Collect presented host key]
+  B --> C[Write candidate known_hosts entry]
+  C --> D[Obtain trusted fingerprint separately]
+  D --> E{Fingerprint matches?}
+  E -->|yes| F[Trust and use key]
+  E -->|no| G[Reject or investigate]
+  H[Automated scan alone] --> I[Does not authenticate key ownership]
+```
+
 ## References
+
+
 
 - https://man.openbsd.org/ssh-keyscan
 - https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints

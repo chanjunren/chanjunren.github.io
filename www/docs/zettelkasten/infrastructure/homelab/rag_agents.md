@@ -2,7 +2,14 @@
 
 # rag_agents
 
-Retrieval-augmented generation (RAG) adds selected information to model requests. Agents make multi-step calls and use controlled tools. RAG supplies context; agents choose actions. Neither guarantees correct answers.
+Retrieval-augmented generation adds retrieved information to a model request. An agent uses a model to choose steps and tools toward a task.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Retrieval-augmented generation (RAG)** | A method that retrieves relevant information and provides it as context to a generative model. | [AWS](https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-customize-rag.html) |
+| **AI agent** | A system that uses a model to decide actions and may call tools to complete a task. | [OpenAI](https://platform.openai.com/docs/guides/agents) |
 
 ## RAG data and query paths
 

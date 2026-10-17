@@ -2,12 +2,16 @@
 
 # container_registries
 
-**What it is:**
+> **Container registry**: A service that stores and distributes container images. ([Docker Docs](https://docs.docker.com/docker-hub/))
+
+Registries separate image builds from deployment and provide shared distribution and access control.
+
+## Overview
 - Services that store, distribute, and manage [[image]] containers
 - The "Git repo" equivalent for container images — push to share, pull to deploy
 - Standardized by the [[oci_spec]] Distribution Specification
 
-**Problem it solves:**
+## Problem addressed
 - Need a central place to push images from CI and pull onto production servers
 - Multi-client setups need organized image management with access control
 - Without a registry strategy: images live only on build machines, no audit trail, no scanning
@@ -53,7 +57,19 @@ For deploying different client stacks from one server:
 - Audit logs track who pulled what and when
 - Vulnerability scanning ensures no client gets deployed with known CVEs
 
-## When to Use What
+## Choosing a registry
+
+```mermaid
+flowchart LR
+  A[Build image] --> B[Tag image]
+  B --> C[Authenticate to registry]
+  C --> D[Push image]
+  D --> E[Registry stores manifest and layers]
+  E --> F[Deployment host pulls image]
+  F --> G[Container starts]
+  H[Registry permissions] --> D
+  H --> F
+```
 
 ### Starting out / single server
 - Docker Hub (authenticated) or cloud registry with free tier

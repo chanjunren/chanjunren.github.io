@@ -2,6 +2,8 @@
 
 # interpreting_cpu_modes
 
+> **CPU mode**: A category label that classifies accumulated CPU time, such as user, system, idle, or iowait. ([node exporter](https://github.com/prometheus/node_exporter/blob/master/collector/cpu_common.go))
+
 `node_cpu_seconds_total` has a `mode` label that breaks CPU time into categories: user, system, iowait, steal, irq, softirq, nice, idle. The elevated mode tells you **why** CPU is busy — and whether adding cores, fixing code, or changing infrastructure is the right response.
 
 Container-level CPU (see [[cadvisor_container_metrics]]) does not expose mode breakdown. You need node exporter for this. For the raw metric and queries, see [[node_exporter_host_metrics]].
@@ -64,7 +66,7 @@ Container-level CPU (see [[cadvisor_container_metrics]]) does not expose mode br
 High iowait with low overall CPU utilization is deceptive. The node looks "idle" but applications are stalled on disk. Check disk metrics before concluding the node has spare capacity.
 ```
 
-## Why This Matters for Containers
+## Operational impact
 
 - `container_cpu_usage_seconds_total` shows **total** CPU consumed but not what kind of work
 - A container using 2 cores could be compute-bound (user), syscall-heavy (system), or stuck on I/O (iowait at the node level)
@@ -73,7 +75,25 @@ High iowait with low overall CPU utilization is deceptive. The node looks "idle"
 
 ---
 
+```mermaid
+flowchart LR
+  A[Linux CPU counters] --> B[node exporter]
+  B --> C[node_cpu_seconds_total]
+  C --> D[rate by mode]
+  D --> E{Dominant mode}
+  E --> F[user: application work]
+  E --> G[system or softirq: kernel work]
+  E --> H[iowait: storage wait]
+  E --> I[steal: hypervisor contention]
+  F --> J[Investigate matching resource]
+  G --> J
+  H --> J
+  I --> J
+```
+
 ## References
+
+
 
 - [Linux CPU accounting — /proc/stat](https://man7.org/linux/man-pages/man5/proc.5.html)
 - [Understanding CPU steal time](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html)

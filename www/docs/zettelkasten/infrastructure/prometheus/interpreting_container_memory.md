@@ -2,6 +2,8 @@
 
 # interpreting_container_memory
 
+> **Working set**: A cAdvisor estimate of container memory excluding inactive file cache. ([cAdvisor metrics](https://github.com/google/cadvisor/blob/master/docs/storage/prometheus.md))
+
 cAdvisor exposes three memory metrics per container. They measure different things, and using the wrong one for alerting causes false alarms or missed OOM kills.
 
 For the raw metrics and PromQL queries, see [[cadvisor_container_metrics]].
@@ -25,7 +27,7 @@ Consider a container doing heavy log file writes:
 - `rss` is moderate — the app's heap hasn't grown
 - `working_set_bytes` is in between — active cache counts, inactive doesn't
 
-## Why the OOM Killer Uses Working Set
+## Operational impact
 
 - When a container hits its memory limit, the kernel reclaims inactive file cache first
 - If reclaiming frees enough memory, the container survives
@@ -37,7 +39,7 @@ Consider a container doing heavy log file writes:
 Alert on `container_memory_working_set_bytes`, not `container_memory_usage_bytes`. The OOM killer uses working set. Alerting on usage_bytes fires on healthy containers.
 ```
 
-## When High Memory Is Fine
+## Benign high-memory patterns
 
 ### JVM with -Xmx Near the Limit
 
@@ -50,7 +52,7 @@ Alert on `container_memory_working_set_bytes`, not `container_memory_usage_bytes
 - Containers reading/writing large files inflate `usage_bytes` with page cache
 - If `working_set_bytes` is stable while `usage_bytes` climbs, the kernel is caching I/O — it reclaims under pressure
 
-## When High Memory Is Dangerous
+## Signs of memory pressure
 
 - **working_set / limit > 85%** with a **growing trend** — confirm with `deriv(container_memory_working_set_bytes[1h])`
 - **RSS growing linearly** over hours or days — classic memory leak
@@ -67,7 +69,22 @@ See [[range_function_calculations]] for how `deriv()` works. Memory metrics are 
 
 ---
 
+```mermaid
+flowchart LR
+  A[Container memory cgroups] --> B[cAdvisor]
+  B --> C[Usage metric]
+  B --> D[Working set metric]
+  B --> E[Limit metric]
+  C --> F[Compare with limit]
+  D --> F
+  E --> F
+  F --> G[Memory pressure assessment]
+  G --> H[OOM evidence and trend]
+```
+
 ## References
+
+
 
 - [Kubernetes OOM Kill Behavior](https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/)
 - [Linux cgroup memory accounting](https://www.kernel.org/doc/Documentation/cgroup-v1/memory.txt)

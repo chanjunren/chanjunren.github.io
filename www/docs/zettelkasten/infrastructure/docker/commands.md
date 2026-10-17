@@ -2,11 +2,15 @@
 
 # commands
 
-**What it is:**
+> **Docker CLI**: The command-line interface used to interact with the Docker Engine API. ([Docker Docs](https://docs.docker.com/reference/cli/docker/))
+
+The Docker CLI provides consistent operations for building and managing images, containers, volumes, and networks.
+
+## Overview
 - CLI interface for managing [[image]]s, [[container]]s, [[volumes]], and [[container_networking]]
 - Commands follow pattern: `docker <object> <verb>` (e.g. `docker container ls`)
 
-**Problem it solves:**
+## Problem addressed
 - Need a consistent way to build, run, inspect, and clean up Docker resources
 - Legacy syntax (`docker run`, `docker ps`) mixes concerns; management commands (`docker container run`) group by resource type for clarity
 
@@ -17,6 +21,18 @@
 - Both are equivalent; management commands are the modern form
 
 ## Quick Reference
+
+```mermaid
+flowchart LR
+  A[Docker CLI command] --> B[Docker Engine API]
+  B --> C{Object}
+  C --> D[Image]
+  C --> E[Container]
+  C --> F[Network]
+  C --> G[Volume]
+  D --> H[Build or pull]
+  E --> I[Run or inspect]
+```
 
 ### Images
 

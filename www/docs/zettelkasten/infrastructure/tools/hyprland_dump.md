@@ -2,6 +2,17 @@
 
 # hyprland_dump
 
+This note traces the NVIDIA graphics path needed to start Hyprland on Wayland.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Direct Rendering Manager (DRM)** | The Linux kernel subsystem that manages graphics devices and display resources. | [Linux kernel DRM](https://docs.kernel.org/gpu/drm-kms.html) |
+| **Kernel Mode Setting (KMS)** | A DRM facility that configures display modes in the kernel. | [Linux kernel DRM](https://docs.kernel.org/gpu/drm-kms.html) |
+| **initramfs** | A temporary root filesystem loaded into memory during early boot. | [Arch Wiki](https://wiki.archlinux.org/title/Arch_boot_process#initramfs) |
+
+
 
 ## 🧠 High-Level Goal
 You're preparing your system to:
@@ -84,5 +95,19 @@ Needed for any graphical application, Wayland or not
 
 ---
 
+```mermaid
+flowchart LR
+  A[GRUB starts Linux kernel] --> B[initramfs loads NVIDIA modules]
+  B --> C[nvidia_drm reads modeset option]
+  C --> D[DRM KMS initializes display]
+  D --> E[/dev/dri/card0 appears]
+  E --> F[LightDM or session launches Hyprland]
+  F --> G[Hyprland uses DRM and GBM]
+  G --> H[EGL renders application surfaces]
+  H --> I[Display output]
+```
+
 ## References
-- CHatGPT
+
+
+- [Hyprland NVIDIA documentation](https://wiki.hyprland.org/Nvidia/)

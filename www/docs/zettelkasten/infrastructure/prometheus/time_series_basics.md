@@ -2,9 +2,20 @@
 
 # time_series_basics
 
+
+Prometheus stores timestamped samples under a metric name and label set.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Time series** | A sequence of timestamped values identified by a metric name and labels. | [Prometheus](https://prometheus.io/docs/concepts/data_model/) |
+| **Instant vector** | A set of time series containing one sample per series at a selected evaluation time. | [Prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/#instant-vector-selectors) |
+| **Range vector** | A set of time series samples within a selected time interval. | [Prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/#range-vector-selectors) |
+
 **Core Concept**: Time series are sequences of (timestamp, value) pairs identified by metric name + labels, collected at regular scrape intervals.
 
-## Why It Matters
+## Operational impact
 
 Understanding the raw data structure is essential for reasoning about what range functions actually calculate and why visualizations look the way they do.
 
@@ -103,18 +114,18 @@ Prometheus marks series as **stale** when:
 
 Stale series are excluded from instant vector queries after lookback delta expires.
 
-## When to Use
+## Use cases
 
 - **Instant selectors** → current state, alerts, single value displays
 - **Range selectors** → rate calculations, aggregations over time, trends
 
 ## Trade-offs
 
-**Scrape interval**:
+### Scrape interval
 - Shorter (5s) = more data points, higher resolution, more storage
 - Longer (60s) = fewer points, less resolution, less storage
 
-**Lookback delta**:
+### Lookback delta
 - Longer = more tolerant of missed scrapes, slower staleness detection
 - Shorter = faster staleness detection, less tolerant of gaps
 
@@ -143,7 +154,23 @@ y - years
 ```
 
 ---
+
+```mermaid
+flowchart LR
+  A[Exporter endpoint] --> B[Prometheus scrape]
+  B --> C[Metric name and labels]
+  C --> D[Timestamped samples]
+  D --> E[Time series storage]
+  E --> F[Instant vector query]
+  E --> G[Range vector query]
+  G --> H[Range functions]
+  F --> I[PromQL result]
+  H --> I
+```
+
 ## References
+
+
 
 - [Prometheus Data Model](https://prometheus.io/docs/concepts/data_model/)
 - [Querying Basics](https://prometheus.io/docs/prometheus/latest/querying/basics/)

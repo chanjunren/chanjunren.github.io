@@ -2,6 +2,8 @@
 
 # vim
 
+> **Vim**: A modal text editor whose commands depend on the current editing mode. ([Vim documentation](https://www.vim.org/docs.php))
+
 ```ad-note
 JR's very own intro to vim over [here](/documents/intro_to_vim.pdf)! 🤓
 ```
@@ -64,7 +66,24 @@ JR's very own intro to vim over [here](/documents/intro_to_vim.pdf)! 🤓
 | `:5,10s/hello/world/gc`    | Replace "hello" with "world" in lines 5–10, with **confirm** |
 ## Mapping types
 
+```mermaid
+stateDiagram-v2
+  [*] --> Normal
+  Normal --> Insert: i, a, or o
+  Insert --> Normal: Escape
+  Normal --> Visual: v or V
+  Visual --> Normal: Escape
+  Normal --> CommandLine: colon
+  CommandLine --> Normal: Enter or Escape
+  Normal --> Replace: R
+  Replace --> Normal: Escape
+```
+
 | Type                    | Description                                                                             |
 | ----------------------- | --------------------------------------------------------------------------------------- |
 | Recursive (map)         | If the result of this mapping exists as another mapping, Vim will execute that as well  |
 | Non Recursive (noremap) | Vim will execute the result of this mapping as-is, without considering further mappings |
+
+## References
+
+- [Vim documentation](https://www.vim.org/docs.php)

@@ -1,6 +1,17 @@
 🗓️ 19112024 1801
 
 # modem_vs_router
+
+
+A modem or gateway connects a home network to an ISP; a router forwards traffic between networks.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Modem** | A device that connects a local network to an internet service provider's access network. | [Cisco](https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/what-is-a-router.html) |
+| **Router** | A device that forwards packets between networks and commonly provides local address assignment and network address translation. | [Cisco](https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/what-is-a-router.html) |
+
 ## Modem
 
 - **Function**: A modem connects your home network to the internet through your Internet Service Provider (ISP). It translates digital signals from your ISP into a format that your devices can use (and vice versa) by modulating and demodulating signals.
@@ -54,4 +65,21 @@ Some modern devices combine both functions into a single unit, often referred to
 
 ---
 
+```mermaid
+flowchart LR
+  A[Home device] --> B[Wi-Fi access point]
+  B --> C[Router]
+  C --> D[Local network routing and NAT]
+  D --> E[Modem or gateway]
+  E --> F[ISP access network]
+  F --> G[Internet destination]
+  G --> F
+  F --> E
+  E --> C
+```
+
 ## References
+
+- [Cisco: What is a router?](https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/what-is-a-router.html)
+
+

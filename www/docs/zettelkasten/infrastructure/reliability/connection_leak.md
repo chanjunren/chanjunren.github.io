@@ -1,7 +1,8 @@
 🗓️ 25042026 1436
-📎 #reliability #failure_modes #pooling
 
 # connection_leak
+
+> **Connection leak**: A connection acquired from a pool that is not returned or closed after use. ([HikariCP](https://github.com/brettwooldridge/HikariCP))
 
 > Connections opened but never returned to the pool / closed. Pool exhausts, new requests block or fail. A **quantity** problem.
 
@@ -65,8 +66,22 @@ Other vectors:
 
 ---
 
+```mermaid
+flowchart LR
+  A[Request begins] --> B[Acquire pooled connection]
+  B --> C[Run database work]
+  C --> D{Close or return connection?}
+  D -->|yes| E[Pool can reuse connection]
+  D -->|no| F[Connection remains checked out]
+  F --> G[Available pool shrinks]
+  G --> H[Requests wait or time out]
+  I[Leak detection] --> F
+```
+
 ## References
 
+
+
 - [HikariCP leak detection](https://github.com/brettwooldridge/HikariCP#frequently-used)
-- [[connection_wedge]] — different failure mode, same surface
+- connection wedge — different failure mode, same surface
 - [[error_timeline_shapes]] — ramp vs cliff diagnostic

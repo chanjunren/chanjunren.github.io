@@ -2,12 +2,18 @@
 
 # container_platform
 
-**What it is:**
-- Platform for developing, shipping, running applications in containers
-- Packages applications with all dependencies into standardized units
-- Runs consistently across different environments
+Docker packages applications as images, then runs them in isolated containers that share the host kernel.
 
-**Problem it solves:**
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Container image** | A read-only package used to create containers. | [Docker Docs](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/) |
+| **Container** | A runnable instance of an image with isolated processes and resources. | [Docker Docs](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/) |
+| **Virtual machine** | A virtual computer that runs its own operating system. | [NIST](https://csrc.nist.gov/pubs/sp/800/125/r1/final) |
+
+## Problem addressed
+
 - "Works on my machine" syndrome
 - Applications behave differently in dev, test, production due to dependency mismatches, configuration drift, environment differences
 - Docker bundles application with entire runtime environment
@@ -57,7 +63,7 @@ For understanding underlying technology, see [[virtualization]].
 
 For multi-container applications, see [[compose]].
 
-## When to Use Docker
+## Docker use cases
 
 Use for:
 - Microservices architecture with isolated services
@@ -87,6 +93,19 @@ Skip for:
 - For persistent data, need [[volumes]] to separate data from container lifecycle
 
 ## Common Pitfalls
+
+```mermaid
+flowchart LR
+  A[Application and dependencies] --> B[Container image]
+  B --> C[Image registry]
+  C --> D[Docker Engine]
+  D --> E[Container process]
+  D --> F[Namespaces]
+  D --> G[cgroups]
+  E --> H[Host kernel]
+  I[Virtual machine] --> J[Guest operating system]
+  J --> H
+```
 
 ```ad-danger
 **Storing secrets in images**: Secrets baked into images persist in layer history. Anyone with image can extract them. Use environment variables, mounted files, or secrets management instead.

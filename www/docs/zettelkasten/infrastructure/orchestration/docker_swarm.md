@@ -2,12 +2,16 @@
 
 # docker_swarm
 
-**What it is:**
+> **Docker Swarm mode**: Docker Engine's built-in cluster management and orchestration feature. ([Docker Docs](https://docs.docker.com/engine/swarm/))
+
+Swarm provides cluster scheduling, service discovery, rolling updates, and failover within Docker Engine.
+
+## Overview
 - Docker's built-in clustering and orchestration tool
 - Turns a group of Docker hosts into a single virtual host
 - You define a desired state ("run 3 replicas of my app") and Swarm maintains it
 
-**Why it exists:**
+## Problem addressed
 - [[compose]] works on a single host — no failover, no scaling across machines
 - Kubernetes solves this but is complex to set up and operate
 - Swarm gives you multi-host orchestration with almost no learning curve beyond Docker itself — same CLI, same compose file format
@@ -80,11 +84,11 @@ The reason you're here — Swarm handles this natively:
 
 The same `docker-compose.yml` gains Swarm features under the `deploy` key:
 - `replicas`, `update_config`, `rollback_config`, `resources`, `placement`
-- `docker stack deploy -c docker-compose.yml mystack` deploys to Swarm — see [[swarm_stacks]] for stack lifecycle
+- `docker stack deploy -c docker-compose.yml mystack` deploys to Swarm — see swarm stacks for stack lifecycle
 - Services, networks, and volumes defined in compose just work
 - Sensitive data distributed via [[swarm_secrets_and_configs]] instead of `.env` files
 
-This is the smoothest migration path from single-host [[compose]] to multi-host orchestration.
+This is the smoothest migration path from single-host compose to multi-host orchestration.
 
 ## Networking in Swarm
 
@@ -96,11 +100,11 @@ This is the smoothest migration path from single-host [[compose]] to multi-host 
 - Any node in the swarm can accept traffic for any service, even if that service isn't running on that node
 - Built-in load balancing across tasks
 - Simplifies external load balancer config — point it at any/all swarm nodes
-- See [[swarm_overlay_networking]] for routing mesh internals and required ports
+- See swarm overlay networking for routing mesh internals and required ports
 
-## When to Skip Swarm
+## Poor fit
 
-- Single server, no need for multi-host — [[compose]] with [[resource_limits]] is simpler
+- Single server, no need for multi-host — compose with [[resource_limits]] is simpler
 - Already invested in Kubernetes — adding Swarm creates split tooling
 - Need autoscaling — Swarm doesn't have it built-in
 
@@ -114,7 +118,22 @@ This is the smoothest migration path from single-host [[compose]] to multi-host 
 
 ---
 
+```mermaid
+flowchart LR
+  A[Manager API] --> B[Raft cluster state]
+  B --> C[Swarm scheduler]
+  C --> D[Service tasks]
+  D --> E[Worker node]
+  E --> F[Container runtime]
+  G[Desired service replicas] --> C
+  H[Overlay network] --> D
+  I[Routing mesh] --> H
+  F --> J[Task health and status]
+```
+
 ## References
+
+
 
 - https://docs.docker.com/engine/swarm/
 - https://docs.docker.com/engine/swarm/swarm-tutorial/

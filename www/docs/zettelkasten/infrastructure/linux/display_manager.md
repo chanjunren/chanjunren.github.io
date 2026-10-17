@@ -2,6 +2,8 @@
 
 # display_manager
 
+> **Display manager**: A program that presents the login screen and starts a user's graphical session. ([Arch Wiki](https://wiki.archlinux.org/title/Display_manager))
+
 A **display manager** (DM) is the login screen that runs after boot. It authenticates the user and launches the chosen desktop session (window manager or desktop environment).
 
 Without a DM, you'd boot to a TTY and start your session manually with `startx`.
@@ -31,6 +33,20 @@ sudo systemctl disable lightdm     # revert to TTY login
 sudo systemctl start lightdm       # start now
 ```
 
+```mermaid
+flowchart LR
+  A[systemd starts display manager] --> B[Greeter shows login]
+  B --> C[User authenticates]
+  C --> D[Session choice]
+  D --> E[Window manager or desktop environment]
+  E --> F[Display server]
+  F --> G[User applications]
+  H[TTY login] --> I[startx]
+  I --> E
+```
+
 ## References
+
+
 
 - [Arch Wiki: Display manager](https://wiki.archlinux.org/title/Display_manager)

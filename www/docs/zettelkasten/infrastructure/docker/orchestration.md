@@ -2,19 +2,23 @@
 
 # orchestration
 
-**What it is:**
+> **Container orchestration**: Automated scheduling and management of containerized workloads across one or more hosts. ([Docker Docs](https://docs.docker.com/engine/swarm/))
+
+An orchestrator replaces manual container management when services span hosts and need scheduling and recovery.
+
+## Overview
 - Automated management of containerized application lifecycle across multiple hosts
 - Handles deployment, scaling, networking, availability
 - Ensures actual state matches desired state
 
-**Problem it solves:**
+## Problem addressed
 - Manually managing containers across multiple hosts is error-prone and doesn't scale
 - Need automatic restart when containers crash at 3am
 - Need automatic scaling when traffic spikes
 - Need zero-downtime deployments
 - Orchestration automates all of this
 
-## When You Need Orchestration
+## Scale signals that call for orchestration
 
 Use for:
 - Production deployments requiring high availability
@@ -73,15 +77,27 @@ Pattern: Swarm for simpler needs, Kubernetes for enterprise scale, cloud-specifi
 ## Orchestration vs Compose
 
 Comparison:
-- [[compose]]: Single-host, development-focused, simple
+- compose: Single-host, development-focused, simple
 - Orchestration: Multi-host, production-grade, complex
 - Compose defines services, orchestration manages clusters
 - Start with Compose, graduate to orchestration when you need multi-host deployment
 
 ## Common Pitfalls
 
+```mermaid
+flowchart LR
+  A[Desired service state] --> B[Orchestrator control loop]
+  B --> C[Scheduler places tasks]
+  C --> D[Worker host]
+  D --> E[Container runtime]
+  E --> F[Running task]
+  F --> G[Health and state observation]
+  G --> B
+  B --> H[Scale or replace task]
+```
+
 ```ad-warning
-**Over-engineering**: Don't use orchestration if you don't need it. Single-host [[compose]] setup is simpler, faster to debug, and sufficient for many applications.
+**Over-engineering**: Don't use orchestration if you don't need it. Single-host compose setup is simpler, faster to debug, and sufficient for many applications.
 ```
 
 ```ad-danger

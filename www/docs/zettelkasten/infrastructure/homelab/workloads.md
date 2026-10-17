@@ -2,7 +2,9 @@
 
 # workloads
 
-A workload combines an application, configuration, dependencies, state, and network access. Defining them together makes deployment and recovery repeatable.
+> **Workload**: An application running on Kubernetes, usually as Pods managed by a workload resource. ([Kubernetes](https://kubernetes.io/docs/concepts/workloads/))
+
+Defining application code, configuration, dependencies, state, and network access together makes deployment and recovery repeatable.
 
 ## A small application stack
 
@@ -45,6 +47,6 @@ Deploy a web app and PostgreSQL with Compose. Use a named volume and non-admin d
 
 - [[container_learning_path]]
 - [[compose]]
-- [[volumes]]
+- volumes
 - [[container_networking]]
 - [Docker Compose](https://docs.docker.com/compose/)

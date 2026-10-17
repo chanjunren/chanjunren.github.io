@@ -2,7 +2,14 @@
 
 # networking
 
-A home network carries traffic between clients, NAS services, and the internet. Addressing and routing explain why access can differ between devices.
+A home network joins devices through addressing and routing. Those mechanisms determine which services each client can reach.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **IP address** | A numerical identifier assigned to an interface for sending IP packets. | [RFC 791](https://www.rfc-editor.org/rfc/rfc791) |
+| **Routing** | Selecting a path for forwarding packets toward their destination. | [RFC 1812](https://www.rfc-editor.org/rfc/rfc1812) |
 
 ## The request path
 

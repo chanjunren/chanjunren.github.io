@@ -1,23 +1,37 @@
 🗓️ 14042025 1637
 
 # readiness_checks
-> Determines if an application is ready to start accepting traffic
 
-## Purpose 
--  Crucial for ensuring:
-	- Application is fully initialized 
-	- Has its dependencies ready before starting to serve requests
+> **Readiness probe**: A check Kubernetes uses to determine whether a container should receive traffic. ([Kubernetes](https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#readiness-probe))
 
-```ad-note
-If this check fails, the container orchestrator will not route traffic to that instance, and it will also not restart the container
+A readiness probe keeps a Pod out of ready service endpoints until it can serve requests. For probe types, see [[health_checks]].
+
+## Endpoint path
+
+Kubelet runs the probe and reports the result to the API server. Endpoint controllers then include or remove the Pod from ready service endpoints.
+
+```mermaid
+stateDiagram-v2
+  [*] --> Starting
+  Starting --> Ready: probe succeeds
+  Starting --> NotReady: probe fails
+  Ready --> NotReady: later probe fails
+  NotReady --> Ready: later probe succeeds
+  Ready --> ServingTraffic: endpoint is ready
+  ServingTraffic --> NotReady: endpoint is removed
 ```
- 
-## Use Case
-- Useful for scenarios where an application needs time to:
-	-  Initialize 
-	- Wait for dependencies to be ready
 
+## Probe design
 
----
+- Check whether the application can serve its expected requests.
+- Use readiness for startup and temporary overload.
+- Include dependencies only when their failure blocks useful service.
+- A failed readiness probe does not restart the container.
+
+## Boundary
+
+Readiness controls traffic eligibility. Liveness controls restart decisions. Keep these checks separate when they represent different failure conditions.
+
 ## References
-- ChatGPT
+
+- [Kubernetes readiness probes](https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#readiness-probe)

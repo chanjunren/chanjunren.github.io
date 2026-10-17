@@ -2,6 +2,16 @@
 
 # display_stack
 
+
+A graphical Linux session depends on coordinated components from kernel display interfaces to the compositor and applications.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Display server** | A system component that manages graphical output and input for client applications. | [Arch Wiki](https://wiki.archlinux.org/title/Xorg) |
+| **Window manager** | A program that controls the placement, sizing, focus, and decoration of application windows. | [Arch Wiki](https://wiki.archlinux.org/title/Window_manager) |
+
 The Linux display stack is the chain of components that takes you from powered-on hardware to a usable desktop. Each layer hands off to the next.
 
 ## The Chain
@@ -43,14 +53,27 @@ EndeavourOS i3 edition ships with X11. Wayland support for i3 does not exist —
 ## Where Each Concept Lives
 
 - [[display_manager]] — what a DM is, how it starts sessions
-- [[lightdm]] — LightDM config and slick-greeter theming
+- lightdm — LightDM config and slick-greeter theming
 - [[window_manager]] — WM types and how they differ
-- [[i3]] — i3 config, keybindings, gaps, autostart
-- [[picom]] — compositor config, blur/shadow/transparency options
+- i3 — i3 config, keybindings, gaps, autostart
+- picom — compositor config, blur/shadow/transparency options
 - [[rofi_theming]] — rofi `.rasi` widget tree and theme structure
 - [[screen_locker]] — i3lock-color flags and i3 integration
 
+```mermaid
+flowchart LR
+  A[Linux kernel and DRM] --> B[Display server: Xorg or Wayland compositor]
+  B --> C[Window manager]
+  C --> D[Panel and launcher]
+  C --> E[Application windows]
+  F[Display manager] --> G[User session]
+  G --> B
+  H[Input devices] --> B
+```
+
 ## References
+
+
 
 - [Arch Wiki: Xorg](https://wiki.archlinux.org/title/Xorg)
 - [Arch Wiki: Wayland](https://wiki.archlinux.org/title/Wayland)

@@ -1,20 +1,60 @@
-🗓️20102024 0117
+🗓️ 20102024 0117
 
 # bash_dump
 
-1. tmux ls >/dev/null 2>&1
-tmux ls: This command lists all existing tmux sessions. If there are no tmux sessions, it returns an error, and if sessions exist, it outputs a list of them.
+These shell patterns discard command output, inspect exit status, and test for an empty string.
 
->/dev/null 2>&1:
+## Terms
 
->/dev/null: This part redirects the standard output (stdout) to /dev/null, which is a "black hole" in Unix systems. Any output sent to /dev/null is discarded.
-2>&1: This redirects the standard error (stderr) (file descriptor 2) to the same place as standard output (stdout) (file descriptor 1). Since stdout is already being sent to /dev/null, this means both the normal output and any error messages will be discarded.
-In summary: This line runs the tmux ls command but discards both its output and any error messages. The purpose of this is to only check whether the command succeeds (indicating there are tmux sessions) or fails (indicating there are no tmux sessions) without showing the output to the user.
+| Term | Definition | Source |
+|---|---|---|
+| **Redirection** | A shell operation that changes where a command reads input or writes output. | [GNU Bash manual](https://www.gnu.org/software/bash/manual/html_node/Redirections.html) |
+| **File descriptor** | An integer that identifies an open input or output stream for a process. | [GNU Bash manual](https://www.gnu.org/software/bash/manual/html_node/Redirections.html) |
+| **`-z` test** | A conditional test that succeeds when a string has zero length. | [GNU Bash manual](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html) |
 
-2. -z Flag
--z: This is a conditional flag in shell scripting that checks if a string is "null" or "empty." The -z flag returns true if the string is of zero length (i.e., empty), and false otherwise.
+## Discard output and keep the exit status
 
----
+```bash
+tmux ls >/dev/null 2>&1
+```
+
+- `>/dev/null` sends standard output to the null device.
+- `2>&1` sends standard error to the current standard output.
+- Bash applies these redirections from left to right.
+- The command's exit status remains available to the caller.
+
+```bash
+if tmux ls >/dev/null 2>&1; then
+  echo "tmux has a session"
+else
+  echo "tmux has no session or failed"
+fi
+```
+
+The non-zero status alone does not prove no session exists. It can also indicate another command failure.
+
+## Test for an empty string
+
+```bash
+if [[ -z "$value" ]]; then
+  echo "value is empty"
+fi
+```
+
+`-z` is true when the expanded string has zero length. Quote expansions to avoid word splitting and glob expansion.
+
+```mermaid
+flowchart LR
+  A[Command] --> B[stdout to /dev/null]
+  A --> C[stderr to current stdout]
+  A --> D[Exit status remains]
+  E[String value] --> F[-z test]
+  F --> G{Length is zero?}
+  G --> H[Conditional branch]
+```
 
 ## References
-- ChatGPT
+
+- [GNU Bash redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html)
+- [GNU Bash conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)
+- [tmux manual](https://man7.org/linux/man-pages/man1/tmux.1.html)

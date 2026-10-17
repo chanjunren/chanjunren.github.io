@@ -2,9 +2,19 @@
 
 # to_prometheus_mapping
 
+
+Micrometer registries map meter names, units, and tags into a monitoring backend’s data model.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Meter registry** | A component that stores meters and provides a backend-specific way to publish them. | [Micrometer](https://docs.micrometer.io/micrometer/reference/concepts/registry.html) |
+| **Prometheus exposition format** | A text format that represents metric names, labels, values, and metadata for scraping. | [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/) |
+
 **Core Concept**: Micrometer metrics transform into Prometheus time series with specific naming conventions, label mappings, and multiple related metrics per instrument.
 
-## Why It Matters
+## Operational impact
 
 Understanding the mapping helps you write correct PromQL queries and debug why metrics appear (or don't appear) in Prometheus. One Micrometer metric often becomes multiple Prometheus time series.
 
@@ -17,14 +27,14 @@ Micrometer: http.request.duration
 Prometheus: http_request_duration_seconds
 ```
 
-**Rules**:
+### Rules
 - `.` → `_`
 - CamelCase → `snake_case`
 - Base unit appended automatically (`_seconds`, `_bytes`)
 
 ## Counter Mapping
 
-**Micrometer**:
+### Micrometer
 ```java
 Counter.builder("http.requests")
     .tag("method", "GET")
@@ -32,25 +42,25 @@ Counter.builder("http.requests")
     .register(registry);
 ```
 
-**Prometheus Export**:
+### Prometheus Export
 ```
 # TYPE http_requests_total counter
 http_requests_total{method="GET",status="200"} 1543.0
 ```
 
-**Key Changes**:
+### Key Changes
 - Suffix `_total` added automatically
 - Tags → Labels `{key="value"}`
 - Single time series per Counter
 
-**Query**:
+### Query
 ```promql
 rate(http_requests_total{method="GET"}[5m])
 ```
 
 ## Timer Mapping
 
-**Micrometer**:
+### Micrometer
 ```java
 Timer.builder("http.request.duration")
     .tag("endpoint", "/api/users")
@@ -71,7 +81,7 @@ http_request_duration_seconds_count{endpoint="/api/users"} 500
 http_request_duration_seconds_max{endpoint="/api/users"} 2.3
 ```
 
-**Key Changes**:
+### Key Changes
 - One Timer → **4 metric types**:
   - `_bucket{le="x"}` - histogram buckets (cumulative)
   - `_sum` - total duration
@@ -80,7 +90,7 @@ http_request_duration_seconds_max{endpoint="/api/users"} 2.3
 - Base unit converted to seconds
 - Labels duplicated across all series
 
-**Queries**:
+### Queries
 ```promql
 # Average duration
 rate(http_request_duration_seconds_sum[5m]) / 
@@ -97,7 +107,7 @@ rate(http_request_duration_seconds_count[5m])
 
 ## Gauge Mapping
 
-**Micrometer**:
+### Micrometer
 ```java
 Gauge.builder("jvm.memory.used", memoryBean, MemoryMXBean::getHeapMemoryUsage)
     .tag("area", "heap")
@@ -105,18 +115,18 @@ Gauge.builder("jvm.memory.used", memoryBean, MemoryMXBean::getHeapMemoryUsage)
     .register(registry);
 ```
 
-**Prometheus Export**:
+### Prometheus Export
 ```
 # TYPE jvm_memory_used_bytes gauge
 jvm_memory_used_bytes{area="heap"} 536870912.0
 ```
 
-**Key Changes**:
+### Key Changes
 - Base unit suffix added (`_bytes`)
 - Single time series
 - Value polled on each scrape
 
-**Query**:
+### Query
 ```promql
 jvm_memory_used_bytes{area="heap"}
 avg_over_time(jvm_memory_used_bytes[5m])
@@ -124,7 +134,7 @@ avg_over_time(jvm_memory_used_bytes[5m])
 
 ## DistributionSummary Mapping
 
-**Micrometer**:
+### Micrometer
 ```java
 DistributionSummary.builder("request.payload.size")
     .tag("endpoint", "/api/upload")
@@ -147,14 +157,14 @@ request_payload_size_bytes_max{endpoint="/api/upload"} 8192.0
 
 ## LongTaskTimer Mapping
 
-**Micrometer**:
+### Micrometer
 ```java
 LongTaskTimer.builder("batch.job.duration")
     .tag("job", "export")
     .register(registry);
 ```
 
-**Prometheus Export**:
+### Prometheus Export
 ```
 # TYPE batch_job_duration_seconds_active_count gauge
 batch_job_duration_seconds_active_count{job="export"} 2.0
@@ -166,14 +176,14 @@ batch_job_duration_seconds_duration_sum{job="export"} 45.3
 batch_job_duration_seconds_max{job="export"} 30.1
 ```
 
-**Key Changes**:
+### Key Changes
 - One LongTaskTimer → **3 gauge metrics**:
   - `_active_count` - currently running tasks
   - `_duration_sum` - total duration of active tasks
   - `_max` - longest running task
 - All are gauges (not histograms)
 
-**Queries**:
+### Queries
 ```promql
 # Currently running jobs
 batch_job_duration_seconds_active_count{job="export"}
@@ -188,7 +198,7 @@ batch_job_duration_seconds_max > 3600
 
 ## Tag/Label Mapping
 
-**Micrometer Tags** → **Prometheus Labels**
+### Micrometer Tags** → **Prometheus Labels
 
 ```java
 // Micrometer
@@ -199,12 +209,12 @@ Counter.builder("requests")
     .register(registry);
 ```
 
-**Prometheus**:
+### Prometheus
 ```
 requests_total{method="GET",endpoint="/users",status="200"} 42
 ```
 
-**Rules**:
+### Rules
 - Tag keys/values must be strings
 - Empty values become `""`
 - High cardinality tags (user IDs, UUIDs) cause storage explosion
@@ -227,7 +237,7 @@ Micrometer automatically adds unit suffixes:
 | `megabytes` | `_bytes` (converted) |
 | (none) | (no suffix) |
 
-**Example**:
+### Example
 ```java
 // Micrometer: baseUnit("milliseconds")
 Timer.builder("response.time")
@@ -246,7 +256,7 @@ Timer.builder("http.duration")
     .register(registry);
 ```
 
-**Prometheus Export**:
+### Prometheus Export
 ```
 http_duration_seconds{quantile="0.5"} 0.023
 http_duration_seconds{quantile="0.95"} 0.145
@@ -269,7 +279,7 @@ Timer.builder("http.duration")
     .register(registry);
 ```
 
-**Prometheus Export**:
+### Prometheus Export
 ```
 http_duration_seconds_bucket{le="0.01"} 12
 http_duration_seconds_bucket{le="0.05"} 45
@@ -293,7 +303,7 @@ http_duration_seconds_bucket{le="+Inf"} 500
 
 ## Cardinality Impact
 
-**Each unique label combination = new time series**
+### Each unique label combination = new time series
 
 ```java
 // BAD: High cardinality
@@ -340,7 +350,22 @@ LongTaskTimer → metric_name_seconds_active_count{labels}
 ```
 
 ---
+
+```mermaid
+flowchart LR
+  A[Micrometer meter] --> B[Prometheus naming convention]
+  B --> C[Unit and suffix mapping]
+  C --> D[Prometheus metric family]
+  D --> E[Labels from meter tags]
+  D --> F[Counter samples]
+  D --> G[Gauge samples]
+  D --> H[Histogram buckets and sums]
+  E --> I[Scraped time series]
+```
+
 ## References
+
+
 
 - [Micrometer Prometheus Documentation](https://docs.micrometer.io/micrometer/reference/implementations/prometheus.html)
 - [Prometheus Naming Best Practices](https://prometheus.io/docs/practices/naming/)

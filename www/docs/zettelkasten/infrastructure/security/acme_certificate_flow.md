@@ -2,12 +2,16 @@
 
 # acme_certificate_flow
 
-**What it is:**
+> **Automatic Certificate Management Environment (ACME)**: A protocol that lets a client request certificate management actions from an ACME server. ([RFC 8555](https://www.rfc-editor.org/rfc/rfc8555))
+
+ACME automates certificate issuance and renewal, reducing manual work and expiry risk.
+
+## Overview
 - **ACME** (Automated Certificate Management Environment) — a protocol for automatically requesting, validating, and renewing [[tls_certificates]] from a CA (see [[certificate_authorities]])
 - **Let's Encrypt** — the most widely used free CA that speaks ACME, issuing Domain Validation (DV) certs
 - **Certbot** — the most common ACME client; a CLI tool that handles the full cert lifecycle
 
-**Why it exists:**
+## Problem addressed
 - Before ACME: buying certs manually, pasting CSRs into web forms, remembering to renew before expiry
 - ACME automates the entire flow — request, prove domain ownership, receive cert, renew on schedule
 - Let's Encrypt + ACME made HTTPS free and automatic, removing the last excuse for unencrypted traffic
@@ -72,7 +76,7 @@
 ### Certbot vs built-in ACME
 - **Certbot**: standalone tool, works with any web server, requires cron for renewal
 - **Traefik / Caddy**: ACME built into the proxy itself — zero-touch cert management, no separate tool needed
-- For Docker setups, built-in ACME is simpler — see [[docker_tls_termination]]
+- For Docker setups, built-in ACME is simpler — see docker tls termination
 
 ## Renewal
 
@@ -91,7 +95,26 @@ Certbot standalone flow: `certbot certonly --standalone -d api.example.com` → 
 
 ---
 
+```mermaid
+sequenceDiagram
+  participant Client as ACME client
+  participant Server as ACME server
+  participant CA as Certificate authority
+  participant DNS as DNS or web server
+  Client->>Server: Create order
+  Server-->>Client: Challenge
+  Client->>DNS: Publish challenge response
+  Client->>Server: Acknowledge challenge
+  Server->>DNS: Validate identifier control
+  Server-->>Client: Challenge valid
+  Client->>Server: Submit CSR
+  Server->>CA: Issue certificate
+  CA-->>Client: Certificate available
+```
+
 ## References
+
+
 
 - https://letsencrypt.org/how-it-works/
 - https://datatracker.ietf.org/doc/html/rfc8555

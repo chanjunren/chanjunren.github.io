@@ -2,7 +2,9 @@
 
 # smart_home
 
-A smart home connects sensors and devices to software that tracks state and triggers actions. Home Assistant coordinates integrations. Separate device, protocol, automation, and network roles when diagnosing failures.
+> **Home Assistant**: An open-source home automation platform that integrates devices and services and lets users create automations. ([Home Assistant](https://www.home-assistant.io/docs/))
+
+Home Assistant connects device integrations to state tracking and automations. Separate device, protocol, automation, and network roles when diagnosing failures.
 
 ## From sensor to automation
 

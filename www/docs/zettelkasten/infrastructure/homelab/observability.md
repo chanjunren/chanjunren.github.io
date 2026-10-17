@@ -2,7 +2,9 @@
 
 # observability
 
-Observability uses emitted signals to infer system health. A service may fail from deployment, storage, networking, or resource problems. Each cause needs a different fix.
+> **Observability**: The ability to infer a system’s internal state from its external outputs. ([OpenTelemetry](https://opentelemetry.io/docs/concepts/observability-primer/))
+
+Metrics, logs, and traces help locate failures caused by deployment, storage, networking, or resource pressure. Each cause needs a different fix.
 
 ## Follow the evidence
 
@@ -37,7 +39,7 @@ Monitor a Linux host and container. Dashboard CPU, memory, disk, and restarts. S
 
 ## References
 
-- [[metrics_learning_path]]
+- metrics learning path
 - [[node_exporter_host_metrics]]
 - [[cadvisor_container_metrics]]
 - [[health_checks]]

@@ -1,7 +1,8 @@
 🗓️ 04102025 0030
-📎 [[connectivity]]
 
 # http_tools
+
+> **HTTP client**: A program that sends HTTP requests and reads HTTP responses from a server. ([curl manual](https://curl.se/docs/manpage.html))
 
 Tools for testing HTTP/HTTPS endpoints and downloading files.
 
@@ -29,7 +30,7 @@ curl -k https://example.com               # Ignore SSL errors (insecure!)
 
 ### Interpreting Output
 
-#### Basic GET Request
+### Basic GET Request
 ```bash
 $ curl https://example.com
 <!doctype html>
@@ -41,7 +42,7 @@ $ curl https://example.com
 - Shows response body (HTML, JSON, etc.)
 - Silent about errors (use `-v` for details)
 
-#### Headers Only (`-I`)
+### Headers Only (`-I`)
 ```bash
 $ curl -I https://example.com
 HTTP/2 200
@@ -51,7 +52,7 @@ server: nginx
 content-length: 1256
 ```
 
-**Key headers**:
+### Key headers
 - **HTTP/2 200**: Protocol version and status code
   - `200` - OK
   - `301/302` - Redirect (use `-L` to follow)
@@ -63,7 +64,7 @@ content-length: 1256
 - **date**: Server's timestamp
 - **content-length**: Response size in bytes
 
-#### Verbose Mode (`-v`)
+### Verbose Mode (`-v`)
 ```bash
 $ curl -v https://example.com
 * Trying 93.184.216.34:443...
@@ -79,28 +80,28 @@ $ curl -v https://example.com
 ...
 ```
 
-**Key parts**:
+### Key parts
 - **`*`** lines: Connection info (DNS, TLS handshake)
 - **`>`** lines: Request sent to server
 - **`<`** lines: Response from server
 - Useful for debugging SSL issues, DNS problems, redirects
 
-**Common curl scenarios**:
+### Common curl scenarios
 
-**Testing API endpoint**:
+### Testing API endpoint
 ```bash
 curl -X POST https://api.example.com/users \
   -H "Content-Type: application/json" \
   -d '{"name":"John","email":"john@example.com"}'
 ```
 
-**Check if website is up**:
+### Check if website is up
 ```bash
 curl -I -w "%{http_code}\n" -o /dev/null -s https://example.com
 # Returns: 200 (or other status code)
 ```
 
-**Debug SSL certificate**:
+### Debug SSL certificate
 ```bash
 curl -v https://example.com 2>&1 | grep -A 5 "Server certificate"
 ```
@@ -145,7 +146,7 @@ file.zip          100%[=========>]  10.00M  5.21MB/s    in 1.9s
 2025-10-04 00:30:02 (5.21 MB/s) - 'file.zip' saved [10485760/10485760]
 ```
 
-**Key parts**:
+### Key parts
 - **Resolving**: DNS lookup (uses [[dns_tools]])
 - **Connecting**: Establishing connection (like [[connectivity]])
 - **HTTP request sent**: Waiting for response
@@ -154,27 +155,27 @@ file.zip          100%[=========>]  10.00M  5.21MB/s    in 1.9s
 - **Progress bar**: Download progress
 - **Speed**: Download rate
 
-**Common wget scenarios**:
+### Common wget scenarios
 
-**Resume interrupted download**:
+### Resume interrupted download
 ```bash
 wget -c https://example.com/large-file.iso
 # Can stop and restart, picks up where it left off
 ```
 
-**Download quietly (for scripts)**:
+### Download quietly (for scripts)
 ```bash
 wget -q https://example.com/file.zip
 # No output, check exit code: 0 = success
 ```
 
-**Check if file exists without downloading**:
+### Check if file exists without downloading
 ```bash
 wget --spider https://example.com/file.zip
 # Returns: HTTP response status
 ```
 
-**Mirror a website**:
+### Mirror a website
 ```bash
 wget -r -np -k https://example.com
 # -r: recursive
@@ -184,9 +185,23 @@ wget -r -np -k https://example.com
 
 ---
 
+```mermaid
+flowchart LR
+  A[curl or httpie command] --> B[DNS resolution]
+  B --> C[TCP connection]
+  C --> D[TLS handshake for HTTPS]
+  D --> E[HTTP request]
+  E --> F[Proxy or origin server]
+  F --> G[HTTP status and headers]
+  G --> H[Response body]
+  H --> I[Client output or saved file]
+```
+
 ## References
 
-- [[connectivity]] - Use ping first to check if host is reachable
+
+
+- connectivity - Use ping first to check if host is reachable
 - [curl manual](https://curl.se/docs/manual.html)
 - [wget manual](https://www.gnu.org/software/wget/manual/wget.html)
 - [HTTP status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)

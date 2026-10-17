@@ -2,11 +2,15 @@
 
 # env_management
 
-**What it is:**
+> **Compose interpolation**: Substitution of environment values into Compose configuration when Compose processes the file. ([Docker Docs](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/))
+
+Runtime configuration varies by environment; Compose combines shell values, env files, and service settings.
+
+## Overview
 - Strategies for managing environment variables and secrets in [[compose]]
 - Multiple mechanisms with a defined precedence order
 
-**Problem it solves:**
+## Problem addressed
 - Multi-client deployments need different credentials, ports, domains per client
 - Hardcoding config in YAML is insecure and inflexible
 - Need clear separation between Compose-level substitution and container runtime config
@@ -48,6 +52,19 @@ For multi-client isolation on one host:
 - Combine with [[compose_profiles]] to activate client-specific stacks
 
 ## Default Values and Required Variables
+
+```mermaid
+flowchart LR
+  A[Compose file expression] --> B{Value source}
+  B --> C[Shell environment]
+  B --> D[Project .env file]
+  B --> E[Explicit env file]
+  C --> F[Resolved Compose model]
+  D --> F
+  E --> F
+  F --> G[Service environment]
+  H[Secret store or mounted secret] --> G
+```
 
 - `${VAR:-default}` provides fallback if unset
 - `${VAR:?error message}` fails with error if unset — use for required config

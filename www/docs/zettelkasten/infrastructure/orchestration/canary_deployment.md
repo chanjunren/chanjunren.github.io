@@ -2,12 +2,16 @@
 
 # canary_deployment
 
-**What it is:**
+> **Canary deployment**: A release strategy that sends a controlled portion of traffic to a new version before wider rollout. ([Google Cloud](https://cloud.google.com/deploy/docs/deployment-strategies/canary))
+
+Canary deployments limit release impact by expanding traffic to a new version gradually.
+
+## Overview
 - Deploy the new version to a small subset of instances, route a small % of real traffic to it, observe, then gradually increase
 - Named after "canary in the coal mine" — the small group detects problems before full rollout
 - Combines gradual rollout of [[rolling_deployment]] with traffic-awareness
 
-**Why it exists:**
+## Problem addressed
 - Rolling deployment updates instances in batches but every batch gets equal traffic — no way to limit blast radius
 - [[blue_green_deployment]] switches all traffic at once — no gradual exposure
 - Canary gives you fine-grained control: expose 1% of users first, watch metrics, then scale to 100%
@@ -66,18 +70,18 @@ If any metric degrades: stop the rollout. Automated canary analysis tools (Kayen
 - **Canary**: verify the new version doesn't break things (engineering decision)
 - A/B tests run for days/weeks; canary runs for minutes/hours
 
-## When to Use
+## Use cases
 
 - High-traffic services where a bug affects thousands of users instantly
 - Changes that are hard to test in staging (performance under real load, third-party integrations)
 - Team has monitoring and observability in place to actually watch the canary
 - Infrastructure supports traffic splitting (weighted LB, service mesh, or smart proxy)
 
-## When to Skip
+## Poor fit
 
 - Low traffic — not enough data to detect problems in a small percentage
 - No monitoring/observability — canary without watching is just a slow rolling deployment
-- Simple CRUD apps with good test coverage — [[rolling_deployment]] is sufficient
+- Simple CRUD apps with good test coverage — rolling deployment is sufficient
 - Infrastructure doesn't support traffic splitting — you'd need to add complexity first
 
 ```ad-warning
@@ -90,7 +94,22 @@ If any metric degrades: stop the rollout. Automated canary analysis tools (Kayen
 
 ---
 
+```mermaid
+flowchart LR
+  A[Stable version serves traffic] --> B[Deploy canary version]
+  B --> C[Route small traffic share]
+  C --> D[Measure errors and latency]
+  D --> E{Health criteria met?}
+  E -->|yes| F[Increase traffic share]
+  F --> G{Full rollout?}
+  G -->|no| C
+  G -->|yes| H[Promote canary]
+  E -->|no| I[Rollback canary]
+```
+
 ## References
+
+
 
 - https://martinfowler.com/bliki/CanaryRelease.html
 - https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/#canary-deployments

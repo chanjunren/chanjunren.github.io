@@ -1,11 +1,17 @@
+🗓️ 13042026 0036
+
 # tls
 
-**What it is:**
+> **Transport Layer Security (TLS)**: A protocol that provides secure communication between peers over a network. ([RFC 8446](https://www.rfc-editor.org/rfc/rfc8446))
+
+TLS protects application traffic and verifies peer identity over untrusted networks.
+
+## Overview
 - **Transport Layer Security** — protocol that encrypts data in transit between two parties (e.g., browser and server)
 - Successor to SSL (SSL is deprecated — "SSL" in common usage usually means TLS)
 - Sits between the application layer (HTTP) and the transport layer (TCP) — hence HTTPS = HTTP over TLS
 
-**Problem it solves:**
+## Problem addressed
 - Without TLS: data transmitted in plaintext — passwords, tokens, API keys visible to anyone on the network
 - Without TLS: no way to verify you're talking to the real server — man-in-the-middle attacks trivial
 - TLS provides **confidentiality** (encryption), **integrity** (tamper detection), and **authentication** (server identity via [[tls_certificates]])
@@ -33,7 +39,7 @@ The handshake establishes a secure connection before any application data is sen
 
 ### TLS 1.2 handshake (simplified)
 1. **ClientHello**: client sends supported TLS versions, cipher suites, and a random number
-2. **ServerHello**: server picks a cipher suite, sends its [[tls_certificates]] and a random number
+2. **ServerHello**: server picks a cipher suite, sends its tls certificates and a random number
 3. **Certificate verification**: client checks the certificate against trusted [[certificate_authorities]]
 4. **Key exchange**: client and server derive a shared secret (using ECDHE or RSA key exchange)
 5. **Finished**: both sides confirm — all subsequent data encrypted with the shared symmetric key
@@ -78,7 +84,22 @@ TLS 1.3 simplified this — only 5 cipher suites, all secure by default.
 
 ---
 
+```mermaid
+sequenceDiagram
+  participant Client
+  participant Server
+  Client->>Server: ClientHello and supported parameters
+  Server-->>Client: ServerHello and key share
+  Server-->>Client: Certificate and proof of identity
+  Client->>Client: Validate certificate chain
+  Client->>Server: Finished message
+  Server-->>Client: Finished message
+  Client->>Server: Encrypted application data
+```
+
 ## References
+
+
 
 - https://developer.mozilla.org/en-US/docs/Web/Security/Transport_Layer_Security
 - https://tls13.xargs.org/ (byte-by-byte walkthrough of TLS 1.3 handshake)

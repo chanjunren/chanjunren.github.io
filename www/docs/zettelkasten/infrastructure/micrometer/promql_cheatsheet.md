@@ -2,6 +2,8 @@
 
 # promql_cheatsheet
 
+> **PromQL**: Prometheus's query language for selecting and transforming time series. ([Prometheus](https://prometheus.io/docs/prometheus/latest/querying/basics/))
+
 Practical cheatsheet mapping Micrometer Counter/Timer usage (via `OpStats` or direct API) to the PromQL queries you write in Grafana. For theory, see [[metric_types]] and [[to_prometheus_mapping]].
 
 ## Naming Translation
@@ -170,10 +172,24 @@ Shorter windows = noisier graphs but faster reaction. Longer windows = smoother 
 
 ---
 
+```mermaid
+flowchart LR
+  A[Micrometer meter] --> B[Prometheus name and labels]
+  B --> C[Prometheus scrape samples]
+  C --> D[PromQL selector]
+  D --> E[rate or aggregation]
+  E --> F[Grafana panel]
+  E --> G[Alert rule]
+  H[Dashboard time range] --> D
+  I[Label filters] --> D
+```
+
 ## References
 
-- [[metric_types]]
-- [[to_prometheus_mapping]]
+
+
+- metric types
+- to prometheus mapping
 - [[prometheus_spring_boot_pipeline]]
 - [[visualization_queries]]
 - [PromQL Cheat Sheet](https://promlabs.com/promql-cheat-sheet/)

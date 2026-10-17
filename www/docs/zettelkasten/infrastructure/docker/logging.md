@@ -2,11 +2,15 @@
 
 # logging
 
-**What it is:**
+> **Docker logging driver**: A Docker Engine component that routes a container's stdout and stderr logs to a destination. ([Docker Docs](https://docs.docker.com/engine/logging/configure/))
+
+Logging drivers decide where container output goes and how local disk use is controlled.
+
+## Overview
 - How Docker captures and manages container stdout/stderr output
 - Pluggable logging drivers determine where logs go and how they're stored
 
-**Problem it solves:**
+## Problem addressed
 - Multi-client server generates logs from many containers simultaneously
 - Without a strategy: logs fill disk, get lost on container restart, or become impossible to search
 - Need per-client log separation for debugging and audit trails
@@ -56,6 +60,18 @@ When to centralize:
 Stack: Container → logging driver → aggregator (Fluentd/Promtail) → storage (Loki/Elasticsearch) → dashboard (Grafana/Kibana)
 
 ## Trade-offs
+
+```mermaid
+flowchart LR
+  A[Container stdout and stderr] --> B[Docker logging driver]
+  B --> C[Local log files]
+  B --> D[Remote logging service]
+  C --> E[Log rotation]
+  C --> F[docker logs]
+  D --> G[Central log storage]
+  G --> H[Search and dashboards]
+  I[Per-client labels] --> G
+```
 
 ### Local logs
 - Simple, no extra infrastructure

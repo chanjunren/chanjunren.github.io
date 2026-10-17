@@ -2,11 +2,15 @@
 
 # resource_limits
 
-**What it is:**
+> **Resource constraints**: Docker settings that limit a container's use of host resources such as CPU and memory. ([Docker Docs](https://docs.docker.com/engine/containers/resource_constraints/))
+
+Resource constraints prevent one container from consuming the host's available CPU and memory.
+
+## Overview
 - CPU, memory, and process constraints applied to containers via [[compose]]
 - Uses Linux cgroups to enforce hard boundaries on resource consumption
 
-**Problem it solves:**
+## Problem addressed
 - On a shared server with multiple client stacks, one client's runaway process can starve all others
 - Without limits: a memory leak in client-a's app OOM-kills the entire server, taking down client-b and client-c
 - Resource limits enforce fair sharing and prevent the **noisy neighbor problem**
@@ -59,6 +63,19 @@ Resources go under `deploy.resources` block:
 - Legacy `mem_limit` / `cpus` top-level keys still work but are deprecated
 
 ## Trade-offs
+
+```mermaid
+flowchart LR
+  A[Compose resource settings] --> B[Docker Engine]
+  B --> C[Linux cgroups]
+  C --> D[CPU quota]
+  C --> E[Memory limit]
+  C --> F[PIDs limit]
+  D --> G[Throttling under contention]
+  E --> H[OOM kill risk]
+  F --> I[Process creation blocked]
+  G --> J[Container behavior observed]
+```
 
 ### Too tight
 - Frequent OOMKills, CPU throttling, degraded performance

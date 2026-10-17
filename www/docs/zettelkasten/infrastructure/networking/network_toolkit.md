@@ -2,6 +2,7 @@
 
 # network_toolkit
 
+
 Quick reference hub for networking command-line tools.
 
 ---
@@ -62,12 +63,25 @@ Website not loading?
 
 ---
 
+```mermaid
+flowchart LR
+  A[Connectivity symptom] --> B[ping or traceroute]
+  B --> C[DNS: dig or nslookup]
+  C --> D[TCP port: ss or nc]
+  D --> E[HTTP: curl]
+  E --> F[Interface and route: ip]
+  F --> G[Capture: tcpdump]
+  G --> H[Correlate result with service logs]
+```
+
 ## References
 
-- [[dns_tools]] - DNS tools (dig, nslookup, host, whois)
-- [[connectivity]] - Connectivity tools (ping, traceroute)
-- [[http_tools]] - HTTP tools (curl, wget)
-- [[ports_connections]] - Port tools (netstat, ss, lsof)
-- [[interface_tools]] - Interface tools (ip, ifconfig)
-- [[advanced_debugging]] - Advanced tools (tcpdump, nmap)
-- [[etc_hosts]] - Local DNS overrides
+
+
+- dns tools - DNS tools (dig, nslookup, host, whois)
+- connectivity - Connectivity tools (ping, traceroute)
+- http tools - HTTP tools (curl, wget)
+- ports connections - Port tools (netstat, ss, lsof)
+- interface tools - Interface tools (ip, ifconfig)
+- advanced debugging - Advanced tools (tcpdump, nmap)
+- etc hosts - Local DNS overrides

@@ -2,11 +2,15 @@
 
 # container_escape
 
-**What it is:**
+> **Container escape**: A security failure that lets a process cross a container isolation boundary and affect the host or other workloads. ([NIST](https://csrc.nist.gov/pubs/sp/800/190/final))
+
+Container isolation reduces risk, but shared kernel access and misconfiguration leave boundary failures possible.
+
+## Overview
 - An attack where a process inside a container breaks out of its isolation and gains access to the **host system** or other containers
 - Containers share the host kernel — if the isolation boundary is breached, the attacker is on the host
 
-**Why it matters:**
+## Operational impact
 - Containers feel isolated but are NOT virtual machines — they rely on Linux kernel features (namespaces, cgroups) for isolation, not hardware separation
 - In multi-client deployments, one compromised container escaping means **all client data on that host is exposed**
 - Container escape is the worst-case scenario in any Docker deployment
@@ -104,7 +108,21 @@
 
 ---
 
+```mermaid
+flowchart LR
+  A[Container process] --> B[Container runtime isolation]
+  B --> C[Namespaces and cgroups]
+  C --> D[Kernel interfaces and mounts]
+  D --> E{Misconfiguration or vulnerability?}
+  E -->|no| F[Workload stays isolated]
+  E -->|yes| G[Host or peer boundary crossed]
+  H[Least privilege and patching] --> C
+  I[Seccomp and MAC policy] --> D
+```
+
 ## References
+
+
 
 - https://docs.docker.com/engine/security/
 - https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html

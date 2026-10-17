@@ -1,7 +1,17 @@
 🗓️ 29042026 1500
-📎 #distributed_systems #consistency
 
 # cap_theorem
+
+
+The CAP theorem describes the trade-off distributed data stores face when partitions prevent replicas from communicating.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Consistency** | Every read sees the latest successful write or an error. | [Gilbert and Lynch](https://dl.acm.org/doi/10.1145/564585.564601) |
+| **Availability** | Every request to a non-failing node receives a response. | [Gilbert and Lynch](https://dl.acm.org/doi/10.1145/564585.564601) |
+| **Partition tolerance** | The system continues operating despite messages being lost or delayed between nodes. | [Gilbert and Lynch](https://dl.acm.org/doi/10.1145/564585.564601) |
 
 > The trilemma every distributed-data-store designer hits: under network partition, you must trade consistency for availability. The "pick 2 of 3" reading misleads — partition tolerance is not optional in real networks.
 
@@ -43,16 +53,29 @@ If there's no partition, both C and A are achievable. CAP is a statement about b
 - **Tunable consistency** — Cassandra lets you pick CL=QUORUM per request, which moves the system toward CP for that operation. CAP applies per-operation, not per-system.
 - **"What happens if W + R > N?"** — bridges into [[quorum_reads_writes]]. Be ready to do that math.
 
-## Why It Matters in Practice
+## Operational impact
 
 CAP shapes the architectural posture of every replicated store. Decisions like *"do we use etcd for service discovery, or Consul, or DynamoDB?"* are CAP decisions in disguise. Etcd refuses writes on a minority side because Raft requires quorum — silently accepting them would let the partition heal into a split-brain. DynamoDB instead lets every node accept writes because availability is the higher-priority property for the workloads it targets. Both are correct given their stance.
 
 ## Related
 
+```mermaid
+flowchart LR
+  A[Distributed data request] --> B{Network partition?}
+  B -->|no| C[Replicas communicate]
+  C --> D[System can coordinate reads and writes]
+  B -->|yes| E[Some nodes cannot communicate]
+  E --> F{During the partition}
+  F --> G[Reject or delay some requests]
+  F --> H[Respond with potentially stale data]
+  G --> I[Consistency preference]
+  H --> J[Availability preference]
+```
+
 - `pacelc_theorem` *(planned)* — the CAP extension that adds latency-vs-consistency in steady state.
 - [[consistency_models]] — what "C" actually means at finer granularity.
-- [[quorum_reads_writes]] — N/W/R as the lever to slide between CP and AP.
-- [[raft]] — a CP consensus protocol; concrete instance of the trade-off.
+- quorum reads writes — N/W/R as the lever to slide between CP and AP.
+- raft — a CP consensus protocol; concrete instance of the trade-off.
 
 ---
 

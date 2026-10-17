@@ -2,9 +2,21 @@
 
 # data_types
 
+
+Prometheus metric types define how measurements are represented and queried.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Counter** | A cumulative value that increases over time, except when it resets. | [Prometheus](https://prometheus.io/docs/concepts/metric_types/#counter) |
+| **Gauge** | A value that can increase or decrease over time. | [Prometheus](https://prometheus.io/docs/concepts/metric_types/#gauge) |
+| **Histogram** | A metric that samples observations into configurable buckets and tracks their count and sum. | [Prometheus](https://prometheus.io/docs/concepts/metric_types/#histogram) |
+| **Summary** | A metric that samples observations and calculates configured quantiles on the instrumented process. | [Prometheus](https://prometheus.io/docs/concepts/metric_types/#summary) |
+
 **Core Concept**: Prometheus has four metric types (Counter, Gauge, Histogram, Summary) - each suited for different measurement patterns and queried with specific functions.
 
-## Why It Matters
+## Operational impact
 
 Choosing the wrong metric type leads to incorrect queries and misleading visualizations. Understanding [[time_series_basics]] helps you see how these types are stored as time series.
 
@@ -14,12 +26,12 @@ Choosing the wrong metric type leads to incorrect queries and misleading visuali
 
 **When to Use**: Count events - requests, errors, bytes sent, tasks completed
 
-**Go Example**:
+### Go Example
 ```go
 totalRequests.Inc()
 ```
 
-**Exposition**:
+### Exposition
 ```
 http_requests_total{status="200"} 1543
 http_requests_total{status="500"} 12
@@ -37,7 +49,7 @@ Never use raw counter values in alerts/dashboards - always use `rate()` or `incr
 
 **When to Use**: Measure current state - memory usage, queue length, temperature, active connections
 
-**Go Example**:
+### Go Example
 ```go
 queueLength.Set(42)     // Set absolute value
 queueLength.Inc()       // Increment by 1
@@ -46,15 +58,15 @@ queueLength.Add(23)     // Add amount
 queueLength.Sub(10)     // Subtract amount
 ```
 
-**Exposition**:
+### Exposition
 ```
 queue_length 42
 memory_usage_bytes 1073741824
 ```
 
-**Query with**: `avg_over_time()`, `max_over_time()`, `delta()`, `deriv()` - see [[range_function_calculations]]
+**Query with**: `avg_over_time()`, `max_over_time()`, `delta()`, `deriv()` - see range function calculations
 
-**Common Pattern**:
+### Common Pattern
 ```promql
 # How long ago did something happen?
 time() - process_start_time_seconds
@@ -66,7 +78,7 @@ time() - process_start_time_seconds
 
 **When to Use**: Single instance metrics where you know required percentiles upfront
 
-**Go Example**:
+### Go Example
 ```go
 requestDurations := prometheus.NewSummary(prometheus.SummaryOpts{
 	Name: "http_request_duration_seconds",
@@ -81,7 +93,7 @@ requestDurations := prometheus.NewSummary(prometheus.SummaryOpts{
 requestDurations.Observe(2.3)
 ```
 
-**Exposition**:
+### Exposition
 ```
 http_request_duration_seconds{quantile="0.5"} 0.052
 http_request_duration_seconds{quantile="0.90"} 0.0564
@@ -90,7 +102,7 @@ http_request_duration_seconds_sum 88364.234
 http_request_duration_seconds_count 227420
 ```
 
-**Trade-offs**:
+### Trade-offs
 - ✅ Accurate quantiles pre-calculated
 - ✅ Low query cost (values already computed)
 - ❌ Cannot aggregate across instances (each calculates independently)
@@ -117,7 +129,7 @@ Records three things:
 - `_sum`: total of all observed values
 - `_bucket{le="X"}`: number of observations ≤ X (cumulative)
 
-**Go Example**:
+### Go Example
 ```go
 requestDurations := prometheus.NewHistogram(prometheus.HistogramOpts{
 	Name: "http_request_duration_seconds",
@@ -128,7 +140,7 @@ requestDurations := prometheus.NewHistogram(prometheus.HistogramOpts{
 requestDurations.Observe(2.3)
 ```
 
-**Java Example**:
+### Java Example
 ```java
 static final Histogram requestLatency = Histogram.build()
       .name("myapp_request_duration_seconds")
@@ -137,7 +149,7 @@ static final Histogram requestLatency = Histogram.build()
       .register();
 ```
 
-**Exposition**:
+### Exposition
 ```
 http_request_duration_seconds_bucket{le="0.05"} 4599
 http_request_duration_seconds_bucket{le="0.1"} 24128
@@ -180,7 +192,7 @@ rate(http_request_duration_seconds_count[5m])
 rate(http_request_duration_seconds_count[1m])
 ```
 
-**Trade-offs**:
+### Trade-offs
 - ✅ Aggregatable across instances (unlike Summary)
 - ✅ Flexible — can compute any percentile at query time
 - ❌ Approximate percentiles only (bucket-based interpolation)
@@ -200,7 +212,22 @@ rate(http_request_duration_seconds_count[1m])
 
 ---
 
+```mermaid
+flowchart LR
+  A[Observed value] --> B{Metric type}
+  B --> C[Counter]
+  B --> D[Gauge]
+  B --> E[Histogram]
+  B --> F[Summary]
+  C --> G[rate or increase]
+  D --> H[Current value query]
+  E --> I[Aggregatable buckets]
+  F --> J[Process-local quantiles]
+```
+
 ## References
+
+
 - https://www.youtube.com/watch?v=STVMGrYIlfg&list=PLyBW7UHmEXgylLwxdVbrBQJ-fJ_jMvh8h
 - https://www.youtube.com/watch?v=fhx0ehppMGM&list=PLyBW7UHmEXgylLwxdVbrBQJ-fJ_jMvh8h&index=4
 - https://prometheus.io/docs/practices/histograms/

@@ -1,11 +1,17 @@
+🗓️ 03042026 1523
+
 # tls_certificates
 
-**What it is:**
+> **TLS certificate**: A signed binding between an identity and a public key, used by TLS peers during authentication. ([RFC 5280](https://www.rfc-editor.org/rfc/rfc5280))
+
+Certificates let clients verify server identity during TLS handshakes.
+
+## Overview
 - Digital documents that prove a server's identity and enable encrypted connections
 - Issued by [[certificate_authorities]] — trusted third parties that verify ownership
 - Presented during the [[tls]] handshake so the client can verify it's talking to the real server
 
-**Problem it solves:**
+## Problem addressed
 - Without certificates: no way to verify you're talking to the real server (man-in-the-middle attacks)
 - Without encryption: data transmitted in plaintext — passwords, tokens, client data exposed
 
@@ -39,7 +45,7 @@
 - **Root CA** → **Intermediate CA** → **Server certificate**
 - Browsers trust root CAs; intermediates are signed by roots; your cert is signed by an intermediate
 - If any link in the chain is invalid, expired, or revoked — connection fails
-- See [[certificate_authorities]] for how the chain of trust works
+- See certificate authorities for how the chain of trust works
 
 ## Multi-Client Certificate Strategy
 
@@ -52,7 +58,7 @@ For one server hosting multiple client domains:
 For automating certificates in Docker, see [[docker_tls_termination]].
 
 ```ad-danger
-**Expired certificates break everything**: Browsers block access, API clients reject connections, mobile apps crash. Automate renewal with ACME (see [[certificate_authorities]]) — never rely on manual renewal for production.
+**Expired certificates break everything**: Browsers block access, API clients reject connections, mobile apps crash. Automate renewal with ACME (see certificate authorities) — never rely on manual renewal for production.
 ```
 
 ```ad-warning
@@ -61,7 +67,21 @@ For automating certificates in Docker, see [[docker_tls_termination]].
 
 ---
 
+```mermaid
+flowchart LR
+  A[Server private key and public key] --> B[Certificate signing request]
+  B --> C[Certificate authority validation]
+  C --> D[Signed leaf certificate]
+  D --> E[Intermediate certificates]
+  E --> F[Trusted root certificate]
+  G[TLS server presents chain] --> H[Client validates names and signatures]
+  F --> H
+  H --> I[Authenticated TLS connection]
+```
+
 ## References
+
+
 
 - https://developer.mozilla.org/en-US/docs/Web/Security/Transport_Layer_Security
 - https://www.ssl.com/faqs/what-is-a-certificate-authority/

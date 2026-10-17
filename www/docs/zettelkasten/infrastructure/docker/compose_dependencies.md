@@ -2,11 +2,15 @@
 
 # compose_dependencies
 
-**What it is:**
+> **`depends_on` condition**: A Compose option that controls when a dependent service may start relative to another service. ([Docker Docs](https://docs.docker.com/compose/startup-order/))
+
+Startup order alone does not prove a dependency is ready, so services need health-based conditions.
+
+## Overview
 - Strategies beyond basic `depends_on` to manage service startup order and readiness in [[compose]]
 - Uses health checks and completion conditions to ensure services are truly ready before dependents start
 
-**Problem it solves:**
+## Problem addressed
 - Basic `depends_on` only waits for container start, not readiness
 - Database container "started" but still initializing — app connects and crashes
 - In multi-client stacks, a shared database must be fully ready before any client service connects
@@ -43,7 +47,7 @@ What happens when a dependency crashes after startup:
 - `restart: always` — restarts no matter what, including after host reboot
 - Choose based on whether the service should self-heal or require manual intervention
 
-## When to Skip depends_on
+## Poor fit
 
 Sometimes application-level resilience is better:
 - App has connection retry logic with backoff — more resilient than strict ordering
@@ -63,6 +67,18 @@ A depends on B depends on C:
 
 ```ad-example
 **Migration container pattern**: DB starts → migration container runs `flyway migrate` and exits → app starts only after migration succeeds. This guarantees schema consistency across all client stacks.
+```
+
+```mermaid
+flowchart LR
+  A[Compose starts dependency] --> B[Container starts]
+  B --> C{Condition}
+  C -->|service_started| D[Dependent may start]
+  C -->|service_healthy| E[Health check passes]
+  E --> D
+  C -->|service_completed_successfully| F[One-shot task exits successfully]
+  F --> D
+  D --> G[Application connects to dependency]
 ```
 
 ---

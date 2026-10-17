@@ -1,11 +1,17 @@
+🗓️ 13042026 0036
+
 # ssh
 
-**What it is:**
+> **Secure Shell (SSH)**: A protocol for secure remote login and other network services over an insecure network. ([RFC 4251](https://www.rfc-editor.org/rfc/rfc4251))
+
+SSH provides encrypted remote access without exposing credentials and commands in plaintext.
+
+## Overview
 - **Secure Shell** — protocol for encrypted remote access to machines over an untrusted network
 - Gives you a terminal session on a remote server, with all traffic encrypted end-to-end
 - Uses the same asymmetric + symmetric encryption model as [[tls]] — asymmetric for authentication/key exchange, symmetric for bulk data
 
-**Problem it solves:**
+## Problem addressed
 - Before SSH: `telnet` and `rsh` sent everything (including passwords) in plaintext
 - Need to administer servers, transfer files, and tunnel traffic without eavesdroppers seeing your commands or credentials
 
@@ -77,6 +83,19 @@ Host myserver
 Now `ssh myserver` expands to the full connection details.
 
 ## Security Practices
+
+```mermaid
+sequenceDiagram
+  participant Client
+  participant Server
+  Client->>Server: TCP connection
+  Client->>Server: Negotiate SSH protocol and algorithms
+  Server-->>Client: Host key
+  Client->>Client: Verify host key trust
+  Client->>Server: Authenticate user with key or other method
+  Server-->>Client: Authenticated session
+  Client->>Server: Encrypted channel requests
+```
 
 - Use **Ed25519** keys (modern, fast, short) — avoid RSA unless compatibility requires it
 - Protect private keys with a **passphrase** + SSH agent

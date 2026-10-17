@@ -2,6 +2,10 @@
 
 # pacman
 
+> **pacman**: Arch Linux's package manager for installing, upgrading, and removing packages from repositories. ([Arch Wiki](https://wiki.archlinux.org/title/Pacman))
+
+Pacman keeps installed packages and repository metadata in sync.
+
 ## Package Operations
 
 | Action | Command |
@@ -27,6 +31,19 @@ sudo pacman -Sc     # remove old cached package versions
 sudo pacman -Scc    # remove all cached packages (more aggressive)
 ```
 
+```mermaid
+flowchart LR
+  A[pacman command] --> B[Repository database]
+  B --> C[Dependency resolution]
+  C --> D[Package download]
+  D --> E[Signature and package checks]
+  E --> F[Install or upgrade files]
+  F --> G[Local package database]
+  H[Cache cleanup] --> I[Remove old package archives]
+```
+
 ## References
+
+
 
 - [Arch Wiki: pacman](https://wiki.archlinux.org/title/pacman)

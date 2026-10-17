@@ -2,6 +2,8 @@
 
 # interpreting_host_memory
 
+> **MemAvailable**: A Linux estimate of memory available for new applications without swapping. ([Linux proc documentation](https://www.kernel.org/doc/html/latest/filesystems/proc.html))
+
 Host-memory interpretation begins with one question: **how much more work can Linux accept without swapping heavily or killing a process?** `MemAvailable` is the best first estimate. “Percent used” and `MemFree` do not answer that question reliably.
 
 Read [[how_linux_uses_memory]], [[linux_memory_pages]], and [[proc_meminfo]] first if page cache, reclaimable memory, slab, or `/proc` are unfamiliar.
@@ -97,7 +99,21 @@ A threshold such as 15% available memory can be a useful warning, but it is not 
 
 Use a threshold to request investigation. Do not make the threshold itself the diagnosis.
 
+```mermaid
+flowchart LR
+  A[/proc/meminfo] --> B[MemAvailable trend]
+  B --> C{Sustained pressure?}
+  C -->|no| D[Continue monitoring]
+  C -->|yes| E[Check swap activity]
+  E --> F[Check pressure and I/O]
+  F --> G[Identify process consumers]
+  G --> H[Check kernel OOM evidence]
+  H --> I[Host or container remediation]
+```
+
 ## References
+
+
 
 - [Linux `/proc/meminfo` documentation](https://docs.kernel.org/filesystems/proc.html#meminfo)
 - [Linux PSI documentation](https://docs.kernel.org/accounting/psi.html)

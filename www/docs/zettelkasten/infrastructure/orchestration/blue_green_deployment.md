@@ -2,12 +2,16 @@
 
 # blue_green_deployment
 
-**What it is:**
+> **Blue-green deployment**: A release strategy that runs a new version beside the current version and switches traffic after validation. ([AWS Prescriptive Guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/choosing-deployment-strategy/blue-green.html))
+
+Blue-green deployment validates a separate environment before switching user traffic.
+
+## Overview
 - Two identical production environments — **blue** (current) and **green** (new version)
 - Deploy the new version to the idle environment, test it, then switch all traffic at once
 - The old environment stays running as an instant rollback target
 
-**Why it exists:**
+## Problem addressed
 - [[rolling_deployment]] has a mixed-version window where old and new coexist — some bugs only surface in that state
 - Blue-green eliminates mixed versions entirely: all traffic hits one version at all times
 - Rollback is instant — just switch the router back to the old environment
@@ -40,18 +44,18 @@ The roles alternate — next deployment, green becomes the "old" and blue become
 - Update [[reverse_proxy]] config to route to green
 - Works well in Docker setups — point nginx/Traefik to the green service
 
-## When to Use
+## Use cases
 
 - Zero tolerance for mixed-version bugs (financial transactions, payment processing)
 - Need instant rollback capability
 - Can afford double the infrastructure during deployment
 - Database schema is compatible with both versions (or you use a shared database)
 
-## When to Skip
+## Poor fit
 
 - Budget-constrained — running two full environments is expensive
 - Deployments are frequent (multiple times a day) — overhead of maintaining two environments adds up
-- [[rolling_deployment]] or [[canary_deployment]] gives you enough confidence with less cost
+- rolling deployment or [[canary_deployment]] gives you enough confidence with less cost
 
 ## Trade-offs
 
@@ -71,7 +75,7 @@ The roles alternate — next deployment, green becomes the "old" and blue become
 
 ### No gradual exposure
 - All users switch at once — if the new version has a subtle bug, everyone is affected
-- Compare to [[canary_deployment]] which exposes a small percentage first
+- Compare to canary deployment which exposes a small percentage first
 
 ```ad-warning
 **Database migrations are the hard part**: If green requires a schema change that breaks blue, you can't safely switch back. Always use backward-compatible migrations (add columns, not rename/remove) and clean up in a later release.
@@ -83,7 +87,20 @@ The roles alternate — next deployment, green becomes the "old" and blue become
 
 ---
 
+```mermaid
+flowchart LR
+  A[Blue environment serves traffic] --> B[Deploy new version to green]
+  B --> C[Run validation checks]
+  C --> D{Validation passes?}
+  D -->|yes| E[Switch router or load balancer]
+  E --> F[Green serves traffic]
+  D -->|no| G[Keep blue serving traffic]
+  F --> H[Retain blue for rollback]
+```
+
 ## References
+
+
 
 - https://martinfowler.com/bliki/BlueGreenDeployment.html
 - https://docs.aws.amazon.com/whitepapers/latest/overview-deployment-options/bluegreen-deployments.html

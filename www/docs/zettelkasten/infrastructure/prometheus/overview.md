@@ -2,89 +2,72 @@
 
 # overview
 
-If you are learning how to read existing dashboards, begin with [[metrics_learning_path]]. This note describes the Prometheus system rather than the Linux meaning behind each metric.
+Prometheus discovers metric endpoints, scrapes them, stores time series, and evaluates queries and alert rules. This note explains the monitoring path; [[metrics_learning_path]] teaches how to read dashboard measurements.
 
-```ad-summary
-Metrics based system that helps you collect / record metrics from your services
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Metric** | A named measurement exposed by an application or exporter. | [Prometheus data model](https://prometheus.io/docs/concepts/data_model/) |
+| **Time series** | A stream of timestamped values identified by a metric name and label set. | [Prometheus data model](https://prometheus.io/docs/concepts/data_model/) |
+| **Sample** | A timestamp and value stored for a time series. | [Prometheus data model](https://prometheus.io/docs/concepts/data_model/) |
+| **Label** | A key-value dimension attached to a time series. | [Prometheus data model](https://prometheus.io/docs/concepts/data_model/) |
+| **Target** | An endpoint that Prometheus is configured to scrape. | [Prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/) |
+| **Scrape** | An HTTP request Prometheus makes to read a target's metrics. | [Prometheus getting started](https://prometheus.io/docs/prometheus/latest/getting_started/) |
+| **PromQL** | Prometheus's query language for selecting and transforming time series. | [Prometheus query basics](https://prometheus.io/docs/prometheus/latest/querying/basics/) |
+
+## Collection and query path
+
+Service discovery or static configuration supplies targets. Prometheus requests each target's metrics endpoint and stores the returned samples. PromQL reads and transforms stored series; dashboards display query results, while alerting rules evaluate conditions and send alerts to Alertmanager.
+
+```mermaid
+flowchart LR
+  A[Static config or service discovery] --> B[Prometheus target]
+  B --> C[HTTP scrape request]
+  C --> D[Metric name, labels, timestamp, value]
+  D --> E[Time series database]
+  E --> F[PromQL query]
+  F --> G[Grafana graph or table]
+  F --> H[Alerting rule]
+  H --> I[Alertmanager]
+  I --> J[Notification receiver]
 ```
 
-## System Architecture
+## Data model
 
-Pull based monitoring system
-1. Pulls data from a list of services 
-	- List can be configured
-		- Statically
-		- Dynamically through service discovery
-	- Can use to generate alerts through an Alertmanager
-	- Or query
+A metric name describes what is measured. Labels distinguish dimensions such as method or status. Each unique name and label set identifies a separate time series.
 
-## Core Features
-
-### Data model
-
-Tracks and stores time series values (Numeric values that change over time)
-> Sampled at specific points in time (prometheus pull interval)
-
-| Term              | Description                                                                           |
-| ----------------- | ------------------------------------------------------------------------------------- |
-| sample            |                                                                                       |
-| series            | a progression of samples                                                              |
-| series identifier | metric name and a set of labels                                                       |
-| metric name       | what you are trying to measure                                                        |
-| label             | key-value pairs that allow you to partition a metric name into individual time series |
-| target labels     |                                                                                       |
-### Transfer format
 ```prom
-# HELP http_requests_total The total number of prrocessed HTTP requests.
+# HELP http_requests_total Total processed HTTP requests.
 # TYPE http_requests_total counter
 http_requests_total{status="200"} 8556
 http_requests_total{status="404"} 20
 http_requests_total{status="500"} 68
+```
 
-# HELP process_open_fds Number of open file descripttors
+The three label values above create three time series under one metric name. A label with unbounded values, such as user ID, can create excessive series.
+
+## Exposition format
+
+Targets usually expose metrics as text at an HTTP endpoint. Prometheus parses metric names, labels, values, and optional metadata during each scrape.
+
+```prom
+# HELP process_open_fds Number of open file descriptors.
 # TYPE process_open_fds gauge
 process_open_fds 32
 ```
 
-```ad-info
-It is text based so that no special libraries are needed to expose metrics
+## Boundaries
 
-```
-
-```ad-note
-The above is scraped through a HTTP endpoint
-```
-### Query language
-> For doing useful things with data stored in TSDB
-
- Prom QL
-- has many functions to do stuff with metrics (dimension based aggregations tec.)
-	- an be 
-- can be very mathy
-
-### Alerting
-
-Also based on PromQL
-```yaml
-alert: Many500Errors
-expr: |
-(
-	sum by(path) (rate(http_requests_total{status="500"}[5m]))
-/
-	sum by(path) (rate(http_requests_total[5m]))
-) * 100 > 5
-for: 5m
-labels:
-	severity: "critical"
-annotations:
-	summary: "Many 500 errors for path {{$labels.path}} ({{$value}}%)"
-```
-### Service Discovery
-Prometheus easily integrates with many service discovery platforms
-
-
----
+- Prometheus uses a pull model by default; targets do not push every sample.
+- A scrape failure leaves the target without a fresh sample for that interval.
+- PromQL query results depend on time range, evaluation time, and labels.
+- Alert rules evaluate expressions; Alertmanager handles grouping and notification routing.
 
 ## References
-- https://www.youtube.com/watch?v=STVMGrYIlfg&list=PLyBW7UHmEXgylLwxdVbrBQJ-fJ_jMvh8h
-- https://prometheus.io/docs/introduction/overview/
+
+- [Prometheus overview](https://prometheus.io/docs/introduction/overview/)
+- [Prometheus data model](https://prometheus.io/docs/concepts/data_model/)
+- [Prometheus exposition formats](https://prometheus.io/docs/instrumenting/exposition_formats/)
+- [Prometheus alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)
+- [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/)

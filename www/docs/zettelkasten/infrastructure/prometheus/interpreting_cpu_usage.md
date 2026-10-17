@@ -2,6 +2,8 @@
 
 # interpreting_cpu_usage
 
+> **CPU usage rate**: The rate of accumulated CPU time, commonly interpreted as the number of CPU cores used. ([Prometheus node exporter](https://github.com/prometheus/node_exporter))
+
 `rate(container_cpu_usage_seconds_total[5m])` returns a number like `0.5` or `2.3`. That number is **CPU cores** — seconds of CPU time consumed per second of wall time.
 
 - 0.5 = half a core
@@ -29,7 +31,7 @@ The metric is a [[data_types]] Counter. `rate()` (see [[range_function_calculati
 usage > request is not a problem. The container is using available slack on the node. Only usage near the limit triggers throttling.
 ```
 
-## When Throttling Matters
+## CPU throttling signals
 
 **CFS throttle %** = fraction of 100ms scheduling periods where the container used its full quota and was paused.
 
@@ -63,7 +65,21 @@ usage > request is not a problem. The container is using available slack on the 
 
 ---
 
+```mermaid
+flowchart LR
+  A[container_cpu_usage_seconds_total] --> B[rate over time window]
+  B --> C[CPU cores used]
+  D[CPU request] --> E[Usage-to-request ratio]
+  C --> E
+  F[CPU limit] --> G[Quota throttling]
+  C --> G
+  G --> H[Latency and throughput symptoms]
+  H --> I[Adjust workload or limit]
+```
+
 ## References
+
+
 
 - [Kubernetes Resource Management](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)
 - [CFS Bandwidth Control](https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.txt)

@@ -2,6 +2,10 @@
 
 # tmux
 
+> **tmux**: A terminal multiplexer that lets users manage multiple terminal sessions and panes. ([tmux manual](https://man7.org/linux/man-pages/man1/tmux.1.html))
+
+tmux keeps sessions available after a terminal disconnects and supports multiple panes.
+
 ## SHORTCUTS
 
 > PREFIX: `ctrl + b` - start of all commands
@@ -40,9 +44,21 @@
 
 
 ## Setup
+
+```mermaid
+flowchart LR
+  A[tmux client command] --> B[tmux server]
+  B --> C[Session]
+  C --> D[Window]
+  D --> E[Pane]
+  E --> F[Shell process]
+  G[Detach client] --> B
+  B --> H[Session keeps running]
+  I[Reattach client] --> C
+```
 - https://github.com/tmux-plugins/tpm
 
 ---
 
 ## References
-- ChatGPT
+- [tmux manual](https://man7.org/linux/man-pages/man1/tmux.1.html)

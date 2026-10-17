@@ -2,6 +2,8 @@
 
 # dns_tools
 
+> **Domain Name System (DNS)**: A distributed naming system that maps domain names to resource records such as IP addresses. ([RFC 1034](https://www.rfc-editor.org/rfc/rfc1034))
+
 Tools for querying DNS (Domain Name System) to resolve hostnames to IP addresses.
 
 ---
@@ -39,7 +41,7 @@ example.com.            86400   IN      A       93.184.216.34
 ;; MSG SIZE  rcvd: 56
 ```
 
-**Key parts**:
+### Key parts
 - **QUESTION SECTION**: What you asked for (`A` record for `example.com`)
 - **ANSWER SECTION**: The response
   - `example.com.` - The domain (trailing dot = fully qualified)
@@ -50,7 +52,7 @@ example.com.            86400   IN      A       93.184.216.34
 - **Query time**: How long the query took
 - **SERVER**: Which DNS server responded
 
-**Common record types**:
+### Common record types
 - `A` - IPv4 address
 - `AAAA` - IPv6 address
 - `MX` - Mail server (with priority number)
@@ -58,7 +60,7 @@ example.com.            86400   IN      A       93.184.216.34
 - `CNAME` - Canonical name (alias)
 - `TXT` - Text records (SPF, DKIM, verification)
 
-**Troubleshooting tips**:
+### Troubleshooting tips
 - No ANSWER section? → Domain doesn't exist or no record of that type
 - `NXDOMAIN` status? → Domain doesn't exist (see [[etc_hosts]] for workaround)
 - `SERVFAIL` status? → DNS server error
@@ -90,7 +92,7 @@ Name:   example.com
 Address: 93.184.216.34
 ```
 
-**Key parts**:
+### Key parts
 - **Server**: DNS server that answered your query
 - **Non-authoritative answer**: Response from cache (not the authoritative nameserver)
 - **Name**: The domain you queried
@@ -121,7 +123,7 @@ $ host -t MX example.com
 example.com mail is handled by 10 mail.example.com.
 ```
 
-**Key parts**:
+### Key parts
 - Direct, human-readable output
 - For MX records: Number (e.g., `10`) is priority (lower = higher priority)
 
@@ -158,14 +160,14 @@ Registrant State/Province: CA
 Registrant Country: US
 ```
 
-**Key information**:
+### Key information
 - **Creation Date**: When domain was first registered
 - **Registry Expiry Date**: When domain expires (if not renewed)
 - **Name Server**: Authoritative DNS servers for this domain
 - **Registrant**: Who owns the domain
 - **Registrar**: Company managing the registration
 
-**Use cases**:
+### Use cases
 - Check if domain is about to expire
 - Find who to contact about a domain
 - Verify nameservers are correct
@@ -173,7 +175,22 @@ Registrant Country: US
 
 ---
 
+```mermaid
+flowchart LR
+  A[dig or host query] --> B[Resolver]
+  B --> C{Cached answer?}
+  C -->|yes| D[Return cached record]
+  C -->|no| E[Root DNS server]
+  E --> F[TLD DNS server]
+  F --> G[Authoritative DNS server]
+  G --> H[Resource record]
+  H --> B
+  B --> I[Client receives answer]
+```
+
 ## References
+
+
 
 - [dig manual](https://linux.die.net/man/1/dig)
 - [DNS records explained](https://www.cloudflare.com/learning/dns/dns-records/)

@@ -2,12 +2,16 @@
 
 # ocsp
 
-**What it is:**
+> **Online Certificate Status Protocol (OCSP)**: A protocol for querying the revocation status of an X.509 certificate. ([RFC 6960](https://www.rfc-editor.org/rfc/rfc6960))
+
+OCSP lets clients check whether a presented certificate has been revoked.
+
+## Overview
 - **Online Certificate Status Protocol** — real-time check of whether a [[tls_certificates]] has been revoked
 - Client sends certificate serial number to CA's OCSP responder, gets back "good", "revoked", or "unknown"
 - Lighter alternative to downloading full Certificate Revocation Lists (CRLs)
 
-**Problem it solves:**
+## Problem addressed
 - CRLs grow large (thousands of entries) and must be downloaded entirely — slow, bandwidth-heavy
 - Without revocation checking: a compromised certificate remains trusted until it expires
 - Critical for multi-client setups — if one client's cert key leaks, you need immediate revocation
@@ -68,7 +72,21 @@ See [[docker_tls_termination]] for how to configure this in a Docker Compose set
 
 ---
 
+```mermaid
+sequenceDiagram
+  participant Client
+  participant Server
+  participant Responder as OCSP responder
+  Client->>Server: Request HTTPS connection
+  Server-->>Client: Certificate and optional stapled response
+  Client->>Responder: Query status if needed
+  Responder-->>Client: good, revoked, or unknown
+  Client->>Client: Apply soft-fail or hard-fail policy
+```
+
 ## References
+
+
 
 - https://developer.mozilla.org/en-US/docs/Web/Security/Certificate_Transparency
 - https://letsencrypt.org/docs/revoking/

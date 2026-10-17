@@ -2,11 +2,15 @@
 
 # dockerfile_best_practices
 
-**What it is:**
+> **Dockerfile**: A text file containing instructions that Docker uses to build an image. ([Docker Docs](https://docs.docker.com/reference/dockerfile/))
+
+Dockerfile choices affect image size, build speed, and the security of the final runtime.
+
+## Overview
 - Principles for writing efficient, secure, maintainable Dockerfiles
 - Directly impacts image size, build speed, and security posture
 
-**Problem it solves:**
+## Problem addressed
 - Naive Dockerfiles produce bloated, insecure, slow-to-build images
 - In multi-client deployments, inefficient images multiply resource waste across every client stack
 - Poor security practices (running as root, leaking secrets) compound risk in multi-tenant environments
@@ -59,6 +63,18 @@ Pattern: `RUN addgroup --system app && adduser --system --ingroup app app` then 
 - Use CMD alone for flexibility, ENTRYPOINT + CMD for structured defaults
 
 ## Minimize Layers
+
+```mermaid
+flowchart LR
+  A[Dockerfile instructions] --> B[Build context]
+  B --> C[.dockerignore filters files]
+  C --> D[BuildKit cache]
+  D --> E[Dependency layer]
+  E --> F[Application source layer]
+  F --> G[Non-root runtime user]
+  G --> H[Final image]
+  H --> I[Runtime command]
+```
 
 - Combine related `RUN` commands with `&&`
 - Clean up in the same layer: `RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*`

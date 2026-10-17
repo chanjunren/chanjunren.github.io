@@ -2,6 +2,8 @@
 
 # window_manager
 
+> **Window manager**: A program that controls the placement, sizing, focus, and decoration of application windows. ([Arch Wiki](https://wiki.archlinux.org/title/Window_manager))
+
 A **window manager** (WM) controls how application windows are placed, sized, focused, and decorated on screen. It sits between the display server (X11/Wayland) and your applications.
 
 Window managers are intentionally minimal — they do one thing. Contrast with a **desktop environment** (GNOME, KDE) which bundles a WM together with a panel, file manager, settings daemon, and notification system.
@@ -21,6 +23,19 @@ Tiling WMs keep every pixel used — no wasted space, keyboard-driven. Floating 
 
 Most tiling WMs support floating windows per-app — [[i3]] lets you toggle per-window or force-float by app class.
 
+```mermaid
+flowchart LR
+  A[Application creates window] --> B[X11 or Wayland display system]
+  B --> C[Window manager]
+  C --> D[Placement and sizing]
+  C --> E[Focus and stacking]
+  D --> F[Compositor or display output]
+  E --> F
+  G[Keyboard input] --> C
+```
+
 ## References
+
+
 
 - [Arch Wiki: Window manager](https://wiki.archlinux.org/title/Window_manager)

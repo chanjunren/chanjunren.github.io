@@ -2,12 +2,16 @@
 
 # docker_tls_termination
 
-**What it is:**
+> **TLS termination**: Decrypting a TLS connection at an endpoint such as a reverse proxy before forwarding the request. ([NGINX](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/))
+
+A reverse proxy centralizes certificate handling and HTTPS termination for backend services.
+
+## Overview
 - Pattern where a [[reverse_proxy]] container handles all TLS encryption/decryption
 - Backend containers communicate over plain HTTP within the Docker network
 - The proxy holds the [[tls_certificates]] and terminates HTTPS connections
 
-**Problem it solves:**
+## Problem addressed
 - Each backend service managing its own certificates is operational chaos
 - Certificate renewal, OCSP stapling, TLS version management — centralize it in one place
 - Multi-client Docker deployments need automated certificate management per domain
@@ -53,7 +57,7 @@ For one server hosting multiple client domains:
 ### Shared proxy, isolated backends
 - Proxy container has no profile (always runs)
 - Per-client app containers tagged with client profile
-- Per-client [[container_networking]] networks — proxy joins all, clients only join their own
+- Per-client container networking networks — proxy joins all, clients only join their own
 - Result: client-a's containers cannot reach client-b's containers
 
 ## Certificate Storage
@@ -65,8 +69,21 @@ For one server hosting multiple client domains:
 
 ## Security Checklist
 
+```mermaid
+sequenceDiagram
+  participant Client
+  participant Proxy as Reverse proxy container
+  participant App as Backend container
+  Client->>Proxy: HTTPS request
+  Proxy->>Proxy: Present certificate and terminate TLS
+  Proxy->>App: HTTP request on private Docker network
+  App-->>Proxy: HTTP response
+  Proxy-->>Client: HTTPS response
+  Note over Proxy: Certificate and private key stay here
+```
+
 - TLS 1.2 minimum (disable TLS 1.0, 1.1, SSLv3)
-- Enable OCSP stapling (see [[ocsp]])
+- Enable OCSP stapling (see ocsp)
 - HSTS header (Strict-Transport-Security) — forces HTTPS for returning visitors
 - Redirect HTTP → HTTPS at the proxy
 - Proxy container runs as non-root where possible (see [[dockerfile_best_practices]])

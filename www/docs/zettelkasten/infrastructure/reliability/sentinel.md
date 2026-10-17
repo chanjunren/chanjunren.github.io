@@ -1,7 +1,10 @@
 🗓️ 12092024 1153
-📎 #sentinel #resilience 
 
 # sentinel
+
+> **Sentinel**: A Redis component that monitors a Redis deployment and can promote a replica after a master failure. ([Redis documentation](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/))
+
+Sentinel monitors Redis and coordinates failover when a primary becomes unavailable.
 
 ## Degrade Rules Cheatsheet
 ### RT-based Degradation
@@ -43,6 +46,19 @@
 - After the **time window**, the service will try to serve requests again. If the issue persists, it may degrade again.
 
 ## Example
+
+```mermaid
+flowchart LR
+  A[Sentinel instances] --> B[Monitor Redis master]
+  B --> C{Master reachable?}
+  C -->|yes| D[Continue monitoring]
+  C -->|no| E[Subjective down report]
+  E --> F[Quorum agreement]
+  F --> G[Objective down]
+  G --> H[Select replica]
+  H --> I[Promote replica]
+  I --> J[Update clients and peers]
+```
 ```json
 [
   {
@@ -67,3 +83,5 @@
 ---
 
 ## References
+
+- [Redis Sentinel documentation](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/)

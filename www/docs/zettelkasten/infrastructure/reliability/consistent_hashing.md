@@ -1,7 +1,8 @@
 🗓️ 29042026 1515
-📎 #distributed_systems #sharding
 
 # consistent_hashing
+
+> **Consistent hashing**: A mapping scheme that assigns keys and nodes to a ring to limit remapping when nodes join or leave. ([Karger et al.](https://people.csail.mit.edu/karger/Papers/web.pdf))
 
 > Sharding scheme that minimises data movement when nodes join or leave the cluster. The basis for distributed caches and Dynamo-style stores — the alternative ("just `hash mod N`") falls apart on the first capacity change.
 
@@ -66,7 +67,20 @@ Bonus: when a node fails, its load distributes across *all* remaining nodes (bec
 
 ## Related
 
-- [[cluster_topology]] — fixed-slot variant of the same problem.
+```mermaid
+flowchart LR
+  A[Node identifiers] --> B[Hash ring]
+  C[Data key] --> D[Hash key]
+  D --> E[Clockwise successor node]
+  B --> E
+  E --> F[Store or retrieve key]
+  G[Node added] --> H[Only nearby key range moves]
+  I[Node removed] --> J[Keys move to next node]
+  H --> B
+  J --> B
+```
+
+- cluster topology — fixed-slot variant of the same problem.
 - [[quorum_reads_writes]] — replication on the ring with N/W/R.
 - [[cap_theorem]] — Dynamo-style systems built on consistent hashing are typically AP.
 

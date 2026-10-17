@@ -2,6 +2,8 @@
 
 # yay
 
+> **yay**: An AUR helper that supports Arch repository and AUR package workflows. ([yay repository](https://github.com/Jguer/yay))
+
 **yay** (Yet Another Yogurt) is the most widely used AUR helper on Arch-based systems. It wraps [[pacman]] and adds AUR support — same flags work for both official repo and AUR packages.
 
 ## One-Time Setup
@@ -34,7 +36,21 @@ By default yay prompts to review diffs and edit PKGBUILDs. To skip for trusted p
 yay -S pkgname --nodiffmenu --noeditpkgbuild
 ```
 
+```mermaid
+flowchart LR
+  A[yay command] --> B{Package source}
+  B --> C[Official repository]
+  B --> D[AUR package]
+  C --> E[pacman transaction]
+  D --> F[PKGBUILD review and build]
+  F --> E
+  E --> G[Installed package]
+  H[Interactive prompt] --> D
+```
+
 ## References
+
+
 
 - [yay GitHub](https://github.com/Jguer/yay)
 - [Arch Wiki: AUR helpers](https://wiki.archlinux.org/title/AUR_helpers)

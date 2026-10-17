@@ -2,12 +2,16 @@
 
 # swarm_stacks
 
-**What it is:**
+> **Stack**: A group of related services deployed together to a Docker Swarm from a Compose file. ([Docker Docs](https://docs.docker.com/engine/swarm/stack-deploy/))
+
+Stacks group related services and deploy their shared networks and volumes together.
+
+## Overview
 - A named group of services deployed together to a [[docker_swarm]] cluster from a single compose file
 - The Swarm equivalent of `docker compose up` — but distributed across a cluster
 - Bundles services, networks, and volumes into one deployment unit
 
-**Why it exists:**
+## Problem addressed
 - Deploying services one-by-one with `docker service create` is tedious and error-prone
 - Stacks let you define an entire application in a [[compose]] file and deploy it as a single unit
 - A naming convention keeps resources from different stacks isolated on the same cluster
@@ -59,7 +63,20 @@
 
 ---
 
+```mermaid
+flowchart LR
+  A[Compose file] --> B[docker stack deploy]
+  B --> C[Stack namespace]
+  C --> D[Swarm services]
+  D --> E[Scheduled tasks]
+  C --> F[Overlay networks]
+  C --> G[Named volumes]
+  H[docker stack rm] --> I[Remove stack services]
+```
+
 ## References
+
+
 
 - https://docs.docker.com/engine/swarm/stack-deploy/
 - https://docs.docker.com/reference/cli/docker/stack/

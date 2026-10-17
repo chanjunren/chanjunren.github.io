@@ -2,6 +2,8 @@
 
 # ports_connections
 
+> **Socket**: An endpoint for communication that applications use to send or receive data over a network or locally. ([Linux man-pages](https://man7.org/linux/man-pages/man7/socket.7.html))
+
 Tools for checking what ports are open and what's connected. Essential for debugging "port already in use" errors.
 
 ---
@@ -34,7 +36,7 @@ tcp6       0      0 :::80                   :::*                    LISTEN
 udp        0      0 0.0.0.0:68              0.0.0.0:*
 ```
 
-**Key parts**:
+### Key parts
 - **Proto**: Protocol (`tcp`, `tcp6` = IPv6, `udp`)
 - **Recv-Q/Send-Q**: Bytes in receive/send queue (should be ~0)
 - **Local Address**: What's listening locally
@@ -48,16 +50,16 @@ udp        0      0 0.0.0.0:68              0.0.0.0:*
   - `TIME_WAIT` - Connection closing
   - `CLOSE_WAIT` - Remote end closed connection
 
-**Common scenarios**:
+### Common scenarios
 
-**Find what's using port 8080**:
+### Find what's using port 8080
 ```bash
 $ netstat -tuln | grep :8080
 tcp        0      0 127.0.0.1:8080          0.0.0.0:*               LISTEN
 ```
 → Something is listening on port 8080 (localhost only)
 
-**See all established connections**:
+### See all established connections
 ```bash
 $ netstat -tn | grep ESTABLISHED
 tcp        0      0 192.168.1.100:54321     93.184.216.34:443       ESTABLISHED
@@ -93,7 +95,7 @@ tcp   LISTEN  0      128    127.0.0.1:5432       0.0.0.0:*
 tcp   ESTAB   0      0      192.168.1.100:54321  93.184.216.34:443
 ```
 
-**Similar to netstat, but:**
+### Similar to netstat, but
 - **Netid**: Socket type (tcp, udp, etc.)
 - **State**: Connection state (LISTEN, ESTAB = established)
 - Faster performance on systems with many connections
@@ -109,7 +111,7 @@ tcp   LISTEN 0.0.0.0:8080         users:(("node",pid=9012,fd=21))
 ```
 → Now you can see **which process** is using each port!
 
-**Filter by state**:
+### Filter by state
 ```bash
 $ ss -t state established
 # Shows only active connections
@@ -141,7 +143,7 @@ COMMAND   PID   USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
 node    12345  user   21u  IPv4  0x123   0t0     TCP *:8080 (LISTEN)
 ```
 
-**Key parts**:
+### Key parts
 - **COMMAND**: Process name (`node`, `python`, etc.)
 - **PID**: Process ID (use `kill 12345` to stop it)
 - **USER**: Which user owns the process
@@ -151,9 +153,9 @@ node    12345  user   21u  IPv4  0x123   0t0     TCP *:8080 (LISTEN)
   - `*:8080 (LISTEN)` - Listening on all interfaces, port 8080
   - `localhost:8080->localhost:54321 (ESTABLISHED)` - Active connection
 
-**Common use cases**:
+### Common use cases
 
-**Port already in use error?**
+### Port already in use error?
 ```bash
 $ lsof -i :3000
 COMMAND   PID  USER   FD   TYPE   NODE NAME
@@ -165,12 +167,12 @@ $ kill 12345
 $ kill -9 12345
 ```
 
-**See all connections for an app**:
+### See all connections for an app
 ```bash
 $ lsof -c nginx  # All files/connections for nginx
 ```
 
-**Find what's making external connections**:
+### Find what's making external connections
 ```bash
 $ lsof -i tcp -s TCP:ESTABLISHED
 ```
@@ -189,7 +191,22 @@ $ lsof -i tcp -s TCP:ESTABLISHED
 
 ---
 
+```mermaid
+flowchart LR
+  A[Application process] --> B[Socket]
+  B --> C[Local IP and port]
+  C --> D{Connection state}
+  D --> E[Listening socket]
+  D --> F[Established connection]
+  D --> G[Closing or time-wait]
+  H[ss or lsof] --> I[Inspect socket owner and state]
+  E --> I
+  F --> I
+```
+
 ## References
+
+
 
 - [netstat manual](https://linux.die.net/man/8/netstat)
 - [ss manual](https://man7.org/linux/man-pages/man8/ss.8.html)

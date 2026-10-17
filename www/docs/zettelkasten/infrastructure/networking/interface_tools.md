@@ -2,6 +2,8 @@
 
 # interface_tools
 
+> **Network interface**: A host's logical or physical connection point for sending and receiving network traffic. ([Linux ip manual](https://man7.org/linux/man-pages/man8/ip.8.html))
+
 Tools for viewing and configuring network interfaces, IP addresses, and routing.
 
 ---
@@ -25,7 +27,7 @@ ip -s link                  # Show interface statistics
 
 ### Interpreting Output
 
-#### `ip addr show`
+### `ip addr show`
 ```bash
 $ ip addr show
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN
@@ -37,7 +39,7 @@ $ ip addr show
     inet6 fe80::a00:27ff:fe4e:66a1/64 scope link
 ```
 
-**Key parts**:
+### Key parts
 - **lo**: Loopback interface (localhost, always 127.0.0.1)
 - **eth0**: Ethernet interface (or en0, wlan0, etc.)
 - **State flags**:
@@ -49,35 +51,35 @@ $ ip addr show
 - **scope global**: Globally routable (vs. `scope host` = localhost only)
 - **mtu 1500**: Maximum transmission unit (packet size)
 
-#### `ip route show`
+### `ip route show`
 ```bash
 $ ip route show
 default via 192.168.1.1 dev eth0 proto static metric 100
 192.168.1.0/24 dev eth0 proto kernel scope link src 192.168.1.100
 ```
 
-**Key parts**:
+### Key parts
 - **default via 192.168.1.1**: Default gateway (router) - where to send packets for unknown destinations
 - **dev eth0**: Which interface to use
 - **192.168.1.0/24**: Local network (packets to this range go directly, not through gateway)
 - **src 192.168.1.100**: Source IP to use
 
-**Use cases**:
+### Use cases
 
-**Find your IP address**:
+### Find your IP address
 ```bash
 $ ip addr show | grep "inet " | grep -v 127.0.0.1
     inet 192.168.1.100/24 brd 192.168.1.255 scope global eth0
 ```
 
-**Check if interface is up**:
+### Check if interface is up
 ```bash
 $ ip link show eth0
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> ...
 ```
 → `UP` means active
 
-**See route to specific destination**:
+### See route to specific destination
 ```bash
 $ ip route get 8.8.8.8
 8.8.8.8 via 192.168.1.1 dev eth0 src 192.168.1.100
@@ -112,7 +114,7 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         TX packets 6789  bytes 456789 (456.7 KB)
 ```
 
-**Key parts**:
+### Key parts
 - **UP**: Interface is active
 - **RUNNING**: Cable connected
 - **inet 192.168.1.100**: IPv4 address
@@ -141,7 +143,7 @@ search local.domain
 domain example.com
 ```
 
-**Key parts**:
+### Key parts
 - **nameserver**: DNS servers to query (in order)
   - `8.8.8.8` - Google DNS
   - `1.1.1.1` - Cloudflare DNS
@@ -150,9 +152,9 @@ domain example.com
   - If you type `ping server`, it tries `server.local.domain`
 - **domain**: Default domain name
 
-**Troubleshooting**:
+### Troubleshooting
 
-**No nameservers listed?**
+### No nameservers listed?
 ```bash
 $ cat /etc/resolv.conf
 # (empty or no nameserver lines)
@@ -162,13 +164,13 @@ $ cat /etc/resolv.conf
 echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
 ```
 
-**Check which DNS server is actually used**:
+### Check which DNS server is actually used
 ```bash
 $ dig example.com | grep SERVER
 ;; SERVER: 8.8.8.8#53(8.8.8.8)
 ```
 
-**Common DNS servers**:
+### Common DNS servers
 - `8.8.8.8`, `8.8.4.4` - Google DNS
 - `1.1.1.1`, `1.0.0.1` - Cloudflare DNS
 - `208.67.222.222`, `208.67.220.220` - OpenDNS
@@ -196,7 +198,7 @@ $ cat /etc/hosts
 ```
 1. Application needs to connect to "example.com"
    ↓
-2. Check /etc/hosts first ([[etc_hosts]])
+2. Check /etc/hosts first (etc hosts)
    ↓ (not found)
 3. Query DNS servers from /etc/resolv.conf
    ↓ (returns 93.184.216.34)
@@ -209,7 +211,21 @@ $ cat /etc/hosts
 
 ---
 
+```mermaid
+flowchart LR
+  A[ip link] --> B[Interface state]
+  B --> C[ip addr]
+  C --> D[Assigned addresses]
+  D --> E[ip route]
+  E --> F[Selected gateway]
+  G[/etc/resolv.conf] --> H[DNS resolver]
+  I[/etc/hosts] --> H
+  F --> J[Outbound packet path]
+```
+
 ## References
+
+
 
 - [ip manual](https://man7.org/linux/man-pages/man8/ip.8.html)
 - [ifconfig manual](https://linux.die.net/man/8/ifconfig)

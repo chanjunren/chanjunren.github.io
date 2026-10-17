@@ -1,6 +1,4 @@
 🗓️ 29042026 1600
-📎 #distributed_systems #moc
-
 # moc_distributed_systems
 
 > Map of Content for the distributed-systems concept cluster. Walk top-to-bottom; if a concept resists self-explanation in two minutes, re-read the zettel.
@@ -29,11 +27,28 @@
 - **First pass**: read each zettel back-to-back, take no notes, just absorb.
 - **Second pass**: walk this index, write a 3-bullet recall for each entry from memory, then compare to the zettel. Gaps point to where the concept hasn't landed.
 - **Application drill**: take a system design prompt (e.g. *"design a globally-replicated KV store"*) and try to weave 5+ of these zettels into the answer naturally. The connections matter as much as the individual concepts.
-- **Tag hygiene**: zettels here are tagged by topic (`#distributed_systems`, `#consistency`, `#sharding`). Drop `#wip` once a zettel is revised and stable.
 
 ## Bridges to Other Domains
+
+```mermaid
+flowchart LR
+  A[Network partitions] --> B[CAP theorem]
+  B --> C[Consistency models]
+  C --> D[Quorum reads and writes]
+  D --> E[Raft consensus]
+  E --> F[etcd]
+  C --> G[Replication behavior]
+  G --> H[Consistent hashing]
+  I[Connection failures] --> J[Connection leak and wedge]
+```
 
 - → DB internals: [[ACID]], [[concurrency_control]], [[mvcc_innodb_read_view]], [[transaction_isolation_levels]].
 - → Caching: [[cluster_topology]], `redis_distributed_lock` *(planned)*.
 - → Messaging: [[exactly_once_semantics]], `kafka_architecture` *(planned)*.
 - → System design templates: `system_design_framework` *(planned)*, `back_of_envelope_estimation` *(planned)*.
+
+## References
+
+- [CAP theorem paper](https://dl.acm.org/doi/10.1145/564585.564601)
+- [Dynamo paper](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf)
+- [Raft paper](https://raft.github.io/raft.pdf)

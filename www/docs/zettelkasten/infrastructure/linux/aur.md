@@ -2,6 +2,8 @@
 
 # aur
 
+> **Arch User Repository (AUR)**: A community-maintained collection of build scripts for software outside Arch's official repositories. ([Arch Wiki](https://wiki.archlinux.org/title/Arch_User_Repository))
+
 The **Arch User Repository (AUR)** is a community-maintained collection of packages not in the official Arch repos. Instead of pre-built binaries, it ships **PKGBUILDs** — build scripts that compile and package software locally on your machine.
 
 This is why EndeavourOS can install almost any Linux software: if it's not in the official repos, it's likely in the AUR.
@@ -20,7 +22,20 @@ AUR packages are community-maintained — not vetted by Arch. Always check the P
 yay -G pkgname      # clone without installing, so you can read the PKGBUILD first
 ```
 
+```mermaid
+flowchart LR
+  A[AUR package page] --> B[PKGBUILD review]
+  B --> C[makepkg downloads sources]
+  C --> D[Build and package locally]
+  D --> E[Install package]
+  E --> F[Pacman tracks installed files]
+  G[AUR helper] --> B
+  H[Official repositories] --> F
+```
+
 ## References
+
+
 
 - [AUR overview](https://aur.archlinux.org/)
 - [Arch Wiki: AUR](https://wiki.archlinux.org/title/Arch_User_Repository)

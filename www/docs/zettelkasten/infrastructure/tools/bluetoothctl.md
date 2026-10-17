@@ -2,6 +2,8 @@
 
 # bluetoothctl
 
+> **bluetoothctl**: The command-line tool for controlling BlueZ Bluetooth devices and adapters. ([BlueZ](https://bluez.org/))
+
 **bluetoothctl** is the CLI tool for managing Bluetooth on Linux (part of BlueZ).
 
 ## Quick Reference
@@ -47,6 +49,19 @@ Set before pairing to match the device type:
 
 ---
 
+```mermaid
+flowchart LR
+  A[bluetoothctl command] --> B[BlueZ D-Bus API]
+  B --> C[bluetoothd]
+  C --> D[Bluetooth adapter]
+  D --> E[Scan nearby devices]
+  E --> F[Pair device]
+  F --> G[Trust device]
+  G --> H[Connect profile]
+```
+
 ## References
+
+
 
 - BlueZ documentation

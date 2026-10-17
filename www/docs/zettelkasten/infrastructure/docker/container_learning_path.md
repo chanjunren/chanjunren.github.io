@@ -56,4 +56,19 @@ Suggested reading order for the Docker and deployment notes. Each section builds
 
 ## Quick Reference
 
+```mermaid
+flowchart LR
+  A[Container fundamentals] --> B[Image build]
+  B --> C[Compose services]
+  C --> D[Runtime configuration]
+  D --> E[Secrets and security]
+  E --> F[Orchestration]
+  F --> G[Deployment strategies]
+  G --> H[Observability]
+```
+
 - [[commands]] — command cheatsheet
+
+## References
+
+- [Docker Get Started](https://docs.docker.com/get-started/)

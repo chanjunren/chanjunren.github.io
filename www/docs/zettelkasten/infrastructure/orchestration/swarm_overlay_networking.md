@@ -2,12 +2,16 @@
 
 # swarm_overlay_networking
 
-**What it is:**
+> **Overlay network**: A virtual network that connects containers across Docker Swarm nodes using an underlay network. ([Docker Docs](https://docs.docker.com/engine/network/drivers/overlay/))
+
+Overlay networks connect containers on different Swarm nodes through an underlay network.
+
+## Overview
 - The networking layer that makes [[docker_swarm]] containers on different physical hosts communicate transparently
 - Built on **[[vxlan]]** tunneling — encapsulates container traffic inside UDP packets between hosts
 - Combines with a **routing mesh** so any node can accept traffic for any service
 
-**Why it exists:**
+## Problem addressed
 - [[container_networking]] bridge networks only work on a single host
 - In a cluster, containers on node A need to reach containers on node B without manual port forwarding
 - Overlay networks abstract away the physical network topology — containers see a flat network
@@ -20,7 +24,7 @@
 - The receiving host decapsulates and delivers to the target container
 - From the container's perspective, it's on a flat L2 network with all peers — no awareness of the physical topology
 
-### When they're created
+### Overlay network creation
 - Swarm auto-creates a default overlay called **ingress** for the routing mesh
 - You create additional overlays in your compose file for service-to-service communication
 - Each [[swarm_stacks]] gets its own overlay network by default (scoped by stack name)
@@ -31,7 +35,7 @@
 - Containers resolve service names to the **virtual IP (VIP)** of that service
 - The VIP load-balances across all healthy tasks for that service
 - Works regardless of which nodes the tasks run on
-- Same mechanism as single-host DNS in [[container_networking]], but cluster-wide
+- Same mechanism as single-host DNS in container networking, but cluster-wide
 
 ### How resolution works
 - Container calls `db` → DNS returns VIP for the `db` service → VIP routes to one of the healthy `db` tasks
@@ -44,7 +48,7 @@
 - Incoming traffic on any node is forwarded internally to a node running the service
 - Built-in **ingress load balancing** distributes across all healthy tasks
 
-### Why it matters
+### Operational impact
 - External load balancer can point at any/all swarm nodes — no need to track which node runs which service
 - Simplifies DNS: point a domain at any node's IP, traffic reaches the right container
 - See [[swarm_scheduling]] for how task placement interacts with routing
@@ -74,7 +78,22 @@ A 3-node Swarm with `api` (2 replicas on nodes 1 and 3) and `db` (1 replica on n
 
 ---
 
+```mermaid
+flowchart LR
+  A[Container on node 1] --> B[Overlay bridge]
+  B --> C[VXLAN encapsulation]
+  C --> D[UDP underlay]
+  D --> E[Remote Swarm node]
+  E --> F[VXLAN decapsulation]
+  F --> G[Overlay bridge]
+  G --> H[Container on node 2]
+  I[Swarm service DNS] --> B
+  J[Routing mesh] --> B
+```
+
 ## References
+
+
 
 - https://docs.docker.com/network/drivers/overlay/
 - https://docs.docker.com/engine/swarm/ingress/

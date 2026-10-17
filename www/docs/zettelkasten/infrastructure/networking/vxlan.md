@@ -1,7 +1,8 @@
 🗓️ 19042026 0000
-📎 [[swarm_overlay_networking]]
 
 # vxlan
+
+> **Virtual eXtensible LAN (VXLAN)**: A network overlay that carries Layer 2 Ethernet frames over a Layer 3 IP network using UDP encapsulation. ([RFC 7348](https://www.rfc-editor.org/rfc/rfc7348))
 
 **Virtual Extensible LAN** — tunneling protocol that makes hosts on different physical networks look like they're on the same flat Layer 2 segment. Wraps **Ethernet frames inside UDP packets** so container/VM traffic can cross routed IP networks without knowing the underlay exists.
 
@@ -77,12 +78,26 @@ Control-plane mode replaces multicast flooding with directed unicast — works i
 ```
 
 ```ad-example
-In [[swarm_overlay_networking]], each overlay network gets a VNI. Container A on host 1 sending to container B on host 3: host 1's VTEP wraps the frame with that VNI and sends UDP/4789 to host 3; host 3's VTEP unwraps and delivers. Hosts 1 and 3 just need IP reachability — same subnet, across racks, or across regions, VXLAN doesn't care.
+In swarm overlay networking, each overlay network gets a VNI. Container A on host 1 sending to container B on host 3: host 1's VTEP wraps the frame with that VNI and sends UDP/4789 to host 3; host 3's VTEP unwraps and delivers. Hosts 1 and 3 just need IP reachability — same subnet, across racks, or across regions, VXLAN doesn't care.
 ```
 
 ---
 
+```mermaid
+flowchart LR
+  A[Container Ethernet frame] --> B[VXLAN tunnel endpoint]
+  B --> C[Add VXLAN header and VNI]
+  C --> D[Encapsulate in UDP]
+  D --> E[Underlay IP network]
+  E --> F[Remote tunnel endpoint]
+  F --> G[Remove outer headers]
+  G --> H[Forward inner frame]
+  H --> I[Destination container]
+```
+
 ## References
+
+
 
 - https://datatracker.ietf.org/doc/html/rfc7348
 - https://www.kernel.org/doc/Documentation/networking/vxlan.txt

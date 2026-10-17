@@ -2,11 +2,15 @@
 
 # buildx
 
-**What it is:**
+> **Buildx**: A Docker CLI plugin for building images with BuildKit, including multi-platform builds. ([Docker Docs](https://docs.docker.com/build/buildx/))
+
+Buildx adds BuildKit features for cache-aware, multi-platform image builds.
+
+## Overview
 - Docker CLI plugin for extended build capabilities, powered by **BuildKit** engine
 - Replaces the legacy builder with parallel execution, better caching, and multi-platform support
 
-**Problem it solves:**
+## Problem addressed
 - Default builder is sequential, slow, and lacks advanced caching
 - Building for multiple architectures (amd64 + arm64) requires separate machines or manual emulation
 - Passing secrets during build (e.g., private repo credentials) means baking them into image layers
@@ -53,7 +57,7 @@ Build for multiple architectures in a single command:
 - Built-in integration for GitHub CI
 - Free within GitHub Actions storage limits
 
-## When to Use
+## Use cases
 
 Use for:
 - CI/CD pipelines (parallel builds, shared caching)
@@ -83,7 +87,22 @@ See [[dockerfile_best_practices]] for writing Dockerfiles that maximize BuildKit
 
 ---
 
+```mermaid
+flowchart LR
+  A[Buildx command] --> B[BuildKit builder]
+  B --> C[Build graph]
+  C --> D[Parallel build steps]
+  C --> E[Build cache]
+  C --> F[Target platform]
+  F --> G[Platform image manifest]
+  D --> H[Image output]
+  E --> H
+  G --> H
+```
+
 ## References
+
+
 
 - https://docs.docker.com/build/buildkit/
 - https://docs.docker.com/build/building/multi-platform/

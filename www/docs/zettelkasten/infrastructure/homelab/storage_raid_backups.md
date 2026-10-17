@@ -2,7 +2,15 @@
 
 # storage_raid_backups
 
-NAS storage has layers: drives hold blocks, RAID arranges them, filesystems organize files, and shares expose paths. Each layer solves a different problem.
+Storage protection uses separate mechanisms for disk availability, point-in-time recovery, and independent copies.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **RAID** | A method of combining drives to provide performance, capacity, or fault-tolerance properties. | [SNIA glossary](https://www.snia.org/education/online-dictionary) |
+| **Snapshot** | A point-in-time representation of a storage volume or filesystem state. | [Synology](https://kb.synology.com/en-us/DSM/tutorial/What_is_snapshot_replication) |
+| **Backup** | A separate copy of data kept so it can be restored after loss or corruption. | [CISA](https://www.cisa.gov/secure-our-world/back-up-your-data) |
 
 ## Storage layers
 

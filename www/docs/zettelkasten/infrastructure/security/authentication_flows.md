@@ -2,6 +2,17 @@
 
 # authentication_flows
 
+
+Authentication verifies identity; authorization decides what that identity may do in an application.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Authentication** | Verification of an entity's claimed identity. | [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html) |
+| **Authorization** | Determination of what an authenticated identity may do. | [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html) |
+| **OpenID Connect (OIDC)** | An identity layer that enables clients to verify an end user's identity using OAuth 2.0. | [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html) |
+
 **Authentication** answers “Who is this?” **Authorization** answers “What may this identity do?” An identity provider (IdP) usually authenticates the person and issues signed protocol messages; the application maps that identity to its own user, organization, and permissions.
 
 The two common flows below use a browser redirect and an authorization-code exchange. OAuth/OIDC details vary by provider, but the ownership boundary stays useful.

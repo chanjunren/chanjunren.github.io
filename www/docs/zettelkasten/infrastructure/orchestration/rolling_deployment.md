@@ -2,12 +2,16 @@
 
 # rolling_deployment
 
-**What it is:**
+> **Rolling update**: A rollout that gradually replaces old application instances with new ones. ([Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/))
+
+Rolling deployment replaces instances in batches to reduce downtime during upgrades.
+
+## Overview
 - Deployment strategy that replaces old instances with new ones incrementally, in batches
 - At any point during the rollout, some instances run the old version and some run the new version
 - The standard approach for zero-downtime deployments
 
-**Why it exists:**
+## Problem addressed
 - **Big-bang deployment** (stop everything, deploy, start everything) causes downtime
 - **Rolling deployment** keeps the service available throughout — old instances serve traffic until new ones are healthy
 - Most orchestration platforms ([[docker_swarm]], [[kubernetes]]) use this as the default strategy
@@ -76,6 +80,18 @@ The batch size and wait time between batches are configurable — this controls 
 - If your app stores session data locally, a user hitting old then new instances will lose context
 
 ## Trade-offs
+
+```mermaid
+flowchart LR
+  A[Deployment desired replicas] --> B[Create new ReplicaSet]
+  B --> C[Start new Pods]
+  C --> D[Wait for readiness]
+  D --> E[Scale down old Pods]
+  E --> F{More old Pods?}
+  F -->|yes| C
+  F -->|no| G[New version serves traffic]
+  H[Unavailable and surge limits] --> C
+```
 
 ### Advantages
 - Zero downtime

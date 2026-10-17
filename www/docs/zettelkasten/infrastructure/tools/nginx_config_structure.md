@@ -2,7 +2,17 @@
 
 # nginx_config_structure
 
+
 Cheatsheet for the standard nginx directory layout and how configs wire together. For nginx as a [[reverse_proxy]], see that note.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Directive** | A named NGINX configuration instruction with parameters. | [NGINX beginners guide](https://nginx.org/en/docs/beginners_guide.html) |
+| **Context** | A configuration scope in which directives are valid. | [NGINX beginners guide](https://nginx.org/en/docs/beginners_guide.html) |
+| **Upstream** | A named group of backend servers to which NGINX can proxy requests. | [NGINX upstream module](https://nginx.org/en/docs/http/ngx_http_upstream_module.html) |
+
 
 ## Standard Directory Layout
 
@@ -153,6 +163,18 @@ nginx.conf
 Nginx doesn't care about directory names — only the `include` paths in `nginx.conf` matter. Rename `sites-enabled/` to `domains/` or `vhosts/` and update the include path — same result.
 
 ## Common Commands
+
+```mermaid
+flowchart LR
+  A[nginx.conf] --> B[include directive]
+  B --> C[conf.d or sites-enabled files]
+  C --> D[http context]
+  D --> E[server block]
+  E --> F[location block]
+  G[upstream block] --> E
+  H[nginx -t] --> I[Configuration validation]
+  I --> J[nginx reload]
+```
 
 | Command | Purpose |
 |---------|---------|

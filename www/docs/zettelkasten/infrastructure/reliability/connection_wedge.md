@@ -1,7 +1,7 @@
 🗓️ 25042026 1438
-📎 #reliability #failure_modes #tcp
 
 # connection_wedge
+
 
 > A live, open TCP connection that produces broken behavior. Usually the app/library view of an underlying half-open socket. A **quality** problem on a single connection.
 
@@ -59,9 +59,23 @@ The actual fix is always: **detect → tear down → rebuild**. Retrying the op 
 
 ---
 
+```mermaid
+flowchart LR
+  A[Connection acquired] --> B[Request blocks or stalls]
+  B --> C[Socket remains open]
+  C --> D[Pool counts connection as occupied]
+  D --> E[Effective pool capacity falls]
+  E --> F[New requests wait]
+  F --> G[Timeouts and rising latency]
+  H[Read timeout or cancellation] --> B
+  I[Pool metrics] --> E
+```
+
 ## References
 
-- [[tcp_half_open]] — the underlying TCP-layer cause
-- [[connection_leak]] — the other "connection-related" failure mode, often confused with wedge
+
+
+- tcp half open — the underlying TCP-layer cause
+- connection leak — the other "connection-related" failure mode, often confused with wedge
 - [[lettuce]] — concrete example: per-node persistent connection + adaptive topology refresh
 - [[error_timeline_shapes]] — cliff vs ramp diagnostic
