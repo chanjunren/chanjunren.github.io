@@ -10,11 +10,21 @@ Checkpoints require the job's state and checkpoint storage to be configured appr
 
 Checkpoint interval, timeout, concurrent checkpoint count, and retained checkpoints affect overhead and recovery options. Tune these against state size, source throughput, storage performance, and the tolerated recovery point.
 
-## Related notes
+For what Flink persists, see [[state]]. For per-key managed state, see [[keyed_state]]. For user-triggered snapshots for planned changes, see [[savepoints]].
 
-- [[state]] — what Flink persists
-- [[keyed_state]] — per-key managed state
-- [[savepoints]] — user-triggered snapshots for planned changes
+```mermaid
+sequenceDiagram
+    participant Source
+    participant Coordinator
+    participant Operator
+    participant Storage
+    Coordinator->>Source: Trigger checkpoint barrier
+    Source->>Operator: Barrier with source position
+    Operator->>Storage: Snapshot operator state
+    Source->>Storage: Persist source position
+    Storage-->>Coordinator: Snapshot durable
+    Note over Coordinator,Operator: On failure, restore and replay from snapshot
+```
 
 ## References
 

@@ -2,6 +2,16 @@
 
 # refresh_vs_expire
 
+```mermaid
+stateDiagram-v2
+    [*] --> Fresh
+    Fresh --> Expired: expireAfterWrite or expireAfterAccess
+    Fresh --> RefreshEligible: refreshAfterWrite threshold
+    RefreshEligible --> Refreshing: entry is read
+    Refreshing --> Fresh: refresh succeeds
+    Refreshing --> Expired: old value remains until expiry or failure policy
+```
+
 ## Overview
 
 | Feature         | `expireAfterWrite`                            | `refreshAfterWrite`                                  |
@@ -100,7 +110,6 @@ Caffeine.newBuilder()
 | External API responses | `refreshAfterWrite` + `expireAfterWrite` |
 | Rate limit counters | `expireAfterWrite` (must be accurate) |
 | Feature flags | `refreshAfterWrite` (eventual consistency OK) |
-
 
 ---
 ## References

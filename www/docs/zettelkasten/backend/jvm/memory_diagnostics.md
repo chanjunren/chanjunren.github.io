@@ -4,6 +4,19 @@
 
 Cheatsheet: dashboard metric → JVM area → what's wrong → what to do. For background on each area, see [[memory_areas]].
 
+```mermaid
+flowchart TD
+    A[Alert or dashboard symptom] --> B{Which resource grows?}
+    B --> H[Heap: inspect allocation and GC]
+    B --> M[Metaspace: inspect class loading]
+    B --> D[Direct buffers: inspect native allocations]
+    B --> C[Code cache: inspect compilation]
+    H --> X[Capture evidence and compare over time]
+    M --> X
+    D --> X
+    C --> X
+```
+
 ## Dashboard Metric → JVM Area
 
 | Dashboard Metric | Prometheus Metric | JVM Area | Bounded By |
@@ -138,7 +151,7 @@ lsof -p <pid> | grep mem
 
 ### Fix
 
-- **Release rule**: last handler to use a `ByteBuf` must call `release()` or forward via `ctx.fireChannelRead()`. See [[memory_model]].
+- **Release rule**: last handler to use a `ByteBuf` must call `release()` or forward via `ctx.fireChannelRead()`. See memory model.
 - **Exception paths**: if a handler throws before releasing, the buffer leaks. Use try-finally.
 
 ---

@@ -1,9 +1,19 @@
 🗓️ 06072026 1100
-📎 #java #concurrency #api
 
 # guava_rate_limiter
 
 > Google Guava's `RateLimiter` — a single-JVM, in-memory token bucket that smooths request rate and optionally warms up gradually. Not distributed; every instance guards only the process it lives in.
+
+```mermaid
+sequenceDiagram
+    participant Caller
+    participant Limiter as Guava RateLimiter
+    participant Work
+    Caller->>Limiter: acquire permits
+    Limiter->>Limiter: Calculate reservation and wait
+    Limiter-->>Caller: Permit available
+    Caller->>Work: Execute operation
+```
 
 ## Position In The Stack
 
@@ -55,7 +65,7 @@ limiter.setRate(10.0);                   // change rate at runtime, takes effect
 
 ## Limitations
 
-- **Not distributed.** N app instances each running their own `RateLimiter.create(100)` gives you `100 * N` permits/sec cluster-wide, not 100. For a cluster-wide cap, this needs to be paired with a shared external limiter (Redis Lua script, see [[../rate_limiting/algorithms]]) or divided per-instance (`100 / N`) as a rough approximation.
+- **Not distributed.** N app instances each running their own `RateLimiter.create(100)` gives you `100 * N` permits/sec cluster-wide, not 100. For a cluster-wide cap, this needs to be paired with a shared external limiter (Redis Lua script, see algorithms) or divided per-instance (`100 / N`) as a rough approximation.
 - **No burst capacity control knob** beyond the implicit ~1 second of saved-up permits in SmoothBursty — you can't configure a separate burst size independent of the rate the way you can in a hand-rolled token bucket.
 - **Blocking API by default.** `acquire()` parks the calling thread; in a thread-per-request server this ties up a worker thread for the wait duration. Prefer `tryAcquire` + explicit backpressure in latency-sensitive paths, or route through a bounded queue.
 - **Deprecated warmup overload**: the three-arg `create(rate, warmupPeriod, unit)` plus an old four-arg variant with a `coldFactor` param were deprecated/removed across Guava versions — check the version pinned in the project before copying signatures from older blog posts.
@@ -66,10 +76,7 @@ limiter.setRate(10.0);                   // change rate at runtime, takes effect
 - Smoothing outbound calls from a batch job or scheduled task so it doesn't hammer a downstream all at once.
 - Not the tool for: per-user API rate limiting across a fleet of instances — that needs a shared store.
 
-## Related
-
-- [[../rate_limiting/algorithms]] — the general algorithm survey and the distributed/Redis version of token bucket
-- [[circuit_breaker_pattern]] — complementary: rate limiter controls outbound rate, breaker reacts to downstream failure
+A rate limiter controls outbound request volume; [[circuit_breaker_pattern]] reacts to downstream failures.
 
 ---
 

@@ -1,5 +1,4 @@
 🗓️ 04042024 0940
-📎 #backend #dts
 
 # dts_overview
 
@@ -39,6 +38,16 @@ Service for migrating / replicating data
 ![[dts_how_it_works_6.png]]
 
 ---
+
+```mermaid
+flowchart LR
+    S[Source database] --> D[Data Transmission Service]
+    D --> I[Initial snapshot]
+    D --> C[Change stream]
+    I --> T[Target database]
+    C --> T
+    T --> V[Verify migration]
+```
 
 ## References
 

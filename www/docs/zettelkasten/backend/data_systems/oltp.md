@@ -10,6 +10,17 @@
 |---|---|---|
 | **Transaction** | A unit of database work that commits or aborts as a whole, subject to the database's transaction guarantees. | [Oracle: What is OLTP?](https://www.oracle.com/sg/database/what-is-oltp/) |
 
+```mermaid
+sequenceDiagram
+    participant App
+    participant DB as OLTP database
+    App->>DB: Begin transaction
+    App->>DB: Read or update a few records
+    DB->>DB: Check constraints and concurrency
+    DB-->>App: Commit result
+    App-->>App: Return low-latency response
+```
+
 ## Access pattern
 
 An order service may read one account row, check inventory, and write a few records in a transaction. Indexes help locate those records without scanning an entire table.

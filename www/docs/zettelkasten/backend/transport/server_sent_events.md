@@ -2,7 +2,7 @@
 
 # server_sent_events
 
-> **Server-Sent Events (SSE)** keeps an HTTP response open so a server can send a sequence of text events to a client.
+> **Server-Sent Events (SSE)** keeps an HTTP response open so a server can send a sequence of text events to a client. ([WHATWG HTML Standard](https://html.spec.whatwg.org/multipage/server-sent-events.html))
 
 ## What problem does it solve?
 
@@ -10,11 +10,16 @@ Polling makes a client repeatedly ask whether anything has changed. SSE lets the
 
 It is designed for one-way communication:
 
-```text
-client -- opens HTTP request --> server
-client <-- update 1 -- server
-client <-- update 2 -- server
-client <-- update 3 -- server
+```mermaid
+sequenceDiagram
+    participant Browser
+    participant Server
+    Browser->>Server: GET with Accept: text/event-stream
+    Server-->>Browser: 200 and event-stream headers
+    loop While connection is open
+        Server-->>Browser: data event
+    end
+    Browser->>Server: Reconnect with Last-Event-ID
 ```
 
 The response uses the `text/event-stream` content type. An event can carry text or JSON, but SSE does not define the application's data model.
@@ -53,14 +58,14 @@ These concepts sit at different levels:
 - **SSE** is one HTTP mechanism for sending a sequence of server events.
 - **MCP Streamable HTTP** is a JSON-RPC transport that may use SSE for streamed responses or long-lived change notifications.
 
-So an AI chat API may use SSE without being MCP. An MCP server may use Streamable HTTP without keeping a permanent SSE connection open. [[transports]] explains that boundary.
+So an AI chat API may use SSE without being MCP. An MCP server may use Streamable HTTP without keeping a permanent SSE connection open. transports explains that boundary.
 
 ---
 ## References
-- [[long_polling]]
-- [[websocket_protocol]]
+- long polling
+- websocket protocol
 - [[realtime_patterns_comparison]]
-- [[transports]]
+- transports
 - [Server-Sent Events — WHATWG HTML Standard](https://html.spec.whatwg.org/multipage/server-sent-events.html)
 - [Using server-sent events — MDN](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
 - [MCP Transports — official specification](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports)

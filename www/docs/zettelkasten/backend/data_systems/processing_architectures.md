@@ -4,6 +4,17 @@
 
 A data-processing architecture defines when data is processed, where intermediate results live, and how outputs reach consumers. The workload's freshness, replay, and cost requirements determine the design.
 
+```mermaid
+flowchart LR
+    S[Data sources] --> A[Batch jobs]
+    S --> B[Stream processors]
+    A --> W[Warehouse or lake]
+    B --> R[Real-time serving]
+    A --> H[Hybrid architecture]
+    B --> H
+    H --> C[Shared storage and outputs]
+```
+
 ## Batch processing
 
 Process a bounded dataset on a schedule or when a job is submitted. Batch work suits backfills and reports where completion latency is acceptable. [[extract_transform_load]] describes a common batch pipeline.
@@ -22,6 +33,6 @@ Data lakes, warehouses, and lakehouses describe storage and access architectures
 
 ## References
 
-- [[extract_transform_load]]
-- [[stream_processing_fundamentals]]
-- [[kafka_architecture]]
+- extract transform load
+- stream processing fundamentals
+- kafka architecture

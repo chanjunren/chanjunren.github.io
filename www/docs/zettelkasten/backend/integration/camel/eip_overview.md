@@ -8,12 +8,16 @@ An EIP describes a problem and a solution shape, such as routing a message, tran
 
 When choosing a pattern, identify the integration problem first, then account for delivery guarantees, ordering, failures, and observability. A pattern name alone does not determine those runtime properties.
 
-## Related notes
+For routing messages through a system, see [[message_routing_architecture]]. For adding information to a message, see [[content_enricher]]. For translating message formats, see [[translator_pattern]]. For messaging patterns and concepts, see [[moc_messaging]].
 
-- [[message_routing_architecture]] — routing messages through a system
-- [[content_enricher]] — adding information to a message
-- [[translator_pattern]] — translating message formats
-- [[moc_messaging]] — messaging patterns and concepts
+```mermaid
+flowchart LR
+    A[Producer] --> C[Message channel]
+    C --> R[Routing pattern]
+    R --> T[Transform or enrich]
+    T --> D[Consumer]
+    R --> B[Branch or filter]
+```
 
 ## References
 

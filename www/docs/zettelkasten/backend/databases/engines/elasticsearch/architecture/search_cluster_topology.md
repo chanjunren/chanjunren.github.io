@@ -2,6 +2,17 @@
 
 # search_cluster_topology
 
+```mermaid
+flowchart LR
+    C[Client request] --> N[Coordinating node]
+    N --> P[Primary shard]
+    P --> R[Replica shard]
+    P --> N
+    R --> N
+    N --> C
+    D[Cluster manager] --> N
+```
+
 ## Terminology
 
 | Term          | Description                                                                                   |
@@ -12,7 +23,7 @@
 | Shard         | <ul><li>Containers of data (stores documents)</li><li>Allocated to node</li></ul>             |
 | Primary Shard | Document store                                                                                |
 | Replica Shard | Replica of primary shard                                                                      |
- 
+
 ![[chapter2_cluster.png]]
 
 ## Adding failover
@@ -36,8 +47,6 @@ Scenario: One node killed
 	- One node promoted to master (node 2)
 	- Replica shards promoted to primary shard
 	- Health check yellow (insufficient replicas)
-
-
 
 ---
 

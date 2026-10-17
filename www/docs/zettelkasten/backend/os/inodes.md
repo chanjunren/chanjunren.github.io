@@ -1,4 +1,4 @@
-🗓️ TODO: recover the original capture date and time.
+🗓️ 17102026 2111
 
 # inodes
 
@@ -26,6 +26,15 @@ The filename is stored in the **directory entry**, which is just a mapping of `n
 
 ## How File Access Works
 
+```mermaid
+flowchart LR
+    A[Path name] --> B[Directory entry lookup]
+    B --> C[Inode number]
+    C --> D[Inode metadata]
+    D --> E[Data block references]
+    E --> F[File contents]
+```
+
 When you open `/home/user/notes.txt`:
 1. OS looks up inode of `/` (always inode 2)
 2. Reads `/` directory data, finds `home` -> inode 1234
@@ -44,7 +53,7 @@ The inode tracks how many directory entries point to it (the **link count**):
 - Deleting a filename decrements the count
 - The file's data is only freed when link count reaches 0 (and no processes have it open)
 
-This is why "deleting" a file is actually called **unlinking** in Unix — you're removing a directory entry, not necessarily destroying data. See [[file_links]] for how hardlinks exploit this.
+This is why "deleting" a file is actually called **unlinking** in Unix — you're removing a directory entry, not necessarily destroying data. See file links for how hardlinks exploit this.
 
 ## Inode Limits
 

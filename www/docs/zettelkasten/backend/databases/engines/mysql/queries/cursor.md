@@ -15,6 +15,19 @@ Stored-program declarations have an order: local variables first, then cursors, 
 
 MySQL's server-side prepared-statement cursors materialize results in an internal temporary table. Large results can therefore incur memory or disk I/O costs. See [[database_cursor]] for the broader concept.
 
+```mermaid
+sequenceDiagram
+    participant Proc as Stored procedure
+    participant DB
+    Proc->>DB: Declare cursor for query
+    Proc->>DB: Open cursor
+    loop Each row
+        Proc->>DB: Fetch next row
+        DB-->>Proc: Row or end-of-data
+    end
+    Proc->>DB: Close cursor
+```
+
 ## References
 
 - [MySQL 8.4: Cursors](https://dev.mysql.com/doc/refman/8.4/en/cursors.html)

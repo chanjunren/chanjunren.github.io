@@ -4,6 +4,17 @@
 
 Pangu is Alibaba's distributed storage system; the cited architecture overview describes Pangu 2.0 as a shared storage foundation for multiple cloud products and workloads.
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Meta as MetaServer
+    participant Chunk as ChunkServer
+    Client->>Meta: Resolve file metadata and placement
+    Meta-->>Client: Chunk locations
+    Client->>Chunk: Read or write data chunks
+    Chunk-->>Client: Data response
+```
+
 ## Mental model
 
 The architecture article describes three core roles:
@@ -20,11 +31,7 @@ The article presents distributed metadata partitions, replicated metadata, clien
 
 The useful systems lesson is to separate metadata coordination from bulk data transfer, partition metadata to limit failure scope, and add compatibility layers at the product boundary. Each choice introduces tradeoffs in consistency, operational complexity, and workload isolation.
 
-## Related notes
-
-- [[storage_disaggregation_architecture]] — storage and compute deployed separately
-- [[compute_platform]] — compute-layer responsibilities
-- [[storage_computing_architectures]] — coupling and separation tradeoffs
+For storage and compute deployed separately, see [[storage_disaggregation_architecture]]. For compute-layer responsibilities, see [[compute_platform]]. For coupling and separation tradeoffs, see [[storage_computing_architectures]].
 
 ## References
 

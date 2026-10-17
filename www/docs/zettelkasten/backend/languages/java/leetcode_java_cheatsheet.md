@@ -7,6 +7,15 @@
 - Focused on the operations that come up under time pressure — construction, common methods, iteration, gotchas
 - Not a DSA concepts primer — assumes you know what a heap/deque/trie *is*, just not the Java spelling of it
 
+```mermaid
+flowchart TD
+    A[Choose collection by operations] --> B{Fixed size and indexed access?}
+    B -- Yes --> C[Array]
+    B -- No --> D{Frequent key lookup?}
+    D -- Yes --> E[HashMap or HashSet]
+    D -- No --> F[ArrayList or another collection]
+```
+
 ## Arrays
 
 ```java

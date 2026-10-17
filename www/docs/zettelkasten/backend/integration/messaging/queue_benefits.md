@@ -6,6 +6,15 @@
 Message queues provide communication and coordination for these distributed applications
 ```
 
+```mermaid
+flowchart LR
+    P[Producer] --> Q[Queue buffers work]
+    Q --> C1[Consumer 1]
+    Q --> C2[Consumer 2]
+    Q --> C3[Consumer N]
+    Q --> D[Decouple producer rate from consumer rate]
+```
+
 ## Better Performance
 - MQs enable asynchronous communication
 - Reduces stalling / waiting
@@ -19,7 +28,7 @@ Message queues provide communication and coordination for these distributed appl
 - Requests can be added to the queue without risk of collisions
 
 ## Simplifed Decoupling
-- remove dependencies between components 
+- remove dependencies between components
 - Significantly simplify the coding of decoupled applications
 
 ## Break Up Apps
@@ -28,7 +37,6 @@ Message queues provide communication and coordination for these distributed appl
 ```ad-info
 Rather than performing multiple functions within a single executable, multiple programs can exchange information by sending messages between processes, making them easier to test, debug, evolve and scale
 ```
-
 
 ## Migrate to Microservices
 - Microservices integration patterns that are based on events and asynchronous messaging optimize **scalability** and **resiliency**

@@ -2,13 +2,22 @@
 
 # skew
 
-**Data skew issues** occur when data is unevenly distributed across segments (shards) in a distributed database system 
+**Data skew issues** occur when data is unevenly distributed across segments (shards) in a distributed database system
+
+```mermaid
+flowchart LR
+    A[Partition or group by key] --> B{Key frequencies balanced?}
+    B -- Yes --> C[Work spreads across workers]
+    B -- No --> D[Hot key or oversized partition]
+    D --> E[One worker receives disproportionate work]
+    E --> F[Long tail and poor cluster utilization]
+    G[Salting, repartitioning, or skew handling] --> B
+```
 
 ## Causes
 - **Uneven Distribution**: If the distribution key (the column used to partition data across segments) is not chosen carefully, some segments may end up with significantly more data than others.
-    
+
 - **Hotspots**: Certain values in the distribution key column may appear much more frequently than others, causing those segments to become overloaded.
-    
 
 ## Problems
 

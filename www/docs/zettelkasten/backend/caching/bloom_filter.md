@@ -6,6 +6,16 @@ A **Bloom filter** is a compact membership test. It answers **definitely absent*
 
 It can reject nonexistent keys before expensive lookups in [[penetration]] protection.
 
+```mermaid
+flowchart LR
+    A[Key lookup] --> B[Hash functions]
+    B --> C{Any bit is zero?}
+    C -- Yes --> D[Definitely absent]
+    C -- No --> E[Possibly present]
+    E --> F[Check backing store]
+    G[Insert key] --> H[Set all hash-selected bits]
+```
+
 ## Bit-array model
 
 Start with an array of `m` zero bits. Each of `k` hash functions chooses a bit position.

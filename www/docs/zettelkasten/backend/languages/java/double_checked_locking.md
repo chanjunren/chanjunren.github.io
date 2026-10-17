@@ -2,6 +2,19 @@
 
 # double_checked_locking
 
+```mermaid
+sequenceDiagram
+    participant T1 as Thread A
+    participant T2 as Thread B
+    participant I as Instance field
+    T1->>I: First volatile read: null
+    T1->>T1: Acquire class lock
+    T1->>I: Second read: null
+    T1->>I: Construct and publish instance
+    T2->>I: Volatile read observes instance
+    Note over T2: Constructor writes are visible
+```
+
 ## Pattern
 ```java
 CachedToken current = tokenCache.get(appId);
@@ -32,4 +45,4 @@ Without proper visibility guarantees, the first (unsynchronized) check may read 
 ---
 ## References
 - [[synchronized]]
-- [[cpu_cache_and_memory_visibility]]
+- cpu cache and memory visibility

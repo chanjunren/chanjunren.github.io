@@ -4,6 +4,22 @@
 ```ad-tldr
 Let video players automatically adjust quality based on network conditions
 ```
+```mermaid
+sequenceDiagram
+    participant Encoder
+    participant Origin
+    participant CDN
+    participant Player
+    Encoder->>Origin: Store rendition segments and manifest
+    Player->>CDN: Request manifest
+    CDN-->>Player: Available renditions
+    loop Playback
+        Player->>CDN: Request next segment at selected bitrate
+        CDN-->>Player: Segment
+        Player->>Player: Adapt bitrate to measured conditions
+    end
+```
+
 ## How It Works
 - Segmentation: Break video into small chunks (2-10 seconds each)
 - Quality Variants: Create same content at different bitrates

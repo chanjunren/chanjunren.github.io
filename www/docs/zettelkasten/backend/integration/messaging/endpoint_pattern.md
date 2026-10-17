@@ -2,6 +2,15 @@
 
 # endpoint_pattern
 
+```mermaid
+flowchart LR
+    A[Application] --> E[Message endpoint]
+    E --> C[Transport or channel]
+    C --> D[Remote endpoint]
+    D --> R[Receiving application]
+    E --> H[Hide transport details]
+```
+
 ## Problem background
 
 - Applications communicate by sending `messages` through a `Message Channels`

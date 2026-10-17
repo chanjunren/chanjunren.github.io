@@ -5,6 +5,15 @@
 Create multiple versions of video content optimized for different use cases
 ```
 
+```mermaid
+flowchart LR
+    U[Upload source video] --> P[Probe codec and metadata]
+    P --> E[Encode required renditions]
+    E --> G[Package as HLS or DASH]
+    G --> V[Validate playback outputs]
+    V --> S[Publish manifest and segments]
+```
+
 ## Why Transcode?
 - **Device Compatibility**: Different devices support different formats
 - **Network Adaptation**: Multiple bitrates for varying connection speeds

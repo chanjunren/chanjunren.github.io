@@ -1,5 +1,4 @@
 🗓️ 02112024 2312
-📎
 
 # goroutines
 
@@ -37,7 +36,7 @@ Always ensure goroutines can exit. Use [[context]] for cancellation to prevent g
 
 ## Trade-offs
 
-**Pros**: Lightweight, easy creation, efficient scheduling  
+**Pros**: Lightweight, easy creation, efficient scheduling
 **Cons**: Requires synchronization, race conditions possible, debugging harder
 
 Goroutines work with [[context]] for cancellation and channels for communication.
@@ -91,6 +90,18 @@ wg.Wait()
 for i := 0; i < numWorkers; i++ {
     go worker(i, jobs, results)
 }
+```
+
+```mermaid
+sequenceDiagram
+    participant Caller
+    participant Goroutine
+    participant Channel
+    Caller->>Goroutine: Start concurrent function
+    Goroutine->>Goroutine: Perform work
+    Goroutine->>Channel: Send result or completion
+    Channel-->>Caller: Synchronize and receive result
+    Caller->>Caller: Wait or cancel remaining work
 ```
 
 ## References

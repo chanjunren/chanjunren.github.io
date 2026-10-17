@@ -4,6 +4,17 @@
 
 These cache failure modes can all increase source load. Distinguish whether requests target absent data, one missing hot entry, or many missing entries.
 
+```mermaid
+flowchart TD
+    A[Cache misses rise] --> B{What is missing?}
+    B -- Nonexistent keys --> C[Penetration]
+    B -- One hot key --> D[Stampede or breakdown]
+    B -- Many keys at once --> E[Avalanche]
+    C --> F[Negative cache or Bloom filter]
+    D --> G[Coalesce or refresh load]
+    E --> H[Jitter TTLs and protect source]
+```
+
 ## Compare mechanisms
 
 | Mode | Trigger | First defense |

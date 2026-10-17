@@ -24,6 +24,17 @@ if (ready) {
 
 This is a happens-before example, not a recommendation to publish mutable state through arbitrary fields. See [[java_memory_model_happens_before]] for the formal rule and [[compare_and_swap]] for atomic read-modify-write operations.
 
+```mermaid
+sequenceDiagram
+    participant Writer
+    participant Shared as Shared memory
+    participant Reader
+    Writer->>Shared: Write value
+    Writer->>Shared: Publish through synchronization
+    Reader->>Shared: Observe synchronization action
+    Shared-->>Reader: Earlier write is visible by happens-before
+```
+
 ## References
 
 - [Java Language Specification: Threads and Locks](https://docs.oracle.com/javase/specs/jls/se17/html/jls-17.html)

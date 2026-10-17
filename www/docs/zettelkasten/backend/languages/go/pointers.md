@@ -1,5 +1,4 @@
 🗓️ 02112024 2252
-📎
 
 # pointers
 
@@ -103,6 +102,15 @@ if user != nil {
 }
 ```
 \`\`\`
+
+```mermaid
+flowchart LR
+    V[Variable] --> A[Address]
+    A --> P[Pointer value]
+    P --> D[Dereference]
+    D --> V
+    P -->|nil| N[No target]
+```
 
 ## References
 

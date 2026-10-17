@@ -8,10 +8,17 @@ It holds the current message, exchange-scoped properties, an optional exception,
 
 The exchange pattern indicates whether the interaction is one-way (`InOnly`) or request/reply (`InOut`). In an `InOut` exchange, an output message represents the reply. The pattern is part of the route's interaction contract; it does not change how every processor handles the current message.
 
-## Related notes
+For integration pattern vocabulary, see [[eip_overview]]. For moving exchanges through routes, see [[message_routing_architecture]].
 
-- [[eip_overview]] — integration pattern vocabulary
-- [[message_routing_architecture]] — moving exchanges through routes
+```mermaid
+flowchart LR
+    P[Producer] --> E[Camel Exchange]
+    E --> H[Headers and properties]
+    E --> B[Message body]
+    E --> R[Route processors]
+    R --> Q[Consumer endpoint]
+    R --> X[Updated exchange]
+```
 
 ## References
 

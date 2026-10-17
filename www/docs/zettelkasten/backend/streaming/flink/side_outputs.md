@@ -2,6 +2,17 @@
 
 # side_outputs
 
+```mermaid
+flowchart LR
+    A[Process event] --> B{Which output applies?}
+    B --> C[Main output]
+    B --> D[Late or invalid event]
+    B --> E[Alternate event type]
+    D --> S[Side output tag]
+    E --> S
+    S --> R[Independent downstream stream]
+```
+
 ## Use Cases
 - Reporting
 	- Exceptions
@@ -37,7 +48,6 @@ hourlyTips.getSideOutput(lateFares).print();
 ```ad-note
 Alternatively, you can use two OutputTags with the same name to refer to the same side output, but if you do, they must have the same type
 ```
-
 
 ---
 

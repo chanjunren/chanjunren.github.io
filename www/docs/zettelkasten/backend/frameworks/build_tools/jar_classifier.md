@@ -12,6 +12,14 @@
 - The original thin JAR (just your compiled classes) is either replaced or preserved with a classifier
 - If another module depends on your Spring Boot module, it needs the plain JAR — not the fat one
 
+```mermaid
+flowchart LR
+    A[Build output] --> P[Plain artifact]
+    A --> F[Additional artifact with classifier]
+    P --> L[Default dependency and deployment]
+    F --> S[Special purpose such as sources or shaded JAR]
+```
+
 ## Fat JAR vs Plain JAR
 
 ### Fat JAR (executable, repackaged by Spring Boot)

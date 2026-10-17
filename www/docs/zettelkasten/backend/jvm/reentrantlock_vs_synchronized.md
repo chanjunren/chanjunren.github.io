@@ -1,9 +1,20 @@
 🗓️ 29042026 1630
-📎 #java #concurrency #locking
 
 # reentrantlock_vs_synchronized
 
 > Two ways to take a lock in Java. `synchronized` is the keyword: simple, JVM-managed, and now usually as fast as anything else for the common case. `ReentrantLock` is the explicit class: more flexible, supports interruptible/timed/fair acquisition and condition variables. The choice is mostly about whether you need any feature `synchronized` doesn't provide.
+
+```mermaid
+sequenceDiagram
+    participant A as Thread A
+    participant Lock
+    participant B as Thread B
+    A->>Lock: Acquire monitor or explicit lock
+    B->>Lock: Attempt acquisition
+    Lock-->>B: Wait until available
+    A->>Lock: Release lock
+    Lock-->>B: Grant acquisition
+```
 
 ## The Two Mechanisms
 
@@ -159,11 +170,10 @@ The exception: extreme contention. Under heavy contention, `ReentrantLock` may h
 - **`wait()` without checking the condition** — spurious wakeups exist. Always `while (!condition) wait();`, never `if (!condition) wait();`.
 - **`signal()` instead of `signalAll()` on multi-condition `wait`** — wakes one thread that may not be the one whose condition was satisfied. With `synchronized`+`notify`, prefer `notifyAll`. With `Condition`, `signal` is OK if you have separate conditions for each waiter type.
 
-## Related
+Both lock types establish ordering guarantees described in [[java_memory_model_happens_before]]. [[cas_compare_and_swap]] explains the CAS operation used by `ReentrantLock`'s fast path.
 
-- [[volatile_synchronized_atomic_difference]] — the wider primitive landscape.
-- [[java_memory_model_happens_before]] — both locks establish HB-edges.
-- [[cas_compare_and_swap]] — `ReentrantLock`'s fast path is CAS via AQS.
+## Planned
+
 - `aqs_abstractqueuedsynchronizer` *(planned)* — the framework underneath every `j.u.c.locks` lock.
 
 ---

@@ -6,6 +6,19 @@ An InnoDB deadlock occurs when transactions form a cycle: each holds a lock need
 
 InnoDB detects deadlocks by default and rolls back one victim so the others can continue. Applications must treat a deadlock rollback as a retryable transaction failure. Retry the whole transaction with bounded backoff, not just the last statement, and make the transaction safe to rerun.
 
+```mermaid
+sequenceDiagram
+    participant A as Transaction A
+    participant DB
+    participant B as Transaction B
+    A->>DB: Lock row 1
+    B->>DB: Lock row 2
+    A->>DB: Wait for row 2
+    B->>DB: Wait for row 1
+    DB->>DB: Detect wait cycle
+    DB-->>A: Roll back victim transaction
+```
+
 ## Reading a deadlock report
 
 `SHOW ENGINE INNODB STATUS` shows the latest detected deadlock. Look for:
@@ -30,11 +43,7 @@ An earlier production report showed two concurrent `UPDATE` statements waiting i
 
 Changing isolation level is not a general deadlock fix. MySQL notes that deadlocks arise from write-lock conflicts and are not prevented simply by lowering isolation; measure the effect on correctness and contention before changing it.
 
-## Related notes
-
-- [[innodb_locks]] — lock records, gaps, and next-key ranges
-- [[innodb_transaction_isolation_levels]] — snapshot and locking-read behavior
-- [[optimistic_locking]] — conflict detection without holding locks throughout work
+For lock records, gaps, and next-key ranges, see [[innodb_locks]]. For snapshot and locking-read behavior, see [[innodb_transaction_isolation_levels]]. For conflict detection without holding locks throughout work, see [[optimistic_locking]].
 
 ## References
 

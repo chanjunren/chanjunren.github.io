@@ -4,6 +4,17 @@
 
 Elasticsearch is a distributed search and analytics engine built on Apache Lucene.
 
+```mermaid
+flowchart LR
+    A[Document] --> I[Inverted index]
+    I --> S[Shard]
+    S --> N[Cluster node]
+    Q[Search query] --> C[Coordinating node]
+    C --> N
+    N --> C
+    C --> R[Ranked results]
+```
+
 ## Mental model
 
 Applications send JSON documents to an index. Elasticsearch maps document fields, indexes searchable values, and distributes index shards across cluster nodes. Search requests are coordinated across relevant shards, then their results are combined.
@@ -12,11 +23,7 @@ An Elasticsearch index is not a relational table. Documents are grouped into ind
 
 Elasticsearch is a strong fit for text search, filtering, and aggregations over indexed documents. It is not a drop-in replacement for a relational database’s transactions and constraints. Plan mappings and shard counts around query patterns and data volume.
 
-## Related notes
-
-- [[analyzers]] — how text is transformed for search
-- [[query_dsl]] — expressing searches
-- [[search_cluster_topology]] — distributing indices and requests
+For how text is transformed for search, see [[analyzers]]. For expressing searches, see [[query_dsl]]. For distributing indices and requests, see [[search_cluster_topology]].
 
 ## References
 

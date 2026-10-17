@@ -2,6 +2,20 @@
 
 # compare_and_swap
 
+```mermaid
+sequenceDiagram
+    participant Thread
+    participant Memory
+    Thread->>Memory: Read current value
+    Thread->>Thread: Compute new value
+    Thread->>Memory: Compare current value and swap
+    alt Equal to expected value
+        Memory-->>Thread: Update succeeds
+    else Changed by another thread
+        Memory-->>Thread: Retry with new value
+    end
+```
+
 ## What Is CAS?
 - A CPU-level atomic instruction: "set this value to X **only if** it's currently Y"
 - If another thread changed it in between, CAS fails and you retry

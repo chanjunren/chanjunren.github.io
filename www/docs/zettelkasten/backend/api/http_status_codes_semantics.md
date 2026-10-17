@@ -1,5 +1,4 @@
 🗓️ 29042026 1200
-📎 #api #http
 
 # http_status_codes_semantics
 
@@ -16,6 +15,16 @@
 ```
 
 Class semantics matter because **clients, proxies, and SDKs auto-retry differently** based on class. Returning the wrong class causes wrong retry behaviour.
+
+```mermaid
+flowchart TD
+    A[Client receives response] --> B{Status class}
+    B -- 2xx --> C[Use successful result]
+    B -- 3xx --> D[Follow redirect policy]
+    B -- 4xx --> E[Correct request or credentials]
+    B -- 5xx --> F[Retry only if operation and policy allow]
+    B -- 1xx --> G[Continue protocol exchange]
+```
 
 ## 2xx — The Useful Ones
 
@@ -104,12 +113,7 @@ Many APIs use 400 for both. RFC 9110 added 422 to fit; using it cleanly improves
 - **Conflating 503 and 504** — 503 means "I refuse" (overloaded); 504 means "upstream didn't answer". Different operational signals.
 - **`Allow` header missing on 405** — spec requires it. Many implementations forget. Without it, clients can't programmatically discover the right method.
 
-## Related
-
-- [[http_methods_idempotency_safety]] — what methods *should* return.
-- [[retry_backoff_jitter]] — what to do with 5xx and 429.
-- [[../rate_limiting/algorithms]] — what 429 sits in front of.
-- [[circuit_breaker_pattern]] — why a chain of 5xx triggers a circuit open.
+For what methods *should* return, see [[http_methods_idempotency_safety]]. For why a chain of 5xx triggers a circuit open, see [[circuit_breaker_pattern]].
 
 ---
 

@@ -6,6 +6,16 @@ A **data compute platform** coordinates storage, ingestion, processing, governan
 
 ## Typical components
 
+```mermaid
+flowchart LR
+    S[Data sources] --> I[Ingestion]
+    I --> R[Storage]
+    R --> P[Processing]
+    P --> C[Catalog and governance]
+    C --> A[Analytics and applications]
+    P --> R
+```
+
 - **Sources:** operational databases, files, APIs, and event streams.
 - **Storage:** a warehouse, lake, lakehouse, or a combination.
 - **Processing:** batch jobs or stream processors that validate and transform data.
@@ -23,4 +33,5 @@ See [[extract_transform_load]], [[processing_architectures]], and [[storage_comp
 
 ## References
 
-- TODO: Add the platform or architecture source this note originally summarized.
+- [AWS: Modern data architecture accelerator](https://docs.aws.amazon.com/solutions/latest/modern-data-architecture-accelerator/architecture-overview.html)
+- [Microsoft: Modern analytics architecture](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)

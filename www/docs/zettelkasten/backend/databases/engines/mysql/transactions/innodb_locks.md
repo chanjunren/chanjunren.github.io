@@ -4,6 +4,15 @@
 
 InnoDB locks index records and ranges so concurrent transactions can coordinate changes. The lock is often described as a “row lock,” but InnoDB implements it on index records. The query plan and index scanned therefore affect which records or gaps are locked.
 
+```mermaid
+flowchart TD
+    Q[Locking predicate] --> I{Unique index equality?}
+    I -- Yes --> R[Record lock]
+    I -- No --> G[Gap or next-key range lock]
+    R --> C[Protect matching index record]
+    G --> P[Prevent conflicting inserts in range]
+```
+
 ## Record and range locks
 
 - **Record lock:** locks an index record. A transaction that updates or deletes a row takes exclusive locks on the relevant index records; a locking read can request shared or exclusive locks.

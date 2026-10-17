@@ -2,6 +2,8 @@
 
 # product_overview
 
+> **Hologres**: Alibaba Cloud's real-time data warehouse for SQL analytics and data-serving workloads. ([Product overview](https://www.alibabacloud.com/help/en/hologres/product-overview/what-is-hologres))
+
 Hologres is Alibaba Cloud's distributed real-time data warehouse for SQL analytics and data-serving workloads.
 
 It combines a PostgreSQL-compatible SQL interface with a distributed execution layer, several table storage orientations, and integrations with Alibaba Cloud data services. That makes it useful for workloads that need both analytical queries and operational data access, but the product's specific compatibility and performance guarantees depend on the feature and deployed version.
@@ -14,11 +16,16 @@ When learning Hologres, separate three decisions:
 
 Avoid applying a single storage layout to every workload. Point lookups, broad scans, aggregations, and mixed access patterns can benefit from different table orientations and keys.
 
-## Related notes
+```mermaid
+flowchart LR
+  Ingest[Streaming and batch sources] --> H[Hologres]
+  External[Supported external tables and lake sources] --> H
+  H --> SQL[PostgreSQL-compatible SQL access]
+  H --> Serve[Operational data serving]
+  H --> Analytics[Interactive analytics]
+```
 
-- [[table_creation_best_practises]] — table property choices
-- [[sql_optimization]] — query tuning concepts
-- [[specific_tables]] — local and external table forms
+For table property choices, see [[table_creation_best_practises]]. For query tuning concepts, see [[sql_optimization]]. For local and external table forms, see [[specific_tables]].
 
 ## References
 

@@ -71,5 +71,14 @@
 	- Flexible: Any concurrent collection
 
 ---
+```mermaid
+flowchart TD
+    A[Concurrent collection need] --> B{Need ordering?}
+    B -- Sorted order --> C[ConcurrentSkipListSet]
+    B -- No --> D{Many reads, rare writes?}
+    D -- Yes --> E[CopyOnWriteArraySet]
+    D -- No --> F[ConcurrentHashMap or key set view]
+```
+
 ## References
 - [Java 17 API: java.util.concurrent](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/package-summary.html)

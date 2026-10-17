@@ -1,9 +1,24 @@
 🗓️ 29042026 1800
-📎 #distributed_systems #transactions #patterns
 
 # saga_pattern
 
 > The pragmatic alternative to [[two_phase_commit]] for cross-service business workflows. A long transaction broken into local transactions, each with a compensating action.
+
+```mermaid
+sequenceDiagram
+    participant Orchestrator
+    participant A as Service A
+    participant B as Service B
+    participant C as Service C
+    Orchestrator->>A: Step 1
+    A-->>Orchestrator: Success
+    Orchestrator->>B: Step 2
+    B-->>Orchestrator: Success
+    Orchestrator->>C: Step 3
+    C-->>Orchestrator: Failure
+    Orchestrator->>B: Compensate step 2
+    Orchestrator->>A: Compensate step 1
+```
 
 ## The Idea
 
@@ -105,16 +120,11 @@ Mitigations:
 - **A saga is loosely a distributed transaction** — but eventually consistent, not atomic. There's always a window where the system is partially complete.
 - **Compensations can fail too** — retry with backoff, then dead-letter to ops. No clean automatic answer; design for human escalation.
 - **Choreography vs orchestration** — orchestration scales better for complex flows (state machine is explicit). Choreography starts simpler but rots into a tangled event graph as steps accumulate.
-- **Inside a single step, use [[outbox_pattern]]** — write the event to the same DB transaction so the step's DB write and its outbound message are atomic.
+- **Inside a single step, use outbox pattern** — write the event to the same DB transaction so the step's DB write and its outbound message are atomic.
 - **Saga vs 2PC** — 2PC is atomic-or-bust during the transaction; saga is "complete or compensated", with each step independently durable. 2PC blocks; saga doesn't. 2PC has stronger guarantees; saga has higher availability.
 - **Every step and every compensation must be idempotent** — use idempotency keys per saga step. Retried events are routine.
 
-## Related
-
-- [[two_phase_commit]] — what saga replaces.
-- [[outbox_pattern]] — for the per-step "DB write + event publish" atomicity.
-- [[cap_theorem]] — saga is the AP-leaning answer to cross-service consistency.
-- [[consistency_models]] — sagas give eventual consistency at best.
+For saga is the AP-leaning answer to cross-service consistency, see cap theorem. For sagas give eventual consistency at best, see consistency models.
 
 ---
 

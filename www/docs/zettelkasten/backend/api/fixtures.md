@@ -10,6 +10,18 @@
 
 ## Example
 
+```mermaid
+sequenceDiagram
+    participant Test
+    participant Fixture
+    participant Service
+    Test->>Fixture: Create test data and dependencies
+    Fixture-->>Test: Ready state
+    Test->>Service: Execute behavior
+    Service-->>Test: Result to assert
+    Test->>Fixture: Clean up resources
+```
+
 ```groovy
 setup:
     def user = new User(name: "Bob")

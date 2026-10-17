@@ -1,6 +1,14 @@
 🗓️ 28082025 1056
 
 # jar_types
+```mermaid
+flowchart LR
+    A[Application classes] --> P[Plain JAR]
+    D[Runtime dependencies] --> P
+    P -->|packaging plugin adds dependencies| F[Fat or shaded JAR]
+    F --> R[Run with fewer external classpath entries]
+```
+
 ## 🎯 Core Concept
 - **Plain JAR** = Library (shareable code)
 - **Boot JAR** = Application (runnable program)
@@ -41,8 +49,8 @@
 - Boot JAR = 🎬 Complete movie (self-contained entertainment)
 
 ## 🚨 Common Problem
-**Error**: `unable to resolve class` in multi-module projects  
-**Cause**: Spring Boot only generates boot JARs by default  
+**Error**: `unable to resolve class` in multi-module projects
+**Cause**: Spring Boot only generates boot JARs by default
 **Fix**: Add `<classifier>boot</classifier>` to generate both types
 
 ---

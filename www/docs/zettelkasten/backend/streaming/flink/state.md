@@ -10,11 +10,16 @@ The configured state backend determines how state is stored and accessed during 
 
 State has operational costs. Larger state increases checkpoint and recovery work; TTL, compaction, key design, and backend choice affect those costs. Choose state scope and retention from the business invariant rather than keeping every historical event indefinitely.
 
-## Related notes
+For consistent snapshots, see [[checkpointing]].
 
-- [[checkpointing]] — consistent snapshots
-- [[keyed_state]] — state partitioned by key
-- [[operator_state]] — state owned by an operator instance
+```mermaid
+flowchart LR
+    A[Stream record] --> O[Stateful operator]
+    O --> S[Read or update managed state]
+    S --> C[Checkpoint snapshot]
+    C --> R[Restore after failure]
+    R --> O
+```
 
 ## References
 

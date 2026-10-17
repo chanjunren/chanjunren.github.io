@@ -2,21 +2,28 @@
 
 # shard
 
-- A **shard** is a physical storage unit in Hologres, where data is stored and processed.
-- Shards are managed by [[pangu]]
+> **Shard**: A data partition that the storage engine manages and workers process in parallel. ([Hologres documentation](https://www.alibabacloud.com/help/en/hologres/user-guide/basic-concepts))
 
-![Relationship diagram](https://help-static-aliyun-doc.aliyuncs.com/assets/img/en-US/6049589661/p511561.png)
-## Shard Allocation
-- When a table is created, it is assigned to a table group, and data is distributed to specific shards.
-- Each shard has a unique ID within an instance.
+A shard is a data partition. The storage engine manages one shard per engine instance, and workers process assigned shards in parallel. Persistent Hologres data is stored in Pangu; a shard is a logical data unit, not a physical disk.
 
-#### **Shard Count and Workers**
-- Shards are distributed across **worker compute nodes** for parallel processing.
-- The number of shards should be proportional to the number of workers to ensure balanced resource allocation.
+```mermaid
+flowchart LR
+  T[Table in table group] --> D[Distribution key]
+  D --> S1[Shard 1]
+  D --> S2[Shard 2]
+  D --> S3[Shard N]
+  S1 --> W1[Worker]
+  S2 --> W2[Worker]
+  S3 --> WN[Worker]
+```
 
-## **Failover Handling**
-- If a worker fails, its shards are reallocated to healthy workers to maintain even distribution.
+## Shard placement
+
+When a table is created, it is assigned to a [[table_group]]. Rows are assigned to shards using the [[distribution_key]], or distributed randomly when no key applies. Shards are spread across workers for parallel query execution.
+
+Shard count affects parallelism and resource use. Use the current instance and table-group guidance when choosing a count; placement and recovery are managed by the service.
 
 ---
 ## References
-- https://www.alibabacloud.com/help/en/hologres/user-guide/table-group-and-shard-count
+- [Hologres: Table groups and shards](https://www.alibabacloud.com/help/en/hologres/user-guide/user-guide-of-table-groups-and-shard-counts)
+- [Hologres: Concepts](https://www.alibabacloud.com/help/en/hologres/user-guide/basic-concepts)

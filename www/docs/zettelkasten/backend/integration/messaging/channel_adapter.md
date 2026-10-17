@@ -2,6 +2,15 @@
 
 # channel_adapter
 
+```mermaid
+flowchart LR
+    A[Application API] --> X[Channel adapter]
+    X --> C[Message channel]
+    C --> R[Remote system]
+    R --> I[Inbound adapter]
+    I --> B[Application API]
+```
+
 ## Background
 
 - Problem: connecting an application to **send** / **receive** messages
@@ -29,7 +38,6 @@ Use a Channel Adapter to decouple logic for interacting with a `messageChannel`
 - Commercial EAI vendors provide a collection of Channel Adapters as part of their offerings
 - Having adapters to all **major application packages** available simplifies development of an integration solution greatly
 - Most vendors also provide more **generic database adapters** as well as software development kits (SDK's) to develop custom adapters
-
 
 ### Example: Legacy Platform Adapters
 - A number of vendors provide adapters from common messaging system to legacy systems executing on platforms such as as UNIX, MVS, OS/2, AS/400, Unisys, and VMS

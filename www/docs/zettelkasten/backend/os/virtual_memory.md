@@ -6,6 +6,16 @@ Each process gets its own **virtual address space** — a private view of memory
 
 This is the foundation for understanding all container memory metrics: RSS, VIRT, working set, and page cache all describe different aspects of the virtual-to-physical mapping.
 
+```mermaid
+flowchart LR
+    A[Process virtual address] --> M[MMU and page tables]
+    M -->|mapped and resident| R[Physical RAM frame]
+    M -->|unmapped or absent| F[Page fault handler]
+    F --> D[Allocate or load page]
+    D --> M
+    R --> P[Process continues]
+```
+
 ## Three Key Mechanisms
 
 ### Virtual Address Space
@@ -47,7 +57,7 @@ This is why VIRT is much larger than RSS. VIRT counts all mapped virtual pages. 
 | **VIRT** | Total virtual address space mapped | What the process *could* use — includes unmapped reservations |
 | **RSS** (Resident Set Size) | Pages actually resident in physical RAM | What the process *is* using right now |
 
-A JVM with `-Xmx4g` and memory-mapped files may show VIRT = 8 GB but RSS = 2 GB. Only 2 GB of physical RAM is in use. Container memory limits apply to physical usage (RSS + cache), not virtual address space. See [[interpreting_container_memory]] for how this maps to `container_memory_rss` and `container_memory_usage_bytes`.
+A JVM with `-Xmx4g` and memory-mapped files may show VIRT = 8 GB but RSS = 2 GB. Only 2 GB of physical RAM is in use. Container memory limits apply to physical usage (RSS + cache), not virtual address space. See interpreting container memory for how this maps to `container_memory_rss` and `container_memory_usage_bytes`.
 
 ## Why the Kernel Can Reclaim Pages
 
@@ -56,7 +66,7 @@ Physical frames can be taken back from a process without destroying data:
 - **File-backed pages** (code, memory-mapped files, [[page_cache]]) — can be dropped and re-read from disk later
 - **Anonymous pages** (heap, stack) — must be written to swap first if swap is enabled; otherwise cannot be reclaimed without killing the process
 
-This reclamation mechanism is why Linux aggressively fills free RAM with page cache — cached pages are reclaimable, so they cost nothing when applications need the memory. See [[interpreting_host_memory]] for why a Linux node showing 90% memory "used" is usually healthy.
+This reclamation mechanism is why Linux aggressively fills free RAM with page cache — cached pages are reclaimable, so they cost nothing when applications need the memory. See interpreting host memory for why a Linux node showing 90% memory "used" is usually healthy.
 
 ```ad-warning
 Container memory limits apply to physical memory (RSS + page cache charged to the cgroup), not virtual address space. A JVM can map 8 GB of virtual memory but only hit a 2 GB container limit when its physical usage reaches 2 GB.

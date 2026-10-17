@@ -8,11 +8,17 @@ Examples include script queries, fuzzy and regexp queries, some prefix and wildc
 
 Expensive does not mean every request is slow. Cost depends on data, selectivity, shard layout, and competing workload. Profile representative requests, constrain broad user input, and choose field mappings for expected filters. On supported deployments, `search.allow_expensive_queries=false` rejects query classes Elasticsearch flags as expensive; it is a guardrail, not a query optimizer.
 
-## Related notes
+For two different prefix search behaviors, see [[prefix_vs_match_phrase_prefix]]. For query types and contexts, see [[query_dsl]]. For mapping and analysis choices, see [[analyzer_configuration]].
 
-- [[prefix_vs_match_phrase_prefix]] — two different prefix search behaviors
-- [[query_dsl]] — query types and contexts
-- [[analyzer_configuration]] — mapping and analysis choices
+```mermaid
+flowchart TD
+    Q[Query request] --> P[Parse and plan]
+    P --> S[Fan out to shards]
+    S --> E[Run scoring, aggregation, or script]
+    E --> M[Merge shard results]
+    M --> R[Return response]
+    O[Profile and inspect slow logs] --> P
+```
 
 ## References
 

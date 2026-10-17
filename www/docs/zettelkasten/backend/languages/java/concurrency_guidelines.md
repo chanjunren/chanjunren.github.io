@@ -10,7 +10,17 @@
 | ⚠️ **High**     | Should fix promptly; could affect stability or performance                 | Missing Future timeouts, bad collection choice          |
 | 🟢 **Advisory** | Best practice; improves maintainability and efficiency                     | Thread naming, Random vs ThreadLocalRandom              |
 
-## 🧵 Thread Management 
+```mermaid
+flowchart LR
+    A[Request or task] --> E[Executor service]
+    E --> Q[Bounded work queue]
+    Q --> W[Worker threads]
+    W --> S[Shared-state policy]
+    W --> R[Result or failure]
+    X[Shutdown] --> E
+```
+
+## 🧵 Thread Management
 
 | Guideline                                           | Impact      | Why It Matters                                                                         |
 | --------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------- |
@@ -21,7 +31,7 @@
 | **Use custom thread pools for `CompletableFuture`** | 🚨 Critical | Default pool = small, shared → risk of starvation or excessive thread creation         |
 | **Set timeouts on `Future.get()`**                  | ⚠️ High     | Without timeouts, a blocked future can **hang threads indefinitely**                   |
 
-## 🏊‍♀️ Thread Pool Best Practices 
+## 🏊‍♀️ Thread Pool Best Practices
 
 | Guideline                                                  | Impact                                 | Why It Matters                                                          |
 | ---------------------------------------------------------- | -------------------------------------- | ----------------------------------------------------------------------- |
@@ -51,7 +61,7 @@
 | Use **ThreadLocalRandom** instead of `Random`                 | 🟢 Advisory | Avoids contention on shared Random state                      |
 | Use **LongAdder** instead of `AtomicLong` for hot counters    | 🟢 Advisory | Better under high contention due to striped counters          |
 
-## 📌 Quick Prioritization Table 
+## 📌 Quick Prioritization Table
 
 |Area|Must-Fix 🚨|Should-Fix ⚠️|Best Practice 🟢|
 |---|---|---|---|

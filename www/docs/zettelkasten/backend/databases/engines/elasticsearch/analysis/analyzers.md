@@ -4,6 +4,16 @@
 
 How Elasticsearch processes and tokenizes text for searching.
 
+```mermaid
+flowchart LR
+    T[Text field] --> C[Character filters]
+    C --> K[Tokenizer splits text]
+    K --> F[Token filters normalize terms]
+    F --> I[Index terms]
+    Q[Query text] --> S[Search analyzer]
+    S --> M[Match index terms]
+```
+
 ## What is an Analyzer?
 
 An analyzer transforms text into tokens (terms) that can be searched. It runs during:

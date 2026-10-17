@@ -1,5 +1,4 @@
 🗓️ 29042026 1645
-📎 #java #concurrency #collections
 
 # concurrenthashmap_internals
 
@@ -14,6 +13,17 @@
 - **Inconsistent observation** — iterators throw `ConcurrentModificationException` (best case) or silently return wrong results (worst case).
 
 `ConcurrentHashMap` (CHM) solves these without serialising every read.
+
+```mermaid
+flowchart LR
+    A[Hash key] --> B[Select table bin]
+    B --> C{Empty bin?}
+    C -- Yes --> D[CAS new node]
+    C -- No --> E[Lock bin and update]
+    E --> F{Collision chain too long?}
+    F -- Yes --> G[Treeify bin when table is large enough]
+    H[Resize] --> I[Transfer bins]
+```
 
 ## JDK 7 — Segment-Based Lock Striping
 
@@ -136,13 +146,7 @@ In practice: CHM is roughly as fast as HashMap for read-heavy workloads, slightl
 - **Reading then writing without atomic op** — even on CHM, `int n = map.get(k); map.put(k, n+1);` is racy. Use `merge` or `compute`.
 - **Comparing JDK 7 and JDK 8 advice blindly** — many old guides say "set concurrencyLevel to thread count". JDK 8+ ignores it (kept only for backward-compat).
 
-## Related
-
-- [[volatile_synchronized_atomic_difference]] — the primitive trio CHM combines.
-- [[cas_compare_and_swap]] — bucket-empty insert is a CAS.
-- [[reentrantlock_vs_synchronized]] — JDK 7 used ReentrantLock per segment; JDK 8 uses synchronized on bucket head.
-- [[java_memory_model_happens_before]] — CHM's volatile reads + CAS establish HB.
-- [[thread_pool_executor_internals]] — internal `Worker` count and queue may be CHM-backed in some implementations.
+The synchronization primitives used by ConcurrentHashMap are compared in [[volatile_synchronized_atomic_difference]]. Empty-bucket insertion uses CAS, covered in [[cas_compare_and_swap]]. The JDK 7 segment locks and JDK 8 bucket synchronization are compared in [[reentrantlock_vs_synchronized]]. [[java_memory_model_happens_before]] explains the ordering guarantees from volatile reads and CAS. [[thread_pool_executor_internals]] notes where executors use concurrent collections.
 
 ---
 

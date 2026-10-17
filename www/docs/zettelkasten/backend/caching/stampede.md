@@ -6,6 +6,17 @@ A **cache stampede** happens when concurrent misses trigger duplicate loads of t
 
 A **thundering herd** is the broader pattern of many workers waking or competing together.
 
+```mermaid
+flowchart TD
+    A[Hot key expires] --> B[Many requests miss together]
+    B --> C[Duplicate source loads]
+    C --> D[Source latency rises]
+    D --> E[More timeouts and retries]
+    E --> C
+    F[Singleflight, lock, or early refresh] --> G[One or fewer source loads]
+    G --> H[Requests share refreshed value]
+```
+
 ## Why recomputation time matters
 
 At 1,000 requests/second, a 0.5-second load window can admit about 500 requests. Without coordination, each may load the same value.

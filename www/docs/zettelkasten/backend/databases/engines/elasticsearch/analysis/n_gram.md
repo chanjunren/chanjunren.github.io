@@ -1,16 +1,26 @@
 🗓️ 02102024 1120
 
 # n_gram
+```mermaid
+flowchart LR
+    T[Token text] --> W[Sliding window of length n]
+    W --> G1[First n-gram]
+    W --> G2[Next overlapping n-gram]
+    W --> G3[Continue to token end]
+    G1 --> I[Index terms]
+    G2 --> I
+    G3 --> I
+```
+
 ## Definition
 > A contiguous sequence of `n` items (or tokens) from a given text or speech
-
 
 In the context of text processing, n-grams are typically sequences of words or characters
 
 Commonly used in:
 - **natural language processing (NLP)**
 - search engines
-- text analytics 
+- text analytics
 
 ## Types
 
@@ -41,7 +51,7 @@ By breaking the text into smaller tokens, a system can better handle these varia
 - Example: Searching for "quick fox" might still match "quikc fxo" if n-grams are used, as the system can recognize the similarity in the n-grams between the two phrases.
 
 ### Context and Word Co-occurrence
-For NLP tasks, n-grams are useful for 
+For NLP tasks, n-grams are useful for
 - analyzing the **context** in which words occur
 - Bigrams or trigrams can be used to understand the relationships between words in a text.
 

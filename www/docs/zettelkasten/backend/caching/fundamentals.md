@@ -6,6 +6,16 @@ A **cache** stores reusable results near the reader. A hit avoids source work; a
 
 These notes cover application data caches. Start with [[aside_pattern]] to see the read and write paths.
 
+```mermaid
+flowchart LR
+    A[Request key] --> B{Entry present and fresh?}
+    B -- Yes --> C[Cache hit]
+    B -- No --> D[Cache miss]
+    D --> E[Load or compute value]
+    E --> F[Store with freshness policy]
+    F --> C
+```
+
 ## Entry lifecycle
 
 | Term | Meaning |

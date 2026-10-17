@@ -1,5 +1,4 @@
 🗓️ 29042026 1400
-📎 #system_design #design
 
 # url_shortener
 
@@ -88,6 +87,24 @@ Choices visible:
 - Custom aliases in a separate table so uniqueness is enforced without conflicting with the auto-generated short_id namespace.
 - Click events offline; the read path doesn't write.
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant API
+    participant Cache
+    participant DB as Mapping database
+    Client->>API: POST long URL
+    API->>DB: Store short ID to long URL
+    API-->>Client: Return short URL
+    Client->>API: GET short ID
+    API->>Cache: Lookup ID
+    alt Cache miss
+        API->>DB: Read mapping
+        DB-->>API: Long URL
+    end
+    API-->>Client: Redirect to long URL
+```
+
 ## 5. Architecture
 
 ```
@@ -152,7 +169,7 @@ Generate random 7 chars, INSERT, on collision retry. Probability of collision is
 
 ### 6.2 Cache Strategy
 
-[[../caching/aside_pattern]] is the default: read tries cache, miss reads DB, populates cache.
+aside pattern is the default: read tries cache, miss reads DB, populates cache.
 
 ```
 read(short_id):
@@ -184,7 +201,7 @@ The [[cluster_topology]] zettel covers slot-based sharding limits; very hot sing
 
 - **Hash sharding**: `shard = hash(short_id) % N`. Even distribution, no range queries.
 - **Range sharding by counter prefix**: shorter codes (early) → shard A, longer codes → shard B. Risk of unbalanced load (newer codes hotter).
-- **[[consistent_hashing]]**: minimum movement when adding shards.
+- **consistent hashing**: minimum movement when adding shards.
 
 Hash sharding is the default. See [[database_sharding_strategies]] for the trade-offs.
 
@@ -192,7 +209,7 @@ Hash sharding is the default. See [[database_sharding_strategies]] for the trade
 
 Click events fire-and-forget into Kafka via the app server (no synchronous write to analytics DB on the read path). Async consumer aggregates into the warehouse.
 
-Trade-off: analytics is eventually consistent (delayed by minutes); the redirect remains microsecond-fast. See [[outbox_pattern]] if you need *guaranteed* event delivery for billing/legal reasons.
+Trade-off: analytics is eventually consistent (delayed by minutes); the redirect remains microsecond-fast. See outbox pattern if you need *guaranteed* event delivery for billing/legal reasons.
 
 ### 6.6 Custom Aliases
 
@@ -226,14 +243,7 @@ Cache custom aliases the same way as short_ids.
 - **Single-region** — broken for international users. CDN at minimum; multi-region origin if availability targets demand it.
 - **Thinking the DB is the read tier** — at 100k reads/s with 100 TB of data, the DB serves only cache misses. Caching is mandatory, not an optimisation.
 
-## Related
-
-- [[framework]] — the six-step approach this walks through.
-- [[back_of_envelope_estimation]] — capacity numbers behind every choice here.
-- [[unique_id_generator_snowflake]] — alternative ID-generation approach.
-- [[../caching/aside_pattern]], [[../caching/stampede]] — caching for the read path.
-- [[database_sharding_strategies]], [[consistent_hashing]] — sharding the DB.
-- [[outbox_pattern]], [[kafka_architecture]] — analytics pipeline.
+For the six-step approach this walks through, see [[framework]].
 
 ---
 

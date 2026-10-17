@@ -4,14 +4,23 @@
 
 > strategies for [[video_transcoding]]
 
+```mermaid
+flowchart TD
+    A[New source video] --> B{Many devices or bandwidths?}
+    B -- Yes --> C[Create adaptive renditions]
+    B -- No --> D{High expected viewership?}
+    D -- Yes --> C
+    D -- No --> E[Keep source or transcode on demand]
+    C --> F[Use playback analytics to prioritize more renditions]
+```
 
 ## Transcoding Decision Matrix
 
 ### **Always Transcode**
-- **Multiple device support** (mobile + desktop)  
-- **Varying network conditions** (3G vs fiber)  
-- **Global audience** (different bandwidth)  
-- **User experience priority** (smooth playback)  
+- **Multiple device support** (mobile + desktop)
+- **Varying network conditions** (3G vs fiber)
+- **Global audience** (different bandwidth)
+- **User experience priority** (smooth playback)
 
 ## Size-Based Guidelines
 
@@ -23,25 +32,25 @@
 
 ### **Factors More Important Than Size**
 
-#### **Audience Reach**
+### **Audience Reach**
 - Wide audience → **Transcode**
 - Internal only → **Maybe skip**
 
-#### **Content Type**
+### **Content Type**
 - Marketing videos → **Transcode**
 - Debug recordings → **Skip**
 
-#### **Expected Views**
+### **Expected Views**
 - High traffic → **Transcode immediately**
 - Low traffic → **Transcode on demand**
 
-#### **Original Quality**
+### **Original Quality**
 - High bitrate source → **Definitely transcode**
 - Already optimized → **Maybe skip**
 
 ### **Practical Examples**
 
-#### **Always Transcode:**
+### **Always Transcode:**
 ```
 ✅ Product demos (viewed on all devices)
 ✅ Educational content (global audience)
@@ -49,7 +58,7 @@
 ✅ Live recordings (usually high bitrate)
 ```
 
-#### **Consider Skipping:**
+### **Consider Skipping:**
 ```
 ❌ Internal meeting recordings
 ❌ Debug/test videos  
@@ -61,8 +70,6 @@
 1. **Create 720p immediately** (fast processing, covers most needs)
 2. **Create other qualities based on viewership** (data-driven approach)
 3. **Use analytics to guide priorities** (transcode what actually gets watched)
-
-
 
 ---
 ## References

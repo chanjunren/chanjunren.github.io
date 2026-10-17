@@ -1,11 +1,21 @@
 🗓️ 29042026 1215
-📎 #api #reliability #patterns
 
 # algorithms
 
 > The four algorithms that show up in every rate limiter, the trade-offs that decide which one fits, and the distributed-implementation pitfalls that make naive code wrong under load.
 
 ## The Four Algorithms
+
+```mermaid
+flowchart TD
+    A[Choose rate-limit behavior] --> B{Allow short bursts?}
+    B -- Yes --> C{Need smooth output rate?}
+    C -- Yes --> D[Leaky bucket]
+    C -- No --> E[Token bucket]
+    B -- No --> F{Need exact rolling window?}
+    F -- Yes --> G[Sliding log or counter]
+    F -- No --> H[Fixed window]
+```
 
 ### 1. Fixed Window Counter
 
@@ -178,13 +188,10 @@ X-RateLimit-Reset: 1714410600
 - **Logging every 429** — generates more traffic than the requests themselves. Sample.
 - **Telling users to retry without backoff** — leads to retry storms. Pair 429 with `Retry-After` and document exponential backoff in the SDK.
 
-## Related
+For 429 specifically, see [[http_status_codes_semantics]]. For what clients should do after 429, see [[retry_backoff_jitter]]. For server-side complement (your service can also be the rate-limited downstream), see [[circuit_breaker_pattern]]. For lua + atomic-op patterns reused, see [[distributed_lock]]. For counter sharding implications, see [[cluster_topology]].
 
-- [[http_status_codes_semantics]] — 429 specifically.
-- [[retry_backoff_jitter]] — what clients should do after 429.
-- [[circuit_breaker_pattern]] — server-side complement (your service can also be the rate-limited downstream).
-- [[distributed_lock]] — Lua + atomic-op patterns reused.
-- [[cluster_topology]] — counter sharding implications.
+## Planned
+
 - `backend/rate_limiting/distributed_design` *(planned)* — the system-design walk-through.
 
 ---

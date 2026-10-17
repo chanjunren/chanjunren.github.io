@@ -4,6 +4,17 @@
 
 Start here to understand cache behavior, choose read and write paths, and protect the source when entries are missing.
 
+```mermaid
+flowchart TD
+    R[Read request] --> H{Cache hit?}
+    H -- Yes --> V[Return cached value]
+    H -- No --> L[Load from source]
+    L --> C[Populate cache]
+    C --> V
+    W[Write request] --> P[Choose write-through or write-back]
+    P --> S[Keep cache and source within freshness policy]
+```
+
 ## Reading path
 
 1. [[fundamentals]]: entry lifecycle and hit-rate interpretation.

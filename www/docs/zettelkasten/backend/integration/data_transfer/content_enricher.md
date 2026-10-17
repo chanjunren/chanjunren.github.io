@@ -1,5 +1,4 @@
 🗓️ 04042024 1505
-📎 #backend #eip
 
 # content_enricher
 
@@ -10,6 +9,18 @@
   - Scheduling system: `source`
   - Accounting system: `target`
   - Customer Care: `dataSource` (contains additional information that scheduling does not have)
+
+```mermaid
+sequenceDiagram
+    participant Caller
+    participant Enricher
+    participant Source
+    Caller->>Enricher: Incomplete message
+    Enricher->>Source: Request supplemental data
+    Source-->>Enricher: Additional fields
+    Enricher->>Enricher: Merge with original message
+    Enricher-->>Caller: Enriched message
+```
 
 ## Pattern
 

@@ -1,9 +1,26 @@
 🗓️ 29042026 1715
-📎 #database #replication
 
 # database_replication_async_sync_semi
 
 Replication acknowledgment modes trade commit latency against how much replicated data may be missing after a failure. Exact guarantees depend on what the replica acknowledges, when it applies the data, and which replica is promoted.
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Primary
+    participant Replica
+    Client->>Primary: Commit write
+    Primary->>Replica: Send log record
+    alt Synchronous
+        Replica-->>Primary: Apply or persist acknowledgment
+        Primary-->>Client: Acknowledge after replica
+    else Asynchronous
+        Primary-->>Client: Acknowledge before replica catches up
+    else Semi-synchronous
+        Replica-->>Primary: Acknowledge receipt
+        Primary-->>Client: Acknowledge after required replica response
+    end
+```
 
 ## The Three Modes
 
@@ -29,7 +46,7 @@ Replication acknowledgment modes trade commit latency against how much replicate
 
 ## What "Synchronous" Actually Means
 
-Synchronous replication can wait for all configured replicas or a quorum, depending on the product. Waiting for more replicas can increase latency and reduce availability when a replica is slow. See [[quorum_reads_writes]] for quorum reasoning.
+Synchronous replication can wait for all configured replicas or a quorum, depending on the product. Waiting for more replicas can increase latency and reduce availability when a replica is slow. See quorum reads writes for quorum reasoning.
 
 For MySQL semi-synchronous replication, a replica may acknowledge receipt before applying the event. A read from that replica can therefore still be stale.
 
@@ -79,11 +96,10 @@ Split brain risk during failover: old leader doesn't know it lost the role and a
 - **Reading your own writes from a replica** has no zero-cost answer — wait for the replica to catch up to the leader's position, read from the leader, or pin the session to one replica.
 - **Parallel apply is tricky** — out-of-order replay can violate constraints. MySQL keys parallelism on schema or per-database to bound the race.
 
-## Related
+For quorum-based "synchronous" replication done right, see raft. For async = AP-leaning, sync-quorum = CP-leaning, see cap theorem.
 
-- [[raft]] — quorum-based "synchronous" replication done right.
-- [[quorum_reads_writes]] — N/W/R formalism.
-- [[cap_theorem]] — async = AP-leaning, sync-quorum = CP-leaning.
+## Planned
+
 - `read_write_splitting_replication_lag` *(planned)* — application-side patterns.
 
 ---

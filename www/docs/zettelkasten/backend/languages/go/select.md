@@ -1,5 +1,4 @@
 🗓️ 07062026 1040
-📎
 
 # select
 
@@ -93,6 +92,16 @@ case <-stop:
     return srv.Shutdown(context.Background())  // graceful
 }
 ```
+```
+
+```mermaid
+flowchart TD
+    A[select begins] --> B{Which case can proceed?}
+    B -- Channel send or receive ready --> C[Run chosen case]
+    B -- Several ready --> D[Choose one pseudo-randomly]
+    B -- No case ready --> E[Block]
+    B -- default present --> F[Run default immediately]
+    E --> B
 ```
 
 ## References

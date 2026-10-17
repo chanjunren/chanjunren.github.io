@@ -1,5 +1,4 @@
 🗓️ 07062026 1150
-📎
 
 # review_backies
 
@@ -33,7 +32,18 @@
 The earlier `WriteTimeout`-vs-router-`Timeout` mismatch (which truncated long responses at 15s) has been fixed — the server now sets no `WriteTimeout`. The biggest remaining gap is the **total absence of tests** on a codebase that's otherwise production-shaped.
 ```
 
+```mermaid
+flowchart LR
+    A[HTTP request] --> R[Router]
+    R --> H[Handler]
+    H --> S[Service logic]
+    S --> D[Database or external dependency]
+    D --> S
+    S --> H
+    H --> O[HTTP response]
+```
+
 ## References
 
-- [[go_learning_plan]]
+- go learning plan
 - Repo: `backies` (`cmd/api`, `internal/`)

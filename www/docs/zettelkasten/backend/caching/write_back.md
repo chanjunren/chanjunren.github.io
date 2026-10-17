@@ -6,6 +6,20 @@
 
 Unlike [[aside_pattern]], the cache or its queue may hold the only current copy.
 
+```mermaid
+sequenceDiagram
+    participant App
+    participant Cache
+    participant Queue as Durable write queue
+    participant Source
+    App->>Cache: Write value
+    Cache-->>App: Acknowledge before source write
+    Cache->>Queue: Record pending update
+    Queue->>Source: Flush update later
+    Source-->>Queue: Persisted
+    Queue->>Cache: Mark update complete
+```
+
 ## Write path
 
 ```text

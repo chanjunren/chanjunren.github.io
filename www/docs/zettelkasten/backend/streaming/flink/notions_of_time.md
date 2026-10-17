@@ -2,6 +2,15 @@
 
 # notions_of_time
 
+```mermaid
+flowchart TD
+    A[Event arrives] --> B{Which clock defines progress?}
+    B --> C[Event time: timestamp in event]
+    B --> D[Processing time: operator clock]
+    B --> E[Ingestion time: source arrival]
+    C --> F[Watermark tracks event-time progress]
+```
+
 ## Notions of time
 
 | Notion          | Description                                                                                      | Use case                                                                                          | Example                           |

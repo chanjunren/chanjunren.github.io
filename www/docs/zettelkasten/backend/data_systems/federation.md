@@ -4,6 +4,21 @@
 
 **Data federation** lets a query engine access multiple data sources through one query interface, often without first copying all data into one store.
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Engine as Query engine
+    participant A as Source A
+    participant B as Source B
+    Client->>Engine: Federated query
+    Engine->>A: Push down supported subquery
+    Engine->>B: Push down supported subquery
+    A-->>Engine: Partial result
+    B-->>Engine: Partial result
+    Engine->>Engine: Join or aggregate results
+    Engine-->>Client: Combined result
+```
+
 ## Query path
 
 1. A client submits a query to a federated engine.

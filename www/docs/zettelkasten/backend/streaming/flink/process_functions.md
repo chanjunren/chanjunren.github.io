@@ -26,6 +26,19 @@ DataStream<Tuple3<Long, Long, Float>> hourlyTips = fares
 ```
 > Processing events continuously as they arrive
 
+```mermaid
+sequenceDiagram
+    participant Stream
+    participant Function as ProcessFunction
+    participant State
+    participant TimerService
+    Stream->>Function: Process element
+    Function->>State: Read or update keyed state
+    Function->>TimerService: Register timer
+    TimerService-->>Function: Timer callback when due
+    Function-->>Stream: Emit main or side output
+```
+
 ## Types
 
 | Type                                                                                                                                     | Description                                                                                                                              | Use case                                                                              |
@@ -63,8 +76,6 @@ public void open(Configuration conf) {
 - Because the fare events can arrive out of order, it will sometimes be necessary to process events for one hour before having finished computing the results for the previous hour
 - In fact, if the watermarking delay is much longer than the window length, then there may be many windows open simultaneously, rather than just two
 - This implementation supports this by using a `MapState` that maps the timestamp for the end of each window to the sum of the tips for that window.
-
-
 
 ### `processElement()`
 - Called with each element
@@ -124,7 +135,6 @@ public void onTimer(
 - Our pseudo-windows are being triggered when the current watermark reaches the end of each hour, at which point `onTimer` is called
 - This onTimer method removes the related entry from `sumOfTips`, which has the effect of making it impossible to accommodate late events
 - Equivalent of setting the allowedLateness to zero when working with Flink’s time windows.
-    
 
 ## Performance Considerations
 

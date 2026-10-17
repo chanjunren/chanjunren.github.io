@@ -12,18 +12,27 @@ Mechanism to tell flink when to **stop waiting for earlier events** and proceed 
 - **Progress Without Infinite Waiting:**
 	- To avoid waiting indefinitely for earlier events, watermarks provide a mechanism to decide when to move forward with processing.
 
-## Requirements 
+## Requirements
 > What is needed to process data based on event time([[notions_of_time]])
 
-- Timestamp Extractor 
+- Timestamp Extractor
 - Watermark Generator - required to handle events that may arrive out of order.
+
+```mermaid
+flowchart LR
+    A[Out-of-order events] --> M[Track event-time progress]
+    M --> W[Emit watermark]
+    W --> O[Window operator advances time]
+    O --> C[Close eligible windows]
+    A -->|arrives after watermark| L[Late-event policy]
+```
 
 ## Mechanism
 - Inserted into streams to indicate that all earlier events (up to time t) have likely been processed.
 - Common strategy: Bounded-Out-of-Orderness - assumes a fixed maximum delay for late events
 - Also possible: hybrid solutions that produce initial results quickly, and then supply updates to those results as additional (late) data is processed
 ## Tradeoff
-Controls the balance between 
+Controls the balance between
 - **latency**  - faster results, less accurate
 - **completeness** (slower results, more accurate)
 
@@ -37,8 +46,6 @@ WatermarkStrategy<Event> strategy = WatermarkStrategy
 DataStream<Event> withTimestampsAndWatermarks =
     stream.assignTimestampsAndWatermarks(strategy);
 ```
-
-
 
 ---
 

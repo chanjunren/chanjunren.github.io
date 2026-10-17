@@ -19,6 +19,19 @@ Every program runs in user mode. When it needs something privileged — read a f
 - All application code runs here: web servers, databases, JVMs, containers
 - Attempting a privileged instruction triggers a **hardware exception** (fault) — the kernel handles it, usually by killing the process with a segmentation fault
 
+```mermaid
+sequenceDiagram
+    participant App as User process
+    participant CPU
+    participant Kernel
+    App->>CPU: Execute in user mode
+    App->>CPU: System call or exception
+    CPU->>Kernel: Switch privilege and save state
+    Kernel->>Kernel: Validate request and perform operation
+    Kernel-->>CPU: Return result and restore user mode
+    CPU-->>App: Resume application
+```
+
 ## How Code Crosses the Boundary
 
 Application code cannot call a kernel function directly. The CPU enforces the boundary:
@@ -29,11 +42,11 @@ Application code cannot call a kernel function directly. The CPU enforces the bo
 4. Kernel validates the request and executes it
 5. CPU switches back to ring 3, result returned to application
 
-This is the only legal path from user mode to kernel mode. See [[system_calls]] for which operations trigger this and what it costs.
+This is the only legal path from user mode to kernel mode. See system calls for which operations trigger this and what it costs.
 
 ## Why This Matters for Container Metrics
 
-When [[interpreting_cpu_modes]] shows the "system" mode breakdown, it measures time the CPU spent in ring 0 on behalf of applications. High system CPU means the kernel is working hard — servicing I/O, managing network connections, handling memory allocation.
+When interpreting cpu modes shows the "system" mode breakdown, it measures time the CPU spent in ring 0 on behalf of applications. High system CPU means the kernel is working hard — servicing I/O, managing network connections, handling memory allocation.
 
 Containers do **not** get their own kernel mode. All containers on a host share the same kernel running in ring 0. This is fundamentally different from VMs, where each VM runs its own kernel (see [[virtualization]]).
 

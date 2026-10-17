@@ -2,6 +2,14 @@
 
 # spel_overview
 
+```mermaid
+flowchart LR
+    A[SpEL expression] --> P[Parse expression]
+    P --> C[Evaluation context]
+    C --> R[Resolve properties or methods]
+    R --> V[Return value or invoke operation]
+```
+
 ## Origin and Purpose
 
 - A part of the Spring Framework

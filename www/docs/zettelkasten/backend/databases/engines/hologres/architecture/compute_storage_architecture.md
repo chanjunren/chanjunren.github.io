@@ -4,6 +4,11 @@
 
 Hologres separates SQL-facing compute from its distributed storage layer, so compute capacity and stored data can scale on different paths.
 
+| Term | Definition | Source |
+|---|---|---|
+| **Frontend (FE)** | The component that authenticates, parses, and optimizes SQL statements. | [Hologres architecture](https://www.alibabacloud.com/help/en/hologres/product-overview/architecture) |
+| **HoloWorker** | A compute node that schedules and executes user queries. | [Hologres architecture](https://www.alibabacloud.com/help/en/hologres/product-overview/architecture) |
+
 ## Query path
 
 1. A frontend (FE) authenticates and parses the SQL request, then plans the query.
@@ -13,12 +18,19 @@ Hologres separates SQL-facing compute from its distributed storage layer, so com
 
 This is a product-level mental model; exact engines, component responsibilities, and supported external sources vary by release and workload. For operations, use the architecture documentation for the deployed Hologres version.
 
-## Related notes
+```mermaid
+flowchart LR
+  C[Client SQL] --> FE[Frontend]
+  FE --> MS[Meta Service]
+  FE --> HW[HoloWorkers]
+  HW --> QE[Query Engine]
+  QE --> SE[Storage Engine]
+  SE --> P[Pangu storage]
+  HW --> Cache[Cache]
+  P --> Ext[Supported external data integrations]
+```
 
-- [[product_overview]] — Hologres use cases and interface
-- [[query_engine]] — query execution
-- [[pangu]] — distributed storage system described by Alibaba
-- [[storage_disaggregation_architecture]] — general architecture tradeoffs
+For Hologres use cases and interface, see [[product_overview]]. For query execution, see [[query_engine]]. Alibaba's distributed storage system is described in [[pangu]]. For general architecture tradeoffs, see [[storage_disaggregation_architecture]].
 
 ## References
 

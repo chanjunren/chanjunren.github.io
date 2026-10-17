@@ -4,7 +4,18 @@
 
 The kernel uses physical RAM to cache recently read and written file data. This is the **page cache**. It can avoid later storage I/O, but cache hits are not literally instant and cached memory still has a real reclaim cost.
 
-Page cache is central to understanding both [[interpreting_host_memory]] (why MemFree is misleadingly low) and [[interpreting_container_memory]] (why `container_memory_usage_bytes` overstates real pressure).
+Page cache is central to understanding both interpreting host memory (why MemFree is misleadingly low) and interpreting container memory (why `container_memory_usage_bytes` overstates real pressure).
+
+```mermaid
+flowchart TD
+    A[Read file data] --> B{Page in page cache?}
+    B -- Yes --> C[Copy cached data to process]
+    B -- No --> D[Read from storage]
+    D --> E[Populate page cache]
+    E --> C
+    W[Write file data] --> X[Mark cached page dirty]
+    X --> Y[Write back to storage]
+```
 
 ## How Reads Work
 
@@ -33,7 +44,7 @@ The kernel tracks which cached pages were recently accessed using two lists:
 
 When memory runs low, the kernel evicts pages from the inactive list first. Pages that get accessed again move back to the active list.
 
-This distinction is the key to understanding `container_memory_working_set_bytes`: it equals `usage_bytes` minus **inactive** file cache. Active cache counts toward working set because the kernel considers it still needed. See [[interpreting_container_memory]].
+This distinction is the key to understanding `container_memory_working_set_bytes`: it equals `usage_bytes` minus **inactive** file cache. Active cache counts toward working set because the kernel considers it still needed. See interpreting container memory.
 
 ## Reclamation Under Pressure
 

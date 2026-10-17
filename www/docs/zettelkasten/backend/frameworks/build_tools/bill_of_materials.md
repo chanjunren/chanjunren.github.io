@@ -22,9 +22,16 @@ Import it inside `<dependencyManagement>` with `type` set to `pom` and `scope` s
 
 If imported BOMs manage the same artifact, ordering and local declarations can affect which version wins. Check Maven's effective POM when the resolved version is surprising.
 
-## Related notes
+For dependency scope behavior, see [[maven_scope]].
 
-- [[maven_scope]] — dependency scope behavior
+```mermaid
+flowchart LR
+    P[Parent POM] --> B[Dependency management]
+    B --> V[Central version selection]
+    C[Child module] --> D[Declare dependency without version]
+    V --> D
+    D --> R[Resolved dependency graph]
+```
 
 ## References
 

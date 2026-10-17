@@ -4,6 +4,17 @@
 
 An isolation level defines which effects concurrent transactions may observe. The SQL standard names four levels, but database engines can provide stronger behavior or implement a level differently.
 
+```mermaid
+flowchart TD
+    A[Choose transaction isolation] --> B[Read committed]
+    A --> C[Repeatable read]
+    A --> D[Serializable]
+    B --> E[Concurrency and anomaly trade-off]
+    C --> E
+    D --> E
+    E --> F[Check database-specific implementation]
+```
+
 ## Anomalies
 
 | Anomaly | Meaning |

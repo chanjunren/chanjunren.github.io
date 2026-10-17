@@ -4,6 +4,15 @@
 
 A B+ tree index keeps keys ordered across pages. Its height is usually small because each page can direct a search to many child pages. This makes point lookups and range scans efficient when the query can use the index.
 
+```mermaid
+flowchart LR
+    Q[Search key] --> R[Read root page]
+    R --> I[Follow key range through internal pages]
+    I --> L[Find key in leaf page]
+    L --> P[Follow row pointer]
+    P --> D[Read table row if needed]
+```
+
 ## How a lookup works
 
 1. The database reads an internal page and follows the child pointer for the key range.

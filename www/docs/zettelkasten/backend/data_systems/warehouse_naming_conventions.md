@@ -2,31 +2,34 @@
 
 # warehouse_naming_conventions
 
-These abbreviations are one warehouse naming scheme, not a universal standard. Confirm each meaning with the owning team's data contract before relying on it.
-## Common Layer Prefixes
+Warehouse names should communicate a model's purpose and lineage. Prefixes and suffixes can encode those roles, but their meanings belong to a project's naming contract; there is no universal abbreviation set.
 
-| Prefix | Meaning                    | Usage                                                                                                      |
-| ------ | -------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `ods_` | **Operational Data Store** | Raw, unprocessed data ingested from sources (e.g., logs, Kafka, RDS dumps). Often partitioned by day/hour. |
-| `dwd_` | **Data Warehouse Detail**  | Cleansed and detailed data, usually 1:1 with business events/entities. Normalized and enriched.            |
-| `dws_` | **Data Warehouse Summary** | Aggregated data for specific business domains. Used for reporting, metrics, dashboards.                    |
-| `ads_` | **Application Data Store** | Final layer used directly by applications or APIs (reports, dashboards, downstream services).              |
-| `dim_` | **Dimension Table**        | Lookup tables with descriptive attributes (e.g., `dim_user`, `dim_region`).                                |
-| `tmp_` | **Temporary Table**        | Intermediate tables used in ETL processing. Not meant for long-term use.                                   |
-| `rpt_` | **Report Table**           | Tables generated specifically for business reports, often updated on schedule.                             |
+| Term | Definition | Source |
+|---|---|---|
+| **Fact table** | A table that stores measurements or events for analysis, with each row representing a chosen level of detail. | [Microsoft: Fact tables](https://learn.microsoft.com/fabric/data-warehouse/dimensional-modeling-fact-tables) |
+| **Dimension table** | A table that stores descriptive attributes, such as customer or product details, for filtering and grouping analytical records. | [Microsoft: Dimensional modeling](https://learn.microsoft.com/en-us/fabric/data-warehouse/dimensional-modeling-overview) |
 
-## Suffixes / Contextual Tags
+```mermaid
+flowchart LR
+  S[Source data] --> T[Staging models]
+  T --> I[Intermediate transformations]
+  I --> M[Fact and dimension models]
+  M --> R[Reporting or serving models]
+```
 
-| Suffix / Tag       | Meaning                    | Notes                                                                                                              |
-| ------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `_di`              | **Daily Incremental**      | Updated once per day, may include only changes (upserts/inserts).                                                  |
-| `_fi`              | **Full Incremental**       | Full daily snapshot, usually for slowly changing dimensions or syncs.                                              |
-| `_ri`              | **Real-Time Incremental**  | Updated in near-real-time, often with Flink/Kafka pipelines.                                                       |
-| `_hi`              | **Historical Incremental** | Stores historical data with full SCD (slowly changing dimension) support. Usually partitions over long time spans. |
-| `_full`            | Full Snapshot              | Typically refers to a full data snapshot without incremental logic.                                                |
-| `_bak` / `_backup` | Backup Table               | Used for temporary backups, often before destructive operations.                                                   |
+## What names can express
 
----
+- **Processing role**: source-aligned, staging, intermediate, analytical, or serving.
+- **Business subject**: the entity, event, or measure represented.
+- **Row detail**: one row per order, order line, customer, or reporting period.
+- **Lifecycle**: temporary, snapshot, incremental, or retained history, when useful.
+
+For example, `staging_orders`, `fact_order_lines`, and `customer_dimension` communicate different roles. These are illustrative names, not required formats. A project may use another vocabulary or encode the role in schemas and metadata instead.
+
+Agree on names with the people producing and consuming the data. Document abbreviations, grain, refresh behavior, and retention rules in the project contract. Avoid encoding details that can change often or are already stored as table metadata.
+
 ## References
 
-- TODO: Add the source or team standard that defines these abbreviations.
+- [dbt: Intermediate model naming and purpose](https://docs.getdbt.com/best-practices/how-we-structure/3-intermediate)
+- [Microsoft: Dimensional modeling overview](https://learn.microsoft.com/en-us/fabric/data-warehouse/dimensional-modeling-overview)
+- [Microsoft: Fact tables](https://learn.microsoft.com/fabric/data-warehouse/dimensional-modeling-fact-tables)

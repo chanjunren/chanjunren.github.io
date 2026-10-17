@@ -1,5 +1,4 @@
 🗓️ 02112024 2256
-📎
 
 # defer
 
@@ -22,7 +21,7 @@ Guarantees cleanup (files, connections, locks) without try-finally blocks. Preve
 
 ## vs Java try-with-resources
 
-**Java:** try-with-resources auto-closes  
+**Java:** try-with-resources auto-closes
 **Go:** defer + Close() - explicit but guaranteed
 
 ```ad-warning
@@ -122,6 +121,17 @@ func FetchData(url string) ([]byte, error) {
 }
 ```
 \`\`\`
+
+```mermaid
+sequenceDiagram
+    participant F as Function
+    participant Stack as Defer stack
+    F->>Stack: Register deferred call
+    F->>F: Execute remaining statements
+    F->>Stack: Begin return
+    Stack->>Stack: Run deferred calls in LIFO order
+    Stack-->>F: Return result
+```
 
 ## References
 

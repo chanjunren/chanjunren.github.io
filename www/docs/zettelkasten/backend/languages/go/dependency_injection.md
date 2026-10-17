@@ -1,5 +1,4 @@
 🗓️ 07062026 1020
-📎
 
 # dependency_injection
 
@@ -80,6 +79,16 @@ func NewSourceService(repo SourceRepository, quote QuoteReader) *SourceService {
 quoteSvc  := NewQuoteService(quoteRepo)
 sourceSvc := NewSourceService(sourceRepo, quoteSvc)  // pass it down
 ```
+```
+
+```mermaid
+flowchart LR
+    M[main or composition root] --> R[Construct repository]
+    M --> S[Construct service with repository]
+    M --> H[Construct handler with service]
+    H --> I[Interface boundary]
+    S --> I
+    I --> D[Production or test implementation]
 ```
 
 ## References

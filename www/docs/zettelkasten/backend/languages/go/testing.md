@@ -1,9 +1,16 @@
 🗓️ 07062026 1140
-📎
 
 # testing
 
 **Core Concept**: Go ships testing in the standard library. Tests are plain functions in `_test.go` files; the idiomatic style is **table-driven** with subtests, and mocking is done with interfaces — no framework required.
+
+```mermaid
+flowchart LR
+    A[Arrange fixture and inputs] --> B[Act: call unit under test]
+    B --> C[Assert result and side effects]
+    C --> D[Run table cases and edge cases]
+    D --> E[Report failures with useful context]
+```
 
 ## The basics
 

@@ -1,5 +1,4 @@
 🗓️ 03112024 1135
-📎 
 
 # stream_processing_fundamentals
 
@@ -8,6 +7,15 @@
 - How to use event time to consistently compute accurate analytics
 - How to build event-driven applications on continuous streams
 - How Flink is able to provide fault-tolerant, stateful stream processing with exactly-once semantics
+```
+
+```mermaid
+flowchart LR
+    S[Source] --> T[Transform events]
+    T --> K[Key or repartition]
+    K --> W[Window or stateful operator]
+    W --> C[Checkpoint and recovery]
+    W --> O[Sink]
 ```
 
 ## Stream processing
@@ -39,11 +47,10 @@ The number of operator subtasks is the parallelism of that particular operator
 ```
 
 ### Transporting data between operators
-#### One-to-one forwarding
+### One-to-one forwarding
 Preserves partitioning / ordering of elements
 
-
-#### Redistributing streams
+### Redistributing streams
 - Changes partitioning of streams
 - Ordering is preserved within each pair of sending / receiving subtasks
 - Each operator subtask sends data to different target subtasks, depending on the selected transformation

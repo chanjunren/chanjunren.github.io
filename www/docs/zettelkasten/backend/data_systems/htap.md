@@ -10,11 +10,16 @@ HTAP can reduce the delay and pipeline complexity between operational writes and
 
 When evaluating a system, ask how changes reach the analytical path, what freshness and consistency it guarantees, how the optimizer selects an engine, and how OLTP and OLAP workloads share resources.
 
-## Related notes
+For transactional workload properties, see [[oltp]]. For analytical workload properties, see [[olap]]. For sharing and separating resources, see [[storage_computing_architectures]].
 
-- [[oltp]] — transactional workload properties
-- [[olap]] — analytical workload properties
-- [[storage_computing_architectures]] — sharing and separating resources
+```mermaid
+flowchart LR
+    T[Transaction write] --> R[Row-oriented transactional path]
+    R --> L[Change propagation]
+    L --> C[Columnar analytical path]
+    Q[Analytical query] --> C
+    Q2[Point transaction] --> R
+```
 
 ## References
 

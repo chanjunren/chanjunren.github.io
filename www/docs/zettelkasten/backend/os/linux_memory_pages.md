@@ -6,6 +6,16 @@ Linux manages virtual and physical memory in fixed-size blocks called **pages**.
 
 Pages matter because “can this memory be reclaimed?” depends largely on what backs each page and whether another valid copy exists.
 
+```mermaid
+flowchart LR
+    P[Process virtual page] --> T[Page table entry]
+    T --> F[Physical frame]
+    T -->|not resident| X[Page fault]
+    X --> R[Load or allocate page]
+    R --> T
+    F --> C[CPU accesses memory]
+```
+
 ## Virtual pages map to physical RAM
 
 Each process sees a private [[virtual_memory]] address space. The kernel and CPU map the virtual pages a process uses to physical pages in RAM.
@@ -59,7 +69,7 @@ These pages can appear in cache-related `/proc/meminfo` accounting even though t
 
 This table is a mental model, not the exact order of every kernel reclaim decision.
 
-Read [[page_cache]] for the file-I/O path and [[proc_meminfo]] for the reported totals.
+Read page cache for the file-I/O path and [[proc_meminfo]] for the reported totals.
 
 ## References
 

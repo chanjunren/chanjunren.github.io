@@ -14,6 +14,16 @@ The JVM splits a running program's data across five regions. Where an object liv
 
 ---
 
+```mermaid
+flowchart TD
+    A[JVM process] --> H[Heap: objects]
+    A --> S[Thread stacks: frames and locals]
+    A --> M[Metaspace: class metadata]
+    A --> C[Code cache: compiled code]
+    A --> D[Direct and native memory]
+    G[Garbage collector] --> H
+```
+
 ## Heap
 
 Every `new MyObject()` allocates here. Collectors may divide the heap by object age; see [[generational_gc_basics]] for the generational model.

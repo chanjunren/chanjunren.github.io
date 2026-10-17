@@ -2,54 +2,37 @@
 
 # video_storage_strategy
 
-## Core Principle
-```ad-note
-Different storage layers serve different purposes - don't mix them
+Video storage works best when upload reliability, durable originals, and playback delivery use separate paths. Keep large binary data in object storage; use the database for metadata and references.
+
+```mermaid
+flowchart LR
+  U[Client upload] --> T[Temporary upload storage]
+  T --> O[Object storage: source original]
+  O --> X[Transcode and package]
+  X --> D[Delivery storage or CDN]
+  P[Playback request] --> D
+  M[Metadata and lifecycle state] <--> DB[(Database)]
 ```
-## Storage Hierarchy
-### Transit Storage (Temporary)
-> Hold chunks during upload
-- Location: Local filesystem or Redis
-- Lifespan: Minutes to hours
-- Performance: Fast write, sequential read
-## Persistent Storage (Source of Truth)
-> Store assembled original videos
-- Location: OSS/S3
-- Lifespan: Long-term
-- Performance: Reliable, backed up
 
-## Delivery Storage (Performance Layer)
-> For serving content to users
-- Location: CDN edge locations
-- Lifespan: Based on cache rules
-- Performance: Optimized for read speed
+## Storage roles
 
-## Storage Decisions
-- Never store large files in database (use file paths instead)
-```ad-warning
-#### 🎯 Core Problem
-Databases are optimized for small, structured queries. Video chunks are large, unstructured binary data.
+- **Temporary storage** holds incomplete uploads until assembly or validation finishes. Apply cleanup rules so abandoned parts do not accumulate.
+- **Object storage** keeps the durable source file and generated renditions. Store metadata and object keys in the database.
+- **Delivery storage** serves playback renditions through a CDN or equivalent cache. Cache lifetime should match how quickly content can change or be revoked.
 
-#### 💥 The Big Issues
-- Performance - 10MB chunk insert: 2-5 seconds vs 0.1 seconds on filesystem
-- Memory usage: Each chunk loads entirely into MySQL buffer pool
-- Query impact: Video operations slow down all other database queries
+Separate upload from playback because they have different access patterns. Uploads need resumability and validation; playback needs low-latency reads and suitable renditions.
 
-#### Cost
-- Database storage: 10-15x more expensive than S3/OSS
-- Backup explosion: 500MB video = 500MB+ in every database backup
-- Replication cost: Video data replicates to every database replica
+## Decisions
 
-#### Scalability
-- Size limits: MySQL practical limit much lower than theoretical 4GB
-- Concurrent uploads: Multiple video uploads can crash the database
-- Growth ceiling: Works for 10 users, fails at 1000 users
-```
-- Separate upload from delivery (different performance needs)
-- Plan for cleanup (temporary files accumulate)
-- File Organization
+- Use multipart or resumable upload for large files and unreliable connections.
+- Transcode when client compatibility or bandwidth requires it; retain the source when future reprocessing matters.
+- Set lifecycle and deletion policies for temporary parts, originals, and derived files.
+- Keep authorization checks in the application and use scoped access for delivery where needed.
 
----
 ## References
+
+- [Apple: HTTP Live Streaming](https://developer.apple.com/documentation/http-live-streaming)
+- [AWS Elemental MediaConvert: Supported inputs and outputs](https://docs.aws.amazon.com/mediaconvert/latest/ug/supported-inputs-outputs.html)
+
 - [Apple: HTTP Live Streaming](https://developer.apple.com/documentation/http-live-streaming)
 - [AWS Elemental MediaConvert: Supported inputs and outputs](https://docs.aws.amazon.com/mediaconvert/latest/ug/supported-inputs-outputs.html)

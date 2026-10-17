@@ -4,6 +4,20 @@
 
 A Java class loader turns a class's binary name into a runtime `Class` definition and associates that class with its defining loader.
 
+```mermaid
+sequenceDiagram
+    participant App
+    participant AppLoader as Application loader
+    participant Platform as Platform loader
+    participant Bootstrap
+    App->>AppLoader: Request class
+    AppLoader->>Platform: Delegate to parent
+    Platform->>Bootstrap: Delegate platform class
+    Bootstrap-->>Platform: Class found or not found
+    Platform-->>AppLoader: Continue delegation or define
+    AppLoader-->>App: Return Class object
+```
+
 ## Built-in loaders
 
 On Java 9 and later, the runtime provides:
@@ -20,10 +34,7 @@ The default `ClassLoader` strategy delegates to its parent before searching loca
 
 Class loading includes loading, linking (verification, preparation, and resolution), and initialization. Static initializers run during initialization, which is distinct from simply finding the class bytes.
 
-## Related notes
-
-- [[service_provider_interface]] — discovering implementations through `ServiceLoader`
-- [[jar_types]] — packaging class files and resources
+For discovering implementations through `ServiceLoader`, see [[service_provider_interface]]. For packaging class files and resources, see [[jar_types]].
 
 ## References
 

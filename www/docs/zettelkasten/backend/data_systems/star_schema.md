@@ -1,5 +1,4 @@
 🗓️ 02112024 1153
-📎  #modeling 
 
 # star_schema
 
@@ -13,22 +12,33 @@
 | `Multi dimension tables` | Values that **describe each attribute** in a fact table                     |
 >  The fact table refers to **dimensional tables** with foreign keys—unique identifiers that correlate to the respective information in the dimension table
 
-
 ```ad-info
 A fact table connects to several dimension tables so the data model looks like a star
+```
+
+```mermaid
+flowchart LR
+    F[Fact table] --> D1[Date dimension]
+    F --> D2[Product dimension]
+    F --> D3[Customer dimension]
+    F --> D4[Store dimension]
+    D1 --> Q[Analytical query]
+    D2 --> Q
+    D3 --> Q
+    D4 --> Q
 ```
 
 ## Example
 
 > Example of a fact table for product sales
 
-**Fact table** for product sales: 
+**Fact table** for product sales:
 - Product ID
 - Location ID
 - Salesperson ID
 - Sales amount
 
-**Product Dimension Table** 
+**Product Dimension Table**
 - Product ID
 - Product name
 - Product type
@@ -39,12 +49,11 @@ A fact table connects to several dimension tables so the data model looks like a
 - Country
 - City
 
-**Salesperson table** 
+**Salesperson table**
 - Salesperson ID
 - First name
 - Last name
 - Email
-
 
 ---
 

@@ -4,6 +4,15 @@
 
 OLAP operations change the level or orientation of an analytical view. They may apply to cubes or other multidimensional models.
 
+```mermaid
+flowchart LR
+    A[Detailed cube view] -->|roll up| B[Aggregate to higher level]
+    B -->|drill down| A
+    A -->|slice| C[Fix one dimension]
+    A -->|dice| D[Filter several dimensions]
+    A -->|pivot| E[Rotate dimensions]
+```
+
 ## Roll up
 
 Aggregate data to a higher level in a dimension hierarchy, such as combining monthly sales into annual totals.

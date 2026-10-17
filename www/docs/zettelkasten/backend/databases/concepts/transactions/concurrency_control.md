@@ -4,6 +4,16 @@
 
 **Concurrency control** coordinates simultaneous transactions so their committed effects satisfy the database's correctness rules. It includes isolation, conflict detection, locking, and recovery behavior.
 
+```mermaid
+flowchart TD
+    A[Concurrent transactions] --> B{Coordination strategy}
+    B --> L[Locks block conflicting access]
+    B --> V[Versions validate conflicts at commit]
+    L --> I[Preserve isolation invariant]
+    V --> I
+    I --> C[Commit or retry transaction]
+```
+
 ## Common anomalies
 
 | Anomaly | What happens |
@@ -26,4 +36,4 @@ These strategies are not mutually exclusive. A database can combine them across 
 ## References
 
 - [PostgreSQL: Transaction isolation](https://www.postgresql.org/docs/current/transaction-iso.html)
-- [[transaction_isolation_levels]]
+- transaction isolation levels

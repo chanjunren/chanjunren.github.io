@@ -2,13 +2,25 @@
 
 # forward_proxy
 
-**Core Concept**: 
+**Core Concept**:
 - Server between clients and the internet
 - Forwards client requests to external servers on behalf of clients
 - Hides client identity (external servers see proxy IP)
 - Provides access control and content filtering
 
 ## Why It Matters
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Proxy as Forward proxy
+    participant Origin
+    Client->>Proxy: Request external resource
+    Proxy->>Proxy: Apply access and filtering policy
+    Proxy->>Origin: Forward allowed request
+    Origin-->>Proxy: Response
+    Proxy-->>Client: Return response
+```
 
 - **Client anonymity** - external servers see proxy IP, not client IP
 - **Access control** - centralized point to enforce organizational policies

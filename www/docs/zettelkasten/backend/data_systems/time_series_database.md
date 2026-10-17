@@ -4,6 +4,16 @@
 
 A **time-series database** stores observations associated with timestamps. Its schema and query model often make time-range filtering, retention, and aggregation efficient.
 
+```mermaid
+flowchart LR
+    W[Timestamped observation] --> I[Time and series indexes]
+    I --> S[Partitioned time-series storage]
+    Q[Time-range query] --> S
+    S --> R[Filtered or aggregated result]
+    P[Retention policy] --> S
+    D[Downsampling job] --> S
+```
+
 ## Common data model
 
 An observation usually contains a measurement, timestamp, value, and identifying dimensions such as `region` or `instance`. In systems such as Prometheus, each unique metric name and label set identifies a time series.

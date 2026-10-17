@@ -1,7 +1,15 @@
 🗓️ 13082024 1015
-📎 #deadlock #sql #mysql
 
 # innodb_semaphore_metrics
+
+```mermaid
+flowchart TD
+    A[Threads request InnoDB latch] --> B{Latch available?}
+    B -- Yes --> C[Continue operation]
+    B -- No --> D[Wait or spin]
+    D --> E[Inspect semaphore wait metrics]
+    E --> F[Find hot pages or excessive concurrency]
+```
 
 ## `SHOW ENGINE INNODB STATUS;` study
 ```

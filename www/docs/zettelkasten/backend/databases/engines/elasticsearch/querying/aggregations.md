@@ -4,6 +4,15 @@
 
 - Summary of data
 
+```mermaid
+flowchart TD
+    Q[Aggregation request] --> B[Bucket aggregation groups documents]
+    B --> M[Metric aggregation computes values]
+    B --> S[Sub-aggregation refines each bucket]
+    M --> R[Aggregation response]
+    S --> R
+```
+
 ## Categories
 
 | Category              | Description                                                    |

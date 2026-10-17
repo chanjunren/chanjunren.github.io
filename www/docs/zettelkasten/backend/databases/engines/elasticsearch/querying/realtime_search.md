@@ -2,6 +2,19 @@
 
 # realtime_search
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Index as Indexing buffer
+    participant Segment
+    participant Search
+    Client->>Index: Index document
+    Index->>Index: Add operation to buffer and translog
+    Index->>Segment: Refresh publishes searchable segment
+    Search->>Segment: Search visible segments
+    Segment-->>Search: Matching document
+```
+
 ## Terms
 
 | Term                  | Description                                                                                                                                   |
@@ -10,7 +23,6 @@
 | segment               | smaller part of a Lucene index <br/><br/>As documents are indexed, Elasticsearch splits data into multiple segments.                          |
 | commit point          | snapshot of all the segments at a given point in time <br/>**It marks the point where data has been committed and is now searchable** |
 | elasticsearch refresh | refresh process in Elasticsearch ensures that newly indexed data becomes visible to search                                                    |
-
 
 ## How Elasticsearch Real-Time Search Works
 

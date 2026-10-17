@@ -6,6 +6,16 @@ Linux treats RAM as shared workspace for applications and the kernel. It deliber
 
 This distinction is the starting point for reading any Linux memory dashboard.
 
+```mermaid
+flowchart TD
+    A[Physical RAM] --> P[Anonymous process pages]
+    A --> C[Page cache]
+    A --> K[Kernel memory and slab]
+    A --> R[Reclaimable caches]
+    X[Memory pressure] --> Y[Reclaim clean pages]
+    Y --> Z[Swap or OOM handling if pressure remains]
+```
+
 ## Four useful buckets
 
 Think about physical RAM in four broad buckets:

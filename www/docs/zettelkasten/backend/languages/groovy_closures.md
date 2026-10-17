@@ -19,9 +19,15 @@ Closures also have `owner`, `delegate`, and `thisObject` references. DSLs often 
 
 Closures are common in collection operations, callbacks, build scripts, and Groovy DSLs. A Groovy closure is a `groovy.lang.Closure` object; Java lambdas have different runtime and delegation behavior.
 
-## Related notes
+For another JVM expression language, see [[mvel_overview]].
 
-- [[mvel_overview]] — another JVM expression language
+```mermaid
+flowchart LR
+    D[Define closure] --> L[Capture lexical environment]
+    L --> C[Call later or pass as value]
+    C --> E[Evaluate body with owner and delegate]
+    E --> R[Return value or side effect]
+```
 
 ## References
 

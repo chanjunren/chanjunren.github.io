@@ -6,10 +6,16 @@ Chunked upload divides a large file into independently transferred parts. The cl
 
 ## Upload lifecycle
 
-```text
-Create session → Upload parts → Verify parts → Assemble or complete → Validate → Publish
-       │               │
-       └───────────────┴── failure: retry or resume, then expire abandoned sessions
+```mermaid
+flowchart LR
+    A[Create upload session] --> B[Upload numbered parts]
+    B --> C{All parts received?}
+    C -- No --> D[Retry or resume missing parts]
+    D --> B
+    C -- Yes --> E[Verify checksums]
+    E --> F[Assemble object]
+    F --> G[Validate and publish]
+    A --> H[Expire abandoned session]
 ```
 
 ## Design decisions

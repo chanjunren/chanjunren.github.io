@@ -6,6 +6,20 @@ Object storage exposes objects through a service API; applications still own the
 
 An object typically has a key, data, and metadata inside a bucket. A key that looks like a folder path is generally a naming convention over object keys, not a filesystem directory with POSIX semantics. Use object storage for durable blobs and large files; use a database for transactional metadata and relationships that need queries or constraints.
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant App
+    participant ObjectStore
+    Client->>App: Request upload authorization
+    App-->>Client: Scoped upload permission
+    Client->>ObjectStore: Upload object bytes
+    ObjectStore-->>App: Upload result or object event
+    App->>App: Validate and record metadata
+    Client->>App: Request download
+    App-->>Client: Authorized URL or proxied response
+```
+
 ## What the service can provide
 
 Depending on provider, region, and storage class, managed object storage can provide redundant storage, access control, encryption, versioning, multipart uploads, lifecycle transitions, and request logging. These features have configuration choices and costs. A durability target is a statistical service objective, not a promise that an individual object can never be deleted, overwritten, or become unavailable.
@@ -21,11 +35,7 @@ Depending on provider, region, and storage class, managed object storage can pro
 
 For large uploads, use multipart APIs or provider SDKs that support resumable uploads. Configure lifecycle cleanup for abandoned parts. See [[chunked_uploading]].
 
-## Related notes
-
-- [[cdn]] — caching and delivering public or authorized content
-- [[reverse_proxy]] — serving files through an application boundary
-- [[idempotency_keys_api_design]] — safe retry semantics for upload requests
+For caching and delivering public or authorized content, see [[cdn]]. For serving files through an application boundary, see [[reverse_proxy]]. For safe retry semantics for upload requests, see [[idempotency_keys_api_design]].
 
 ## References
 

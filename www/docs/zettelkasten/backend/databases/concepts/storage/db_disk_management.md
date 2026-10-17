@@ -4,6 +4,16 @@
 
 Database storage engines organize data to balance read cost, write cost, space, and recovery. Start with the access pattern, then compare index and file structures.
 
+```mermaid
+flowchart LR
+    A[Database page request] --> B{Page cached in buffer pool?}
+    B -- Yes --> C[Read memory page]
+    B -- No --> D[Read storage page]
+    D --> E[Place page in buffer pool]
+    E --> C
+    W[Dirty page] --> F[Flush by background writer or checkpoint]
+```
+
 ## Read path
 
 - [[hash_indexes]] support equality lookups when order is unnecessary.
@@ -22,6 +32,6 @@ No storage structure is fastest for every workload. Benchmark representative dat
 ## References
 
 - Martin Kleppmann, *Designing Data-Intensive Applications*, chapter 3.
-- [[hash_indexes]]
-- [[b_plus_tree_indexes]]
-- [[lsm_trees]]
+- hash indexes
+- b plus tree indexes
+- lsm trees

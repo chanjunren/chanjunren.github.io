@@ -1,5 +1,4 @@
 🗓️ 29042026 2115
-📎 #messaging #patterns #idempotency
 
 # idempotent_consumer_pattern
 
@@ -8,6 +7,23 @@
 ## Why You Need It
 
 Production messaging is at-least-once: brokers retry on ack loss, consumers retry on processing failure, network partitions cause duplicates. A consumer that processes a payment twice — even just once a year — is a bug. Idempotency makes the consumer safe under any number of redeliveries.
+
+```mermaid
+sequenceDiagram
+    participant Broker
+    participant Consumer
+    participant DB as Deduplication store
+    Broker->>Consumer: Deliver message with ID
+    Consumer->>DB: Claim message ID
+    alt Already processed
+        DB-->>Consumer: Duplicate
+        Consumer-->>Broker: Acknowledge without repeating effect
+    else First delivery
+        DB-->>Consumer: Claim succeeds
+        Consumer->>DB: Apply business update and record ID
+        Consumer-->>Broker: Acknowledge after commit
+    end
+```
 
 ## The Pattern
 
@@ -114,13 +130,7 @@ Make `@Transactional` work for this pattern:
 - **Not making the dedup write atomic with the business write** — common mistake. Two separate transactions = race window where business succeeded but dedup didn't.
 - **Cross-service idempotency** — when one event causes downstream calls to other services, each downstream call also needs an idempotency key. Propagate it.
 
-## Related
-
-- [[outbox_pattern]] — producer side; this zettel is the consumer side.
-- [[delivery_semantics_at_most_at_least_exactly]] — at-least-once + this pattern ≈ exactly-once in practice.
-- [[exactly_once_semantics]] — Kafka transactional alternative for read-process-write loops.
-- [[saga_pattern]] — every saga step's consumer should be idempotent.
-- [[queue]] — the broader messaging primitive.
+For at-least-once + this pattern ≈ exactly-once in practice, see [[delivery_semantics_at_most_at_least_exactly]]. For kafka transactional alternative for read-process-write loops, see [[exactly_once_semantics]]. For every saga step's consumer should be idempotent, see [[saga_pattern]]. For the broader messaging primitive, see [[queue]].
 
 ---
 

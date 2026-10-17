@@ -1,5 +1,4 @@
 🗓️ 29042026 1415
-📎 #system_design #design #reliability
 
 # distributed_design
 
@@ -64,7 +63,7 @@ X-RateLimit-Remaining: 0
 X-RateLimit-Reset: 1714410600
 ```
 
-See [[http_status_codes_semantics]] and [[algorithms]].
+See [[http_status_codes_semantics]] and algorithms.
 
 ## 4. Data Model
 
@@ -105,6 +104,25 @@ Loaded by app instances with a 1-minute refresh cache.
 
 ## 5. Architecture
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Gateway
+    participant Limiter
+    participant Redis
+    participant API
+    Client->>Gateway: API request
+    Gateway->>Limiter: Check key and quota
+    Limiter->>Redis: Atomic counter operation
+    Redis-->>Limiter: Count and reset time
+    alt Under limit
+        Limiter->>API: Forward request
+        API-->>Client: Response
+    else Over limit
+        Limiter-->>Client: 429 response
+    end
+```
+
 ```
 [Client] → [API Gateway / LB]
               │
@@ -134,7 +152,7 @@ Default: middleware in the app, talking to a shared Redis. Gateway-level for cro
 
 ### Algorithm choice
 
-For most APIs: **sliding window counter** in Redis. Implementation pattern (see [[algorithms]] for the algorithm details):
+For most APIs: **sliding window counter** in Redis. Implementation pattern (see algorithms for the algorithm details):
 
 ```lua
 -- Atomic Lua script in Redis
@@ -246,14 +264,7 @@ When a limit *decreases*, in-flight users may have already exceeded the new limi
 - **Forgetting circuit-breaker integration** — when downstream is unhealthy, drop the limit further. See [[circuit_breaker_pattern]].
 - **Not load-testing the limiter itself** — at 1M req/s, Redis Lua scripts contend; profile under realistic load.
 
-## Related
-
-- [[algorithms]] — algorithm details.
-- [[http_status_codes_semantics]] — 429 conventions.
-- [[cluster_topology]], [[distributed_lock]] — Lua + atomic patterns reused.
-- [[circuit_breaker_pattern]] — companion outbound pattern.
-- [[framework]] — the steps this follows.
-- [[back_of_envelope_estimation]] — sizing the storage and QPS budget.
+For lua + atomic patterns reused, see [[distributed_lock]]. For the steps this follows, see [[framework]].
 
 ---
 

@@ -8,6 +8,16 @@ Building applications from individual components that each perform a discrete fu
 Using message queues, you can send, store, and receive messages between application components at any volume, without losing messages or requiring other services to be always available.
 ```
 
+```mermaid
+stateDiagram-v2
+    [*] --> Available
+    Available --> Delivered: consumer receives or broker pushes
+    Delivered --> Acknowledged: processing succeeds
+    Delivered --> Available: retry after failure or timeout
+    Delivered --> DeadLetter: retry limit reached
+    Acknowledged --> [*]
+    DeadLetter --> [*]
+```
 
 ## Push or Pull Delivery
 Different options for receiving messages
@@ -18,7 +28,6 @@ Different options for receiving messages
 Long-polling allows pulls to wait a specified amount of time for new messages to arrive before completing.
 ```
 
-
 ## Schedule or Delay Delivery
 Support for setting a specific delivery time for a message
 
@@ -28,8 +37,8 @@ Can use a `delayQueue` if a common delay is required for all messages
 
 ## At-Least-Once Delivery
 - MQs store multiple copies of a single message for **redundancy** and **high availability**
-- Support for resend messages in the event of 
-	- Communication failures 
+- Support for resend messages in the event of
+	- Communication failures
 	- Errors to ensure they are delivered at least once.
 
 ## Exactly-Once Delivery
@@ -42,7 +51,7 @@ Oldest message processed first
 A dead-letter queue is a queue to which other queues can send messages that can't be processed successfully. This makes it easy to set them aside for further inspection without blocking the queue processing or spending CPU cycles on a message that might never be consumed successfully.
 
 ## Ordering
-- Most message queues provide **best-effort ordering** 
+- Most message queues provide **best-effort ordering**
 - Ensures that messages are generally delivered in the same order as they're sent
 
 ## Poison-pill Messages

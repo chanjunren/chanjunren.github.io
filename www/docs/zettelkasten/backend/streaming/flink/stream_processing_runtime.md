@@ -4,6 +4,20 @@
 
 Flink separates job coordination from task execution: the JobManager coordinates a job, while TaskManagers run its tasks and exchange stream data.
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant JM as JobManager
+    participant TM as TaskManager
+    Client->>JM: Submit job graph
+    JM->>JM: Schedule parallel tasks
+    JM->>TM: Deploy task slots
+    TM->>TM: Execute operators
+    TM-->>TM: Exchange records across tasks
+    TM-->>JM: Report status and checkpoints
+    JM-->>Client: Job status
+```
+
 ## Main runtime roles
 
 - **Client:** prepares and submits a dataflow. It can remain attached for progress updates or disconnect after submission.
@@ -17,11 +31,7 @@ Flink can run as a standalone cluster or use a resource manager such as Kubernet
 
 Flink can chain adjacent operators into a task to reduce handoffs and buffering. Parallelism controls how many subtasks execute for an operator. Slot needs depend on scheduling and slot sharing; do not infer total slot requirements by summing every operator's parallelism.
 
-## Related notes
-
-- [[stream_processing_fundamentals]] — dataflow concepts
-- [[checkpointing]] — coordinated recovery snapshots
-- [[keyed_state]] — state distribution across subtasks
+For dataflow concepts, see [[stream_processing_fundamentals]]. For coordinated recovery snapshots, see [[checkpointing]]. For state distribution across subtasks, see [[keyed_state]].
 
 ## References
 

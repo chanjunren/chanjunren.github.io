@@ -4,6 +4,15 @@
 
 An **LSM tree** buffers writes in memory and flushes sorted batches to immutable files called [[sstables]]. It favors write throughput by turning many small updates into sequential file writes.
 
+```mermaid
+flowchart LR
+    W[Write request] --> L[Append to WAL]
+    L --> M[Update memtable]
+    M --> F[Flush immutable SSTable]
+    F --> C[Compact SSTables]
+    R[Read] --> X[Check memtable and SSTables]
+```
+
 ## Write path
 
 1. Append the mutation to a write-ahead log when durability requires it.
@@ -29,4 +38,4 @@ RocksDB, LevelDB, and Cassandra use LSM-based designs with implementation-specif
 ## References
 
 - Martin Kleppmann, *Designing Data-Intensive Applications*, chapter 3.
-- [[sstables]]
+- sstables

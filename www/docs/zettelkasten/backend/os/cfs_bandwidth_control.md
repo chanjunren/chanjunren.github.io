@@ -4,7 +4,7 @@
 
 The **Completely Fair Scheduler** (CFS) is Linux's default CPU scheduler. **CFS Bandwidth Control** is the mechanism that enforces CPU limits on [[linux_cgroups]]. When a container hits its CPU limit, CFS throttling is what pauses it — even if the node has idle cores.
 
-This explains the throttle metrics in [[interpreting_cpu_usage]] and the `container_cpu_cfs_throttled_periods_total` counter in [[cadvisor_container_metrics]].
+This explains the throttle metrics in interpreting cpu usage and the `container_cpu_cfs_throttled_periods_total` counter in cadvisor container metrics.
 
 ## CFS Basics
 
@@ -12,9 +12,19 @@ CFS gives each runnable thread a fair share of CPU time based on its weight (pri
 
 Bandwidth control layers on top of this: even if CFS would give a thread more CPU time, the cgroup's quota limits how much it can actually get.
 
+```mermaid
+flowchart LR
+    A[CPU cgroup has runtime quota] --> B[Tasks consume runtime]
+    B --> C{Quota exhausted this period?}
+    C -- No --> D[Continue running]
+    C -- Yes --> E[Throttle until next period]
+    E --> F[Quota replenished]
+    F --> B
+```
+
 ## Quota and Period
 
-Each cgroup gets two parameters (set via cgroup control files — see [[linux_cgroups]]):
+Each cgroup gets two parameters (set via cgroup control files — see linux cgroups):
 
 - **Period** — time window, default 100ms (`cpu.cfs_period_us = 100000`)
 - **Quota** — how many microseconds of CPU time the cgroup can use within one period
@@ -43,7 +53,7 @@ A single-threaded request handler limited to 0.5 CPU (50ms quota per 100ms perio
 - **Average CPU** looks low (the idle periods between bursts pull it down)
 - **p99 latency** spikes because the second request waited for a new period
 
-This is the "High Throttle % but Low Average CPU" pattern described in [[interpreting_cpu_usage]].
+This is the "High Throttle % but Low Average CPU" pattern described in interpreting cpu usage.
 
 ## JVM Impact
 

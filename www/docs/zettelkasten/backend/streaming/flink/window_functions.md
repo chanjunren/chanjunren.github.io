@@ -2,6 +2,17 @@
 
 # window_functions
 
+```mermaid
+flowchart TD
+    A[Window contents] --> B{Need only aggregate?}
+    B -- Yes --> C[Incremental reduce or aggregate]
+    B -- No --> D[ProcessWindowFunction]
+    C --> E[Emit compact result]
+    D --> E
+    F[Allowed lateness] --> G[Recompute or emit correction]
+    G --> E
+```
+
 ## Options
 
 | Option      | Description                                                                                             |
@@ -10,7 +21,7 @@
 | Incremental | Using `ReduceFunction` or an `AggregateFunction` that is called as each event is assigned to the window |
 | Hybrid      | Combine incremental results with `ProcessWindowFunction` for final processing                           |
 
-## ProcessWindowFunction Example 
+## ProcessWindowFunction Example
 
 - All of the events assigned to the window have to be buffered in keyed Flink state until the window is triggered > This is potentially quite expensive.
 ```java
@@ -42,7 +53,6 @@ public static class MyWastefulMax extends ProcessWindowFunction<
     }
 }
 ```
-
 
 ```java
 public abstract class Context implements java.io.Serializable {
@@ -118,7 +128,6 @@ stream
 ```ad-note
 When the allowed lateness is greater than zero, only those events that are so late that they would be dropped are sent to the side output (if it has been configured)
 ```
-
 
 ---
 

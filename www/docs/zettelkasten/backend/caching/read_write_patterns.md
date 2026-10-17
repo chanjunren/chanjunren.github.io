@@ -4,6 +4,15 @@
 
 Read-through describes the read path. Write-through and write-back describe write acknowledgment and persistence. They are separate choices and can be combined.
 
+```mermaid
+flowchart LR
+    R[Read miss] --> RT[Read-through loader fetches source]
+    W[Write request] --> WT[Write-through waits for source and cache]
+    W --> WB[Write-back acknowledges before source flush]
+    WB --> Q[Durable pending-write queue]
+    Q --> S[Backing source]
+```
+
 ## Compare responsibilities
 
 | Pattern | Who handles a miss? | Write behavior |
@@ -15,10 +24,10 @@ Read-through describes the read path. Write-through and write-back describe writ
 
 ## Choose by need
 
-- Explicit application loading: [[aside_pattern]].
-- Loader-managed reads: [[read_through]].
-- Synchronous source persistence and cache population: [[write_through]].
-- Deferred persistence and batching: [[write_back]].
+- Explicit application loading: aside pattern.
+- Loader-managed reads: read through.
+- Synchronous source persistence and cache population: write through.
+- Deferred persistence and batching: write back.
 
 Specify [[consistency]] and failure recovery separately. A pattern name does not establish either guarantee.
 

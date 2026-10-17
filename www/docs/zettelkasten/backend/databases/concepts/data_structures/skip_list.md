@@ -4,6 +4,14 @@
 
 A **skip list** is a probabilistic ordered structure built from linked-list levels. Higher levels let a search skip across multiple elements before descending to a finer level.
 
+```mermaid
+flowchart LR
+    A[Search starts at top level] --> B[Skip ahead while key is smaller]
+    B --> C[Drop down one level]
+    C --> D[Repeat until level zero]
+    D --> E[Find or insert at ordered position]
+```
+
 ## Structure
 
 - The bottom level contains every key in sorted order.

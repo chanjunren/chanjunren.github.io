@@ -4,6 +4,19 @@
 
 Delta Lake adds a transaction log and table semantics to files in a data lake. This supports consistent reads and writes, schema checks, versioned data, and batch or streaming access.
 
+```mermaid
+sequenceDiagram
+    participant Writer
+    participant Log as Transaction log
+    participant Files as Data files
+    participant Reader
+    Writer->>Files: Write new data files
+    Writer->>Log: Commit file actions as new version
+    Reader->>Log: Read latest committed version
+    Log-->>Reader: Snapshot file list
+    Reader->>Files: Read snapshot files
+```
+
 ## What it provides
 
 - **Transactions:** coordinate changes to a table through its transaction log.

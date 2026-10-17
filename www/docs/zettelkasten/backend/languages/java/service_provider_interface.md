@@ -15,10 +15,17 @@ for (Codec codec : codecs) {
 
 Discovery is not selection policy: if several providers exist, the application still needs a rule for choosing one. Provider construction can also fail, so handle configuration and loading errors at the boundary.
 
-## Related notes
+For loading classes at runtime, see [[class_loading]]. For packaging Java libraries, see [[jar_types]].
 
-- [[class_loading]] — loading classes at runtime
-- [[jar_types]] — packaging Java libraries
+```mermaid
+flowchart LR
+    A[API defines service interface] --> P[Provider implements interface]
+    P --> J[Provider JAR registration]
+    C[Consumer calls ServiceLoader] --> D[Discover providers on classpath]
+    J --> D
+    D --> I[Instantiate provider]
+    I --> C
+```
 
 ## References
 

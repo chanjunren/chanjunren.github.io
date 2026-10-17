@@ -1,5 +1,4 @@
 🗓️ 02112024 2250
-📎
 
 # go_learning_plan
 
@@ -9,13 +8,22 @@
 
 Go requires different thinking than Java. Learning in order prevents confusion and builds solid foundations.
 
+```mermaid
+flowchart LR
+    A[Syntax and values] --> B[Functions and errors]
+    B --> C[Structs and interfaces]
+    C --> D[Goroutines and channels]
+    D --> E[Context and synchronization]
+    E --> F[Testing and service patterns]
+```
+
 ## Learning Path
 
 ### Phase 1: Mental Model Shifts (Week 1)
 **Goal**: Understand how Go differs from Java fundamentally
 
 1. [[error_handling]] - No exceptions, errors are values
-2. [[pointers]] - Explicit memory addresses, not Java references  
+2. [[pointers]] - Explicit memory addresses, not Java references
 3. [[interfaces]] - Implicit implementation (duck typing)
 4. [[defer]] - Resource cleanup without try-finally
 
@@ -74,10 +82,10 @@ Applied review of a real codebase: [[review_backies]]
 
 ## Trade-offs
 
-**Java strengths**: Rich frameworks, strong tooling, massive ecosystem  
+**Java strengths**: Rich frameworks, strong tooling, massive ecosystem
 **Go strengths**: Simplicity, fast compilation, built-in concurrency, single binary deployment
 
-This learning plan focuses on concepts that build on [[interfaces]] and [[error_handling]] as foundational patterns.
+This learning plan focuses on concepts that build on interfaces and error handling as foundational patterns.
 
 ## References
 

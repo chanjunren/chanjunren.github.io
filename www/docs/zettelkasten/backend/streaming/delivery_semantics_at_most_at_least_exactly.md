@@ -1,11 +1,18 @@
 🗓️ 29042026 2100
-📎 #messaging #kafka #delivery_semantics
 
 # delivery_semantics_at_most_at_least_exactly
 
 > The three delivery guarantees a messaging system can offer between producer and consumer. The labels are simple; the implementation cost increases steeply from left to right, and "exactly-once" is famously misunderstood.
 
 ## The Three Guarantees
+
+```mermaid
+flowchart TD
+    A[Message sent] --> B{Retry or acknowledgment policy}
+    B --> C[At-most-once: may lose, no retry duplicates]
+    B --> D[At-least-once: retry until ack, duplicates possible]
+    B --> E[Exactly-once: coordinate state and effects]
+```
 
 ```ad-abstract
 **At-most-once** — every message is delivered 0 or 1 times. Loss is possible; duplication is not.
@@ -106,13 +113,7 @@ If `doBusinessWork` fails, the txn rolls back including the dedup record → mes
 - **Dedup state TTL too short** — if your dedup window is 1 hour but a retry storm spans 2 hours, you'll process duplicates. Size for worst-case retry scenarios.
 - **Confusing "delivered" vs "processed"** — Kafka guarantees delivery; your code is responsible for "processed exactly once". Idempotency at the consumer is the mechanism.
 
-## Related
-
-- [[exactly_once_semantics]] — deep dive on Kafka's exactly-once feature.
-- [[idempotent_consumer_pattern]] — the universal solution to at-least-once duplication.
-- [[outbox_pattern]] — at-least-once publication with DB-atomic origination.
-- [[kafka_architecture]] — the building blocks these semantics depend on.
-- [[two_phase_commit]] — the alternative most teams reject for cross-system atomicity.
+For the building blocks these semantics depend on, see [[kafka_architecture]].
 
 ---
 

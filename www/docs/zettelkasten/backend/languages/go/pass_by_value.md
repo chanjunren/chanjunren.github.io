@@ -1,5 +1,4 @@
 🗓️ 02112024 2310
-📎
 
 # pass_by_value
 
@@ -47,10 +46,10 @@ fmt.Println(b)  // Now 6
 
 ## Trade-offs
 
-**Pros**: Predictable, no hidden side effects, explicit mutation  
+**Pros**: Predictable, no hidden side effects, explicit mutation
 **Cons**: Large structs can be expensive to copy
 
-This is why [[pointers]] are necessary - to pass the address (by value) instead of copying large data.
+This is why pointers are necessary - to pass the address (by value) instead of copying large data.
 
 ## Quick Reference
 
@@ -73,6 +72,14 @@ func reassignPointer(p *int) {
 ```
 
 **Key insight**: When you pass a pointer, the address is copied, but both the original and copy point to the same memory location.
+
+```mermaid
+flowchart LR
+    A[Caller variable] -->|copy value| B[Function parameter]
+    B --> C[Reassign parameter]
+    C --> D[Caller variable unchanged]
+    B -->|contains reference-like value| E[Shared underlying data may change]
+```
 
 ## References
 

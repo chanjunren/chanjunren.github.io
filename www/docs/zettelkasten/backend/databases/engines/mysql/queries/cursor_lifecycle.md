@@ -4,6 +4,17 @@
 
 A MySQL stored-program cursor is declared with a query, opened, fetched until a `NOT FOUND` condition, then closed. Declarations must appear at the start of the `BEGIN ... END` block in the required order.
 
+```mermaid
+stateDiagram-v2
+    [*] --> Declared
+    Declared --> Open: execute query
+    Open --> Fetching: FETCH row
+    Fetching --> Fetching: more rows
+    Fetching --> Exhausted: no rows remain
+    Exhausted --> Closed: CLOSE
+    Open --> Closed: CLOSE
+```
+
 ## Example
 
 ```sql

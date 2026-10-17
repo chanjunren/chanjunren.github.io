@@ -12,6 +12,15 @@
 - Without virtualization: need separate physical machines for each application
 - Result: Poor resource utilization, high costs, difficult migration
 
+```mermaid
+flowchart TD
+    H[Physical hardware] --> V[Hypervisor]
+    V --> G1[Guest OS and applications]
+    V --> G2[Guest OS and applications]
+    H --> C[Host OS]
+    C --> N[Containers share host kernel]
+```
+
 ## Hardware vs OS-level Virtualization
 
 **Hardware virtualization (VMs):**
@@ -23,7 +32,7 @@
 - Multiple isolated user spaces share same kernel
 - Lightweight and fast
 - Can only run applications compatible with host kernel
-- See [[container_platform]] for container details
+- See container platform for container details
 
 Key distinction: VMs virtualize hardware (can run different OS types), containers virtualize OS (share kernel).
 
@@ -54,7 +63,7 @@ Pattern: Type 1 for production workloads and server consolidation. Type 2 for de
 - Shared kernel, MBs in size, seconds to start
 - Process-level isolation
 - Use when application-level isolation sufficient, need fast startup/scaling, want resource efficiency, or building microservices
-- Covered in [[container_platform]]
+- Covered in container platform
 
 Pattern: VMs for OS isolation, containers for application isolation. Or combine: run containers within VMs for both levels.
 
@@ -98,7 +107,7 @@ Cloud IaaS built on virtualization:
 - On-demand virtual machines without managing physical hardware
 - Cloud provider handles hypervisor layer
 
-For container workloads in cloud, see [[orchestration]] for managing containerized applications at scale.
+For container workloads in cloud, see orchestration for managing containerized applications at scale.
 
 ## Common Pitfalls
 

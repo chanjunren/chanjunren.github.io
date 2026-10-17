@@ -1,9 +1,17 @@
 🗓️ 29042026 1715
-📎 #java #jvm #concurrency #moc
 
 # moc_jvm_concurrency
 
 > Map of Content for the JVM-and-concurrency cluster. Memory model, garbage collection, and the synchronisation primitives that the rest of `java.util.concurrent` is built on.
+
+```mermaid
+flowchart TD
+    M[Java Memory Model] --> P[Visibility and ordering]
+    P --> S[Volatile, locks, and CAS]
+    S --> H[Concurrent collections and executors]
+    G[Garbage collection] --> R[Runtime memory behavior]
+    R --> H
+```
 
 ## Concept Order
 
@@ -43,7 +51,7 @@
 ## Bridges to Other Domains
 
 - → DB internals: [[transaction_isolation_levels]] is the database analogue of these visibility/atomicity rules; [[concurrency_control]] is their parent concept.
-- → Distributed systems: [[consistency_models]] generalises [[java_memory_model_happens_before]] to many machines.
+- → Distributed systems: consistency models generalises java memory model happens before to many machines.
 - → Caching: [[distributed_lock]] is what you reach for when single-JVM locks aren't enough.
 - → API resilience: [[circuit_breaker_pattern]], [[retry_backoff_jitter]] live on top of `ThreadPoolExecutor` and need its sizing math.
 - → Spring (planned): `spring_aop_proxies_jdk_vs_cglib`, `spring_transaction_propagation` rely on these primitives.

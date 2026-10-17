@@ -1,9 +1,17 @@
 🗓️ 25042026 1430
-📎 #redis #distributed_systems #sharding
 
 # cluster_topology
 
 > How Redis spreads data across multiple nodes, and why multi-key commands get tricky.
+
+```mermaid
+flowchart LR
+    C[Redis Cluster client] --> S[Compute hash slot]
+    S --> N[Route command to owning node]
+    N --> P[Primary serves slot]
+    P --> R[Replica receives replication]
+    R --> F[Promoted on failover]
+```
 
 ## Why Cluster
 
@@ -69,4 +77,4 @@ Use hash tags when keys are logically grouped and you want atomic / multi-key ac
 
 - [Redis Cluster spec](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/)
 - [[lettuce]] — client-side handling
-- [[connection_wedge]] — what happens when one node goes silent
+- connection wedge — what happens when one node goes silent

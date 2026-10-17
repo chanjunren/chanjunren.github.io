@@ -6,6 +6,16 @@
 Data synchronization system based on MySQL binary log
 ```
 
+```mermaid
+flowchart LR
+    DB[MySQL transactions] --> B[Binary log]
+    B --> C[Canal server]
+    C --> A[Canal adapter or client]
+    C --> M[Message queue]
+    A --> D[Downstream database or application]
+    M --> D
+```
+
 ## Use case
 
 - **High performance, real-timed data synchronisation**

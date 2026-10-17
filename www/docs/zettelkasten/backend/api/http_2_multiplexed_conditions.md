@@ -4,11 +4,16 @@
 
 HTTP/2 multiplexes independent request and response streams over one connection. A slow response on one stream does not require HTTP/1.1-style request serialization at the application layer.
 
-```text
-One TCP connection
-  Stream 1: request ───────── response
-  Stream 3: request ─── response
-  Stream 5: request ─────── response
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
+    Client->>Server: Stream 1 request
+    Client->>Server: Stream 3 request
+    Client->>Server: Stream 5 request
+    Server-->>Client: Stream 3 response
+    Server-->>Client: Stream 5 response
+    Server-->>Client: Stream 1 response
 ```
 
 ## What multiplexing helps

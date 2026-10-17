@@ -4,6 +4,14 @@
 
 Most objects die young. **Generational GC** exploits this: separate young and old regions, optimize for the common case (collect young fast, touch old rarely). This model explains every tuning knob and pause-time discussion in [[algorithms_g1_zgc_shenandoah]].
 
+```mermaid
+flowchart LR
+    A[New object] --> Y[Young generation]
+    Y -->|dies before collection| R[Reclaim young space]
+    Y -->|survives collections| O[Promote to old generation]
+    O -->|later collection| F[Old-generation reclamation]
+```
+
 ## The Generational Hypothesis
 
 The lifetime distribution of objects is heavily skewed toward "die almost immediately."
@@ -77,7 +85,7 @@ Modern collectors aim to:
 - Do old-gen work **concurrently** (while app threads run)
 - Stop the world only for short phases (root scan, remark, evacuation)
 
-See [[algorithms_g1_zgc_shenandoah]] for how each algorithm handles STW differently.
+See algorithms g1 zgc shenandoah for how each algorithm handles STW differently.
 
 ## Cross-Generation References (Card Table)
 

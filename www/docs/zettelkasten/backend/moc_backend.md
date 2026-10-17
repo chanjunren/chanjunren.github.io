@@ -4,6 +4,16 @@
 
 This map organizes backend engineering notes from core mechanisms to production design. Use the topic maps for deeper paths, then follow the worked designs to connect the concepts.
 
+```mermaid
+flowchart LR
+    F[Data and runtime foundations] --> P[Platform and request handling]
+    P --> M[Messaging and streaming]
+    M --> C[Cache and resource protection]
+    F --> L[Language and concurrency]
+    C --> S[System design]
+    L --> S
+```
+
 ## Reading path
 
 1. **Data and storage foundations:** Read [[moc_db_internals]] for indexes, transactions, concurrency, and replication. Then compare [[os/virtual_memory]], [[os/page_cache]], and [[os/linux_cgroups]] to understand how the operating system manages memory and resource limits.
@@ -16,11 +26,11 @@ This map organizes backend engineering notes from core mechanisms to production 
 
 ## Choose by question
 
-- How does a database find and protect data? Start with [[moc_db_internals]].
-- What happens when a service or dependency slows down? Start with [[api/moc_api_resilience]].
-- How do messages survive retries and failures? Start with [[integration/messaging/moc_messaging]].
-- How should a cache behave during misses or source outages? Start with [[caching/moc_caching]].
-- How do Go services coordinate and shut down? Start with [[languages/go/go_learning_plan]].
-- How do JVM threads share state? Start with [[jvm/moc_jvm_concurrency]].
-- How do I turn requirements into an architecture? Start with [[system_design/moc_system_design]].
+- How does a database find and protect data? Start with moc db internals.
+- What happens when a service or dependency slows down? Start with moc api resilience.
+- How do messages survive retries and failures? Start with moc messaging.
+- How should a cache behave during misses or source outages? Start with moc caching.
+- How do Go services coordinate and shut down? Start with go learning plan.
+- How do JVM threads share state? Start with moc jvm concurrency.
+- How do I turn requirements into an architecture? Start with moc system design.
 

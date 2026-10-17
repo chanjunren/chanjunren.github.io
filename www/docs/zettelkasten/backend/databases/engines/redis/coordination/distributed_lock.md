@@ -1,9 +1,21 @@
 🗓️ 29042026 2015
-📎 #redis #distributed_systems #concurrency
 
 # distributed_lock
 
 > The pattern for "only one process holds this resource at a time" using Redis as the coordinator. Simple-looking, surprisingly subtle — and the subject of one of the most-cited debates in distributed systems (Kleppmann vs antirez over Redlock).
+
+```mermaid
+sequenceDiagram
+    participant A as Client A
+    participant R as Redis
+    participant B as Client B
+    A->>R: SET lock token NX PX lease
+    R-->>A: Lock acquired
+    B->>R: SET same lock NX PX lease
+    R-->>B: Not acquired
+    A->>R: Compare token and delete on release
+    Note over R: Lease expiry bounds abandoned lock lifetime
+```
 
 ## The Naive Lock
 
@@ -114,7 +126,7 @@ antirez's [counter](http://antirez.com/news/101): Redlock is correct *given its 
 
 The practical reality:
 
-- **For correctness-critical work** (financial ledgers, exclusive ownership of DB writes), use a **consensus-backed lock** ([[raft]]-based etcd / ZooKeeper) **plus fencing tokens** at the resource layer.
+- **For correctness-critical work** (financial ledgers, exclusive ownership of DB writes), use a **consensus-backed lock** (raft-based etcd / ZooKeeper) **plus fencing tokens** at the resource layer.
 - **For best-effort coordination** (cache stampede prevention, opportunistic batch jobs), single-Redis lock with token + Lua release is fine.
 - **Redlock specifically** is an awkward middle ground — operationally heavier than single-node, less safe than consensus. Most teams either pick simpler or stronger.
 
@@ -138,13 +150,7 @@ The practical reality:
 - **Reentrancy assumed** → Redis locks aren't reentrant by default. Implement explicitly (count + token) or use a library that does.
 - **Forgetting clock skew** → don't assume elapsed time is exact across nodes; build slack into the TTL.
 
-## Related
-
-- [[cluster_topology]] — locking across cluster mode is more complex (slot-aware).
-- [[lettuce]] — Java client; supports Lua eval for atomic release.
-- [[raft]] — what consensus-backed locks are built on.
-- [[stampede]] — most common practical use of Redis locks.
-- [[two_phase_commit]] — for context on why distributed locks are hard.
+[[cluster_topology]] explains why locking across Redis Cluster slots needs care. The [[lettuce]] Java client supports atomic Lua-based release. [[stampede]] shows a common cache use for locks, while [[two_phase_commit]] gives context for distributed coordination limits.
 
 ---
 

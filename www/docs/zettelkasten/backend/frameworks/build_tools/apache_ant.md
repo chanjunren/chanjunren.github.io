@@ -20,10 +20,15 @@ An Ant project contains targets. Targets group tasks and can depend on other tar
 
 Run `ant jar` to request the `jar` target. Ant executes `compile` first because `jar` depends on it. Dependency management is separate; Ant can be paired with tools such as Apache Ivy.
 
-## Related notes
+For convention-based lifecycle phases, see [[maven_phase]]. For centralized Maven dependency versions, see [[bill_of_materials]].
 
-- [[maven_phase]] — convention-based lifecycle phases
-- [[bill_of_materials]] — centralized Maven dependency versions
+```mermaid
+flowchart LR
+    T[Ant build.xml target] --> D[Dependencies]
+    D --> C[Compile sources]
+    C --> P[Package artifacts]
+    P --> V[Test or deploy target]
+```
 
 ## References
 

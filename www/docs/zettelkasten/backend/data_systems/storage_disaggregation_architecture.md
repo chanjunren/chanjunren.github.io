@@ -6,6 +6,18 @@
 
 ## Request and recovery path
 
+```mermaid
+sequenceDiagram
+    participant Worker
+    participant Storage as Shared storage
+    participant Source
+    Worker->>Storage: Read or write data
+    Worker->>Storage: Persist checkpoint
+    Note over Worker,Storage: Worker fails
+    Worker->>Storage: Replacement restores checkpoint
+    Worker->>Source: Replay from checkpoint position
+```
+
 1. Compute workers read input or state from a shared storage service.
 2. Workers process data and write outputs or checkpoints to that service.
 3. A failed worker can be replaced and recover from durable data or a checkpoint.

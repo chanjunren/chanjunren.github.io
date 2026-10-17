@@ -4,6 +4,16 @@
 
 Databricks compute configuration describes the runtime, driver and worker capacity, scaling policy, and security mode for a workload. The available options depend on cloud, compute type, workspace policy, and runtime version.
 
+```mermaid
+flowchart LR
+    A[Workload needs] --> B[Choose runtime and access mode]
+    B --> C[Set driver and worker resources]
+    C --> D[Choose fixed or autoscaling capacity]
+    D --> E[Run job or query]
+    E --> F[Monitor utilization and cost]
+    F --> C
+```
+
 ## Main decisions
 
 | Decision | What it controls | How to choose |

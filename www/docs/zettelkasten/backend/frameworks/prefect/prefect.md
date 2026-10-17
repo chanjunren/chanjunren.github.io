@@ -1,5 +1,4 @@
 🗓️ 13042026 1530
-📎 #data-engineering #orchestration
 
 # prefect
 
@@ -10,7 +9,7 @@ Python-native workflow orchestration — define pipelines as decorated functions
 - **Orchestration** (Prefect server/cloud) is separated from **execution** (your infrastructure)
 - Server stores state, schedules runs, serves the UI and API
 - Your code runs on your machines, in your network — Prefect never touches your data
-- Contrast with [[kubernetes]]: K8s orchestrates containers, Prefect orchestrates Python functions
+- Contrast with kubernetes: K8s orchestrates containers, Prefect orchestrates Python functions
 
 ## Core Concepts
 
@@ -35,6 +34,19 @@ Python-native workflow orchestration — define pipelines as decorated functions
 - **Blocks**: typed, reusable config objects — credentials, storage locations, notification channels
   - Encrypted at rest, shareable across flows and deployments
 - **Artifacts**: structured outputs from flow runs (tables, markdown, links) — visible in UI with lineage tracking
+
+```mermaid
+stateDiagram-v2
+    [*] --> Scheduled
+    Scheduled --> Pending: worker claims run
+    Pending --> Running: task begins
+    Running --> Completed: all tasks succeed
+    Running --> Failed: task raises error
+    Failed --> Retrying: retry policy allows
+    Retrying --> Running
+    Failed --> [*]
+    Completed --> [*]
+```
 
 ## Flow Run Lifecycle
 

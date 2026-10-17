@@ -1,9 +1,26 @@
 🗓️ 29042026 1745
-📎 #database #distributed_systems #transactions
 
 # two_phase_commit
 
 > The textbook protocol for atomic commit across multiple participants. Worth understanding mainly so you know *why teams avoid it* in production — and what they reach for instead ([[saga_pattern]], [[outbox_pattern]]).
+
+```mermaid
+sequenceDiagram
+    participant C as Coordinator
+    participant P1 as Participant 1
+    participant P2 as Participant 2
+    C->>P1: Prepare
+    C->>P2: Prepare
+    P1-->>C: Vote yes or no
+    P2-->>C: Vote yes or no
+    alt All vote yes
+        C->>P1: Commit
+        C->>P2: Commit
+    else Any vote no or timeout
+        C->>P1: Abort
+        C->>P2: Abort
+    end
+```
 
 ## The Protocol
 
@@ -67,7 +84,7 @@ Why it's not used in practice: 3PC assumes a **synchronous network with bounded 
 
 XA is the standard interface for 2PC across heterogeneous resource managers (RDBMS + JMS broker, etc.). Java has `javax.transaction.xa.XAResource`. Spring has JTA support.
 
-In modern stacks: rare. Nobody runs XA across MySQL + Kafka in production. The operational overhead is too high. The industry settled on **eventual consistency + saga / outbox** instead. See [[saga_pattern]], [[outbox_pattern]].
+In modern stacks: rare. Nobody runs XA across MySQL + Kafka in production. The operational overhead is too high. The industry settled on **eventual consistency + saga / outbox** instead. See saga pattern, outbox pattern.
 
 ## Where 2PC Still Lives
 
@@ -80,16 +97,11 @@ In modern stacks: rare. Nobody runs XA across MySQL + Kafka in production. The o
 - **The main downside of 2PC is coordinator failure blocks participants** — latency and throughput are secondary problems compared to stuck locks during recovery.
 - **Raft does not solve participant blocking** — it makes the *coordinator* fault-tolerant via consensus, but participants still block waiting for the decision. Modern Spanner-style systems combine 2PC (cross-shard atomicity) with Paxos (coordinator durability).
 - **3PC is a theoretical fix, practical no-op** — assumes bounded delays, which real networks violate. Doesn't survive partitions.
-- **Practical alternatives** are [[saga_pattern]] (compensating actions, eventual consistency) and [[outbox_pattern]] (transactional event publishing for cross-service workflows). Both sacrifice strict atomicity for availability.
+- **Practical alternatives** are saga pattern (compensating actions, eventual consistency) and outbox pattern (transactional event publishing for cross-service workflows). Both sacrifice strict atomicity for availability.
 - **When 2PC still earns its keep** — financial/regulatory contexts where atomicity is required and the latency cost is acceptable. Otherwise saga is the default.
 - **FLP Impossibility** is the formal underpinning — in an asynchronous network with even one possible faulty process, no deterministic consensus protocol can guarantee termination. 2PC's blocking behaviour is a concrete instance.
 
-## Related
-
-- [[saga_pattern]] — eventual-consistency alternative for cross-service business txns.
-- [[outbox_pattern]] — atomic DB write + reliable event publish without 2PC.
-- [[raft]] — consensus for replicating coordinator state.
-- [[cap_theorem]] — 2PC is CP; chooses consistency, gives up availability under partition.
+For consensus for replicating coordinator state, see raft. For 2PC is CP; chooses consistency, gives up availability under partition, see cap theorem.
 
 ---
 

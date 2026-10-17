@@ -8,11 +8,15 @@ It is useful when an operator must remember information that is not naturally ke
 
 Use [[keyed_state]] when each record should access state for its own key. Operator state instead requires the application to reason about state per subtask and how that state is repartitioned. Avoid relying on the old note's claim that it is “rarely needed”: sources and sinks are common uses, and the right choice depends on the state model.
 
-## Related notes
+For consistent recovery snapshots, see [[checkpointing]]. For manually triggered state snapshots, see [[savepoints]].
 
-- [[keyed_state]] — state partitioned by key
-- [[checkpointing]] — consistent recovery snapshots
-- [[savepoints]] — manually triggered state snapshots
+```mermaid
+flowchart LR
+    A[Operator instance] --> S[Union or list state]
+    S --> C[Checkpoint snapshot]
+    C --> R[Restore operator]
+    R --> P[Redistribute state across parallel instances]
+```
 
 ## References
 

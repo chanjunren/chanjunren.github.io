@@ -1,9 +1,16 @@
 🗓️ 29042026 1630
-📎 #database #indexing #mysql
 
 # composite_index_leftmost_prefix
 
 > The rule that decides whether a `WHERE` clause uses an index or falls back to a full table scan. Misapplying it is the single most common cause of "the query was fast yesterday, slow today" after a schema change.
+
+```mermaid
+flowchart LR
+    I[Index (a, b, c)] --> A[Predicate on a]
+    I --> AB[Predicate on a and b]
+    I --> ABC[Predicate on a, b, and c]
+    I -. cannot seek efficiently by b alone .-> B[Predicate on b]
+```
 
 ## The Rule
 
@@ -73,11 +80,12 @@ When a query is hot but slow even with the matching index, the next move is to a
 - **Equality first, range last** — `(status, created_at)` is better than `(created_at, status)` for `WHERE status = 1 ORDER BY created_at` because equality on `status` seeks to the block; `created_at` within that block is already sorted, so no filesort.
 - **Cardinality matters** for column ordering when both are equality — put the more-selective column first to shrink the candidate set after the first seek.
 
-## Related
+For why "leftmost" is a structural consequence, not a config choice, see [[b_plus_tree_indexes]]. For gap locks fire on the index range your query touched, see [[innodb_locks]].
 
-- [[b_plus_tree_indexes]] — why "leftmost" is a structural consequence, not a config choice.
-- [[innodb_locks]] — gap locks fire on the index range your query touched.
+## Planned
+
 - `query_explain_optimization` *(planned)* — reading EXPLAIN output systematically.
+
 - `covering_index_index_pushdown` *(planned)* — deeper dive on the optimisations.
 
 ---

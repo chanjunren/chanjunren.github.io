@@ -1,14 +1,28 @@
 🗓️ 03022025 1236
 
 # table_group
+
+> **Table group**: A logical container for tables that share a fixed set of shards. ([Hologres documentation](https://www.alibabacloud.com/help/en/hologres/user-guide/basic-concepts))
+
 - In Hologres, data is stored in shards on [[pangu]]
-    
+
 - **Table groups** are logical storage units used to manage shards
 - Each table group contains a fixed number of shards
 - When a table is created:
 	- It is assigned to a table group
 	- Data is distributed to specific shards based on [[distribution_key]]
-    
+
+```mermaid
+flowchart TD
+  DB[Database] --> TG[Table group]
+  TG --> T1[Table A]
+  TG --> T2[Table B]
+  TG --> S1[Shared shard set]
+  T1 -->|distribution key| S1
+  T2 -->|distribution key| S1
+  S1 --> W[Workers]
+```
+
 ```ad-note
 A table group is a unique concept in Hologres and differs from PostgreSQL's **tablespace** (which identifies storage locations)
 
@@ -23,7 +37,7 @@ A table group is a unique concept in Hologres and differs from PostgreSQL's **t
 ### Table Groups and Databases
 - A database contains one or more table groups
 - By default, Hologres creates one table group per database, but you can add more or modify the default
-        
+
 ### Table Groups and Shards
 - Shards are not shared between table groups
 - Each shard has a unique ID within an instance
@@ -31,16 +45,17 @@ A table group is a unique concept in Hologres and differs from PostgreSQL's **t
 ### Shard Count
 - The number of shards in a table group is **fixed at creation** and cannot be changed later
 - To change the shard count, you must create a new table group
-        
+
 ### Tables and Shards
-    
+
 - Data in a table is distributed to shards based on the distribution key
 - Without a distribution key, data is randomly allocated
 
 ### Table Groups and Tables
 - Multiple tables can belong to the same table group, but a table cannot belong to multiple table groups.
-- Tables cannot be moved to another table group unless re-created or moved using a specific function.
+- Tables can be moved to another table group through supported resharding procedures; version and table-type limits apply. See [Manage table groups and shards](https://www.alibabacloud.com/help/en/hologres/user-guide/user-guide-of-table-groups-and-shard-counts).
 
 ---
 ## References
-- https://www.alibabacloud.com/help/en/hologres/user-guide/basic-concepts
+- [Hologres: Concepts](https://www.alibabacloud.com/help/en/hologres/user-guide/basic-concepts)
+- [Hologres: Manage table groups and shards](https://www.alibabacloud.com/help/en/hologres/user-guide/user-guide-of-table-groups-and-shard-counts)

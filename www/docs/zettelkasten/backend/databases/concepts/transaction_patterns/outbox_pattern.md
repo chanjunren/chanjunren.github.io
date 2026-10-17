@@ -1,9 +1,22 @@
 🗓️ 29042026 1815
-📎 #distributed_systems #messaging #patterns
 
 # outbox_pattern
 
 > How to atomically commit a DB write + publish a message, when your DB and your message broker are separate systems. The standard solution to the **dual-write problem**.
+
+```mermaid
+sequenceDiagram
+    participant App
+    participant DB as Business database
+    participant Relay
+    participant Broker
+    App->>DB: Transaction: write business row and outbox row
+    DB-->>App: Commit both atomically
+    Relay->>DB: Read unpublished outbox row
+    Relay->>Broker: Publish message
+    Broker-->>Relay: Acknowledge
+    Relay->>DB: Mark row published
+```
 
 ## The Dual-Write Problem
 
@@ -121,12 +134,7 @@ CREATE TABLE outbox (
 - **Outbox table growth** — periodic cleanup of published rows via cron + TTL. Keep a few hours/days for redelivery scenarios.
 - **Polling vs CDC** — start with polling for one or two services. Move to CDC when the per-service polling burden compounds and the team can operate Debezium.
 
-## Related
-
-- [[saga_pattern]] — outbox is how each saga step reliably publishes its event.
-- [[exactly_once_semantics]] — what consumers downstream still have to enforce.
-- [[two_phase_commit]] — the heavyweight alternative outbox replaces.
-- [[queue]] — outbox is producer-side; consumer side handles dedup.
+[[saga_pattern]] shows how an outbox helps each step publish its event. [[two_phase_commit]] describes a heavier coordination alternative. The outbox covers producer-side delivery; [[queue]] explains the consumer side.
 
 ---
 

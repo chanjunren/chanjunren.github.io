@@ -6,6 +6,18 @@
 
 A cache writer can coordinate this, or the application can. [[read_through]] is a separate choice about reads.
 
+```mermaid
+sequenceDiagram
+    participant App
+    participant Cache
+    participant Source
+    App->>Cache: Write value
+    Cache->>Source: Persist value
+    Source-->>Cache: Write result
+    Cache->>Cache: Update or invalidate entry
+    Cache-->>App: Acknowledge after required writes
+```
+
 ## Write path
 
 A common application-managed sequence:

@@ -1,5 +1,4 @@
 🗓️ 29042026 1230
-📎 #reliability #patterns #api
 
 # circuit_breaker_pattern
 
@@ -13,18 +12,13 @@
 **Half-Open** — after a cool-down, a small number of probe calls are allowed. If they succeed, return to Closed; if they fail, back to Open.
 ```
 
-```
-       failure rate >= threshold
-   ┌──────────────────────────────┐
-   ▼                              │
-[Closed]                       [Open]
-   ▲                              │
-   │  probe success               │ cool-down elapsed
-   │     ▲                        ▼
-   │     └──────────[Half-Open]◄──┘
-   │                  │
-   └──────────────────┘
-       probe failure
+```mermaid
+stateDiagram-v2
+    [*] --> Closed
+    Closed --> Open: failure threshold reached
+    Open --> HalfOpen: recovery delay elapsed
+    HalfOpen --> Closed: probe succeeds
+    HalfOpen --> Open: probe fails
 ```
 
 ## Why It Matters
@@ -78,7 +72,7 @@ A breaker rarely lives alone:
 | **Bulkhead**        | Isolates resources (threads, connections) per downstream. Limits blast radius if breaker is slow to trip. |
 | **Retry with [[retry_backoff_jitter]]** | Retry only on transient errors; never retry past an open breaker. |
 | **Fallback**        | Cached value, default response, or graceful degradation when breaker is open. |
-| **[[../rate_limiting/algorithms]]** | Caps inbound traffic; complements outbound circuit. |
+| **algorithms** | Caps inbound traffic; complements outbound circuit. |
 
 The standard outer-to-inner stack: **rate limit → bulkhead → timeout → circuit breaker → retry → call**.
 
@@ -101,12 +95,10 @@ The standard outer-to-inner stack: **rate limit → bulkhead → timeout → cir
 - **Treating breaker as substitute for capacity** — breaker protects against *upstream* damage. The downstream still needs to handle its load. Breakers don't fix overload.
 - **Cascading flap** — a borderline-healthy downstream causes the breaker to open, callers fall back, downstream recovers, breaker half-opens, traffic returns, downstream tips over again. Add jitter and slow ramp-up.
 
-## Related
+For what 5xx triggers the breaker on, see [[http_status_codes_semantics]]. For idempotency makes retries-after-recovery safe, see [[idempotency_keys_api_design]].
 
-- [[retry_backoff_jitter]] — pair with breakers to avoid retry storms after recovery.
-- [[../rate_limiting/algorithms]] — inbound complement to the outbound breaker.
-- [[http_status_codes_semantics]] — what 5xx triggers the breaker on.
-- [[idempotency_keys_api_design]] — idempotency makes retries-after-recovery safe.
+## Planned
+
 - `bulkhead_pattern` *(planned)* — resource isolation companion.
 
 ---

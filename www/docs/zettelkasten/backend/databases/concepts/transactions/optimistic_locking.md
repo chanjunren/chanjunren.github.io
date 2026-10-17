@@ -4,6 +4,20 @@
 
 **Optimistic locking** lets transactions proceed without holding a long-lived exclusive lock, then checks whether the data changed before accepting an update.
 
+```mermaid
+sequenceDiagram
+    participant T as Transaction
+    participant DB
+    T->>DB: Read row and version v
+    T->>T: Compute update
+    T->>DB: Update where version = v
+    alt One row updated
+        DB-->>T: Commit succeeds
+    else Version changed
+        DB-->>T: Conflict; reload and retry or fail
+    end
+```
+
 ## Version check
 
 An application reads a row and its version, then updates only if that version is unchanged:

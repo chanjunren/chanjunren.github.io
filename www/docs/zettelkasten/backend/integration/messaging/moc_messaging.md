@@ -1,9 +1,18 @@
 🗓️ 29042026 2130
-📎 #messaging #kafka #moc
 
 # moc_messaging
 
 > Map of Content for the messaging concept cluster — Kafka architecture, delivery semantics, and the patterns that make at-least-once delivery safe.
+
+```mermaid
+flowchart LR
+    P[Producer] --> O[Outbox]
+    O --> K[Kafka topic and partitions]
+    K --> C[Consumer group]
+    C --> I[Idempotent consumer]
+    K --> D[Delivery guarantees]
+    D --> E[Exactly-once scope]
+```
 
 ## Concept Order
 
@@ -38,7 +47,7 @@
 
 ## Bridges to Other Domains
 
-- → DB internals: [[outbox_pattern]] is half-DB-half-messaging; [[saga_pattern]] strings idempotent consumers together.
-- → Distributed systems: [[exactly_once_semantics]] depends on consensus ([[raft]]); ordering ties back to [[consistency_models]].
-- → Caching: [[outbox_pattern]] also handles cache invalidation via events.
+- → DB internals: outbox pattern is half-DB-half-messaging; [[saga_pattern]] strings idempotent consumers together.
+- → Distributed systems: exactly once semantics depends on consensus (raft); ordering ties back to consistency models.
+- → Caching: outbox pattern also handles cache invalidation via events.
 - → Reliability: `circuit_breaker_pattern` *(planned)*, `retry_backoff_jitter` *(planned)* — the at-least-once ecosystem.

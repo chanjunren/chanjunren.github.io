@@ -8,6 +8,17 @@ An embedding model converts an item, such as a text passage, into a vector. The 
 
 Vector similarity is not the same as understanding intent. Results depend on the embedding model, data domain, metric, filters, and retrieval configuration. Evaluate search quality on representative queries, and consider combining lexical and vector retrieval when exact terms still matter.
 
+```mermaid
+flowchart LR
+    D[Documents] --> E[Embedding model]
+    E --> V[Vector field in index]
+    Q[Query text] --> QE[Query embedding]
+    QE --> A[Approximate nearest-neighbor search]
+    V --> A
+    A --> R[Candidate documents]
+    R --> X[Optional reranking]
+```
+
 ## Typical flow
 
 1. Split source content into units that make sense to retrieve.
@@ -16,11 +27,7 @@ Vector similarity is not the same as understanding intent. Results depend on the
 4. Embed the query and retrieve nearest neighbors.
 5. Apply access filters and evaluate result relevance.
 
-## Related notes
-
-- [[elasticsearch_overview]] — index and cluster mental model
-- [[query_dsl]] — composing text, filters, and vector queries
-- [[scoring_relevance]] — ranking search results
+For index and cluster mental model, see [[elasticsearch_overview]]. For composing text, filters, and vector queries, see [[query_dsl]]. For ranking search results, see [[scoring_relevance]].
 
 ## References
 

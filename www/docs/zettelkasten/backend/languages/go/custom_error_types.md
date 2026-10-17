@@ -1,5 +1,4 @@
 🗓️ 07062026 1120
-📎
 
 # custom_error_types
 
@@ -31,7 +30,7 @@ func (e *AppError) Unwrap() error { return e.Err }   // enables chain traversal
 return fmt.Errorf("load user %d: %w", id, err)
 ```
 
-Use `%w` (wrap, keeps the chain) not `%v` (formats to string, breaks the chain). See the warning in [[error_handling]].
+Use `%w` (wrap, keeps the chain) not `%v` (formats to string, breaks the chain). See the warning in error handling.
 
 ## errors.Is vs errors.As
 
@@ -90,6 +89,16 @@ func RespondError(w http.ResponseWriter, err error) {
     })
 }
 ```
+```
+
+```mermaid
+flowchart LR
+    A[Low-level error] --> W[Wrap with context using %w]
+    W --> C[Caller receives error chain]
+    C --> I[errors.Is checks sentinel]
+    C --> T[errors.As extracts typed error]
+    I --> H[Handle by meaning]
+    T --> H
 ```
 
 ## References

@@ -1,9 +1,18 @@
 🗓️ 29042026 1330
-📎 #system_design #framework
 
 # framework
 
 > A six-step approach to working through a system design problem under time pressure. Not a script — a scaffold. The framework's value is keeping you from skipping steps that matter (requirements, capacity) when the temptation is to dive straight into "I'd use Kafka and Redis".
+
+```mermaid
+flowchart LR
+    R[Clarify requirements] --> E[Estimate scale]
+    E --> A[Define API]
+    A --> D[Model data]
+    D --> H[Sketch architecture]
+    H --> X[Deep dive on bottlenecks]
+    X --> H
+```
 
 ## The Six Steps
 
@@ -46,7 +55,7 @@ Performance, scale, consistency, availability — the *-ilities*.
 | Durability    | Loss tolerance? RTO / RPO?                                |
 | Security      | Auth model? Rate-limited? Trust boundaries?               |
 
-These choices drive every later decision. *"Strong consistency"* steers you toward [[raft]]-backed stores; *"99.99% availability"* steers you toward multi-region; *"100M users"* changes data-model decisions.
+These choices drive every later decision. *"Strong consistency"* steers you toward raft-backed stores; *"99.99% availability"* steers you toward multi-region; *"100M users"* changes data-model decisions.
 
 ## Step 2 — Estimate Scale
 
@@ -154,13 +163,7 @@ Each deep dive should reach a **trade-off** explicitly. "Snowflake gives sortabl
 - **Ignoring failure modes** — "what happens when X fails?" should have an answer for every X you drew on the diagram.
 - **Going too deep too early** — getting stuck in implementation details before the high-level shape is right. Time-box.
 
-## Related
-
-- [[back_of_envelope_estimation]] — the math behind step 2.
-- [[url_shortener]] — applies all six steps.
-- [[../rate_limiting/distributed_design]] — applies all six steps with a different shape.
-- [[unique_id_generator_snowflake]] — focused deep-dive on a recurring sub-problem.
-- [[moc_distributed_systems]], [[moc_db_internals]], [[moc_caching]], [[moc_messaging]] — feed the deep-dive vocabulary.
+The [[url_shortener]] walks through all six steps. [[../rate_limiting/distributed_design]] applies them to a different problem. For deeper vocabulary, see [[moc_db_internals]], [[moc_caching]] and [[moc_messaging]].
 
 ---
 

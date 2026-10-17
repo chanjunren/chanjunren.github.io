@@ -4,6 +4,14 @@
 
 A **lakehouse** combines data-lake storage with table features used by analytical systems. The term describes an architecture; its guarantees depend on the table format and query engines.
 
+```mermaid
+flowchart LR
+    O[Object storage] --> T[Open table format and transaction metadata]
+    C[Catalog] --> T
+    T --> E[SQL and processing engines]
+    E --> A[Analytics and machine learning]
+```
+
 ## What the architecture combines
 
 - Lake-style storage for diverse data and open file formats.

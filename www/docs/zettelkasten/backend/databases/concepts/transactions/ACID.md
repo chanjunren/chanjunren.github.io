@@ -1,10 +1,19 @@
 🗓️ 01112024 2123
 
 # ACID
+```mermaid
+flowchart LR
+    A[Begin transaction] --> B[Apply writes]
+    B --> C{Constraints and isolation hold?}
+    C -- Yes --> D[Commit all changes]
+    C -- No --> E[Rollback all changes]
+    D --> P[Durable committed state]
+```
+
 ## Atomic
  **Atomicity** makes a transaction commit as one unit or abort without committing its partial changes.
 
-> If any steps between the transactions fail, all other steps must also fail or be reverted 
+> If any steps between the transactions fail, all other steps must also fail or be reverted
 
 | Term     | Description                            |
 | -------- | -------------------------------------- |
@@ -15,10 +24,8 @@
 
 > If you execute the transaction all by itself on a database that’s initially consistent, then when the transaction finishes executing the database is again consistent
 
-
 ## Isolated
  **Isolation** controls which effects concurrent transactions can observe. The guarantee depends on the isolation level; not every level is equivalent to serial execution.
-
 
 | Term              | Description                                                               |
 | ----------------- | ------------------------------------------------------------------------- |

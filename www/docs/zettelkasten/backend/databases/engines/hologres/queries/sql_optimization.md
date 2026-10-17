@@ -1,44 +1,32 @@
-🗓️ 03022025 1110
+🗓️ 17102026 2222
 
 # sql_optimization
 
-Hologres query design aims to avoid reading irrelevant data and spreading work across unnecessary shards. Index and partition choices determine how much data each query must inspect.
+> **Partition pruning**: Skipping table partitions that cannot match a query's partition-key predicates. ([Hologres documentation](https://www.alibabacloud.com/help/en/hologres/getting-started/hologres-index-to-get-started-quickly))
 
-## Basic principles
-```ad-abstract
-Reduce I/O resource consumption and optimize concurrency
+Hologres query tuning starts by reducing the data each query must inspect. Table layout helps prune partitions, shards, files, and ranges before rows reach execution operators.
+
+```mermaid
+flowchart LR
+  Q[SQL predicates] --> P[Partition pruning]
+  P --> S[Shard pruning by distribution key]
+  S --> F[File pruning by event-time ranges]
+  F --> C[Range pruning by clustering key]
+  C --> R[Read candidate data]
 ```
-## Configuring appropriate indexes
-- If you configure appropriate indexes for data distribution when you create a table, the data that you want to query can be quickly located after an SQL statement is executed
-- This reduces I/O and computing resource consumption and accelerates queries
-- Balanced data distribution also helps increase the utilization of concurrent resources and prevent single-node bottlenecks
-- The following figure shows the execution process from executing an SQL statement to obtaining data
-![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/en-US/4655981271/p813026.png)
-## Partition pruning
-- If you perform an SQL query on a **partitioned table**, the system locates the partition in which the required data is located by using the partition pruning feature
-- If no partition is matched based on query conditions, the system needs to traverse all partitions, which consumes excessive I/O resources
-- In most cases, partitioning by day is more appropriate
-- For a non-partitioned table, partition pruning is not involved
 
-## [[shard]] pruning
-- You can use a [[distribution_key]] to quickly locate the shard in which the desired data is located
-- This reduces the resources that are required by a single SQL statement and supports a high throughput if multiple SQL statements are executed at the same time
-- If the specific shard cannot be located, the system schedules all shards for computing based on the distributed framework
-- In this case, a single SQL statement is executed on multiple shards, which consumes a large amount of resources and decreases the overall concurrency of the system
-- Extra shuffle overhead is incurred if specific operators are executed in a centralized manner
-- In most cases, you can configure fields whose values are evenly distributed as distribution key fields, such as the order ID, user ID, and event ID fields
-- We recommend that you configure the same distribution key for the tables that you want to join to allow correlative data to be distributed to the same shard
-- This helps achieve high efficiency in local join operations
-    
-## [[segment_key]] pruning
-- You can use an event time column to quickly locate the file in which the required data is located from multiple files on a node
-- This eliminates the need to access other files
-- If the filtering fails, the system needs to traverse all files
-    
-### [[clustering_key]] pruning
-- You can use the clustering key to quickly locate the desired data range in a file
-- This helps improve the efficiency of range queries and field sorting
+## Pruning layers
 
----
+- **Partitions**: A matching partition-key predicate can eliminate whole partitions. Partitioning helps only when queries constrain the partition key.
+- **Shards**: A predicate on the [[distribution_key]] can route work to relevant shards. Without a shard-pruning predicate, a query may need to involve many shards.
+- **Files**: A time-correlated filter can use [[segment_key]] statistics to skip files whose event-time ranges cannot match.
+- **Within-file ranges**: The [[clustering_key]] can reduce reads for filters that match its leftmost key columns.
+
+Each layout choice has limits. A query may still scan broadly when predicates do not match the chosen properties, values are poorly distributed, or the plan cannot use the pruning path. Check the query plan and workload metrics rather than assuming an index was used.
+
+For table-property selection by workload, see [[table_creation_best_practises]]. For the properties as a group, see [[indexes]].
+
 ## References
-- https://www.alibabacloud.com/help/en/hologres/getting-started/hologres-index-to-get-started-quickly
+
+- [Hologres: Get started with indexes](https://www.alibabacloud.com/help/en/hologres/getting-started/hologres-index-to-get-started-quickly)
+- [Hologres: Best practices for table properties](https://www.alibabacloud.com/help/en/hologres/user-guide/guide-on-scenario-specific-table-creation-and-tuning)

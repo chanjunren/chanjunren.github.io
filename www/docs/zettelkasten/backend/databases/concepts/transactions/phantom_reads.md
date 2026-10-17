@@ -10,6 +10,19 @@ Phantoms differ from a non-repeatable read, where the same row returns a changed
 
 See [[transaction_isolation_levels]] and [[innodb_locks]] for engine-specific behavior.
 
+```mermaid
+sequenceDiagram
+    participant T1 as Transaction 1
+    participant DB
+    participant T2 as Transaction 2
+    T1->>DB: Query rows matching predicate
+    DB-->>T1: Rows A and B
+    T2->>DB: Insert row C matching predicate
+    T2->>DB: Commit
+    T1->>DB: Repeat same predicate query
+    DB-->>T1: Rows A, B, and C
+```
+
 ## References
 
 - [PostgreSQL: Transaction isolation](https://www.postgresql.org/docs/current/transaction-iso.html)

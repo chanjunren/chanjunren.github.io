@@ -1,5 +1,4 @@
 🗓️ 29042026 1430
-📎 #system_design #design #distributed_systems
 
 # unique_id_generator_snowflake
 
@@ -62,6 +61,18 @@ Twitter's original split (2010):
 - **12 bits sequence** within a millisecond → 4096 IDs/ms/node = 4M IDs/sec/node.
 
 System-wide throughput: 1024 × 4M = 4 billion IDs/sec. Plenty.
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Generator
+    participant Clock
+    Client->>Generator: Request ID
+    Generator->>Clock: Read current timestamp
+    Generator->>Generator: Combine time, worker ID, sequence
+    Generator-->>Client: Sortable unique ID
+    Note over Generator: Clock rollback needs explicit handling
+```
 
 ## 4. The Algorithm
 
@@ -128,7 +139,7 @@ Each generator instance needs a unique 0–1023 machine_id. Three approaches:
 | ZooKeeper / etcd   | Acquire ephemeral sequential node at startup     | Requires consensus dependency; standard pattern |
 | Hash-based         | `hash(hostname || pod_uid) mod 1024`             | Collisions possible at fleet > sqrt(1024) ≈ 32 hosts |
 
-ZooKeeper / etcd is the production answer (the Twitter-original design assumes ZooKeeper). Both use consensus to allocate unique sequential IDs cleanly. See [[raft]] for the underlying primitive.
+ZooKeeper / etcd is the production answer (the Twitter-original design assumes ZooKeeper). Both use consensus to allocate unique sequential IDs cleanly. See raft for the underlying primitive.
 
 ### 6.2 Clock Skew — The Killer Failure Mode
 
@@ -217,13 +228,7 @@ Many apps reach for snowflake when they don't need it. Decision tree:
 - **NTP slewing too fast** — large slew steps look like clock backsteps. Configure conservatively.
 - **Forgetting persistent `last_ms`** — process restart loses state; if the system clock stepped back during downtime, the new process happily issues old timestamps.
 
-## Related
-
-- [[raft]] — what etcd / ZooKeeper rely on for `machine_id` allocation.
-- [[url_shortener]] — uses snowflake as one of the ID-generation options.
-- [[b_plus_tree_indexes]] — why time-ordered IDs matter for clustered-index inserts.
-- [[consistent_hashing]] — alternative for sharding where the ID itself is the shard key.
-- [[framework]] — the framework this design follows.
+For uses snowflake as one of the ID-generation options, see [[url_shortener]]. For alternative for sharding where the ID itself is the shard key, see consistent hashing. For the framework this design follows, see [[framework]].
 
 ---
 

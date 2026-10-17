@@ -1,5 +1,4 @@
 🗓️ 02112024 2258
-📎
 
 # interfaces
 
@@ -28,7 +27,7 @@ This contrasts with [[type_assertions]] where you convert interfaces back to con
 
 ## Trade-offs
 
-**Pros**: Loose coupling, testability, flexibility  
+**Pros**: Loose coupling, testability, flexibility
 **Cons**: Runtime overhead, less explicit
 
 ## Quick Reference
@@ -99,6 +98,15 @@ type ReadWriter interface {
     Reader
     Writer
 }
+```
+
+```mermaid
+flowchart LR
+    T[Concrete type] --> M[Implements required method set]
+    M --> I[Interface value]
+    C[Caller depends on interface] --> I
+    I --> D[Dynamic concrete value]
+    D --> X[Method dispatch]
 ```
 
 ## References

@@ -1,9 +1,17 @@
 🗓️ 29042026 1600
-📎 #java #concurrency
 
 # volatile_synchronized_atomic_difference
 
 > The three Java tools for shared-state coordination. They solve overlapping but distinct problems — visibility, atomicity, mutual exclusion — and confusing them produces real bugs (racy counters, lost updates, mysterious infinite loops). The right tool depends on whether you need *just* visibility, *just* atomicity, or *full* mutual exclusion.
+
+```mermaid
+flowchart LR
+    A[Shared-state requirement] --> V[Visibility only: volatile]
+    A --> S[Mutual exclusion: synchronized]
+    A --> C[Atomic single-variable update: AtomicXxx]
+    S --> H[Visibility plus lock ownership]
+    C --> H
+```
 
 ## What Each Provides
 
@@ -142,13 +150,7 @@ Numbers are illustrative; benchmark for your hardware. The shape — locks degra
 - **Mixing locks for the same shared state** — `synchronized` and a separate `ReentrantLock` on the same data → no mutual exclusion between them. Pick one mechanism per state.
 - **`Boolean` autoboxing in `volatile` references** — `volatile Boolean flag` involves `valueOf` calls and pointer comparisons. Prefer `volatile boolean`.
 
-## Related
-
-- [[java_memory_model_happens_before]] — the rules these primitives establish.
-- [[cas_compare_and_swap]] — what AtomicXxx uses internally.
-- [[reentrantlock_vs_synchronized]] — choosing between explicit and intrinsic locks.
-- [[concurrenthashmap_internals]] — case study of all three tools combined.
-- [[thread_pool_executor_internals]] — internal state managed via these primitives.
+For choosing between explicit and intrinsic locks, see [[reentrantlock_vs_synchronized]]. For case study of all three tools combined, see [[concurrenthashmap_internals]]. For internal state managed via these primitives, see [[thread_pool_executor_internals]].
 
 ---
 

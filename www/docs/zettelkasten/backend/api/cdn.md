@@ -12,8 +12,15 @@ Bring content physically closer to users for faster delivery
 - Origin Pull: CDN fetches from your storage when needed
 - Cache Headers: Control how long content stays cached
 ## Delivery Flow
-```
-User Request > CDN Edge > (if not cached) > OSS > CDN Edge > User
+
+```mermaid
+flowchart LR
+    U[User request] --> E[Nearest CDN edge]
+    E -->|cache hit| R[Return cached object]
+    E -->|cache miss| O[Origin storage]
+    O --> E
+    R --> U
+    E --> U
 ```
 ## Optimization Strategies
 - Pre-warming: Push popular content to CDN before users request it

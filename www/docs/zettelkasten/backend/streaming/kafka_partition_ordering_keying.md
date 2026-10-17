@@ -1,5 +1,4 @@
 🗓️ 29042026 2045
-📎 #kafka #messaging #ordering
 
 # kafka_partition_ordering_keying
 
@@ -13,6 +12,15 @@
 ```
 
 There is no "topic-wide order" knob. Topic-wide order means **single partition** — which means single-consumer parallelism.
+
+```mermaid
+flowchart LR
+    A[Producer record] --> K[Choose partition key]
+    K --> H[Partitioner maps key]
+    H --> P[Kafka partition]
+    P --> O[Append order within partition]
+    P --> C[Consumer reads partition order]
+```
 
 ## How a Message Picks Its Partition
 
@@ -85,13 +93,7 @@ If you need topic-wide total order:
 - **`max.in.flight=5` without idempotence** — retries can reorder.
 - **Custom partitioner that ignores key** — the producer must agree with the consumer on what "same key" means. A custom partitioner that randomises silently breaks every downstream assumption.
 
-## Related
-
-- [[kafka_architecture]] — partition / consumer-group fundamentals.
-- [[delivery_semantics_at_most_at_least_exactly]] — what "exactly-once" means with respect to ordering.
-- [[exactly_once_semantics]] — Kafka idempotent producer + transactions.
-- [[idempotent_consumer_pattern]] — surviving duplicate or out-of-order delivery.
-- [[consistent_hashing]] — the "stable mapping" shape Kafka does *not* provide.
+For partition / consumer-group fundamentals, see [[kafka_architecture]]. For what "exactly-once" means with respect to ordering, see [[delivery_semantics_at_most_at_least_exactly]]. For kafka idempotent producer + transactions, see [[exactly_once_semantics]]. For surviving duplicate or out-of-order delivery, see [[idempotent_consumer_pattern]]. For the "stable mapping" shape Kafka does *not* provide, see consistent hashing.
 
 ---
 

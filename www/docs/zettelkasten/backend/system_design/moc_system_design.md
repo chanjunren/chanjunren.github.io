@@ -1,9 +1,18 @@
 🗓️ 29042026 1445
-📎 #system_design #moc
 
 # moc_system_design
 
 > Map of Content for the system-design concept cluster. The framework, the math, and the canonical worked-out designs that exercise both.
+
+```mermaid
+flowchart LR
+    R[Requirements] --> F[Design framework]
+    F --> E[Capacity estimation]
+    E --> D[Worked designs]
+    D --> U[URL shortener]
+    D --> L[Rate limiter]
+    D --> I[Unique ID generator]
+```
 
 ## Concept Order
 
@@ -37,10 +46,10 @@ These show up in nearly every design and benefit from the bridges below:
 
 | Cross-cut                | Where to read                                              |
 |--------------------------|------------------------------------------------------------|
-| Sharding scheme           | [[database_sharding_strategies]], [[consistent_hashing]]   |
+| Sharding scheme           | [[database_sharding_strategies]], consistent hashing   |
 | Read-heavy caching        | [[../caching/aside_pattern]], [[../caching/stampede]]        |
-| Hot-key mitigation        | [[cluster_topology]], [[../caching/stampede]]      |
-| Unique IDs                | [[unique_id_generator_snowflake]]                   |
+| Hot-key mitigation        | [[cluster_topology]], stampede      |
+| Unique IDs                | unique id generator snowflake                   |
 | Async pipelines           | [[kafka_architecture]], [[outbox_pattern]]                 |
 | At-least-once + idempotency | [[idempotent_consumer_pattern]], [[idempotency_keys_api_design]] |
 | Cross-service consistency | [[saga_pattern]], [[two_phase_commit]]                     |
@@ -49,7 +58,7 @@ These show up in nearly every design and benefit from the bridges below:
 ## Bridges to Other Domains
 
 - → DB internals: [[moc_db_internals]] — sharding, indexing, isolation choices.
-- → Distributed systems: [[moc_distributed_systems]] — CAP trade-offs underpinning every design.
+- → Distributed systems: moc distributed systems — CAP trade-offs underpinning every design.
 - → Caching: [[moc_caching]] — patterns and failure modes for the read path.
 - → Messaging: [[moc_messaging]] — async pipelines and delivery semantics.
 - → API: [[moc_api_resilience]] — protocol-layer protections.

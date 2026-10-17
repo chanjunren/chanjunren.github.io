@@ -4,6 +4,15 @@
 
 MySQL column type sizes describe value representation; they are not a complete estimate of table or index disk usage.
 
+```mermaid
+flowchart LR
+    A[SQL column value] --> B[InnoDB record representation]
+    B --> C[Inline bytes in page]
+    B --> D[Variable-length or overflow storage]
+    C --> P[Page capacity and row density]
+    D --> P
+```
+
 ## Common InnoDB value sizes
 
 | Type | Storage for the value | Notes |
@@ -26,11 +35,7 @@ InnoDB stores rows in the clustered primary-key index. Secondary-index records i
 
 For a real estimate, create representative rows with realistic encodings, build the required indexes, and compare `DATA_LENGTH` and `INDEX_LENGTH` or inspect table statistics. Account for growth, page fill, and engine metadata.
 
-## Related notes
-
-- [[b_plus_tree_indexes]] — index structure and row lookup
-- [[composite_index_leftmost_prefix]] — composite index layout
-- [[innodb_locks]] — primary-key and index effects on locking
+For index structure and row lookup, see [[b_plus_tree_indexes]]. For composite index layout, see [[composite_index_leftmost_prefix]]. For primary-key and index effects on locking, see [[innodb_locks]].
 
 ## References
 

@@ -4,6 +4,15 @@
 
 A quick reference for Elasticsearch search capabilities and when to use each type.
 
+```mermaid
+flowchart LR
+    T[Text input] --> A[Analyze into terms]
+    A --> I[Search inverted index]
+    I --> M[Match candidate documents]
+    M --> S[Score and rank]
+    S --> R[Return hits]
+```
+
 ## Core Concepts
 
 ### Full-Text vs Exact Match
@@ -29,7 +38,6 @@ A quick reference for Elasticsearch search capabilities and when to use each typ
 | **Regexp**       | Regex patterns                 | Complex pattern matching       |
 | **Range**        | Numeric/date ranges            | Price filters, date ranges     |
 | **Bool**         | Combine queries                | Complex filtering logic        |
-
 
 ### match vs term
 - **match**: Analyzed (lowercased, stemmed) - "Searching" → "search"
@@ -66,7 +74,6 @@ Pattern matching with `*` and `?` - useful but can be slow, especially with lead
 4. **Use prefix/edge_ngram** for autocomplete, not wildcard
 5. **Cache filters** - ES automatically caches filter results
 6. **Limit fields in multi_match** - don't search everything
-
 
 ---
 

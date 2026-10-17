@@ -1,9 +1,21 @@
 🗓️ 29042026 1645
-📎 #database #mysql #concurrency
 
 # mvcc_innodb_read_view
 
 > How InnoDB lets readers and writers run concurrently without blocking each other. The mechanism behind "non-locking reads" — and the reason `SELECT ... FOR UPDATE` exists when MVCC isn't strong enough on its own.
+
+```mermaid
+sequenceDiagram
+    participant T1 as Transaction 1
+    participant DB as InnoDB
+    participant T2 as Transaction 2
+    T1->>DB: Create read view
+    T2->>DB: Update row and commit new version
+    T1->>DB: Read row
+    DB->>DB: Check version visibility in read view
+    DB->>DB: Follow undo chain if version is too new
+    DB-->>T1: Return visible version
+```
 
 ## The Problem MVCC Solves
 
@@ -83,11 +95,10 @@ This is the *only* difference in InnoDB's MVCC behaviour between RC and RR — w
 - **Your own uncommitted writes are visible** — `creator_trx_id` check (rule 1) makes you always see your own writes regardless of snapshot timing.
 - **RC is sometimes preferred in production** — less undo retention, less lock contention from gap locks (RC doesn't take them in many cases). Trade-off: non-repeatable reads in long transactions.
 
-## Related
+[[ACID]] describes how MVCC supports isolation.
 
-- [[ACID]] — MVCC implements I (isolation).
-- [[concurrency_control]] — MVCC is one approach; pessimistic locking is the other.
-- [[innodb_locks]] — gap + next-key locks for current reads.
+## Planned
+
 - `transaction_isolation_levels` *(planned)* — full anomaly matrix per level.
 
 ---

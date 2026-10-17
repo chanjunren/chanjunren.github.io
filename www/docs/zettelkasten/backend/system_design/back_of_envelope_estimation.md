@@ -1,5 +1,4 @@
 🗓️ 29042026 1345
-📎 #system_design #estimation
 
 # back_of_envelope_estimation
 
@@ -71,6 +70,17 @@ What can one mid-spec machine do today?
 | Cache hit ratio (typical)   | 80–95% for read-heavy workloads                            |
 
 When your estimated load fits one server: the design problem is *latency*, not *scale*. When it doesn't: shard, replicate, distribute.
+
+```mermaid
+flowchart LR
+    A[Product assumptions] --> R[Requests per second]
+    A --> S[Storage growth]
+    A --> N[Network bandwidth]
+    R --> C[Capacity estimate]
+    S --> C
+    N --> C
+    C --> D[Architecture constraints]
+```
 
 ## Worked Example — URL Shortener
 
@@ -175,12 +185,7 @@ The point isn't precision; it's **deciding what the design has to optimise for**
 - **Forgetting amplification** — one user write may trigger 200 follower-cache writes. The pipeline factor matters.
 - **Single-server math at fleet scale** — "Redis can do 100k ops/s" → assuming Redis can do 10M ops/s with 100 machines linearly. Network shuffling, hot keys, and partition limits make it sublinear.
 
-## Related
-
-- [[framework]] — this is step 2 of the framework.
-- [[url_shortener]] — full estimation walkthrough.
-- [[../rate_limiting/distributed_design]] — different shape: lots of small ops.
-- [[cluster_topology]], [[database_sharding_strategies]] — what the numbers force you toward.
+Scale estimation is step 2 in the [[framework]]. The [[url_shortener]] provides a worked example. [[../rate_limiting/distributed_design]] applies estimation to many small operations. Use [[cluster_topology]] and [[database_sharding_strategies]] to follow estimates into scaling choices.
 
 ---
 

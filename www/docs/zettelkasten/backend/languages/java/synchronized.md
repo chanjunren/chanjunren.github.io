@@ -10,6 +10,19 @@ synchronized (someObject) {
 }
 ```
 
+```mermaid
+sequenceDiagram
+    participant A as Thread A
+    participant M as Object monitor
+    participant B as Thread B
+    A->>M: Enter synchronized block
+    B->>M: Attempt entry; wait
+    A->>A: Execute critical section
+    A->>M: Exit monitor
+    M-->>B: Acquire after release
+    Note over M,B: Unlock happens-before later lock
+```
+
 ## Intrinsic vs Explicit Locks
 Every Java object has a hidden lock built into it — that's the **intrinsic** lock. You don't create it.
 
@@ -103,8 +116,8 @@ The JVM optimizes `synchronized` with three lock states:
 
 ---
 ## References
-- [[cpu_cache_and_memory_visibility]]
-- [[compare_and_swap]]
+- cpu cache and memory visibility
+- compare and swap
 - [[double_checked_locking]]
 - [[synchronization_pitfalls]]
 - [[concurrency_guidelines]]

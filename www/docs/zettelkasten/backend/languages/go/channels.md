@@ -1,5 +1,4 @@
 🗓️ 07062026 1030
-📎
 
 # channels
 
@@ -93,6 +92,17 @@ func (w *Worker) Close() {
     <-w.done        // wait for drain
 }
 ```
+```
+
+```mermaid
+sequenceDiagram
+    participant Producer
+    participant Channel
+    participant Consumer
+    Producer->>Channel: Send value
+    Channel-->>Consumer: Receive value
+    Producer->>Channel: Close when no more sends
+    Consumer->>Channel: Range until closed and drained
 ```
 
 ## References

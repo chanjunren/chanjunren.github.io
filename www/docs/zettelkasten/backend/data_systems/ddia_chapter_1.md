@@ -6,6 +6,16 @@
 Designing Data Intensive Applications - Chapter 1 - 
 ```
 
+```mermaid
+flowchart LR
+    A[Application requirements] --> R[Reliability]
+    A --> S[Scalability]
+    A --> M[Maintainability]
+    R --> Q[Observable service behavior]
+    S --> Q
+    M --> Q
+```
+
 ## Functional Requirements
 - What it should do
 - Allowing data to be stored / retrieved / searched / processed
@@ -16,7 +26,7 @@ Designing Data Intensive Applications - Chapter 1 -
 
 > Making systems work even when faults occur, this keeps certain faults hidden from users when they occur
 
-Faults: 
+Faults:
 - Hardware
 - Software
 - Humans
@@ -26,7 +36,7 @@ Faults:
 > Having strategies for keeping performance good even under load
 
 - Means of measurement
-	- Load 
+	- Load
 	- Response time
 
 ### Maintainability
@@ -39,7 +49,6 @@ Faults:
 - Security
 - Compliance
 - Maintainability
-
 
 ---
 

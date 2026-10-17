@@ -23,11 +23,17 @@ Configure partial-word analysis on an index field and use a compatible search an
 }
 ```
 
-## Related notes
+For general n-gram concept, see [[n_gram]]. For elasticsearch analysis pipeline, see [[analyzer_configuration]]. For query-time prefix options, see [[prefix_vs_match_phrase_prefix]].
 
-- [[n_gram]] — general n-gram concept
-- [[analyzer_configuration]] — Elasticsearch analysis pipeline
-- [[prefix_vs_match_phrase_prefix]] — query-time prefix options
+```mermaid
+flowchart LR
+    T[Indexed text] --> A[Apply n-gram analyzer]
+    A --> N[Store overlapping terms]
+    Q[Partial query] --> S[Analyze query]
+    S --> M[Match overlapping n-grams]
+    N --> M
+    M --> R[Candidate documents]
+```
 
 ## References
 

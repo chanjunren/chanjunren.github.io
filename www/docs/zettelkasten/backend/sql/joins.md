@@ -14,5 +14,14 @@
 | **SELF JOIN**       | Table joins **itself**                          | Compare rows within the same table                         | Find employees who report to the same manager      |
 
 ---
+```mermaid
+flowchart LR
+    A[Left relation] --> J[Join on predicate]
+    B[Right relation] --> J
+    J --> I[Inner: matching pairs]
+    J --> L[Left: keep every left row]
+    J --> F[Full: keep unmatched rows from both]
+```
+
 ## References
 - [PostgreSQL: Table Expressions and Joins](https://www.postgresql.org/docs/current/queries-table-expressions.html)

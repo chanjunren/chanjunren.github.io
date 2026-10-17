@@ -3,6 +3,18 @@
 # window_assigners
 
 ![Window assigners](https://nightlies.apache.org/flink/flink-docs-release-1.20/fig/window-assigners.svg)
+```mermaid
+flowchart TD
+    A[Event arrives] --> B[Window assigner]
+    B --> C{Assignment rule}
+    C -- Time --> T[One or more time windows]
+    C -- Count --> N[Count window]
+    C -- Global --> G[Global window]
+    T --> O[Window operator]
+    N --> O
+    G --> O
+```
+
 ## Time based
 
 | Type     | Description                                                                     |
@@ -17,7 +29,6 @@
 		- ☹️ Cannot correctly process historic data
 		- ☹️ Cannot handle out of order data
 		- ☹️ Non deterministic data
-
 
 ## Count based
 | Type     | Description                                                            |
@@ -34,7 +45,6 @@
 ```ad-note
 Apache flink suggests to use [ProcessFunction](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/event_driven/#process-functions) instead
 ```
-
 
 ---
 

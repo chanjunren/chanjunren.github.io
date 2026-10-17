@@ -6,6 +6,15 @@ Keyed state stores values by the current record key. Flink partitions it with th
 
 Keyed state is available after a keyed partitioning operation such as `keyBy`. Flink can redistribute it when the job is rescaled.
 
+```mermaid
+flowchart LR
+    A[Input record] --> K[Extract key]
+    K --> G[Map key to key group]
+    G --> P[Route to keyed operator]
+    P --> S[Read or update keyed state]
+    C[Rescale] --> M[Redistribute key groups]
+```
+
 ## Key Groups
 
 **Key groups** are the units Flink redistributes. Their count is fixed by the operator's maximum parallelism; each parallel instance handles one or more groups.
@@ -19,7 +28,6 @@ Long-lived jobs can accumulate state for inactive keys. Set a retention policy t
 ```
 
 Use state APIs to clear a value when its lifecycle ends. Use timers or State TTL for time-based cleanup.
-
 
 ---
 ## References

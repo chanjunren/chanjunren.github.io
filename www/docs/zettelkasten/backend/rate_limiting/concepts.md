@@ -50,7 +50,7 @@
 
 ###   Server Side
 
-####     No Rate Limiting
+###     No Rate Limiting
 
 - Robust error handling error in system
 - Understand what users will receive in those situations
@@ -62,7 +62,7 @@
   - Deadlines
   - Circuit breaking patterns
 
-####     Pass Through
+###     Pass Through
 
 - Call other services to fulfill requests
 - Pass rate limiting signal from those services to caller
@@ -71,7 +71,7 @@
   - Enforce rate limits on behalf of service and block the caller
 - Status code 429
 
-####     Enforce Rate Limits
+###     Enforce Rate Limits
 
 - Most common
 - When downstream service has no way to protect itself (e.g. Legacy systems)
@@ -81,7 +81,7 @@
     - Source IP, User, API Key etc.
   - Use limiting key to track usage (reached => return limiting signal 429 HTTP response)
 
-####     Defer response
+###     Defer response
 
 - When to use:
   - Computing response is computationally expensive / time consuming
@@ -111,6 +111,23 @@
   - Resilient API
 
 ##   Techniques for enforcing rate limits
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Limiter
+    participant Store as Counter store
+    participant Service
+    Client->>Limiter: Request with identity and cost
+    Limiter->>Store: Atomically inspect and update quota
+    Store-->>Limiter: Allowed or over limit
+    alt Allowed
+        Limiter->>Service: Forward request
+        Service-->>Client: Response
+    else Rejected
+        Limiter-->>Client: 429 and retry guidance
+    end
+```
 
 ###   Token Bucket
 

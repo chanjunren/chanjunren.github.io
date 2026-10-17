@@ -4,6 +4,17 @@
 
 A **common table expression (CTE)** names intermediate query results, making complex queries easier to organize.
 
+```mermaid
+flowchart TD
+    A[WITH clause defines named result] --> B[Main query references CTE]
+    B --> C[Non-recursive query completes]
+    B --> D[Recursive CTE evaluates base case]
+    D --> E[Repeatedly apply recursive term]
+    E --> F{New rows?}
+    F -- Yes --> E
+    F -- No --> G[Return accumulated rows]
+```
+
 ## CTE definition
 
 It is defined with `WITH` and scoped to one statement. A named CTE can improve readability and reuse.
@@ -40,7 +51,7 @@ A non-recursive CTE does not refer to itself. Its execution strategy depends on 
 
 ## Recursive CTEs
 
-A CTE becomes **recursive** when it **references itself** in its definition.  
+A CTE becomes **recursive** when it **references itself** in its definition.
 Used for **hierarchical data**, **graphs**, **paths**, **ancestor/descendant trees**.
 
 ### Structure

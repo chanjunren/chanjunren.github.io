@@ -75,7 +75,7 @@ public class LogFilter extends AbstractFilter {
 }
 
 ```
-2. Update `log4j2.xml` 
+2. Update `log4j2.xml`
 ```xml
 ...
 <Appenders>
@@ -93,6 +93,15 @@ public class LogFilter extends AbstractFilter {
 ```
 
 ---
+
+```mermaid
+flowchart LR
+    A[Plugin class and metadata] --> B[Plugin discovery]
+    B --> C[Configuration references plugin]
+    C --> D[Log4j creates plugin instance]
+    D --> E[Logger uses plugin]
+    E --> F[Plugin emits or routes event]
+```
 
 ## References
 - https://logging.apache.org/log4j/2.x/manual/plugins.html

@@ -10,6 +10,14 @@
 - Disk or object-store throughput, data layout, and query planning can dominate runtime.
 - Workloads range from scheduled reports to interactive exploration.
 
+```mermaid
+flowchart LR
+    Q[Analytical question] --> P[Plan scan and joins]
+    P --> S[Read columnar or partitioned data]
+    S --> A[Aggregate by dimensions]
+    A --> R[Return summary to analyst]
+```
+
 ## How an OLAP query runs
 
 1. Data arrives from operational systems, files, or event streams.
@@ -38,5 +46,5 @@ A hybrid approach combines precomputed cube results with relational detail. It c
 ## References
 
 - [AWS: What is OLAP?](https://aws.amazon.com/what-is/olap/)
-- [[oltp]]
+- oltp
 - [[oltp_vs_olap]]

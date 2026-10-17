@@ -143,6 +143,14 @@ GET /{index1},{index2}/_mapping
 
 ---
 
+```mermaid
+flowchart LR
+    A[Build request path and query] --> B[Choose index and endpoint]
+    B --> C[Send request with client]
+    C --> D[Inspect hits, aggregations, or errors]
+    D --> E[Refine query and pagination]
+```
+
 ## References
 
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html

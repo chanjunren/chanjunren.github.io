@@ -4,6 +4,16 @@
 
 HikariCP can suspend a pool when `allowPoolSuspension` is enabled. While suspended, calls to `getConnection()` wait until the pool resumes; they do not follow the normal connection-acquisition timeout.
 
+```mermaid
+stateDiagram-v2
+    [*] --> Active
+    Active --> Suspended: operator suspends pool
+    Suspended --> Waiting: acquisition requested
+    Waiting --> Active: pool resumes
+    Active --> Acquired: connection available
+    Acquired --> Active: connection returned
+```
+
 ## When it can help
 
 - Coordinate a controlled database failover.

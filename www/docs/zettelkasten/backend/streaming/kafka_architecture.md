@@ -1,9 +1,23 @@
 🗓️ 29042026 2030
-📎 #kafka #messaging #streaming
 
 # kafka_architecture
 
 > The structural model that explains Kafka's throughput, ordering guarantees, and operational behaviour. Knowing the parts (broker, topic, partition, consumer group, offset) is the prerequisite for every other Kafka discussion.
+
+```mermaid
+sequenceDiagram
+    participant Producer
+    participant Leader
+    participant Replica
+    participant Consumer
+    Producer->>Leader: Append record to partition
+    Leader->>Replica: Replicate record
+    Replica-->>Leader: Acknowledge replication
+    Leader-->>Producer: Acknowledge write
+    Consumer->>Leader: Fetch from offset
+    Leader-->>Consumer: Ordered records for partition
+    Consumer->>Consumer: Commit next offset
+```
 
 ## The Building Blocks
 
@@ -94,7 +108,7 @@ Old segments deleted (or compacted) per the topic's retention policy:
 
 Kafka historically used ZooKeeper to store metadata (broker list, topic configs, ISR info). Modern Kafka (3.x+) uses **KRaft** — Kafka's own Raft-based metadata quorum, replacing ZooKeeper. Operationally simpler (one cluster instead of two).
 
-You may still encounter ZooKeeper-mode clusters; the architectural concepts are identical. See [[raft]] for the consensus layer KRaft is built on.
+You may still encounter ZooKeeper-mode clusters; the architectural concepts are identical. See raft for the consensus layer KRaft is built on.
 
 ## Producer Knobs Worth Knowing
 
@@ -125,14 +139,7 @@ You may still encounter ZooKeeper-mode clusters; the architectural concepts are 
 - **Per-message overhead** — Kafka is optimised for batches. Single-message writes/reads waste throughput.
 - **Compacted topic without keys** — compaction by key requires keys. Null-key messages on compacted topics are dropped in compaction.
 
-## Related
-
-- [[kafka_partition_ordering_keying]] — keying strategy and ordering guarantees.
-- [[delivery_semantics_at_most_at_least_exactly]] — durability semantics in Kafka.
-- [[exactly_once_semantics]] — Kafka's exactly-once feature.
-- [[kafka_cli_cheatsheet]] — operational commands.
-- [[idempotent_consumer_pattern]] — at-least-once delivery requires consumer-side dedup.
-- [[raft]] — the consensus protocol behind KRaft mode.
+For kafka's exactly-once feature, see [[exactly_once_semantics]]. For operational commands, see [[kafka_cli_cheatsheet]]. For at-least-once delivery requires consumer-side dedup, see [[idempotent_consumer_pattern]].
 
 ---
 

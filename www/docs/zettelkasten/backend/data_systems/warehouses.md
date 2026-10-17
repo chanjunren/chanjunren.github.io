@@ -4,6 +4,14 @@
 
 A **data warehouse** organizes integrated data for analytical queries, reporting, and business intelligence. It commonly stores curated tables with defined schemas.
 
+```mermaid
+flowchart LR
+    S[Operational and external sources] --> I[Ingestion and transformation]
+    I --> W[Governed analytical warehouse]
+    W --> Q[SQL and semantic queries]
+    Q --> R[Reports and business analysis]
+```
+
 ## Strengths
 
 - Supports repeatable analysis over shared, cleaned datasets.

@@ -95,6 +95,14 @@ These examples describe MVEL expression syntax; verify behavior against the MVEL
 
 ---
 
+```mermaid
+flowchart LR
+    E[MVEL expression] --> P[Parse or compile]
+    P --> C[Evaluation context and variables]
+    C --> X[Evaluate expression]
+    X --> V[Return value or mutate allowed target]
+```
+
 ## References
 
 - [MVEL project documentation and repository](https://github.com/mvel/mvel)

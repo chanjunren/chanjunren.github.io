@@ -1,5 +1,4 @@
 🗓️ 06062026 1500
-📎 #api #realtime #protocols
 
 # long_polling
 
@@ -20,18 +19,14 @@ Client fires a request every N seconds, regardless of whether anything changed. 
 3. When data arrives (or a timeout elapses), server responds.
 4. Client processes the response and **immediately reconnects**.
 
-```
-Client                          Server
-  │                               │
-  ├──── GET /events?since=42 ────>│
-  │                               │ (holds connection)
-  │                               │ ... waiting ...
-  │                               │ (new data arrives)
-  │<──── 200 {event: 43, ...} ───┤
-  │                               │
-  ├──── GET /events?since=43 ────>│  ← immediate reconnect
-  │                               │ (holds again)
-  ...
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
+    Client->>Server: Request for updates
+    Server->>Server: Wait for event or timeout
+    Server-->>Client: Event or timeout response
+    Client->>Server: Reconnect with last event position
 ```
 
 The effect: near-real-time delivery with plain HTTP. No special protocol, no browser API beyond `fetch`.
@@ -74,11 +69,7 @@ Set the server hold time below the lowest intermediary timeout. 30–45s is a sa
 - **Head-of-line blocking.** If the server has events A, B, C while a client is reconnecting, it delivers them all in one batch. Fine for most cases, but ordering and partial delivery need thought.
 - **Stateful servers.** The server needs to know "what has this client already seen" — typically via a cursor/offset in the request (`?since=42`). Stateless servers need an external store for pending events.
 
-## Related
-
-- [[server_sent_events]] — the protocol-native upgrade: persistent one-way stream with built-in reconnection.
-- [[websocket_protocol]] — when you also need client-to-server streaming.
-- [[realtime_patterns_comparison]] — decision guide across all four approaches.
+For the protocol-native upgrade: persistent one-way stream with built-in reconnection, see [[server_sent_events]]. For when you also need client-to-server streaming, see [[websocket_protocol]]. For decision guide across all four approaches, see [[realtime_patterns_comparison]].
 
 ---
 

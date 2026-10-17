@@ -1,5 +1,4 @@
 🗓️ 21082024 0945
-📎 #mysql 
 
 # create_table_cheatsheet
 ```sql
@@ -65,6 +64,15 @@ CREATE TABLE IF NOT EXISTS `data_types_cheatsheet`
 ```
 
 ---
+
+```mermaid
+flowchart LR
+    A[Define columns and types] --> B[Add constraints]
+    B --> C[Choose storage and partition options]
+    C --> D[Create table]
+    D --> E[Load or insert data]
+    E --> F[Add indexes for query patterns]
+```
 
 ## References
 - [MySQL 8.4: CREATE TABLE](https://dev.mysql.com/doc/refman/8.4/en/create-table.html)

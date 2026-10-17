@@ -6,6 +6,16 @@ Netty manages its own memory instead of relying on `ByteBuffer`. The result: poo
 
 For diagnosing Netty memory issues from a dashboard, see [[memory_diagnostics]].
 
+```mermaid
+flowchart LR
+    A[Allocate ByteBuf] --> R[Retain when ownership is shared]
+    R --> U[Read or write buffer]
+    U --> F[Release when finished]
+    F --> C{Reference count zero?}
+    C -- Yes --> P[Return to pool or free]
+    C -- No --> S[Other owner still uses it]
+```
+
 ## ByteBuf vs Java NIO ByteBuffer
 
 | | `ByteBuffer` (NIO) | `ByteBuf` (Netty) |

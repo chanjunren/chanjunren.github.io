@@ -1,9 +1,19 @@
 🗓️ 31082025 1113
 
 # recursion
+```mermaid
+flowchart TD
+    A[Anchor query] --> B[Initial rows]
+    B --> C[Recursive query uses prior rows]
+    C --> D[Append new rows]
+    D --> E{More rows produced?}
+    E -- Yes --> C
+    E -- No --> F[Return accumulated result]
+```
+
 ## How Recursive CTEs Work
 
-Recursive CTEs (`WITH RECURSIVE`) are commonly used for **hierarchies** and **graphs**.  
+Recursive CTEs (`WITH RECURSIVE`) are commonly used for **hierarchies** and **graphs**.
 Think of them like a controlled loop.
 
 |Step|What happens|Example in concept|
@@ -15,7 +25,7 @@ Think of them like a controlled loop.
 
 ## Why Memory Usage Spikes
 
-Recursive CTEs can be expensive because **each iteration accumulates rows**.  
+Recursive CTEs can be expensive because **each iteration accumulates rows**.
 Memory pressure builds up due to these factors:
 
 | Cause                        | Why it’s heavy                                           | Example scenario                                                             |

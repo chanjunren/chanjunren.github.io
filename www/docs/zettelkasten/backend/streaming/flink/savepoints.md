@@ -5,6 +5,18 @@
 ```ad-summary
 Consistent image of the execution state of a streaming job, created via Flink’s [checkpointing mechanism](https://nightlies
 ```
+```mermaid
+sequenceDiagram
+    participant Operator
+    participant Flink
+    participant Storage
+    Operator->>Flink: Trigger savepoint
+    Flink->>Flink: Snapshot operator state
+    Flink->>Storage: Persist snapshot
+    Storage-->>Operator: Savepoint location
+    Operator->>Flink: Start compatible job from savepoint
+```
+
 ## Usage
 - Stop and resume
 - Fork / update flink job
@@ -38,10 +50,9 @@ mapper-id   | State of StatefulMapper
 ```
 > You can think of a savepoint as holding a map of `Operator ID -> State` for each stateful operator
 
-
 # [Savepoint format](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/ops/state/savepoints/#savepoint-format)
 ### Canonical Format
-- :D 
+- :D
 	- Format that is unified across all state backends
 	- Most stable format
 	- Targeted at maintaining most compatibility with previous versions / schemas / modifications etc.
@@ -49,10 +60,8 @@ mapper-id   | State of StatefulMapper
 - D:
 	- Slow
 
-    
-### native format 
+### native format
 Creates a snapshot in the format specific for the used state backend (e.g. SST files for RocksDB)
-    
 
 ## Claim mode
 > Determines determines who takes ownership of the files that make up a Savepoint or [externalized checkpoints](https://nightliesThe `Claim Mode` .apache.org/flink/flink-docs-release-1.20/docs/ops/state/checkpoints//#resuming-from-a-retained-checkpoint) after restoring i
@@ -81,8 +90,8 @@ Once the first full checkpoint completes, all subsequent checkpoints will be tak
 ![NO_CLAIM claim mode](https://nightlies.apache.org/flink/flink-docs-release-1.20/fig/restore-mode-no_claim.svg)
 
 ### CLAIM
-- Flink claims ownership of the snapshot and essentially treats it like a checkpoint 
-	- its controls the lifecycle 
+- Flink claims ownership of the snapshot and essentially treats it like a checkpoint
+	- its controls the lifecycle
 	- Might delete it if it is not needed for recovery anymore
 - Hence, it is not safe to manually delete the snapshot or to start two jobs from the same snapshot
 - Flink keeps around a [configured number](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/dev/datastream/fault-tolerance/checkpointing//#state-checkpoints-num-retained) of checkpoints.

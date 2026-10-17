@@ -4,6 +4,19 @@
 
 ![[aliyun_canal_client.png]]
 
+```mermaid
+sequenceDiagram
+    participant Client as Canal client
+    participant Server as Canal server
+    participant DB as MySQL binlog
+    Client->>Server: Subscribe to destination and filter
+    Server->>DB: Read binlog position
+    DB-->>Server: Row change events
+    Server-->>Client: Batch of events
+    Client->>Client: Apply events and acknowledge position
+    Client->>Server: Fetch next batch
+```
+
 ## Components
 
 ### ClientIdentity
@@ -29,24 +42,24 @@
 
 ### GET / ACK / Rollback protocol
 
-#### Message
+### Message
 
 - Return result of `get` operations
 - Contains
   - `batchId`
   - `Entries`
 
-#### getWithoutAck()
+### getWithoutAck()
 
 - `Message getWithoutAck(int batchSize, Long timeout, TimeUnit unit)`
   - Return when `batchSize` reached / timeout exceeded
 - `Message getWithoutAck(int batchSize)`
 
-#### Rollback
+### Rollback
 
 - `rollback(batchId)`: Rollback for last get operation
 
-#### Ack
+### Ack
 
 - `ack(batchId)`: Acknowledge consumption of `get`
 

@@ -4,6 +4,15 @@
 
 A **data lake** stores data in its source form or in lightly processed form, often on distributed file or object storage. Compute engines read and transform the data when needed.
 
+```mermaid
+flowchart LR
+    S[Data sources] --> I[Ingestion]
+    I --> R[Raw data lake]
+    R --> P[Batch or stream processing]
+    P --> C[Curated datasets]
+    C --> U[Analytics consumers]
+```
+
 ## Strengths
 
 - Stores structured, semi-structured, and unstructured data.

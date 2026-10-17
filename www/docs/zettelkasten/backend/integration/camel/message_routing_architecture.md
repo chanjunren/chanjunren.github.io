@@ -20,6 +20,15 @@ Route has:
 
 ---
 
+```mermaid
+flowchart LR
+    A[Source endpoint] --> E[Exchange]
+    E --> C[Channel or route]
+    C --> P[Processors and routing patterns]
+    P --> D[Destination endpoint]
+    P --> F[Filter or split branch]
+```
+
 ## References
 
 - https://camel.apache.org/manual/architecture.html

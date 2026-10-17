@@ -6,6 +6,22 @@
 
 Read [[fundamentals]] for entry lifecycle terms.
 
+```mermaid
+sequenceDiagram
+    participant App
+    participant Cache
+    participant Source
+    App->>Cache: Read key
+    alt Hit
+        Cache-->>App: Return value
+    else Miss
+        Cache-->>App: Missing
+        App->>Source: Load value
+        Source-->>App: Value
+        App->>Cache: Store value
+    end
+```
+
 ## Read and write paths
 
 Schematic pseudocode; `MISSING` differs from a cached empty result.

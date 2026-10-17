@@ -3,8 +3,18 @@
 # stream_processing_semantics
 - Refer to the **guarantees** a stream processing system provides regarding the processing of events in a data stream
 - Define how the system behaves during:
-	- Normal conditions 
+	- Normal conditions
 	- During failures, ensuring data is processed correctly
+
+```mermaid
+flowchart LR
+    A[Input event] --> P[Process event]
+    P --> S[Update operator state]
+    S --> C[Checkpoint state and input position]
+    P --> O[Emit output]
+    O --> K[Sink commit or idempotent write]
+    C --> R[Restore and replay after failure]
+```
 
 ## Types
 

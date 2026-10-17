@@ -2,6 +2,14 @@
 
 # mq_client
 
+```mermaid
+flowchart LR
+    B[Canal binlog event] --> R[Route by database or table rule]
+    R --> K[Choose message key]
+    K --> P[MQ partition]
+    P --> C[Consumer processes ordered partition events]
+```
+
 ## Partitioning Strategies
 
 ```ad-important

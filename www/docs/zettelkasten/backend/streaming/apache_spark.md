@@ -8,11 +8,20 @@ The driver creates the application context, builds work, and schedules tasks. Ex
 
 For a streaming workload, distinguish Spark Structured Streaming's processing model and trigger configuration from continuous low-latency streaming systems. The execution mode affects latency, throughput, and operational behavior; choose based on the workload's needs.
 
-## Related notes
+For common stream-processing concepts, see [[stream_processing_fundamentals]]. For a common streaming data source, see [[kafka_architecture]]. For runtime details for a streaming engine, see [[stream_processing_runtime]].
 
-- [[stream_processing_fundamentals]] — common stream-processing concepts
-- [[kafka_architecture]] — a common streaming data source
-- [[stream_processing_runtime]] — runtime details for a streaming engine
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Driver
+    participant Executor
+    Client->>Driver: Submit application
+    Driver->>Driver: Build and schedule stages
+    Driver->>Executor: Launch tasks
+    Executor->>Executor: Process partitions
+    Executor-->>Driver: Task results and status
+    Driver-->>Client: Job result
+```
 
 ## References
 

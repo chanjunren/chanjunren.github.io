@@ -4,6 +4,17 @@
 
 A **cache avalanche** (雪崩) is a broad surge of misses that overloads the source. Many entries may expire together, or a cache outage may redirect normal hits to the source.
 
+```mermaid
+flowchart TD
+    A[Many keys expire or cache fails] --> B[Cache miss rate rises]
+    B --> C[Requests reach source]
+    C --> D[Source load exceeds capacity]
+    D --> E[Latency and errors rise]
+    E --> F[Retries add more load]
+    F --> C
+    G[TTL jitter, fallback, or load shedding] --> B
+```
+
 ## Why failures spread
 
 For example, a bulk warm-up gives many entries the same one-hour TTL. An hour later, normal requests reload them together.

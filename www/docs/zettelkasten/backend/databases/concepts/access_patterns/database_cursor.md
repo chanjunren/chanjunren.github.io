@@ -4,6 +4,15 @@
 
 A **database cursor** represents a position in a query result so a client or stored program can fetch rows incrementally. Cursor behavior is database-specific: some cursors are materialized, some stream rows, and their lifetime may be tied to a transaction or session.
 
+```mermaid
+flowchart LR
+    Q[Execute ordered query] --> C[Open cursor and retain position]
+    C --> F[Fetch next batch]
+    F --> P[Process rows]
+    P --> F
+    F -->|no rows remain| X[Close cursor]
+```
+
 ## When to use one
 
 - A stored procedure needs row-by-row procedural logic.
@@ -22,5 +31,5 @@ Prefer set-based SQL when the operation can be expressed as a query or bulk upda
 ## References
 
 - [MySQL 8.4: Cursor restrictions](https://dev.mysql.com/doc/refman/8.4/en/cursor-restrictions.html)
-- [[cursor]]
-- [[keyset_cursor]]
+- cursor
+- keyset cursor

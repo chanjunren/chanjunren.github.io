@@ -9,6 +9,17 @@ _A high-performance, event-driven networking framework based on Java NIO_
 - Used for **TCP, UDP, HTTP, WebSockets, gRPC** and other protocols.
 - Improves **scalability, performance, and usability** over raw Java NIO.
 
+```mermaid
+flowchart LR
+    A[Socket event] --> E[EventLoop]
+    E --> C[Channel pipeline]
+    C --> I[Inbound handler]
+    I --> B[Application logic]
+    B --> O[Outbound handler]
+    O --> C
+    E --> S[Schedule non-blocking work]
+```
+
 ## Core Concepts
 
 ### EventLoop Model

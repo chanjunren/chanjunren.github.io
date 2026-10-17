@@ -1,9 +1,15 @@
 🗓️ 29042026 1545
-📎 #java #concurrency #memory_model
 
 # java_memory_model_happens_before
 
-> The rules that decide what one thread can see of another thread's writes. The Java Memory Model (JMM, defined in JSR-133) specifies a **happens-before** ordering: if action A happens-before action B, then everything visible to A is visible to B. Without an explicit happens-before edge, all bets are off — even ordinary loads can return arbitrarily stale values.
+The Java Memory Model (JMM) defines when one thread's actions are visible to another. These rules let programmers reason about shared state without relying on a particular processor or compiler.
+
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Java Memory Model (JMM)** | The rules in the Java Language Specification that define permitted interactions between threads and memory. | [JLS §17](https://docs.oracle.com/javase/specs/jls/se25/html/jls-17.html) |
+| **Happens-before** | An ordering relation where one action is guaranteed to be visible to, and ordered before, another action. | [JLS §17.4.5](https://docs.oracle.com/javase/specs/jls/se25/html/jls-17.html#jls-17.4.5) |
 
 ## Why a Memory Model Exists
 
@@ -37,7 +43,7 @@ This does **not** require A to literally execute before B in wall-clock time. Th
 
 6. **Thread interruption rule** — `Thread.interrupt()` happens-before the interrupted thread observes interruption.
 
-7. **Finalizer rule** — end of constructor happens-before start of `finalize()`.
+7. **Finalizer rule** — completion of an object's constructor happens-before its finalizer runs. Finalization timing is not guaranteed, and finalization is deprecated for removal.
 
 8. **Transitivity** — if A happens-before B and B happens-before C, then A happens-before C.
 
@@ -82,6 +88,18 @@ Without `volatile` on `ready`, none of these edges exist. The reader could see `
 
 ## How happens-before is Established in Practice
 
+```mermaid
+sequenceDiagram
+    participant Writer
+    participant SharedMemory
+    participant Reader
+    Writer->>SharedMemory: write data = 42
+    Writer->>SharedMemory: volatile write ready = true
+    Reader->>SharedMemory: volatile read ready = true
+    SharedMemory-->>Reader: data write happens-before this read
+    Reader->>Reader: read data = 42
+```
+
 | Action                        | Establishes happens-before?                            |
 |-------------------------------|--------------------------------------------------------|
 | Read / write of `volatile`    | Yes (volatile rule)                                    |
@@ -123,18 +141,14 @@ You don't write barriers in Java code (you can't, except via `Unsafe`). The JIT 
 - **Per-object locks for class-level state** — a `static` field guarded by `synchronized(this)` is racy across instances. Use `synchronized(MyClass.class)` or a dedicated lock.
 - **Reading and writing without any happens-before edge** — the JIT can hoist a non-volatile read out of a loop, producing infinite loops on flag-poll patterns. Make the flag `volatile`.
 
-## Related
-
-- [[volatile_synchronized_atomic_difference]] — how the rules play out across the three primitives.
-- [[cas_compare_and_swap]] — the atomic CAS itself is a memory-barriered operation.
-- [[reentrantlock_vs_synchronized]] — both establish monitor-lock-rule edges.
-- [[concurrenthashmap_internals]] — heavy user of volatile + CAS for visibility.
-- [[thread_pool_executor_internals]] — task submission establishes happens-before to task execution.
+[[cas_compare_and_swap]] explains the memory-ordering guarantees around atomic operations. [[reentrantlock_vs_synchronized]] compares monitor and explicit-lock ordering. [[concurrenthashmap_internals]] shows volatile reads and CAS in practice. [[thread_pool_executor_internals]] covers the happens-before edge from task submission to execution.
 
 ---
 
 ## References
 
 - JSR-133: [Java Memory Model and Thread Specification](https://www.cs.umd.edu/~pugh/java/memoryModel/jsr133.pdf)
+- [Java Language Specification, §17.4.5](https://docs.oracle.com/javase/specs/jls/se25/html/jls-17.html#jls-17.4.5)
+- [Java SE 25: `Object.finalize`](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize())
 - "Java Concurrency in Practice" (Goetz) ch. 16 — best plain-English explanation.
 - Doug Lea: [The JSR-133 Cookbook](https://gee.cs.oswego.edu/dl/jmm/cookbook.html) — for the barrier-level details.

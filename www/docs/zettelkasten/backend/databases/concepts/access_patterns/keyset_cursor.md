@@ -4,6 +4,14 @@
 
 **Keyset pagination** continues after the last row's sort key. The client can carry those key values in an opaque cursor token; the database does not need to retain a cursor object between requests.
 
+```mermaid
+flowchart LR
+    A[Last seen sort key] --> Q[WHERE key > last key]
+    Q --> O[ORDER BY stable key]
+    O --> L[Fetch next LIMIT rows]
+    L --> N[Save final key for next page]
+```
+
 ## Example
 
 For a unique ordering on `(created_at, id)`, the next page can seek beyond the last returned row:
@@ -32,5 +40,5 @@ Elasticsearch's `search_after` uses the same continuation idea for sorted search
 
 - [[b_plus_tree_indexes]]
 - [[cursor_vs_pagination]]
-- [[database_cursor]]
-- [[search_after]]
+- database cursor
+- search after

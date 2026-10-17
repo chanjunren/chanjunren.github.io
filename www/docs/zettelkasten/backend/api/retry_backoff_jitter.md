@@ -1,5 +1,4 @@
 🗓️ 29042026 1245
-📎 #reliability #patterns #api
 
 # retry_backoff_jitter
 
@@ -13,6 +12,19 @@
 ```
 
 The split mirrors HTTP status classes from [[http_status_codes_semantics]]. Retrying a 400 produces another 400, infinitely. Retrying a 503 has a real chance of succeeding.
+
+```mermaid
+flowchart TD
+    A[Operation fails] --> B{Failure is retryable?}
+    B -- No --> C[Return failure]
+    B -- Yes --> D{Retry budget remains?}
+    D -- No --> C
+    D -- Yes --> E[Wait with capped backoff and jitter]
+    E --> F[Retry same logical request]
+    F --> G{Succeeded?}
+    G -- Yes --> H[Return result]
+    G -- No --> A
+```
 
 ## Backoff Strategies
 
@@ -156,14 +168,7 @@ The standard composition: **retry inside breaker**. While the breaker is closed,
 - **Sleeping on the calling thread** in a request-handling system — your worker thread is now blocked. Use async retry (scheduled task, queue) or accept the latency cost honestly.
 - **Returning success after retries that mask repeated 5xx** — observability blind spot. Log retry attempts and surface as a metric.
 
-## Related
-
-- [[circuit_breaker_pattern]] — pairs with retry; usually wraps it.
-- [[http_methods_idempotency_safety]] — what's safe to retry.
-- [[idempotency_keys_api_design]] — how to make non-idempotent operations retry-safe.
-- [[http_status_codes_semantics]] — which codes are retryable.
-- [[../rate_limiting/algorithms]] — server side; explains 429 + Retry-After.
-- [[../caching/stampede]] — different domain, same jitter principle.
+For server side; explains 429 + Retry-After, see [[../rate_limiting/algorithms]]. For different domain, same jitter principle, see [[../caching/stampede]].
 
 ---
 

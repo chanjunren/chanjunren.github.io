@@ -6,6 +6,21 @@ A **system call** (syscall) is the controlled gateway between [[cpu_privilege_mo
 
 Without syscalls, user-mode code cannot do I/O. There is no other way to talk to hardware.
 
+```mermaid
+sequenceDiagram
+    participant App as User application
+    participant Lib as C library wrapper
+    participant CPU
+    participant Kernel
+    App->>Lib: Call API such as read()
+    Lib->>CPU: Execute syscall instruction
+    CPU->>Kernel: Enter kernel mode
+    Kernel->>Kernel: Validate arguments and perform work
+    Kernel-->>CPU: Return value or error
+    CPU-->>Lib: Resume user mode
+    Lib-->>App: Return result
+```
+
 ## How a Syscall Works
 
 1. Application calls a library function (e.g. `read()` in C, `FileInputStream.read()` in Java)
@@ -29,7 +44,7 @@ Each crossing costs ~100ns — cheap individually, expensive at thousands per se
 
 ## Why High System CPU Happens
 
-Each syscall is a mode switch. Workloads that make many syscalls per second drive up the "system" portion of CPU (see [[interpreting_cpu_modes]]):
+Each syscall is a mode switch. Workloads that make many syscalls per second drive up the "system" portion of CPU (see interpreting cpu modes):
 
 - **Excessive small I/O** — many tiny `read()`/`write()` calls instead of buffered batches
 - **Heavy logging** — each log line can trigger a `write()` syscall

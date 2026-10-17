@@ -4,7 +4,24 @@
 
 **Cache consistency** describes how cached results relate to source updates. A cache adds another copy; keeping it fresh requires an explicit protocol.
 
-Choose the required [[consistency_models]] before choosing a caching pattern.
+Choose the required consistency models before choosing a caching pattern.
+
+```mermaid
+sequenceDiagram
+    participant App
+    participant Cache
+    participant Source
+    App->>Source: Update value
+    Source-->>App: Commit succeeds
+    App->>Cache: Invalidate key
+    par Concurrent stale fill
+        App->>Source: Earlier read returns old value
+        App->>Cache: Store stale value
+    and Invalidation
+        App->>Cache: Delete key
+    end
+    Note over Cache: Ordering determines whether stale value remains
+```
 
 ## Why invalidation can still leave stale data
 

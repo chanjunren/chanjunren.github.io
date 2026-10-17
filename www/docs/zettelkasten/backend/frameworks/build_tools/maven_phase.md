@@ -18,10 +18,16 @@ Plugins bind goals to phases. A POM can use a plugin's default bindings or add a
 
 Use the last phase that matches the required outcome: `test` for unit tests, `package` for a distributable artifact, or `verify` when integration checks and quality checks must complete. Exact plugin bindings depend on packaging and plugin configuration.
 
-## Related notes
+For dependency classpath behavior, see [[maven_scope]]. For dependency version management, see [[bill_of_materials]].
 
-- [[maven_scope]] — dependency classpath behavior
-- [[bill_of_materials]] — dependency version management
+```mermaid
+flowchart LR
+    V[Validate] --> C[Compile]
+    C --> T[Test]
+    T --> P[Package]
+    P --> I[Install locally]
+    I --> D[Deploy to repository]
+```
 
 ## References
 

@@ -2,13 +2,30 @@
 
 # gateway_patterns
 
-**Core Concept**: 
+**Core Concept**:
 - Specialized [[reverse_proxy]] with API-specific features
 - Authentication, rate limiting, request/response transformation
 - API composition (aggregates multiple service calls)
 - Single entry point for microservices architectures
 
 ## Why It Matters
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Gateway as API gateway
+    participant Identity as Identity service
+    participant Orders as Orders service
+    participant Stock as Inventory service
+    Client->>Gateway: API request
+    Gateway->>Identity: Authenticate and authorize
+    Identity-->>Gateway: Decision
+    Gateway->>Orders: Route or compose request
+    Gateway->>Stock: Optional service call
+    Orders-->>Gateway: Service response
+    Stock-->>Gateway: Service response
+    Gateway-->>Client: API response
+```
 
 - **Single entry point** for all API clients (web, mobile, third-party)
 - **Reduces client complexity** by handling cross-cutting concerns centrally
@@ -27,7 +44,7 @@
 
 ## When Not to Use
 
-- Monolithic application with single backend (use simple [[reverse_proxy]])
+- Monolithic application with single backend (use simple reverse proxy)
 - Internal-only APIs with no external access (simpler routing sufficient)
 - Performance-critical paths where latency matters most (direct service calls)
 - Very simple API with no cross-cutting concerns
@@ -64,7 +81,7 @@
 - Gateway handles external traffic; mesh handles internal traffic
 - Often used together in microservices
 
-This builds on [[reverse_proxy]] by adding API management features. Compare with [[backend_for_frontend]] which creates specialized gateways per client type.
+This builds on reverse proxy by adding API management features. Compare with [[backend_for_frontend]] which creates specialized gateways per client type.
 
 ## Common Patterns
 

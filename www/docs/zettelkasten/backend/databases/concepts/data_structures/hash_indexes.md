@@ -4,6 +4,15 @@
 
 A **hash index** maps a key to a bucket using a hash function. It can support equality lookups; it does not preserve key order for range scans.
 
+```mermaid
+flowchart LR
+    K[Equality lookup key] --> H[Hash function]
+    H --> B[Bucket or hash page]
+    B --> C[Compare candidate keys]
+    C --> R[Return matching row]
+    O[Range or ordered query] --> X[Use ordered index instead]
+```
+
 ## When it fits
 
 - Queries search for equality on an indexed value.
@@ -21,4 +30,4 @@ Compare with [[b_plus_tree_indexes]], which supports ordered scans and ranges.
 ## References
 
 - [PostgreSQL: Hash indexes](https://www.postgresql.org/docs/current/hash-index.html)
-- [[b_plus_tree_indexes]]
+- b plus tree indexes

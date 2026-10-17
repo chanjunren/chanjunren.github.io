@@ -1,5 +1,4 @@
 🗓️ 01112024 2108
-📎 #data_processing #database
 
 # oltp_vs_olap
 
@@ -14,6 +13,16 @@
 | Common consistency need | Current operational state | Freshness may range from seconds to scheduled batches |
 
 These are tendencies, not rules. Analytical systems can accept updates, and operational databases can run analytical queries. [[htap]] describes systems designed to serve both kinds of work.
+
+```mermaid
+flowchart LR
+    A[Operational data] --> O[OLTP transactions]
+    A --> X[CDC or ETL]
+    X --> W[Analytical warehouse]
+    W --> P[OLAP queries and aggregates]
+    O --> U[Application operations]
+    P --> B[Reports and analysis]
+```
 
 ## References
 

@@ -9,6 +9,16 @@
 	- Sessions per user per week
 	- Maximum temperature per sensor per minute
 
+```mermaid
+flowchart LR
+    A[Event] --> S[Window assigner]
+    S --> W[Window state]
+    W --> T[Trigger decides when to fire]
+    T --> F[Window function computes output]
+    F --> O[Emit result]
+    A -->|late event| L[Late data handling]
+```
+
 ## Components
 
 | Component                  | Description                                                        |
@@ -17,9 +27,9 @@
 | [[window_functions]] | Process events in window                                           |
 | Triggers                   | Trigger computation when [[watermarks]] surpasses window end |
 | Evictors                   | Remove elements from windows before processing                     |
-## Surprises 
+## Surprises
 
-### Sliding Windows Make Copies 
+### Sliding Windows Make Copies
 - Sliding window assigners can create lots of window objects, and will copy each event into every relevant window
 - E.g., if you have sliding windows every 15 minutes that are 24-hours in length, each event will be copied into 4 * 24 = 96 windows.
 
@@ -34,7 +44,7 @@ See [Tumbling Windows](https://nightlies.apache.org/flink/flink-docs-release-1.
 
 ```
 
-### Windows Can Follow Windows 
+### Windows Can Follow Windows
 
 ```java
 stream
@@ -72,4 +82,4 @@ The reason why this works:
 ---
 
 ## References
-- https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/streaming_analytics/ 
+- https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/learn-flink/streaming_analytics/

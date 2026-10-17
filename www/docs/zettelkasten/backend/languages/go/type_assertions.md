@@ -1,9 +1,17 @@
 🗓️ 02112024 2300
-📎
 
 # type_assertions
 
 **Core Concept**: Type assertions check and convert interface{} values to specific types at runtime.
+
+```mermaid
+flowchart TD
+    A[Interface value] --> B{Assert concrete type?}
+    B -->|value, ok := x.(T)| C{Assertion succeeds?}
+    C -- Yes --> D[Use typed value]
+    C -- No --> E[Handle false result]
+    B -->|switch x := x.(type)| F[Branch by dynamic type]
+```
 
 ## Why It Matters
 

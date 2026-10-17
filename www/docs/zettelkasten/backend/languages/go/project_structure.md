@@ -1,5 +1,4 @@
 🗓️ 07062026 1130
-📎
 
 # project_structure
 
@@ -46,7 +45,7 @@ A package path containing `internal/` can only be imported by code rooted at the
 - One package per directory; the package name is usually the folder name.
 - Name packages after what they *provide* (`config`, `health`, `alerting`), not generic buckets (`utils`, `helpers`, `common`).
 - Keep packages small and cohesive; if a file passes ~300 lines or a package mixes concerns, split it.
-- Define interfaces in the **consumer** package, not the implementer's — that's what keeps domains decoupled (see [[interfaces]] and [[dependency_injection]]).
+- Define interfaces in the **consumer** package, not the implementer's — that's what keeps domains decoupled (see [[interfaces]] and dependency injection).
 
 ```ad-warning
 Don't name a package after a standard-library package — e.g. a package literally named `http` forces every importer to alias it to avoid colliding with `net/http`. Name it `httpx` (or `transport`, `web`) so it imports cleanly with no alias.
@@ -82,6 +81,15 @@ internal/
     errors/
 go.mod
 ```
+```
+
+```mermaid
+flowchart TD
+    C[cmd: executable entry points] --> I[internal: private application code]
+    C --> P[Public packages when needed]
+    I --> D[Domain and service packages]
+    D --> A[Adapters and infrastructure]
+    T[Tests] --> D
 ```
 
 ## References

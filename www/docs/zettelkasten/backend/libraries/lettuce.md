@@ -1,9 +1,22 @@
 🗓️ 25042026 1432
-📎 #java #redis #netty
 
 # lettuce
 
 > Java Redis client. Sits under Spring Data Redis. Persistent connection per node. Async by default.
+
+```mermaid
+sequenceDiagram
+    participant App
+    participant Client as Lettuce client
+    participant Conn as Netty connection
+    participant Redis
+    App->>Client: Submit command
+    Client->>Conn: Encode and queue command
+    Conn->>Redis: Send command
+    Redis-->>Conn: Response
+    Conn-->>Client: Complete future or reactive publisher
+    Client-->>App: Deliver result
+```
 
 ## Position In The Stack
 
@@ -95,4 +108,4 @@ ClusterClientOptions clientOptions =
 
 - [Lettuce reference — Cluster](https://lettuce.io/core/release/reference/index.html#redis-cluster)
 - [[cluster_topology]] — what Lettuce is talking to
-- [[connection_wedge]] — the failure mode adaptive refresh exists to handle
+- connection wedge — the failure mode adaptive refresh exists to handle

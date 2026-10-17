@@ -4,6 +4,16 @@
 
 **Core Concept**: Configure custom analyzers in index settings to control how text fields are tokenized and searched.
 
+```mermaid
+flowchart LR
+    T[Input text] --> C[Character filters]
+    C --> K[Tokenizer]
+    K --> F[Token filters]
+    F --> I[Indexed terms]
+    S[Search query] --> A[Search analyzer]
+    A --> Q[Query terms]
+```
+
 ## Why It Matters
 
 Analyzers determine how text is broken down and indexed. The right analyzer improves search relevance, enables features like autocomplete, and optimizes for your use case. This builds on [[analyzers]] which explains analyzer fundamentals.
@@ -241,5 +251,5 @@ All custom analyzers must be defined in `settings.analysis` BEFORE referencing t
 
 - [Elasticsearch Analyzers](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyzers.html)
 - [Custom Analyzers](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-custom-analyzer.html)
-- [[analyzers]] - Understanding how analyzers work
+- analyzers - Understanding how analyzers work
 - [[ngram_search]] - N-gram configuration for autocomplete

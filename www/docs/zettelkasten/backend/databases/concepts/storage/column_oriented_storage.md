@@ -12,6 +12,15 @@
 
 Conceptually, storage groups values as `[1, 2, 3]`, `[Alice, Bob, Carol]`, `[30, 35, 28]`, and `[100k, 120k, 95k]`.
 
+```mermaid
+flowchart LR
+    Q[Query needs selected columns] --> C[Read column segments]
+    C --> V[Decode batches]
+    V --> A[Vectorized filter and aggregate]
+    A --> R[Return summary]
+    W[Write row] --> S[Encode columns and compress]
+```
+
 ## Why it helps analytics
 
 - A query such as `AVG(salary)` can read the salary column without reading every row field.
@@ -28,5 +37,5 @@ Columnar storage often suits [[olap]] workloads; [[row_oriented_storage]] often 
 
 ## References
 
-- [[olap]]
-- [[row_oriented_storage]]
+- olap
+- row oriented storage

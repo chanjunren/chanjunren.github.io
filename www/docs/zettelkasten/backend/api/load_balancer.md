@@ -2,7 +2,7 @@
 
 # load_balancer
 
-**Core Concept**: 
+**Core Concept**:
 - Distributes incoming network traffic across multiple backend servers
 - Ensures no single server becomes overwhelmed
 - Improves availability and performance
@@ -60,9 +60,20 @@
 - **Layer 7 (Application)**: Routes based on HTTP headers/URL, slower, more features
 - L4 for raw performance; L7 for intelligent routing
 
-This is a specific use case of [[reverse_proxy]] focused on traffic distribution. Often combined with [[gateway_patterns]] for comprehensive API management.
+This is a specific use case of reverse proxy focused on traffic distribution. Often combined with [[gateway_patterns]] for comprehensive API management.
 
 ## Load Balancing Algorithms
+
+```mermaid
+flowchart LR
+    C[Client request] --> L[Load balancer]
+    L --> H{Backend healthy?}
+    H -- No --> R[Remove from eligible pool]
+    H -- Yes --> A[Choose backend by policy]
+    A --> B[Backend server]
+    B --> L
+    L --> C
+```
 
 ### Round Robin
 Distributes requests sequentially to each server in rotation.

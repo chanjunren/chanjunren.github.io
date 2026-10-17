@@ -4,6 +4,14 @@
 
 **Materialization** stores an intermediate or final computation result so later work can read it instead of recomputing it. A query engine may materialize temporary results during execution; a [[materialized_view]] persists a query result across reads.
 
+```mermaid
+flowchart LR
+    Q[Query plan] --> I[Intermediate result]
+    I --> M[Materialize to memory or storage]
+    M --> R[Reuse by downstream operator]
+    M --> P[Optional persist for later queries]
+```
+
 ## Why an engine materializes results
 
 - An operator needs to read its full input before producing output, such as a sort.
@@ -15,4 +23,4 @@ Materialization can reduce repeated work, but it adds memory, storage, or I/O co
 ## References
 
 - [PostgreSQL: Using EXPLAIN](https://www.postgresql.org/docs/current/using-explain.html)
-- [[materialized_view]]
+- materialized view

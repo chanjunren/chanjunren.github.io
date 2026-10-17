@@ -13,10 +13,18 @@ Publisher -> PUBLISH orders:updated -> Redis -> active subscribers
                                       (no durable backlog)
 ```
 
-## Related notes
+For broader messaging models, see [[moc_messaging]].
 
-- [[moc_messaging]] — broader messaging models
-- [[queue]] — retained asynchronous work
+```mermaid
+sequenceDiagram
+    participant Publisher
+    participant Redis
+    participant Subscriber
+    Subscriber->>Redis: SUBSCRIBE channel
+    Publisher->>Redis: PUBLISH message
+    Redis-->>Subscriber: Deliver to active subscription
+    Note over Redis,Subscriber: Pub/Sub does not persist offline messages
+```
 
 ## References
 

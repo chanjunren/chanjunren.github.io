@@ -13,6 +13,14 @@
 - Same format > coupling between systems
 - Legacy systems
 
+```mermaid
+flowchart LR
+    A[Source message format] --> T[Translator]
+    T --> M[Map fields and semantics]
+    M --> B[Target message format]
+    B --> C[Receiving system]
+```
+
 ## Pattern description
 
 ```ad-tldr

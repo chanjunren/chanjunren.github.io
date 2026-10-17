@@ -4,6 +4,15 @@
 
 A **B-tree** is a height-balanced multiway search tree. Each node holds multiple ordered keys and child pointers, reducing tree height when nodes map to storage pages.
 
+```mermaid
+flowchart TD
+    R[Balanced root node] --> A[Internal node with keys and children]
+    R --> B[Internal node with keys and children]
+    A --> L1[Leaf entries]
+    A --> L2[Leaf entries]
+    B --> L3[Leaf entries]
+```
+
 ## Structure
 
 - Keys within a node are ordered and divide the key space into child ranges.
@@ -21,4 +30,4 @@ Search, insertion, and deletion take logarithmic time in the number of keys when
 ## References
 
 - [Database System Concepts, 7th edition](https://www.db-book.com/)
-- [[b_plus_tree]]
+- b plus tree

@@ -1,5 +1,4 @@
 🗓️ 29042026 1700
-📎 #java #concurrency #thread_pool
 
 # thread_pool_executor_internals
 
@@ -20,6 +19,17 @@ new ThreadPoolExecutor(
 ```
 
 `Executors.newFixedThreadPool(N)`, `newCachedThreadPool()`, etc. are wrappers — but pre-set choices that are sometimes the wrong ones in production. Knowing the underlying constructor exposes the dangers.
+
+```mermaid
+flowchart TD
+    A[Submit task] --> B{Workers below core size?}
+    B -- Yes --> C[Create worker]
+    B -- No --> D{Queue accepts task?}
+    D -- Yes --> E[Queue task]
+    D -- No --> F{Workers below maximum?}
+    F -- Yes --> G[Create extra worker]
+    F -- No --> H[Apply rejection policy]
+```
 
 ## The Submission Rule — Order of Operations
 
@@ -146,13 +156,12 @@ The state-and-count packing is a clever atomic-state trick — it lets state tra
 - **Same pool for I/O-bound and CPU-bound work** — slow I/O tasks starve fast CPU tasks. Use separate pools per workload class.
 - **Forgetting context propagation** — MDC (logging context), security context, transaction context don't auto-propagate to pool threads. Use a `TaskDecorator` or wrap the task.
 
-## Related
+For built on similar atomic-state tricks, see [[concurrenthashmap_internals]]. For the state field is a packed CAS-managed int, see [[cas_compare_and_swap]]. For `Worker` extends AQS; locks are tied in, see [[reentrantlock_vs_synchronized]]. For every thread = one stack = memory cost, see [[memory_areas]].
 
-- [[concurrenthashmap_internals]] — built on similar atomic-state tricks.
-- [[cas_compare_and_swap]] — the state field is a packed CAS-managed int.
-- [[reentrantlock_vs_synchronized]] — `Worker` extends AQS; locks are tied in.
-- [[memory_areas]] — every thread = one stack = memory cost.
+## Planned
+
 - `thread_pool_sizing_little_law` *(planned)* — sizing maths in depth.
+
 - `completablefuture_async_chains` *(planned)* — ForkJoinPool common pool, parallelism control.
 
 ---

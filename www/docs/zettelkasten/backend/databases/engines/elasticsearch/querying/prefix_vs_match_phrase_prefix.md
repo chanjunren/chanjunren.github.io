@@ -4,6 +4,15 @@
 
 Use a `prefix` query to match terms beginning with characters. Use `match_phrase_prefix` to match analyzed words in order, with the final word treated as a prefix.
 
+```mermaid
+flowchart TD
+    Q[User query] --> A{Match intent?}
+    A -- Exact term begins with prefix --> P[Prefix query on keyword or term field]
+    A -- Last analyzed token is incomplete --> M[match_phrase_prefix]
+    P --> R[Matching documents]
+    M --> R
+```
+
 ## Terms
 
 | Term | Definition | Source |

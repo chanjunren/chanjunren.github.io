@@ -1,9 +1,22 @@
 🗓️ 29042026 1615
-📎 #java #concurrency #atomic
 
 # cas_compare_and_swap
 
 > The atomic primitive underneath every lock-free data structure in `java.util.concurrent`. CAS lets a thread say *"set this location to NEW_VALUE only if it currently equals EXPECTED"* — atomically, in one instruction. The cost is busy-retry under contention; the benefit is no kernel-level blocking.
+
+```mermaid
+sequenceDiagram
+    participant Thread
+    participant Memory
+    Thread->>Memory: Read value and version
+    Thread->>Thread: Compute expected replacement
+    Thread->>Memory: Compare expected, swap if equal
+    alt Value unchanged
+        Memory-->>Thread: Success
+    else Value changed
+        Memory-->>Thread: Failure; retry
+    end
+```
 
 ## The Operation
 
@@ -141,12 +154,7 @@ Rule of thumb: CAS wins for short, single-word updates. Locks win for multi-step
 - **Building your own concurrent structure with CAS** — almost always a mistake outside JDK or specialised libraries. The JDK's primitives are highly tuned and battle-tested.
 - **Forgetting that CAS establishes happens-before** — `compareAndSet` is a volatile-like operation. Every successful CAS is a memory barrier. See [[java_memory_model_happens_before]].
 
-## Related
-
-- [[volatile_synchronized_atomic_difference]] — the wider toolkit CAS sits in.
-- [[java_memory_model_happens_before]] — CAS is itself an HB-establishing operation.
-- [[concurrenthashmap_internals]] — the JDK 8+ map relies on bucket-level CAS.
-- [[reentrantlock_vs_synchronized]] — `ReentrantLock`'s fast path uses CAS via AQS.
+For how CAS fits with Java's other atomicity and visibility tools, see [[volatile_synchronized_atomic_difference]]. [[concurrenthashmap_internals]] shows bucket-level CAS in JDK 8+. [[reentrantlock_vs_synchronized]] explains CAS in `ReentrantLock`'s fast path.
 
 ---
 

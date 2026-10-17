@@ -13,6 +13,16 @@ Hot and cold describe access patterns used to choose storage tiers. Hot data nee
 
 Tier names, latency, availability, durability, and fees differ by provider. Check the product's current service terms before designing around a specific number. Storage tiering is a lifecycle policy; it does not replace backup or replication.
 
+```mermaid
+flowchart LR
+    W[Recent write] --> H[Hot storage tier]
+    H -->|age or access threshold| C[Cold storage tier]
+    R[Read request] --> D{Data tier?}
+    D -- Hot --> H
+    D -- Cold --> C
+    C --> X[Fetch or restore with higher latency]
+```
+
 ## References
 
 - [Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html)

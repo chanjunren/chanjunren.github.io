@@ -1,11 +1,21 @@
 🗓️ 29042026 1145
-📎 #api #http
 
 # http_methods_idempotency_safety
 
 > The two formal properties that decide whether an HTTP method is safe to retry, cache, or replay. Misclassifying a method is the root cause of subtle bugs (double charges, lost updates) that survive code review.
 
 ## The Two Properties
+
+```mermaid
+flowchart TD
+    A[Classify method semantics] --> B{Intended effect changes server state?}
+    B -- No --> C[Safe]
+    B -- Yes --> D[Not safe]
+    C --> E{Repeated identical requests keep same intended effect?}
+    D --> E
+    E -- Yes --> F[Idempotent]
+    E -- No --> G[Not idempotent]
+```
 
 ```ad-abstract
 **Safe** — the method is read-only by intent; calling it should produce no observable side effect on the server.
@@ -93,12 +103,10 @@ PATCH idempotency is a property of the patch payload, not the method. RFC 5789 e
 - **Retrying POST in load balancers** — proxies that retry on 5xx will double-create unless idempotency is enforced server-side. Most reverse proxies are conservative here for a reason.
 - **GET with side effects** — analytics endpoints fire on GET pings. Technically violates safety. Browsers prefetch GETs aggressively (link rel=prefetch); a GET that has side effects can fire silently. Use POST/Beacon for analytics events.
 
-## Related
+For when retries are appropriate, see [[retry_backoff_jitter]]. For what each method's response codes mean, see [[http_status_codes_semantics]]. For the message-bus equivalent of the idempotency-key idea, see [[idempotent_consumer_pattern]].
 
-- [[idempotency_keys_api_design]] — how to make POST safe to retry.
-- [[retry_backoff_jitter]] — when retries are appropriate.
-- [[http_status_codes_semantics]] — what each method's response codes mean.
-- [[idempotent_consumer_pattern]] — the message-bus equivalent of the idempotency-key idea.
+## Planned
+
 - `http_caching_headers` *(planned)* — Cache-Control, ETag, conditional GET.
 
 ---

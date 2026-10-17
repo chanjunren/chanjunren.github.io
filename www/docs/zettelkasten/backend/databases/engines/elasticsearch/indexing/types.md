@@ -2,6 +2,15 @@
 
 # types
 
+```mermaid
+flowchart LR
+    S[Source document] --> M[Mapping selects field types]
+    M --> T[Text analyzer or keyword exact value]
+    M --> N[Numeric and date representation]
+    M --> O[Indexed and stored fields]
+    Q[Query] --> O
+```
+
 ## Core Field Types
 
 | Type             | Description                                             | Use Case                                                 |

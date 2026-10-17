@@ -4,6 +4,15 @@
 
 How Elasticsearch ranks search results by relevance.
 
+```mermaid
+flowchart LR
+    Q[Query terms] --> M[Match candidate documents]
+    M --> S[Score each document]
+    S --> F[Field and term statistics]
+    F --> R[Rank by relevance score]
+    R --> H[Return top hits]
+```
+
 ## Core Concepts
 
 ### Relevance Score

@@ -8,13 +8,26 @@ Message queue is a form of **asynchronous service-to-service communication** use
 - Messages are stored on the queue until they are processed and deleted
 - Can simplify coding of decoupled applications, while improving performance, reliability and scalability
 
+```mermaid
+sequenceDiagram
+    participant Producer
+    participant Queue
+    participant Consumer
+    Producer->>Queue: Publish message
+    Queue->>Queue: Persist or buffer
+    Queue-->>Producer: Accept or reject
+    Queue->>Consumer: Deliver message
+    Consumer->>Consumer: Process asynchronously
+    Consumer-->>Queue: Acknowledge
+```
+
 ## Uses
 - Decouple heavyweight processing
 - Buffer / batch work
 - Smooth spiky workloads
 
 ## Basics
-- A message queue provides 
+- A message queue provides
 	- A lightweight buffer which temporarily stores messages
 	- Endpoints that allow software components to connect to the queue in order to send and receive messages
 	- The messages are usually small
@@ -28,11 +41,10 @@ Many producers and consumers can use the queue, but each message is **processed 
 
 ## Pub / Sub messaging in fanout design pattern
 When a message needs to be **processed by more than one consumer**, message queues can be combined with Pub/Sub messaging in a fanout design pattern.
- 
+
 ## Relevant docs
 - [[queue_benefits]]
 - [[queue_features]]
-
 
 ---
 

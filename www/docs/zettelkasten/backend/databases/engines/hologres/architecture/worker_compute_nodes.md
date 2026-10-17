@@ -1,30 +1,32 @@
 🗓️ 03022025 1348
 
 # worker_compute_nodes
-- **Workers** are the compute nodes in Hologres that process queries and manage [[storage_engine]]s
-- Each worker handles multiple [[shard]]
-- Each worker creates multiple internal storage engines and each storage engine reads data from and writes data to a shard
+
+> **HoloWorker**: A Hologres compute node that schedules and executes queries. It contains query, storage, cache, and scheduling components. ([Hologres architecture](https://www.alibabacloud.com/help/en/hologres/product-overview/architecture))
+
+HoloWorkers execute distributed plans and host storage-engine instances for assigned shards. The shard-to-worker mapping lets queries run in parallel; Alibaba manages placement and recovery details for the deployed service.
+
+```mermaid
+flowchart LR
+  Q[Distributed query plan] --> W1[HoloWorker 1]
+  Q --> W2[HoloWorker 2]
+  W1 --> QE1[Query Engine]
+  W1 --> SE1[Storage Engines for assigned shards]
+  W2 --> QE2[Query Engine]
+  W2 --> SE2[Storage Engines for assigned shards]
+  SE1 --> P[Pangu storage]
+  SE2 --> P
+```
 
 ```ad-note
 If you do not specify the number of table groups and shard count when you create a database, Hologres creates a default table group for you and sets the default shard count for the table group
 
-
 For more information, see [Instance types](https://www.alibabacloud.com/help/en/hologres/user-guide/instance-management-types/#concept-2042629)
 ```
 
-
-## Resource Allocation
-- Hologres Shards are distributed evenly across workers to ensure balanced resource usage
-- Prevents uneven resource allocation where a table group is allocated to one worker and other workers are idle
-
-```ad-warning
-If the shard count is not proportional to the number of workers, some workers may become idle
-```
-
-## Failover Handling
-- If a worker fails, its shards are reallocated to healthy workers to maintain even distribution
--  The query engine can access data on shards by calling these operations to implement high-performance data writes or reads
+Shard count and table-group design affect parallelism and resource use. See [[table_group]] and [[shard]]; exact placement and failover behavior are service-managed.
 
 ---
 ## References
-- https://www.alibabacloud.com/help/en/hologres/user-guide/table-group-and-shard-count
+- [Hologres: Architecture](https://www.alibabacloud.com/help/en/hologres/product-overview/architecture)
+- [Hologres: Table groups and shards](https://www.alibabacloud.com/help/en/hologres/user-guide/user-guide-of-table-groups-and-shard-counts)

@@ -2,11 +2,23 @@
 
 # reverse_proxy
 
-**Core Concept**: 
+**Core Concept**:
 - Server between clients and backend servers
 - Forwards client requests to appropriate backends
 - Returns backend responses to clients
 - Hides backend topology from clients
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Proxy as Reverse proxy
+    participant Backend
+    Client->>Proxy: Request for public service
+    Proxy->>Proxy: Apply TLS, routing, or cache policy
+    Proxy->>Backend: Forward selected request
+    Backend-->>Proxy: Response
+    Proxy-->>Client: Return response
+```
 
 ## Why It Matters
 

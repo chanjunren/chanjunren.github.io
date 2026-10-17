@@ -2,6 +2,15 @@
 
 # synchronization_pitfalls
 
+```mermaid
+flowchart TD
+    A[Shared mutable state] --> B[Choose one stable lock]
+    B --> C[Guard every access with same lock]
+    C --> D[Critical section is mutually exclusive]
+    E[Lock on public or changing object] --> F[Unrelated code can interfere]
+    F --> G[Use private final lock instead]
+```
+
 ## What NOT to Synchronize On
 
 | Bad Target | Why |

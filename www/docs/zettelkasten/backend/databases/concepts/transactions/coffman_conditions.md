@@ -13,6 +13,14 @@ The Coffman conditions describe four conditions that must hold together for a re
 
 In database applications, acquiring locks in a consistent order can prevent circular wait. A timeout or abort can release held locks and break a wait, but it handles a deadlock rather than proving the design deadlock-free.
 
+```mermaid
+flowchart LR
+    A[Transaction A holds lock 1] -->|waits for| B[Lock 2]
+    C[Transaction B holds lock 2] -->|waits for| D[Lock 1]
+    A --> C
+    C --> A
+```
+
 ## References
 
 - Silberschatz, Galvin, and Gagne, *Operating System Concepts*, chapter on deadlocks.

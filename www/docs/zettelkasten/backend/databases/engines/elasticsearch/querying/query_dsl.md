@@ -4,6 +4,15 @@
 
 Elasticsearch Query DSL is a JSON structure for expressing search, filtering, and scoring logic.
 
+```mermaid
+flowchart LR
+    Q[Query clause] --> S[Score relevance]
+    F[Filter clause] --> B[Boolean match only]
+    S --> C[Combine bool clauses]
+    B --> C
+    C --> R[Return matching documents]
+```
+
 ## Query and filter context
 
 Queries in query context calculate relevance scores. Queries in filter context answer whether a document matches without contributing to `_score`; filters can also be cached when Elasticsearch determines that is useful.
@@ -31,11 +40,7 @@ In this example, `title` is analyzed as full text, while `status` and `featured`
 
 Choose query types to match the field mapping: `match` analyzes text, while `term` matches an indexed term and is usually appropriate for `keyword` or other structured fields. See [[analyzers]] and [[types]] before debugging unexpected matches.
 
-## Related notes
-
-- [[prefix_vs_match_phrase_prefix]] — prefix search choices
-- [[expensive_queries]] — query costs and guardrails
-- [[vector_search]] — nearest-neighbor retrieval
+For prefix search choices, see [[prefix_vs_match_phrase_prefix]]. For query costs and guardrails, see [[expensive_queries]]. For nearest-neighbor retrieval, see [[vector_search]].
 
 ## References
 

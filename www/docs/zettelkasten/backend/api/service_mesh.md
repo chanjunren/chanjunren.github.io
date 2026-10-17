@@ -2,7 +2,7 @@
 
 # service_mesh
 
-**Core Concept**: 
+**Core Concept**:
 - Infrastructure layer managing service-to-service communication
 - Sidecar proxies deployed alongside each service instance
 - Handles traffic management, security (mTLS), observability
@@ -71,9 +71,25 @@
 - **Library**: Language-specific, application-level
 - Mesh doesn't require code changes; library does
 
-This builds on [[reverse_proxy]] concepts but distributes proxies as sidecars. Compare with [[gateway_patterns]] which handles external traffic instead of internal service communication.
+This builds on reverse proxy concepts but distributes proxies as sidecars. Compare with gateway patterns which handles external traffic instead of internal service communication.
 
 ## Architecture Components
+
+```mermaid
+sequenceDiagram
+    participant A as Service A
+    participant PA as Sidecar A
+    participant PB as Sidecar B
+    participant B as Service B
+    A->>PA: Application request
+    PA->>PA: Apply identity and traffic policy
+    PA->>PB: mTLS protected service call
+    PB->>PB: Check authorization and record telemetry
+    PB->>B: Forward request
+    B-->>PB: Response
+    PB-->>PA: Response and telemetry
+    PA-->>A: Application response
+```
 
 ### Data Plane
 - **Sidecar proxies** deployed alongside each service instance

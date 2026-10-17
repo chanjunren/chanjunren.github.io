@@ -4,6 +4,15 @@
 
 Timeouts limit different waits in a request path. Set each from the service's latency budget and downstream behavior; values with similar names often govern different phases.
 
+```mermaid
+flowchart LR
+    A[Request deadline] --> B[Wait for pool connection]
+    B --> C[Connect to database]
+    C --> D[Run query]
+    D --> E[Return before caller deadline]
+    A -. deadline expires .-> F[Cancel or fail request]
+```
+
 ## HikariCP
 
 | Setting | Controls | HikariCP default |

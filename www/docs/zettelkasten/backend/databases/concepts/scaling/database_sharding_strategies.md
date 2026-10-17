@@ -1,9 +1,19 @@
 🗓️ 29042026 1730
-📎 #database #sharding
 
 # database_sharding_strategies
 
 > The three (and a half) ways to split a dataset across nodes when one machine isn't enough. Choice of strategy and shard key shape every cross-shard pain you'll hit later — and the wrong choice is expensive to undo.
+
+```mermaid
+flowchart LR
+    A[Incoming record] --> K[Choose shard key]
+    K --> R[Range shard]
+    K --> H[Hash shard]
+    K --> D[Directory lookup]
+    R --> S[Target shard]
+    H --> S
+    D --> S
+```
 
 ## Vertical vs Horizontal
 
@@ -39,7 +49,7 @@ shard C: user_id [20M,   30M)
 **Pros**: even distribution by construction. Hot keys still possible but no hot ranges.
 
 **Cons**:
-- Adding a node remaps `~(N-1)/N` of keys → see [[consistent_hashing]] for the fix.
+- Adding a node remaps `~(N-1)/N` of keys → see consistent hashing for the fix.
 - Range scans become **scatter-gather** — query every shard, merge results.
 - Co-located reads (e.g. all of one user's data) require careful key design.
 
@@ -118,12 +128,7 @@ Adding capacity is the biggest operational pain.
 - **Uniqueness constraints across shards are only enforceable in-shard** — for global uniqueness: pre-allocated ID ranges, a central allocator, or UUIDs (with the trade-off that random UUIDs hurt range scans).
 - **Vertical partitioning only delays the problem** — eventually a single feature's data outgrows one box, and you're back to horizontal sharding.
 
-## Related
-
-- [[consistent_hashing]] — minimises rehashing on N changes.
-- [[cluster_topology]] — fixed-slot variant.
-- [[two_phase_commit]] — cross-shard atomicity option (rarely good).
-- [[saga_pattern]] — saga-based cross-shard alternative.
+For fixed-slot variant, see [[cluster_topology]].
 
 ---
 

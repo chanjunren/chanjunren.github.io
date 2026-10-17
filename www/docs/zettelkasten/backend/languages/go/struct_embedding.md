@@ -1,5 +1,4 @@
 🗓️ 07062026 1010
-📎
 
 # struct_embedding
 
@@ -85,6 +84,15 @@ func middleware(next http.Handler) http.Handler {
     })
 }
 ```
+```
+
+```mermaid
+flowchart LR
+    E[Embedded field] --> M[Promoted method set]
+    O[Outer struct] --> M
+    C[Call outer.Method] --> R[Resolve promoted method]
+    R --> E
+    O -->|same method name| S[Outer method shadows promotion]
 ```
 
 ## References

@@ -4,6 +4,22 @@
 
 # Junction Table Design Cheatsheet
 
+```mermaid
+erDiagram
+    STUDENT ||--o{ ENROLLMENT : has
+    COURSE ||--o{ ENROLLMENT : includes
+    STUDENT {
+        int student_id
+    }
+    COURSE {
+        int course_id
+    }
+    ENROLLMENT {
+        int student_id
+        int course_id
+    }
+```
+
 ## Core Principle
 **A junction table should represent ONE type of relationship between two entities.**
 
@@ -282,7 +298,6 @@ user_relations (
 | Bound relationship | Combined table | The combination has unique meaning |
 | Multiple relationship types | ALWAYS separate | Different semantic meanings |
 | Mostly NULL columns | Split into separate tables | Design smell - fix immediately |
-
 
 ---
 ## References

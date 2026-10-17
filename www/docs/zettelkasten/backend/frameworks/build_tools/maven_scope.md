@@ -16,10 +16,17 @@ Use `provided` for an API supplied by the deployment environment, `runtime` for 
 
 `import` is a special scope for a POM dependency inside `<dependencyManagement>`; it imports managed dependency declarations rather than adding a library to the classpath. See [[bill_of_materials]].
 
-## Related notes
+For build lifecycle phases, see [[maven_phase]].
 
-- [[maven_phase]] — build lifecycle phases
-- [[bill_of_materials]] — importing dependency management
+```mermaid
+flowchart TD
+    A[Declare dependency scope] --> C[Compile classpath]
+    A --> T[Test classpath]
+    A --> R[Runtime classpath]
+    C --> P[Scope controls propagation to dependents]
+    T --> P
+    R --> P
+```
 
 ## References
 

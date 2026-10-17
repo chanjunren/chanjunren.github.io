@@ -2,6 +2,16 @@
 
 # boot_application_lifecycle
 
+```mermaid
+flowchart LR
+    A[main calls SpringApplication.run] --> B[Prepare environment]
+    B --> C[Create application context]
+    C --> D[Load beans and auto-configuration]
+    D --> E[Refresh context]
+    E --> F[Run application listeners and runners]
+    F --> G[Application ready]
+```
+
 ## Run
 
 > `SpringApplication.run()` triggers application lifecycle

@@ -1,4 +1,4 @@
-🗓️ TODO: recover the original capture date and time.
+🗓️ 17102026 2111
 
 # copy_on_write
 
@@ -17,6 +17,16 @@ Copy-on-write lets copies share data until a write needs a private version.
 - Explains why `fork()` in Unix is fast — child process shares parent's memory pages until one writes
 
 ## How It Works
+
+```mermaid
+flowchart LR
+    A[Original data blocks] --> B[Original and clone share blocks]
+    B --> C{Either copy writes?}
+    C -- No --> D[Blocks remain shared]
+    C -- Yes --> E[Copy changed block]
+    E --> F[Update writer's block reference]
+    F --> G[Other copy keeps original block]
+```
 
 ### Without CoW (traditional copy)
 ```
@@ -50,7 +60,7 @@ cp --reflink=always big_file.dat copy.dat
 
 ### Container storage
 
-- Docker's **OverlayFS** uses a CoW-like approach: image [[layers]] are read-only, writes go to the writable layer on top
+- Docker's **OverlayFS** uses a CoW-like approach: image layers are read-only, writes go to the writable layer on top
 - This is why modifying a file in a running container doesn't alter the image — the modified file is "copied up" to the writable layer
 - Not true block-level CoW like Btrfs, but the same principle: defer copying until writes happen
 

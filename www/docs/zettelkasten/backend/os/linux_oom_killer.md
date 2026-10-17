@@ -6,6 +6,16 @@ When the kernel cannot free enough memory through [[page_cache]] reclamation and
 
 Understanding this explains why containers get OOM-killed, how the kernel chooses victims, and why a container can be killed even when it is within its own memory limit.
 
+```mermaid
+flowchart TD
+    A[Allocation cannot be satisfied] --> B[Try reclaim and compaction]
+    B --> C{Enough memory recovered?}
+    C -- Yes --> D[Retry allocation]
+    C -- No --> E{Host or memory cgroup OOM?}
+    E --> F[Select victim by OOM score and constraints]
+    F --> G[Kill process and free memory]
+```
+
 ## When It Triggers
 
 ### Cgroup-Level (Container OOM)
@@ -13,12 +23,12 @@ Understanding this explains why containers get OOM-killed, how the kernel choose
 The most common case in Kubernetes:
 
 1. Container's memory usage hits its cgroup hard limit
-2. Kernel tries to reclaim [[page_cache]] within the cgroup
+2. Kernel tries to reclaim page cache within the cgroup
 3. If **working set** (non-reclaimable portion) fills the limit, nothing more can be freed
 4. Kernel OOM-kills a process inside the cgroup
 5. Kubernetes detects the kill, restarts the pod with status `OOMKilled`
 
-This is what [[interpreting_container_memory]] means by "OOM kill triggers only when working_set fills the limit."
+This is what interpreting container memory means by "OOM kill triggers only when working_set fills the limit."
 
 ### Host-Level (Node OOM)
 
@@ -29,7 +39,7 @@ Rarer but more dangerous:
 3. Kernel OOM-kills a process — can be **any** process on the node
 4. Can kill processes in containers that are within their own limits
 
-See [[interpreting_host_memory]] — "the kernel's OOM killer picks a process to kill; it can choose a container process even if that container's working_set is below its own limit."
+See interpreting host memory — "the kernel's OOM killer picks a process to kill; it can choose a container process even if that container's working_set is below its own limit."
 
 ## How It Picks Victims: oom_score
 
@@ -73,10 +83,10 @@ A host-level OOM kill can terminate the kubelet itself, causing all pods on the 
 
 ## Prevention
 
-- Alert on `working_set / limit > 85%` with a growing trend — see [[interpreting_container_memory]]
+- Alert on `working_set / limit > 85%` with a growing trend — see interpreting container memory
 - Use `deriv(container_memory_working_set_bytes[1h])` to detect leaks before they OOM
 - Set memory requests to baseline usage, limits to peak + headroom
-- Monitor node-level `MemAvailable` to catch host-level pressure early — see [[interpreting_host_memory]]
+- Monitor node-level `MemAvailable` to catch host-level pressure early — see interpreting host memory
 
 ---
 

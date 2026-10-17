@@ -6,6 +6,17 @@ Four collectors a modern Java service encounters: **Parallel** (throughput), **G
 
 For the generational model these collectors build on, see [[generational_gc_basics]].
 
+```mermaid
+flowchart TD
+    A[Choose GC objective] --> B{Throughput or pause target?}
+    B -- Throughput --> P[Parallel GC]
+    B -- Balanced pauses --> G[G1]
+    B -- Very short pauses --> Z[ZGC or Shenandoah]
+    G --> T[Measure workload and tune]
+    P --> T
+    Z --> T
+```
+
 ## Collector Lineage
 
 - **Serial** — single-threaded. Small heaps (&lt;100 MB), embedded use only.

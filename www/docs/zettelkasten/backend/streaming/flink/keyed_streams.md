@@ -10,7 +10,15 @@ One very common use case for Apache [[stream_processing_fundamentals]] is to imp
 3. Store the results somewhere
 ```
 
-## `keyBy()` 
+```mermaid
+flowchart LR
+    A[Input stream] --> K[Extract key]
+    K --> P[Partition by key group]
+    P --> O[Keyed operator instance]
+    O --> S[Keyed state and keyed operations]
+```
+
+## `keyBy()`
 
 For partitioning a stream around one of its attributes
 
@@ -55,7 +63,7 @@ Whenever the key space is unbounded, then so is the amount of state Flink will n
 
 ## Stateful Transformations
 
-### Why is Flink Involved in Managing State? 
+### Why is Flink Involved in Managing State?
 
 Basically, because Flink has some good features:
 
@@ -90,7 +98,7 @@ State that is **partitioned by key** when working with a keyed stream (e.g., usi
 Flink maintains a separate **key/value store** for each key, allowing state to be tied to specific keys in the stream.
 ```
 
-#### `ValueState`
+### `ValueState`
 
 A simple form of keyed state where **one value per key** is stored (there are other forms)
 
@@ -107,7 +115,7 @@ How it Works
 - During processing, Flink dynamically associates the state with the key of the current event.
 - Methods like `value()` and `update()` allow reading and updating the state.
 
-#### **Distributed State Management**
+### **Distributed State Management**
 
 - Keyed state (including `ValueState`) is **sharded across Flink nodes**, with each parallel instance managing state for its assigned keys
 - The state for a key is **local** to the parallel instance handling that key and is not shared across nodes.
@@ -158,7 +166,7 @@ Rarely needed in user-defined functions
 - Primarily used in implementation of sources and sinks
 - Operates different
 
-## Connected Streams 
+## Connected Streams
 
 - Pattern for allowing a single operator to process two input streams simultaneously
 - Enable dynamic transformations by streaming in thresholds, rules, or parameters

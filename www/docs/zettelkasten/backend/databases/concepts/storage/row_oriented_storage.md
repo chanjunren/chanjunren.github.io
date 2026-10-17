@@ -12,6 +12,14 @@
 
 Conceptually, rows are stored as `[1, Alice, 30, 100k]`, `[2, Bob, 35, 120k]`, and `[3, Carol, 28, 95k]`.
 
+```mermaid
+flowchart LR
+    Q[Point lookup or update] --> P[Locate row page]
+    P --> R[Read complete row]
+    R --> V[Return requested fields]
+    W[Write row] --> U[Update row fields together]
+```
+
 ## Strengths and costs
 
 - Point reads and updates can access a record's columns together.
@@ -23,5 +31,5 @@ Row-oriented storage often suits [[oltp]] access patterns. [[column_oriented_sto
 
 ## References
 
-- [[oltp]]
-- [[column_oriented_storage]]
+- oltp
+- column oriented storage

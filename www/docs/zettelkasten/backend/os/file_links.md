@@ -1,4 +1,4 @@
-🗓️ TODO: recover the original capture date and time.
+🗓️ 17102026 2111
 
 # file_links
 
@@ -9,9 +9,21 @@
 
 **Why it matters:**
 - Package managers like pnpm use hardlinks to avoid duplicating packages — 10 projects sharing `lodash` store it once on disk
-- Understanding link types explains why this optimization is impossible inside Docker builds (different filesystems)
+- Filesystem boundaries explain when links can share data and when a copy is required
 
 ## Hardlinks
+
+```mermaid
+flowchart LR
+    A[Name: original] --> I1[Original inode]
+    B[Name: hardlink] --> I1
+    I1 --> D[Data blocks]
+    C[Symlink inode] --> P[Stored path]
+    P --> A
+    I1 --> S[Shared data blocks]
+    I2[Reflink inode] --> S
+    I2 -->|write| N[Private changed block]
+```
 
 A hardlink is a **second directory entry pointing to the same [[inodes]]**.
 
@@ -37,7 +49,7 @@ Properties:
 - **Cannot link to directories** (on most systems): would create filesystem cycles that break tools like `find`
 - **Both paths must be on the same mounted filesystem**
 
-The filesystem boundary rule is the key constraint that makes hardlinks impossible inside Docker builds — the build container uses a different filesystem (OverlayFS) from the host.
+Hardlinks cannot cross filesystem boundaries. A container build may use a different filesystem from the host, so a host-side package store cannot be assumed to support hardlinking into the build. The result depends on where the builder's package store and project files are mounted.
 
 ## Symbolic Links (Symlinks)
 
@@ -89,21 +101,18 @@ Properties:
 
 ### Reflink constraints
 
-- **Filesystem must support it**: Btrfs, XFS (4.9+), APFS (macOS) support reflinks; ext4 does not
+- **Filesystem must support it**: reflink support depends on the filesystem and its configuration
 - **Cannot cross filesystem boundaries**: like hardlinks, shared data blocks must be on the same filesystem
 - Not all tools use reflinks by default — must explicitly request with `cp --reflink`
 
 ### Why pnpm cares
 
-pnpm's content-addressable store (`~/.pnpm-store`) avoids duplicating packages by linking them into each project's `node_modules`. It prefers:
-1. **Hardlinks** — zero-copy, instant, supported on any filesystem
-2. **Reflinks** — zero-copy at creation, independent copies that share storage via CoW
-3. **Full copy** — fallback when neither is possible
+pnpm links files from its content-addressable store into `node_modules`, using hardlinks or reflinks when supported. Links require compatible filesystem placement. Otherwise, pnpm may copy files, which uses more space and time. ([pnpm store docs](https://pnpm.io/settings#store-dir))
 
-Inside a Docker build, the build filesystem is isolated from the host, so options 1 and 2 are both impossible. This is why [[buildx]] cache mounts exist as a workaround — they can't achieve zero-copy, but they persist downloaded packages between builds.
+Docker BuildKit cache mounts can preserve package-manager cache data between builds and reduce repeated downloads. They do not guarantee hardlink or reflink behavior; that still depends on the filesystem used by the builder. ([Docker build cache docs](https://docs.docker.com/build/cache/optimize/))
 
 ```ad-warning
-**Filesystem boundary = hard wall**: Both hardlinks and reflinks require source and target to be on the same filesystem. This is not a permissions issue or a configuration issue — it's a fundamental constraint of how filesystems track data blocks. No flag or setting can override it.
+**Filesystem boundary**: Hardlinks and reflinks cannot share data across filesystems. A package manager must copy files when its store and target cannot share the required filesystem resources.
 ```
 
 ```ad-example
@@ -118,3 +127,5 @@ Inside a Docker build, the build filesystem is isolated from the host, so option
 - https://man7.org/linux/man-pages/man2/symlink.2.html
 - https://man7.org/linux/man-pages/man2/copy_file_range.2.html
 - https://btrfs.readthedocs.io/en/latest/Reflink.html
+- [pnpm: Store settings](https://pnpm.io/settings#store-dir)
+- [Docker: Optimize build cache](https://docs.docker.com/build/cache/optimize/)

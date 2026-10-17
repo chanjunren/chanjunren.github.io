@@ -1,5 +1,4 @@
 🗓️ 07062026 1050
-📎
 
 # sync_primitives
 
@@ -9,7 +8,7 @@
 
 Both solve concurrency, but for different shapes:
 
-- **Channels** — when you're *passing ownership* of data or *coordinating* goroutines (pipelines, fan-out, signalling). See [[channels]] and [[select]].
+- **Channels** — when you're *passing ownership* of data or *coordinating* goroutines (pipelines, fan-out, signalling). See channels and [[select]].
 - **Mutexes** — when goroutines *share* one piece of state and you just need mutually-exclusive access (a cache, a counter, a registry map).
 
 Rule of thumb: a mutex protecting a struct field is simpler and faster than a channel-guarded goroutine for plain shared state. Don't force everything through channels.
@@ -116,6 +115,16 @@ func (r *Registry) RunAll() map[string]error {
     return results
 }
 ```
+```
+
+```mermaid
+flowchart TD
+    A[Coordinate goroutines] --> B{Need to transfer work or data?}
+    B -- Yes --> C[Channel]
+    B -- No --> D{Protect shared mutable state?}
+    D -- Yes --> E[Mutex or RWMutex]
+    D -- Need completion count --> F[WaitGroup]
+    D -- Atomic scalar operation --> G[Atomic type]
 ```
 
 ## References

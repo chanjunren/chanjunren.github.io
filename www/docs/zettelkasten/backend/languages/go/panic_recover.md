@@ -1,5 +1,4 @@
 🗓️ 07062026 1100
-📎
 
 # panic_recover
 
@@ -75,6 +74,17 @@ func SafeGo(fn func()) {
 // usage — a panic in here is logged, not fatal:
 SafeGo(func() { recomputeStats() })
 ```
+```
+
+```mermaid
+sequenceDiagram
+    participant G as Goroutine
+    participant F as Deferred function
+    G->>G: Panic begins stack unwinding
+    G->>F: Run deferred calls
+    F->>F: recover may capture panic in same goroutine
+    F-->>G: Continue return or repanic
+    Note over G: Other goroutines are unaffected
 ```
 
 ## References

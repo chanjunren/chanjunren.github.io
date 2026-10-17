@@ -6,9 +6,16 @@
 Refers to the behavior of **tree-based indexes** ([[b_tree]] and [[b_plus_tree]], regarding how they handle multi-column indexes
 ```
 
-
 ```ad-important
 This principle states that when an **index is created on multiple columns**, queries can **efficiently utilize** the index only if they reference the **leftmost** column or a **combination of the leftmost** column with subsequent columns.
+```
+
+```mermaid
+flowchart LR
+    Q[Query predicates] --> K[Match leading index columns]
+    K --> S[Seek contiguous B-tree range]
+    S --> R[Read matching rows]
+    B[Predicate skips leading column] --> X[No direct leftmost seek]
 ```
 
 ## How It Works
@@ -23,7 +30,6 @@ Efficient searches for
 3. (col1, col2, col3)
 
 Searches that start with any column other than the leftmost one will not benefit from this index
-
 
 Usage of B-Trees in Relational Databases
 B-Trees are not exclusive to MySQL or SQL databases; they are a fundamental data structure used across various . Here’s how they are generally employed:

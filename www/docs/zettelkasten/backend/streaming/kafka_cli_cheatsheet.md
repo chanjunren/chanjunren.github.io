@@ -22,10 +22,15 @@ bin/kafka-console-consumer.sh --topic events --from-beginning --bootstrap-server
 
 `--from-beginning` reads from the earliest offset available to the consumer group; it does not recover records already deleted by retention. In shared or production environments, use the appropriate authentication, authorization, and TLS settings rather than copying the local examples unchanged.
 
-## Related notes
+For topics, partitions, and brokers, see [[kafka_architecture]]. For per-partition ordering, see [[kafka_partition_ordering_keying]].
 
-- [[kafka_architecture]] — topics, partitions, and brokers
-- [[kafka_partition_ordering_keying]] — per-partition ordering
+```mermaid
+flowchart LR
+    A[Choose Kafka cluster] --> B[Create or inspect topic]
+    B --> C[Produce test records]
+    C --> D[Consume from offset]
+    D --> E[Inspect groups and offsets]
+```
 
 ## References
 

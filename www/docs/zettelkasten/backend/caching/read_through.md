@@ -6,6 +6,23 @@
 
 It changes who loads a miss. It does not determine how writes reach the source.
 
+```mermaid
+sequenceDiagram
+    participant App
+    participant Cache as Cache with loader
+    participant Source
+    App->>Cache: Get key
+    Cache->>Cache: Check entry
+    alt Hit
+        Cache-->>App: Return cached value
+    else Miss
+        Cache->>Source: Loader fetches value
+        Source-->>Cache: Value
+        Cache->>Cache: Store value
+        Cache-->>App: Return value
+    end
+```
+
 ## Read path
 
 ```text

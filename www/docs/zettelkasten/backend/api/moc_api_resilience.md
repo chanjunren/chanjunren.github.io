@@ -1,9 +1,18 @@
 🗓️ 29042026 1315
-📎 #api #reliability #moc
 
 # moc_api_resilience
 
 > Map of Content for the API + resilience-patterns concept cluster. Each zettel addresses a specific failure mode at the request boundary; together they form the standard "make this service survive its dependencies" toolkit.
+
+```mermaid
+flowchart LR
+    A[HTTP semantics] --> B[Inbound rate limits]
+    B --> C[Timeouts]
+    C --> D[Retry with backoff]
+    D --> E[Circuit breaker]
+    E --> F[Downstream call]
+    G[Idempotency] --> D
+```
 
 ## Concept Order
 
@@ -54,4 +63,4 @@ Memorising this stack is more valuable than memorising any single pattern in iso
 - → DB internals: [[transaction_isolation_levels]], [[mvcc_innodb_read_view]] — what your retries see in the DB.
 - → Caching: [[../caching/stampede]], [[../caching/aside_pattern]] — same jitter principle on cache misses.
 - → Messaging: [[idempotent_consumer_pattern]], [[outbox_pattern]], [[delivery_semantics_at_most_at_least_exactly]] — the message-bus mirror of these patterns.
-- → Distributed systems: [[cap_theorem]] — the consistency-availability trade-off behind every fail-open vs fail-closed decision.
+- → Distributed systems: cap theorem — the consistency-availability trade-off behind every fail-open vs fail-closed decision.

@@ -4,6 +4,16 @@
 
 **Segmented locking** divides a shared structure into regions protected by separate locks. Operations on different regions can proceed concurrently; operations on the same region still contend.
 
+```mermaid
+flowchart LR
+    K[Key] --> H[Choose segment]
+    H --> L[Acquire segment lock]
+    L --> U[Update protected map region]
+    U --> R[Release lock]
+    K2[Different key] --> H2[Different segment]
+    H2 --> L2[Concurrent independent update]
+```
+
 ## Trade-offs
 
 - More independent locks can reduce contention when operations target different regions.

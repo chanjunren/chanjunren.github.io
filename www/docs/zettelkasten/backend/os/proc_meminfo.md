@@ -6,6 +6,15 @@
 
 `/proc` is a **virtual filesystem**: reading a file such as `/proc/meminfo` asks the kernel for current information. It is not reading a normal file stored on disk.
 
+```mermaid
+flowchart LR
+    K[Kernel memory accounting] --> P[/proc/meminfo]
+    P --> M[Read relevant fields]
+    M --> A[Compare with workload and time]
+    A --> D[Diagnose cache, anonymous, or reclaimable use]
+    E[Exporter] --> P
+```
+
 ## Start with these fields
 
 ```text
@@ -78,7 +87,7 @@ The node-exporter meminfo collector exposes these fields as Prometheus gauges:
 
 The kernel reports most `/proc/meminfo` sizes in KiB. Node exporter converts size fields to bytes, which is why the metric names end in `_bytes`.
 
-Read [[interpreting_host_memory]] next, then trace the calculation through [[host_memory_dashboard_walkthrough]].
+Read interpreting host memory next, then trace the calculation through host memory dashboard walkthrough.
 
 ## References
 

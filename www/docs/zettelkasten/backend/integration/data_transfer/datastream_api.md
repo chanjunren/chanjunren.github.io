@@ -4,6 +4,16 @@
 
 > [[stream_processing_fundamentals]]'s data stream API
 
+```mermaid
+flowchart LR
+    A[Execution environment] --> S[Source]
+    S --> T[Transformations]
+    T --> K[Keying and stateful operations]
+    K --> W[Windows or timers]
+    W --> O[Sink]
+    O --> X[Execute job]
+```
+
 ## What can you stream using datastream APIs?
 
 Anything that flink can serialize

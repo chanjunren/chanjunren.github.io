@@ -4,6 +4,14 @@
 
 A **view** is a named query exposed as a table-like object. A regular view stores its query definition; the database evaluates that query when a user reads the view.
 
+```mermaid
+flowchart LR
+    D[View definition] --> Q[Query references view]
+    Q --> O[Optimizer expands definition]
+    O --> B[Read base tables]
+    B --> R[Return query result]
+```
+
 ## Why use a view
 
 - Give a complex query a stable, reusable name.

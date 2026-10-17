@@ -1,116 +1,57 @@
 🗓️ 02112024 2302
-📎
 
 # context
 
-**Core Concept**: Context carries request-scoped values, cancellation signals, and deadlines across API boundaries.
+A Go context carries cancellation signals, deadlines, and request-scoped values across API boundaries. It lets callers signal downstream work when its result is no longer needed.
 
-## Why It Matters
+## Terms
 
-Enables graceful cancellation of operations. Prevents goroutine leaks. Required for production services.
+| Term | Definition | Source |
+|---|---|---|
+| **Context** | A value that carries deadlines, cancellation signals, and request-scoped values across API boundaries. | [Go package documentation](https://pkg.go.dev/context) |
+| **Cancellation** | A signal that work should stop because its result is no longer needed. A context's `Done` channel carries this signal. | [Go package documentation](https://pkg.go.dev/context) |
+| **Deadline** | The time after which work associated with a context should stop. A derived context can inherit an earlier parent deadline. | [Go package documentation](https://pkg.go.dev/context) |
 
-## When to Use
+## Propagation
 
-✅ **Pass context when:**
-- Making HTTP requests
-- Querying databases
-- Calling other services
-- Long-running operations
+The request handler receives a context, derives a narrower deadline when needed, and passes it to each operation. A called function must cooperate by passing the context to APIs that support cancellation or by checking `Done` itself.
 
-❌ **Don't:**
-- Store in structs
-- Use for optional parameters
-
-## vs Java ThreadLocal
-
-**Java:** ThreadLocal (thread-bound, implicit)  
-**Go:** context.Context (request-bound, explicit passing)
-
-Context must be passed explicitly as first parameter, preventing hidden dependencies.
-
-```ad-warning
-Always call `cancel()` to prevent leaks, even if operation succeeds.
-\`\`\`
-
-## Trade-offs
-
-**Pros**: Cancellation, deadlines, tracing  
-**Cons**: Verbose (first param everywhere), easy to ignore
-
-Context propagation is essential for [[goroutines]] to enable clean cancellation.
-
-## Quick Reference
-
-```go
-// Always first parameter
-func DoWork(ctx context.Context, data string) error {
-    select {
-    case <-ctx.Done():
-        return ctx.Err()  // Cancelled
-    default:
-        // continue work
-    }
-}
-
-// Creating contexts
-ctx := context.Background()          // Root
-ctx := context.TODO()                // Placeholder
-ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
-defer cancel()  // Always defer
-
-ctx, cancel := context.WithCancel(ctx)
-ctx = context.WithValue(ctx, key, value)
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Handler
+    participant Service
+    participant Database
+    Client->>Handler: HTTP request context
+    Handler->>Service: context with request deadline
+    Service->>Database: query with context
+    Client-->>Handler: disconnect or cancel
+    Handler-->>Service: cancellation propagates
+    Service-->>Database: query observes cancellation
 ```
 
-| Function | Use Case |
-|----------|----------|
-| `Background()` | Root, main, tests |
-| `TODO()` | Placeholder |
-| `WithTimeout()` | Time-bound operations |
-| `WithCancel()` | Manual cancellation |
-| `WithValue()` | Request-scoped data |
-
-## Examples
-
-```ad-example
-**HTTP handler with timeout:**
 ```go
-func fetchUser(w http.ResponseWriter, r *http.Request) {
-    ctx, cancel := context.WithTimeout(r.Context(), 3*time.Second)
-    defer cancel()
-    
-    user, err := db.QueryUser(ctx, userID)
-    if err != nil {
-        if errors.Is(err, context.DeadlineExceeded) {
-            http.Error(w, "request timeout", 504)
-            return
-        }
-        http.Error(w, err.Error(), 500)
-        return
-    }
-    json.NewEncoder(w).Encode(user)
+func fetchUser(parent context.Context, id string) (User, error) {
+	ctx, cancel := context.WithTimeout(parent, 3*time.Second)
+	defer cancel()
+
+	return db.QueryUser(ctx, id)
 }
 ```
 
-**Cancellable background job:**
-```go
-func ProcessBatch(ctx context.Context, items []Item) error {
-    for _, item := range items {
-        select {
-        case <-ctx.Done():
-            return fmt.Errorf("batch cancelled: %w", ctx.Err())
-        default:
-            if err := processItem(ctx, item); err != nil {
-                return err
-            }
-        }
-    }
-    return nil
-}
-```
-\`\`\`
+The database driver must honor the context for the query to stop. Calling the cancel function releases resources associated with the derived context, even when the query finishes early.
+
+## Rules
+
+- Pass `context.Context` as the first parameter, usually named `ctx`.
+- Pass it explicitly; do not store request contexts in structs.
+- Use context values for request-scoped data crossing API boundaries, not optional parameters.
+- Call the returned cancel function when finished with a derived context.
+- A canceled context signals work to stop; it does not forcibly terminate a goroutine.
+
+Use `context.Background()` as a root context for application startup, tests, and `main`.
 
 ## References
 
-- [Go Blog: Context](https://go.dev/blog/context)
-
+- [Go package documentation: context](https://pkg.go.dev/context)
+- [Go: Canceling in-progress operations](https://go.dev/doc/database/cancel-operations)

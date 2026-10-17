@@ -4,6 +4,16 @@
 
 Cheatsheet for JVM flags that matter in production. For what each memory area is, see [[memory_areas]].
 
+```mermaid
+flowchart TD
+    A[JVM process memory] --> H[Heap options]
+    A --> M[Metaspace options]
+    A --> D[Direct buffer limits]
+    A --> T[Thread stack size]
+    A --> C[Code cache]
+    O[Operating system limit] --> A
+```
+
 ## Heap Memory
 
 | Flag | Purpose | Rule of Thumb | Risk if Wrong |
@@ -79,5 +89,5 @@ Wrong paths → dumps lost after container restart. Always use persistent volume
 
 ## References
 
-- [[memory_areas]]
+- memory areas
 - [[memory_diagnostics]]

@@ -1,5 +1,4 @@
 🗓️ 07062026 1110
-📎
 
 # graceful_shutdown
 
@@ -87,6 +86,19 @@ func (s *Server) Start() error {
     return s.db.Close()
 }
 ```
+```
+
+```mermaid
+sequenceDiagram
+    participant OS as Operating system
+    participant App
+    participant Server
+    OS-->>App: Shutdown signal
+    App->>Server: Stop accepting new requests
+    App->>App: Cancel background work
+    Server->>Server: Drain in-flight requests
+    Server-->>App: Shutdown complete or deadline
+    App->>App: Close dependencies
 ```
 
 ## References

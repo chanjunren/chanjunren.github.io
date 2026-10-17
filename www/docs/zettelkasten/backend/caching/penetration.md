@@ -4,6 +4,16 @@
 
 **Cache penetration** (穿透) is repeated source traffic for nonexistent data. If absence is never cached, every lookup repeats the unsuccessful source query.
 
+```mermaid
+flowchart TD
+    A[Lookup key] --> B{Known absent in Bloom filter?}
+    B -- Yes --> C[Reject without source query]
+    B -- No --> D[Query source]
+    D --> E{Found?}
+    E -- Yes --> F[Cache value]
+    E -- No --> G[Cache absence briefly]
+```
+
 ## Negative caching
 
 Store an explicit `NOT_FOUND` result with a short TTL. Distinguish it from a missing cache entry.

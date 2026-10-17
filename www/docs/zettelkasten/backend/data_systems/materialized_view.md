@@ -4,6 +4,15 @@
 
 A **materialized view** stores the result of a query so later reads can avoid recomputing it. The stored result can become stale until the database refreshes it.
 
+```mermaid
+flowchart TD
+    B[Base tables change] --> U[Refresh policy runs]
+    U --> M[Stored query result updated]
+    Q[Read query] --> R{Can use materialized view?}
+    R -- Yes --> M
+    R -- No --> B
+```
+
 ## When it helps
 
 - Reuse an expensive aggregation for dashboards or reports.

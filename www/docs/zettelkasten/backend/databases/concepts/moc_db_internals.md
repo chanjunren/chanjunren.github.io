@@ -1,9 +1,17 @@
 🗓️ 29042026 1830
-📎 #database #moc
 
 # moc_db_internals
 
 > Map of Content for the database-internals concept cluster. Covers indexing, transactions, replication, sharding, and cross-service consistency patterns.
+
+```mermaid
+flowchart TD
+    Q[Query] --> I[Index lookup]
+    I --> T[Transaction and concurrency control]
+    T --> R[Replication]
+    R --> S[Sharding]
+    T --> X[Cross-service consistency]
+```
 
 ## Concept Order
 
@@ -23,7 +31,7 @@
 
 ### Sharding
 9. [[database_sharding_strategies]] — range / hash / directory plus shard-key selection.
-10. [[consistent_hashing]] — minimum-data-movement sharding (cross-link to distributed-systems cluster).
+10. consistent hashing — minimum-data-movement sharding (cross-link to distributed-systems cluster).
 
 ### Cross-Service Consistency Patterns
 11. [[two_phase_commit]] — the textbook protocol and why teams avoid it.
@@ -46,7 +54,7 @@
 
 ## Bridges to Other Domains
 
-- → Distributed systems: [[moc_distributed_systems]] — CAP, quorum, consistency models, Raft.
+- → Distributed systems: moc distributed systems — CAP, quorum, consistency models, Raft.
 - → Caching: [[cluster_topology]], `redis_distributed_lock` *(planned)* — cache + DB consistency.
 - → Messaging: [[../../integration/messaging/queue]], [[exactly_once_semantics]] — outbox feeds these.
 - → Spring/Java: `spring_transaction_propagation` *(planned)*, `spring_aop_proxies_jdk_vs_cglib` *(planned)* — `@Transactional` semantics.

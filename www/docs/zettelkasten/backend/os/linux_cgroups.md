@@ -6,6 +6,17 @@
 
 Cgroups handle **resource control** (how much can a group use). They do not handle **isolation** (what can a group see) — that is namespaces.
 
+```mermaid
+flowchart TD
+    P[Process] --> G[Assigned cgroup]
+    G --> H[Parent cgroup hierarchy]
+    G --> C[CPU controller]
+    G --> M[Memory controller]
+    G --> I[IO controller]
+    C --> L[Throttle or account CPU]
+    M --> O[Limit, reclaim, or cgroup OOM]
+```
+
 ## How They Work
 
 A cgroup is a directory in a virtual filesystem:
@@ -53,7 +64,7 @@ The cgroup tracks physical memory usage for all its processes:
 - **Page cache** — file I/O cached in RAM, charged to the cgroup that read/wrote the file (see [[page_cache]])
 - **Swap** — anonymous pages evicted to disk
 
-`container_memory_usage_bytes` reads this total. The kernel reclaims page cache within the cgroup first before invoking the [[linux_oom_killer]]. This is why [[interpreting_container_memory]] distinguishes `usage_bytes` (includes reclaimable cache) from `working_set_bytes` (excludes inactive cache).
+`container_memory_usage_bytes` reads this total. The kernel reclaims page cache within the cgroup first before invoking the [[linux_oom_killer]]. This is why interpreting container memory distinguishes `usage_bytes` (includes reclaimable cache) from `working_set_bytes` (excludes inactive cache).
 
 ## CPU Accounting
 
@@ -68,7 +79,7 @@ CPU limits use a **quota/period** mechanism:
 | 1 CPU | 100,000 us | 100,000 us | 100ms per 100ms — one full core |
 | 2 CPU | 200,000 us | 100,000 us | 200ms per 100ms — two cores |
 
-When a cgroup exhausts its quota within a period, the CFS scheduler **throttles** all threads in the cgroup until the next period. See [[cfs_bandwidth_control]] for the mechanics and [[interpreting_cpu_usage]] for how to read throttle metrics.
+When a cgroup exhausts its quota within a period, the CFS scheduler **throttles** all threads in the cgroup until the next period. See [[cfs_bandwidth_control]] for the mechanics and interpreting cpu usage for how to read throttle metrics.
 
 ## Cgroups v1 vs v2
 
@@ -78,7 +89,7 @@ When a cgroup exhausts its quota within a period, the CFS scheduler **throttles*
 | **Control files** | `memory.limit_in_bytes`, `cpu.cfs_quota_us` | `memory.max`, `cpu.max` |
 | **Adoption** | Legacy, still common | Default on newer kernels, Kubernetes migrating |
 
-The metrics exposed by [[cadvisor_container_metrics]] are the same regardless of version — cAdvisor abstracts the difference.
+The metrics exposed by cadvisor container metrics are the same regardless of version — cAdvisor abstracts the difference.
 
 ```ad-warning
 Cgroups limit resources but do NOT provide isolation. A cgroup-limited container can still see host processes, network interfaces, and filesystems unless namespaces restrict the view. Cgroups answer "how much can it use?" Namespaces answer "what can it see?"

@@ -2,6 +2,18 @@
 
 # model_types
 
+```mermaid
+flowchart TD
+    D[Data model] --> H[Hierarchical: parent-child tree]
+    D --> R[Relational: rows and tables]
+    D --> G[Graph: vertices and edges]
+    D --> N[Other non-relational models]
+    H --> U[Choose from access and relationship needs]
+    R --> U
+    G --> U
+    N --> U
+```
+
 ## Hierarchical Model
 
 > Represents data as one big tree.

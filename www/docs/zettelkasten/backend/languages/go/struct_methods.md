@@ -1,5 +1,4 @@
 🗓️ 07062026 1000
-📎
 
 # struct_methods
 
@@ -97,6 +96,15 @@ acc := NewAccount()
 acc.Deposit(100)
 fmt.Println(acc.Balance())          // 100
 ```
+```
+
+```mermaid
+flowchart TD
+    A[Define method] --> B{Receiver type?}
+    B -- Value --> C[Method receives a copy]
+    B -- Pointer --> D[Method can mutate pointed value]
+    C --> E[Method set affects interface satisfaction]
+    D --> E
 ```
 
 ## References

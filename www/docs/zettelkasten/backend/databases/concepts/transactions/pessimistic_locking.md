@@ -11,6 +11,18 @@ UPDATE account SET balance = 90 WHERE id = 7;
 COMMIT;
 ```
 
+```mermaid
+sequenceDiagram
+    participant T1 as Transaction 1
+    participant DB
+    participant T2 as Transaction 2
+    T1->>DB: Lock row before update
+    T2->>DB: Request conflicting lock
+    DB-->>T2: Wait until lock released
+    T1->>DB: Commit and release lock
+    DB-->>T2: Grant lock
+```
+
 ## Trade-offs
 
 - Prevents another transaction from changing the locked row during the critical section.

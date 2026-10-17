@@ -4,6 +4,15 @@
 
 For APIs, “cursor pagination” often means keyset pagination: the response returns a continuation token based on the last row's sort key. It does not necessarily keep a database cursor open.
 
+```mermaid
+flowchart LR
+    O[OFFSET query] --> S[Scan and discard prior rows]
+    S --> P[Return requested page]
+    K[Keyset query] --> I[Seek after last sort key]
+    I --> P2[Return next rows]
+    U[Concurrent inserts or deletes] --> X[Offset page positions may shift]
+```
+
 ## Offset pagination
 
 ```sql
@@ -37,6 +46,6 @@ Neither pagination strategy automatically provides a consistent snapshot across 
 
 ## References
 
-- [[keyset_cursor]]
-- [[cursor]]
-- [[database_cursor]]
+- keyset cursor
+- cursor
+- database cursor

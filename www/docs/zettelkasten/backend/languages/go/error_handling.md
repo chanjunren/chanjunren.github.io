@@ -1,5 +1,4 @@
 🗓️ 02112024 2254
-📎
 
 # error_handling
 
@@ -21,7 +20,7 @@ Forces explicit handling at each call site. No hidden control flow. Foundation o
 
 ## vs Java Exceptions
 
-**Java:** try/catch (hidden control flow)  
+**Java:** try/catch (hidden control flow)
 **Go:** Explicit if err != nil at each call
 
 Go errors are values - can inspect, wrap, pass around.
@@ -117,6 +116,16 @@ if errors.Is(err, ErrInvalidData) {
 }
 ```
 \`\`\`
+
+```mermaid
+flowchart LR
+    A[Function call] --> B{Error returned?}
+    B -- No --> C[Use result]
+    B -- Yes --> D[Handle or add context]
+    D --> E{Can caller recover?}
+    E -- Yes --> F[Return fallback or retry]
+    E -- No --> G[Propagate error]
+```
 
 ## References
 
