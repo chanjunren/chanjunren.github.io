@@ -1,6 +1,6 @@
 ---
 name: zettelkasten
-description: Create, revise, split, connect, audit, and organize Markdown notes under docs/zettelkasten. Use when Codex works on this repository's learning notes, study guides, cheatsheets, concept maps, reading paths, wiki links, or note-quality improvements. Optimize study notes for conceptual understanding and cheatsheets for fast lookup while preserving the repository's Zettelkasten conventions.
+description: Create, revise, split, connect, audit, and organize Markdown notes under docs/zettelkasten. Use when working on this repository's learning notes, study guides, cheatsheets, concept maps, reading paths, wiki links, or note-quality improvements. Optimize study notes for conceptual understanding and cheatsheets for fast lookup while preserving the repository's Zettelkasten conventions.
 ---
 
 # Zettelkasten
