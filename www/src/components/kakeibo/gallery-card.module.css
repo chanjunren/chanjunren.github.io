@@ -1,0 +1,82 @@
+/* Pixel Lab's card, inverted: cream ground with rose grid lines. */
+.card {
+  --grid-line: rgba(180, 99, 122, 0.2);
+  --grid-size: 16px;
+  background-color: #fff4e0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      var(--grid-line) 0 1px,
+      transparent 1px var(--grid-size)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--grid-line) 0 1px,
+      transparent 1px var(--grid-size)
+    );
+}
+
+/* Laid out at a fixed size, then scaled to fit the card. */
+.scene {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 600px;
+  height: 345px;
+  transform: translate(-50%, -50%) scale(var(--scene-scale));
+}
+
+.widget {
+  position: absolute;
+  left: 175px;
+  top: 96px;
+  width: 250px;
+  height: 210px;
+  transform-origin: 50% 130%;
+  transition:
+    translate 0.75s cubic-bezier(0.4, 0, 0.2, 1),
+    rotate 0.9s cubic-bezier(0.4, 0, 0.2, 1),
+    scale 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.left {
+  translate: -6px 0;
+  rotate: -4deg;
+  transition-delay: 0.05s;
+}
+
+.middle {
+  z-index: 1;
+}
+
+.right {
+  translate: 6px 0;
+  rotate: 4deg;
+  transition-delay: 0.05s;
+}
+
+.card:hover .left,
+.card[data-fanned="true"] .left {
+  translate: -150px 8px;
+  rotate: -14deg;
+  transition-delay: 0.04s;
+}
+
+.card:hover .middle,
+.card[data-fanned="true"] .middle {
+  translate: 0 -18px;
+  scale: 1.04;
+}
+
+.card:hover .right,
+.card[data-fanned="true"] .right {
+  translate: 150px 8px;
+  rotate: 14deg;
+  transition-delay: 0.08s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .widget {
+    transition: none;
+  }
+}

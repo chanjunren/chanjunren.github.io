@@ -61,7 +61,7 @@ const monthFormatter = new Intl.DateTimeFormat("en", {
 function formatMonth(value: string) {
   return monthFormatter.format(new Date(`${value}-01T00:00:00`));
 }
-function formatAmount(value: number) {
+export function formatAmount(value: number) {
   const absolute = Math.abs(value).toLocaleString("en-US", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,

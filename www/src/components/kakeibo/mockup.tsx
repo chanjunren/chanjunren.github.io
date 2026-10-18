@@ -66,7 +66,7 @@ function MockProviders({ children }: { children: ReactNode }) {
   );
 }
 
-const mockupTheme = {
+export const mockupTheme = {
   "--background": "var(--menu-background)",
   "--foreground": "var(--menu-foreground)",
   "--card": "var(--menu-background)",

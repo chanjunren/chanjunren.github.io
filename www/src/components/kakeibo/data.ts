@@ -203,6 +203,16 @@ export const monthlySpend = mockDashboardResponse.monthlySpend.map((item) => ({
   totalIn: Number(item.totalIn),
   net: Number(item.net),
 }));
+// The gallery card wants a fuller trend than the dashboard fixture, which
+// starts with two empty months.
+export const cardMonthlySpend = [
+  { month: "2026-03", totalIn: 3000, totalOut: 1850, net: 1150 },
+  { month: "2026-04", totalIn: 3050, totalOut: 2100, net: 950 },
+  { month: "2026-05", totalIn: 3200, totalOut: 1950, net: 1250 },
+  { month: "2026-06", totalIn: 3000, totalOut: 2400, net: 600 },
+  { month: "2026-07", totalIn: 3600, totalOut: 2250, net: 1350 },
+  { month: "2026-08", totalIn: 3100, totalOut: 2450, net: 650 },
+];
 export const monthlySpendChartConfig = {
   totalOut: { label: "Expenses", color: "var(--chart-1)" },
   totalIn: { label: "Revenue", color: "var(--chart-2)" },
