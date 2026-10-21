@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zettelkasten/backend/index.md",
+                "file": "zettelkasten/backend/os/page_cache.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "page_cache"
             }
           }
         ]
@@ -170,6 +170,11 @@
   },
   "active": "175a094aa819cfd1",
   "lastOpenFiles": [
+    "zettelkasten/backend/index.md",
+    "zettelkasten/backend/os/page_cache.md",
+    "zettelkasten/infrastructure/security/time_of_check_to_time_of_use.md",
+    "zettelkasten/backend/concepts/fundamentals/check_then_act.md",
+    "zettelkasten/backend/databases/concepts/transactions/write_skew.md",
     "zettelkasten/ai/agent_runtime.md",
     "zettelkasten/ai/mcp/llm_tool_use.md",
     "zettelkasten/ai/mcp/index.md",
@@ -191,11 +196,6 @@
     "zettelkasten/ai/agent_patterns/agent_as_tool.md",
     "zettelkasten/backend/api/idempotency_keys.md",
     "zettelkasten/backend/languages/java/leetcode_cheatsheet.md",
-    "zettelkasten/backend/languages/go/learning_plan.md",
-    "zettelkasten/backend/jvm/gc/generational_basics.md",
-    "zettelkasten/backend/databases/concepts/transaction_patterns/outbox.md",
-    "zettelkasten/backend/databases/concepts/transaction_patterns/saga.md",
-    "zettelkasten/backend/databases/concepts/scaling/replication_async_sync_semi.md",
     "zettelkasten/backend/databases/engines/hologres/table_design",
     "zettelkasten/backend/databases/engines/hologres/storage",
     "zettelkasten/backend/databases/engines/hologres/queries",

@@ -28,18 +28,36 @@ flowchart TD
 5. [[isolation_levels]] — RU/RC/RR/Serializable plus the anomaly matrix.
 6. [[mvcc_innodb_read_view]] — how InnoDB implements RC and RR via snapshots.
 7. [[innodb_locks]] — gap and next-key locks; the phantom-prevention mechanism (existing).
+8. [[write_skew]] — why stable snapshots can still violate cross-row invariants.
+
+### Common Concurrency Pitfalls
+
+Use this map to trace a stale observation, a lock choice, or a check/action gap to its failure mode.
+
+```mermaid
+flowchart TD
+    S[Snapshot read] --> SS[Stale snapshot read]
+    SS --> WS[Write skew across disjoint rows]
+    L[Shared locking read] --> LS[Lock scope and upgrade limits]
+    C[Check then act] --> T[TOCTOU when resource state changes]
+    WS --> P[Protect the full invariant]
+    LS --> P
+    T --> A[Make check and use atomic]
+```
+
+The database cases are developed in [[write_skew]], [[mvcc_innodb_read_view]], and [[innodb_locks]]. The broader race pattern is in [[check_then_act]] and its security-specific form in [[time_of_check_to_time_of_use]].
 
 ### Replication
-8. [[replication_async_sync_semi]] — three modes, replication lag, failover behaviour.
+9. [[replication_async_sync_semi]] — three modes, replication lag, failover behaviour.
 
 ### Sharding
-9. [[sharding_strategies]] — range / hash / directory plus shard-key selection.
-10. consistent hashing — minimum-data-movement sharding (cross-link to distributed-systems cluster).
+10. [[sharding_strategies]] — range / hash / directory plus shard-key selection.
+11. consistent hashing — minimum-data-movement sharding (cross-link to distributed-systems cluster).
 
 ### Cross-Service Consistency Patterns
-11. [[two_phase_commit]] — the textbook protocol and why teams avoid it.
-12. [[saga]] — choreography vs orchestration, compensating actions.
-13. [[outbox]] — the dual-write fix; bridges into messaging.
+12. [[two_phase_commit]] — the textbook protocol and why teams avoid it.
+13. [[saga]] — choreography vs orchestration, compensating actions.
+14. [[outbox]] — the dual-write fix; bridges into messaging.
 
 ### Planned
 - `covering_index_index_pushdown` — covering indexes plus ICP optimisations.

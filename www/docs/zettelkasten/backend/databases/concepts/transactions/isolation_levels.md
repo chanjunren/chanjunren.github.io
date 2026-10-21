@@ -23,7 +23,7 @@ flowchart TD
 | Non-repeatable read | Read the same row twice and observe another transaction's committed change. |
 | Phantom read | Repeat a predicate query and observe a different matching row set. |
 | Lost update | One concurrent update overwrites another update. This is not one of the standard phenomena used to define the four levels. |
-| Write skew | Transactions read overlapping data and update different rows, jointly violating an invariant. This can occur under snapshot isolation. |
+| [[write_skew|Write skew]] | Transactions read overlapping data and update different rows, jointly violating an invariant. This can occur under snapshot isolation. |
 
 ## SQL standard levels
 
@@ -34,7 +34,7 @@ flowchart TD
 | Repeatable Read | Prevented | Prevented | Allowed by the standard |
 | Serializable | Prevented | Prevented | Prevented; results match a serial order |
 
-Lost updates and write skew need separate consideration. A system may prevent them with write-conflict detection, locks, constraints, or serializable execution.
+Lost updates and [[write_skew|write skew]] need separate consideration. A system may prevent them with write-conflict detection, locks, constraints, or serializable execution.
 
 ## Engine behavior
 

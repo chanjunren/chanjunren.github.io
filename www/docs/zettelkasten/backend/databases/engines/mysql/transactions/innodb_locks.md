@@ -21,6 +21,32 @@ flowchart TD
 
 For example, an indexed locking range scan such as `SELECT ... WHERE age > 30 FOR UPDATE` can lock records and gaps it scans. The exact lock set depends on the index and execution plan; a broad or unindexed scan can lock far more than the rows returned. Under `READ COMMITTED`, InnoDB generally disables gap locking for searches and scans, with documented exceptions such as foreign-key and duplicate-key checks.
 
+## Shared locking reads
+
+`SELECT ... FOR SHARE` takes shared locks on the rows it reads. Other transactions can also read those rows, but conflicting updates wait until the transaction holding the locks commits or rolls back. MySQL's older `LOCK IN SHARE MODE` syntax remains available for compatibility; prefer `FOR SHARE` in new queries.
+
+```sql
+START TRANSACTION;
+SELECT id, name FROM parent WHERE id = 42 FOR SHARE;
+-- Check or use the parent while this transaction holds its shared lock.
+COMMIT;
+```
+
+The lock protects rows and ranges InnoDB actually locks, according to the index and execution plan. It does not make an arbitrary multi-row invariant safe. Shared locks are compatible with other shared locks, so two transactions can both read the same row and later deadlock when they both need to upgrade for an update. If the transaction will modify the selected row, `FOR UPDATE` may be the appropriate locking read. Locking reads also use current rows, not the older version from a consistent snapshot; see [[mvcc_innodb_read_view]].
+
+```mermaid
+sequenceDiagram
+    participant A as Transaction A
+    participant DB as InnoDB
+    participant B as Transaction B
+    A->>DB: SELECT row FOR SHARE
+    B->>DB: SELECT same row FOR SHARE
+    Note over A,B: Shared locks can coexist
+    A->>DB: Request update lock
+    B->>DB: Request update lock
+    DB->>DB: Detect lock-upgrade deadlock
+```
+
 Ordinary consistent `SELECT` statements are normally nonlocking MVCC reads. An exclusive row lock does not simply prohibit every other transaction from reading the old committed version; conflicting writes and locking reads wait or fail according to the transaction and timeout behavior.
 
 ## Intention and table locks
@@ -43,5 +69,6 @@ Inserts into an `AUTO_INCREMENT` column use an auto-increment mechanism to alloc
 ## References
 
 - [MySQL 8.4: InnoDB locking](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking.html)
+- [MySQL 8.4: InnoDB locking reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html)
 - [MySQL 8.4: Locks set by SQL statements](https://dev.mysql.com/doc/refman/8.4/en/innodb-locks-set.html)
 - [MySQL 8.4: AUTO_INCREMENT handling in InnoDB](https://dev.mysql.com/doc/refman/8.4/en/innodb-auto-increment-handling.html)

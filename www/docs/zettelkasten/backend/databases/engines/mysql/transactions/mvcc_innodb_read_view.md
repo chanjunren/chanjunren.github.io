@@ -4,6 +4,14 @@
 
 > How InnoDB lets readers and writers run concurrently without blocking each other. The mechanism behind "non-locking reads" — and the reason `SELECT ... FOR UPDATE` exists when MVCC isn't strong enough on its own.
 
+## Terms
+
+| Term | Definition | Source |
+|---|---|---|
+| **Consistent read** | A nonlocking InnoDB read that returns row versions visible in a database snapshot. | [MySQL 8.4: Consistent Nonlocking Reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html) |
+| **Read view** | InnoDB's internal snapshot metadata used to decide which row versions a consistent read can see. | [MySQL 8.4: InnoDB Multi-Versioning](https://dev.mysql.com/doc/refman/8.4/en/innodb-multi-versioning.html) |
+| **Locking read** | An InnoDB `SELECT` that acquires locks on rows it reads, using the latest available values. | [MySQL 8.4: Locking Reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html) |
+
 ```mermaid
 sequenceDiagram
     participant T1 as Transaction 1
@@ -67,17 +75,21 @@ If invisible, follow `DB_ROLL_PTR` to the previous version, repeat. Walk the und
 
 ## Read Committed vs Repeatable Read
 
-| Level | When is the Read View created?           | Effect                                                      |
-|-------|------------------------------------------|-------------------------------------------------------------|
-| RC    | Per-statement (refreshed on every SELECT) | Each query sees the latest committed state. Non-repeatable. |
-| RR    | Per-transaction (created at first SELECT) | Whole txn sees one consistent snapshot. Repeatable reads.   |
+| Level | When is the Read View created? | Effect |
+|---|---|---|
+| RC | Each consistent read gets a fresh view. | Later reads can see newer commits. |
+| RR | The first consistent read establishes the transaction view. | Later consistent reads reuse it. |
+
+Under `REPEATABLE READ`, a snapshot read can be stale relative to commits that happen later. That is expected: the read answers for the transaction's existing view; it does not lock the row or promise the value remains current. Commit and begin a new transaction when the operation needs a fresh snapshot. Under `READ COMMITTED`, each consistent read gets a fresh snapshot, though another transaction can still commit after that read.
+
+Locking reads such as `SELECT ... FOR SHARE` and `SELECT ... FOR UPDATE` use current rows and acquire locks. They do not refresh the transaction's existing consistent-read snapshot. Mixing both read types can therefore expose different views within one transaction; see [[innodb_read_inconsistency]].
 
 This is the *only* difference in InnoDB's MVCC behaviour between RC and RR — when the read view gets built.
 
 ## What MVCC Does NOT Cover
 
 - **Phantom reads** under RR for current reads (`SELECT ... FOR UPDATE`, `INSERT`). MVCC's snapshot reads are phantom-free, but locking reads use **gap + next-key locks** to prevent phantoms — see [[innodb_locks]].
-- **Write skew** — two transactions read overlapping data and write back, both based on stale views. RR allows this; only Serializable forbids it.
+- **Write skew** — snapshot isolation can permit transactions to update disjoint rows based on overlapping reads. See [[write_skew]].
 - **Lost updates** — if you SELECT-modify-UPDATE without a lock, two txns can stomp each other. Use `SELECT ... FOR UPDATE` or optimistic versioning. See [[concurrency_control]].
 
 ## Costs and Gotchas
@@ -90,7 +102,7 @@ This is the *only* difference in InnoDB's MVCC behaviour between RC and RR — w
 ## Common Pitfalls
 
 - **RR and phantom reads** — InnoDB RR blocks phantoms for *snapshot* reads via MVCC, and for *locking* reads via gap + next-key locks. Two mechanisms, same observable effect; people often conflate them.
-- **RR is not serializable** — write skew is permitted. InnoDB RR ≈ snapshot isolation, not the SQL standard's strict RR.
+- **RR is not serializable** — stable repeated reads do not guarantee that concurrent transactions preserve every cross-row invariant. See [[write_skew]].
 - **An uncommitted row carries the writing txn's id** — the visibility check sees it in `m_ids` and rejects the version, walking the undo chain to an older one.
 - **Your own uncommitted writes are visible** — `creator_trx_id` check (rule 1) makes you always see your own writes regardless of snapshot timing.
 - **RC is sometimes preferred in production** — less undo retention, less lock contention from gap locks (RC doesn't take them in many cases). Trade-off: non-repeatable reads in long transactions.
@@ -106,4 +118,6 @@ This is the *only* difference in InnoDB's MVCC behaviour between RC and RR — w
 ## References
 
 - "High Performance MySQL" 4th ed., ch. 1 + 8
-- MySQL docs: [InnoDB Multi-Versioning](https://dev.mysql.com/doc/refman/8.0/en/innodb-multi-versioning.html)
+- [MySQL 8.4: InnoDB Multi-Versioning](https://dev.mysql.com/doc/refman/8.4/en/innodb-multi-versioning.html)
+- [MySQL 8.4: Consistent Nonlocking Reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-consistent-read.html)
+- [MySQL 8.4: Locking Reads](https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html)
